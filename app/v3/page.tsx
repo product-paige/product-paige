@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { SectionRail } from "./components/SectionRail";
-import { SectionDivider } from "./components/SectionDivider";
-import { TearHeading } from "./components/TearHeading";
-import { PixelIcon, type PixelIconName } from "./components/PixelIcon";
-import { playbookList } from "./playbooks/data";
+import { SectionRail } from "../components/SectionRail";
+import { SectionDivider } from "../components/SectionDivider";
+import { TearHeading } from "../components/TearHeading";
+import { PixelIcon, type PixelIconName } from "../components/PixelIcon";
+import { playbookList } from "../playbooks/data";
 
 function Reveal({
   children,
@@ -57,24 +57,24 @@ function Reveal({
 
 const capabilities = [
   {
-    title: "Positioning + product narrative",
+    title: "Positioning and product narrative",
     blurb:
       "Clear positioning and a story that matches the product, so the right people get it fast and the wrong people bounce early.",
   },
   {
-    title: "UX + conversion design",
+    title: "UX and conversion design",
     blurb:
-      "Cleaner flows and fewer dead ends, so people finish the job instead of getting lost.",
+      "Simpler flows, fewer dead ends, cleaner pages. Less confusion, more completion.",
   },
   {
-    title: "Onboarding + activation",
+    title: "Onboarding and activation",
     blurb:
-      "A first run that makes sense, so users reach value faster with less hand-holding.",
+      "A first run that makes sense. Faster time-to-value, fewer “wait, what do I do” moments.",
   },
   {
-    title: "Growth + prioritization",
+    title: "Growth and prioritization",
     blurb:
-      "A plan for what to fix now vs later, based on impact and effort. No wishlist.",
+      "What to fix now vs later, based on impact and effort. A plan you can actually ship.",
   },
 ];
 
@@ -85,11 +85,14 @@ const services: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "web and product design",    bg: "#a8b0a0", swatch: "#ffffff", fg: "#ffffff", icon: "browser" },
-  { name: "UX and conversion",         bg: "#e8252d", swatch: "#ffffff", fg: "#ffffff", icon: "cursor" },
-  { name: "positioning and messaging", bg: "#d6c4a4", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "megaphone" },
-  { name: "AI content design",         bg: "#1a1a1a", swatch: "#ffffff", fg: "#ffffff", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#c0d4d8", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "target" },
+  { name: "Product strategy",         bg: "#ffffff", swatch: "#0d0d10", fg: "#0d0d10", icon: "target" },
+  { name: "AI content design",        bg: "#ff7dae", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "sparkleA" },
+  { name: "AI web design",            bg: "#2a5bff", swatch: "#ffffff", fg: "#ffffff", icon: "browser" },
+  { name: "UX decisions",             bg: "#e8252d", swatch: "#ffffff", fg: "#ffffff", icon: "cursor" },
+  { name: "Positioning and narrative", bg: "#0fa3a3", swatch: "#ffffff", fg: "#ffffff", icon: "megaphone" },
+  { name: "Onboarding and activation", bg: "#ff7dae", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "door" },
+  { name: "Growth and prioritization", bg: "#2a5bff", swatch: "#ffffff", fg: "#ffffff", icon: "arrowUp" },
+  { name: "Systems and ops",          bg: "#c37bff", swatch: "#0d0d10", fg: "#0d0d10", icon: "gear" },
 ];
 
 const projects = [
@@ -101,7 +104,7 @@ const projects = [
     subtitle:
       "A simple way to stress-test a product before building the wrong thing beautifully.",
     blurb:
-      "A practical framework for finding real demand early, before the build turns into a hobby.",
+      "A practical framework for turning ideas into something people actually want, before weeks disappear into the build.",
     href: "#",
   },
   {
@@ -134,18 +137,18 @@ const projects = [
 ];
 
 const playbookChips: Record<string, string[]> = {
-  "ai-predictions": ["trends", "products", "judgment"],
-  "operate-like-a-founder": ["systems", "focus", "cadence"],
+  "ai-predictions": ["forecasts", "AI products", "moats"],
+  "operate-like-a-founder": ["thesis", "focus", "systems"],
   "the-product-compass": ["narrative", "UX", "priorities"],
 };
 
 const playbookBodies: Record<string, string> = {
   "ai-predictions":
-    "A running set of notes on what’s changing, what’s noise, and what still matters.",
+    "Four chapters on what will actually matter in AI products over the next 18 months, and what to ignore.",
   "operate-like-a-founder":
-    "Weekly habits that keep momentum without chaos. Clear decisions, fewer rabbit holes.",
+    "Weekly habits for clarity, momentum, and fewer “what are we even doing” moments.",
   "the-product-compass":
-    "A living reference for messaging, UX decisions, and what to do next.",
+    "One place to keep the product coherent as it evolves. No more scattered decisions.",
 };
 
 const playbooks = playbookList.map((p) => ({
@@ -232,59 +235,69 @@ function Placeholder({
   );
 }
 
-export default function Home() {
+export default function HomeV3() {
   const [featured, ...rest] = projects;
   const [activeCap, setActiveCap] = useState(0);
 
   return (
-    <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
+    <div className="theme-v3 contents">
       {/* === SECTION: hero === */}
       <section
         id="hero"
         data-section="hero"
-        className="p-6 md:p-10 min-h-[calc(100vh-76px)] flex mx-3 md:mx-6"
+        className="bg-[#ff7dae] text-[#0d0d10] p-6 md:p-10 min-h-[calc(100vh-76px)] flex mx-3 md:mx-6"
       >
         <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-stretch w-full">
           <div className="md:col-span-7 flex flex-col justify-end">
-            <p className="eyebrow opacity-60 mb-6">
-              The studio: an independent practice
+            <p className="eyebrow opacity-70 mb-6">
+              The studio · An independent practice
             </p>
             <TearHeading className="font-display leading-[0.85] tracking-tightest text-6xl md:text-8xl lg:text-9xl">
               {"Product\nPaige"}
             </TearHeading>
             <div className="grid md:grid-cols-12 gap-12 mt-12">
               <p className="md:col-span-7 text-xl leading-[1.3] max-w-[520px]">
-                Product strategy + design for founders shipping in the age
-                of AI. Turning ideas into products with real demand, built
-                with clarity and habits that compound.
+                Product strategy for founders shipping in the age of AI.
+                Turning ideas into products with real demand, built with
+                clarity, intention, and operating habits that compound.
               </p>
               <div className="md:col-span-4 md:col-start-9">
-                <p className="eyebrow opacity-60 mb-3">Status</p>
-                <p className="text-lg leading-[1.25] mb-2">
-                  <span className="inline-block w-2.5 h-2.5 bg-[#e8252d] mr-2 align-middle" />
+                <p className="eyebrow opacity-70 mb-3">Status</p>
+                <p className="text-lg leading-[1.25] mb-1">
+                  <span className="inline-block w-2.5 h-2.5 bg-[#0d0d10] mr-2 align-middle" />
                   Available
                 </p>
-                <dl className="text-sm leading-[1.5] space-y-1">
-                  <div className="flex gap-3">
-                    <dt className="opacity-60 w-[88px] shrink-0">Next opening</dt>
-                    <dd>Q3 2026</dd>
-                  </div>
-                  <div className="flex gap-3">
-                    <dt className="opacity-60 w-[88px] shrink-0">Based</dt>
-                    <dd>Canada</dd>
-                  </div>
-                </dl>
+                <p className="text-sm opacity-80">Q3 2026</p>
               </div>
             </div>
           </div>
-          <figure className="md:col-span-5 flex flex-col h-full">
-            <div className="placeholder w-full flex-1 min-h-[300px]" />
-            <figcaption className="flex items-baseline justify-between mt-3 text-sm opacity-70">
-              <span>Fig. 01</span>
-              <span className="font-display text-base">Studio, Canada</span>
-            </figcaption>
-          </figure>
+          <aside className="md:col-span-5 flex flex-col h-full items-center md:items-end justify-end">
+            <div className="win95-dialog" role="dialog" aria-label="Studio popup">
+              <div className="win95-titlebar">
+                <span className="win95-title">Hello.exe</span>
+                <button type="button" className="win95-close" aria-label="Close">
+                  ×
+                </button>
+              </div>
+              <div className="win95-body">
+                <span className="win95-icon" aria-hidden="true">🌸</span>
+                <span className="win95-message">
+                  Want to make something good?
+                </span>
+              </div>
+              <div className="win95-actions">
+                <button type="button" className="win95-button">
+                  Let&rsquo;s go
+                </button>
+                <button type="button" className="win95-button">
+                  Later
+                </button>
+              </div>
+            </div>
+            <p className="mt-4 text-xs opacity-70 self-center md:self-end">
+              Fig. 01 · Studio, Canada
+            </p>
+          </aside>
         </div>
       </section>
 
@@ -293,6 +306,7 @@ export default function Home() {
       <section id="services" data-section="services-labels" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-6 flex items-baseline justify-between">
           <span className="eyebrow opacity-60">Practice areas</span>
+          <span className="eyebrow opacity-60">Eight disciplines</span>
         </div>
         <ul className="flex flex-wrap gap-3">
           {services.map((s) => (
@@ -317,10 +331,101 @@ export default function Home() {
       </section>
 
       <SectionDivider />
+      {/* === SECTION: selected-work === */}
+      <section id="work" data-section="selected-work" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
+        <div className="pt-6 mb-12 flex items-baseline justify-between">
+          <span className="eyebrow">Selected work</span>
+          <span className="eyebrow opacity-60">2024 — 2026</span>
+        </div>
+
+        {/* Featured project */}
+        <Reveal>
+        <article className="grid md:grid-cols-12 gap-6 md:gap-12 mb-12 md:mb-16">
+          <div className="md:col-span-7">
+            <Placeholder
+              ratio="16/10"
+              fig={`Fig. 02 · No. ${featured.n}`}
+              caption={featured.name}
+            />
+          </div>
+          <div className="md:col-span-5 flex flex-col justify-end">
+            <p className="eyebrow opacity-60 mb-6">
+              Featured · No. {featured.n}
+            </p>
+            <h3 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4">
+              {featured.name}
+            </h3>
+            {featured.subtitle && (
+              <p className="font-display text-xl leading-[1.3] opacity-80 mb-6 max-w-[460px]">
+                {featured.subtitle}
+              </p>
+            )}
+            <p className="text-sm mb-6 opacity-70">
+              {featured.year} · {featured.role}
+            </p>
+            <p className="text-base leading-[1.6] max-w-[420px] mb-12">
+              {featured.blurb}
+            </p>
+            <a
+              href={featured.href}
+              className="self-start border-b border-[#1a1a1a] pb-0.5 hover:opacity-60"
+            >
+              Read the case
+            </a>
+          </div>
+        </article>
+        </Reveal>
+
+      </section>
+
+      <SectionDivider />
+      {/* === SECTION: playbooks === */}
+      <section id="playbooks" data-section="playbooks" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
+        <div className="pt-6 mb-12 flex items-baseline justify-between">
+          <span className="eyebrow">Playbooks</span>
+          <span className="eyebrow opacity-60">
+            {playbooks.length} entries · One live, more coming
+          </span>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 items-stretch">
+          {playbooks.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 100} className="h-full">
+              <a
+                href={`/playbooks/${p.slug}`}
+                className={`card card-bound ${p.tone} flex flex-col aspect-[4/5] !min-h-0`}
+              >
+                <span className="card-binding" aria-hidden="true" />
+                <header className="flex items-start justify-between mb-6">
+                  <span className="text-sm opacity-80">No. {p.no}</span>
+                  <span className="stamp opacity-90 border-current">
+                    {p.status === "live" ? "Read now" : "Coming soon"}
+                  </span>
+                </header>
+                <h4 className="font-display text-3xl md:text-4xl leading-[1.05] mb-4 tracking-tightest">
+                  {p.title}
+                </h4>
+                <p className="text-sm leading-[1.55] opacity-80 mb-6">
+                  {p.body}
+                </p>
+                <ul className="flex flex-wrap gap-2 mt-auto">
+                  {p.chips.map((c) => (
+                    <li key={c} className="pill pill-cased">
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </a>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <SectionDivider />
       {/* === SECTION: capabilities === */}
       <section id="capabilities" data-section="capabilities" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-12 flex items-baseline justify-between">
           <span className="eyebrow opacity-60">Capabilities</span>
+          <span className="eyebrow opacity-60">04 areas</span>
         </div>
         <Reveal>
         <div className="grid md:grid-cols-12 gap-6 md:gap-12">
@@ -373,176 +478,11 @@ export default function Home() {
       </section>
 
       <SectionDivider />
-      {/* === SECTION: selected-work === */}
-      <section id="work" data-section="selected-work" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
-        <div className="pt-6 mb-12 flex items-baseline justify-between">
-          <span className="eyebrow">Selected work</span>
-        </div>
-
-        {/* Featured project */}
-        <Reveal>
-        <article className="grid md:grid-cols-12 gap-6 md:gap-12 mb-12 md:mb-16">
-          <div className="md:col-span-7">
-            <div className="paint-window">
-              <div className="paint-titlebar">
-                <span className="paint-title-icon">P</span>
-                <span className="paint-title-text">
-                  real-demand-framework.bmp — Paint
-                </span>
-                <div className="paint-controls">
-                  <button type="button" className="paint-control" aria-label="Minimize">_</button>
-                  <button type="button" className="paint-control" aria-label="Maximize">▢</button>
-                  <button type="button" className="paint-control" aria-label="Close">×</button>
-                </div>
-              </div>
-              <div className="paint-menubar">
-                <span><u>F</u>ile</span>
-                <span><u>E</u>dit</span>
-                <span><u>V</u>iew</span>
-                <span><u>I</u>mage</span>
-                <span><u>O</u>ptions</span>
-                <span><u>H</u>elp</span>
-              </div>
-              <div className="paint-body">
-                <div className="paint-tools" aria-hidden="true">
-                  <button type="button" className="paint-tool active" title="Pencil">✎</button>
-                  <button type="button" className="paint-tool" title="Brush">🖌</button>
-                  <button type="button" className="paint-tool" title="Eraser">▭</button>
-                  <button type="button" className="paint-tool" title="Fill">⬛</button>
-                  <button type="button" className="paint-tool" title="Eyedropper">/</button>
-                  <button type="button" className="paint-tool" title="Magnifier">⌖</button>
-                  <button type="button" className="paint-tool" title="Text">A</button>
-                  <button type="button" className="paint-tool" title="Line">╲</button>
-                  <button type="button" className="paint-tool" title="Curve">∿</button>
-                  <button type="button" className="paint-tool" title="Rect">▭</button>
-                  <button type="button" className="paint-tool" title="Polygon">◇</button>
-                  <button type="button" className="paint-tool" title="Ellipse">○</button>
-                </div>
-                <div className="paint-canvas">
-                  <div className="paint-mockup">
-                    <div className="paint-mockup-header">
-                      <span>Demand check · v0.4</span>
-                      <span>Stage 03 / 04</span>
-                    </div>
-                    <h4 className="paint-mockup-h">{featured.name}</h4>
-                    <ul className="paint-mockup-steps">
-                      <li className="paint-mockup-step done">
-                        <span className="paint-mockup-step-num">01</span>
-                        <span className="paint-mockup-step-label">Audience hypothesis</span>
-                        <span className="paint-mockup-step-state">Done</span>
-                      </li>
-                      <li className="paint-mockup-step done">
-                        <span className="paint-mockup-step-num">02</span>
-                        <span className="paint-mockup-step-label">Pain mapping</span>
-                        <span className="paint-mockup-step-state">Done</span>
-                      </li>
-                      <li className="paint-mockup-step active">
-                        <span className="paint-mockup-step-num">03</span>
-                        <span className="paint-mockup-step-label">Willingness to pay</span>
-                        <span className="paint-mockup-step-state">Active</span>
-                      </li>
-                      <li className="paint-mockup-step">
-                        <span className="paint-mockup-step-num">04</span>
-                        <span className="paint-mockup-step-label">Launch loop</span>
-                        <span className="paint-mockup-step-state">Queued</span>
-                      </li>
-                    </ul>
-                    <div className="paint-mockup-bar" aria-hidden="true">
-                      <div className="paint-mockup-bar-fill" style={{ width: "72%" }} />
-                    </div>
-                    <div className="paint-mockup-footer">
-                      <span>72% complete</span>
-                      <span>Fig. 02 · No. {featured.n}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="paint-colors" aria-hidden="true">
-                {[
-                  "#000000", "#7a7a7a", "#7d0000", "#7d7d00", "#007d00", "#007d7d", "#00007d", "#7d007d",
-                  "#ffffff", "#c0c0c0", "#ff0000", "#ffff00", "#00ff00", "#00ffff", "#a8b0a0", "#ff00ff",
-                ].map((c, i) => (
-                  <span key={i} className="paint-color" style={{ background: c }} />
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="md:col-span-5 flex flex-col justify-end">
-            <p className="eyebrow opacity-60 mb-6">
-              Featured · No. {featured.n}
-            </p>
-            <h3 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4">
-              {featured.name}
-            </h3>
-            {featured.subtitle && (
-              <p className="font-display text-xl leading-[1.3] opacity-80 mb-6 max-w-[460px]">
-                {featured.subtitle}
-              </p>
-            )}
-            <p className="text-sm mb-6 opacity-70">
-              {featured.year} · {featured.role}
-            </p>
-            <p className="text-base leading-[1.6] max-w-[420px] mb-12">
-              {featured.blurb}
-            </p>
-            <a
-              href={featured.href}
-              className="self-start border-b border-[#1a1a1a] pb-0.5 hover:opacity-60"
-            >
-              Read the case
-            </a>
-          </div>
-        </article>
-        </Reveal>
-
-      </section>
-
-      <SectionDivider />
-      {/* === SECTION: playbooks === */}
-      <section id="playbooks" data-section="playbooks" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
-        <div className="pt-6 mb-3 flex items-baseline justify-between">
-          <span className="eyebrow">Playbooks (TBD)</span>
-        </div>
-        <p className="text-sm opacity-70 mb-12 max-w-[520px]">
-          Notes, templates, and prompts. One new drop at a time.
-        </p>
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
-          {playbooks.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 100} className="h-full">
-              <a
-                href={`/playbooks/${p.slug}`}
-                className={`card ${p.tone} flex flex-col h-[420px] !min-h-0`}
-              >
-                <header className="flex items-start justify-between mb-6">
-                  <span className="text-sm opacity-80">No. {p.no}</span>
-                  <span className="stamp opacity-90 border-current">
-                    {p.status === "live" ? "Read now" : "Coming soon"}
-                  </span>
-                </header>
-                <h4 className="font-display text-3xl leading-[1.05] mb-4">
-                  {p.title}
-                </h4>
-                <p className="text-sm leading-[1.55] opacity-80 mb-6">
-                  {p.body}
-                </p>
-                <ul className="flex flex-wrap gap-2 mt-auto">
-                  {p.chips.map((c) => (
-                    <li key={c} className="pill pill-cased">
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </a>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <SectionDivider />
       {/* === SECTION: field-note (pull quote) === */}
       <section id="field-note" data-section="field-note" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-12 flex items-baseline justify-between">
           <span className="eyebrow opacity-60">Field note</span>
+          <span className="eyebrow opacity-60">No. 12</span>
         </div>
         <Reveal>
         <blockquote className="max-w-[1100px]">
@@ -560,18 +500,22 @@ export default function Home() {
       <SectionDivider />
       {/* === SECTION: systems (dark blue, chamfered, in framed container) === */}
       <div data-section="systems-frame" className="mx-3 md:mx-6">
-      <section id="systems" data-section="systems" className="bg-[#e8252d] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative">
-        <div className="mb-12 flex items-baseline justify-between">
+      <section id="systems" data-section="systems" className="bg-[#2a5bff] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative">
+        <SectionRail>
+          Systems · Four engagements · MMXXVI
+        </SectionRail>
+        <div className="mb-12 flex items-baseline justify-between lg:pl-12">
           <span className="eyebrow opacity-80">Systems</span>
+          <span className="eyebrow opacity-80">Four engagements</span>
         </div>
         <Reveal>
-        <div className="grid md:grid-cols-12 gap-6 md:gap-12">
+        <div className="grid md:grid-cols-12 gap-6 md:gap-12 lg:pl-12">
           <div className="md:col-span-5">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] mb-6">
               Systems for founders building in the AI&nbsp;era
             </h2>
             <p className="text-lg leading-[1.4] opacity-90 max-w-[420px]">
-              A small set of operating habits that keeps the product sharp
+              A small set of operating habits that keep the product sharp
               while the tools change weekly.
             </p>
           </div>
@@ -583,7 +527,7 @@ export default function Home() {
               },
               {
                 t: "Workshops",
-                d: "Focused sessions on one problem: messaging, onboarding, IA, pricing page, activation.",
+                d: "Focused sessions on one problem. Messaging, onboarding, IA, pricing page, or activation.",
               },
               {
                 t: "Founder sessions",
@@ -612,6 +556,7 @@ export default function Home() {
       <section id="about" data-section="about" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-12 flex items-baseline justify-between">
           <span className="eyebrow">On the practice</span>
+          <span className="eyebrow opacity-60">An essay · 2026</span>
         </div>
         <Reveal>
         <div className="grid md:grid-cols-12 gap-6 md:gap-12">
@@ -636,13 +581,13 @@ export default function Home() {
               need more output, they need clearer direction.
             </p>
             <p className="text-lg leading-[1.65] mb-6">
-              The work is usually a mix of positioning, UX, and prioritization.
-              Plus a bit of &ldquo;let&rsquo;s stop making this harder than it
-              needs to be.&rdquo;
+              The work is usually a mix of positioning, UX, and prioritization,
+              plus a little bit of &ldquo;let&rsquo;s stop making this harder
+              than it needs to be.&rdquo;
             </p>
             <p className="text-lg leading-[1.65]">
               Modern tools make iteration fast. The point is to use that speed
-              to get to clarity, not ship more chaos.
+              to get to clarity, not to ship more chaos.
             </p>
           </div>
 
@@ -663,20 +608,24 @@ export default function Home() {
       <section
         id="newsletter"
         data-section="newsletter"
-        className="bg-[#1a1a1a] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative grain-vintage"
+        className="bg-[#e8252d] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative"
       >
-        <div className="mb-12">
-          <span className="eyebrow">Newsletter</span>
+        <SectionRail>
+          Prompt from Paige · Notes · MMXXVI
+        </SectionRail>
+        <div className="mb-12 flex items-baseline justify-between lg:pl-12">
+          <span className="eyebrow">Prompt from Paige</span>
+          <span className="stamp opacity-90">No. 05 · Folio 001</span>
         </div>
         <Reveal>
-        <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
+        <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end lg:pl-12">
           <div className="md:col-span-8">
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-6">
-              Prompt with Paige, a newsletter
+              Want the notes?
             </h2>
-            <p className="text-lg leading-[1.5] max-w-[600px] opacity-90">
-              Prompts, templates, and short notes on product clarity, AI
-              workflows, and what actually moves work forward.
+            <p className="text-lg leading-[1.5] max-w-[560px] opacity-90">
+              Short thoughts on product clarity, UX, AI workflows, and the
+              decisions that actually move things forward.
             </p>
           </div>
           <form
@@ -693,19 +642,19 @@ export default function Home() {
               type="email"
               name="email"
               required
-              placeholder="your@email.com"
+              placeholder="you@example.com"
               className="bg-white/15 text-white placeholder:text-white/60 px-4 py-3 focus:outline-none focus:bg-white/25 border border-white/30"
             />
             <button type="submit" className="btn self-start">
-              <span className="btn-text bg-[#e8252d] text-white">
+              <span className="btn-text bg-white text-[#e8252d]">
                 Subscribe
               </span>
-              <span className="btn-tab bg-[#e8252d] text-white">
+              <span className="btn-tab bg-white text-[#e8252d]">
                 <BtnIcons />
               </span>
             </button>
             <p className="text-xs opacity-70 mt-1">
-              One email. No spam. Unsubscribe anytime.
+              One short note a week. Unsubscribe anytime.
             </p>
           </form>
         </div>
