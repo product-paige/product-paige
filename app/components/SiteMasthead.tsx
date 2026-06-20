@@ -1,15 +1,31 @@
+const items = [
+  "Vol. 01 · Issue no. 1",
+  "Product strategy · For founders · In the age of AI",
+  "MMXXVI · Folio 001",
+  "An independent practice · Canada · Remote",
+  "Newsletter · Sundays · ~4 min",
+  "Now booking · Q3 2026",
+];
+
 export function SiteMasthead() {
+  // Render the items twice so the marquee loops seamlessly.
+  const loop = [...items, ...items];
   return (
     <div
       data-section="masthead"
-      className="bg-[#1a1a1a] text-white px-6 md:px-10 h-7 flex items-center mx-3 md:mx-6"
+      className="bg-[#1a1a1a] text-white h-9 flex items-center mx-3 md:mx-6 overflow-hidden relative"
     >
-      <div className="w-full flex items-center justify-between gap-6 text-xs leading-none">
-        <span>Vol. 01 · Issue no. 1</span>
-        <span className="hidden md:inline opacity-80">
-          Product strategy · For founders · In the age of AI
-        </span>
-        <span>MMXXVI · Folio 001</span>
+      <div
+        className="masthead-track flex items-center whitespace-nowrap"
+        style={{ fontSize: "14px", lineHeight: 1 }}
+        aria-hidden="true"
+      >
+        {loop.map((item, i) => (
+          <span key={i} className="flex items-center">
+            <span className="px-6">{item}</span>
+            <span className="opacity-40">·</span>
+          </span>
+        ))}
       </div>
     </div>
   );

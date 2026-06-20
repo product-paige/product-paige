@@ -8,7 +8,6 @@ import {
   type ReactNode,
 } from "react";
 import { notFound } from "next/navigation";
-import { SectionRail } from "../../components/SectionRail";
 import { SectionDivider } from "../../components/SectionDivider";
 import { playbooks, playbookList } from "../data";
 
@@ -117,62 +116,33 @@ export default function PlaybookPage({
     .slice(0, 2);
   // Hero text contrast — dark hero bgs (ink) get white text, light hero bgs get ink text
   const lightHero =
-    playbook.heroBg === "#d6c4a4" || playbook.heroBg === "#c0d4d8";
+    playbook.heroBg === "#f3eb88" ||
+    playbook.heroBg === "#a8d4ee" ||
+    playbook.heroBg === "#cdb8e3" ||
+    playbook.heroBg === "#f7c8d4";
   const heroFg = lightHero ? "#1a1a1a" : "#ffffff";
 
   return (
     <div className="theme-v2 contents">
       <div className="theme-v2-rails" aria-hidden="true" />
 
-      {/* === SECTION: meta-band === */}
-      <section
-        id="meta"
-        data-section="playbook-meta"
-        className="px-6 md:px-10 py-6 mx-3 md:mx-6 flex items-baseline justify-between text-sm"
-      >
-        <span className="eyebrow opacity-60">
-          Playbook · No. {playbook.no} · {playbook.department}
-        </span>
-        <span className="eyebrow opacity-60">
-          {playbook.readingTime} read · Updated Q3 {playbook.year}
-        </span>
-      </section>
-
-      <SectionDivider />
-
-      {/* === SECTION: poster-hero === */}
-      <div data-section="playbook-hero-frame" className="mx-3 md:mx-6">
+      {/* === SECTION: hero === */}
+      <div data-section="post-hero-frame" className="mx-3 md:mx-6">
         <section
           id="hero"
-          data-section="playbook-hero"
-          className="px-8 md:px-14 lg:px-16 py-20 md:py-24 m-6 section-chamfer relative overflow-hidden"
+          data-section="post-hero"
+          className="p-12 md:p-16 m-6 section-chamfer relative overflow-hidden flex flex-col gap-10"
           style={{ backgroundColor: playbook.heroBg, color: heroFg }}
         >
-          <div>
-            <p className="eyebrow opacity-70 mb-6">
-              Playbook · No. {playbook.no} · {playbook.department}
-            </p>
-            <h1 className="font-display leading-[0.9] tracking-tightest text-5xl md:text-7xl lg:text-8xl max-w-[14ch]">
-              {playbook.title}
-            </h1>
-            <p className="font-display text-2xl md:text-3xl leading-[1.2] mt-10 max-w-[640px] opacity-90">
-              {playbook.kicker}
-            </p>
-            <div className="mt-12 flex items-baseline justify-between max-w-[560px] text-sm">
-              <div>
-                <p className="eyebrow opacity-70 mb-1">Author</p>
-                <p>Paige Harris</p>
-              </div>
-              <div>
-                <p className="eyebrow opacity-70 mb-1">Reading</p>
-                <p>{playbook.readingTime}</p>
-              </div>
-              <div>
-                <p className="eyebrow opacity-70 mb-1">Updated</p>
-                <p>Q3 {playbook.year}</p>
-              </div>
-            </div>
-          </div>
+          <h1 className="font-display leading-[0.9] tracking-tightest text-5xl md:text-7xl lg:text-8xl max-w-[14ch]">
+            {playbook.title}
+          </h1>
+          <p className="font-display text-2xl md:text-3xl leading-[1.2] max-w-[640px] opacity-90">
+            {playbook.kicker}
+          </p>
+          <p className="text-sm opacity-70">
+            Paige Harris · {playbook.readingTime} read
+          </p>
         </section>
       </div>
 
@@ -181,49 +151,15 @@ export default function PlaybookPage({
       {/* === SECTION: lede === */}
       <section
         id="lede"
-        data-section="playbook-lede"
-        className="px-6 md:px-10 py-16 mx-3 md:mx-6"
+        data-section="post-lede"
+        className="p-12 mx-3 md:mx-6 flex flex-col gap-6 max-w-[820px]"
       >
-        <div className="grid md:grid-cols-12 gap-6 md:gap-12">
-          <div className="md:col-span-2">
-            <p className="eyebrow opacity-60 mb-3">Lede</p>
-            <p className="text-sm opacity-70">
-              The thesis in two paragraphs.
-            </p>
-          </div>
-          <div className="md:col-span-7">
-            <Reveal>
-              <p className="drop-cap font-display text-2xl md:text-3xl leading-[1.3] mb-8">
-                You don&rsquo;t need a heavier operating system. You need a
-                lighter one that survives contact with the week.
-              </p>
-              <p className="text-lg leading-[1.65] opacity-90">
-                Most founder operating systems are designed by people who
-                aren&rsquo;t founders. This one is designed for the version of
-                you that opens the laptop on a Sunday night, half-distracted,
-                and needs to know what to do next.
-              </p>
-            </Reveal>
-          </div>
-          <aside className="md:col-span-3 md:col-start-10 flex md:justify-end">
-            <Reveal delay={120}>
-              <div className="rating-slab max-w-[280px]">
-                <p>
-                  <span className="rating-number">10/10</span>
-                  <span className="font-display text-xl">would recommend.</span>
-                </p>
-                <p className="text-base leading-[1.5] mt-4">
-                  &ldquo;Stopped trying to install something heavier and finally
-                  shipped the thing we&rsquo;d been talking about for nine
-                  weeks.&rdquo;
-                </p>
-                <p className="text-sm opacity-70 mt-4">
-                  &mdash; Reader, applied the cadence in week one
-                </p>
-              </div>
-            </Reveal>
-          </aside>
-        </div>
+        <Reveal>
+          <p className="drop-cap font-display text-2xl md:text-3xl leading-[1.3]">
+            You don&rsquo;t need a heavier operating system. You need a
+            lighter one that survives contact with the week.
+          </p>
+        </Reveal>
       </section>
 
       <SectionDivider />
@@ -231,13 +167,12 @@ export default function PlaybookPage({
       {/* === SECTION: chapters + sticky TOC === */}
       <section
         id="contents"
-        data-section="playbook-chapters"
-        className="px-6 md:px-10 py-16 mx-3 md:mx-6"
+        data-section="post-chapters"
+        className="p-12 mx-3 md:mx-6"
       >
         <div className="grid md:grid-cols-12 gap-6 md:gap-12">
           {/* Left rail — sticky table of contents */}
-          <aside className="md:col-span-3 md:sticky md:top-24 self-start">
-            <p className="eyebrow opacity-60 mb-4">On this page</p>
+          <aside className="md:col-span-3 md:sticky md:top-24 self-start flex flex-col gap-4">
             <ol className="border-t border-[#1a1a1a]/25">
               {playbook.chapters.map((c, i) => (
                 <li
@@ -246,7 +181,7 @@ export default function PlaybookPage({
                 >
                   <a
                     href={`#ch-${i + 1}`}
-                    className="block py-3 flex items-baseline gap-3 hover:opacity-60 transition-opacity"
+                    className="py-3 flex items-baseline gap-3 hover:opacity-60 transition-opacity"
                   >
                     <span className="font-display text-base opacity-50 w-8 shrink-0">
                       .{String(i + 1).padStart(2, "0")}
@@ -258,13 +193,10 @@ export default function PlaybookPage({
                 </li>
               ))}
             </ol>
-            <p className="eyebrow opacity-50 mt-6">
-              {playbook.chapters.length} chapters · {playbook.readingTime}
-            </p>
           </aside>
 
           {/* Right column — chapter content streams */}
-          <div className="md:col-span-9">
+          <div className="md:col-span-9 flex flex-col gap-16">
             {playbook.chapters.map((c, i) => (
               <article
                 key={c}
@@ -272,48 +204,21 @@ export default function PlaybookPage({
                 data-chapter={i + 1}
                 className={
                   i > 0
-                    ? "mt-16 pt-16 border-t border-[#1a1a1a]/25"
-                    : ""
+                    ? "pt-16 border-t border-[#1a1a1a]/25 flex flex-col gap-6"
+                    : "flex flex-col gap-6"
                 }
               >
-                <p className="eyebrow opacity-60 mb-3">
-                  Chapter {String(i + 1).padStart(2, "0")}
-                </p>
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-8 tracking-tightest">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tightest">
                   {c}
                 </h2>
                 <Reveal>
-                  {(chapterBodies[c] || [
-                    "Body copy goes here.",
-                  ]).map((p, idx) => (
-                    <p
-                      key={idx}
-                      className="text-lg leading-[1.65] mb-6 max-w-[680px]"
-                    >
-                      {p}
-                    </p>
-                  ))}
-
-                  {/* Drop an editorial callout halfway through */}
-                  {i === Math.floor(playbook.chapters.length / 2) && (
-                    <div className="my-12 max-w-[680px]">
-                      <div className="ticket ticket-tilt-flat">
-                        <span
-                          className="ticket-stamp"
-                          style={{ background: "#e8252d" }}
-                        >
-                          Pull quote
-                        </span>
-                        <p className="font-display text-xl md:text-2xl leading-[1.25]">
-                          &ldquo;Anything that gets sharper with use is
-                          compounding. Everything else is a demo.&rdquo;
-                        </p>
-                        <p className="text-xs opacity-70 mt-4 pt-3 border-t border-current/30 uppercase tracking-[0.12em]">
-                          From the field forecast
-                        </p>
-                      </div>
-                    </div>
-                  )}
+                  <div className="flex flex-col gap-6 max-w-[680px]">
+                    {(chapterBodies[c] || ["Body copy goes here."]).map((p, idx) => (
+                      <p key={idx} className="text-lg leading-[1.65]">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
                 </Reveal>
               </article>
             ))}
@@ -323,50 +228,15 @@ export default function PlaybookPage({
 
       <SectionDivider />
 
-      {/* === SECTION: field-note (pull quote, matches homepage) === */}
-      <section
-        id="field-note"
-        data-section="playbook-field-note"
-        className="px-6 md:px-10 py-16 mx-3 md:mx-6"
-      >
-        <div className="pt-6 mb-12 flex items-baseline justify-between">
-          <span className="eyebrow opacity-60">Field note</span>
-          <span className="eyebrow opacity-60">From the desk</span>
-        </div>
-        <Reveal>
-          <blockquote className="max-w-[1100px]">
-            <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em]">
-              &ldquo;Anything that gets sharper with use is compounding.
-              Everything else is a demo.&rdquo;
-            </p>
-            <footer className="mt-12 flex items-baseline gap-6 text-sm opacity-70">
-              <span>Paige Harris · {playbook.department}</span>
-            </footer>
-          </blockquote>
-        </Reveal>
-      </section>
-
-      <SectionDivider />
-
       {/* === SECTION: key-takeaways === */}
-      <div data-section="playbook-takeaways-frame" className="mx-3 md:mx-6">
+      <div data-section="post-takeaways-frame" className="mx-3 md:mx-6">
         <section
-          data-section="playbook-takeaways"
-          className="bg-[#1a1a1a] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative"
+          data-section="post-takeaways"
+          className="bg-[#1a1a1a] text-white p-12 m-6 section-chamfer relative flex flex-col gap-12"
         >
-          <SectionRail>
-            Take this with you · MMXXVI · End of playbook
-          </SectionRail>
-          <div className="mb-12 flex items-baseline justify-between lg:pl-12">
-            <span className="eyebrow opacity-80">Key takeaways</span>
-            <span className="eyebrow opacity-80">
-              {takeaways.length > 0
-                ? `${takeaways.length} to remember`
-                : "Coming soon"}
-            </span>
-          </div>
+          <span className="eyebrow opacity-80">Key takeaways</span>
           <Reveal>
-            <ul className="grid md:grid-cols-2 gap-x-12 gap-y-6 lg:pl-12">
+            <ul className="grid md:grid-cols-2 gap-x-12 gap-y-6">
               {takeaways.map((t, i) => (
                 <li
                   key={t}
@@ -385,35 +255,27 @@ export default function PlaybookPage({
 
       <SectionDivider />
 
-      {/* === SECTION: related (same playbook card pattern as homepage) === */}
+      {/* === SECTION: related === */}
       <section
         id="related"
-        data-section="playbook-related"
-        className="px-6 md:px-10 py-16 mx-3 md:mx-6"
+        data-section="post-related"
+        className="p-12 mx-3 md:mx-6 flex flex-col gap-12"
       >
-        <div className="pt-6 mb-3 flex items-baseline justify-between">
-          <span className="eyebrow">Keep reading</span>
-          <span className="eyebrow opacity-60">
-            Two more from the shelf
-          </span>
-        </div>
-        <p className="text-sm opacity-70 mb-12 max-w-[520px]">
-          Notes, templates, and prompts. One new drop at a time.
-        </p>
+        <span className="eyebrow">Keep reading</span>
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           {related.map((r, i) => (
             <Reveal key={r.slug} delay={i * 100} className="h-full">
               <a
                 href={`/playbooks/${r.slug}`}
-                className={`card ${r.homeTone} flex flex-col h-[420px] !min-h-0`}
+                className={`card ${r.homeTone} flex flex-col gap-4 h-[420px] !min-h-0`}
               >
-                <header className="flex items-start justify-between mb-6">
+                <header className="flex items-start justify-between">
                   <span className="text-sm opacity-80">No. {r.no}</span>
                   <span className="stamp opacity-90 border-current">
                     {r.status === "live" ? "Read now" : "Coming soon"}
                   </span>
                 </header>
-                <h4 className="font-display text-3xl leading-[1.05] mb-4">
+                <h4 className="font-display text-3xl leading-[1.05]">
                   {r.title}
                 </h4>
                 <p className="font-display text-lg leading-[1.3] opacity-90">
@@ -432,15 +294,13 @@ export default function PlaybookPage({
         <section
           id="newsletter"
           data-section="newsletter"
-          className="bg-[#1a1a1a] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative grain-vintage"
+          className="bg-[#1a1a1a] text-white p-12 m-6 section-chamfer relative grain-vintage flex flex-col gap-12"
         >
-          <div className="mb-12">
-            <span className="eyebrow">Newsletter</span>
-          </div>
+          <span className="eyebrow">Newsletter</span>
           <Reveal>
             <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
-              <div className="md:col-span-8">
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-6">
+              <div className="md:col-span-8 flex flex-col gap-6">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
                   Prompt with Paige, a newsletter
                 </h2>
                 <p className="text-lg leading-[1.5] max-w-[600px] opacity-90">
@@ -473,7 +333,7 @@ export default function PlaybookPage({
                     <BtnIcons />
                   </span>
                 </button>
-                <p className="text-xs opacity-70 mt-1">
+                <p className="text-xs opacity-70">
                   One email. No spam. Unsubscribe anytime.
                 </p>
               </form>

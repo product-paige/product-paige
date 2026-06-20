@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { SectionRail } from "../components/SectionRail";
 import { SectionDivider } from "../components/SectionDivider";
 import { BtnIcons } from "../components/BtnIcons";
 
@@ -105,23 +104,20 @@ export default function AskPaigePage() {
         className="p-6 md:p-10 min-h-[calc(100vh-76px)] flex mx-3 md:mx-6"
       >
         <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-stretch w-full">
-          <div className="md:col-span-8 flex flex-col justify-end">
-            <p className="eyebrow opacity-60 mb-6">
-              A single-session format
-            </p>
+          <div className="md:col-span-8 flex flex-col justify-end gap-8">
             <h1 className="font-display leading-[0.9] tracking-tightest text-5xl md:text-7xl lg:text-8xl">
               Ask Paige
             </h1>
-            <p className="font-display text-xl md:text-2xl leading-[1.2] mt-8 max-w-[640px]">
+            <p className="font-display text-xl md:text-2xl leading-[1.2] max-w-[640px]">
               Want help getting unstuck?
             </p>
-            <p className="text-lg leading-[1.5] max-w-[560px] mt-8">
+            <p className="text-lg leading-[1.5] max-w-[560px]">
               Send what you&rsquo;re working on. A product, onboarding flow,
               homepage, positioning, or the half-finished idea you can&rsquo;t
               see clearly yet. You&rsquo;ll get honest, product-minded feedback
               fast, without the consulting theatre.
             </p>
-            <div className="mt-12 flex items-center gap-6 flex-wrap">
+            <div className="flex items-center gap-6 flex-wrap">
               <a
                 href="mailto:hello@productpaige.com?subject=Ask%20Paige%20%E2%80%94%20session%20booking"
                 className="inline-flex btn"
@@ -133,20 +129,20 @@ export default function AskPaigePage() {
                   <BtnIcons />
                 </span>
               </a>
-              <span className="font-display text-xl">
+              <span className="font-display text-xl flex items-baseline gap-2">
                 $250 USD
-                <span className="text-sm opacity-60 ml-2">· one session</span>
+                <span className="text-sm opacity-60">· one session</span>
               </span>
             </div>
           </div>
-          <figure className="md:col-span-4 flex flex-col h-full">
+          <figure className="md:col-span-4 flex flex-col h-full gap-3">
             <div className="placeholder w-full flex-1 min-h-[300px] flex items-end p-6">
               <p className="font-display text-xl text-[#1a1a1a]">
                 One conversation. <br />
                 The version of your product you&rsquo;ve been avoiding.
               </p>
             </div>
-            <figcaption className="flex items-baseline justify-between mt-3 text-sm opacity-70">
+            <figcaption className="flex items-baseline justify-between text-sm opacity-70">
               <span>Fig. 07</span>
               <span className="font-display text-base">Office hours</span>
             </figcaption>
@@ -156,22 +152,19 @@ export default function AskPaigePage() {
 
       <SectionDivider />
       {/* === SECTION: use-cases === */}
-      <section id="use-cases" data-section="use-cases" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
-        <div className="pt-6 mb-6 flex items-baseline justify-between">
-          <span className="eyebrow opacity-60">What we can cover</span>
-          <span className="eyebrow opacity-60">Six common buckets</span>
-        </div>
-        <p className="font-display text-2xl md:text-3xl leading-[1.2] max-w-[640px] mb-12">
+      <section id="use-cases" data-section="use-cases" className="p-12 mx-3 md:mx-6 flex flex-col gap-12">
+        <span className="eyebrow opacity-60">What we can cover</span>
+        <p className="font-display text-2xl md:text-3xl leading-[1.2] max-w-[640px]">
           Most sessions land in one of these buckets:
         </p>
         <Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
             {useCases.map((u, i) => (
-              <article key={u.t} className={`card ${u.tone} flex flex-col h-full`}>
-                <p className="eyebrow opacity-70 mb-4">
+              <article key={u.t} className={`card ${u.tone} flex flex-col gap-4 h-full`}>
+                <p className="eyebrow opacity-70">
                   No. {String(i + 1).padStart(2, "0")}
                 </p>
-                <h3 className="font-display text-2xl leading-[1.15] mb-4 border-b border-current/30 pb-3">
+                <h3 className="font-display text-2xl leading-[1.15] border-b border-current/30 pb-3">
                   {u.t}
                 </h3>
                 <p className="text-base leading-[1.55] opacity-90">{u.d}</p>
@@ -184,22 +177,16 @@ export default function AskPaigePage() {
       <SectionDivider />
       {/* === SECTION: how-it-works (chamfered, in framed container) === */}
       <div data-section="how-it-works-frame" className="mx-3 md:mx-6">
-        <section data-section="how-it-works" className="bg-[#1a1a1a] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative">
-          <SectionRail>
-            One session · Async + live · No giant decks
-          </SectionRail>
-          <div className="mb-12 flex items-baseline justify-between lg:pl-12">
-            <span className="eyebrow opacity-80">How it works</span>
-            <span className="eyebrow opacity-80">One focused session</span>
-          </div>
+        <section data-section="how-it-works" className="bg-[#1a1a1a] text-white p-12 m-6 section-chamfer relative flex flex-col gap-12">
+          <span className="eyebrow opacity-80">How it works</span>
           <Reveal>
-            <div className="grid md:grid-cols-12 gap-6 md:gap-12 lg:pl-12">
+            <div className="grid md:grid-cols-12 gap-6 md:gap-12">
               <div className="md:col-span-5">
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] mb-6">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1]">
                   One focused session. Clear feedback. No fake frameworks.
                 </h2>
               </div>
-              <ul className="md:col-span-7 grid gap-y-4">
+              <ul className="md:col-span-7 flex flex-col gap-4">
                 {youGet.map((item, i) => (
                   <li
                     key={item}
@@ -219,20 +206,17 @@ export default function AskPaigePage() {
 
       <SectionDivider />
       {/* === SECTION: fit-check === */}
-      <section data-section="fit-check" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
-        <div className="pt-6 mb-12 flex items-baseline justify-between">
-          <span className="eyebrow opacity-60">Fit check</span>
-          <span className="eyebrow opacity-60">Boundaries, early</span>
-        </div>
+      <section data-section="fit-check" className="p-12 mx-3 md:mx-6 flex flex-col gap-12">
+        <span className="eyebrow opacity-60">Fit check</span>
         <Reveal>
           <div className="grid md:grid-cols-12 gap-6 md:gap-12">
-            <div className="md:col-span-7">
-              <p className="font-display text-2xl md:text-3xl leading-[1.3] mb-8 max-w-[640px]">
+            <div className="md:col-span-7 flex flex-col gap-8">
+              <p className="font-display text-2xl md:text-3xl leading-[1.3] max-w-[640px]">
                 <span className="opacity-60">Great fit for:</span> founders,
                 solo builders, small product teams, teams moving fast and
                 needing clarity.
               </p>
-              <p className="font-display text-2xl md:text-3xl leading-[1.3] mb-8 max-w-[640px]">
+              <p className="font-display text-2xl md:text-3xl leading-[1.3] max-w-[640px]">
                 <span className="opacity-60">Probably not a fit for:</span>{" "}
                 enterprise procurement, long strategy engagements,
                 &ldquo;tell us everything wrong with our business,&rdquo;
@@ -252,22 +236,16 @@ export default function AskPaigePage() {
         <section
           id="contact"
           data-section="final-cta"
-          className="bg-[#e8252d] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative"
+          className="bg-[#e8252d] text-white p-12 m-6 section-chamfer relative flex flex-col gap-12"
         >
-          <SectionRail>
-            Bring the messy version · Book a session · MMXXVI
-          </SectionRail>
-          <div className="mb-12 flex items-baseline justify-between lg:pl-12">
-            <span className="eyebrow opacity-80">Bring the messy version</span>
-            <span className="eyebrow opacity-80">Ask Paige</span>
-          </div>
+          <span className="eyebrow opacity-80">Bring the messy version</span>
           <Reveal>
-            <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end lg:pl-12">
-              <div className="md:col-span-8">
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-6">
+            <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
+              <div className="md:col-span-8 flex flex-col gap-6">
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
                   Bring the messy version.
                 </h2>
-                <p className="text-lg leading-[1.55] max-w-[560px] mb-3">
+                <p className="text-lg leading-[1.55] max-w-[560px]">
                   The confusing onboarding. The feature-heavy product. The
                   homepage that almost works. The AI workflow held together with
                   prompts and hope.

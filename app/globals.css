@@ -6,7 +6,7 @@
   --cream: #f0e6d4;
   --pink-soft: #f0c4cc;
   --light-blue: #b8d4e8;
-  --mid-blue: #a8b0a0;
+  --mid-blue: #cdb8e3;
   --slate: #1a1a1a;
   --teal: #0a3a3a;
   --burgundy: #7d1d2d;
@@ -194,25 +194,26 @@ html {
   --cream: #f4f3ef;       /* faint warm off-white for soft cards */
   --pink-soft: #03b2cb;   /* repurposed slot — teal punch */
   --light-blue: #f3f9ff;
-  --mid-blue: #a8b0a0;
+  --mid-blue: #cdb8e3;
   --slate: #1a1a1a;
   --red: #e8252d;
 }
 body:has(.theme-v2) {
-  /* Near-white with the faintest warm tint. */
-  background: #fcfbf6;
+  /* Almost-white with the faintest warm tint. */
+  background: #fdfdfb;
 }
-/* Dialed-back grain so the near-white reads near-white. */
+/* Super super faint grain — barely-there texture so the bg reads near-pure-white. */
 body:has(.theme-v2)::before {
-  opacity: 0.18;
-}
-body:has(.theme-v2)::after {
   opacity: 0.05;
 }
-.theme-v2 .card-blue-bright { background: #a8b0a0; color: #ffffff; }
-.theme-v2 .card-blue-light  { background: #c0d4d8; color: #1a1a1a; }
-.theme-v2 .card-cream       { background: #d6c4a4; color: #1a1a1a; }
-.theme-v2 .card-red         { background: #e8252d; color: #1a1a1a; }
+body:has(.theme-v2)::after {
+  opacity: 0.02;
+}
+.theme-v2 .card-blue-bright { background: #cdb8e3; color: #1a1a1a; }
+.theme-v2 .card-blue-light  { background: #a8d4ee; color: #1a1a1a; }
+.theme-v2 .card-cream       { background: #f3eb88; color: #1a1a1a; }
+.theme-v2 .card-red         { background: #e8252d; color: #ffffff; }
+.theme-v2 .card-pink        { background: #f7c8d4; color: #1a1a1a; }
 /* Hide the default dot grid when the column-grid theme is active */
 body:has(.theme-v2) .page-grid {
   display: none;
@@ -325,7 +326,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
   isolation: isolate;
 }
 .paint-titlebar {
-  background: linear-gradient(to right, #a8b0a0, #4670f0 60%, #88a8f8);
+  background: linear-gradient(to right, #cdb8e3, #4670f0 60%, #88a8f8);
   padding: 3px 4px;
   display: flex;
   align-items: center;
@@ -347,7 +348,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
   border-bottom-color: #5a5a5a;
   align-items: center;
   justify-content: center;
-  color: #a8b0a0;
+  color: #cdb8e3;
   font-size: 9px;
   font-weight: 700;
   flex-shrink: 0;
@@ -515,7 +516,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
   font-weight: 600;
 }
 .paint-mockup-step.active .paint-mockup-step-state {
-  color: #a8b0a0;
+  color: #cdb8e3;
   opacity: 1;
 }
 .paint-mockup-bar {
@@ -526,7 +527,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
 }
 .paint-mockup-bar-fill {
   height: 100%;
-  background: #a8b0a0;
+  background: #cdb8e3;
 }
 .paint-mockup-footer {
   display: flex;
@@ -658,7 +659,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
   top: 0;
   bottom: 0;
   width: 13px;
-  background-color: #c0d4d8;
+  background-color: #a8d4ee;
   background-image:
     linear-gradient(to right,
       rgba(255, 255, 255, 0.55) 1px,
@@ -843,7 +844,7 @@ body > * {
 }
 .card:hover { opacity: 0.92; }
 .card-red { background: #e8252d; color: #ffffff; }
-.card-blue-bright { background: #a8b0a0; color: #ffffff; }
+.card-blue-bright { background: #cdb8e3; color: #ffffff; }
 .card-blue-light { background: #b8d4e8; color: #1a1a1a; }
 .card-cream { background: #f0e6d4; color: #1a1a1a; }
 
@@ -935,7 +936,7 @@ body > * {
 /* Rating slab — bold solid card with a giant rating + testimonial.
    Inspired by the "10/10 would recommend" green card. */
 .rating-slab {
-  background: #a8b0a0;
+  background: #cdb8e3;
   color: #1a1a1a;
   padding: 32px;
   transform: rotate(1.2deg);
@@ -1329,30 +1330,12 @@ a {
 }
 .svc-label-text,
 .svc-label-tab {
-  /* Same subtle 3D treatment as .btn — top highlight + bottom shadow + ground drop. */
+  /* Static 3D button styling — no hover since these aren't buttons. */
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.18),
     inset 0 -1px 0 rgba(0, 0, 0, 0.18),
     0 1px 0 rgba(0, 0, 0, 0.1),
     0 2px 4px rgba(26, 26, 26, 0.08);
-  transition: transform 150ms ease, box-shadow 150ms ease;
-}
-.svc-label:hover .svc-label-text,
-.svc-label:hover .svc-label-tab {
-  transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    0 2px 0 rgba(0, 0, 0, 0.12),
-    0 4px 8px rgba(26, 26, 26, 0.12);
-}
-.svc-label:active .svc-label-text,
-.svc-label:active .svc-label-tab {
-  transform: translateY(1px);
-  box-shadow:
-    inset 0 1px 0 rgba(0, 0, 0, 0.18),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-    0 0 0 rgba(0, 0, 0, 0);
 }
 .svc-label-text {
   display: inline-flex;
@@ -1372,6 +1355,20 @@ a {
   height: 16px;
   border-radius: 2px !important;
   flex-shrink: 0;
+}
+
+/* Masthead — horizontal scrolling ticker.
+   The track holds the items twice end-to-end, then translates -50% to loop seamlessly. */
+.masthead-track {
+  animation: masthead-scroll 60s linear infinite;
+  will-change: transform;
+}
+@keyframes masthead-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .masthead-track { animation: none; }
 }
 
 /* Image placeholder — architectural cross-out style */

@@ -45,11 +45,11 @@ export function SiteHeader() {
         </li>
         <li className="flex">
           <a
-            href="https://productpaige.com/playbooks"
+            href="#blog"
             className="nav-link divider-indent-left divider-indent-right px-4 lg:px-6 flex items-center hover:opacity-60 transition-opacity"
           >
-            
-            Playbooks
+
+            Blog
           </a>
         </li>
       </ul>

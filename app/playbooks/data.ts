@@ -75,7 +75,7 @@ export const playbooks: Record<string, Playbook> = {
     department: "Practice manual",
     year: "2026",
     readingTime: "16 min",
-    heroBg: "#a8b0a0", // sage
+    heroBg: "#cdb8e3", // sage
     homeTone: "card-blue-bright",
     status: "coming-soon",
     chapters: [
