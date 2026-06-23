@@ -36,15 +36,6 @@ export function SiteHeader() {
         </li>
         <li className="flex">
           <a
-            href="/#about"
-            className="nav-link divider-indent-left px-4 lg:px-6 flex items-center hover:opacity-60 transition-opacity"
-          >
-            
-            About
-          </a>
-        </li>
-        <li className="flex">
-          <a
             href="#blog"
             className="nav-link divider-indent-left divider-indent-right px-4 lg:px-6 flex items-center hover:opacity-60 transition-opacity"
           >

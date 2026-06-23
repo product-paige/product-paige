@@ -6,6 +6,12 @@ export type Playbook = {
   department: string;
   year: string;
   readingTime: string;
+  /** Publish date shown on the blog card (e.g. "Mar 2026") */
+  date: string;
+  /** Short description shown on the blog card */
+  body: string;
+  /** Tag chips shown on the blog card */
+  chips: string[];
   /** Hero background — Tailwind arbitrary class without the bracket prefix */
   heroBg: string;
   /** Card tone class used on the home grid */
@@ -28,6 +34,9 @@ export const playbooks: Record<string, Playbook> = {
     department: "Field forecast",
     year: "2026",
     readingTime: "12 min",
+    date: "Mar 4, 2026",
+    body: "A running set of notes on what’s changing, what’s noise, and what still matters.",
+    chips: ["trends", "products", "judgment"],
     heroBg: "#1a1a1a", // navy — feels inky / forecast-y
     homeTone: "card-red",
     status: "live",
@@ -75,6 +84,9 @@ export const playbooks: Record<string, Playbook> = {
     department: "Practice manual",
     year: "2026",
     readingTime: "16 min",
+    date: "Nov 12, 2026",
+    body: "Weekly habits that keep momentum without chaos. Clear decisions, fewer rabbit holes.",
+    chips: ["systems", "focus", "cadence"],
     heroBg: "#cdb8e3", // sage
     homeTone: "card-blue-bright",
     status: "coming-soon",
@@ -116,6 +128,9 @@ export const playbooks: Record<string, Playbook> = {
     department: "Frameworks / editorial",
     year: "2026",
     readingTime: "20 min",
+    date: "Feb 18, 2027",
+    body: "A living reference for messaging, UX decisions, and what to do next.",
+    chips: ["narrative", "UX", "priorities"],
     heroBg: "#e8252d", // red
     homeTone: "card-blue-light",
     status: "coming-soon",

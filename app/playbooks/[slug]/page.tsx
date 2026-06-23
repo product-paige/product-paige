@@ -1,61 +1,16 @@
 "use client";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  use,
-  type ReactNode,
-} from "react";
+import { use, useEffect, useState } from "react";
 import { notFound } from "next/navigation";
-import { SectionDivider } from "../../components/SectionDivider";
 import { playbooks, playbookList } from "../data";
 
-function Reveal({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: ReactNode;
-  delay?: number;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [shown, setShown] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setShown(true);
-      return;
-    }
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const t = setTimeout(() => setShown(true), delay);
-            obs.disconnect();
-            return () => clearTimeout(t);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [delay]);
-
+/** Small filled square — used as a marker glyph in TOC + key takeaways. */
+function SquareMarker({ className = "" }: { className?: string }) {
   return (
-    <div
-      ref={ref}
-      className={`reveal ${shown ? "reveal-in" : ""} ${className}`}
-    >
-      {children}
-    </div>
+    <span
+      aria-hidden="true"
+      className={`block w-2 h-2 bg-current shrink-0 ${className}`}
+    />
   );
 }
 
@@ -122,6 +77,34 @@ export default function PlaybookPage({
     playbook.heroBg === "#f7c8d4";
   const heroFg = lightHero ? "#1a1a1a" : "#ffffff";
 
+  // Scroll spy — track which chapter is currently in view.
+  const [activeChapter, setActiveChapter] = useState(0);
+  useEffect(() => {
+    const sections = playbook.chapters
+      .map((_, i) => document.getElementById(`ch-${i + 1}`))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        // Pick the section whose top is closest to (but at or above) the viewport top band.
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort(
+            (a, b) =>
+              Math.abs(a.boundingClientRect.top) -
+              Math.abs(b.boundingClientRect.top)
+          );
+        if (visible[0]) {
+          const idx = sections.indexOf(visible[0].target as HTMLElement);
+          if (idx !== -1) setActiveChapter(idx);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+    );
+    sections.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, [playbook.chapters]);
+
   return (
     <div className="theme-v2 contents">
       <div className="theme-v2-rails" aria-hidden="true" />
@@ -131,13 +114,13 @@ export default function PlaybookPage({
         <section
           id="hero"
           data-section="post-hero"
-          className="p-12 md:p-16 m-6 section-chamfer relative overflow-hidden flex flex-col gap-10"
+          className="p-8 md:p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
           style={{ backgroundColor: playbook.heroBg, color: heroFg }}
         >
-          <h1 className="font-display leading-[0.9] tracking-tightest text-5xl md:text-7xl lg:text-8xl max-w-[14ch]">
+          <h1 className="font-display leading-[1] tracking-tightest text-4xl md:text-5xl lg:text-6xl max-w-[18ch]">
             {playbook.title}
           </h1>
-          <p className="font-display text-2xl md:text-3xl leading-[1.2] max-w-[640px] opacity-90">
+          <p className="text-base md:text-lg leading-[1.5] max-w-[640px] opacity-90">
             {playbook.kicker}
           </p>
           <p className="text-sm opacity-70">
@@ -146,52 +129,34 @@ export default function PlaybookPage({
         </section>
       </div>
 
-      <SectionDivider />
-
-      {/* === SECTION: lede === */}
-      <section
-        id="lede"
-        data-section="post-lede"
-        className="p-12 mx-3 md:mx-6 flex flex-col gap-6 max-w-[820px]"
-      >
-        <Reveal>
-          <p className="drop-cap font-display text-2xl md:text-3xl leading-[1.3]">
-            You don&rsquo;t need a heavier operating system. You need a
-            lighter one that survives contact with the week.
-          </p>
-        </Reveal>
-      </section>
-
-      <SectionDivider />
-
       {/* === SECTION: chapters + sticky TOC === */}
       <section
         id="contents"
         data-section="post-chapters"
-        className="p-12 mx-3 md:mx-6"
+        className="p-8 mx-3 md:mx-6"
       >
-        <div className="grid md:grid-cols-12 gap-6 md:gap-12">
+        <div className="grid md:grid-cols-12 gap-12 md:gap-24">
           {/* Left rail — sticky table of contents */}
           <aside className="md:col-span-3 md:sticky md:top-24 self-start flex flex-col gap-4">
             <ol className="border-t border-[#1a1a1a]/25">
-              {playbook.chapters.map((c, i) => (
-                <li
-                  key={c}
-                  className="border-b border-[#1a1a1a]/25"
-                >
-                  <a
-                    href={`#ch-${i + 1}`}
-                    className="py-3 flex items-baseline gap-3 hover:opacity-60 transition-opacity"
-                  >
-                    <span className="font-display text-base opacity-50 w-8 shrink-0">
-                      .{String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="font-display text-base leading-[1.3]">
-                      {c}
-                    </span>
-                  </a>
-                </li>
-              ))}
+              {playbook.chapters.map((c, i) => {
+                const isActive = activeChapter === i;
+                return (
+                  <li key={c} className="border-b border-[#1a1a1a]/25">
+                    <a
+                      href={`#ch-${i + 1}`}
+                      className={`py-3 flex items-center gap-3 transition-all duration-500 ease-out will-change-transform ${
+                        isActive
+                          ? "opacity-100 translate-x-2"
+                          : "opacity-60 hover:opacity-90"
+                      }`}
+                    >
+                      <SquareMarker />
+                      <span className="text-base leading-[1.15]">{c}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ol>
           </aside>
 
@@ -202,103 +167,94 @@ export default function PlaybookPage({
                 key={c}
                 id={`ch-${i + 1}`}
                 data-chapter={i + 1}
-                className={
-                  i > 0
-                    ? "pt-16 border-t border-[#1a1a1a]/25 flex flex-col gap-6"
-                    : "flex flex-col gap-6"
-                }
+                className="flex flex-col gap-6"
               >
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tightest">
+                <h2 className="font-display text-2xl md:text-3xl leading-[1.15] tracking-tightest">
                   {c}
                 </h2>
-                <Reveal>
-                  <div className="flex flex-col gap-6 max-w-[680px]">
-                    {(chapterBodies[c] || ["Body copy goes here."]).map((p, idx) => (
-                      <p key={idx} className="text-lg leading-[1.65]">
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                </Reveal>
+                <div className="flex flex-col gap-6 max-w-[680px]">
+                  {(chapterBodies[c] || ["Body copy goes here."]).map((p, idx) => (
+                    <p key={idx} className="text-base leading-[1.7] font-normal">
+                      {p}
+                    </p>
+                  ))}
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <SectionDivider />
-
       {/* === SECTION: key-takeaways === */}
       <div data-section="post-takeaways-frame" className="mx-3 md:mx-6">
         <section
           data-section="post-takeaways"
-          className="bg-[#1a1a1a] text-white p-12 m-6 section-chamfer relative flex flex-col gap-12"
+          className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative flex flex-col gap-10"
         >
           <span className="eyebrow opacity-80">Key takeaways</span>
-          <Reveal>
-            <ul className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-              {takeaways.map((t, i) => (
-                <li
-                  key={t}
-                  className="flex items-baseline gap-4 border-b border-white/20 pb-4"
-                >
-                  <span className="font-display text-xl opacity-50 w-10 shrink-0">
-                    .{String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-lg leading-[1.4]">{t}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+          <ul className="grid md:grid-cols-2 gap-x-12 gap-y-6">
+            {takeaways.map((t) => (
+              <li
+                key={t}
+                className="flex items-start gap-3 border-b border-white/20 pb-4"
+              >
+                <SquareMarker className="mt-[10px]" />
+                <span className="text-base leading-[1.5]">{t}</span>
+              </li>
+            ))}
+          </ul>
         </section>
       </div>
-
-      <SectionDivider />
 
       {/* === SECTION: related === */}
       <section
         id="related"
         data-section="post-related"
-        className="p-12 mx-3 md:mx-6 flex flex-col gap-12"
+        className="p-8 mx-3 md:mx-6 flex flex-col gap-10"
       >
         <span className="eyebrow">Keep reading</span>
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
-          {related.map((r, i) => (
-            <Reveal key={r.slug} delay={i * 100} className="h-full">
-              <a
-                href={`/playbooks/${r.slug}`}
-                className={`card ${r.homeTone} flex flex-col gap-4 h-[420px] !min-h-0`}
-              >
-                <header className="flex items-start justify-between">
-                  <span className="text-sm opacity-80">No. {r.no}</span>
-                  <span className="stamp opacity-90 border-current">
-                    {r.status === "live" ? "Read now" : "Coming soon"}
-                  </span>
-                </header>
+          {related.map((r) => (
+            <a
+              key={r.slug}
+              href={`/playbooks/${r.slug}`}
+              className={`card ${r.homeTone} flex flex-col aspect-[6/4] !min-h-0`}
+            >
+              <header className="flex items-start justify-between">
+                <span className="text-sm opacity-80">{r.date}</span>
+                <span className="stamp opacity-90 border-current">
+                  {r.status === "live" ? "Read now" : "Coming soon"}
+                </span>
+              </header>
+              <div className="mt-auto flex flex-col gap-4">
                 <h4 className="font-display text-3xl leading-[1.05]">
                   {r.title}
                 </h4>
-                <p className="font-display text-lg leading-[1.3] opacity-90">
-                  {r.kicker}
+                <p className="text-base leading-[1.55] opacity-80">
+                  {r.body}
                 </p>
-              </a>
-            </Reveal>
+                <ul className="flex flex-wrap gap-2">
+                  {r.chips.map((c) => (
+                    <li key={c} className="pill pill-cased">
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </a>
           ))}
         </div>
       </section>
-
-      <SectionDivider />
 
       {/* === SECTION: newsletter (matches homepage exactly) === */}
       <div data-section="newsletter-frame" className="mx-3 md:mx-6">
         <section
           id="newsletter"
           data-section="newsletter"
-          className="bg-[#1a1a1a] text-white p-12 m-6 section-chamfer relative grain-vintage flex flex-col gap-12"
+          className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative grain-vintage flex flex-col gap-10"
         >
           <span className="eyebrow">Newsletter</span>
-          <Reveal>
-            <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
+          <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
               <div className="md:col-span-8 flex flex-col gap-6">
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
                   Prompt with Paige, a newsletter
@@ -338,7 +294,6 @@ export default function PlaybookPage({
                 </p>
               </form>
             </div>
-          </Reveal>
         </section>
       </div>
     </div>

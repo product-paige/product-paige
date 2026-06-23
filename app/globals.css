@@ -199,8 +199,7 @@ html {
   --red: #e8252d;
 }
 body:has(.theme-v2) {
-  /* Almost-white with the faintest warm tint. */
-  background: #fdfdfb;
+  background: #ffffff;
 }
 /* Super super faint grain — barely-there texture so the bg reads near-pure-white. */
 body:has(.theme-v2)::before {
@@ -810,14 +809,9 @@ body > * {
   );
   /* drop-shadow filter (instead of box-shadow) so the shadow follows the
      chamfered clip-path silhouette. */
-  filter:
-    drop-shadow(0 1px 0 rgba(0, 0, 0, 0.18))
-    drop-shadow(0 4px 10px rgba(26, 26, 26, 0.16));
-  /* Inset top highlight + bottom shadow read as a physical chip.
-     Inset shadows are clipped by clip-path so they trace the same edge. */
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.22);
+  filter: drop-shadow(0 4px 10px rgba(26, 26, 26, 0.12));
+  /* Top inset highlight only — no bottom border line. */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
   transition: opacity 200ms ease, transform 200ms ease, filter 200ms ease;
   isolation: isolate;
 }
