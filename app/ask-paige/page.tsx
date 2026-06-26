@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { SectionDivider } from "../components/SectionDivider";
 import { BtnIcons } from "../components/BtnIcons";
 
 function Reveal({
@@ -105,7 +104,7 @@ export default function AskPaigePage() {
       >
         <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-stretch w-full">
           <div className="md:col-span-8 flex flex-col justify-end gap-8">
-            <h1 className="font-display leading-[0.9] tracking-tightest text-5xl md:text-7xl lg:text-8xl">
+            <h1 className="font-display leading-[0.9] tracking-tightest text-6xl">
               Ask Paige
             </h1>
             <p className="font-display text-xl md:text-2xl leading-[1.2] max-w-[640px]">
@@ -122,10 +121,10 @@ export default function AskPaigePage() {
                 href="mailto:hello@productpaige.com?subject=Ask%20Paige%20%E2%80%94%20session%20booking"
                 className="inline-flex btn"
               >
-                <span className="btn-text bg-[#e8252d] text-white">
+                <span className="btn-text bg-[#0E6BFF] text-white">
                   Book a session
                 </span>
-                <span className="btn-tab bg-[#e8252d] text-white">
+                <span className="btn-tab bg-[#0E6BFF] text-white">
                   <BtnIcons />
                 </span>
               </a>
@@ -150,10 +149,9 @@ export default function AskPaigePage() {
         </div>
       </section>
 
-      <SectionDivider />
+      
       {/* === SECTION: use-cases === */}
-      <section id="use-cases" data-section="use-cases" className="p-12 mx-3 md:mx-6 flex flex-col gap-12">
-        <span className="eyebrow opacity-60">What we can cover</span>
+      <section id="use-cases" data-section="use-cases" className="p-10 mx-3 md:mx-6 flex flex-col gap-12 section-border-b">
         <p className="font-display text-2xl md:text-3xl leading-[1.2] max-w-[640px]">
           Most sessions land in one of these buckets:
         </p>
@@ -161,9 +159,6 @@ export default function AskPaigePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
             {useCases.map((u, i) => (
               <article key={u.t} className={`card ${u.tone} flex flex-col gap-4 h-full`}>
-                <p className="eyebrow opacity-70">
-                  No. {String(i + 1).padStart(2, "0")}
-                </p>
                 <h3 className="font-display text-2xl leading-[1.15] border-b border-current/30 pb-3">
                   {u.t}
                 </h3>
@@ -174,15 +169,14 @@ export default function AskPaigePage() {
         </Reveal>
       </section>
 
-      <SectionDivider />
+      
       {/* === SECTION: how-it-works (chamfered, in framed container) === */}
       <div data-section="how-it-works-frame" className="mx-3 md:mx-6">
-        <section data-section="how-it-works" className="bg-[#1a1a1a] text-white p-12 m-6 section-chamfer relative flex flex-col gap-12">
-          <span className="eyebrow opacity-80">How it works</span>
+        <section data-section="how-it-works" className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative flex flex-col gap-12">
           <Reveal>
             <div className="grid md:grid-cols-12 gap-6 md:gap-12">
               <div className="md:col-span-5">
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1]">
+                <h2 className="font-display text-5xl leading-[1.1]">
                   One focused session. Clear feedback. No fake frameworks.
                 </h2>
               </div>
@@ -204,10 +198,9 @@ export default function AskPaigePage() {
         </section>
       </div>
 
-      <SectionDivider />
+      
       {/* === SECTION: fit-check === */}
-      <section data-section="fit-check" className="p-12 mx-3 md:mx-6 flex flex-col gap-12">
-        <span className="eyebrow opacity-60">Fit check</span>
+      <section data-section="fit-check" className="p-10 mx-3 md:mx-6 flex flex-col gap-12 section-border-b">
         <Reveal>
           <div className="grid md:grid-cols-12 gap-6 md:gap-12">
             <div className="md:col-span-7 flex flex-col gap-8">
@@ -230,19 +223,18 @@ export default function AskPaigePage() {
         </Reveal>
       </section>
 
-      <SectionDivider />
+      
       {/* === SECTION: final-cta (red, chamfered, in framed container) === */}
       <div data-section="final-cta-frame" className="mx-3 md:mx-6">
         <section
           id="contact"
           data-section="final-cta"
-          className="bg-[#e8252d] text-white p-12 m-6 section-chamfer relative flex flex-col gap-12"
+          className="bg-[#0E6BFF] text-white p-10 m-6 section-chamfer relative flex flex-col gap-12"
         >
-          <span className="eyebrow opacity-80">Bring the messy version</span>
           <Reveal>
             <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
               <div className="md:col-span-8 flex flex-col gap-6">
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
+                <h2 className="font-display text-5xl leading-[1.05]">
                   Bring the messy version.
                 </h2>
                 <p className="text-lg leading-[1.55] max-w-[560px]">
@@ -259,10 +251,10 @@ export default function AskPaigePage() {
                   href="mailto:hello@productpaige.com?subject=Ask%20Paige%20%E2%80%94%20session%20booking"
                   className="inline-flex btn"
                 >
-                  <span className="btn-text bg-white text-[#e8252d]">
+                  <span className="btn-text bg-white text-[#0E6BFF]">
                     Book Ask Paige
                   </span>
-                  <span className="btn-tab bg-white text-[#e8252d]">
+                  <span className="btn-tab bg-white text-[#0E6BFF]">
                     <BtnIcons />
                   </span>
                 </a>

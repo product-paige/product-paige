@@ -72,7 +72,7 @@ export default function PlaybookPage({
   // Hero text contrast — dark hero bgs (ink) get white text, light hero bgs get ink text
   const lightHero =
     playbook.heroBg === "#f3eb88" ||
-    playbook.heroBg === "#a8d4ee" ||
+    playbook.heroBg === "#DBE6EB" ||
     playbook.heroBg === "#cdb8e3" ||
     playbook.heroBg === "#f7c8d4";
   const heroFg = lightHero ? "#1a1a1a" : "#ffffff";
@@ -117,7 +117,7 @@ export default function PlaybookPage({
           className="p-8 md:p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
           style={{ backgroundColor: playbook.heroBg, color: heroFg }}
         >
-          <h1 className="font-display leading-[1] tracking-tightest text-4xl md:text-5xl lg:text-6xl max-w-[18ch]">
+          <h1 className="font-display leading-[1] tracking-tightest text-4xl md:text-5xl lg:text-7xl max-w-[18ch]">
             {playbook.title}
           </h1>
           <p className="text-base md:text-lg leading-[1.5] max-w-[640px] opacity-90">
@@ -191,7 +191,6 @@ export default function PlaybookPage({
           data-section="post-takeaways"
           className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative flex flex-col gap-10"
         >
-          <span className="eyebrow opacity-80">Key takeaways</span>
           <ul className="grid md:grid-cols-2 gap-x-12 gap-y-6">
             {takeaways.map((t) => (
               <li
@@ -212,7 +211,6 @@ export default function PlaybookPage({
         data-section="post-related"
         className="p-8 mx-3 md:mx-6 flex flex-col gap-10"
       >
-        <span className="eyebrow">Keep reading</span>
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           {related.map((r) => (
             <a
@@ -227,7 +225,7 @@ export default function PlaybookPage({
                 </span>
               </header>
               <div className="mt-auto flex flex-col gap-4">
-                <h4 className="font-display text-3xl leading-[1.05]">
+                <h4 className="font-display text-5xl leading-[1.05]">
                   {r.title}
                 </h4>
                 <p className="text-base leading-[1.55] opacity-80">
@@ -253,10 +251,9 @@ export default function PlaybookPage({
           data-section="newsletter"
           className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative grain-vintage flex flex-col gap-10"
         >
-          <span className="eyebrow">Newsletter</span>
           <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
               <div className="md:col-span-8 flex flex-col gap-6">
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
+                <h2 className="font-display text-5xl leading-[1.05]">
                   Prompt with Paige, a newsletter
                 </h2>
                 <p className="text-lg leading-[1.5] max-w-[600px] opacity-90">
@@ -282,10 +279,10 @@ export default function PlaybookPage({
                   className="bg-white/15 text-white placeholder:text-white/60 px-4 py-3 focus:outline-none focus:bg-white/25 border border-white/30"
                 />
                 <button type="submit" className="btn self-start">
-                  <span className="btn-text bg-[#e8252d] text-white">
+                  <span className="btn-text bg-[#0E6BFF] text-white">
                     Subscribe
                   </span>
-                  <span className="btn-tab bg-[#e8252d] text-white">
+                  <span className="btn-tab bg-[#0E6BFF] text-white">
                     <BtnIcons />
                   </span>
                 </button>

@@ -6,7 +6,6 @@ import { SiteMasthead } from "./components/SiteMasthead";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteBottomBar } from "./components/SiteBottomBar";
-import { SectionDivider } from "./components/SectionDivider";
 
 const funnelSans = Funnel_Sans({
   variable: "--font-funnel-sans",
@@ -54,21 +53,17 @@ export default function RootLayout({
       lang="en"
       className={`${funnelSans.variable} ${tiempos.variable} ${jetbrainsMono.variable}`}
     >
-      <body>
+      <body suppressHydrationWarning>
         <div className="page-grid" aria-hidden="true" />
         <div className="page-borders" aria-hidden="true">
           <span className="page-border page-border-left" />
           <span className="page-border page-border-right" />
         </div>
-        <div className="text-[#1a1a1a]">
-          <SiteMasthead />
-          <SectionDivider />
-          <SiteHeader />
-          <SectionDivider />
+        <div className="text-[#1a1a1a] mx-auto max-w-[1440px] px-3 md:px-6">
+          <div className="section-border-b"><SiteMasthead /></div>
+          <div className="section-border-b"><SiteHeader /></div>
           {children}
-          <SectionDivider />
-          <SiteFooter />
-          <SectionDivider />
+          <div className="section-border-b"><SiteFooter /></div>
           <SiteBottomBar />
         </div>
       </body>

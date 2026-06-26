@@ -88,7 +88,7 @@ const services: Array<{
   { name: "Product strategy",         bg: "#ffffff", swatch: "#0d0d10", fg: "#0d0d10", icon: "target" },
   { name: "AI content design",        bg: "#ff7dae", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "sparkleA" },
   { name: "AI web design",            bg: "#2a5bff", swatch: "#ffffff", fg: "#ffffff", icon: "browser" },
-  { name: "UX decisions",             bg: "#e8252d", swatch: "#ffffff", fg: "#ffffff", icon: "cursor" },
+  { name: "UX decisions",             bg: "#0E6BFF", swatch: "#ffffff", fg: "#ffffff", icon: "cursor" },
   { name: "Positioning and narrative", bg: "#0fa3a3", swatch: "#ffffff", fg: "#ffffff", icon: "megaphone" },
   { name: "Onboarding and activation", bg: "#ff7dae", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "door" },
   { name: "Growth and prioritization", bg: "#2a5bff", swatch: "#ffffff", fg: "#ffffff", icon: "arrowUp" },
@@ -249,9 +249,6 @@ export default function HomeV3() {
       >
         <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-stretch w-full">
           <div className="md:col-span-7 flex flex-col justify-end">
-            <p className="eyebrow opacity-70 mb-6">
-              The studio · An independent practice
-            </p>
             <TearHeading className="font-display leading-[0.85] tracking-tightest text-6xl md:text-8xl lg:text-9xl">
               {"Product\nPaige"}
             </TearHeading>
@@ -262,7 +259,6 @@ export default function HomeV3() {
                 clarity, intention, and operating habits that compound.
               </p>
               <div className="md:col-span-4 md:col-start-9">
-                <p className="eyebrow opacity-70 mb-3">Status</p>
                 <p className="text-lg leading-[1.25] mb-1">
                   <span className="inline-block w-2.5 h-2.5 bg-[#0d0d10] mr-2 align-middle" />
                   Available
@@ -305,8 +301,6 @@ export default function HomeV3() {
       {/* === SECTION: services-labels === */}
       <section id="services" data-section="services-labels" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-6 flex items-baseline justify-between">
-          <span className="eyebrow opacity-60">Practice areas</span>
-          <span className="eyebrow opacity-60">Eight disciplines</span>
         </div>
         <ul className="flex flex-wrap gap-3">
           {services.map((s) => (
@@ -334,8 +328,6 @@ export default function HomeV3() {
       {/* === SECTION: selected-work === */}
       <section id="work" data-section="selected-work" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-12 flex items-baseline justify-between">
-          <span className="eyebrow">Selected work</span>
-          <span className="eyebrow opacity-60">2024 — 2026</span>
         </div>
 
         {/* Featured project */}
@@ -349,10 +341,7 @@ export default function HomeV3() {
             />
           </div>
           <div className="md:col-span-5 flex flex-col justify-end">
-            <p className="eyebrow opacity-60 mb-6">
-              Featured · No. {featured.n}
-            </p>
-            <h3 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4">
+            <h3 className="font-display text-5xl leading-[1.05] mb-4">
               {featured.name}
             </h3>
             {featured.subtitle && (
@@ -381,12 +370,6 @@ export default function HomeV3() {
       <SectionDivider />
       {/* === SECTION: playbooks === */}
       <section id="playbooks" data-section="playbooks" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
-        <div className="pt-6 mb-12 flex items-baseline justify-between">
-          <span className="eyebrow">Playbooks</span>
-          <span className="eyebrow opacity-60">
-            {playbooks.length} entries · One live, more coming
-          </span>
-        </div>
         <div className="grid md:grid-cols-3 gap-8 items-stretch">
           {playbooks.map((p, i) => (
             <Reveal key={p.slug} delay={i * 100} className="h-full">
@@ -424,13 +407,11 @@ export default function HomeV3() {
       {/* === SECTION: capabilities === */}
       <section id="capabilities" data-section="capabilities" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-12 flex items-baseline justify-between">
-          <span className="eyebrow opacity-60">Capabilities</span>
-          <span className="eyebrow opacity-60">04 areas</span>
         </div>
         <Reveal>
         <div className="grid md:grid-cols-12 gap-6 md:gap-12">
           <div className="md:col-span-6 flex flex-col">
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] mb-12">
+            <h2 className="font-display text-5xl leading-[1.1] mb-12">
               What we&rsquo;ll improve
             </h2>
             <ul className="border-t border-[#1a1a1a]/25">
@@ -441,7 +422,7 @@ export default function HomeV3() {
                 >
                   <button
                     onClick={() => setActiveCap(i)}
-                    className={`w-full text-left py-5 font-display text-4xl leading-[1.1] transition-opacity ${
+                    className={`w-full text-left py-5 font-display text-5xl leading-[1.1] transition-opacity ${
                       activeCap === i
                         ? "opacity-100"
                         : "opacity-30 hover:opacity-60"
@@ -457,10 +438,10 @@ export default function HomeV3() {
                 {capabilities[activeCap].blurb}
               </p>
               <a href="#services" className="btn self-start">
-                <span className="btn-text bg-[#e8252d] text-white">
+                <span className="btn-text bg-[#0E6BFF] text-white">
                   Explore services
                 </span>
-                <span className="btn-tab bg-[#e8252d] text-white">
+                <span className="btn-tab bg-[#0E6BFF] text-white">
                   <BtnIcons />
                 </span>
               </a>
@@ -481,12 +462,10 @@ export default function HomeV3() {
       {/* === SECTION: field-note (pull quote) === */}
       <section id="field-note" data-section="field-note" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-12 flex items-baseline justify-between">
-          <span className="eyebrow opacity-60">Field note</span>
-          <span className="eyebrow opacity-60">No. 12</span>
         </div>
         <Reveal>
         <blockquote className="max-w-[1100px]">
-          <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em]">
+          <p className="font-display text-5xl leading-[1.1] tracking-[-0.02em]">
             &ldquo;Vibe-coding is not a strategy. The market doesn&rsquo;t care
             how fast you shipped a thing nobody wanted.&rdquo;
           </p>
@@ -505,13 +484,11 @@ export default function HomeV3() {
           Systems · Four engagements · MMXXVI
         </SectionRail>
         <div className="mb-12 flex items-baseline justify-between lg:pl-12">
-          <span className="eyebrow opacity-80">Systems</span>
-          <span className="eyebrow opacity-80">Four engagements</span>
         </div>
         <Reveal>
         <div className="grid md:grid-cols-12 gap-6 md:gap-12 lg:pl-12">
           <div className="md:col-span-5">
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] mb-6">
+            <h2 className="font-display text-5xl leading-[1.1] mb-6">
               Systems for founders building in the AI&nbsp;era
             </h2>
             <p className="text-lg leading-[1.4] opacity-90 max-w-[420px]">
@@ -555,25 +532,21 @@ export default function HomeV3() {
       {/* === SECTION: about (essay) === */}
       <section id="about" data-section="about" className="px-6 md:px-10 py-16 mx-3 md:mx-6">
         <div className="pt-6 mb-12 flex items-baseline justify-between">
-          <span className="eyebrow">On the practice</span>
-          <span className="eyebrow opacity-60">An essay · 2026</span>
         </div>
         <Reveal>
         <div className="grid md:grid-cols-12 gap-6 md:gap-12">
           <div className="md:col-span-2 md:col-start-1">
-            <p className="eyebrow opacity-60 mb-3">By</p>
             <p className="font-display text-xl leading-[1.2]">
               Paige Harris
             </p>
             <p className="text-sm opacity-60 mt-2">Canada</p>
             <div className="mt-12 hidden md:block">
-              <p className="eyebrow opacity-60 mb-3">Reading</p>
               <p className="text-sm opacity-70">≈ 3 min</p>
             </div>
           </div>
 
           <div className="md:col-span-6">
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-12">
+            <h2 className="font-display text-5xl leading-[1.05] mb-12">
               On the practice
             </h2>
             <p className="drop-cap text-lg leading-[1.65] mb-6">
@@ -608,19 +581,18 @@ export default function HomeV3() {
       <section
         id="newsletter"
         data-section="newsletter"
-        className="bg-[#e8252d] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative"
+        className="bg-[#0E6BFF] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative"
       >
         <SectionRail>
           Prompt from Paige · Notes · MMXXVI
         </SectionRail>
         <div className="mb-12 flex items-baseline justify-between lg:pl-12">
-          <span className="eyebrow">Prompt from Paige</span>
           <span className="stamp opacity-90">No. 05 · Folio 001</span>
         </div>
         <Reveal>
         <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end lg:pl-12">
           <div className="md:col-span-8">
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-6">
+            <h2 className="font-display text-5xl leading-[1.05] mb-6">
               Want the notes?
             </h2>
             <p className="text-lg leading-[1.5] max-w-[560px] opacity-90">
@@ -646,10 +618,10 @@ export default function HomeV3() {
               className="bg-white/15 text-white placeholder:text-white/60 px-4 py-3 focus:outline-none focus:bg-white/25 border border-white/30"
             />
             <button type="submit" className="btn self-start">
-              <span className="btn-text bg-white text-[#e8252d]">
+              <span className="btn-text bg-white text-[#0E6BFF]">
                 Subscribe
               </span>
-              <span className="btn-tab bg-white text-[#e8252d]">
+              <span className="btn-tab bg-white text-[#0E6BFF]">
                 <BtnIcons />
               </span>
             </button>

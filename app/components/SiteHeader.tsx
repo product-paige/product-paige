@@ -4,43 +4,57 @@ export function SiteHeader() {
   return (
     <header
       data-section="site-header"
-      className="h-12 flex items-stretch mx-3 md:mx-6"
+      className="h-[60px] flex items-stretch"
     >
-      {/* Logo — always visible */}
+      {/* Logo — always visible (acts as Home) */}
       <a
         href="/"
-        className="px-4 sm:px-6 md:px-10 flex items-center font-display text-xl md:text-2xl leading-none whitespace-nowrap"
+        className="pl-6 pr-10 flex items-center type-card-title whitespace-nowrap"
       >
         Product Paige
       </a>
 
-      {/* Primary nav — hidden on small screens */}
+      {/* Primary nav — ordered to match the homepage narrative
+          (what → how → projects → who → subscribe). */}
       <ul className="hidden md:flex flex-1 items-stretch">
         <li className="flex">
           <a
-            href="/#work"
-            className="nav-link divider-indent-left px-4 lg:px-6 flex items-center hover:opacity-60 transition-opacity"
-          >
-            
-            Projects
-          </a>
-        </li>
-        <li className="flex">
-          <a
             href="/#services"
-            className="nav-link divider-indent-left px-4 lg:px-6 flex items-center hover:opacity-60 transition-opacity"
+            className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
-            
             Services
           </a>
         </li>
         <li className="flex">
           <a
-            href="#blog"
-            className="nav-link divider-indent-left divider-indent-right px-4 lg:px-6 flex items-center hover:opacity-60 transition-opacity"
+            href="/#working-style"
+            className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
-
-            Blog
+            Process
+          </a>
+        </li>
+        <li className="flex">
+          <a
+            href="/#work"
+            className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
+          >
+            Projects
+          </a>
+        </li>
+        <li className="flex">
+          <a
+            href="/#about"
+            className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
+          >
+            About
+          </a>
+        </li>
+        <li className="flex">
+          <a
+            href="/subscribe"
+            className="type-nav divider-indent-left divider-indent-right px-6 flex items-center hover:opacity-60 transition-opacity"
+          >
+            Subscribe
           </a>
         </li>
       </ul>
@@ -49,20 +63,19 @@ export function SiteHeader() {
       <div className="flex items-stretch ml-auto">
         <a
           href="/ask-paige"
-          className="hidden md:flex nav-link divider-indent-left px-4 lg:px-6 items-center hover:opacity-60 transition-opacity"
+          className="hidden md:flex type-nav divider-indent-left px-6 items-center hover:opacity-60 transition-opacity"
         >
-          
           Ask Paige
         </a>
-        <div className="divider-indent-left flex items-center pl-3 pr-3 md:pl-4 md:pr-6">
+        <div className="divider-indent-left flex items-center px-4">
           <a
             href="mailto:hello@productpaige.com?subject=Start%20a%20project"
             className="inline-flex btn"
           >
-            <span className="btn-text bg-[#e8252d] text-white">
+            <span className="btn-text bg-[#0E6BFF] text-white">
               Start a project
             </span>
-            <span className="btn-tab bg-[#e8252d] text-white">
+            <span className="btn-tab bg-[#0E6BFF] text-white">
               <BtnIcons />
             </span>
           </a>

@@ -131,7 +131,7 @@ export const playbooks: Record<string, Playbook> = {
     date: "Feb 18, 2027",
     body: "A living reference for messaging, UX decisions, and what to do next.",
     chips: ["narrative", "UX", "priorities"],
-    heroBg: "#e8252d", // red
+    heroBg: "#0E6BFF", // red
     homeTone: "card-blue-light",
     status: "coming-soon",
     chapters: ["Coming soon"],

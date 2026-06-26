@@ -7,15 +7,15 @@
   --pink-soft: #f0c4cc;
   --light-blue: #b8d4e8;
   --mid-blue: #cdb8e3;
-  --slate: #1a1a1a;
+  --slate: #1A191E;
   --teal: #0a3a3a;
   --burgundy: #7d1d2d;
-  --red: #e8252d;
+  --red: #0E6BFF;
 
   --color-bg: var(--paper);
   --color-bg-soft: var(--cream);
   --color-bg-dark: var(--navy);
-  --color-ink: #1a1a1a;
+  --color-ink: #1A191E;
   --color-on-dark: var(--paper);
   --color-accent: var(--red);
 
@@ -23,6 +23,162 @@
   --font-display: var(--font-tiempos), "Tiempos Text", "Times New Roman", serif;
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace,
     SFMono-Regular, Menlo, monospace;
+
+  /* Override default text-5xl from 3rem (48px) → 2.5rem (40px) so
+     Tailwind's text-5xl and the design system's display-h2 size match. */
+  --text-5xl: 2.5rem;
+  --text-5xl--line-height: 1.05;
+}
+
+/* ------------------------------------------------------------------ */
+/* Design-system type scale — mirrors Figma text styles 1:1.
+   Use these utilities on prose elements to keep HTML in lock-step with
+   the design system. Do not introduce ad-hoc sizes for body type.       */
+/* ------------------------------------------------------------------ */
+.type-display-h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: #1A191E;
+}
+.type-display-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #1A191E;
+}
+.type-display-h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #1A191E;
+}
+.type-card-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: #1A191E;
+}
+/* Body type classes — typography only. Color + opacity are intentionally
+   NOT baked in so callers can use them on light or dark backgrounds without
+   having to ! override. Default text color comes from the parent (#1a1a1a). */
+.type-body-lg {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+/* Leading — the deck / subheading paragraph that sits directly under an h2.
+   Same scale as Body/Large; callers apply opacity (typically opacity-80). */
+.type-leading {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.type-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.type-body-sm {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.type-body-xs {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.type-button {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.type-nav {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.type-chip {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  line-height: 1;
+}
+.type-eyebrow {
+  /* Typography matches Figma "Mono / Eyebrow (12 caps)" — JetBrains Mono 12px caps. */
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #1A191E;
+  /* iOS text-selection treatment — pale blue highlight with 2px blue borders
+     on the left + right edges that visually continue into the diagonal handles
+     (top-left dot above, bottom-right dot below). Highlight fits text only. */
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  align-self: flex-start;
+  background-color: #cfe1fb;
+  padding: 3px 6px;
+  border-left: 2px solid #1266ff;
+  border-right: 2px solid #1266ff;
+}
+.type-eyebrow::before,
+.type-eyebrow::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+.type-eyebrow::before {
+  /* Top-left handle: dot at TOP, short line continuing the left border upward */
+  top: -16px;
+  left: -8px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16' fill='none'><circle cx='7' cy='5' r='5' fill='%231266ff'/><rect x='6' y='8' width='2' height='8' fill='%231266ff'/></svg>");
+}
+.type-eyebrow::after {
+  /* Bottom-right handle: short line continuing the right border downward, dot at the BOTTOM */
+  bottom: -16px;
+  right: -8px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16' fill='none'><rect x='6' y='0' width='2' height='8' fill='%231266ff'/><circle cx='7' cy='11' r='5' fill='%231266ff'/></svg>");
+}
+.type-marker {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 *,
@@ -152,6 +308,33 @@ html {
   z-index: 1;
 }
 
+/* Paper grain — subtle speckle for light surfaces (folder tabs, panels).
+   Same fractal noise as grain-vintage but lighter density + multiply blend
+   so it darkens the underlying color just enough to read as textured. */
+.grain-paper {
+  position: relative;
+  isolation: isolate;
+}
+.grain-paper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.8 -0.2'/></filter><rect width='100%25' height='100%25' filter='url(%23p)'/></svg>");
+  background-size: 200px 200px;
+  /* Inherit the chamfer of the parent (folder-panel uses a clip-path) so
+     the grain doesn't bleed past the chamfered bottom-right corner. */
+  clip-path: inherit;
+}
+.grain-paper > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Horizontal section divider — full-width rule that runs edge-to-edge,
    crossing UNDER the vertical page borders. Same two-tone bevel. */
 .section-divider {
@@ -163,6 +346,24 @@ html {
   );
 }
 
+/* Utility: hide scrollbar while keeping scroll behaviour (used on horizontal
+   tab strips so a phantom scrollbar doesn't intrude on the folder shape). */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bottom-border variant — same two-tone bevel applied as a section's
+   bottom edge instead of a standalone divider element. */
+.section-border-b {
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.4);
+}
+
 /* Vertical indent divider — used as a left edge on nav cells, etc. */
 .divider-indent-left,
 .divider-indent-right {
@@ -172,8 +373,10 @@ html {
 .divider-indent-right::after {
   content: "";
   position: absolute;
+  /* Stop 2px short of the bottom so we don't overlap the parent's
+     section-border-b shadow (which occupies the bottom 2px). */
   top: 0;
-  bottom: 0;
+  bottom: 2px;
   width: 2px;
   background: linear-gradient(
     to right,
@@ -196,7 +399,7 @@ html {
   --light-blue: #f3f9ff;
   --mid-blue: #cdb8e3;
   --slate: #1a1a1a;
-  --red: #e8252d;
+  --red: #0E6BFF;
 }
 body:has(.theme-v2) {
   background: #ffffff;
@@ -209,9 +412,9 @@ body:has(.theme-v2)::after {
   opacity: 0.02;
 }
 .theme-v2 .card-blue-bright { background: #cdb8e3; color: #1a1a1a; }
-.theme-v2 .card-blue-light  { background: #a8d4ee; color: #1a1a1a; }
+.theme-v2 .card-blue-light  { background: #DBE6EB; color: #1a1a1a; }
 .theme-v2 .card-cream       { background: #f3eb88; color: #1a1a1a; }
-.theme-v2 .card-red         { background: #e8252d; color: #ffffff; }
+.theme-v2 .card-red         { background: #0E6BFF; color: #ffffff; }
 .theme-v2 .card-pink        { background: #f7c8d4; color: #1a1a1a; }
 /* Hide the default dot grid when the column-grid theme is active */
 body:has(.theme-v2) .page-grid {
@@ -229,7 +432,7 @@ body:has(.theme-v2) .page-grid {
   --light-blue: #8ca2ff;  /* periwinkle */
   --mid-blue: #2a5bff;    /* royal blue primary */
   --slate: #0d0d10;       /* near-black ink */
-  --red: #e8252d;
+  --red: #0E6BFF;
   --teal: #0fa3a3;
   --lavender: #c37bff;
   --gray-cool: #cfcfd4;
@@ -658,15 +861,30 @@ body:has(.theme-v3) .btn:active .btn-tab {
   top: 0;
   bottom: 0;
   width: 13px;
-  background-color: #a8d4ee;
+  /* Authentic blueprint paper — deep cobalt with a crisp white grid. */
+  background-color: #1d6cb0;
   background-image:
+    /* Major grid line, every 5 cells — slightly more visible */
     linear-gradient(to right,
       rgba(255, 255, 255, 0.55) 1px,
       transparent 1px),
     linear-gradient(to bottom,
       rgba(255, 255, 255, 0.55) 1px,
-      transparent 1px);
-  background-size: 6px 6px;
+      transparent 1px),
+    /* Minor grid line, every cell — subtle hairlines */
+    linear-gradient(to right,
+      rgba(255, 255, 255, 0.18) 0.5px,
+      transparent 0.5px),
+    linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.18) 0.5px,
+      transparent 0.5px);
+  background-size:
+    30px 30px,
+    30px 30px,
+    6px 6px,
+    6px 6px;
+  /* Subtle vignette so the rail reads as paper, not a flat color block */
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.08);
 }
 .theme-v2-rails::before { left: 0; }
 .theme-v2-rails::after  { right: 0; }
@@ -674,7 +892,11 @@ body:has(.theme-v3) .btn:active .btn-tab {
   .theme-v2-rails::before,
   .theme-v2-rails::after {
     width: 25px;
-    background-size: 8.33px 8.33px;
+    background-size:
+      30px 30px,
+      30px 30px,
+      8.33px 8.33px,
+      8.33px 8.33px;
   }
 }
 
@@ -704,7 +926,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
 .tear:hover .tear__char,
 .tear:focus-visible .tear__char {
   transform: translateY(-0.08em) rotate(var(--r, 0deg));
-  color: #e8252d;
+  color: #0E6BFF;
   text-shadow: 0 0.18em 0.32em rgba(26, 26, 26, 0.18);
 }
 /* Respect reduced-motion: keep the color shift, skip the lift. */
@@ -807,11 +1029,15 @@ body > * {
     calc(100% - 48px) 100%,
     0 100%
   );
-  /* drop-shadow filter (instead of box-shadow) so the shadow follows the
-     chamfered clip-path silhouette. */
-  filter: drop-shadow(0 4px 10px rgba(26, 26, 26, 0.12));
-  /* Top inset highlight only — no bottom border line. */
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  /* Same 3D treatment as .btn — top highlight, bottom inset shadow,
+     hard ground line + soft drop. drop-shadow (not box-shadow) so the
+     outer shadow follows the chamfered clip-path silhouette. */
+  filter:
+    drop-shadow(0 1px 0 rgba(0, 0, 0, 0.12))
+    drop-shadow(0 4px 8px rgba(26, 26, 26, 0.12));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
   transition: opacity 200ms ease, transform 200ms ease, filter 200ms ease;
   isolation: isolate;
 }
@@ -837,9 +1063,9 @@ body > * {
   z-index: 1;
 }
 .card:hover { opacity: 0.92; }
-.card-red { background: #e8252d; color: #ffffff; }
+.card-red { background: #0E6BFF; color: #ffffff; }
 .card-blue-bright { background: #cdb8e3; color: #ffffff; }
-.card-blue-light { background: #b8d4e8; color: #1a1a1a; }
+.card-blue-light { background: #DBE6EB; color: #1a1a1a; }
 .card-cream { background: #f0e6d4; color: #1a1a1a; }
 
 /* Spiral notebook binding — column of shiny silver metal rings down the
@@ -972,12 +1198,14 @@ body > * {
     calc(100% - 80px) 100%,
     0 100%
   );
+  /* Same 3D layered shadow as .btn — top highlight, bottom inset, hard ground
+     line + soft drop. Scaled slightly larger since this wraps a whole section. */
   filter:
-    drop-shadow(0 2px 0 rgba(0, 0, 0, 0.18))
-    drop-shadow(0 10px 24px rgba(26, 26, 26, 0.18));
+    drop-shadow(0 1px 0 rgba(0, 0, 0, 0.14))
+    drop-shadow(0 8px 16px rgba(26, 26, 26, 0.14));
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.22);
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20);
 }
 
 /* Vertical section rail — narrow editorial spine on the left edge of a section */
@@ -1215,6 +1443,18 @@ body > * {
     0 0 0 rgba(0, 0, 0, 0) !important;
 }
 
+/* Hover state — chip lifts slightly off the surface with a deeper shadow. */
+.btn:hover .btn-text,
+.btn:hover .btn-tab {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.22),
+    0 2px 0 rgba(0, 0, 0, 0.14),
+    0 5px 10px rgba(26, 26, 26, 0.18);
+  filter: brightness(1.04);
+}
+
 /* Press-down state — chip settles into the surface on click. */
 .btn:active .btn-text,
 .btn:active .btn-tab {
@@ -1223,6 +1463,7 @@ body > * {
     inset 0 1px 0 rgba(0, 0, 0, 0.18),
     inset 0 -1px 0 rgba(255, 255, 255, 0.08),
     0 0 0 rgba(0, 0, 0, 0);
+  filter: none;
 }
 .btn-tab svg {
   position: absolute;
@@ -1349,6 +1590,91 @@ a {
   height: 16px;
   border-radius: 2px !important;
   flex-shrink: 0;
+}
+
+/* Folder tabs — overlapping file-folder tabs that sit flush above their panel.
+   Each tab has a chamfered top-right corner; the active tab is the same color
+   as the panel below so it visually flows in as one continuous shape.
+   Typography matches the main nav (Funnel Sans 15px / weight 500). */
+.folder-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px 14px 18px;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: 0;
+  transition: opacity 200ms ease;
+  /* Same paper/editorial treatment as .svc-label — top highlight + bottom
+     shadow read as a printed folder tab. Inset shadows are clipped by
+     clip-path so they trace the chamfered edge. */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% 100%,
+    0 100%
+  );
+}
+.folder-tab + .folder-tab {
+  /* Each subsequent tab slips behind the previous one's chamfered corner. */
+  margin-left: -18px;
+}
+.folder-tab:not(.is-active) {
+  opacity: 0.85;
+}
+.folder-tab:not(.is-active):hover {
+  opacity: 1;
+}
+.folder-tab.is-active {
+  z-index: 20;
+  /* Overlap the panel by 1px so the active tab + panel read as one shape. */
+  margin-bottom: -1px;
+  padding-bottom: 15px;
+  /* Active tab loses the bottom inset so it visually merges into the panel. */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+/* The folder/stair glyph rendered as a pure SVG mask — clean and crisp. */
+.folder-tab-glyph {
+  display: inline-block;
+  width: 14px;
+  height: 12px;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 12'><rect x='0' y='0' width='14' height='2'/><rect x='0' y='5' width='10' height='2'/><rect x='0' y='10' width='6' height='2'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 12'><rect x='0' y='0' width='14' height='2'/><rect x='0' y='5' width='10' height='2'/><rect x='0' y='10' width='6' height='2'/></svg>");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Panel that sits flush under the tab strip. Same 3D treatment as .btn / .card. */
+.folder-panel {
+  position: relative;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 32px),
+    calc(100% - 32px) 100%,
+    0 100%
+  );
+  filter:
+    drop-shadow(0 1px 0 rgba(0, 0, 0, 0.12))
+    drop-shadow(0 4px 8px rgba(26, 26, 26, 0.12));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  transition: background-color 300ms ease, color 300ms ease;
+  isolation: isolate;
 }
 
 /* Masthead — horizontal scrolling ticker.

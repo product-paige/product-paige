@@ -13,7 +13,7 @@ export function SiteMasthead() {
   return (
     <div
       data-section="masthead"
-      className="bg-[#1a1a1a] text-white h-9 flex items-center mx-3 md:mx-6 overflow-hidden relative"
+      className="bg-[#1A191E] text-white h-9 flex items-center overflow-hidden relative"
     >
       <div
         className="masthead-track flex items-center whitespace-nowrap"

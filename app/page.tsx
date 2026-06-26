@@ -1,207 +1,220 @@
 "use client";
 
 import { useState } from "react";
-import { SectionDivider } from "./components/SectionDivider";
-import { TearHeading } from "./components/TearHeading";
+import { BtnIcons } from "./components/BtnIcons";
 import { PixelIcon, type PixelIconName } from "./components/PixelIcon";
-import { playbookList } from "./playbooks/data";
-
-const capabilities = [
-  {
-    title: "Positioning + product narrative",
-    blurb:
-      "Clear positioning and a story that matches the product, so the right people get it fast and the wrong people bounce early.",
-  },
-  {
-    title: "UX + conversion design",
-    blurb:
-      "Cleaner flows and fewer dead ends, so people finish the job instead of getting lost.",
-  },
-  {
-    title: "Onboarding + activation",
-    blurb:
-      "A first run that makes sense, so users reach value faster with less hand-holding.",
-  },
-  {
-    title: "Growth + prioritization",
-    blurb:
-      "A plan for what to fix now vs later, based on impact and effort. No wishlist.",
-  },
-];
+import { projectList } from "./projects/data";
 
 const services: Array<{
   name: string;
   bg: string;
-  swatch: string;
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "web and product design",    bg: "#cdb8e3", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "browser" },
-  { name: "UX and conversion",         bg: "#f7c8d4", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "cursor" },
-  { name: "positioning and messaging", bg: "#f3eb88", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "megaphone" },
-  { name: "AI content design",         bg: "#1a1a1a", swatch: "#ffffff", fg: "#ffffff", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#a8d4ee", swatch: "#1a1a1a", fg: "#1a1a1a", icon: "target" },
+  { name: "web and product design",    bg: "#cdb8e3", fg: "#1a1a1a", icon: "browser" },
+  { name: "UX and conversion",         bg: "#f7c8d4", fg: "#1a1a1a", icon: "cursor" },
+  { name: "positioning and messaging", bg: "#f3eb88", fg: "#1a1a1a", icon: "megaphone" },
+  { name: "AI content design",         bg: "#1a1a1a", fg: "#ffffff", icon: "sparkleA" },
+  { name: "product strategy",          bg: "#DBE6EB", fg: "#1a1a1a", icon: "target" },
 ];
 
-const selectedWork = [
+const productCategories: Array<{
+  name: string;
+  blurb: string;
+  tone: string;
+  icon: PixelIconName;
+  iconBg: string;
+  iconFg: string;
+}> = [
   {
-    client: "Raye",
-    year: "2026",
-    title: "Repositioning a B2B platform",
-    blurb:
-      "Moved from a feature list to a story buyers could repeat. Trial-to-paid lifted 38% in six weeks.",
-    href: "#",
+    name: "Shopify ecosystem",
+    blurb: "Apps, themes, and merchant-facing tools across the stack.",
+    tone: "card-blue-light",
+    icon: "browser",
+    iconBg: "#1a1a1a",
+    iconFg: "#ffffff",
   },
   {
-    client: "Northstar",
-    year: "2025",
-    title: "Onboarding rewrite",
-    blurb:
-      "Cut the first run from twelve steps to four. D1 activation climbed before the docs were finished.",
-    href: "#",
+    name: "Tools for brands",
+    blurb: "DTC brands shipping fast, with small teams and limited time.",
+    tone: "card-blue-light",
+    icon: "cursor",
+    iconBg: "#1a1a1a",
+    iconFg: "#ffffff",
   },
   {
-    client: "Field & Foundry",
-    year: "2025",
-    title: "Pricing page rebuild",
-    blurb:
-      "Replaced a 4-tier matrix with a single annual offer. Trial intent doubled in a month.",
-    href: "#",
+    name: "AI & no-code apps",
+    blurb: "AI features and no-code tools wedging into the ecommerce stack.",
+    tone: "card-blue-light",
+    icon: "sparkleA",
+    iconBg: "#1a1a1a",
+    iconFg: "#ffffff",
+  },
+  {
+    name: "Making it make sense",
+    blurb: "Onboarding, copy, IA, and the seams that confuse merchants.",
+    tone: "card-blue-light",
+    icon: "target",
+    iconBg: "#1a1a1a",
+    iconFg: "#ffffff",
   },
 ];
 
-const playbooks = playbookList.map((p) => ({
-  slug: p.slug,
-  no: p.no,
-  date: p.date,
-  title: p.title,
-  subtitle: p.kicker,
-  body: p.body,
-  chips: p.chips,
-  tone: p.homeTone,
-  status: p.status ?? "coming-soon",
+const capabilities = [
+  {
+    title: "Positioning & product narrative",
+    blurb:
+      "Sharper positioning and a story buyers can repeat. The product lands in eight seconds — to merchants, not just to you.",
+  },
+  {
+    title: "UX & conversion design",
+    blurb:
+      "Cleaner flows, fewer dead ends. People finish the job instead of bouncing on the second screen.",
+  },
+  {
+    title: "Onboarding & activation",
+    blurb:
+      "A first run that makes sense to a merchant who&rsquo;s never seen the product. Time-to-first-value shrinks.",
+  },
+  {
+    title: "Growth & prioritization",
+    blurb:
+      "A clear plan for what to fix now vs. later — built around how Shopify and ecommerce products actually grow, not generic best practice.",
+  },
+];
+
+const workingStyle: Array<{
+  title: string;
+  body: string;
+  icon: PixelIconName;
+}> = [
+  {
+    title: "Move fast, learn early",
+    body: "Get a simple version live quickly, then adjust based on what's real.",
+    icon: "cursor",
+  },
+  {
+    title: "Make it clear before making it pretty",
+    body: "Nail the structure and flow first. Polish comes after.",
+    icon: "target",
+  },
+  {
+    title: "Use tools to reduce friction",
+    body: "Remove blockers, speed up decisions, and keep momentum.",
+    icon: "sparkleA",
+  },
+];
+
+const growthBlockers = [
+  {
+    title: "Unclear product story",
+    body: "The product evolved. The message didn't. Explaining it shouldn't take five minutes.",
+  },
+  {
+    title: "Confusing onboarding",
+    body: "New merchants aren't sure where to start. Time-to-first-value is longer than it needs to be.",
+  },
+  {
+    title: "Too many priorities",
+    body: "Everything feels urgent. Work ships, but it's unclear what's actually moving the needle.",
+  },
+  {
+    title: "Shaky product foundation",
+    body: "The core experience isn't solid yet. Scaling now just amplifies the friction.",
+  },
+];
+
+/** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
+const recentWork: Array<{
+  no: string;
+  client: string;
+  blurb: string;
+  date: string;
+  tags: string[];
+  bg: string;
+  fg: string;
+  href: string;
+}> = projectList.map((p, i) => ({
+  no: `Project ${String(i + 1).padStart(2, "0")}`,
+  client: p.client,
+  blurb: p.kicker,
+  date: `${p.year}`,
+  tags: p.role.split(/[+&]/).map((t) => t.trim()),
+  bg: p.coverBg,
+  fg:
+    p.coverBg === "#f3eb88" ||
+    p.coverBg === "#DBE6EB" ||
+    p.coverBg === "#cdb8e3" ||
+    p.coverBg === "#f7c8d4"
+      ? "#1a1a1a"
+      : "#ffffff",
+  href: `/projects/${p.slug}`,
 }));
-
-function ArrowUpRight({ size = 16, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 256 256"
-      width={size}
-      height={size}
-      fill="currentColor"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z" />
-    </svg>
-  );
-}
-
-function ArrowRight({ size = 16, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 256 256"
-      width={size}
-      height={size}
-      fill="currentColor"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-    </svg>
-  );
-}
-
-function BtnIcons() {
-  return (
-    <>
-      <ArrowUpRight className="icon-default" />
-      <ArrowRight className="icon-hover" />
-    </>
-  );
-}
-
-function Placeholder({
-  ratio = "4/5",
-  fig,
-  caption,
-}: {
-  ratio?: string;
-  fig: string;
-  caption: string;
-}) {
-  return (
-    <figure className="flex flex-col gap-3">
-      <div
-        className="placeholder w-full"
-        style={{ aspectRatio: ratio }}
-      />
-      <figcaption className="flex items-baseline justify-between text-sm opacity-70">
-        <span>{fig}</span>
-        <span className="font-display text-base">{caption}</span>
-      </figcaption>
-    </figure>
-  );
-}
 
 export default function Home() {
   const [activeCap, setActiveCap] = useState(0);
+  const [activeProject, setActiveProject] = useState(0);
+  const project = recentWork[activeProject];
 
   return (
     <div className="theme-v2 contents">
       <div className="theme-v2-rails" aria-hidden="true" />
-      {/* === SECTION: hero === */}
+
+      {/* === HERO === */}
       <section
         id="hero"
         data-section="hero"
-        className="p-6 md:p-10 min-h-[calc(100vh-76px)] flex mx-3 md:mx-6"
+        className="min-h-[640px] flex section-border-b"
       >
-        <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-stretch w-full">
-          <div className="md:col-span-7 flex flex-col justify-end gap-12">
-            <TearHeading className="font-display leading-[0.85] tracking-tightest text-6xl md:text-8xl lg:text-9xl">
-              {"Product\nPaige"}
-            </TearHeading>
-            <div className="grid md:grid-cols-12 gap-12">
-              <p className="md:col-span-7 text-xl leading-[1.3] max-w-[520px]">
-                Product strategy + design for founders shipping in the age
-                of AI. Turning ideas into products with real demand, built
-                with clarity and habits that compound.
+        <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
+          <div className="flex flex-col gap-10 justify-end p-10 min-w-0">
+            <div className="flex flex-col gap-3.5">
+              <h1 className="type-display-h1 max-w-[20ch]">
+                Product marketing &amp; UX design for small teams
+              </h1>
+              <p className="type-body-lg max-w-[640px]">
+                13 years inside the Shopify and ecommerce ecosystem. I help
+                app makers, DTC brands, and ecommerce SaaS sharpen
+                positioning, fix onboarding, and ship product people
+                actually understand.
               </p>
-              <div className="md:col-span-4 md:col-start-9 flex flex-col gap-3">
-                <p className="eyebrow opacity-60">Status</p>
-                <p className="text-lg leading-[1.25] flex items-center gap-2">
-                  <span className="inline-block w-2.5 h-2.5 bg-[#e8252d]" />
-                  Available
-                </p>
-                <dl className="text-sm leading-[1.5] flex flex-col gap-1">
-                  <div className="flex gap-3">
-                    <dt className="opacity-60 w-[88px] shrink-0">Next opening</dt>
-                    <dd>Q3 2026</dd>
-                  </div>
-                  <div className="flex gap-3">
-                    <dt className="opacity-60 w-[88px] shrink-0">Based</dt>
-                    <dd>Canada</dd>
-                  </div>
-                </dl>
-              </div>
             </div>
+            <a
+              href="mailto:hello@productpaige.com?subject=Start%20a%20project"
+              className="inline-flex btn self-start"
+            >
+              <span className="btn-text bg-[#0E6BFF] text-white">
+                Let&rsquo;s talk
+              </span>
+              <span className="btn-tab bg-[#0E6BFF] text-white">
+                <BtnIcons />
+              </span>
+            </a>
           </div>
-          <figure className="md:col-span-5 flex flex-col h-full gap-3">
-            <div className="placeholder w-full flex-1 min-h-[300px]" />
-            <figcaption className="flex items-baseline justify-between text-sm opacity-70">
-              <span>Fig. 01</span>
-              <span className="font-display text-base">Studio, Canada</span>
-            </figcaption>
-          </figure>
+          <aside
+            className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center"
+            style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
+          >
+            <div className="card card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
+              <h3 className="type-card-title">
+                Product-led marketer and UX designer.
+              </h3>
+              <p className="type-body opacity-80">
+                13 years building in the Shopify and ecommerce ecosystem.
+              </p>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <SectionDivider />
-      {/* === SECTION: services-labels === */}
-      <section id="services" data-section="services-labels" className="p-12 mx-3 md:mx-6 flex flex-col gap-6">
-        <span className="eyebrow opacity-60">Practice areas</span>
+      
+
+      {/* === PRACTICE AREAS (chips) === */}
+      <section
+        id="practice-areas"
+        data-section="practice-areas"
+        className="p-10 section-border-b"
+      >
         <ul className="flex flex-wrap gap-3">
           {services.map((s) => (
             <li key={s.name}>
@@ -224,24 +237,74 @@ export default function Home() {
         </ul>
       </section>
 
-      <SectionDivider />
-      {/* === SECTION: capabilities === */}
-      <section id="capabilities" data-section="capabilities" className="p-16 mx-3 md:mx-6 flex flex-col gap-6 max-h-screen">
-        <span className="eyebrow opacity-60">Capabilities</span>
-        <div className="grid md:grid-cols-12 gap-6 md:gap-12">
-          <div className="md:col-span-6 flex flex-col gap-10">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1]">
+      
+
+      {/* === PRODUCT CATEGORIES === */}
+      <section
+        id="categories"
+        data-section="product-categories"
+        className="p-10 flex flex-col gap-10 section-border-b"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Categories</span>
+          <div className="flex flex-col gap-3">
+            <h2 className="type-display-h2 max-w-[24ch]">
+              Uncomplicating products that power real work
+            </h2>
+            <p className="type-leading opacity-80 max-w-[680px]">
+              I work inside the Shopify and ecommerce stack — apps, DTC brands,
+              and the AI-assisted tools wedging their way in. When someone
+              relies on your product every day to run their store,
+              &ldquo;kinda clear&rdquo; isn&rsquo;t clear.
+            </p>
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+          {productCategories.map((c) => (
+            <article
+              key={c.name}
+              className={`card ${c.tone} flex flex-col justify-between aspect-[16/11] !min-h-0`}
+            >
+              <div
+                className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px]"
+                style={{ backgroundColor: c.iconBg, color: c.iconFg }}
+              >
+                <PixelIcon name={c.icon} color={c.iconFg} size={24} />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="type-card-title">{c.name}</h3>
+                <p className="type-body-sm opacity-80">{c.blurb}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      
+
+      {/* === CAPABILITIES === */}
+      <section
+        id="services"
+        data-section="capabilities"
+        className="p-10 flex flex-col gap-6 section-border-b"
+      >
+        <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-stretch">
+          <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-6">
+              <span className="type-eyebrow">Capabilities</span>
+              <h2 className="type-display-h2 max-w-[500px]">
                 What we&rsquo;ll improve
               </h2>
-              <ul className="border-t border-[#1a1a1a]/25">
+              <ul className="border-t border-[#1a1a1a]/25 max-w-[500px]">
                 {capabilities.map((c, i) => (
                   <li
                     key={c.title}
                     className="border-b border-[#1a1a1a]/25"
                   >
                     <button
+                      type="button"
                       onClick={() => setActiveCap(i)}
-                      className={`w-full text-left py-6 font-display text-3xl leading-[1.1] transition-opacity ${
+                      className={`w-full text-left py-4 type-display-h3 transition-opacity ${
                         activeCap === i
                           ? "opacity-100"
                           : "opacity-30 hover:opacity-60"
@@ -252,169 +315,297 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="max-w-[480px] flex flex-col gap-8">
-                <p className="text-lg leading-[1.5] min-h-[4em]">
-                  {capabilities[activeCap].blurb}
-                </p>
-                <a href="#services" className="btn self-start">
-                  <span className="btn-text bg-[#e8252d] text-white">
-                    Explore services
-                  </span>
-                  <span className="btn-tab bg-[#e8252d] text-white">
-                    <BtnIcons />
-                  </span>
-                </a>
-              </div>
             </div>
-            <div className="md:col-span-5 md:col-start-8 flex flex-col">
-              <Placeholder
-                ratio="1/1"
-                fig="Fig. 04"
-                caption="Recent work — Raye"
-              />
-            </div>
-          </div>
-      </section>
-
-      <SectionDivider />
-      {/* === SECTION: selected-work === */}
-      <section id="work" data-section="selected-work" className="p-12 mx-3 md:mx-6 flex flex-col gap-6">
-        <span className="eyebrow opacity-60">Selected work</span>
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
-          {selectedWork.map((w) => (
-            <a
-              key={w.title}
-              href={w.href}
-              className="flex flex-col gap-4 group"
-            >
-              <div
-                className="placeholder w-full aspect-[4/3]"
-                aria-label={`Image — ${w.title}`}
-              />
-              <div className="flex items-baseline justify-between text-sm opacity-70">
-                <span>{w.client}</span>
-                <span>{w.year}</span>
-              </div>
-              <h3 className="font-display text-2xl md:text-3xl leading-[1.1]">
-                {w.title}
-              </h3>
-              <p className="text-base leading-[1.55] opacity-80">
-                {w.blurb}
-              </p>
-              <span className="text-sm font-medium border-b border-[#1a1a1a] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
-                Read the case
+            <p
+              key={activeCap}
+              className="type-body-lg max-w-[480px] min-h-[5em]"
+              dangerouslySetInnerHTML={{
+                __html: capabilities[activeCap].blurb,
+              }}
+            />
+            <a href="#categories" className="inline-flex btn self-start">
+              <span className="btn-text bg-[#0E6BFF] text-white">
+                Explore services
+              </span>
+              <span className="btn-tab bg-[#0E6BFF] text-white">
+                <BtnIcons />
               </span>
             </a>
+          </div>
+          <div className="relative md:divider-indent-left h-full">
+            <div
+              className="placeholder w-full h-full min-h-[480px]"
+              aria-label="Capabilities — image placeholder"
+            />
+          </div>
+        </div>
+      </section>
+
+      
+
+      {/* === WHY — FIX WHAT'S SLOWING GROWTH === */}
+      <section
+        id="growth"
+        data-section="growth-blockers"
+        className="p-10 flex flex-col gap-10 section-border-b"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Growth blockers</span>
+          <h2 className="type-display-h2 max-w-[24ch]">
+            Fix what&rsquo;s slowing growth
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-4 items-stretch">
+          {growthBlockers.map((g) => (
+            <article
+              key={g.title}
+              className="flex flex-col gap-2 p-6 border border-[#1a1a1a]/20"
+            >
+              <h3 className="type-card-title">
+                {g.title}
+              </h3>
+              <p className="type-body opacity-80 max-w-[480px]">
+                {g.body}
+              </p>
+            </article>
           ))}
         </div>
       </section>
 
-      <SectionDivider />
-      {/* === SECTION: field-note (pull quote) === */}
-      <section id="field-note" data-section="field-note" className="p-12 mx-3 md:mx-6 flex flex-col gap-6">
-        <span className="eyebrow opacity-60">Field note</span>
-        <blockquote className="max-w-[1100px] flex flex-col gap-12">
-          <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em]">
-            &ldquo;Vibe-coding is not a strategy. The market doesn&rsquo;t care
-            how fast you shipped a thing nobody wanted.&rdquo;
-          </p>
-          <footer className="flex items-baseline gap-6 text-sm opacity-70">
-            <span>Notes from the field</span>
-          </footer>
-        </blockquote>
+      
+
+      {/* === HOW — WORKING STYLE === */}
+      <section
+        id="working-style"
+        data-section="working-style"
+        className="grid md:grid-cols-2 items-stretch section-border-b"
+      >
+        {/* Left: full-bleed grain/image surface */}
+        <aside
+          className="placeholder min-h-[480px] md:min-h-[600px] m-10 md:divider-indent-right relative"
+          aria-label="Working style — illustrative surface"
+        />
+        {/* Right: eyebrow + heading + body + divider + list */}
+        <div className="p-10 flex flex-col justify-between gap-10 md:divider-indent-left relative">
+          <div className="flex flex-col gap-6">
+            <span className="type-eyebrow">Working style</span>
+            <div className="flex flex-col gap-3">
+              <h2 className="type-display-h2 max-w-[20ch]">
+                Move fast &amp; keep it simple
+              </h2>
+              <p className="type-leading opacity-80 max-w-[560px]">
+                Fast prototypes and clear decisions, without making it harder
+                than it needs to be.
+              </p>
+            </div>
+          </div>
+          <ol className="border-t border-[#1a1a1a]/20">
+            {workingStyle.map((w) => (
+              <li
+                key={w.title}
+                className="border-b border-[#1a1a1a]/20 py-5 flex items-start gap-5"
+              >
+                <div className="w-14 h-14 shrink-0 bg-[#1a1a1a] text-white flex items-center justify-center !rounded-[4px]">
+                  <PixelIcon name={w.icon} color="#ffffff" size={24} />
+                </div>
+                <div className="flex flex-col gap-2 pt-1">
+                  <h3 className="type-card-title">{w.title}</h3>
+                  <p className="type-body opacity-80 max-w-[420px]">{w.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
 
-      <SectionDivider />
-      {/* === SECTION: blog === */}
-      <section id="blog" data-section="blog" className="p-12 mx-3 md:mx-6 flex flex-col gap-6">
-        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tightest max-w-[16ch]">
-          From the journal
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
-          {playbooks.map((p) => (
-            <a
-              key={p.slug}
-              href={`/playbooks/${p.slug}`}
-              className={`card ${p.tone} flex flex-col aspect-[6/4] !min-h-0`}
-            >
-              <header className="flex items-start justify-between">
-                <span className="text-sm opacity-80">{p.date}</span>
-                <span className="stamp opacity-90 border-current">
-                  {p.status === "live" ? "Read now" : "Coming soon"}
-                </span>
-              </header>
-              <div className="mt-auto flex flex-col gap-4">
-                <h4 className="font-display text-3xl leading-[1.05]">
-                  {p.title}
-                </h4>
-                <p className="text-base leading-[1.55] opacity-80">
-                  {p.body}
+      
+
+      {/* === RECENT WORK (folder tabs) === */}
+      <section
+        id="work"
+        data-section="recent-work"
+        className="p-10 flex flex-col gap-10 section-border-b"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Recent work</span>
+          <div className="flex flex-col gap-3">
+            <h2 className="type-display-h2 max-w-[24ch]">
+              Recent work
+            </h2>
+            <p className="type-leading opacity-80 max-w-[640px]">
+              A mix of product audits, UX improvements, and personal projects
+              across the Shopify and ecommerce ecosystem.
+            </p>
+          </div>
+        </div>
+
+        {/* Tab strip + panel — full section width so the folder reads at a
+            generous scale. Active tab sits flush on top of the panel as one
+            continuous folder shape. On mobile the tab strip scrolls
+            horizontally (no visible scrollbar) and the panel stacks. */}
+        <div className="flex flex-col w-full">
+          {/* Tab strip — horizontal scroll on small screens so 3+ tabs never
+              overflow, plus a snap-x so each tab settles into view cleanly. */}
+          <div
+            role="tablist"
+            aria-label="Recent projects"
+            className="flex items-end overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+          >
+            {recentWork.map((w, i) => {
+              const isActive = activeProject === i;
+              return (
+                <button
+                  key={w.client}
+                  type="button"
+                  role="tab"
+                  onClick={() => setActiveProject(i)}
+                  aria-selected={isActive}
+                  aria-controls="project-panel"
+                  tabIndex={isActive ? 0 : -1}
+                  className={`folder-tab grain-paper shrink-0 snap-start ${isActive ? "is-active" : ""}`}
+                  style={{
+                    backgroundColor: "#DBE6EB",
+                    color: "#1A191E",
+                    /* Inactive tabs slip behind in reading order; later tabs
+                       sit further back so the cascade reads left → right. */
+                    zIndex: isActive ? 20 : recentWork.length - i,
+                  }}
+                >
+                  <span className="folder-tab-glyph" aria-hidden="true" />
+                  <span>{w.no}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active project panel — stacks on mobile (1 col), splits 50/50 on
+              md+. Padding scales: 24px mobile → 40px desktop. */}
+          <div
+            id="project-panel"
+            role="tabpanel"
+            aria-labelledby={`tab-${activeProject}`}
+            key={project.client}
+            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 p-6 md:p-10 items-stretch"
+            style={{ backgroundColor: "#DBE6EB", color: "#1A191E" }}
+          >
+            <div className="flex flex-col gap-6 justify-between min-h-[360px] md:min-h-[560px]">
+              <div className="flex flex-col gap-6">
+                <span className="type-body-sm opacity-80">{project.date}</span>
+                <h3 className="type-display-h2">{project.client}</h3>
+                <p className="type-body-lg opacity-80 max-w-[480px]">
+                  {project.blurb}
                 </p>
+              </div>
+              <div className="flex flex-col gap-4">
+                <a
+                  href={project.href}
+                  className="type-nav inline-flex items-center gap-2 self-start hover:opacity-70 transition-opacity"
+                >
+                  View project ↗
+                </a>
                 <ul className="flex flex-wrap gap-2">
-                  {p.chips.map((c) => (
-                    <li key={c} className="pill pill-cased">
-                      {c}
+                  {project.tags.map((t) => (
+                    <li key={t} className="pill pill-cased">
+                      {t}
                     </li>
                   ))}
                 </ul>
               </div>
-            </a>
-          ))}
+            </div>
+            <div
+              className="placeholder w-full h-full min-h-[280px] md:min-h-[560px]"
+              aria-label={`Image — ${project.client}`}
+            />
+          </div>
         </div>
       </section>
 
-      <SectionDivider />
-      {/* === SECTION: newsletter (CTA, red, chamfered, in framed container) === */}
-      <div data-section="newsletter-frame" className="mx-3 md:mx-6">
+      
+
+      {/* === WHO — ABOUT === */}
       <section
-        id="newsletter"
-        data-section="newsletter"
-        className="bg-[#1a1a1a] text-white p-12 m-6 section-chamfer relative grain-vintage flex flex-col gap-6"
+        id="about"
+        data-section="about"
+        className="grid md:grid-cols-2 items-stretch section-border-b min-h-[760px]"
       >
-        <span className="eyebrow opacity-80">Newsletter</span>
-        <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
-            <div className="md:col-span-8 flex flex-col gap-6">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
-                Prompt with Paige, a newsletter
+        <div className="p-10 flex flex-col gap-10 justify-between">
+          <div className="flex flex-col gap-6">
+            <span className="type-eyebrow">About</span>
+            <div className="flex flex-col gap-3">
+              <h2 className="type-display-h2 max-w-[24ch]">
+                About Paige
               </h2>
-              <p className="text-lg leading-[1.5] max-w-[600px] opacity-90">
-                Prompts, templates, and short notes on product clarity, AI
-                workflows, and what actually moves work forward.
+              <p className="type-leading opacity-80 max-w-[640px]">
+                13 years building inside the Shopify and ecommerce ecosystem.
+                Half product marketer, half UX designer — most useful at the
+                seam where the product story has to match the product
+                experience.
               </p>
             </div>
-            <form
-              className="md:col-span-4 flex flex-col gap-3 items-stretch"
-              action="https://buttondown.com/api/emails/embed-subscribe/productpaige"
-              method="post"
-              target="_blank"
-            >
-              <label className="sr-only" htmlFor="newsletter-email">
-                Email address
-              </label>
-              <input
-                id="newsletter-email"
-                type="email"
-                name="email"
-                required
-                placeholder="your@email.com"
-                className="bg-white/15 text-white placeholder:text-white/60 px-4 py-3 focus:outline-none focus:bg-white/25 border border-white/30"
-              />
-              <button type="submit" className="btn self-start">
-                <span className="btn-text bg-[#e8252d] text-white">
-                  Subscribe
-                </span>
-                <span className="btn-tab bg-[#e8252d] text-white">
-                  <BtnIcons />
-                </span>
-              </button>
-              <p className="text-xs opacity-70">
-                One email. No spam. Unsubscribe anytime.
-              </p>
-            </form>
+          </div>
+          <div className="flex flex-col gap-5 max-w-[640px]">
+            <p className="type-body">
+              Currently working with app makers, DTC brands, and ecommerce
+              SaaS teams who&rsquo;ve outgrown their messaging or their
+              onboarding (often both). Previously inside product orgs at
+              Shopify-stack companies you&rsquo;ve heard of.
+            </p>
+            <p className="type-body">
+              The work is small in scope and big in leverage: two-week
+              sprints, one question per engagement, real artifacts a
+              merchant can touch.
+            </p>
+          </div>
+          <a href="/about" className="inline-flex btn self-start">
+            <span className="btn-text bg-[#1a1a1a] text-white">
+              More about me
+            </span>
+            <span className="btn-tab bg-[#1a1a1a] text-white">
+              <BtnIcons />
+            </span>
+          </a>
         </div>
+        <aside
+          className="bg-[#1a1a1a] min-h-[480px] relative md:divider-indent-left"
+          aria-label="Portrait — Paige"
+        />
       </section>
-      </div>
 
+      
+
+      {/* === CLOSING CTA === */}
+      <div data-section="closing-cta-frame" className="">
+        <section
+          id="contact"
+          data-section="closing-cta"
+          className="bg-[#1A191E] text-white p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
+        >
+          <div className="flex flex-col gap-6 max-w-[800px]">
+            <span className="type-eyebrow">Get in touch</span>
+            <div className="flex flex-col gap-3">
+              <h2 className="type-display-h1 !text-white">
+                Stop explaining the product
+              </h2>
+              <p className="type-leading !text-white opacity-80 max-w-[560px]">
+                Send a link and the part you can&rsquo;t see clearly yet. You&rsquo;ll
+                hear back with where the seams are and what&rsquo;s worth
+                fixing first.
+              </p>
+            </div>
+          </div>
+          <a
+            href="mailto:hello@productpaige.com?subject=Start%20a%20project"
+            className="inline-flex btn"
+          >
+            <span className="btn-text bg-[#0E6BFF] text-white">
+              Start a project
+            </span>
+            <span className="btn-tab bg-[#0E6BFF] text-white">
+              <BtnIcons />
+            </span>
+          </a>
+        </section>
+      </div>
     </div>
   );
 }
