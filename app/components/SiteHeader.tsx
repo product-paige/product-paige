@@ -61,7 +61,7 @@ export function SiteHeader() {
         </a>
         <div className="divider-indent-left flex items-center px-4">
           <a
-            href="mailto:hello@productpaige.com?subject=Start%20a%20project"
+            href="/contact"
             className="inline-flex btn"
           >
             <span className="btn-text bg-[#0E6BFF] text-white">

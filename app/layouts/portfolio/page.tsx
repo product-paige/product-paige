@@ -225,7 +225,7 @@ export default function PortfolioLayout() {
           Have something messy?
         </h2>
         <a
-          href="mailto:hello@productpaige.com?subject=Start%20a%20project"
+          href="/contact"
           className="inline-flex btn"
         >
           <span className="btn-text bg-[#0E6BFF] text-white">

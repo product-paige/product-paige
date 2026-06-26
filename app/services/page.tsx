@@ -137,7 +137,7 @@ export default function ServicesPage() {
               </div>
             </div>
             <a
-              href="mailto:hello@productpaige.com?subject=Start%20a%20project"
+              href="/contact"
               className="inline-flex btn self-start"
             >
               <span className="btn-text bg-[#0E6BFF] text-white">
@@ -232,14 +232,14 @@ export default function ServicesPage() {
             </div>
             <div className="md:col-span-7 flex flex-col gap-10">
               <div className="flex flex-col gap-3">
-                <span className="type-eyebrow">What it is</span>
+                <h3 className="type-card-title">What it is</h3>
                 <p
                   className="type-body opacity-80 max-w-[560px]"
                   dangerouslySetInnerHTML={{ __html: s.whatItIs }}
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <span className="type-eyebrow">What&rsquo;s included</span>
+                <h3 className="type-card-title">What&rsquo;s included</h3>
                 <ul className="flex flex-col gap-3 max-w-[560px]">
                   {s.includes.map((item) => (
                     <li
@@ -257,14 +257,14 @@ export default function ServicesPage() {
               </div>
               <div className="grid sm:grid-cols-2 gap-10">
                 <div className="flex flex-col gap-3">
-                  <span className="type-eyebrow">Deliverable</span>
+                  <h3 className="type-card-title">Deliverable</h3>
                   <p
                     className="type-body opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.deliverable }}
                   />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <span className="type-eyebrow">Good for</span>
+                  <h3 className="type-card-title">Good for</h3>
                   <p
                     className="type-body opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.goodFor }}
@@ -355,7 +355,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <a
-          href="mailto:hello@productpaige.com?subject=Start%20a%20project"
+          href="/contact"
           className="inline-flex btn"
         >
           <span className="btn-text bg-[#0E6BFF] text-white">

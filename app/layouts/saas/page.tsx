@@ -156,7 +156,7 @@ export default function SaasLayout() {
             </p>
             <div className="flex items-center gap-4 flex-wrap">
               <a
-                href="mailto:hello@productpaige.com?subject=Start%20a%20project"
+                href="/contact"
                 className="inline-flex btn"
               >
                 <span className="btn-text bg-[#0E6BFF] text-white">
