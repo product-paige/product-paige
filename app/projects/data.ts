@@ -22,7 +22,7 @@ export const projects: Record<string, Project> = {
     year: "2026",
     role: "Brand + Shopify build",
     kicker:
-      "End-to-end build for a refill-first body care brand on Shopify.",
+      "A refill-first body care brand built on Shopify, from product story to storefront experience.",
     coverBg: "#cdb8e3",
     problem:
       "A founder with a product, a vision, and no name. The category was crowded with brands that all looked the same — clinical, identical packaging, single-purchase only. No story, no system, no reason to come back.",

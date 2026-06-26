@@ -11,9 +11,9 @@ const services: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "web and product design",    bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
-  { name: "UX and conversion",         bg: "#D6D7D9", fg: "#1A191E", icon: "cursor" },
-  { name: "positioning and messaging", bg: "#D6D7D9", fg: "#1A191E", icon: "megaphone" },
+  { name: "ecommerce UX",              bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
+  { name: "conversion design",         bg: "#D6D7D9", fg: "#1A191E", icon: "cursor" },
+  { name: "positioning + messaging",   bg: "#D6D7D9", fg: "#1A191E", icon: "megaphone" },
   { name: "AI content design",         bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
   { name: "product strategy",          bg: "#D6D7D9", fg: "#1A191E", icon: "target" },
 ];
@@ -31,55 +31,55 @@ const productCategories: Array<{
     blurb: "Apps, themes, and merchant-facing tools across the stack.",
     tone: "card-blue-light",
     icon: "browser",
-    iconBg: "#1a1a1a",
+    iconBg: "#1A191E",
     iconFg: "#ffffff",
   },
   {
     name: "Tools for brands",
-    blurb: "DTC brands shipping fast, with small teams and limited time.",
+    blurb: "DTC stores, product pages, offers, flows, and small teams selling online.",
     tone: "card-blue-light",
     icon: "cursor",
-    iconBg: "#1a1a1a",
+    iconBg: "#1A191E",
     iconFg: "#ffffff",
   },
   {
-    name: "AI & no-code apps",
-    blurb: "AI features and no-code tools wedging into the ecommerce stack.",
+    name: "AI in ecommerce",
+    blurb: "AI features and workflows that need to feel useful, not confusing.",
     tone: "card-blue-light",
     icon: "sparkleA",
-    iconBg: "#1a1a1a",
+    iconBg: "#1A191E",
     iconFg: "#ffffff",
   },
   {
-    name: "Making it make sense",
-    blurb: "Onboarding, copy, IA, and the seams that confuse merchants.",
+    name: "Make it make sense",
+    blurb: "Positioning, copy, UX, and the seams that confuse merchants or customers.",
     tone: "card-blue-light",
     icon: "target",
-    iconBg: "#1a1a1a",
+    iconBg: "#1A191E",
     iconFg: "#ffffff",
   },
 ];
 
 const capabilities = [
   {
-    title: "Positioning & product narrative",
+    title: "Positioning + messaging",
     blurb:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+      "Clarify what you sell, who it&rsquo;s for, and why it matters, so customers understand the value faster.",
   },
   {
-    title: "UX & conversion design",
+    title: "Ecommerce UX + conversion",
     blurb:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+      "Clean up the path from first impression to action: product pages, landing pages, flows, and decision points.",
   },
   {
-    title: "Onboarding & activation",
+    title: "AI content design",
     blurb:
-      "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.",
+      "Use AI to create better product content, page systems, prompts, and workflows without losing taste or clarity.",
   },
   {
-    title: "Growth & prioritization",
+    title: "Product strategy",
     blurb:
-      "Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue.",
+      "Decide what to fix, test, or build next based on customer friction, business goals, and what actually moves the needle.",
   },
 ];
 
@@ -100,7 +100,7 @@ const workingStyle: Array<{
   },
   {
     title: "Use tools to reduce friction",
-    body: "Remove blockers, speed up decisions, and keep momentum.",
+    body: "Use AI and lightweight workflows to speed up decisions, content, and execution.",
     icon: "sparkleA",
   },
 ];
@@ -108,19 +108,19 @@ const workingStyle: Array<{
 const growthBlockers = [
   {
     title: "Unclear product story",
-    body: "The product evolved. The message didn't. Explaining it shouldn't take five minutes.",
+    body: "The product evolved, but the message didn't. Customers should not have to work this hard to understand it.",
   },
   {
-    title: "Confusing onboarding",
-    body: "New merchants aren't sure where to start. Time-to-first-value is longer than it needs to be.",
+    title: "Confusing shopping or signup flow",
+    body: "People are interested, but they are not sure what to do next. That friction costs sales, signups, and trust.",
   },
   {
     title: "Too many priorities",
-    body: "Everything feels urgent. Work ships, but it's unclear what's actually moving the needle.",
+    body: "Everything feels urgent. Work ships, but it's unclear what is actually moving the business forward.",
   },
   {
     title: "Shaky product foundation",
-    body: "The core experience isn't solid yet. Scaling now just amplifies the friction.",
+    body: "The core experience is not clear enough yet. Scaling now just amplifies the friction.",
   },
 ];
 
@@ -168,23 +168,26 @@ export default function Home() {
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
           <div className="flex flex-col gap-10 justify-end p-10 min-w-0">
-            <div className="flex flex-col gap-3.5">
-              <h1 className="type-display-h1 max-w-[20ch]">
-                Product marketing &amp; UX design for small teams
-              </h1>
-              <p className="type-body-lg max-w-[640px]">
-                13 years inside the Shopify and ecommerce ecosystem. I help
-                app makers, DTC brands, and ecommerce SaaS sharpen
-                positioning, fix onboarding, and ship product people
-                actually understand.
-              </p>
+            <div className="flex flex-col gap-6">
+              <span className="type-eyebrow">Practice</span>
+              <div className="flex flex-col gap-3">
+                <h1 className="type-display-h1 max-w-[20ch]">
+                  Product marketing &amp; UX design for ecommerce teams
+                </h1>
+                <p className="type-leading opacity-80 max-w-[640px]">
+                  13 years inside Shopify and ecommerce. I help DTC brands,
+                  app makers, and ecommerce SaaS teams sharpen positioning,
+                  clean up the customer experience, and make products people
+                  actually understand.
+                </p>
+              </div>
             </div>
             <a
               href="mailto:hello@productpaige.com?subject=Start%20a%20project"
               className="inline-flex btn self-start"
             >
               <span className="btn-text bg-[#0E6BFF] text-white">
-                Let&rsquo;s talk
+                Start a project
               </span>
               <span className="btn-tab bg-[#0E6BFF] text-white">
                 <BtnIcons />
@@ -530,20 +533,38 @@ export default function Home() {
         data-section="about"
         className="grid md:grid-cols-2 items-stretch section-border-b min-h-[560px]"
       >
-        {/* Left column — editorial layout, content floats top + bottom */}
-        <div className="p-10 flex flex-col gap-10 justify-between">
+        {/* Left column — eyebrow + h2 at top, 4-paragraph bio fills the column */}
+        <div className="p-10 flex flex-col gap-10">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">About</span>
-            <div className="flex flex-col gap-3">
-              <h2 className="type-display-h1 max-w-[14ch]">
-                Half marketer, half designer.
-              </h2>
-              <p className="type-leading opacity-80 max-w-[520px]">
-                13 years inside the Shopify and ecommerce ecosystem — most
-                useful at the seam where the product story has to match the
-                product experience.
-              </p>
-            </div>
+            <h2 className="type-display-h1 max-w-[14ch]">
+              Half marketer, half designer.
+            </h2>
+          </div>
+          <div className="flex flex-col gap-5 max-w-[560px]">
+            <p className="type-leading opacity-80">
+              I&rsquo;ve spent 13 years inside the Shopify and ecommerce
+              ecosystem, mostly at the messy intersection of product,
+              marketing, UX, and growth.
+            </p>
+            <p className="type-body opacity-80">
+              That means I&rsquo;m most useful where the product story has to
+              match the product experience. The homepage, the product page,
+              the onboarding flow, the pricing page, the feature that
+              technically works but still takes too long to explain.
+            </p>
+            <p className="type-body opacity-80">
+              I&rsquo;ve worked across Shopify apps, ecommerce SaaS, DTC
+              brands, and early-stage teams where everyone is moving fast and
+              context is scattered everywhere. Usually, the problem is not
+              effort. It&rsquo;s clarity.
+            </p>
+            <p className="type-body opacity-80">
+              I help teams make the thing easier to understand, easier to
+              use, and easier to sell. No giant strategy theatre. No
+              pretending every problem needs a 40-slide deck. Just clear
+              thinking, honest feedback, and practical next steps.
+            </p>
           </div>
         </div>
 
@@ -587,12 +608,12 @@ export default function Home() {
             <span className="type-eyebrow">Get in touch</span>
             <div className="flex flex-col gap-3">
               <h2 className="type-display-h1 !text-white">
-                Stop explaining the product
+                Stop over-explaining the product
               </h2>
               <p className="type-leading !text-white opacity-80 max-w-[560px]">
-                Send a link and the part you can&rsquo;t see clearly yet. You&rsquo;ll
-                hear back with where the seams are and what&rsquo;s worth
-                fixing first.
+                Send a link and the part you can&rsquo;t see clearly yet.
+                I&rsquo;ll help you find the seams, the friction, and
+                what&rsquo;s worth fixing first.
               </p>
             </div>
           </div>

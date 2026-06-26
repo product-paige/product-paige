@@ -1,10 +1,8 @@
 const items = [
-  "Vol. 01 · Issue no. 1",
-  "Product strategy · For founders · In the age of AI",
-  "MMXXVI · Folio 001",
-  "An independent practice · Canada · Remote",
-  "Newsletter · Sundays · ~4 min",
+  "Product strategy + UX for Shopify and ecommerce teams",
+  "Newsletter · Prompt with Paige",
   "Now booking · Q3 2026",
+  "An independent practice · Canada · Remote",
 ];
 
 export function SiteMasthead() {
