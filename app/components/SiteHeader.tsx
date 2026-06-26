@@ -19,7 +19,7 @@ export function SiteHeader() {
       <ul className="hidden md:flex flex-1 items-stretch">
         <li className="flex">
           <a
-            href="/#services"
+            href="/services"
             className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
             Services

@@ -11,7 +11,7 @@ export function SiteFooter() {
         <nav>
           <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 type-body-sm">
             <li><a href="/" className="hover:opacity-60">Home</a></li>
-            <li><a href="/#services" className="hover:opacity-60">Services</a></li>
+            <li><a href="/services" className="hover:opacity-60">Services</a></li>
             <li><a href="/#work" className="hover:opacity-60">Projects</a></li>
             <li><a href="/#about" className="hover:opacity-60">About</a></li>
             <li><a href="/ask-paige" className="hover:opacity-60">Ask Paige</a></li>
