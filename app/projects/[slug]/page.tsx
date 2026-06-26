@@ -1,16 +1,46 @@
-"use client";
-
-import { use } from "react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BtnIcons } from "../../components/BtnIcons";
 import { projects, projectList } from "../data";
 
-export default function ProjectPage({
+export function generateStaticParams() {
+  return projectList.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects[slug];
+  if (!project) return { title: "Project not found" };
+  const title = `${project.client} — ${project.kicker}`;
+  const description = `${project.client}: ${project.problem.slice(0, 140)}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/projects/${slug}` },
+    openGraph: {
+      type: "article",
+      title,
+      description,
+      url: `/projects/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
+
+export default async function ProjectPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = use(params);
+  const { slug } = await params;
   const project = projects[slug];
   if (!project) notFound();
 

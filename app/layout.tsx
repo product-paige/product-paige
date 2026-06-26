@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Funnel_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -38,9 +38,73 @@ const jetbrainsMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Product Paige — Product strategy for founders in the age of AI",
+  metadataBase: new URL("https://productpaige.com"),
+  title: {
+    default: "Product Paige — Product marketing + UX design for Shopify teams",
+    template: "%s · Product Paige",
+  },
   description:
-    "I'm Paige, a product strategist helping founders ship real products in the age of AI. Strategy, coaching, and operating frameworks for technical founders.",
+    "13 years inside the Shopify and ecommerce ecosystem. I help app makers, DTC brands, and ecommerce SaaS sharpen positioning, fix onboarding, and ship product people actually understand.",
+  keywords: [
+    "Shopify app design",
+    "ecommerce UX",
+    "product marketing",
+    "Shopify product strategy",
+    "DTC product design",
+    "onboarding design",
+    "positioning",
+    "product narrative",
+  ],
+  authors: [{ name: "Paige Harris", url: "https://productpaige.com" }],
+  creator: "Paige Harris",
+  publisher: "Product Paige",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://productpaige.com",
+    siteName: "Product Paige",
+    title: "Product Paige — Product marketing + UX design for Shopify teams",
+    description:
+      "Sharper positioning and a story buyers can repeat. The product lands in eight seconds — to merchants, not just to you.",
+    images: [
+      {
+        url: "/hero-bg-2.webp",
+        width: 1200,
+        height: 630,
+        alt: "Product Paige",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Product Paige — Product marketing + UX design for Shopify teams",
+    description:
+      "13 years inside the Shopify and ecommerce ecosystem. Sharper positioning, cleaner onboarding, product people actually understand.",
+    images: ["/hero-bg-2.webp"],
+    creator: "@productpaige",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "design",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#1A191E",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -54,6 +118,44 @@ export default function RootLayout({
       className={`${funnelSans.variable} ${tiempos.variable} ${jetbrainsMono.variable}`}
     >
       <body suppressHydrationWarning>
+        {/* JSON-LD structured data — Person + Website for search engines */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://productpaige.com/#paige",
+                  name: "Paige Harris",
+                  url: "https://productpaige.com",
+                  jobTitle: "Product Marketer & UX Designer",
+                  description:
+                    "Product-led marketer and UX designer with 13 years inside the Shopify and ecommerce ecosystem.",
+                  knowsAbout: [
+                    "Shopify",
+                    "ecommerce",
+                    "product marketing",
+                    "UX design",
+                    "onboarding",
+                    "positioning",
+                  ],
+                  sameAs: ["https://productpaige.com"],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://productpaige.com/#website",
+                  url: "https://productpaige.com",
+                  name: "Product Paige",
+                  description:
+                    "Product marketing + UX design for Shopify and ecommerce teams.",
+                  publisher: { "@id": "https://productpaige.com/#paige" },
+                },
+              ],
+            }),
+          }}
+        />
         <div className="page-grid" aria-hidden="true" />
         <div className="page-borders" aria-hidden="true">
           <span className="page-border page-border-left" />
