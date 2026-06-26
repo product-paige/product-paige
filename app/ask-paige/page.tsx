@@ -96,26 +96,28 @@ export default function AskPaigePage() {
     <div className="theme-v2 contents">
       <div className="theme-v2-rails" aria-hidden="true" />
 
-      {/* === SECTION: hero === */}
+      {/* === HERO === matches homepage hero layout */}
       <section
         id="hero"
         data-section="hero"
-        className="p-6 md:p-10 min-h-[calc(100vh-76px)] flex mx-3 md:mx-6"
+        className="min-h-[640px] flex section-border-b"
       >
-        <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-stretch w-full">
-          <div className="md:col-span-8 flex flex-col justify-end gap-8">
-            <h1 className="font-display leading-[0.9] tracking-tightest text-6xl">
-              Ask Paige
-            </h1>
-            <p className="font-display text-xl md:text-2xl leading-[1.2] max-w-[640px]">
-              Want help getting unstuck?
-            </p>
-            <p className="text-lg leading-[1.5] max-w-[560px]">
-              Send what you&rsquo;re working on. A product, onboarding flow,
-              homepage, positioning, or the half-finished idea you can&rsquo;t
-              see clearly yet. You&rsquo;ll get honest, product-minded feedback
-              fast, without the consulting theatre.
-            </p>
+        <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
+          <div className="flex flex-col gap-10 justify-end p-10 min-w-0">
+            <div className="flex flex-col gap-6">
+              <span className="type-eyebrow">Ask Paige</span>
+              <div className="flex flex-col gap-3">
+                <h1 className="type-display-h1 max-w-[20ch]">
+                  Want help getting unstuck?
+                </h1>
+                <p className="type-leading opacity-80 max-w-[560px]">
+                  Send what you&rsquo;re working on — a product, onboarding flow,
+                  homepage, positioning, or the half-finished idea you can&rsquo;t
+                  see clearly yet. Honest, product-minded feedback fast, without
+                  the consulting theatre.
+                </p>
+              </div>
+            </div>
             <div className="flex items-center gap-6 flex-wrap">
               <a
                 href="mailto:hello@productpaige.com?subject=Ask%20Paige%20%E2%80%94%20session%20booking"
@@ -128,24 +130,25 @@ export default function AskPaigePage() {
                   <BtnIcons />
                 </span>
               </a>
-              <span className="font-display text-xl flex items-baseline gap-2">
+              <span className="type-card-title flex items-baseline gap-2">
                 $250 USD
-                <span className="text-sm opacity-60">· one session</span>
+                <span className="type-body-sm opacity-60">· one session</span>
               </span>
             </div>
           </div>
-          <figure className="md:col-span-4 flex flex-col h-full gap-3">
-            <div className="placeholder w-full flex-1 min-h-[300px] flex items-end p-6">
-              <p className="font-display text-xl text-[#1a1a1a]">
-                One conversation. <br />
+          <aside
+            className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center"
+            style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
+          >
+            <div className="card card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
+              <h3 className="type-card-title">
+                One conversation.
+              </h3>
+              <p className="type-body opacity-80 leading-[1.2]">
                 The version of your product you&rsquo;ve been avoiding.
               </p>
             </div>
-            <figcaption className="flex items-baseline justify-between text-sm opacity-70">
-              <span>Fig. 07</span>
-              <span className="font-display text-base">Office hours</span>
-            </figcaption>
-          </figure>
+          </aside>
         </div>
       </section>
 

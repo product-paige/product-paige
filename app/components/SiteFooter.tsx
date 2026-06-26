@@ -14,15 +14,10 @@ export function SiteFooter() {
             <li><a href="/#services" className="hover:opacity-60">Services</a></li>
             <li><a href="/#work" className="hover:opacity-60">Projects</a></li>
             <li><a href="/#about" className="hover:opacity-60">About</a></li>
-            <li><a href="/subscribe" className="hover:opacity-60">Subscribe</a></li>
-            <li>
-              <a
-                href="mailto:hello@productpaige.com"
-                className="hover:opacity-60"
-              >
-                Contact
-              </a>
-            </li>
+            <li><a href="/ask-paige" className="hover:opacity-60">Ask Paige</a></li>
+            <li><a href="/contact" className="hover:opacity-60">Contact</a></li>
+            <li><a href="/privacy" className="hover:opacity-60 opacity-60">Privacy</a></li>
+            <li><a href="/terms" className="hover:opacity-60 opacity-60">Terms</a></li>
           </ul>
         </nav>
         <p className="type-body-sm opacity-60">© Product Paige</p>
