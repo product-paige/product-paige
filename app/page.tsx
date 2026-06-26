@@ -11,11 +11,11 @@ const services: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "web and product design",    bg: "#cdb8e3", fg: "#1a1a1a", icon: "browser" },
-  { name: "UX and conversion",         bg: "#f7c8d4", fg: "#1a1a1a", icon: "cursor" },
-  { name: "positioning and messaging", bg: "#f3eb88", fg: "#1a1a1a", icon: "megaphone" },
-  { name: "AI content design",         bg: "#1a1a1a", fg: "#ffffff", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#DBE6EB", fg: "#1a1a1a", icon: "target" },
+  { name: "web and product design",    bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
+  { name: "UX and conversion",         bg: "#D6D7D9", fg: "#1A191E", icon: "cursor" },
+  { name: "positioning and messaging", bg: "#D6D7D9", fg: "#1A191E", icon: "megaphone" },
+  { name: "AI content design",         bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
+  { name: "product strategy",          bg: "#D6D7D9", fg: "#1A191E", icon: "target" },
 ];
 
 const productCategories: Array<{
@@ -64,22 +64,22 @@ const capabilities = [
   {
     title: "Positioning & product narrative",
     blurb:
-      "Sharper positioning and a story buyers can repeat. The product lands in eight seconds — to merchants, not just to you.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
   },
   {
     title: "UX & conversion design",
     blurb:
-      "Cleaner flows, fewer dead ends. People finish the job instead of bouncing on the second screen.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
   },
   {
     title: "Onboarding & activation",
     blurb:
-      "A first run that makes sense to a merchant who&rsquo;s never seen the product. Time-to-first-value shrinks.",
+      "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.",
   },
   {
     title: "Growth & prioritization",
     blurb:
-      "A clear plan for what to fix now vs. later — built around how Shopify and ecommerce products actually grow, not generic best practice.",
+      "Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue.",
   },
 ];
 
@@ -199,7 +199,7 @@ export default function Home() {
               <h3 className="type-card-title">
                 Product-led marketer and UX designer.
               </h3>
-              <p className="type-body opacity-80">
+              <p className="type-body opacity-80 leading-[1.2]">
                 13 years building in the Shopify and ecommerce ecosystem.
               </p>
             </div>
@@ -289,12 +289,14 @@ export default function Home() {
         className="p-10 flex flex-col gap-6 section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-stretch">
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col justify-between gap-10">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Capabilities</span>
               <h2 className="type-display-h2 max-w-[500px]">
                 What we&rsquo;ll improve
               </h2>
+            </div>
+            <div className="flex flex-col gap-6">
               <ul className="border-t border-[#1a1a1a]/25 max-w-[500px]">
                 {capabilities.map((c, i) => (
                   <li
@@ -315,22 +317,22 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <p
+                key={activeCap}
+                className="type-body-lg max-w-[480px] min-h-[5em]"
+                dangerouslySetInnerHTML={{
+                  __html: capabilities[activeCap].blurb,
+                }}
+              />
+              <a href="#categories" className="inline-flex btn self-start">
+                <span className="btn-text bg-[#0E6BFF] text-white">
+                  Explore services
+                </span>
+                <span className="btn-tab bg-[#0E6BFF] text-white">
+                  <BtnIcons />
+                </span>
+              </a>
             </div>
-            <p
-              key={activeCap}
-              className="type-body-lg max-w-[480px] min-h-[5em]"
-              dangerouslySetInnerHTML={{
-                __html: capabilities[activeCap].blurb,
-              }}
-            />
-            <a href="#categories" className="inline-flex btn self-start">
-              <span className="btn-text bg-[#0E6BFF] text-white">
-                Explore services
-              </span>
-              <span className="btn-tab bg-[#0E6BFF] text-white">
-                <BtnIcons />
-              </span>
-            </a>
           </div>
           <div className="relative md:divider-indent-left h-full">
             <div
@@ -443,7 +445,7 @@ export default function Home() {
             generous scale. Active tab sits flush on top of the panel as one
             continuous folder shape. On mobile the tab strip scrolls
             horizontally (no visible scrollbar) and the panel stacks. */}
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full max-w-[1100px] mx-auto">
           {/* Tab strip — horizontal scroll on small screens so 3+ tabs never
               overflow, plus a snap-x so each tab settles into view cleanly. */}
           <div
@@ -485,7 +487,7 @@ export default function Home() {
             role="tabpanel"
             aria-labelledby={`tab-${activeProject}`}
             key={project.client}
-            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 p-6 md:p-10 items-stretch"
+            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-10 p-6 md:p-10 items-stretch"
             style={{ backgroundColor: "#DBE6EB", color: "#1A191E" }}
           >
             <div className="flex flex-col gap-6 justify-between min-h-[360px] md:min-h-[560px]">
@@ -513,7 +515,7 @@ export default function Home() {
               </div>
             </div>
             <div
-              className="placeholder w-full h-full min-h-[280px] md:min-h-[560px]"
+              className="placeholder w-full aspect-[3/2]"
               aria-label={`Image — ${project.client}`}
             />
           </div>
@@ -526,49 +528,50 @@ export default function Home() {
       <section
         id="about"
         data-section="about"
-        className="grid md:grid-cols-2 items-stretch section-border-b min-h-[760px]"
+        className="grid md:grid-cols-2 items-stretch section-border-b min-h-[560px]"
       >
+        {/* Left column — editorial layout, content floats top + bottom */}
         <div className="p-10 flex flex-col gap-10 justify-between">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">About</span>
             <div className="flex flex-col gap-3">
-              <h2 className="type-display-h2 max-w-[24ch]">
-                About Paige
+              <h2 className="type-display-h1 max-w-[14ch]">
+                Half marketer, half designer.
               </h2>
-              <p className="type-leading opacity-80 max-w-[640px]">
-                13 years building inside the Shopify and ecommerce ecosystem.
-                Half product marketer, half UX designer — most useful at the
-                seam where the product story has to match the product
-                experience.
+              <p className="type-leading opacity-80 max-w-[520px]">
+                13 years inside the Shopify and ecommerce ecosystem — most
+                useful at the seam where the product story has to match the
+                product experience.
               </p>
             </div>
           </div>
-          <div className="flex flex-col gap-5 max-w-[640px]">
-            <p className="type-body">
-              Currently working with app makers, DTC brands, and ecommerce
-              SaaS teams who&rsquo;ve outgrown their messaging or their
-              onboarding (often both). Previously inside product orgs at
-              Shopify-stack companies you&rsquo;ve heard of.
-            </p>
-            <p className="type-body">
-              The work is small in scope and big in leverage: two-week
-              sprints, one question per engagement, real artifacts a
-              merchant can touch.
-            </p>
-          </div>
-          <a href="/about" className="inline-flex btn self-start">
-            <span className="btn-text bg-[#1a1a1a] text-white">
-              More about me
-            </span>
-            <span className="btn-tab bg-[#1a1a1a] text-white">
-              <BtnIcons />
-            </span>
-          </a>
         </div>
+
+        {/* Right column — ink panel with editorial markers + a tall display
+            numeral. Grain overlay gives it the photocopied newsprint feel. */}
         <aside
-          className="bg-[#1a1a1a] min-h-[480px] relative md:divider-indent-left"
-          aria-label="Portrait — Paige"
-        />
+          className="bg-[#1A191E] text-white p-10 flex flex-col justify-between relative md:divider-indent-left grain-vintage overflow-hidden"
+          aria-label="About — editorial panel"
+        >
+          {/* Top markers */}
+          <div className="flex justify-between items-baseline text-white/55">
+            <span className="type-marker">Vol. 02 — Practice</span>
+            <span className="type-marker">MMXXVI</span>
+          </div>
+
+          {/* Dominant numeral + caption (anchored bottom-right) */}
+          <div className="flex flex-col items-end gap-3 self-end text-right">
+            <span
+              className="font-display leading-[0.82] text-white"
+              style={{ fontSize: "220px", letterSpacing: "-8px" }}
+            >
+              13
+            </span>
+            <span className="type-marker text-white/55 max-w-[18ch]">
+              Years inside the Shopify ecosystem
+            </span>
+          </div>
+        </aside>
       </section>
 
       

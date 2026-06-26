@@ -29,29 +29,26 @@ export default function ProjectPage({
       <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HERO === */}
-      <div data-section="project-hero-frame" className="mx-3 md:mx-6">
-        <section
-          id="hero"
-          data-section="project-hero"
-          className="p-8 md:p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
-          style={{ backgroundColor: project.coverBg, color: heroFg }}
-        >
-          <div className="flex items-baseline justify-between text-sm opacity-80">
-            <span>{project.client}</span>
-            <span>{project.year}</span>
-          </div>
-          <h1 className="font-display leading-[1] tracking-tightest text-4xl md:text-5xl lg:text-7xl max-w-[18ch]">
+      <section
+        id="hero"
+        data-section="project-hero"
+        className="p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
+        style={{ backgroundColor: project.coverBg, color: heroFg }}
+      >
+        <div className="flex items-baseline justify-between type-body-sm opacity-80">
+          <span>{project.client}</span>
+          <span>{project.year}</span>
+        </div>
+        <div className="flex flex-col gap-3">
+          <h1 className="type-display-h1 max-w-[18ch]" style={{ color: heroFg }}>
             {project.kicker}
           </h1>
-          <p className="text-sm opacity-70">{project.role}</p>
-        </section>
-      </div>
+          <p className="type-body-sm opacity-70">{project.role}</p>
+        </div>
+      </section>
 
       {/* === COVER IMAGE === */}
-      <section
-        data-section="project-cover"
-        className="p-8 mx-3 md:mx-6"
-      >
+      <section data-section="project-cover" className="p-10">
         <div
           className="placeholder w-full aspect-[16/9]"
           aria-label={`Cover image — ${project.client}`}
@@ -59,49 +56,26 @@ export default function ProjectPage({
       </section>
 
       {/* === CASE STUDY: Problem / Approach / Outcome === */}
-      <section
-        data-section="project-case"
-        className="p-8 mx-3 md:mx-6"
-      >
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16">
-          <article className="md:col-span-4 flex flex-col gap-4">
-            <span
-              aria-hidden="true"
-              className="block w-2 h-2 bg-current"
-            />
-            <h2 className="font-display text-2xl md:text-3xl leading-[1.15]">
-              The problem
-            </h2>
-            <p className="text-base leading-[1.7]">{project.problem}</p>
-          </article>
-          <article className="md:col-span-4 flex flex-col gap-4">
-            <span
-              aria-hidden="true"
-              className="block w-2 h-2 bg-current"
-            />
-            <h2 className="font-display text-2xl md:text-3xl leading-[1.15]">
-              The approach
-            </h2>
-            <p className="text-base leading-[1.7]">{project.approach}</p>
-          </article>
-          <article className="md:col-span-4 flex flex-col gap-4">
-            <span
-              aria-hidden="true"
-              className="block w-2 h-2 bg-current"
-            />
-            <h2 className="font-display text-2xl md:text-3xl leading-[1.15]">
-              The outcome
-            </h2>
-            <p className="text-base leading-[1.7]">{project.outcome}</p>
-          </article>
+      <section data-section="project-case" className="p-10 section-border-b">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-16">
+          {[
+            { eyebrow: "Problem", title: "The problem", body: project.problem },
+            { eyebrow: "Approach", title: "The approach", body: project.approach },
+            { eyebrow: "Outcome", title: "The outcome", body: project.outcome },
+          ].map((b) => (
+            <article key={b.title} className="flex flex-col gap-6">
+              <span className="type-eyebrow">{b.eyebrow}</span>
+              <div className="flex flex-col gap-3">
+                <h2 className="type-display-h3">{b.title}</h2>
+                <p className="type-body opacity-80">{b.body}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
       {/* === IMAGE GALLERY === */}
-      <section
-        data-section="project-gallery"
-        className="p-8 mx-3 md:mx-6"
-      >
+      <section data-section="project-gallery" className="p-10 section-border-b">
         <div className="grid md:grid-cols-2 gap-6">
           {project.mockups.map((m) => (
             <figure key={m} className="flex flex-col gap-3">
@@ -109,46 +83,49 @@ export default function ProjectPage({
                 className="placeholder w-full aspect-[4/3]"
                 aria-label={`Mockup — ${m}`}
               />
-              <figcaption className="text-sm opacity-70">{m}</figcaption>
+              <figcaption className="type-body-sm opacity-70">{m}</figcaption>
             </figure>
           ))}
         </div>
       </section>
 
       {/* === HIGHLIGHTS === */}
-      <div data-section="project-highlights-frame" className="mx-3 md:mx-6">
-        <section
-          data-section="project-highlights"
-          className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative flex flex-col gap-10"
-        >
-          <h2 className="font-display text-2xl md:text-3xl leading-[1.15]">
-            By the numbers
-          </h2>
-          <ul className="grid md:grid-cols-3 gap-6 md:gap-12">
-            {project.highlights.map((h) => (
-              <li
-                key={h.label}
-                className="flex flex-col gap-2 border-t border-white/20 pt-4"
+      <section
+        data-section="project-highlights"
+        className="bg-[#1A191E] text-white p-10 m-6 section-chamfer relative grain-vintage flex flex-col gap-10"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow !text-white">By the numbers</span>
+          <h2 className="type-display-h2 !text-white">Outcomes worth measuring</h2>
+        </div>
+        <ul className="grid md:grid-cols-3 gap-6 md:gap-12">
+          {project.highlights.map((h) => (
+            <li
+              key={h.label}
+              className="flex flex-col gap-2 border-t border-white/20 pt-4"
+            >
+              <span
+                className="font-display text-white"
+                style={{ fontSize: "72px", lineHeight: "0.9", letterSpacing: "-3px" }}
               >
-                <span className="font-display tracking-tightest text-5xl md:text-6xl leading-[0.9]">
-                  {h.metric}
-                </span>
-                <span className="text-sm opacity-70">{h.label}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
+                {h.metric}
+              </span>
+              <span className="type-body-sm opacity-70">{h.label}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {/* === RELATED PROJECTS === */}
       <section
         id="related"
         data-section="project-related"
-        className="p-8 mx-3 md:mx-6 flex flex-col gap-10"
+        className="p-10 flex flex-col gap-10 section-border-b"
       >
-        <h2 className="font-display text-2xl md:text-3xl leading-[1.15]">
-          More projects
-        </h2>
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">More work</span>
+          <h2 className="type-display-h2 max-w-[24ch]">More projects</h2>
+        </div>
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           {related.map((r) => (
             <a
@@ -160,15 +137,13 @@ export default function ProjectPage({
                 className="placeholder w-full aspect-[4/3]"
                 aria-label={`Image — ${r.client}`}
               />
-              <div className="flex items-baseline justify-between text-sm opacity-70">
+              <div className="flex items-baseline justify-between type-body-sm opacity-70">
                 <span>{r.client}</span>
                 <span>{r.year}</span>
               </div>
-              <h3 className="font-display text-2xl md:text-3xl leading-[1.1]">
-                {r.kicker}
-              </h3>
-              <span className="text-sm font-medium border-b border-[#1a1a1a] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
-                View project
+              <h3 className="type-display-h3">{r.kicker}</h3>
+              <span className="type-nav border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
+                View project ↗
               </span>
             </a>
           ))}
@@ -176,27 +151,35 @@ export default function ProjectPage({
       </section>
 
       {/* === CLOSING CTA === */}
-      <div data-section="project-cta-frame" className="mx-3 md:mx-6">
-        <section
-          data-section="project-cta"
-          className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative grain-vintage flex flex-col gap-8 items-start"
+      <section
+        data-section="project-cta"
+        className="bg-[#1A191E] text-white p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
+      >
+        <div className="flex flex-col gap-6 max-w-[800px]">
+          <span className="type-eyebrow">Get in touch</span>
+          <div className="flex flex-col gap-3">
+            <h2 className="type-display-h1 !text-white max-w-[14ch]">
+              Have a project like this?
+            </h2>
+            <p className="type-leading !text-white opacity-80 max-w-[560px]">
+              Send the link or the screenshot you keep meaning to share —
+              I&rsquo;ll come back with where the seams are and what&rsquo;s
+              worth fixing first.
+            </p>
+          </div>
+        </div>
+        <a
+          href="mailto:hello@productpaige.com?subject=Start%20a%20project"
+          className="inline-flex btn"
         >
-          <h2 className="font-display leading-[0.95] tracking-tightest text-4xl md:text-6xl lg:text-7xl max-w-[14ch]">
-            Have a project like this?
-          </h2>
-          <a
-            href="mailto:hello@productpaige.com?subject=Start%20a%20project"
-            className="inline-flex btn"
-          >
-            <span className="btn-text bg-[#0E6BFF] text-white">
-              Start a project
-            </span>
-            <span className="btn-tab bg-[#0E6BFF] text-white">
-              <BtnIcons />
-            </span>
-          </a>
-        </section>
-      </div>
+          <span className="btn-text bg-[#0E6BFF] text-white">
+            Start a project
+          </span>
+          <span className="btn-tab bg-[#0E6BFF] text-white">
+            <BtnIcons />
+          </span>
+        </a>
+      </section>
     </div>
   );
 }

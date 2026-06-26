@@ -40,7 +40,7 @@
   font-weight: 400;
   font-size: 56px;
   line-height: 1;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   color: #1A191E;
 }
 .type-display-h2 {
@@ -48,7 +48,7 @@
   font-weight: 400;
   font-size: 2.5rem;
   line-height: 1.05;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   color: #1A191E;
 }
 .type-display-h3 {
@@ -56,14 +56,14 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: -1px;
   color: #1A191E;
 }
 .type-card-title {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 20px;
-  line-height: 1.25;
+  line-height: 1.1;
   letter-spacing: -0.005em;
   color: #1A191E;
 }
@@ -129,13 +129,14 @@
   line-height: 1;
 }
 .type-eyebrow {
-  /* Typography matches Figma "Mono / Eyebrow (12 caps)" — JetBrains Mono 12px caps. */
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1.2;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  /* Same typography as .btn — Funnel Sans medium 15px, -0.01em tracking —
+     but at line-height 1 so the highlight chip stays compact. */
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: none;
   color: #1A191E;
   /* iOS text-selection treatment — pale blue highlight with 2px blue borders
      on the left + right edges that visually continue into the diagonal handles

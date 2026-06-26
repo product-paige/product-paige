@@ -44,17 +44,9 @@ export function SiteHeader() {
         <li className="flex">
           <a
             href="/#about"
-            className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
-          >
-            About
-          </a>
-        </li>
-        <li className="flex">
-          <a
-            href="/subscribe"
             className="type-nav divider-indent-left divider-indent-right px-6 flex items-center hover:opacity-60 transition-opacity"
           >
-            Subscribe
+            About
           </a>
         </li>
       </ul>
