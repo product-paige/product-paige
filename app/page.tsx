@@ -353,11 +353,11 @@ export default function Home() {
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Recent work</span>
-          <div className="flex flex-col gap-3">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="type-display-h2 max-w-[24ch]">
               Recent work
             </h2>
-            <p className="type-leading opacity-80 max-w-[640px]">
+            <p className="type-leading opacity-80 max-w-[560px]">
               A mix of product audits, UX improvements, and personal projects
               across the Shopify and ecommerce ecosystem.
             </p>
