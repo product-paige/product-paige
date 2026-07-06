@@ -444,17 +444,18 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Tab strip + panel — full section width so the folder reads at a
-            generous scale. Active tab sits flush on top of the panel as one
-            continuous folder shape. On mobile the tab strip scrolls
-            horizontally (no visible scrollbar) and the panel stacks. */}
-        <div className="flex flex-col w-full max-w-[1100px] mx-auto">
-          {/* Tab strip — arrow-key navigable, horizontal scroll on small
-              screens with snap-x so tabs settle into view. */}
+        {/* Tab strip + panel — full section width. Active tab sits flush on
+            top of the panel as one continuous folder shape. Each tab + the
+            panel uses its own project bg color (lavender / sky / yellow) so
+            you can read which project is active at a glance. On mobile the
+            tab strip scrolls horizontally with the scrollbar hidden. */}
+        <div className="flex flex-col w-full">
+          {/* Tab strip — arrow-key navigable. snap-proximity (not mandatory)
+              so a partial scroll doesn't jerk to a fixed position. */}
           <div
             role="tablist"
             aria-label="Recent projects"
-            className="flex items-end overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+            className="flex items-end overflow-x-auto scrollbar-hide snap-x snap-proximity"
             onKeyDown={(e) => {
               // Arrow keys, Home + End for tablist navigation (WAI-ARIA
               // authoring practices). Focus follows selection.
@@ -486,8 +487,8 @@ export default function Home() {
                   tabIndex={isActive ? 0 : -1}
                   className={`folder-tab grain-paper shrink-0 snap-start ${isActive ? "is-active" : ""}`}
                   style={{
-                    backgroundColor: "#DBE6EB",
-                    color: "#1A191E",
+                    backgroundColor: w.bg,
+                    color: w.fg,
                     /* Inactive tabs slip behind in reading order; later tabs
                        sit further back so the cascade reads left → right. */
                     zIndex: isActive ? 20 : recentWork.length - i,
@@ -508,7 +509,7 @@ export default function Home() {
             aria-labelledby={`project-tab-${activeProject}`}
             key={project.client}
             className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-12 p-8 md:p-12 items-stretch"
-            style={{ backgroundColor: "#DBE6EB", color: "#1A191E" }}
+            style={{ backgroundColor: project.bg, color: project.fg }}
           >
             {/* Text column — meta strip up top, big client + kicker in the
                 middle, prominent CTA at the bottom. */}
@@ -647,13 +648,13 @@ export default function Home() {
           data-section="closing-cta"
           className="bg-[#1A191E] text-white p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
         >
-          <div className="flex flex-col gap-6 max-w-[800px]">
+          <div className="flex flex-col gap-6 max-w-[1000px]">
             <span className="type-eyebrow">Get in touch</span>
             <div className="flex flex-col gap-3">
               <h2 className="type-display-h1 !text-white">
                 Stop over-explaining the product
               </h2>
-              <p className="type-leading !text-white opacity-80 max-w-[560px]">
+              <p className="type-leading !text-white opacity-80 max-w-[720px]">
                 Send a link and the part you can&rsquo;t see clearly yet.
                 I&rsquo;ll help you find the seams, the friction, and
                 what&rsquo;s worth fixing first.

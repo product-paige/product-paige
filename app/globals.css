@@ -1639,11 +1639,19 @@ a {
   /* Each subsequent tab slips behind the previous one's chamfered corner. */
   margin-left: -18px;
 }
-.folder-tab:not(.is-active) {
-  opacity: 0.85;
-}
-.folder-tab:not(.is-active):hover {
+.folder-tab {
+  /* Inactive + active tabs stay at full opacity — the color IS the state
+     indicator (per-project bg) + active also merges into the panel below. */
   opacity: 1;
+}
+.folder-tab:hover {
+  /* No opacity change on hover — feels flicky over the chamfered clip.
+     A subtle brightness bump reads as a lift without shifting anything. */
+  filter: brightness(1.04);
+}
+.folder-tab:focus-visible {
+  outline: 2px solid #0E6BFF;
+  outline-offset: -4px;
 }
 .folder-tab.is-active {
   z-index: 20;
