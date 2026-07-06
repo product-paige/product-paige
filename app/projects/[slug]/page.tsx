@@ -62,7 +62,7 @@ export default async function ProjectPage({
       <section
         id="hero"
         data-section="project-hero"
-        className="p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
+        className="p-6 md:p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
         style={{ backgroundColor: project.coverBg, color: heroFg }}
       >
         <div className="flex items-baseline justify-between type-body-sm opacity-80">
@@ -78,7 +78,7 @@ export default async function ProjectPage({
       </section>
 
       {/* === COVER IMAGE === */}
-      <section data-section="project-cover" className="p-10">
+      <section data-section="project-cover" className="p-6 md:p-10">
         <div
           className="placeholder w-full aspect-[16/9]"
           aria-label={`Cover image — ${project.client}`}
@@ -86,7 +86,7 @@ export default async function ProjectPage({
       </section>
 
       {/* === CASE STUDY: Problem / Approach / Outcome === */}
-      <section data-section="project-case" className="p-10 section-border-b">
+      <section data-section="project-case" className="p-6 md:p-10 section-border-b">
         <div className="grid md:grid-cols-3 gap-10 md:gap-16">
           {[
             { eyebrow: "Problem", title: "The problem", body: project.problem },
@@ -105,7 +105,7 @@ export default async function ProjectPage({
       </section>
 
       {/* === IMAGE GALLERY === */}
-      <section data-section="project-gallery" className="p-10 section-border-b">
+      <section data-section="project-gallery" className="p-6 md:p-10 section-border-b">
         <div className="grid md:grid-cols-2 gap-6">
           {project.mockups.map((m) => (
             <figure key={m} className="flex flex-col gap-3">
@@ -122,7 +122,7 @@ export default async function ProjectPage({
       {/* === HIGHLIGHTS === */}
       <section
         data-section="project-highlights"
-        className="bg-[#1A191E] text-white p-10 m-6 section-chamfer relative grain-vintage flex flex-col gap-10"
+        className="bg-[#1A191E] text-white p-6 md:p-10 m-4 md:m-6 section-chamfer relative grain-vintage flex flex-col gap-10"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow !text-white">By the numbers</span>
@@ -150,7 +150,7 @@ export default async function ProjectPage({
       <section
         id="related"
         data-section="project-related"
-        className="p-10 flex flex-col gap-10 section-border-b"
+        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">More work</span>
@@ -183,7 +183,7 @@ export default async function ProjectPage({
       {/* === CLOSING CTA === */}
       <section
         data-section="project-cta"
-        className="bg-[#1A191E] text-white p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
+        className="bg-[#1A191E] text-white p-8 md:p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
       >
         <div className="flex flex-col gap-6 max-w-[800px]">
           <span className="type-eyebrow">Get in touch</span>

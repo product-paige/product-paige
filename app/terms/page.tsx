@@ -50,7 +50,7 @@ export default function TermsPage() {
       <section
         id="terms-hero"
         data-section="terms-hero"
-        className="p-10 section-border-b"
+        className="p-6 md:p-10 section-border-b"
       >
         <div className="flex flex-col gap-6 max-w-[720px]">
           <span className="type-eyebrow">Terms</span>
@@ -71,7 +71,7 @@ export default function TermsPage() {
       </section>
 
       {/* === SECTIONS === */}
-      <section data-section="terms-body" className="p-10 section-border-b">
+      <section data-section="terms-body" className="p-6 md:p-10 section-border-b">
         <ul className="flex flex-col gap-12 max-w-[720px]">
           {sections.map((s) => (
             <li key={s.title} className="flex flex-col gap-3">
@@ -84,7 +84,7 @@ export default function TermsPage() {
       </section>
 
       {/* === CONTACT === */}
-      <section data-section="terms-contact" className="p-10 section-border-b">
+      <section data-section="terms-contact" className="p-6 md:p-10 section-border-b">
         <div className="flex flex-col gap-6 max-w-[640px]">
           <span className="type-eyebrow">Questions</span>
           <h2 className="type-display-h3">

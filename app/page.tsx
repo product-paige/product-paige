@@ -164,7 +164,7 @@ export default function Home() {
         className="min-h-[640px] flex section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
-          <div className="flex flex-col gap-10 justify-end p-10 min-w-0">
+          <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Practice</span>
               <div className="flex flex-col gap-3">
@@ -213,7 +213,7 @@ export default function Home() {
       <section
         id="practice-areas"
         data-section="practice-areas"
-        className="p-10 section-border-b"
+        className="p-6 md:p-10 section-border-b"
       >
         <ul className="flex flex-wrap gap-3">
           {services.map((s) => (
@@ -243,7 +243,7 @@ export default function Home() {
       <section
         id="categories"
         data-section="product-categories"
-        className="p-10 flex flex-col gap-10 section-border-b"
+        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Categories</span>
@@ -263,7 +263,7 @@ export default function Home() {
           {productCategories.map((c) => (
             <article
               key={c.name}
-              className={`card ${c.tone} flex flex-col justify-between aspect-[16/11] !min-h-0`}
+              className={`card ${c.tone} flex flex-col justify-between aspect-square !min-h-0`}
             >
               <div
                 className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px]"
@@ -286,7 +286,7 @@ export default function Home() {
       <section
         id="services"
         data-section="capabilities"
-        className="p-10 flex flex-col gap-6 section-border-b"
+        className="p-6 md:p-10 flex flex-col gap-6 section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-stretch">
           <div className="relative h-full order-2 md:order-1">
@@ -345,85 +345,11 @@ export default function Home() {
 
       
 
-      {/* === HOW — WORKING STYLE === */}
-      <section
-        id="working-style"
-        data-section="working-style"
-        className="grid md:grid-cols-2 items-stretch section-border-b"
-      >
-        {/* Left: full-bleed grain/image surface */}
-        <aside
-          className="placeholder min-h-[480px] md:min-h-[600px] m-10 md:divider-indent-right relative"
-          aria-label="Working style — illustrative surface"
-        />
-        {/* Right: eyebrow + heading + body + divider + list */}
-        <div className="p-10 flex flex-col justify-between gap-10 md:divider-indent-left relative">
-          <div className="flex flex-col gap-6">
-            <span className="type-eyebrow">Working style</span>
-            <div className="flex flex-col gap-3">
-              <h2 className="type-display-h2 max-w-[20ch]">
-                Move fast &amp; keep it simple
-              </h2>
-              <p className="type-leading opacity-80 max-w-[560px]">
-                Fast prototypes and clear decisions, without making it harder
-                than it needs to be.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-10">
-            <ol className="border-t border-[#1A191E]/20">
-              {workingStyle.map((w) => (
-                <li
-                  key={w.title}
-                  className="border-b border-[#1A191E]/20 py-5 flex items-start gap-5"
-                >
-                  <div className="w-14 h-14 shrink-0 bg-[#1A191E] text-white flex items-center justify-center !rounded-[4px]">
-                    <PixelIcon name={w.icon} color="#ffffff" size={24} />
-                  </div>
-                  <div className="flex flex-col gap-2 pt-1">
-                    <h3 className="type-card-title">{w.title}</h3>
-                    <p className="type-body opacity-80 max-w-[420px]">{w.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            {/* Tools I lean on — same chip style as the practice-area row */}
-            <div className="flex flex-col gap-4">
-              <h3 className="type-body-sm opacity-60 uppercase tracking-[0.05em]">
-                Tools I lean on
-              </h3>
-              <ul className="flex flex-wrap gap-3">
-                {tools.map((t) => (
-                  <li key={t.name}>
-                    <span className="svc-label" style={{ color: t.fg }}>
-                      <span
-                        className="svc-label-text"
-                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
-                      >
-                        {t.name}
-                      </span>
-                      <span
-                        className="svc-label-tab"
-                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
-                      >
-                        <PixelIcon name={t.icon} color={t.fg} size={18} />
-                      </span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-
       {/* === RECENT WORK (folder tabs) === */}
       <section
         id="work"
         data-section="recent-work"
-        className="p-10 flex flex-col gap-10 section-border-b"
+        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Recent work</span>
@@ -495,19 +421,22 @@ export default function Home() {
             })}
           </div>
 
-          {/* Active project panel — stacks on mobile (1 col), splits 40/60 on
-              md+. Padding scales: 32px mobile → 48px desktop. */}
+          {/* Active project panel — stacks on mobile (image first for visual
+              hook), splits 40/60 on md+. Padding scales: 24px mobile → 48px
+              desktop so mobile gets more content room. */}
           <div
             id="project-panel"
             role="tabpanel"
             aria-labelledby={`project-tab-${activeProject}`}
             key={project.client}
-            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-12 p-8 md:p-12 items-stretch"
+            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch"
             style={{ backgroundColor: project.bg, color: project.fg }}
           >
             {/* Text column — meta strip up top, big client + kicker in the
-                middle, prominent CTA at the bottom. */}
-            <div className="flex flex-col gap-8 justify-between min-h-[320px] md:min-h-[520px]">
+                middle, prominent CTA at the bottom. Order flipped on mobile
+                so the landscape image reads first (visual hook) before the
+                copy + CTA. */}
+            <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[520px] order-2 md:order-1">
               {/* Meta strip: year on the left, role tags on the right */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 justify-between">
                 <span className="type-marker opacity-60">{project.date}</span>
@@ -545,12 +474,13 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Image column — landscape, whole area is clickable so touch users
-                don't have to hit the small CTA button. */}
+            {/* Image column — landscape, whole area is clickable so touch
+                users don't have to hit the small CTA button. On mobile this
+                sits ABOVE the text (order-1) as the primary visual anchor. */}
             <a
               href={project.href}
               aria-label={`Open ${project.client}`}
-              className="relative block group"
+              className="relative block group order-1 md:order-2"
               tabIndex={-1}
             >
               <div
@@ -565,72 +495,118 @@ export default function Home() {
 
       
 
+      {/* === HOW — WORKING STYLE === */}
+      <section
+        id="working-style"
+        data-section="working-style"
+        className="grid md:grid-cols-2 items-stretch section-border-b"
+      >
+        {/* Left: full-bleed grain/image surface */}
+        <aside
+          className="placeholder min-h-[320px] md:min-h-[600px] m-6 md:m-10 md:divider-indent-right relative"
+          aria-label="Working style — illustrative surface"
+        />
+        {/* Right: eyebrow + heading + body + divider + list */}
+        <div className="p-6 md:p-10 flex flex-col justify-between gap-10 md:divider-indent-left relative">
+          <div className="flex flex-col gap-6">
+            <span className="type-eyebrow">Working style</span>
+            <div className="flex flex-col gap-3">
+              <h2 className="type-display-h2 max-w-[20ch]">
+                Move fast &amp; keep it simple
+              </h2>
+              <p className="type-leading opacity-80 max-w-[560px]">
+                Fast prototypes and clear decisions, without making it harder
+                than it needs to be.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-10">
+            <ol className="border-t border-[#1A191E]/20">
+              {workingStyle.map((w) => (
+                <li
+                  key={w.title}
+                  className="border-b border-[#1A191E]/20 py-5 flex items-start gap-5"
+                >
+                  <div className="w-14 h-14 shrink-0 bg-[#1A191E] text-white flex items-center justify-center !rounded-[4px]">
+                    <PixelIcon name={w.icon} color="#ffffff" size={24} />
+                  </div>
+                  <div className="flex flex-col gap-2 pt-1">
+                    <h3 className="type-card-title">{w.title}</h3>
+                    <p className="type-body opacity-80 max-w-[420px]">{w.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            {/* Tools I lean on — same chip style as the practice-area row */}
+            <div className="flex flex-col gap-4">
+              <h3 className="type-body-sm opacity-60 uppercase tracking-[0.05em]">
+                Tools I lean on
+              </h3>
+              <ul className="flex flex-wrap gap-3">
+                {tools.map((t) => (
+                  <li key={t.name}>
+                    <span className="svc-label" style={{ color: t.fg }}>
+                      <span
+                        className="svc-label-text"
+                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
+                      >
+                        {t.name}
+                      </span>
+                      <span
+                        className="svc-label-tab"
+                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
+                      >
+                        <PixelIcon name={t.icon} color={t.fg} size={18} />
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* === WHO — ABOUT === */}
       <section
         id="about"
         data-section="about"
         className="grid md:grid-cols-2 items-stretch section-border-b min-h-[560px]"
       >
-        {/* Left column — eyebrow + h2 at top, 4-paragraph bio fills the column */}
-        <div className="p-10 flex flex-col gap-10">
+        {/* Left column — eyebrow + h2 at top, 3-paragraph bio fills the column */}
+        <div className="p-6 md:p-10 flex flex-col gap-10">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">About</span>
-            <h2 className="type-display-h1 max-w-[14ch]">
-              Half marketer, half designer.
+            <h2 className="type-display-h1 max-w-[10ch]">
+              I&rsquo;m Paige.
             </h2>
           </div>
           <div className="flex flex-col gap-5 max-w-[560px]">
             <p className="type-leading opacity-80">
-              I&rsquo;ve spent 13 years inside the Shopify and ecommerce
-              ecosystem, mostly at the messy intersection of product,
-              marketing, UX, and growth.
+              For 13 years I&rsquo;ve helped online businesses — Shopify
+              apps, ecommerce SaaS, DTC brands, early teams — figure out
+              how to explain what they&rsquo;ve built.
             </p>
             <p className="type-body opacity-80">
-              That means I&rsquo;m most useful where the product story has to
-              match the product experience. The homepage, the product page,
-              the onboarding flow, the pricing page, the feature that
-              technically works but still takes too long to explain.
-            </p>
-            <p className="type-body opacity-80">
-              I&rsquo;ve worked across Shopify apps, ecommerce SaaS, DTC
-              brands, and early-stage teams where everyone is moving fast and
-              context is scattered everywhere. Usually, the problem is not
-              effort. It&rsquo;s clarity.
-            </p>
-            <p className="type-body opacity-80">
-              I help teams make the thing easier to understand, easier to
-              use, and easier to sell. No giant strategy theatre. No
-              pretending every problem needs a 40-slide deck. Just clear
-              thinking, honest feedback, and practical next steps.
+              Usually the product is good. The hard part is getting people
+              to understand it fast, trust it, and know what to do next.
+              That&rsquo;s what I do: the point where product, marketing,
+              design, and UX meet. I combine simple, clear positioning with
+              clean, modern design that has personality, looks amazing,
+              tells a story, and guides users where they need to go.
             </p>
           </div>
         </div>
 
-        {/* Right column — ink panel with editorial markers + a tall display
-            numeral. Grain overlay gives it the photocopied newsprint feel. */}
+        {/* Right column — image placeholder. Drop the portrait image into
+            /public/about-bg.jpg and swap the placeholder for a bg-image
+            aside when ready. */}
         <aside
-          className="bg-[#1A191E] text-white p-10 flex flex-col justify-between relative md:divider-indent-left grain-vintage overflow-hidden"
-          aria-label="About — editorial panel"
-        >
-          {/* Top markers */}
-          <div className="flex justify-between items-baseline text-white/55">
-            <span className="type-marker">Vol. 02 — Practice</span>
-            <span className="type-marker">MMXXVI</span>
-          </div>
-
-          {/* Dominant numeral + caption (anchored bottom-right) */}
-          <div className="flex flex-col items-end gap-3 self-end text-right">
-            <span
-              className="font-display leading-[0.82] text-white"
-              style={{ fontSize: "220px", letterSpacing: "-8px" }}
-            >
-              13
-            </span>
-            <span className="type-marker text-white/55 max-w-[18ch]">
-              Years inside the Shopify ecosystem
-            </span>
-          </div>
-        </aside>
+          className="placeholder relative md:divider-indent-left min-h-[400px]"
+          aria-label="About — portrait placeholder"
+        />
       </section>
 
       
@@ -640,7 +616,7 @@ export default function Home() {
         <section
           id="contact"
           data-section="closing-cta"
-          className="bg-[#1A191E] text-white p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
+          className="bg-[#1A191E] text-white p-8 md:p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
         >
           <div className="flex flex-col gap-6 max-w-[1000px]">
             <span className="type-eyebrow">Get in touch</span>

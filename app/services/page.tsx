@@ -141,7 +141,7 @@ export default function ServicesPage() {
         className="min-h-[640px] flex section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
-          <div className="flex flex-col gap-10 justify-end p-10 min-w-0">
+          <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Services</span>
               <div className="flex flex-col gap-3">
@@ -185,7 +185,7 @@ export default function ServicesPage() {
       </section>
 
       {/* === SUMMARY GRID === */}
-      <section data-section="services-summary" className="p-10 section-border-b">
+      <section data-section="services-summary" className="p-6 md:p-10 section-border-b">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Overview</span>
@@ -229,7 +229,7 @@ export default function ServicesPage() {
       <section
         id="growth"
         data-section="growth-blockers"
-        className="p-10 flex flex-col gap-10 section-border-b"
+        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Growth blockers</span>
@@ -260,7 +260,7 @@ export default function ServicesPage() {
           key={s.slug}
           id={s.slug}
           data-section={`service-${s.slug}`}
-          className="p-10 section-border-b"
+          className="p-6 md:p-10 section-border-b"
         >
           <div className="grid md:grid-cols-12 gap-6 md:gap-16 items-start">
             <div className="md:col-span-5 flex flex-col gap-6">
@@ -325,7 +325,7 @@ export default function ServicesPage() {
       ))}
 
       {/* === PROCESS === */}
-      <section data-section="services-process" className="p-10 section-border-b">
+      <section data-section="services-process" className="p-6 md:p-10 section-border-b">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Process</span>
@@ -357,7 +357,7 @@ export default function ServicesPage() {
       </section>
 
       {/* === ASK PAIGE NUDGE === */}
-      <section data-section="services-ask-paige" className="p-10 section-border-b">
+      <section data-section="services-ask-paige" className="p-6 md:p-10 section-border-b">
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Not ready for a project</span>
@@ -387,7 +387,7 @@ export default function ServicesPage() {
       {/* === CLOSING CTA === */}
       <section
         data-section="closing-cta"
-        className="bg-[#1A191E] text-white p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
+        className="bg-[#1A191E] text-white p-8 md:p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
       >
         <div className="flex flex-col gap-6 max-w-[800px]">
           <span className="type-eyebrow">Get in touch</span>

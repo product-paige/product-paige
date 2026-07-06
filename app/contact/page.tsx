@@ -55,7 +55,7 @@ export default function ContactPage() {
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
           {/* Left: eyebrow + h1 + leading + email shortcut */}
-          <div className="flex flex-col gap-10 justify-end p-10 min-w-0">
+          <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Contact</span>
               <div className="flex flex-col gap-3">
@@ -137,7 +137,7 @@ export default function ContactPage() {
       </section>
 
       {/* === CHANNELS === single section eyebrow */}
-      <section data-section="channels" className="p-10 section-border-b">
+      <section data-section="channels" className="p-6 md:p-10 section-border-b">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Channels</span>
@@ -171,7 +171,7 @@ export default function ContactPage() {
       </section>
 
       {/* === FIT === single section eyebrow */}
-      <section data-section="fit" className="p-10 section-border-b">
+      <section data-section="fit" className="p-6 md:p-10 section-border-b">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Fit check</span>
@@ -203,7 +203,7 @@ export default function ContactPage() {
       {/* === CLOSING CTA === single section eyebrow */}
       <section
         data-section="closing-cta"
-        className="bg-[#1A191E] text-white p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
+        className="bg-[#1A191E] text-white p-8 md:p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
       >
         <div className="flex flex-col gap-6 max-w-[800px]">
           <span className="type-eyebrow">Get in touch</span>

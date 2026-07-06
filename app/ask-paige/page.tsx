@@ -103,7 +103,7 @@ export default function AskPaigePage() {
         className="min-h-[640px] flex section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
-          <div className="flex flex-col gap-10 justify-end p-10 min-w-0">
+          <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Ask Paige</span>
               <div className="flex flex-col gap-3">
@@ -154,7 +154,7 @@ export default function AskPaigePage() {
 
       
       {/* === SECTION: use-cases === */}
-      <section id="use-cases" data-section="use-cases" className="p-10 mx-3 md:mx-6 flex flex-col gap-12 section-border-b">
+      <section id="use-cases" data-section="use-cases" className="p-6 md:p-10 mx-3 md:mx-6 flex flex-col gap-12 section-border-b">
         <p className="font-display text-2xl md:text-3xl leading-[1.2] max-w-[640px]">
           Most sessions land in one of these buckets:
         </p>
@@ -175,7 +175,7 @@ export default function AskPaigePage() {
       
       {/* === SECTION: how-it-works (chamfered, in framed container) === */}
       <div data-section="how-it-works-frame" className="mx-3 md:mx-6">
-        <section data-section="how-it-works" className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative flex flex-col gap-12">
+        <section data-section="how-it-works" className="bg-[#1a1a1a] text-white p-6 md:p-10 m-4 md:m-6 section-chamfer relative flex flex-col gap-12">
           <Reveal>
             <div className="grid md:grid-cols-12 gap-6 md:gap-12">
               <div className="md:col-span-5">
@@ -203,7 +203,7 @@ export default function AskPaigePage() {
 
       
       {/* === SECTION: fit-check === */}
-      <section data-section="fit-check" className="p-10 mx-3 md:mx-6 flex flex-col gap-12 section-border-b">
+      <section data-section="fit-check" className="p-6 md:p-10 mx-3 md:mx-6 flex flex-col gap-12 section-border-b">
         <Reveal>
           <div className="grid md:grid-cols-12 gap-6 md:gap-12">
             <div className="md:col-span-7 flex flex-col gap-8">
@@ -232,7 +232,7 @@ export default function AskPaigePage() {
         <section
           id="contact"
           data-section="final-cta"
-          className="bg-[#0E6BFF] text-white p-10 m-6 section-chamfer relative flex flex-col gap-12"
+          className="bg-[#0E6BFF] text-white p-6 md:p-10 m-4 md:m-6 section-chamfer relative flex flex-col gap-12"
         >
           <Reveal>
             <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">

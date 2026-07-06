@@ -2,7 +2,7 @@ export function SiteFooter() {
   return (
     <footer
       data-section="site-footer"
-      className="p-10 flex flex-col gap-8"
+      className="p-6 md:p-10 flex flex-col gap-8"
     >
       <p className="type-card-title max-w-[420px]">
         Product-led marketing + UX design for Shopify and ecommerce teams.

@@ -189,7 +189,7 @@ export default function PlaybookPage({
       <div data-section="post-takeaways-frame" className="mx-3 md:mx-6">
         <section
           data-section="post-takeaways"
-          className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative flex flex-col gap-10"
+          className="bg-[#1a1a1a] text-white p-6 md:p-10 m-4 md:m-6 section-chamfer relative flex flex-col gap-10"
         >
           <ul className="grid md:grid-cols-2 gap-x-12 gap-y-6">
             {takeaways.map((t) => (
@@ -249,7 +249,7 @@ export default function PlaybookPage({
         <section
           id="newsletter"
           data-section="newsletter"
-          className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative grain-vintage flex flex-col gap-10"
+          className="bg-[#1a1a1a] text-white p-6 md:p-10 m-4 md:m-6 section-chamfer relative grain-vintage flex flex-col gap-10"
         >
           <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
               <div className="md:col-span-8 flex flex-col gap-6">
