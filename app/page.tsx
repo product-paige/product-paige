@@ -449,18 +449,35 @@ export default function Home() {
             continuous folder shape. On mobile the tab strip scrolls
             horizontally (no visible scrollbar) and the panel stacks. */}
         <div className="flex flex-col w-full max-w-[1100px] mx-auto">
-          {/* Tab strip — horizontal scroll on small screens so 3+ tabs never
-              overflow, plus a snap-x so each tab settles into view cleanly. */}
+          {/* Tab strip — arrow-key navigable, horizontal scroll on small
+              screens with snap-x so tabs settle into view. */}
           <div
             role="tablist"
             aria-label="Recent projects"
             className="flex items-end overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+            onKeyDown={(e) => {
+              // Arrow keys, Home + End for tablist navigation (WAI-ARIA
+              // authoring practices). Focus follows selection.
+              const n = recentWork.length;
+              let next = activeProject;
+              if (e.key === "ArrowRight") next = (activeProject + 1) % n;
+              else if (e.key === "ArrowLeft") next = (activeProject - 1 + n) % n;
+              else if (e.key === "Home") next = 0;
+              else if (e.key === "End") next = n - 1;
+              else return;
+              e.preventDefault();
+              setActiveProject(next);
+              // Focus the newly-active tab so subsequent Tab moves to the panel.
+              const btn = document.getElementById(`project-tab-${next}`);
+              btn?.focus();
+            }}
           >
             {recentWork.map((w, i) => {
               const isActive = activeProject === i;
               return (
                 <button
                   key={w.client}
+                  id={`project-tab-${i}`}
                   type="button"
                   role="tab"
                   onClick={() => setActiveProject(i)}
@@ -477,50 +494,76 @@ export default function Home() {
                   }}
                 >
                   <span className="folder-tab-glyph" aria-hidden="true" />
-                  <span>{w.no}</span>
+                  <span className="whitespace-nowrap">{w.client}</span>
                 </button>
               );
             })}
           </div>
 
-          {/* Active project panel — stacks on mobile (1 col), splits 50/50 on
-              md+. Padding scales: 24px mobile → 40px desktop. */}
+          {/* Active project panel — stacks on mobile (1 col), splits 40/60 on
+              md+. Padding scales: 32px mobile → 48px desktop. */}
           <div
             id="project-panel"
             role="tabpanel"
-            aria-labelledby={`tab-${activeProject}`}
+            aria-labelledby={`project-tab-${activeProject}`}
             key={project.client}
-            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-10 p-6 md:p-10 items-stretch"
+            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-12 p-8 md:p-12 items-stretch"
             style={{ backgroundColor: "#DBE6EB", color: "#1A191E" }}
           >
-            <div className="flex flex-col gap-6 justify-between min-h-[360px] md:min-h-[560px]">
-              <div className="flex flex-col gap-6">
-                <span className="type-body-sm opacity-80">{project.date}</span>
-                <h3 className="type-display-h2">{project.client}</h3>
-                <p className="type-body-lg opacity-80 max-w-[480px]">
-                  {project.blurb}
-                </p>
-              </div>
-              <div className="flex flex-col gap-4">
-                <a
-                  href={project.href}
-                  className="type-nav inline-flex items-center gap-2 self-start hover:opacity-70 transition-opacity"
-                >
-                  View project ↗
-                </a>
+            {/* Text column — meta strip up top, big client + kicker in the
+                middle, prominent CTA at the bottom. */}
+            <div className="flex flex-col gap-8 justify-between min-h-[320px] md:min-h-[520px]">
+              {/* Meta strip: year on the left, role tags on the right */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 justify-between">
+                <span className="type-marker opacity-60">{project.date}</span>
                 <ul className="flex flex-wrap gap-2">
                   {project.tags.map((t) => (
-                    <li key={t} className="pill pill-cased">
-                      {t}
+                    <li key={t} className="type-body-xs opacity-60">
+                      · {t}
                     </li>
                   ))}
                 </ul>
               </div>
+
+              {/* Title group */}
+              <div className="flex flex-col gap-3">
+                <h3 className="type-display-h2 max-w-[14ch]">
+                  {project.client}
+                </h3>
+                <p className="type-leading opacity-80 max-w-[440px]">
+                  {project.blurb}
+                </p>
+              </div>
+
+              {/* Prominent CTA (real button, not just a text link) */}
+              <a
+                href={project.href}
+                className="inline-flex btn self-start"
+                aria-label={`View the ${project.client} case study`}
+              >
+                <span className="btn-text bg-[#1A191E] text-white">
+                  View project
+                </span>
+                <span className="btn-tab bg-[#1A191E] text-white">
+                  <BtnIcons />
+                </span>
+              </a>
             </div>
-            <div
-              className="placeholder w-full aspect-[3/2]"
-              aria-label={`Image — ${project.client}`}
-            />
+
+            {/* Image column — landscape, whole area is clickable so touch users
+                don't have to hit the small CTA button. */}
+            <a
+              href={project.href}
+              aria-label={`Open ${project.client}`}
+              className="relative block group"
+              tabIndex={-1}
+            >
+              <div
+                className="placeholder w-full aspect-[3/2] transition-opacity group-hover:opacity-90"
+                aria-hidden="true"
+              />
+              <span className="sr-only">Open {project.client}</span>
+            </a>
           </div>
         </div>
       </section>
