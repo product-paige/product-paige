@@ -83,6 +83,22 @@ const capabilities = [
   },
 ];
 
+const tools: Array<{
+  name: string;
+  bg: string;
+  fg: string;
+  icon: PixelIconName;
+}> = [
+  { name: "Figma",   bg: "#D6D7D9", fg: "#1A191E", icon: "cursor" },
+  { name: "Claude",  bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
+  { name: "Cursor",  bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
+  { name: "Lovable", bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
+  { name: "v0",      bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
+  { name: "Shopify", bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
+  { name: "Notion",  bg: "#D6D7D9", fg: "#1A191E", icon: "door" },
+  { name: "Linear",  bg: "#D6D7D9", fg: "#1A191E", icon: "target" },
+];
+
 const workingStyle: Array<{
   title: string;
   body: string;
@@ -231,11 +247,11 @@ export default function Home() {
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Categories</span>
-          <div className="flex flex-col gap-3">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="type-display-h2 max-w-[24ch]">
               Uncomplicating products that power real work
             </h2>
-            <p className="type-leading opacity-80 max-w-[680px]">
+            <p className="type-leading opacity-80 max-w-[560px]">
               I work inside the Shopify and ecommerce stack — apps, DTC brands,
               and the AI-assisted tools wedging their way in. When someone
               relies on your product every day to run their store,
@@ -354,22 +370,50 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <ol className="border-t border-[#1a1a1a]/20">
-            {workingStyle.map((w) => (
-              <li
-                key={w.title}
-                className="border-b border-[#1a1a1a]/20 py-5 flex items-start gap-5"
-              >
-                <div className="w-14 h-14 shrink-0 bg-[#1a1a1a] text-white flex items-center justify-center !rounded-[4px]">
-                  <PixelIcon name={w.icon} color="#ffffff" size={24} />
-                </div>
-                <div className="flex flex-col gap-2 pt-1">
-                  <h3 className="type-card-title">{w.title}</h3>
-                  <p className="type-body opacity-80 max-w-[420px]">{w.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <div className="flex flex-col gap-10">
+            <ol className="border-t border-[#1A191E]/20">
+              {workingStyle.map((w) => (
+                <li
+                  key={w.title}
+                  className="border-b border-[#1A191E]/20 py-5 flex items-start gap-5"
+                >
+                  <div className="w-14 h-14 shrink-0 bg-[#1A191E] text-white flex items-center justify-center !rounded-[4px]">
+                    <PixelIcon name={w.icon} color="#ffffff" size={24} />
+                  </div>
+                  <div className="flex flex-col gap-2 pt-1">
+                    <h3 className="type-card-title">{w.title}</h3>
+                    <p className="type-body opacity-80 max-w-[420px]">{w.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            {/* Tools I lean on — same chip style as the practice-area row */}
+            <div className="flex flex-col gap-4">
+              <h3 className="type-body-sm opacity-60 uppercase tracking-[0.05em]">
+                Tools I lean on
+              </h3>
+              <ul className="flex flex-wrap gap-3">
+                {tools.map((t) => (
+                  <li key={t.name}>
+                    <span className="svc-label" style={{ color: t.fg }}>
+                      <span
+                        className="svc-label-text"
+                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
+                      >
+                        {t.name}
+                      </span>
+                      <span
+                        className="svc-label-tab"
+                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
+                      >
+                        <PixelIcon name={t.icon} color={t.fg} size={18} />
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
