@@ -105,25 +105,6 @@ const workingStyle: Array<{
   },
 ];
 
-const growthBlockers = [
-  {
-    title: "Unclear product story",
-    body: "The product evolved, but the message didn't. Customers should not have to work this hard to understand it.",
-  },
-  {
-    title: "Confusing shopping or signup flow",
-    body: "People are interested, but they are not sure what to do next. That friction costs sales, signups, and trust.",
-  },
-  {
-    title: "Too many priorities",
-    body: "Everything feels urgent. Work ships, but it's unclear what is actually moving the business forward.",
-  },
-  {
-    title: "Shaky product foundation",
-    body: "The core experience is not clear enough yet. Scaling now just amplifies the friction.",
-  },
-];
-
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
 const recentWork: Array<{
   no: string;
@@ -292,7 +273,13 @@ export default function Home() {
         className="p-10 flex flex-col gap-6 section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-stretch">
-          <div className="flex flex-col justify-between gap-10">
+          <div className="relative h-full order-2 md:order-1">
+            <div
+              className="placeholder w-full h-full min-h-[480px]"
+              aria-label="Capabilities — image placeholder"
+            />
+          </div>
+          <div className="flex flex-col justify-between gap-10 order-1 md:order-2 relative md:divider-indent-left">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Capabilities</span>
               <h2 className="type-display-h2 max-w-[500px]">
@@ -337,43 +324,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="relative md:divider-indent-left h-full">
-            <div
-              className="placeholder w-full h-full min-h-[480px]"
-              aria-label="Capabilities — image placeholder"
-            />
-          </div>
-        </div>
-      </section>
-
-      
-
-      {/* === WHY — FIX WHAT'S SLOWING GROWTH === */}
-      <section
-        id="growth"
-        data-section="growth-blockers"
-        className="p-10 flex flex-col gap-10 section-border-b"
-      >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Growth blockers</span>
-          <h2 className="type-display-h2 max-w-[24ch]">
-            Fix what&rsquo;s slowing growth
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-4 items-stretch">
-          {growthBlockers.map((g) => (
-            <article
-              key={g.title}
-              className="flex flex-col gap-2 p-6 border border-[#1a1a1a]/20"
-            >
-              <h3 className="type-card-title">
-                {g.title}
-              </h3>
-              <p className="type-body opacity-80 max-w-[480px]">
-                {g.body}
-              </p>
-            </article>
-          ))}
         </div>
       </section>
 

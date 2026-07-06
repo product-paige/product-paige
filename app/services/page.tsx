@@ -110,6 +110,25 @@ const process = [
   },
 ];
 
+const growthBlockers = [
+  {
+    title: "Unclear product story",
+    body: "The product evolved, but the message didn't. Customers should not have to work this hard to understand it.",
+  },
+  {
+    title: "Confusing shopping or signup flow",
+    body: "People are interested, but they are not sure what to do next. That friction costs sales, signups, and trust.",
+  },
+  {
+    title: "Too many priorities",
+    body: "Everything feels urgent. Work ships, but it's unclear what is actually moving the business forward.",
+  },
+  {
+    title: "Shaky product foundation",
+    body: "The core experience is not clear enough yet. Scaling now just amplifies the friction.",
+  },
+];
+
 export default function ServicesPage() {
   return (
     <div className="theme-v2 contents">
@@ -203,6 +222,35 @@ export default function ServicesPage() {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* === GROWTH BLOCKERS === the problems these services address */}
+      <section
+        id="growth"
+        data-section="growth-blockers"
+        className="p-10 flex flex-col gap-10 section-border-b"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Growth blockers</span>
+          <h2 className="type-display-h2 max-w-[24ch]">
+            Fix what&rsquo;s slowing growth
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-4 items-stretch">
+          {growthBlockers.map((g) => (
+            <article
+              key={g.title}
+              className="flex flex-col gap-2 p-6 border border-[#1A191E]/20"
+            >
+              <h3 className="type-card-title">
+                {g.title}
+              </h3>
+              <p className="type-body opacity-80 max-w-[480px]">
+                {g.body}
+              </p>
+            </article>
+          ))}
         </div>
       </section>
 
