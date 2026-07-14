@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { BtnIcons } from "../components/BtnIcons";
+import { ClosingCTA } from "../components/ClosingCTA";
 
 const channels = [
   {
@@ -200,36 +201,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* === CLOSING CTA === single section eyebrow */}
-      <section
-        data-section="closing-cta"
-        className="bg-[#1A191E] text-white p-8 md:p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
-      >
-        <div className="flex flex-col gap-6 max-w-[800px]">
-          <span className="type-eyebrow">Get in touch</span>
-          <div className="flex flex-col gap-3">
-            <h2 className="type-display-h1 !text-white max-w-[14ch]">
-              Bring the messy version.
-            </h2>
-            <p className="type-leading !text-white opacity-80 max-w-[560px]">
-              The confusing onboarding, the homepage that almost works, the
-              AI workflow held together with prompts and hope. That&rsquo;s
-              usually where the interesting work starts.
-            </p>
-          </div>
-        </div>
-        <a
-          href="mailto:hello@productpaige.com?subject=Hello"
-          className="inline-flex btn"
-        >
-          <span className="btn-text bg-[#0E6BFF] text-white">
-            Say hello
-          </span>
-          <span className="btn-tab bg-[#0E6BFF] text-white">
-            <BtnIcons />
-          </span>
-        </a>
-      </section>
+      {/* === CLOSING CTA === */}
+      <ClosingCTA
+        title="Bring the messy version."
+        body="The confusing onboarding, the homepage that almost works, the AI workflow held together with prompts and hope. That's usually where the interesting work starts."
+        ctaLabel="Say hello"
+        ctaHref="mailto:hello@productpaige.com?subject=Hello"
+      />
     </div>
   );
 }

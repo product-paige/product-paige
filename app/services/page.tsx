@@ -1,5 +1,6 @@
 import { BtnIcons } from "../components/BtnIcons";
 import { PixelIcon, type PixelIconName } from "../components/PixelIcon";
+import { ClosingCTA } from "../components/ClosingCTA";
 
 type Service = {
   slug: string;
@@ -385,35 +386,10 @@ export default function ServicesPage() {
       </section>
 
       {/* === CLOSING CTA === */}
-      <section
-        data-section="closing-cta"
-        className="bg-[#1A191E] text-white p-8 md:p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
-      >
-        <div className="flex flex-col gap-6 max-w-[800px]">
-          <span className="type-eyebrow">Get in touch</span>
-          <div className="flex flex-col gap-3">
-            <h2 className="type-display-h1 !text-white max-w-[16ch]">
-              Bring the part you can&rsquo;t see clearly yet.
-            </h2>
-            <p className="type-leading !text-white opacity-80 max-w-[560px]">
-              Send a link, a screenshot, or the half-finished idea. I&rsquo;ll
-              help you find the seams, the friction, and what&rsquo;s worth
-              fixing first.
-            </p>
-          </div>
-        </div>
-        <a
-          href="/contact"
-          className="inline-flex btn"
-        >
-          <span className="btn-text bg-[#0E6BFF] text-white">
-            Start a project
-          </span>
-          <span className="btn-tab bg-[#0E6BFF] text-white">
-            <BtnIcons />
-          </span>
-        </a>
-      </section>
+      <ClosingCTA
+        title="Bring the part you can't see clearly yet."
+        body="Send a link, a screenshot, or the half-finished idea. I'll help you find the seams, the friction, and what's worth fixing first."
+      />
     </div>
   );
 }

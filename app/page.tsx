@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { BtnIcons } from "./components/BtnIcons";
 import { PixelIcon, type PixelIconName } from "./components/PixelIcon";
+import { ClosingCTA } from "./components/ClosingCTA";
 import { projectList } from "./projects/data";
 
 const services: Array<{
@@ -612,38 +613,10 @@ export default function Home() {
       
 
       {/* === CLOSING CTA === */}
-      <div data-section="closing-cta-frame" className="">
-        <section
-          id="contact"
-          data-section="closing-cta"
-          className="bg-[#1A191E] text-white p-8 md:p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
-        >
-          <div className="flex flex-col gap-6 max-w-[1000px]">
-            <span className="type-eyebrow">Get in touch</span>
-            <div className="flex flex-col gap-3">
-              <h2 className="type-display-h1 !text-white">
-                Stop over-explaining the product
-              </h2>
-              <p className="type-leading !text-white opacity-80 max-w-[720px]">
-                Send a link and the part you can&rsquo;t see clearly yet.
-                I&rsquo;ll help you find the seams, the friction, and
-                what&rsquo;s worth fixing first.
-              </p>
-            </div>
-          </div>
-          <a
-            href="/contact"
-            className="inline-flex btn"
-          >
-            <span className="btn-text bg-[#0E6BFF] text-white">
-              Start a project
-            </span>
-            <span className="btn-tab bg-[#0E6BFF] text-white">
-              <BtnIcons />
-            </span>
-          </a>
-        </section>
-      </div>
+      <ClosingCTA
+        title="Stop over-explaining the product"
+        body="Send a link and the part you can't see clearly yet. I'll help you find the seams, the friction, and what's worth fixing first."
+      />
     </div>
   );
 }

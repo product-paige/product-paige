@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BtnIcons } from "../../components/BtnIcons";
+import { ClosingCTA } from "../../components/ClosingCTA";
 import { projects, projectList } from "../data";
 
 export function generateStaticParams() {
@@ -181,35 +182,10 @@ export default async function ProjectPage({
       </section>
 
       {/* === CLOSING CTA === */}
-      <section
-        data-section="project-cta"
-        className="bg-[#1A191E] text-white p-8 md:p-16 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
-      >
-        <div className="flex flex-col gap-6 max-w-[800px]">
-          <span className="type-eyebrow">Get in touch</span>
-          <div className="flex flex-col gap-3">
-            <h2 className="type-display-h1 !text-white max-w-[14ch]">
-              Have a project like this?
-            </h2>
-            <p className="type-leading !text-white opacity-80 max-w-[560px]">
-              Send the link or the screenshot you keep meaning to share —
-              I&rsquo;ll come back with where the seams are and what&rsquo;s
-              worth fixing first.
-            </p>
-          </div>
-        </div>
-        <a
-          href="/contact"
-          className="inline-flex btn"
-        >
-          <span className="btn-text bg-[#0E6BFF] text-white">
-            Start a project
-          </span>
-          <span className="btn-tab bg-[#0E6BFF] text-white">
-            <BtnIcons />
-          </span>
-        </a>
-      </section>
+      <ClosingCTA
+        title="Have a project like this?"
+        body="Send the link or the screenshot you keep meaning to share — I'll come back with where the seams are and what's worth fixing first."
+      />
     </div>
   );
 }

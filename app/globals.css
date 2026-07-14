@@ -871,8 +871,8 @@ body:has(.theme-v3) .btn:active .btn-tab {
   top: 0;
   bottom: 0;
   width: 13px;
-  /* Authentic blueprint paper — deep cobalt with a crisp white grid. */
-  background-color: #1d6cb0;
+  /* Authentic blueprint paper — brand accent blue with a crisp white grid. */
+  background-color: #0E6BFF;
   background-image:
     /* Major grid line, every 5 cells — slightly more visible */
     linear-gradient(to right,
