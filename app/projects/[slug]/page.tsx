@@ -70,7 +70,7 @@ export default async function ProjectPage({
           <span>{project.year}</span>
         </div>
         <div className="flex flex-col gap-3">
-          <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]" style={{ color: heroFg }}>
+          <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]" style={{ color: heroFg }}>
             {project.kicker}
           </h1>
           <p className="text-sm leading-[1.4] opacity-70">{project.role}</p>
@@ -96,7 +96,7 @@ export default async function ProjectPage({
             <article key={b.title} className="flex flex-col gap-6">
               <span className="type-eyebrow">{b.eyebrow}</span>
               <div className="flex flex-col gap-3">
-                <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">{b.title}</h2>
+                <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">{b.title}</h2>
                 <p className="text-base leading-[1.4] opacity-80">{b.body}</p>
               </div>
             </article>
@@ -126,7 +126,7 @@ export default async function ProjectPage({
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow !text-white">By the numbers</span>
-          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] !text-white">Outcomes worth measuring</h2>
+          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink !text-white">Outcomes worth measuring</h2>
         </div>
         <ul className="grid md:grid-cols-3 gap-6 md:gap-12">
           {project.highlights.map((h) => (
@@ -154,7 +154,7 @@ export default async function ProjectPage({
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">More work</span>
-          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">More projects</h2>
+          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">More projects</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           {related.map((r) => (
@@ -171,7 +171,7 @@ export default async function ProjectPage({
                 <span>{r.client}</span>
                 <span>{r.year}</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">{r.kicker}</h3>
+              <h3 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">{r.kicker}</h3>
               <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
                 View project ↗
               </span>

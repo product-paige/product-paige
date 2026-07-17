@@ -149,7 +149,7 @@ export default function Home() {
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Open to new projects</span>
               <div className="flex flex-col gap-3">
-                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
                   <TearText>{"Product marketing\n& UX design for\necommerce teams"}</TearText>
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
@@ -176,7 +176,7 @@ export default function Home() {
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
             <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
-              <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
+              <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Hi, I&rsquo;m Paige.
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
@@ -235,7 +235,7 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-10 order-1 md:order-2 relative md:divider-indent-left">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Capabilities</span>
-              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[500px]">
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[500px]">
                 What we&rsquo;ll improve
               </h2>
             </div>
@@ -249,7 +249,7 @@ export default function Home() {
                     <button
                       type="button"
                       onClick={() => setActiveCap(i)}
-                      className={`w-full text-left py-4 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E] transition-opacity ${
+                      className={`w-full text-left py-4 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink transition-opacity ${
                         activeCap === i
                           ? "opacity-100"
                           : "opacity-30 hover:opacity-60"
@@ -291,7 +291,7 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Recent work</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
               Recent work
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -379,7 +379,7 @@ export default function Home() {
 
               {/* Title group */}
               <div className="flex flex-col gap-3">
-                <h3 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[14ch]">
+                <h3 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[14ch]">
                   {project.client}
                 </h3>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[440px]">
@@ -432,7 +432,7 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Categories</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
               Move fast &amp; keep it simple
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -454,7 +454,7 @@ export default function Home() {
                 <PixelIcon name={c.icon} color={c.iconFg} size={24} />
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">{c.name}</h3>
+                <h3 className="text-xl font-display leading-[1.1] text-ink">{c.name}</h3>
                 <p className="text-base leading-[1.4] opacity-80">{c.blurb}</p>
               </div>
             </article>
@@ -493,7 +493,7 @@ export default function Home() {
         <div className="p-6 md:p-10 flex flex-col gap-10 justify-between">
           <div className="flex flex-col gap-10">
             <span className="type-eyebrow">About</span>
-            <h2 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[10ch]">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[10ch]">
               A short paragraph about Paige
             </h2>
           </div>
@@ -529,7 +529,7 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Notes</span>
           <div className="flex flex-wrap items-start justify-between gap-6">
-            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
               Short reads on clarity, positioning &amp; UX
             </h2>
             <a href="/blog" className="inline-flex btn shrink-0">

@@ -157,7 +157,7 @@ export default function RootLayout({
         />
         <div
           data-layer="page-wrapper"
-          className="text-[#1a1a1a] mx-auto max-w-[1440px] p-3 md:p-6"
+          className="text-ink mx-auto max-w-[1440px] p-3 md:p-6"
         >
           <div
             data-layer="content-frame"

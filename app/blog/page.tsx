@@ -17,7 +17,7 @@ export default function BlogIndexPage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Blog</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[14ch]">
+            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[14ch]">
               Notes on shipping clearly.
             </h1>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -42,7 +42,7 @@ export default function BlogIndexPage() {
             <div className="flex flex-col gap-6 justify-center">
               <PostMeta items={["Featured", feature.category, feature.readingTime]} size="sm" />
               <div className="flex flex-col gap-3">
-                <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[18ch] group-hover:opacity-70 transition-opacity">
+                <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[18ch] group-hover:opacity-70 transition-opacity">
                   {feature.title}
                 </h2>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[520px]">
@@ -63,7 +63,7 @@ export default function BlogIndexPage() {
           <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">More posts</span>
-              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
                 From the notebook
               </h2>
             </div>
@@ -79,7 +79,7 @@ export default function BlogIndexPage() {
                       aria-label={`Cover — ${p.title}`}
                     />
                     <PostMeta items={[p.category, p.readingTime]} size="sm" />
-                    <h3 className="text-xl font-display leading-[1.1] text-[#1A191E] group-hover:opacity-70 transition-opacity">
+                    <h3 className="text-xl font-display leading-[1.1] text-ink group-hover:opacity-70 transition-opacity">
                       {p.title}
                     </h3>
                     <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">

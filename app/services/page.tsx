@@ -145,7 +145,7 @@ export default function ServicesPage() {
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Services</span>
               <div className="flex flex-col gap-3">
-                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]">
+                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">
                   What we&rsquo;ll work on together.
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
@@ -172,7 +172,7 @@ export default function ServicesPage() {
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
             <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
-              <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
+              <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Four services. One practice.
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
@@ -190,7 +190,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Overview</span>
             <div className="flex flex-col gap-3">
-              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
                 Four lanes of work, deeply connected.
               </h2>
               <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -211,7 +211,7 @@ export default function ServicesPage() {
                   <PixelIcon name={s.icon} color="#ffffff" size={24} />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-xl font-display leading-[1.1] text-[#1A191E] group-hover:opacity-70 transition-opacity">
+                  <h3 className="text-xl font-display leading-[1.1] text-ink group-hover:opacity-70 transition-opacity">
                     {s.title}
                   </h3>
                   <p
@@ -233,7 +233,7 @@ export default function ServicesPage() {
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Growth blockers</span>
-          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
+          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
             Fix what&rsquo;s slowing growth
           </h2>
         </div>
@@ -243,7 +243,7 @@ export default function ServicesPage() {
               key={g.title}
               className="flex flex-col gap-2 p-6 border border-[#1A191E]/20"
             >
-              <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
+              <h3 className="text-xl font-display leading-[1.1] text-ink">
                 {g.title}
               </h3>
               <p className="text-base leading-[1.4] opacity-80 max-w-[480px]">
@@ -266,7 +266,7 @@ export default function ServicesPage() {
             <div className="md:col-span-5 flex flex-col gap-6">
               <span className="type-eyebrow">{s.eyebrow}</span>
               <div className="flex flex-col gap-3">
-                <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[16ch]">{s.title}</h2>
+                <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[16ch]">{s.title}</h2>
                 <p
                   className="text-lg leading-[1.4] opacity-80 max-w-[460px]"
                   dangerouslySetInnerHTML={{ __html: s.lead }}
@@ -280,14 +280,14 @@ export default function ServicesPage() {
             </div>
             <div className="md:col-span-7 flex flex-col gap-10">
               <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">What it is</h3>
+                <h3 className="text-xl font-display leading-[1.1] text-ink">What it is</h3>
                 <p
                   className="text-base leading-[1.4] opacity-80 max-w-[560px]"
                   dangerouslySetInnerHTML={{ __html: s.whatItIs }}
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">What&rsquo;s included</h3>
+                <h3 className="text-xl font-display leading-[1.1] text-ink">What&rsquo;s included</h3>
                 <ul className="flex flex-col gap-3 max-w-[560px]">
                   {s.includes.map((item) => (
                     <li
@@ -305,14 +305,14 @@ export default function ServicesPage() {
               </div>
               <div className="grid sm:grid-cols-2 gap-10">
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">Deliverable</h3>
+                  <h3 className="text-xl font-display leading-[1.1] text-ink">Deliverable</h3>
                   <p
                     className="text-base leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.deliverable }}
                   />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">Good for</h3>
+                  <h3 className="text-xl font-display leading-[1.1] text-ink">Good for</h3>
                   <p
                     className="text-base leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.goodFor }}
@@ -330,7 +330,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Process</span>
             <div className="flex flex-col gap-3">
-              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
                 How a project starts.
               </h2>
               <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -344,7 +344,7 @@ export default function ServicesPage() {
               <li key={p.step} className="flex flex-col gap-3.5">
                 <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60">.{p.step}</span>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">{p.title}</h3>
+                  <h3 className="text-xl font-display leading-[1.1] text-ink">{p.title}</h3>
                   <p
                     className="text-base leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: p.body }}
@@ -361,7 +361,7 @@ export default function ServicesPage() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Not ready for a project</span>
-            <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+            <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink max-w-[20ch]">
               Start with a single Ask Paige session.
             </h2>
           </div>

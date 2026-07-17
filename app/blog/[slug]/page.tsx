@@ -19,8 +19,32 @@ export default async function BlogPostPage({
     day: "numeric",
   });
 
+  const postUrl = `https://productpaige.com/blog/${slug}`;
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${postUrl}#post`,
+    headline: post.title,
+    description: post.kicker,
+    articleSection: post.category,
+    datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: "en-US",
+    mainEntityOfPage: postUrl,
+    author: { "@id": "https://productpaige.com/#paige" },
+    publisher: { "@id": "https://productpaige.com/#paige" },
+    image: [`https://productpaige.com/og-image.webp`],
+  };
+
   return (
     <div className="theme contents">
+      {/* Per-post structured data — helps Google surface title, author, and
+          publish date in rich results. Points at the site-wide Person schema
+          in app/layout.tsx via `@id`. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
 
       {/* === HERO === */}
       <section
@@ -30,7 +54,7 @@ export default async function BlogPostPage({
       >
         <div className="flex flex-col gap-6 max-w-[820px]">
           <PostMeta items={["Blog", post.category, post.readingTime, dateFormatted]} />
-          <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]">{post.title}</h1>
+          <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">{post.title}</h1>
           <p className="text-lg leading-[1.4] opacity-80">{post.kicker}</p>
         </div>
       </section>
@@ -49,7 +73,7 @@ export default async function BlogPostPage({
           <aside className="md:col-span-3 flex flex-col gap-3">
             <span className="type-eyebrow">Author</span>
             <div className="flex flex-col gap-1">
-              <p className="text-xl font-display leading-[1.1] text-[#1A191E]">Paige Harris</p>
+              <p className="text-xl font-display leading-[1.1] text-ink">Paige Harris</p>
               <p className="text-sm leading-[1.4] opacity-60">Product Paige</p>
             </div>
           </aside>
@@ -71,7 +95,7 @@ export default async function BlogPostPage({
         >
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">More reading</span>
-            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">Keep going</h2>
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">Keep going</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6 items-stretch">
             {related.map((r) => (
@@ -85,7 +109,7 @@ export default async function BlogPostPage({
                   aria-label={`Cover — ${r.title}`}
                 />
                 <PostMeta items={[r.category, r.readingTime]} size="sm" />
-                <h3 className="text-xl font-display leading-[1.1] text-[#1A191E] group-hover:opacity-70 transition-opacity">
+                <h3 className="text-xl font-display leading-[1.1] text-ink group-hover:opacity-70 transition-opacity">
                   {r.title}
                 </h3>
                 <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">{r.kicker}</p>

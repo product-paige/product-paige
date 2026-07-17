@@ -1,7 +1,7 @@
 import { BtnIcons } from "./BtnIcons";
 
 type ClosingCTAProps = {
-  /** Main headline — renders at text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] scale, white on ink. */
+  /** Main headline — renders at text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink scale, white on ink. */
   title: string;
   /** Optional supporting paragraph under the headline. */
   body?: string;

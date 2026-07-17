@@ -9,7 +9,7 @@ export function SiteHeader() {
       {/* Logo — always visible (acts as Home) */}
       <a
         href="/"
-        className="pl-6 pr-10 flex items-center text-xl font-display leading-[1.1] text-[#1A191E] whitespace-nowrap"
+        className="pl-6 pr-10 flex items-center text-xl font-display leading-[1.1] text-ink whitespace-nowrap"
       >
         Product Paige
       </a>

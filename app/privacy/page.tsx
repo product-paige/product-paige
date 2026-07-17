@@ -49,7 +49,7 @@ export default function PrivacyPage() {
         <div className="flex flex-col gap-6 max-w-[720px]">
           <span className="type-eyebrow">Privacy</span>
           <div className="flex flex-col gap-3">
-            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]">
+            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">
               Plain-language privacy.
             </h1>
             <p className="text-lg leading-[1.4] opacity-80">
@@ -70,7 +70,7 @@ export default function PrivacyPage() {
           {sections.map((s) => (
             <li key={s.title} className="flex flex-col gap-3">
               <span className="type-eyebrow">{s.eyebrow}</span>
-              <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">{s.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">{s.title}</h2>
               <p className="text-base leading-[1.4] opacity-80">{s.body}</p>
             </li>
           ))}
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
       <section data-section="privacy-contact" className="p-6 md:p-10 section-border-b">
         <div className="flex flex-col gap-6 max-w-[640px]">
           <span className="type-eyebrow">Questions</span>
-          <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">
+          <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">
             Send anything to{" "}
             <a
               href="mailto:hello@productpaige.com"

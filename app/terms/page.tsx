@@ -54,7 +54,7 @@ export default function TermsPage() {
         <div className="flex flex-col gap-6 max-w-[720px]">
           <span className="type-eyebrow">Terms</span>
           <div className="flex flex-col gap-3">
-            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]">
+            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">
               The shape of the engagement.
             </h1>
             <p className="text-lg leading-[1.4] opacity-80">
@@ -75,7 +75,7 @@ export default function TermsPage() {
           {sections.map((s) => (
             <li key={s.title} className="flex flex-col gap-3">
               <span className="type-eyebrow">{s.eyebrow}</span>
-              <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">{s.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">{s.title}</h2>
               <p className="text-base leading-[1.4] opacity-80">{s.body}</p>
             </li>
           ))}
@@ -86,7 +86,7 @@ export default function TermsPage() {
       <section data-section="terms-contact" className="p-6 md:p-10 section-border-b">
         <div className="flex flex-col gap-6 max-w-[640px]">
           <span className="type-eyebrow">Questions</span>
-          <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">
+          <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">
             Email{" "}
             <a
               href="mailto:hello@productpaige.com"

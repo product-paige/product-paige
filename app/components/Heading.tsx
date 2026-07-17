@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 
 const H1_CLASS =
-  "text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E]";
+  "text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink";
 const H2_CLASS =
-  "text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E]";
+  "text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink";
 const H3_CLASS =
-  "text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]";
+  "text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink";
 const CARD_TITLE_CLASS =
-  "text-xl font-display leading-[1.1] text-[#1A191E]";
+  "text-xl font-display leading-[1.1] text-ink";
 
 type HeadingProps = {
   children: ReactNode;
@@ -20,7 +20,7 @@ export function H1({ children, className = "", style }: HeadingProps) {
   return (
     <h1 className={`${H1_CLASS} ${className}`.trim()} style={style}>
       {children}
-    </H1>
+    </h1>
   );
 }
 
@@ -29,7 +29,7 @@ export function H2({ children, className = "", style }: HeadingProps) {
   return (
     <h2 className={`${H2_CLASS} ${className}`.trim()} style={style}>
       {children}
-    </H2>
+    </h2>
   );
 }
 

@@ -37,7 +37,7 @@ export default function ContactPage() {
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Contact</span>
               <div className="flex flex-col gap-3">
-                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
                   Send the part you can&rsquo;t see clearly yet.
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
@@ -61,7 +61,7 @@ export default function ContactPage() {
               onSubmit={handleSubmit}
               className="card card-sm card-cream is-static flex flex-col gap-4 !min-h-0 w-full flex-1 !p-10"
             >
-              <h2 className="text-xl font-display leading-[1.1] text-[#1A191E]">Send a note</h2>
+              <h2 className="text-xl font-display leading-[1.1] text-ink">Send a note</h2>
               <label className="flex flex-col gap-1.5">
                 <span className="text-sm leading-[1.4] opacity-70">Your name</span>
                 <input
