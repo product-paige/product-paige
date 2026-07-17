@@ -23,7 +23,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HERO === hero + navbar together fill the viewport */}
       <section
@@ -59,7 +59,7 @@ export default function ContactPage() {
           >
             <form
               onSubmit={handleSubmit}
-              className="card card-cream is-static flex flex-col gap-4 !min-h-0 w-full flex-1 !p-10"
+              className="card card-sm card-cream is-static flex flex-col gap-4 !min-h-0 w-full flex-1 !p-10"
             >
               <h2 className="text-xl font-display leading-[1.1] text-[#1A191E]">Send a note</h2>
               <label className="flex flex-col gap-1.5">

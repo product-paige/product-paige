@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { ClosingCTA } from "../../components/ClosingCTA";
+import { PostMeta } from "../../components/PostMeta";
 import { blogPosts, blogList } from "../data";
 
 export default async function BlogPostPage({
@@ -19,7 +20,7 @@ export default async function BlogPostPage({
   });
 
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HERO === */}
       <section
@@ -28,15 +29,7 @@ export default async function BlogPostPage({
         className="p-6 md:p-10 section-border-b"
       >
         <div className="flex flex-col gap-6 max-w-[820px]">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm leading-[1.4] opacity-60">
-            <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase">Blog</span>
-            <span className="dot-sep" aria-hidden="true" />
-            <span>{post.category}</span>
-            <span className="dot-sep" aria-hidden="true" />
-            <span>{post.readingTime}</span>
-            <span className="dot-sep" aria-hidden="true" />
-            <span>{dateFormatted}</span>
-          </div>
+          <PostMeta items={["Blog", post.category, post.readingTime, dateFormatted]} />
           <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]">{post.title}</h1>
           <p className="text-lg leading-[1.4] opacity-80">{post.kicker}</p>
         </div>
@@ -91,11 +84,7 @@ export default async function BlogPostPage({
                   className="placeholder w-full aspect-[4/3] transition-opacity group-hover:opacity-90"
                   aria-label={`Cover — ${r.title}`}
                 />
-                <div className="flex flex-wrap items-center gap-x-3 text-sm leading-[1.4] opacity-60">
-                  <span>{r.category}</span>
-                  <span className="dot-sep" aria-hidden="true" />
-                  <span>{r.readingTime}</span>
-                </div>
+                <PostMeta items={[r.category, r.readingTime]} size="sm" />
                 <h3 className="text-xl font-display leading-[1.1] text-[#1A191E] group-hover:opacity-70 transition-opacity">
                   {r.title}
                 </h3>

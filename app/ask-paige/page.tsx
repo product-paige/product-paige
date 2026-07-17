@@ -94,7 +94,7 @@ const youGet = [
 
 export default function AskPaigePage() {
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HERO === matches homepage hero layout */}
       <section
@@ -140,11 +140,11 @@ export default function AskPaigePage() {
             className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center"
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
-            <div className="card card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
+            <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
               <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
                 One conversation.
               </h3>
-              <p className="text-base leading-[1.4] opacity-80 leading-[1.2]">
+              <p className="text-base leading-[1.2] opacity-80">
                 The version of your product you&rsquo;ve been avoiding.
               </p>
             </div>

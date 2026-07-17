@@ -53,7 +53,7 @@ const works = [
 
 export default function PortfolioLayout() {
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HERO === */}
       <section

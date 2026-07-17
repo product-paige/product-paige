@@ -38,7 +38,7 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HEADER === */}
       <section

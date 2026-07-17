@@ -1,11 +1,12 @@
 import { ClosingCTA } from "../components/ClosingCTA";
+import { PostMeta } from "../components/PostMeta";
 import { blogList } from "./data";
 
 export default function BlogIndexPage() {
   const [feature, ...rest] = blogList;
 
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HEADER === matches other simple-header pages (privacy, terms) */}
       <section
@@ -39,13 +40,7 @@ export default function BlogIndexPage() {
               aria-label={`Cover — ${feature.title}`}
             />
             <div className="flex flex-col gap-6 justify-center">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm leading-[1.4] opacity-60">
-                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase">Featured</span>
-                <span className="dot-sep" aria-hidden="true" />
-                <span>{feature.category}</span>
-                <span className="dot-sep" aria-hidden="true" />
-                <span>{feature.readingTime}</span>
-              </div>
+              <PostMeta items={["Featured", feature.category, feature.readingTime]} size="sm" />
               <div className="flex flex-col gap-3">
                 <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[18ch] group-hover:opacity-70 transition-opacity">
                   {feature.title}
@@ -83,11 +78,7 @@ export default function BlogIndexPage() {
                       className="placeholder w-full aspect-[4/3] transition-opacity group-hover:opacity-90"
                       aria-label={`Cover — ${p.title}`}
                     />
-                    <div className="flex flex-wrap items-center gap-x-3 text-sm leading-[1.4] opacity-60">
-                      <span>{p.category}</span>
-                      <span className="dot-sep" aria-hidden="true" />
-                      <span>{p.readingTime}</span>
-                    </div>
+                    <PostMeta items={[p.category, p.readingTime]} size="sm" />
                     <h3 className="text-xl font-display leading-[1.1] text-[#1A191E] group-hover:opacity-70 transition-opacity">
                       {p.title}
                     </h3>

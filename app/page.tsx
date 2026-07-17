@@ -5,6 +5,7 @@ import { BtnIcons } from "./components/BtnIcons";
 import { PixelIcon, type PixelIconName } from "./components/PixelIcon";
 import { ClosingCTA } from "./components/ClosingCTA";
 import { TearText } from "./components/TearText";
+import { PostMeta } from "./components/PostMeta";
 import { projectList } from "./projects/data";
 import { blogList } from "./blog/data";
 
@@ -135,7 +136,7 @@ export default function Home() {
   const project = recentWork[activeProject];
 
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HERO === */}
       <section
@@ -174,11 +175,11 @@ export default function Home() {
             className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center"
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
-            <div className="card card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
+            <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
               <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
                 Hi, I&rsquo;m Paige.
               </h3>
-              <p className="text-base leading-[1.4] opacity-80 leading-[1.2]">
+              <p className="text-base leading-[1.2] opacity-80">
                 13 years building in the Shopify and ecommerce ecosystem.
               </p>
             </div>
@@ -374,16 +375,7 @@ export default function Home() {
                 copy + CTA. */}
             <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[520px] order-2 md:order-1">
               {/* Meta strip: year on the left, role tags on the right */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 justify-between">
-                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60">{project.date}</span>
-                <ul className="flex flex-wrap gap-2">
-                  {project.tags.map((t) => (
-                    <li key={t} className="text-xs leading-[1.4] opacity-60">
-                      · {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <PostMeta items={project.tags} right={project.date} />
 
               {/* Title group */}
               <div className="flex flex-col gap-3">
@@ -557,21 +549,15 @@ export default function Home() {
                 href={`/blog/${post.slug}`}
                 className="card grid-bg flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
               >
-                <div className="flex items-center justify-between gap-2 text-base opacity-60">
-                  <div className="flex items-center gap-1.5">
-                    <span>{post.category}</span>
-                    <span className="dot-sep" aria-hidden="true" />
-                    <span>{post.readingTime}</span>
-                  </div>
-                  <span>
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                      timeZone: "UTC",
-                    })}
-                  </span>
-                </div>
+                <PostMeta
+                  items={[post.category, post.readingTime]}
+                  right={new Date(post.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                    timeZone: "UTC",
+                  })}
+                />
                 <div className="flex flex-col gap-2">
                   <h3 className="text-xl group-hover:opacity-70 transition-opacity">
                     {post.title}

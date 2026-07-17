@@ -106,7 +106,7 @@ export default function PlaybookPage({
   }, [playbook.chapters]);
 
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === SECTION: hero === */}
       <div data-section="post-hero-frame" className="mx-3 md:mx-6">

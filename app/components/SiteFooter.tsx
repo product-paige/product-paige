@@ -4,7 +4,7 @@ export function SiteFooter() {
       data-section="site-footer"
       className="p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
     >
-      <p className="text-xl font-display leading-[1.1] text-[#1A191E] max-w-[420px]">
+      <p className="text-xl font-display leading-[1.1] text-[#1A191E]">
         Helping ecommerce teams ship products that feel obvious.
       </p>
       <nav>

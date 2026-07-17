@@ -43,7 +43,7 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HEADER === */}
       <section

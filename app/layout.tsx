@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       "Sharper positioning and a story buyers can repeat. The product lands in eight seconds — to merchants, not just to you.",
     images: [
       {
-        url: "/hero-bg-2.webp",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Product Paige",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     title: "Product Paige — Product marketing + UX design for Shopify teams",
     description:
       "13 years inside the Shopify and ecommerce ecosystem. Sharper positioning, cleaner onboarding, product people actually understand.",
-    images: ["/hero-bg-2.webp"],
+    images: ["/og-image.webp"],
     creator: "@productpaige",
   },
   robots: {
@@ -157,16 +157,21 @@ export default function RootLayout({
         />
         <div
           data-layer="page-wrapper"
-          className="text-[#1a1a1a] mx-auto max-w-[1440px] p-3 md:p-6 bg-[#fbfaf6] bg-clip-content page-content-frame"
+          className="text-[#1a1a1a] mx-auto max-w-[1440px] p-3 md:p-6"
         >
-          <div data-layer="site-header-wrap" className="section-border-b">
-            <SiteHeader />
+          <div
+            data-layer="content-frame"
+            className="bg-[#fbfaf6] page-content-frame"
+          >
+            <div data-layer="site-header-wrap" className="section-border-b">
+              <SiteHeader />
+            </div>
+            <main data-layer="page-content">{children}</main>
+            <div data-layer="site-footer-wrap" className="section-border-b">
+              <SiteFooter />
+            </div>
+            <SiteBottomBar />
           </div>
-          <main data-layer="page-content">{children}</main>
-          <div data-layer="site-footer-wrap" className="section-border-b">
-            <SiteFooter />
-          </div>
-          <SiteBottomBar />
         </div>
       </body>
     </html>

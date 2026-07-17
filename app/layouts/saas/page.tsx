@@ -127,7 +127,7 @@ export default function SaasLayout() {
   }, []);
 
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HERO === */}
       <section

@@ -24,109 +24,6 @@
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace,
     SFMono-Regular, Menlo, monospace;
 }
-/* Single source of truth: Tailwind's default text-* scale. */
-
-/* ------------------------------------------------------------------ */
-/* Design-system type scale — mirrors Figma text styles 1:1.
-   Use these utilities on prose elements to keep HTML in lock-step with
-   the design system. Do not introduce ad-hoc sizes for body type.       */
-/* ------------------------------------------------------------------ */
-/* Display headings use clamp() for fluid scaling — keeps the type within
-   the design system bounds on desktop but scales down on narrow viewports
-   so an h1 never overflows a mobile screen. */
-.type-display-h1 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(38px, 6vw, 56px);
-  line-height: 1;
-  letter-spacing: -1px;
-  color: #1A191E;
-}
-.type-display-h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(30px, 4.5vw, 40px);
-  line-height: 1.05;
-  letter-spacing: -1px;
-  color: #1A191E;
-}
-.type-display-h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(24px, 3vw, 30px);
-  line-height: 1.15;
-  letter-spacing: -1px;
-  color: #1A191E;
-}
-.type-card-title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 1.1;
-  letter-spacing: -0.005em;
-  color: #1A191E;
-}
-/* Body type classes — typography only. Color + opacity are intentionally
-   NOT baked in so callers can use them on light or dark backgrounds without
-   having to ! override. Default text color comes from the parent (#1a1a1a). */
-.type-body-lg {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.4;
-  letter-spacing: 0;
-}
-/* Leading — the deck / subheading paragraph that sits directly under an h2.
-   Same scale as Body/Large; callers apply opacity (typically opacity-80). */
-.type-leading {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.4;
-  letter-spacing: 0;
-}
-.type-body {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.4;
-  letter-spacing: 0;
-}
-.type-body-sm {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.4;
-  letter-spacing: 0;
-}
-.type-body-xs {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.4;
-  letter-spacing: 0;
-}
-.type-button {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-  line-height: 1;
-}
-.type-nav {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-  line-height: 1;
-}
-.type-chip {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.005em;
-  line-height: 1;
-}
 .type-eyebrow {
   /* Same typography as .btn — Funnel Sans medium 16px (text-base), -0.01em
      tracking — but at line-height 1 so the highlight chip stays compact. */
@@ -172,20 +69,6 @@
   right: -8px;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16' fill='none'><rect x='6' y='0' width='2' height='8' fill='%231266ff'/><circle cx='7' cy='11' r='5' fill='%231266ff'/></svg>");
 }
-.type-marker {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-*,
-*::before,
-*::after {
-  border-radius: 0 !important;
-}
 
 html {
   background: #ffffff;
@@ -201,15 +84,15 @@ html {
    content wrapper. Two-tone (dark outside, white highlight inside) to read
    as a recessed groove against the blue-grid gutter. */
 .page-content-frame {
-  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   box-shadow:
     inset 1px 0 0 rgba(255, 255, 255, 0.95),
     inset -1px 0 0 rgba(255, 255, 255, 0.95),
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.95) !important;
+    inset 0 -1px 0 rgba(255, 255, 255, 0.95);
 }
 /* Legacy alias — kept so existing styles that reference these still resolve
-   (page-grid is hidden on theme-v2 anyway). */
+   (page-grid is hidden on theme anyway). */
 .page-borders,
 .page-border,
 .page-border-left,
@@ -361,6 +244,14 @@ html {
     inset 0 -1px 0 rgba(255, 255, 255, 0.95),
     inset 0 -2px 0 rgba(0, 0, 0, 0.4);
 }
+/* Top-border mirror of section-border-b — dark stroke on the outside (top),
+   white highlight just inside. Same 2px recessed groove read. Uses border-top
+   + inset box-shadow so it works whether the parent is in flow or absolutely
+   positioned. */
+.section-border-t {
+  border-top: 2px solid rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
 
 /* Vertical indent divider — used as a left edge on nav cells, etc. */
 .divider-indent-left,
@@ -390,7 +281,7 @@ html {
 /* Theme: v2 — fin.ai scaling-ai-agents palette.
    Near-white paper, near-black ink, electric cobalt punch, occasional teal.
    Reads like a blueprint document. */
-.theme-v2 {
+.theme {
   --paper: #1d6cb0;       /* blueprint cobalt */
   --cream: #f4f3ef;       /* faint warm off-white for soft cards */
   --pink-soft: #03b2cb;   /* repurposed slot — teal punch */
@@ -403,33 +294,33 @@ html {
    we're separating UI items (categories, meta strips, chip rows). Sizes to
    font-size via em so it scales with its container. */
 .dot-sep {
-  display: inline-block !important;
-  width: 0.35em !important;
-  height: 0.35em !important;
-  border-radius: 999px !important;
-  background: currentColor !important;
-  vertical-align: middle !important;
-  flex-shrink: 0 !important;
+  display: inline-block;
+  width: 0.35em;
+  height: 0.35em;
+  border-radius: 999px;
+  background: currentColor;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 /* Reusable blueprint-grid background — same treatment as the site body,
    scoped to any surface. Pair with white text for readability. */
 /* light-blue grid for cards */
 .grid-bg {
-  background-color: #DBE6EB !important;
+  background-color: #DBE6EB;
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.65) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.65) 1px, transparent 1px),
     linear-gradient(to right, rgba(255, 255, 255, 0.30) 0.5px, transparent 0.5px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.30) 0.5px, transparent 0.5px) !important;
-  background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px !important;
-  color: #1A191E !important;
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.30) 0.5px, transparent 0.5px);
+  background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px;
+  color: #1A191E;
 }
 
 /* Blueprint rail — brand accent blue with white grid, painted on body so it
    fills the viewport. Content sits inside the layout wrapper on its own paper
    background; the grid only shows through the wrapper's padding gutter. */
-body:has(.theme-v2) {
+body:has(.theme) {
   background-color: #0E6BFF;
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.55) 1px, transparent 1px),
@@ -442,17 +333,17 @@ body:has(.theme-v2) {
 }
 /* Grain overlays are the paper-texture effect. On the blueprint theme we
    don't want them showing through the blue grid — hide entirely. */
-body:has(.theme-v2)::before,
-body:has(.theme-v2)::after {
+body:has(.theme)::before,
+body:has(.theme)::after {
   display: none;
 }
-.theme-v2 .card-blue-bright { background: #cdb8e3; color: #1a1a1a; }
-.theme-v2 .card-blue-light  { background: #DBE6EB; color: #1a1a1a; }
-.theme-v2 .card-cream       { background: #f3eb88; color: #1a1a1a; }
-.theme-v2 .card-red         { background: #0E6BFF; color: #ffffff; }
-.theme-v2 .card-pink        { background: #f7c8d4; color: #1a1a1a; }
+.theme .card-blue-bright { background: #cdb8e3; color: #1a1a1a; }
+.theme .card-blue-light  { background: #DBE6EB; color: #1a1a1a; }
+.theme .card-cream       { background: #f3eb88; color: #1a1a1a; }
+.theme .card-red         { background: #0E6BFF; color: #ffffff; }
+.theme .card-pink        { background: #f7c8d4; color: #1a1a1a; }
 /* Hide the default dot grid when the column-grid theme is active */
-body:has(.theme-v2) .page-grid {
+body:has(.theme) .page-grid {
   display: none;
 }
 
@@ -999,6 +890,7 @@ body > * {
 
 /* Folio card variants — chamfered bottom-right corner */
 .card {
+  --chamfer: 48px;
   position: relative;
   padding: 24px;
   display: flex;
@@ -1007,8 +899,8 @@ body > * {
   clip-path: polygon(
     0 0,
     100% 0,
-    100% calc(100% - 48px),
-    calc(100% - 48px) 100%,
+    100% calc(100% - var(--chamfer)),
+    calc(100% - var(--chamfer)) 100%,
     0 100%
   );
   /* Same 3D treatment as .btn — top highlight, bottom inset shadow,
@@ -1029,6 +921,10 @@ body > * {
     drop-shadow(0 2px 0 rgba(0, 0, 0, 0.18))
     drop-shadow(0 8px 16px rgba(26, 26, 26, 0.2));
 }
+/* Small-card variant — used for compact cards (hero overlay, form card).
+   Overrides the default 48px chamfer to 24px. */
+.card.card-sm { --chamfer: 24px; }
+
 /* Opt-out for non-interactive cards (e.g. the contact form, hero cards). */
 .card.is-static { transition: none; }
 .card.is-static:hover {
@@ -1324,7 +1220,7 @@ body > * {
   display: inline-flex;
   align-items: center;
   padding: 12px 16px;
-  border-radius: 4px !important;
+  border-radius: 4px;
 }
 .btn-tab {
   position: relative;
@@ -1332,7 +1228,7 @@ body > * {
   align-items: center;
   justify-content: center;
   width: 40px;
-  border-radius: 4px !important;
+  border-radius: 4px;
   font-size: 16px;
 }
 /* Link button — circular icon badge + text. Lower-weight companion to the
@@ -1353,7 +1249,7 @@ body > * {
 .link-btn-icon {
   width: 36px;
   height: 36px;
-  border-radius: 999px !important;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1375,7 +1271,7 @@ body > * {
   display: inline-flex;
   align-items: center;
   padding: 7px 11px;
-  border-radius: 4px !important;
+  border-radius: 4px;
   font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace,
     monospace;
   font-size: 11px;
@@ -1502,7 +1398,7 @@ body > * {
   height: 14px;
   background: var(--color-bg);
   border: 1px solid currentColor;
-  border-radius: 999px !important;
+  border-radius: 999px;
   display: inline-block;
 }
 
@@ -1598,19 +1494,19 @@ a {
   display: inline-flex;
   align-items: center;
   padding: 12px 16px;
-  border-radius: 4px !important;
+  border-radius: 4px;
 }
 .svc-label-tab {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 40px;
-  border-radius: 4px !important;
+  border-radius: 4px;
 }
 .svc-label-swatch {
   width: 16px;
   height: 16px;
-  border-radius: 2px !important;
+  border-radius: 2px;
   flex-shrink: 0;
 }
 

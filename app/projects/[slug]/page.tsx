@@ -56,7 +56,7 @@ export default async function ProjectPage({
   const heroFg = lightHero ? "#1a1a1a" : "#ffffff";
 
   return (
-    <div className="theme-v2 contents">
+    <div className="theme contents">
 
       {/* === HERO === */}
       <section
