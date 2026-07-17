@@ -128,7 +128,6 @@ export default function SaasLayout() {
 
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HERO === */}
       <section
@@ -160,7 +159,7 @@ export default function SaasLayout() {
                 className="inline-flex btn"
               >
                 <span className="btn-text bg-[#0E6BFF] text-white">
-                  Start a project
+                  Let's talk
                 </span>
                 <span className="btn-tab bg-[#0E6BFF] text-white">
                   <BtnIcons />
@@ -370,7 +369,7 @@ export default function SaasLayout() {
         className="p-12 mx-3 md:mx-6 grid md:grid-cols-12 gap-6 md:gap-12"
       >
         <div className="md:col-span-5 flex flex-col gap-6">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-5xl leading-[1.05]">
             Three engagement shapes — pick what fits the work.
           </h2>
           <a

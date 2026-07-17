@@ -39,7 +39,6 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HEADER === */}
       <section
@@ -50,16 +49,16 @@ export default function PrivacyPage() {
         <div className="flex flex-col gap-6 max-w-[720px]">
           <span className="type-eyebrow">Privacy</span>
           <div className="flex flex-col gap-3">
-            <h1 className="type-display-h1 max-w-[18ch]">
+            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]">
               Plain-language privacy.
             </h1>
-            <p className="type-leading opacity-80">
+            <p className="text-lg leading-[1.4] opacity-80">
               Product Paige is a one-person practice. The site collects very
               little, uses what it has only to reply to you, and never sells
               your data.
             </p>
           </div>
-          <p className="type-body-sm opacity-60">
+          <p className="text-sm leading-[1.4] opacity-60">
             Effective: 26 June 2026
           </p>
         </div>
@@ -71,8 +70,8 @@ export default function PrivacyPage() {
           {sections.map((s) => (
             <li key={s.title} className="flex flex-col gap-3">
               <span className="type-eyebrow">{s.eyebrow}</span>
-              <h2 className="type-display-h3">{s.title}</h2>
-              <p className="type-body opacity-80">{s.body}</p>
+              <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">{s.title}</h2>
+              <p className="text-base leading-[1.4] opacity-80">{s.body}</p>
             </li>
           ))}
         </ul>
@@ -82,7 +81,7 @@ export default function PrivacyPage() {
       <section data-section="privacy-contact" className="p-6 md:p-10 section-border-b">
         <div className="flex flex-col gap-6 max-w-[640px]">
           <span className="type-eyebrow">Questions</span>
-          <h2 className="type-display-h3">
+          <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">
             Send anything to{" "}
             <a
               href="mailto:hello@productpaige.com"

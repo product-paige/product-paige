@@ -20,7 +20,6 @@ export default async function BlogPostPage({
 
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HERO === */}
       <section
@@ -29,14 +28,17 @@ export default async function BlogPostPage({
         className="p-6 md:p-10 section-border-b"
       >
         <div className="flex flex-col gap-6 max-w-[820px]">
-          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 type-body-sm opacity-60">
-            <span className="type-marker">Blog</span>
-            <span>· {post.category}</span>
-            <span>· {post.readingTime}</span>
-            <span>· {dateFormatted}</span>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm leading-[1.4] opacity-60">
+            <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase">Blog</span>
+            <span className="dot-sep" aria-hidden="true" />
+            <span>{post.category}</span>
+            <span className="dot-sep" aria-hidden="true" />
+            <span>{post.readingTime}</span>
+            <span className="dot-sep" aria-hidden="true" />
+            <span>{dateFormatted}</span>
           </div>
-          <h1 className="type-display-h1 max-w-[18ch]">{post.title}</h1>
-          <p className="type-leading opacity-80">{post.kicker}</p>
+          <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]">{post.title}</h1>
+          <p className="text-lg leading-[1.4] opacity-80">{post.kicker}</p>
         </div>
       </section>
 
@@ -54,13 +56,13 @@ export default async function BlogPostPage({
           <aside className="md:col-span-3 flex flex-col gap-3">
             <span className="type-eyebrow">Author</span>
             <div className="flex flex-col gap-1">
-              <p className="type-card-title">Paige Harris</p>
-              <p className="type-body-sm opacity-60">Product Paige</p>
+              <p className="text-xl font-display leading-[1.1] text-[#1A191E]">Paige Harris</p>
+              <p className="text-sm leading-[1.4] opacity-60">Product Paige</p>
             </div>
           </aside>
           <article className="md:col-span-9 flex flex-col gap-6 max-w-[680px]">
             {post.body.map((para, i) => (
-              <p key={i} className="type-body-lg opacity-90">
+              <p key={i} className="text-lg leading-[1.4] opacity-90">
                 {para}
               </p>
             ))}
@@ -76,7 +78,7 @@ export default async function BlogPostPage({
         >
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">More reading</span>
-            <h2 className="type-display-h2 max-w-[24ch]">Keep going</h2>
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">Keep going</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6 items-stretch">
             {related.map((r) => (
@@ -89,15 +91,16 @@ export default async function BlogPostPage({
                   className="placeholder w-full aspect-[4/3] transition-opacity group-hover:opacity-90"
                   aria-label={`Cover — ${r.title}`}
                 />
-                <div className="flex flex-wrap items-baseline gap-x-3 type-body-sm opacity-60">
+                <div className="flex flex-wrap items-center gap-x-3 text-sm leading-[1.4] opacity-60">
                   <span>{r.category}</span>
-                  <span>· {r.readingTime}</span>
+                  <span className="dot-sep" aria-hidden="true" />
+                  <span>{r.readingTime}</span>
                 </div>
-                <h3 className="type-card-title group-hover:opacity-70 transition-opacity">
+                <h3 className="text-xl font-display leading-[1.1] text-[#1A191E] group-hover:opacity-70 transition-opacity">
                   {r.title}
                 </h3>
-                <p className="type-body opacity-80 max-w-[420px]">{r.kicker}</p>
-                <span className="type-nav border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
+                <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">{r.kicker}</p>
+                <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
                   Read post ↗
                 </span>
               </a>

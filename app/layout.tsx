@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Funnel_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { SiteMasthead } from "./components/SiteMasthead";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteBottomBar } from "./components/SiteBottomBar";
@@ -156,16 +155,17 @@ export default function RootLayout({
             }),
           }}
         />
-        <div className="page-grid" aria-hidden="true" />
-        <div className="page-borders" aria-hidden="true">
-          <span className="page-border page-border-left" />
-          <span className="page-border page-border-right" />
-        </div>
-        <div className="text-[#1a1a1a] mx-auto max-w-[1440px] px-3 md:px-6">
-          <div className="section-border-b"><SiteMasthead /></div>
-          <div className="section-border-b"><SiteHeader /></div>
-          {children}
-          <div className="section-border-b"><SiteFooter /></div>
+        <div
+          data-layer="page-wrapper"
+          className="text-[#1a1a1a] mx-auto max-w-[1440px] p-3 md:p-6 bg-[#fbfaf6] bg-clip-content page-content-frame"
+        >
+          <div data-layer="site-header-wrap" className="section-border-b">
+            <SiteHeader />
+          </div>
+          <main data-layer="page-content">{children}</main>
+          <div data-layer="site-footer-wrap" className="section-border-b">
+            <SiteFooter />
+          </div>
           <SiteBottomBar />
         </div>
       </body>

@@ -133,7 +133,6 @@ const growthBlockers = [
 export default function ServicesPage() {
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HERO === matches homepage hero layout */}
       <section
@@ -146,10 +145,10 @@ export default function ServicesPage() {
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Services</span>
               <div className="flex flex-col gap-3">
-                <h1 className="type-display-h1 max-w-[18ch]">
+                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]">
                   What we&rsquo;ll work on together.
                 </h1>
-                <p className="type-leading opacity-80 max-w-[640px]">
+                <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
                   Positioning, ecommerce UX, AI content design, and product
                   strategy for Shopify and ecommerce teams. Two-week sprints,
                   real artifacts, no consulting theatre.
@@ -161,7 +160,7 @@ export default function ServicesPage() {
               className="inline-flex btn self-start"
             >
               <span className="btn-text bg-[#0E6BFF] text-white">
-                Start a project
+                Let's talk
               </span>
               <span className="btn-tab bg-[#0E6BFF] text-white">
                 <BtnIcons />
@@ -173,10 +172,10 @@ export default function ServicesPage() {
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
             <div className="card card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
-              <h3 className="type-card-title">
+              <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
                 Four services. One practice.
               </h3>
-              <p className="type-body opacity-80 leading-[1.2]">
+              <p className="text-base leading-[1.4] opacity-80 leading-[1.2]">
                 Pick the one that fits — or send what&rsquo;s on your mind and
                 we&rsquo;ll figure it out together.
               </p>
@@ -191,10 +190,10 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Overview</span>
             <div className="flex flex-col gap-3">
-              <h2 className="type-display-h2 max-w-[24ch]">
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
                 Four lanes of work, deeply connected.
               </h2>
-              <p className="type-leading opacity-80 max-w-[560px]">
+              <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
                 Most engagements pull from more than one. The thread between
                 them: making the product easier to understand, easier to use,
                 and easier to sell.
@@ -206,17 +205,17 @@ export default function ServicesPage() {
               <a
                 key={s.slug}
                 href={`#${s.slug}`}
-                className="card card-blue-light flex flex-col justify-between aspect-[16/11] !min-h-0 group"
+                className="card card-blue-light flex flex-col justify-between aspect-square !min-h-0 group"
               >
                 <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E]">
                   <PixelIcon name={s.icon} color="#ffffff" size={24} />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="type-card-title group-hover:opacity-70 transition-opacity">
+                  <h3 className="text-xl font-display leading-[1.1] text-[#1A191E] group-hover:opacity-70 transition-opacity">
                     {s.title}
                   </h3>
                   <p
-                    className="type-body-sm opacity-80"
+                    className="text-sm leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.lead }}
                   />
                 </div>
@@ -234,7 +233,7 @@ export default function ServicesPage() {
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Growth blockers</span>
-          <h2 className="type-display-h2 max-w-[24ch]">
+          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
             Fix what&rsquo;s slowing growth
           </h2>
         </div>
@@ -244,10 +243,10 @@ export default function ServicesPage() {
               key={g.title}
               className="flex flex-col gap-2 p-6 border border-[#1A191E]/20"
             >
-              <h3 className="type-card-title">
+              <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
                 {g.title}
               </h3>
-              <p className="type-body opacity-80 max-w-[480px]">
+              <p className="text-base leading-[1.4] opacity-80 max-w-[480px]">
                 {g.body}
               </p>
             </article>
@@ -267,9 +266,9 @@ export default function ServicesPage() {
             <div className="md:col-span-5 flex flex-col gap-6">
               <span className="type-eyebrow">{s.eyebrow}</span>
               <div className="flex flex-col gap-3">
-                <h2 className="type-display-h2 max-w-[16ch]">{s.title}</h2>
+                <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[16ch]">{s.title}</h2>
                 <p
-                  className="type-leading opacity-80 max-w-[460px]"
+                  className="text-lg leading-[1.4] opacity-80 max-w-[460px]"
                   dangerouslySetInnerHTML={{ __html: s.lead }}
                 />
               </div>
@@ -281,19 +280,19 @@ export default function ServicesPage() {
             </div>
             <div className="md:col-span-7 flex flex-col gap-10">
               <div className="flex flex-col gap-3">
-                <h3 className="type-card-title">What it is</h3>
+                <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">What it is</h3>
                 <p
-                  className="type-body opacity-80 max-w-[560px]"
+                  className="text-base leading-[1.4] opacity-80 max-w-[560px]"
                   dangerouslySetInnerHTML={{ __html: s.whatItIs }}
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <h3 className="type-card-title">What&rsquo;s included</h3>
+                <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">What&rsquo;s included</h3>
                 <ul className="flex flex-col gap-3 max-w-[560px]">
                   {s.includes.map((item) => (
                     <li
                       key={item}
-                      className="type-body opacity-80 flex gap-3 items-start"
+                      className="text-base leading-[1.4] opacity-80 flex gap-3 items-start"
                     >
                       <span
                         aria-hidden="true"
@@ -306,16 +305,16 @@ export default function ServicesPage() {
               </div>
               <div className="grid sm:grid-cols-2 gap-10">
                 <div className="flex flex-col gap-3">
-                  <h3 className="type-card-title">Deliverable</h3>
+                  <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">Deliverable</h3>
                   <p
-                    className="type-body opacity-80"
+                    className="text-base leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.deliverable }}
                   />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <h3 className="type-card-title">Good for</h3>
+                  <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">Good for</h3>
                   <p
-                    className="type-body opacity-80"
+                    className="text-base leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.goodFor }}
                   />
                 </div>
@@ -331,10 +330,10 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Process</span>
             <div className="flex flex-col gap-3">
-              <h2 className="type-display-h2 max-w-[24ch]">
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
                 How a project starts.
               </h2>
-              <p className="type-leading opacity-80 max-w-[560px]">
+              <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
                 Short, written, mutual. No deck-thick proposals. Most projects
                 are scoped and started in the same week.
               </p>
@@ -343,11 +342,11 @@ export default function ServicesPage() {
           <ol className="grid md:grid-cols-3 gap-6 md:gap-10 pt-6 border-t border-[#1A191E]/20">
             {process.map((p) => (
               <li key={p.step} className="flex flex-col gap-3.5">
-                <span className="type-marker opacity-60">.{p.step}</span>
+                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60">.{p.step}</span>
                 <div className="flex flex-col gap-2">
-                  <h3 className="type-card-title">{p.title}</h3>
+                  <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">{p.title}</h3>
                   <p
-                    className="type-body opacity-80"
+                    className="text-base leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: p.body }}
                   />
                 </div>
@@ -362,12 +361,12 @@ export default function ServicesPage() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Not ready for a project</span>
-            <h2 className="type-display-h3 max-w-[20ch]">
+            <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E] max-w-[20ch]">
               Start with a single Ask Paige session.
             </h2>
           </div>
           <div className="flex flex-col gap-6">
-            <p className="type-leading opacity-80 max-w-[560px]">
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
               $250, one session. Async review of what you send, then a live
               60-minute conversation, then a short prioritized list of what
               to fix now vs. later. A cheap way to find out whether a full

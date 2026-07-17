@@ -9,7 +9,7 @@ export function SiteHeader() {
       {/* Logo — always visible (acts as Home) */}
       <a
         href="/"
-        className="pl-6 pr-10 flex items-center type-card-title whitespace-nowrap"
+        className="pl-6 pr-10 flex items-center text-xl font-display leading-[1.1] text-[#1A191E] whitespace-nowrap"
       >
         Product Paige
       </a>
@@ -20,7 +20,7 @@ export function SiteHeader() {
         <li className="flex">
           <a
             href="/services"
-            className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
+            className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
             Services
           </a>
@@ -28,7 +28,7 @@ export function SiteHeader() {
         <li className="flex">
           <a
             href="/#working-style"
-            className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
+            className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
             Process
           </a>
@@ -36,7 +36,7 @@ export function SiteHeader() {
         <li className="flex">
           <a
             href="/#work"
-            className="type-nav divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
+            className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
             Projects
           </a>
@@ -44,7 +44,7 @@ export function SiteHeader() {
         <li className="flex">
           <a
             href="/#about"
-            className="type-nav divider-indent-left divider-indent-right px-6 flex items-center hover:opacity-60 transition-opacity"
+            className="text-base divider-indent-left divider-indent-right px-6 flex items-center hover:opacity-60 transition-opacity"
           >
             About
           </a>
@@ -55,7 +55,7 @@ export function SiteHeader() {
       <div className="flex items-stretch ml-auto">
         <a
           href="/ask-paige"
-          className="hidden md:flex type-nav divider-indent-left px-6 items-center hover:opacity-60 transition-opacity"
+          className="hidden md:flex text-base divider-indent-left px-6 items-center hover:opacity-60 transition-opacity"
         >
           Ask Paige
         </a>
@@ -65,7 +65,7 @@ export function SiteHeader() {
             className="inline-flex btn"
           >
             <span className="btn-text bg-[#0E6BFF] text-white">
-              Start a project
+              Let's talk
             </span>
             <span className="btn-tab bg-[#0E6BFF] text-white">
               <BtnIcons />

@@ -384,7 +384,7 @@ export default function HomeV3() {
                     {p.status === "live" ? "Read now" : "Coming soon"}
                   </span>
                 </header>
-                <h4 className="font-display text-3xl md:text-4xl leading-[1.05] mb-4 tracking-tightest">
+                <h4 className="font-display text-4xl md:text-5xl leading-[1.05] mb-4 tracking-tightest">
                   {p.title}
                 </h4>
                 <p className="text-sm leading-[1.55] opacity-80 mb-6">

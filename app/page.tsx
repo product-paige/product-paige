@@ -4,7 +4,9 @@ import { useState } from "react";
 import { BtnIcons } from "./components/BtnIcons";
 import { PixelIcon, type PixelIconName } from "./components/PixelIcon";
 import { ClosingCTA } from "./components/ClosingCTA";
+import { TearText } from "./components/TearText";
 import { projectList } from "./projects/data";
+import { blogList } from "./blog/data";
 
 const services: Array<{
   name: string;
@@ -28,34 +30,34 @@ const productCategories: Array<{
   iconFg: string;
 }> = [
   {
-    name: "Shopify ecosystem",
-    blurb: "Apps, themes, and merchant-facing tools across the stack.",
-    tone: "card-blue-light",
-    icon: "browser",
-    iconBg: "#1A191E",
-    iconFg: "#ffffff",
-  },
-  {
-    name: "Tools for brands",
-    blurb: "DTC stores, product pages, offers, flows, and small teams selling online.",
+    name: "Start rough, learn early",
+    blurb: "I'd rather get something real in front of people than polish in a vacuum.",
     tone: "card-blue-light",
     icon: "cursor",
     iconBg: "#1A191E",
     iconFg: "#ffffff",
   },
   {
-    name: "AI in ecommerce",
-    blurb: "AI features and workflows that need to feel useful, not confusing.",
+    name: "Clear before pretty",
+    blurb: "Structure and words first. The visual shine comes once it makes sense.",
+    tone: "card-blue-light",
+    icon: "target",
+    iconBg: "#1A191E",
+    iconFg: "#ffffff",
+  },
+  {
+    name: "Use good tools",
+    blurb: "The right tools cut the busywork so I can spend time on the hard part.",
     tone: "card-blue-light",
     icon: "sparkleA",
     iconBg: "#1A191E",
     iconFg: "#ffffff",
   },
   {
-    name: "Make it make sense",
-    blurb: "Positioning, copy, UX, and the seams that confuse merchants or customers.",
+    name: "Say less, mean more",
+    blurb: "Fewer words, sharper story. The point should land in one read.",
     tone: "card-blue-light",
-    icon: "target",
+    icon: "megaphone",
     iconBg: "#1A191E",
     iconFg: "#ffffff",
   },
@@ -100,28 +102,6 @@ const tools: Array<{
   { name: "Linear",  bg: "#D6D7D9", fg: "#1A191E", icon: "target" },
 ];
 
-const workingStyle: Array<{
-  title: string;
-  body: string;
-  icon: PixelIconName;
-}> = [
-  {
-    title: "Move fast, learn early",
-    body: "Get a simple version live quickly, then adjust based on what's real.",
-    icon: "cursor",
-  },
-  {
-    title: "Make it clear before making it pretty",
-    body: "Nail the structure and flow first. Polish comes after.",
-    icon: "target",
-  },
-  {
-    title: "Use tools to reduce friction",
-    body: "Use AI and lightweight workflows to speed up decisions, content, and execution.",
-    icon: "sparkleA",
-  },
-];
-
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
 const recentWork: Array<{
   no: string;
@@ -156,7 +136,6 @@ export default function Home() {
 
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HERO === */}
       <section
@@ -167,16 +146,15 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
           <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
             <div className="flex flex-col gap-6">
-              <span className="type-eyebrow">Practice</span>
+              <span className="type-eyebrow">Open to new projects</span>
               <div className="flex flex-col gap-3">
-                <h1 className="type-display-h1 max-w-[20ch]">
-                  Product marketing &amp; UX design for ecommerce teams
+                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+                  <TearText>{"Product marketing\n& UX design for\necommerce teams"}</TearText>
                 </h1>
-                <p className="type-leading opacity-80 max-w-[640px]">
-                  13 years inside Shopify and ecommerce. I help DTC brands,
-                  app makers, and ecommerce SaaS teams sharpen positioning,
-                  clean up the customer experience, and make products people
-                  actually understand.
+                <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
+                  I help DTC brands, app makers, and ecommerce SaaS teams
+                  sharpen positioning, clean up the customer experience, and
+                  make products people actually understand.
                 </p>
               </div>
             </div>
@@ -185,7 +163,7 @@ export default function Home() {
               className="inline-flex btn self-start"
             >
               <span className="btn-text bg-[#0E6BFF] text-white">
-                Start a project
+                Let's talk
               </span>
               <span className="btn-tab bg-[#0E6BFF] text-white">
                 <BtnIcons />
@@ -197,10 +175,10 @@ export default function Home() {
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
             <div className="card card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
-              <h3 className="type-card-title">
-                Product-led marketer and UX designer.
+              <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
+                Hi, I&rsquo;m Paige.
               </h3>
-              <p className="type-body opacity-80 leading-[1.2]">
+              <p className="text-base leading-[1.4] opacity-80 leading-[1.2]">
                 13 years building in the Shopify and ecommerce ecosystem.
               </p>
             </div>
@@ -240,49 +218,6 @@ export default function Home() {
 
       
 
-      {/* === PRODUCT CATEGORIES === */}
-      <section
-        id="categories"
-        data-section="product-categories"
-        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
-      >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Categories</span>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="type-display-h2 max-w-[24ch]">
-              Uncomplicating products that power real work
-            </h2>
-            <p className="type-leading opacity-80 max-w-[560px]">
-              I work inside the Shopify and ecommerce stack — apps, DTC brands,
-              and the AI-assisted tools wedging their way in. When someone
-              relies on your product every day to run their store,
-              &ldquo;kinda clear&rdquo; isn&rsquo;t clear.
-            </p>
-          </div>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-          {productCategories.map((c) => (
-            <article
-              key={c.name}
-              className={`card ${c.tone} flex flex-col justify-between aspect-square !min-h-0`}
-            >
-              <div
-                className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px]"
-                style={{ backgroundColor: c.iconBg, color: c.iconFg }}
-              >
-                <PixelIcon name={c.icon} color={c.iconFg} size={24} />
-              </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="type-card-title">{c.name}</h3>
-                <p className="type-body-sm opacity-80">{c.blurb}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      
-
       {/* === CAPABILITIES === */}
       <section
         id="services"
@@ -299,11 +234,11 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-10 order-1 md:order-2 relative md:divider-indent-left">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Capabilities</span>
-              <h2 className="type-display-h2 max-w-[500px]">
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[500px]">
                 What we&rsquo;ll improve
               </h2>
             </div>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-8">
               <ul className="border-t border-[#1a1a1a]/25 max-w-[500px]">
                 {capabilities.map((c, i) => (
                   <li
@@ -313,7 +248,7 @@ export default function Home() {
                     <button
                       type="button"
                       onClick={() => setActiveCap(i)}
-                      className={`w-full text-left py-4 type-display-h3 transition-opacity ${
+                      className={`w-full text-left py-4 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E] transition-opacity ${
                         activeCap === i
                           ? "opacity-100"
                           : "opacity-30 hover:opacity-60"
@@ -326,7 +261,7 @@ export default function Home() {
               </ul>
               <p
                 key={activeCap}
-                className="type-body-lg max-w-[480px] min-h-[5em]"
+                className="text-lg leading-[1.4] opacity-80 max-w-[480px] min-h-[4em]"
                 dangerouslySetInnerHTML={{
                   __html: capabilities[activeCap].blurb,
                 }}
@@ -355,10 +290,10 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Recent work</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="type-display-h2 max-w-[24ch]">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
               Recent work
             </h2>
-            <p className="type-leading opacity-80 max-w-[560px]">
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
               A mix of product audits, UX improvements, and personal projects
               across the Shopify and ecommerce ecosystem.
             </p>
@@ -440,10 +375,10 @@ export default function Home() {
             <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[520px] order-2 md:order-1">
               {/* Meta strip: year on the left, role tags on the right */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 justify-between">
-                <span className="type-marker opacity-60">{project.date}</span>
+                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60">{project.date}</span>
                 <ul className="flex flex-wrap gap-2">
                   {project.tags.map((t) => (
-                    <li key={t} className="type-body-xs opacity-60">
+                    <li key={t} className="text-xs leading-[1.4] opacity-60">
                       · {t}
                     </li>
                   ))}
@@ -452,10 +387,10 @@ export default function Home() {
 
               {/* Title group */}
               <div className="flex flex-col gap-3">
-                <h3 className="type-display-h2 max-w-[14ch]">
+                <h3 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[14ch]">
                   {project.client}
                 </h3>
-                <p className="type-leading opacity-80 max-w-[440px]">
+                <p className="text-lg leading-[1.4] opacity-80 max-w-[440px]">
                   {project.blurb}
                 </p>
               </div>
@@ -496,75 +431,61 @@ export default function Home() {
 
       
 
-      {/* === HOW — WORKING STYLE === */}
+      {/* === CATEGORIES — working-style copy + product-category cards + tools === */}
       <section
-        id="working-style"
-        data-section="working-style"
-        className="grid md:grid-cols-2 items-stretch section-border-b"
+        id="categories"
+        data-section="categories"
+        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
       >
-        {/* Left: full-bleed grain/image surface */}
-        <aside
-          className="placeholder min-h-[320px] md:min-h-[600px] m-6 md:m-10 md:divider-indent-right relative"
-          aria-label="Working style — illustrative surface"
-        />
-        {/* Right: eyebrow + heading + body + divider + list */}
-        <div className="p-6 md:p-10 flex flex-col justify-between gap-10 md:divider-indent-left relative">
-          <div className="flex flex-col gap-6">
-            <span className="type-eyebrow">Working style</span>
-            <div className="flex flex-col gap-3">
-              <h2 className="type-display-h2 max-w-[20ch]">
-                Move fast &amp; keep it simple
-              </h2>
-              <p className="type-leading opacity-80 max-w-[560px]">
-                Fast prototypes and clear decisions, without making it harder
-                than it needs to be.
-              </p>
-            </div>
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Categories</span>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+              Move fast &amp; keep it simple
+            </h2>
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+              Fast prototypes and clear decisions, without making it harder
+              than it needs to be.
+            </p>
           </div>
-          <div className="flex flex-col gap-10">
-            <ol className="border-t border-[#1A191E]/20">
-              {workingStyle.map((w) => (
-                <li
-                  key={w.title}
-                  className="border-b border-[#1A191E]/20 py-5 flex items-start gap-5"
-                >
-                  <div className="w-14 h-14 shrink-0 bg-[#1A191E] text-white flex items-center justify-center !rounded-[4px]">
-                    <PixelIcon name={w.icon} color="#ffffff" size={24} />
-                  </div>
-                  <div className="flex flex-col gap-2 pt-1">
-                    <h3 className="type-card-title">{w.title}</h3>
-                    <p className="type-body opacity-80 max-w-[420px]">{w.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            {/* Tools I lean on — same chip style as the practice-area row */}
-            <div className="flex flex-col gap-4">
-              <h3 className="type-body-sm opacity-60 uppercase tracking-[0.05em]">
-                Tools I lean on
-              </h3>
-              <ul className="flex flex-wrap gap-3">
-                {tools.map((t) => (
-                  <li key={t.name}>
-                    <span className="svc-label" style={{ color: t.fg }}>
-                      <span
-                        className="svc-label-text"
-                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
-                      >
-                        {t.name}
-                      </span>
-                      <span
-                        className="svc-label-tab"
-                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
-                      >
-                        <PixelIcon name={t.icon} color={t.fg} size={18} />
-                      </span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+          {productCategories.map((c) => (
+            <article
+              key={c.name}
+              className={`card ${c.tone} flex flex-col justify-between aspect-square !min-h-0`}
+            >
+              <div
+                className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px]"
+                style={{ backgroundColor: c.iconBg, color: c.iconFg }}
+              >
+                <PixelIcon name={c.icon} color={c.iconFg} size={24} />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">{c.name}</h3>
+                <p className="text-base leading-[1.4] opacity-80">{c.blurb}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="flex flex-col gap-4">
+          <h3 className="text-sm leading-[1.4] opacity-60 uppercase tracking-[0.05em]">
+            Tools I lean on
+          </h3>
+          <ul className="flex flex-wrap gap-3">
+            {tools.map((t) => (
+              <li key={t.name}>
+                <span className="svc-label" style={{ color: t.fg }}>
+                  <span
+                    className="svc-label-text"
+                    style={{ backgroundColor: t.bg, borderColor: t.fg }}
+                  >
+                    {t.name}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -576,29 +497,24 @@ export default function Home() {
         data-section="about"
         className="grid md:grid-cols-2 items-stretch section-border-b min-h-[560px]"
       >
-        {/* Left column — eyebrow + h2 at top, 3-paragraph bio fills the column */}
-        <div className="p-6 md:p-10 flex flex-col gap-10">
-          <div className="flex flex-col gap-6">
+        {/* Left column — eyebrow at top, bio at bottom, filling the column height */}
+        <div className="p-6 md:p-10 flex flex-col gap-10 justify-between">
+          <div className="flex flex-col gap-10">
             <span className="type-eyebrow">About</span>
-            <h2 className="type-display-h1 max-w-[10ch]">
-              I&rsquo;m Paige.
+            <h2 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[10ch]">
+              A short paragraph about Paige
             </h2>
           </div>
-          <div className="flex flex-col gap-5 max-w-[560px]">
-            <p className="type-leading opacity-80">
-              For 13 years I&rsquo;ve helped online businesses — Shopify
-              apps, ecommerce SaaS, DTC brands, early teams — figure out
-              how to explain what they&rsquo;ve built.
-            </p>
-            <p className="type-body opacity-80">
-              Usually the product is good. The hard part is getting people
-              to understand it fast, trust it, and know what to do next.
-              That&rsquo;s what I do: the point where product, marketing,
-              design, and UX meet. I combine simple, clear positioning with
-              clean, modern design that has personality, looks amazing,
-              tells a story, and guides users where they need to go.
-            </p>
-          </div>
+          <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+            For 13 years I&rsquo;ve helped online businesses — Shopify apps,
+            ecommerce SaaS, DTC brands, early teams — figure out how to
+            explain what they&rsquo;ve built. Usually the product is good.
+            The hard part is getting people to understand it fast, trust it,
+            and know what to do next. That&rsquo;s what I do: the point where
+            product, marketing, design, and UX meet. I combine simple, clear
+            positioning with clean, modern design that has personality, looks
+            amazing, tells a story, and guides users where they need to go.
+          </p>
         </div>
 
         {/* Right column — image placeholder. Drop the portrait image into
@@ -611,6 +527,63 @@ export default function Home() {
       </section>
 
       
+
+      {/* === BLOG — latest posts row === */}
+      <section
+        id="blog"
+        data-section="blog"
+        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Notes</span>
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+              Short reads on clarity, positioning &amp; UX
+            </h2>
+            <a href="/blog" className="inline-flex btn shrink-0">
+              <span className="btn-text bg-[#1A191E] text-white">
+                Read all notes
+              </span>
+              <span className="btn-tab bg-[#1A191E] text-white">
+                <BtnIcons />
+              </span>
+            </a>
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
+          {blogList.slice(0, 3).map((post) => (
+              <a
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="card grid-bg flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
+              >
+                <div className="flex items-center justify-between gap-2 text-base opacity-60">
+                  <div className="flex items-center gap-1.5">
+                    <span>{post.category}</span>
+                    <span className="dot-sep" aria-hidden="true" />
+                    <span>{post.readingTime}</span>
+                  </div>
+                  <span>
+                    {new Date(post.date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                      timeZone: "UTC",
+                    })}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-xl group-hover:opacity-70 transition-opacity">
+                    {post.title}
+                  </h3>
+                  <p className="text-base opacity-80 line-clamp-3">
+                    {post.kicker}
+                  </p>
+                </div>
+              </a>
+          ))}
+        </div>
+      </section>
 
       {/* === CLOSING CTA === */}
       <ClosingCTA

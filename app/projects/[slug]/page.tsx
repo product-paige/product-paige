@@ -57,7 +57,6 @@ export default async function ProjectPage({
 
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HERO === */}
       <section
@@ -66,15 +65,15 @@ export default async function ProjectPage({
         className="p-6 md:p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
         style={{ backgroundColor: project.coverBg, color: heroFg }}
       >
-        <div className="flex items-baseline justify-between type-body-sm opacity-80">
+        <div className="flex items-baseline justify-between text-sm leading-[1.4] opacity-80">
           <span>{project.client}</span>
           <span>{project.year}</span>
         </div>
         <div className="flex flex-col gap-3">
-          <h1 className="type-display-h1 max-w-[18ch]" style={{ color: heroFg }}>
+          <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[18ch]" style={{ color: heroFg }}>
             {project.kicker}
           </h1>
-          <p className="type-body-sm opacity-70">{project.role}</p>
+          <p className="text-sm leading-[1.4] opacity-70">{project.role}</p>
         </div>
       </section>
 
@@ -97,8 +96,8 @@ export default async function ProjectPage({
             <article key={b.title} className="flex flex-col gap-6">
               <span className="type-eyebrow">{b.eyebrow}</span>
               <div className="flex flex-col gap-3">
-                <h2 className="type-display-h3">{b.title}</h2>
-                <p className="type-body opacity-80">{b.body}</p>
+                <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">{b.title}</h2>
+                <p className="text-base leading-[1.4] opacity-80">{b.body}</p>
               </div>
             </article>
           ))}
@@ -114,7 +113,7 @@ export default async function ProjectPage({
                 className="placeholder w-full aspect-[4/3]"
                 aria-label={`Mockup — ${m}`}
               />
-              <figcaption className="type-body-sm opacity-70">{m}</figcaption>
+              <figcaption className="text-sm leading-[1.4] opacity-70">{m}</figcaption>
             </figure>
           ))}
         </div>
@@ -127,7 +126,7 @@ export default async function ProjectPage({
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow !text-white">By the numbers</span>
-          <h2 className="type-display-h2 !text-white">Outcomes worth measuring</h2>
+          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] !text-white">Outcomes worth measuring</h2>
         </div>
         <ul className="grid md:grid-cols-3 gap-6 md:gap-12">
           {project.highlights.map((h) => (
@@ -141,7 +140,7 @@ export default async function ProjectPage({
               >
                 {h.metric}
               </span>
-              <span className="type-body-sm opacity-70">{h.label}</span>
+              <span className="text-sm leading-[1.4] opacity-70">{h.label}</span>
             </li>
           ))}
         </ul>
@@ -155,7 +154,7 @@ export default async function ProjectPage({
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">More work</span>
-          <h2 className="type-display-h2 max-w-[24ch]">More projects</h2>
+          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">More projects</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           {related.map((r) => (
@@ -168,12 +167,12 @@ export default async function ProjectPage({
                 className="placeholder w-full aspect-[4/3]"
                 aria-label={`Image — ${r.client}`}
               />
-              <div className="flex items-baseline justify-between type-body-sm opacity-70">
+              <div className="flex items-baseline justify-between text-sm leading-[1.4] opacity-70">
                 <span>{r.client}</span>
                 <span>{r.year}</span>
               </div>
-              <h3 className="type-display-h3">{r.kicker}</h3>
-              <span className="type-nav border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
+              <h3 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-[#1A191E]">{r.kicker}</h3>
+              <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
                 View project ↗
               </span>
             </a>

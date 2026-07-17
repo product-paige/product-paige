@@ -6,7 +6,6 @@ export default function BlogIndexPage() {
 
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HEADER === matches other simple-header pages (privacy, terms) */}
       <section
@@ -17,10 +16,10 @@ export default function BlogIndexPage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Blog</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h1 className="type-display-h1 max-w-[14ch]">
+            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[14ch]">
               Notes on shipping clearly.
             </h1>
-            <p className="type-leading opacity-80 max-w-[560px]">
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
               Short reads on positioning, ecommerce UX, and AI content design.
               For founders and product teams shipping fast.
             </p>
@@ -40,20 +39,22 @@ export default function BlogIndexPage() {
               aria-label={`Cover — ${feature.title}`}
             />
             <div className="flex flex-col gap-6 justify-center">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 type-body-sm opacity-60">
-                <span className="type-marker">Featured</span>
-                <span>· {feature.category}</span>
-                <span>· {feature.readingTime}</span>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm leading-[1.4] opacity-60">
+                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase">Featured</span>
+                <span className="dot-sep" aria-hidden="true" />
+                <span>{feature.category}</span>
+                <span className="dot-sep" aria-hidden="true" />
+                <span>{feature.readingTime}</span>
               </div>
               <div className="flex flex-col gap-3">
-                <h2 className="type-display-h2 max-w-[18ch] group-hover:opacity-70 transition-opacity">
+                <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[18ch] group-hover:opacity-70 transition-opacity">
                   {feature.title}
                 </h2>
-                <p className="type-leading opacity-80 max-w-[520px]">
+                <p className="text-lg leading-[1.4] opacity-80 max-w-[520px]">
                   {feature.kicker}
                 </p>
               </div>
-              <span className="type-nav border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
+              <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
                 Read post ↗
               </span>
             </div>
@@ -67,7 +68,7 @@ export default function BlogIndexPage() {
           <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">More posts</span>
-              <h2 className="type-display-h2 max-w-[24ch]">
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[24ch]">
                 From the notebook
               </h2>
             </div>
@@ -82,14 +83,15 @@ export default function BlogIndexPage() {
                       className="placeholder w-full aspect-[4/3] transition-opacity group-hover:opacity-90"
                       aria-label={`Cover — ${p.title}`}
                     />
-                    <div className="flex flex-wrap items-baseline gap-x-3 type-body-sm opacity-60">
+                    <div className="flex flex-wrap items-center gap-x-3 text-sm leading-[1.4] opacity-60">
                       <span>{p.category}</span>
-                      <span>· {p.readingTime}</span>
+                      <span className="dot-sep" aria-hidden="true" />
+                      <span>{p.readingTime}</span>
                     </div>
-                    <h3 className="type-card-title group-hover:opacity-70 transition-opacity">
+                    <h3 className="text-xl font-display leading-[1.1] text-[#1A191E] group-hover:opacity-70 transition-opacity">
                       {p.title}
                     </h3>
-                    <p className="type-body opacity-80 max-w-[420px]">
+                    <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">
                       {p.kicker}
                     </p>
                   </a>
@@ -101,7 +103,6 @@ export default function BlogIndexPage() {
       ) : null}
 
       <ClosingCTA
-        eyebrow="Get in touch"
         title="Have a topic you want me to write about?"
         body="Send it. Best posts start from a real question a founder is stuck on."
         ctaLabel="Say hello"

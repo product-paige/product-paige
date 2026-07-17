@@ -107,7 +107,6 @@ export default function PlaybookPage({
 
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === SECTION: hero === */}
       <div data-section="post-hero-frame" className="mx-3 md:mx-6">
@@ -117,7 +116,7 @@ export default function PlaybookPage({
           className="p-8 md:p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
           style={{ backgroundColor: playbook.heroBg, color: heroFg }}
         >
-          <h1 className="font-display leading-[1] tracking-tightest text-4xl md:text-5xl lg:text-7xl max-w-[18ch]">
+          <h1 className="font-display leading-[1] tracking-tightest text-5xl md:text-6xl lg:text-7xl max-w-[18ch]">
             {playbook.title}
           </h1>
           <p className="text-base md:text-lg leading-[1.5] max-w-[640px] opacity-90">

@@ -1,13 +1,11 @@
 import { BtnIcons } from "./BtnIcons";
 
 type ClosingCTAProps = {
-  /** Eyebrow chip above the headline. Defaults to "Get in touch". */
-  eyebrow?: string;
-  /** Main headline — renders at type-display-h1 scale, white on ink. */
+  /** Main headline — renders at text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] scale, white on ink. */
   title: string;
   /** Optional supporting paragraph under the headline. */
   body?: string;
-  /** Button label. Defaults to "Start a project". */
+  /** Button label. Defaults to "Let's talk". */
   ctaLabel?: string;
   /** Button href. Defaults to /contact. */
   ctaHref?: string;
@@ -19,29 +17,27 @@ type ClosingCTAProps = {
  * grain treatment, and accent button styling. Pass just the copy.
  */
 export function ClosingCTA({
-  eyebrow = "Get in touch",
   title,
   body,
-  ctaLabel = "Start a project",
+  ctaLabel = "Let's talk",
   ctaHref = "/contact",
 }: ClosingCTAProps) {
   return (
     <section
       data-section="closing-cta"
-      className="bg-[#1A191E] text-white p-8 md:p-16 m-4 md:m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
+      className="bg-[#1A191E] text-white py-16 px-10 m-4 md:m-6 section-chamfer relative grain-vintage flex flex-col md:flex-row md:items-center md:justify-between gap-10"
     >
-      <div className="flex flex-col gap-6 max-w-[1000px]">
-        <span className="type-eyebrow">{eyebrow}</span>
-        <div className="flex flex-col gap-3">
-          <h2 className="type-display-h1 !text-white">{title}</h2>
-          {body ? (
-            <p className="type-leading !text-white opacity-80 max-w-[720px]">
-              {body}
-            </p>
-          ) : null}
-        </div>
+      <div className="flex flex-col gap-3 max-w-[1000px] flex-1 min-w-0">
+        <h2 className="text-5xl font-display leading-[1.05] text-white">
+          {title}
+        </h2>
+        {body ? (
+          <p className="text-lg leading-[1.4] text-white opacity-80 max-w-[720px]">
+            {body}
+          </p>
+        ) : null}
       </div>
-      <a href={ctaHref} className="inline-flex btn">
+      <a href={ctaHref} className="inline-flex btn shrink-0">
         <span className="btn-text bg-[#0E6BFF] text-white">{ctaLabel}</span>
         <span className="btn-tab bg-[#0E6BFF] text-white">
           <BtnIcons />

@@ -23,12 +23,8 @@
   --font-display: var(--font-tiempos), "Tiempos Text", "Times New Roman", serif;
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace,
     SFMono-Regular, Menlo, monospace;
-
-  /* Override default text-5xl from 3rem (48px) → 2.5rem (40px) so
-     Tailwind's text-5xl and the design system's display-h2 size match. */
-  --text-5xl: 2.5rem;
-  --text-5xl--line-height: 1.05;
 }
+/* Single source of truth: Tailwind's default text-* scale. */
 
 /* ------------------------------------------------------------------ */
 /* Design-system type scale — mirrors Figma text styles 1:1.
@@ -132,11 +128,11 @@
   line-height: 1;
 }
 .type-eyebrow {
-  /* Same typography as .btn — Funnel Sans medium 15px, -0.01em tracking —
-     but at line-height 1 so the highlight chip stays compact. */
+  /* Same typography as .btn — Funnel Sans medium 16px (text-base), -0.01em
+     tracking — but at line-height 1 so the highlight chip stays compact. */
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: none;
@@ -201,32 +197,24 @@ html {
   --content-gutter: max(0px, calc((100vw - 1440px) / 2));
 }
 
-/* Vertical page borders — fixed rules framing each side of the viewport,
-   aligned with the chamfered-section side margins (mx-3 / md:mx-6). */
-.page-borders {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 50;
+/* Vertical page borders — beveled rules on the left and right of the page
+   content wrapper. Two-tone (dark outside, white highlight inside) to read
+   as a recessed groove against the blue-grid gutter. */
+.page-content-frame {
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.95),
+    inset -1px 0 0 rgba(255, 255, 255, 0.95),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.95) !important;
 }
-.page-border {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  /* Two-tone bevel: dark stroke on the left, highlight on the right —
-     reads as a recessed groove on the warm paper background. */
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.4) 0 1px,
-    rgba(255, 255, 255, 0.95) 1px 2px
-  );
-}
-.page-border-left { left: calc(var(--content-gutter) + 11px); }
-.page-border-right { right: calc(var(--content-gutter) + 11px); }
-@media (min-width: 768px) {
-  .page-border-left { left: calc(var(--content-gutter) + 23px); }
-  .page-border-right { right: calc(var(--content-gutter) + 23px); }
+/* Legacy alias — kept so existing styles that reference these still resolve
+   (page-grid is hidden on theme-v2 anyway). */
+.page-borders,
+.page-border,
+.page-border-left,
+.page-border-right {
+  display: none;
 }
 
 /* Corner registration crosses — small "+" marks at the four inset corners
@@ -411,15 +399,52 @@ html {
   --slate: #1a1a1a;
   --red: #0E6BFF;
 }
+/* Divider dot — square, ~8px, replaces the anemic middle-dot character wherever
+   we're separating UI items (categories, meta strips, chip rows). Sizes to
+   font-size via em so it scales with its container. */
+.dot-sep {
+  display: inline-block !important;
+  width: 0.35em !important;
+  height: 0.35em !important;
+  border-radius: 999px !important;
+  background: currentColor !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
+}
+
+/* Reusable blueprint-grid background — same treatment as the site body,
+   scoped to any surface. Pair with white text for readability. */
+/* light-blue grid for cards */
+.grid-bg {
+  background-color: #DBE6EB !important;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.65) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.65) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.30) 0.5px, transparent 0.5px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.30) 0.5px, transparent 0.5px) !important;
+  background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px !important;
+  color: #1A191E !important;
+}
+
+/* Blueprint rail — brand accent blue with white grid, painted on body so it
+   fills the viewport. Content sits inside the layout wrapper on its own paper
+   background; the grid only shows through the wrapper's padding gutter. */
 body:has(.theme-v2) {
-  background: #ffffff;
+  background-color: #0E6BFF;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.55) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.55) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.18) 0.5px, transparent 0.5px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.18) 0.5px, transparent 0.5px);
+  background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px;
+  background-attachment: fixed;
+  box-shadow: none;
 }
-/* Super super faint grain — barely-there texture so the bg reads near-pure-white. */
-body:has(.theme-v2)::before {
-  opacity: 0.05;
-}
+/* Grain overlays are the paper-texture effect. On the blueprint theme we
+   don't want them showing through the blue grid — hide entirely. */
+body:has(.theme-v2)::before,
 body:has(.theme-v2)::after {
-  opacity: 0.02;
+  display: none;
 }
 .theme-v2 .card-blue-bright { background: #cdb8e3; color: #1a1a1a; }
 .theme-v2 .card-blue-light  { background: #DBE6EB; color: #1a1a1a; }
@@ -856,59 +881,6 @@ body:has(.theme-v3) .btn:active .btn-tab {
   border-bottom-color: #ffffff;
 }
 
-/* Blueprint rail strips — deep teal with a dense white grid pattern,
-   running floor-to-ceiling on the outer gutters. */
-.theme-v2-rails {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-.theme-v2-rails::before,
-.theme-v2-rails::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 13px;
-  /* Authentic blueprint paper — brand accent blue with a crisp white grid. */
-  background-color: #0E6BFF;
-  background-image:
-    /* Major grid line, every 5 cells — slightly more visible */
-    linear-gradient(to right,
-      rgba(255, 255, 255, 0.55) 1px,
-      transparent 1px),
-    linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.55) 1px,
-      transparent 1px),
-    /* Minor grid line, every cell — subtle hairlines */
-    linear-gradient(to right,
-      rgba(255, 255, 255, 0.18) 0.5px,
-      transparent 0.5px),
-    linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.18) 0.5px,
-      transparent 0.5px);
-  background-size:
-    30px 30px,
-    30px 30px,
-    6px 6px,
-    6px 6px;
-  /* Subtle vignette so the rail reads as paper, not a flat color block */
-  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.08);
-}
-.theme-v2-rails::before { left: var(--content-gutter); }
-.theme-v2-rails::after  { right: var(--content-gutter); }
-@media (min-width: 768px) {
-  .theme-v2-rails::before,
-  .theme-v2-rails::after {
-    width: 25px;
-    background-size:
-      30px 30px,
-      30px 30px,
-      8.33px 8.33px,
-      8.33px 8.33px;
-  }
-}
 
 /* ------------------------------------------------------------------ */
 /* Editorial "torn from the page" heading hover —
@@ -927,10 +899,10 @@ body:has(.theme-v3) .btn:active .btn-tab {
   display: inline-block;
   /* Slightly springy ease so the lift feels like paper releasing tension. */
   transition:
-    transform 700ms cubic-bezier(0.34, 1.56, 0.64, 1),
-    color 500ms ease,
-    text-shadow 500ms ease;
-  transition-delay: calc(var(--i, 0) * 24ms);
+    transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 220ms ease,
+    text-shadow 220ms ease;
+  transition-delay: calc(var(--i, 0) * 12ms);
   will-change: transform;
 }
 .tear:hover .tear__char,
@@ -962,7 +934,7 @@ body {
 
 /* Ground bg (visible at viewport edges) — warm taupe surface below paper */
 html {
-  background: #c4bcae;
+  background: #0E6BFF;
 }
 
 body {
@@ -1056,6 +1028,13 @@ body > * {
   filter:
     drop-shadow(0 2px 0 rgba(0, 0, 0, 0.18))
     drop-shadow(0 8px 16px rgba(26, 26, 26, 0.2));
+}
+/* Opt-out for non-interactive cards (e.g. the contact form, hero cards). */
+.card.is-static { transition: none; }
+.card.is-static:hover {
+  transform: none;
+  filter: none;
+  opacity: 1;
 }
 .card::before {
   content: "";
@@ -1356,6 +1335,40 @@ body > * {
   border-radius: 4px !important;
   font-size: 16px;
 }
+/* Link button — circular icon badge + text. Lower-weight companion to the
+   two-piece .btn pill. Used for "Read more"-style secondary CTAs. */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: #1A191E;
+  transition: opacity 150ms ease;
+}
+.link-btn:hover { opacity: 0.7; }
+.link-btn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #EAF4FF;
+  color: #1A191E;
+  border: 1px solid rgba(26, 25, 30, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 0 rgba(0, 0, 0, 0.08),
+    0 2px 4px rgba(26, 26, 26, 0.06);
+  transition: transform 150ms ease;
+}
+.link-btn:hover .link-btn-icon { transform: translate(1px, -1px); }
+
 /* Standalone label pill — same 2D treatment as .btn-text, but no icon tab.
    Used for card meta labels (No. 003, Coming soon, etc). */
 .pill {
@@ -1543,7 +1556,6 @@ h1, h2, h3, h4, h5 {
 
 a {
   font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
-  font-size: 16px;
 }
 
 /* Drop cap for article-style paragraphs */

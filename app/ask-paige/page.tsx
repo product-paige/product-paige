@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { BtnIcons } from "../components/BtnIcons";
+import { ClosingCTA } from "../components/ClosingCTA";
 
 function Reveal({
   children,
@@ -94,7 +95,6 @@ const youGet = [
 export default function AskPaigePage() {
   return (
     <div className="theme-v2 contents">
-      <div className="theme-v2-rails" aria-hidden="true" />
 
       {/* === HERO === matches homepage hero layout */}
       <section
@@ -107,10 +107,10 @@ export default function AskPaigePage() {
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Ask Paige</span>
               <div className="flex flex-col gap-3">
-                <h1 className="type-display-h1 max-w-[20ch]">
+                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-[#1A191E] max-w-[20ch]">
                   Want help getting unstuck?
                 </h1>
-                <p className="type-leading opacity-80 max-w-[560px]">
+                <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
                   Send what you&rsquo;re working on — a product, onboarding flow,
                   homepage, positioning, or the half-finished idea you can&rsquo;t
                   see clearly yet. Honest, product-minded feedback fast, without
@@ -130,9 +130,9 @@ export default function AskPaigePage() {
                   <BtnIcons />
                 </span>
               </a>
-              <span className="type-card-title flex items-baseline gap-2">
+              <span className="text-xl font-display leading-[1.1] text-[#1A191E] flex items-baseline gap-2">
                 $250 USD
-                <span className="type-body-sm opacity-60">· one session</span>
+                <span className="text-sm leading-[1.4] opacity-60">· one session</span>
               </span>
             </div>
           </div>
@@ -141,10 +141,10 @@ export default function AskPaigePage() {
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
             <div className="card card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
-              <h3 className="type-card-title">
+              <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">
                 One conversation.
               </h3>
-              <p className="type-body opacity-80 leading-[1.2]">
+              <p className="text-base leading-[1.4] opacity-80 leading-[1.2]">
                 The version of your product you&rsquo;ve been avoiding.
               </p>
             </div>
@@ -202,70 +202,45 @@ export default function AskPaigePage() {
       </div>
 
       
-      {/* === SECTION: fit-check === */}
-      <section data-section="fit-check" className="p-6 md:p-10 mx-3 md:mx-6 flex flex-col gap-12 section-border-b">
-        <Reveal>
-          <div className="grid md:grid-cols-12 gap-6 md:gap-12">
-            <div className="md:col-span-7 flex flex-col gap-8">
-              <p className="font-display text-2xl md:text-3xl leading-[1.3] max-w-[640px]">
-                <span className="opacity-60">Great fit for:</span> founders,
-                solo builders, small product teams, teams moving fast and
-                needing clarity.
-              </p>
-              <p className="font-display text-2xl md:text-3xl leading-[1.3] max-w-[640px]">
-                <span className="opacity-60">Probably not a fit for:</span>{" "}
-                enterprise procurement, long strategy engagements,
-                &ldquo;tell us everything wrong with our business,&rdquo;
-                pixel-perfect visual design reviews.
-              </p>
-              <p className="text-base opacity-70">
-                Saying it out loud saves both of us a week.
-              </p>
-            </div>
+      {/* === SECTION: fit-check === split into two columns */}
+      <section
+        data-section="fit-check"
+        className="p-6 md:p-10 section-border-b flex flex-col gap-10"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Fit check</span>
+          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-[#1A191E] max-w-[20ch]">
+            Saving us both a week.
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+          <div className="flex flex-col gap-3">
+            <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">Great fit for</h3>
+            <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">
+              Founders, solo builders, small product teams, teams moving
+              fast and needing clarity.
+            </p>
           </div>
-        </Reveal>
+          <div className="flex flex-col gap-3">
+            <h3 className="text-xl font-display leading-[1.1] text-[#1A191E]">Probably not a fit for</h3>
+            <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">
+              Enterprise procurement, long strategy engagements, &ldquo;tell
+              us everything wrong with our business,&rdquo; pixel-perfect
+              visual design reviews.
+            </p>
+          </div>
+        </div>
+        <p className="text-sm leading-[1.4] opacity-60">
+          Saying it out loud saves both of us a week.
+        </p>
       </section>
 
-      
-      {/* === SECTION: final-cta (red, chamfered, in framed container) === */}
-      <div data-section="final-cta-frame" className="mx-3 md:mx-6">
-        <section
-          id="contact"
-          data-section="final-cta"
-          className="bg-[#0E6BFF] text-white p-6 md:p-10 m-4 md:m-6 section-chamfer relative flex flex-col gap-12"
-        >
-          <Reveal>
-            <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
-              <div className="md:col-span-8 flex flex-col gap-6">
-                <h2 className="font-display text-5xl leading-[1.05]">
-                  Bring the messy version.
-                </h2>
-                <p className="text-lg leading-[1.55] max-w-[560px]">
-                  The confusing onboarding. The feature-heavy product. The
-                  homepage that almost works. The AI workflow held together with
-                  prompts and hope.
-                </p>
-                <p className="text-lg leading-[1.55] max-w-[560px] opacity-90">
-                  That&rsquo;s usually where the interesting work starts.
-                </p>
-              </div>
-              <div className="md:col-span-4 flex md:justify-end">
-                <a
-                  href="mailto:hello@productpaige.com?subject=Ask%20Paige%20%E2%80%94%20session%20booking"
-                  className="inline-flex btn"
-                >
-                  <span className="btn-text bg-white text-[#0E6BFF]">
-                    Book Ask Paige
-                  </span>
-                  <span className="btn-tab bg-white text-[#0E6BFF]">
-                    <BtnIcons />
-                  </span>
-                </a>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-      </div>
+      <ClosingCTA
+        title="Bring the messy version."
+        body="The confusing onboarding, the feature-heavy product, the homepage that almost works, the AI workflow held together with prompts and hope. That's usually where the interesting work starts."
+        ctaLabel="Book Ask Paige"
+        ctaHref="mailto:hello@productpaige.com?subject=Ask%20Paige%20%E2%80%94%20session%20booking"
+      />
     </div>
   );
 }

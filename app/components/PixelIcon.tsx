@@ -177,17 +177,17 @@ export function PixelIcon({
   const grid = ICONS[name];
   if (!grid) return null;
 
-  // ViewBox trimmed to the icon's actual visible bounds so the SVG's default
-  // preserveAspectRatio="xMidYMid meet" centers the pixels within the size
-  // prop. Every icon renders with the same visual "weight" regardless of
-  // how much whitespace its grid definition has.
+  // ViewBox trimmed to the icon's actual visible bounds plus a uniform 1-cell
+  // border, so every icon renders centered with consistent whitespace inside
+  // its container — L-shapes like the cursor stop touching multiple edges.
   const { minX, minY, w, h } = boundingBox(grid);
+  const pad = 1;
   const style: CSSProperties = { color, shapeRendering: "crispEdges" };
   return (
     <svg
       width={size}
       height={size}
-      viewBox={`${minX} ${minY} ${w} ${h}`}
+      viewBox={`${minX - pad} ${minY - pad} ${w + pad * 2} ${h + pad * 2}`}
       fill="currentColor"
       style={style}
       aria-hidden="true"
