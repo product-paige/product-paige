@@ -5,7 +5,7 @@ export function SiteFooter() {
       className="p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
     >
       <p className="text-xl font-display leading-[1.1] text-[#1A191E] max-w-[420px]">
-        Ecommerce products, made obvious.
+        Helping ecommerce teams ship products that feel obvious.
       </p>
       <nav>
         <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-base md:justify-end">
