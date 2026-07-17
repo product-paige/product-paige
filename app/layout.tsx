@@ -115,6 +115,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${funnelSans.variable} ${tiempos.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
       <body suppressHydrationWarning>
         {/* JSON-LD structured data — Person + Website for search engines */}
