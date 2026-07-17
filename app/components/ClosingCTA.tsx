@@ -24,25 +24,30 @@ export function ClosingCTA({
 }: ClosingCTAProps) {
   return (
     <section
-      data-section="closing-cta"
-      className="bg-[#1A191E] text-white py-16 px-10 m-4 md:m-6 section-chamfer relative grain-vintage flex flex-col md:flex-row md:items-center md:justify-between gap-10"
+      data-section="closing-cta-wrap"
+      className="p-6 md:p-10 section-border-b"
     >
-      <div className="flex flex-col gap-3 max-w-[1000px] flex-1 min-w-0">
-        <h2 className="text-5xl font-display leading-[1.05] text-white">
-          {title}
-        </h2>
-        {body ? (
-          <p className="text-lg leading-[1.4] text-white opacity-80 max-w-[720px]">
-            {body}
-          </p>
-        ) : null}
+      <div
+        data-section="closing-cta"
+        className="bg-[#1A191E] text-white py-16 px-10 section-chamfer relative grain-vintage flex flex-col md:flex-row md:items-center md:justify-between gap-10"
+      >
+        <div className="flex flex-col gap-3 max-w-[1000px] flex-1 min-w-0">
+          <h2 className="text-5xl font-display leading-[1.05] text-white">
+            {title}
+          </h2>
+          {body ? (
+            <p className="text-lg leading-[1.4] text-white opacity-80 max-w-[720px]">
+              {body}
+            </p>
+          ) : null}
+        </div>
+        <a href={ctaHref} className="inline-flex btn shrink-0">
+          <span className="btn-text bg-[#0E6BFF] text-white">{ctaLabel}</span>
+          <span className="btn-tab bg-[#0E6BFF] text-white">
+            <BtnIcons />
+          </span>
+        </a>
       </div>
-      <a href={ctaHref} className="inline-flex btn shrink-0">
-        <span className="btn-text bg-[#0E6BFF] text-white">{ctaLabel}</span>
-        <span className="btn-tab bg-[#0E6BFF] text-white">
-          <BtnIcons />
-        </span>
-      </a>
     </section>
   );
 }

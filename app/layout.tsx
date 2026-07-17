@@ -168,7 +168,7 @@ export default function RootLayout({
               <SiteHeader />
             </div>
             <main data-layer="page-content">{children}</main>
-            <div data-layer="site-footer-wrap" className="section-border-b">
+            <div data-layer="site-footer-wrap">
               <SiteFooter />
             </div>
             <SiteBottomBar />

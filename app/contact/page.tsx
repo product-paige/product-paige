@@ -54,7 +54,7 @@ export default function ContactPage() {
 
           {/* Right: bg image behind, form card overlaid, 40px padding all around */}
           <aside
-            className="relative min-w-0 p-10 flex divider-indent-left bg-cover bg-center"
+            className="relative min-w-0 p-16 flex divider-indent-left bg-cover bg-center"
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
             <form

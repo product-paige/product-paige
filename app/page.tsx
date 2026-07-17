@@ -351,7 +351,6 @@ export default function Home() {
                     zIndex: isActive ? 20 : recentWork.length - i,
                   }}
                 >
-                  <span className="folder-tab-glyph" aria-hidden="true" />
                   <span className="whitespace-nowrap">{w.client}</span>
                 </button>
               );
@@ -454,7 +453,7 @@ export default function Home() {
                 <PixelIcon name={c.icon} color={c.iconFg} size={24} />
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-display leading-[1.1] text-ink">{c.name}</h3>
+                <h3 className="text-xl">{c.name}</h3>
                 <p className="text-base leading-[1.4] opacity-80">{c.blurb}</p>
               </div>
             </article>
@@ -489,8 +488,15 @@ export default function Home() {
         data-section="about"
         className="grid md:grid-cols-2 items-stretch section-border-b min-h-[560px]"
       >
-        {/* Left column — eyebrow at top, bio at bottom, filling the column height */}
-        <div className="p-6 md:p-10 flex flex-col gap-10 justify-between">
+        {/* Left column — portrait image fills the full space (bg-cover). */}
+        <aside
+          className="relative min-h-[400px] bg-cover bg-center order-2 md:order-1"
+          style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
+          aria-label="About — portrait"
+        />
+
+        {/* Right column — eyebrow + h2 at top, bio at bottom, filling the column height */}
+        <div className="p-6 md:p-10 flex flex-col gap-10 justify-between order-1 md:order-2 md:divider-indent-left">
           <div className="flex flex-col gap-10">
             <span className="type-eyebrow">About</span>
             <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[10ch]">
@@ -508,14 +514,6 @@ export default function Home() {
             amazing, tells a story, and guides users where they need to go.
           </p>
         </div>
-
-        {/* Right column — image placeholder. Drop the portrait image into
-            /public/about-bg.jpg and swap the placeholder for a bg-image
-            aside when ready. */}
-        <aside
-          className="placeholder relative md:divider-indent-left min-h-[400px]"
-          aria-label="About — portrait placeholder"
-        />
       </section>
 
       
