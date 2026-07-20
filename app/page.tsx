@@ -570,20 +570,17 @@ export default function Home() {
                 className="card grid-bg flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
               >
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2 text-base opacity-60">
-                    <span className="svc-label svc-label-sm text-ink">
-                      <span
-                        className="svc-label-text"
-                        style={{
-                          backgroundColor: "#D6D7D9",
-                          borderColor: "#1A191E",
-                        }}
-                      >
-                        {post.category}
-                      </span>
+                  <span className="svc-label text-ink">
+                    <span
+                      className="svc-label-text"
+                      style={{
+                        backgroundColor: "#D6D7D9",
+                        borderColor: "#1A191E",
+                      }}
+                    >
+                      {post.category}
                     </span>
-                    <span>{post.readingTime}</span>
-                  </div>
+                  </span>
                   <span className="text-base opacity-60">
                     {new Date(post.date).toLocaleDateString("en-US", {
                       month: "short",
