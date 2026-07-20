@@ -18,7 +18,7 @@ const services: Array<{
   { name: "ecommerce UX",              bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
   { name: "conversion design",         bg: "#D6D7D9", fg: "#1A191E", icon: "cursor" },
   { name: "positioning + messaging",   bg: "#D6D7D9", fg: "#1A191E", icon: "megaphone" },
-  { name: "AI content design",         bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
+  { name: "AI content design",         bg: "#D6D7D9", fg: "#1A191E", icon: "sparkleA" },
   { name: "product strategy",          bg: "#D6D7D9", fg: "#1A191E", icon: "target" },
 ];
 
@@ -94,9 +94,9 @@ const tools: Array<{
   icon: PixelIconName;
 }> = [
   { name: "Figma",   bg: "#D6D7D9", fg: "#1A191E", icon: "cursor" },
-  { name: "Claude",  bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
-  { name: "Cursor",  bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
-  { name: "Lovable", bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
+  { name: "Claude",  bg: "#D6D7D9", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Cursor",  bg: "#D6D7D9", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Lovable", bg: "#D6D7D9", fg: "#1A191E", icon: "sparkleA" },
   { name: "Paper",   bg: "#D6D7D9", fg: "#1A191E", icon: "door" },
   { name: "Shopify", bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
   { name: "Notion",  bg: "#D6D7D9", fg: "#1A191E", icon: "door" },
