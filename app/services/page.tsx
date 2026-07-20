@@ -264,9 +264,6 @@ export default function ServicesPage() {
         >
           <article className="card card-blue-light !min-h-0 grid md:grid-cols-12 gap-6 md:gap-16 items-start">
             <div className="md:col-span-5 flex flex-col gap-6">
-              <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E]">
-                <PixelIcon name={s.icon} color="#ffffff" size={24} />
-              </div>
               <span className="type-eyebrow">{s.eyebrow}</span>
               <div className="flex flex-col gap-3">
                 <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[16ch]">{s.title}</h2>
@@ -354,38 +351,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* === ASK PAIGE NUDGE === */}
-      <section data-section="services-ask-paige" className="p-6 md:p-10 section-border-b">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-          <div className="flex flex-col gap-6">
-            <span className="type-eyebrow">Not ready for a project</span>
-            <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink max-w-[20ch]">
-              Start with a single Ask Paige session
-            </h2>
-          </div>
-          <div className="flex flex-col gap-6">
-            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              $250, one session. Async review of what you send, then a live
-              60-minute conversation, then a short prioritized list of what
-              to fix now vs. later. A cheap way to find out whether a full
-              engagement makes sense.
-            </p>
-            <a href="/ask-paige" className="inline-flex btn self-start">
-              <span className="btn-text bg-[#1A191E] text-white">
-                Learn about Ask Paige
-              </span>
-              <span className="btn-tab bg-[#1A191E] text-white">
-                <BtnIcons />
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* === CLOSING CTA === */}
+      {/* === CLOSING CTA (Ask Paige callout) === */}
       <ClosingCTA
-        title="Bring the part you can't see clearly yet."
-        body="Send a link, a screenshot, or the half-finished idea. I'll help you find the seams, the friction, and what's worth fixing first."
+        title="Not ready for a project?"
+        body="Start with a single Ask Paige session. $250, one focused hour, async review before the call, a short prioritized list after. A quick way to find out whether a full engagement makes sense."
+        ctaLabel="Learn about Ask Paige"
+        ctaHref="/ask-paige"
       />
     </div>
   );
