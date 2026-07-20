@@ -189,7 +189,7 @@ export default function ServicesPage() {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Overview</span>
-            <div className="flex flex-col gap-3">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
               <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
                 Four lanes of work, deeply connected
               </h2>
@@ -254,16 +254,19 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* === DETAILED SERVICE SECTIONS === */}
-      {services.map((s, i) => (
+      {/* === DETAILED SERVICE SECTIONS === each in its own card */}
+      {services.map((s) => (
         <section
           key={s.slug}
           id={s.slug}
           data-section={`service-${s.slug}`}
           className="p-6 md:p-10 section-border-b"
         >
-          <div className="grid md:grid-cols-12 gap-6 md:gap-16 items-start">
+          <article className="card card-blue-light !min-h-0 grid md:grid-cols-12 gap-6 md:gap-16 items-start">
             <div className="md:col-span-5 flex flex-col gap-6">
+              <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E]">
+                <PixelIcon name={s.icon} color="#ffffff" size={24} />
+              </div>
               <span className="type-eyebrow">{s.eyebrow}</span>
               <div className="flex flex-col gap-3">
                 <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[16ch]">{s.title}</h2>
@@ -272,11 +275,6 @@ export default function ServicesPage() {
                   dangerouslySetInnerHTML={{ __html: s.lead }}
                 />
               </div>
-              {i === services.length - 1 ? null : (
-                <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E]">
-                  <PixelIcon name={s.icon} color="#ffffff" size={24} />
-                </div>
-              )}
             </div>
             <div className="md:col-span-7 flex flex-col gap-10">
               <div className="flex flex-col gap-3">
@@ -320,7 +318,7 @@ export default function ServicesPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </article>
         </section>
       ))}
 

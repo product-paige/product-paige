@@ -148,15 +148,15 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
           <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
             <div className="flex flex-col gap-6">
-              <span className="type-eyebrow">Available for projects</span>
+              <span className="type-eyebrow">Open to new projects</span>
               <div className="flex flex-col gap-3">
                 <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
-                  <TearText>{"Product marketing\nand UX design\nfor ecommerce"}</TearText>
+                  <TearText>{"Product marketing\n& UX design for\necommerce teams"}</TearText>
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
-                  I&rsquo;m Paige. For 13 years I&rsquo;ve worked with
-                  ecommerce teams. Shopify apps. DTC brands. Early-stage SaaS.
-                  I help them make products people can use and explain.
+                  I help DTC brands, app makers, and ecommerce SaaS teams
+                  sharpen positioning, clean up the customer experience, and
+                  make products people actually understand.
                 </p>
               </div>
             </div>
@@ -178,10 +178,10 @@ export default function Home() {
           >
             <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
-                Paige Eaton
+                Hi, I&rsquo;m Paige
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
-                Product marketer and UX designer. Canada, remote.
+                13 years building in the Shopify and ecommerce ecosystem.
               </p>
             </div>
           </aside>
@@ -235,9 +235,9 @@ export default function Home() {
           </div>
           <div className="flex flex-col justify-between gap-10 order-1 md:order-2 relative md:divider-indent-left">
             <div className="flex flex-col gap-6">
-              <span className="type-eyebrow">Practice</span>
+              <span className="type-eyebrow">Capabilities</span>
               <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[500px]">
-                The work I do
+                What we&rsquo;ll improve
               </h2>
             </div>
             <div className="flex flex-col gap-8">
@@ -571,15 +571,30 @@ export default function Home() {
                 href={`/blog/${post.slug}`}
                 className="card grid-bg flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
               >
-                <PostMeta
-                  items={[post.category, post.readingTime]}
-                  right={new Date(post.date).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                    timeZone: "UTC",
-                  })}
-                />
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 text-base opacity-60">
+                    <span className="svc-label svc-label-sm text-ink">
+                      <span
+                        className="svc-label-text"
+                        style={{
+                          backgroundColor: "#D6D7D9",
+                          borderColor: "#1A191E",
+                        }}
+                      >
+                        {post.category}
+                      </span>
+                    </span>
+                    <span>{post.readingTime}</span>
+                  </div>
+                  <span className="text-base opacity-60">
+                    {new Date(post.date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                      timeZone: "UTC",
+                    })}
+                  </span>
+                </div>
                 <div className="flex flex-col gap-2">
                   <h3 className="text-xl group-hover:opacity-70 transition-opacity">
                     {post.title}

@@ -1481,6 +1481,10 @@ a {
   letter-spacing: -0.02em;
   line-height: 1;
 }
+/* Small chip variant — used inline in card meta rows. Tighter padding,
+   smaller font, meant to sit next to body copy. */
+.svc-label.svc-label-sm { font-size: 11px; }
+.svc-label.svc-label-sm .svc-label-text { padding: 5px 8px; }
 .svc-label-text,
 .svc-label-tab {
   /* Static 3D button styling — no hover since these aren't buttons. */

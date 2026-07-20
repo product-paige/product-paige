@@ -29,7 +29,7 @@ export function ClosingCTA({
     >
       <div
         data-section="closing-cta"
-        className="bg-[#1A191E] text-white py-16 px-10 section-chamfer relative grain-vintage flex flex-col md:flex-row md:items-center md:justify-between gap-10"
+        className="bg-[#1A191E] text-white py-16 px-10 section-chamfer relative grain-vintage flex flex-col md:flex-row md:items-start md:justify-between gap-10"
       >
         <div className="flex flex-col gap-3 max-w-[1000px] flex-1 min-w-0">
           <h2 className="text-5xl font-display leading-[1.05] text-white">
