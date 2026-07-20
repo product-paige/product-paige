@@ -112,6 +112,7 @@ const recentWork: Array<{
   bg: string;
   fg: string;
   href: string;
+  comingSoon: boolean;
 }> = projectList.map((p, i) => ({
   no: `Project ${String(i + 1).padStart(2, "0")}`,
   client: p.client,
@@ -127,6 +128,7 @@ const recentWork: Array<{
       ? "#1a1a1a"
       : "#ffffff",
   href: `/projects/${p.slug}`,
+  comingSoon: p.comingSoon ?? false,
 }));
 
 export default function Home() {
@@ -350,7 +352,17 @@ export default function Home() {
                     zIndex: isActive ? 20 : recentWork.length - i,
                   }}
                 >
-                  <span className="whitespace-nowrap">{w.client}</span>
+                  <span className="whitespace-nowrap flex items-center gap-2">
+                    {w.client}
+                    {w.comingSoon ? (
+                      <span
+                        className="text-xs uppercase tracking-[0.08em] border border-current/50 px-1.5 py-0.5"
+                        aria-label="Coming soon"
+                      >
+                        Soon
+                      </span>
+                    ) : null}
+                  </span>
                 </button>
               );
             })}
@@ -385,36 +397,52 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Prominent CTA (real button, not just a text link) */}
-              <a
-                href={project.href}
-                className="inline-flex btn self-start"
-                aria-label={`View the ${project.client} case study`}
-              >
-                <span className="btn-text bg-[#1A191E] text-white">
-                  View project
+              {/* Prominent CTA — hidden for coming-soon projects,
+                  replaced with a static badge. */}
+              {project.comingSoon ? (
+                <span className="inline-flex items-center gap-2 self-start text-sm uppercase tracking-[0.08em] border border-current/50 px-3 py-1.5">
+                  Coming soon
                 </span>
-                <span className="btn-tab bg-[#1A191E] text-white">
-                  <BtnIcons />
-                </span>
-              </a>
+              ) : (
+                <a
+                  href={project.href}
+                  className="inline-flex btn self-start"
+                  aria-label={`View the ${project.client} case study`}
+                >
+                  <span className="btn-text bg-[#1A191E] text-white">
+                    View project
+                  </span>
+                  <span className="btn-tab bg-[#1A191E] text-white">
+                    <BtnIcons />
+                  </span>
+                </a>
+              )}
             </div>
 
-            {/* Image column — landscape, whole area is clickable so touch
-                users don't have to hit the small CTA button. On mobile this
-                sits ABOVE the text (order-1) as the primary visual anchor. */}
-            <a
-              href={project.href}
-              aria-label={`Open ${project.client}`}
-              className="relative block group order-1 md:order-2"
-              tabIndex={-1}
-            >
+            {/* Image column — landscape, clickable when shipped. For
+                coming-soon projects it's a plain div so nothing links
+                through. On mobile it sits ABOVE the text (order-1). */}
+            {project.comingSoon ? (
               <div
-                className="placeholder w-full aspect-[3/2] transition-opacity group-hover:opacity-90"
+                className="relative block order-1 md:order-2"
                 aria-hidden="true"
-              />
-              <span className="sr-only">Open {project.client}</span>
-            </a>
+              >
+                <div className="placeholder w-full aspect-[3/2]" />
+              </div>
+            ) : (
+              <a
+                href={project.href}
+                aria-label={`Open ${project.client}`}
+                className="relative block group order-1 md:order-2"
+                tabIndex={-1}
+              >
+                <div
+                  className="placeholder w-full aspect-[3/2] transition-opacity group-hover:opacity-90"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Open {project.client}</span>
+              </a>
+            )}
           </div>
         </div>
       </section>

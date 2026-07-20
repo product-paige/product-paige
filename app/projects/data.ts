@@ -13,6 +13,9 @@ export type Project = {
   liveUrl?: string;
   /** Long-form narrative shown in the Notes section. Array of paragraphs. */
   notes?: string[];
+  /** Marks the project as not-yet-shipped. Folder tab shows a "Coming soon"
+   *  badge, project panel hides the "View project" CTA. */
+  comingSoon?: boolean;
   /** Labels for image placeholder tiles in the gallery */
   mockups: string[];
   /** Short result lines for the highlights block */
@@ -47,33 +50,6 @@ export const projects: Record<string, Project> = {
     ],
   },
 
-  "productprompt-shop": {
-    slug: "productprompt-shop",
-    client: "ProductPrompt.shop",
-    year: "2026",
-    role: "Strategy + Lovable build",
-    kicker:
-      "Curated prompts for Shopify merchants working alongside Claude.",
-    coverBg: "#DBE6EB",
-    problem:
-      "With Claude&rsquo;s MCPs now connecting to Shopify, merchants suddenly need to know what to actually ask. The good prompts are scattered across Twitter threads and Reddit. Nothing curated, nothing tested, no shared starting point.",
-    approach:
-      "Shipped a lightweight Lovable site in a weekend with a focused set of vetted prompts — product copy, inventory questions, customer-message rewrites — each tested against a real Claude MCP session against a live Shopify store. No fluff, no signup wall.",
-    outcome:
-      "2,400 first-week visits with zero paid distribution. Now indexed as a top organic result for &ldquo;Shopify Claude prompts.&rdquo; Proof I&rsquo;m shipping on the AI + ecommerce frontier, not just narrating it from the sidelines.",
-    mockups: [
-      "Prompt library",
-      "Category filter",
-      "Copy-and-use flow",
-      "MCP session demo",
-    ],
-    highlights: [
-      { metric: "2.4k", label: "First-week visits" },
-      { metric: "1 wknd", label: "Build time" },
-      { metric: "Top 3", label: "Organic SERP" },
-    ],
-  },
-
   "organic-moderne": {
     slug: "organic-moderne",
     client: "Organic Moderne",
@@ -98,6 +74,34 @@ export const projects: Record<string, Project> = {
       { metric: "2×", label: "Organic traffic" },
       { metric: "+47%", label: "Session time" },
       { metric: "8 wks", label: "Time to lift" },
+    ],
+  },
+
+  "productprompt-shop": {
+    slug: "productprompt-shop",
+    client: "Product Prompt",
+    year: "2026",
+    role: "Strategy + Lovable build",
+    comingSoon: true,
+    kicker:
+      "Curated prompts for Shopify merchants working alongside Claude.",
+    coverBg: "#DBE6EB",
+    problem:
+      "With Claude&rsquo;s MCPs now connecting to Shopify, merchants suddenly need to know what to actually ask. The good prompts are scattered across Twitter threads and Reddit. Nothing curated, nothing tested, no shared starting point.",
+    approach:
+      "Shipped a lightweight Lovable site in a weekend with a focused set of vetted prompts — product copy, inventory questions, customer-message rewrites — each tested against a real Claude MCP session against a live Shopify store. No fluff, no signup wall.",
+    outcome:
+      "2,400 first-week visits with zero paid distribution. Now indexed as a top organic result for &ldquo;Shopify Claude prompts.&rdquo; Proof I&rsquo;m shipping on the AI + ecommerce frontier, not just narrating it from the sidelines.",
+    mockups: [
+      "Prompt library",
+      "Category filter",
+      "Copy-and-use flow",
+      "MCP session demo",
+    ],
+    highlights: [
+      { metric: "2.4k", label: "First-week visits" },
+      { metric: "1 wknd", label: "Build time" },
+      { metric: "Top 3", label: "Organic SERP" },
     ],
   },
 };
