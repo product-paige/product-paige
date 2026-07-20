@@ -55,7 +55,7 @@ export default async function BlogPostPage({
       >
         <div className="flex flex-col gap-6 max-w-[820px]">
           <PostMeta items={["Blog", post.category, post.readingTime, dateFormatted]} />
-          <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">{post.title}</h1>
+          <h1 className="text-display font-display text-ink max-w-[18ch]">{post.title}</h1>
           <p className="text-lg leading-[1.4] opacity-80">{post.kicker}</p>
         </div>
       </section>
@@ -96,7 +96,7 @@ export default async function BlogPostPage({
         >
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">More reading</span>
-            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">Keep going</h2>
+            <h2 className="text-section font-display text-ink max-w-[24ch]">Keep going</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-stretch">
             {related.map((r) => (

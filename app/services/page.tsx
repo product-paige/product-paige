@@ -146,7 +146,7 @@ export default function ServicesPage() {
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Services</span>
               <div className="flex flex-col gap-3">
-                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">
+                <h1 className="text-display font-display text-ink max-w-[18ch]">
                   What we&rsquo;ll work on together
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
@@ -191,7 +191,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Overview</span>
             <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
+              <h2 className="text-section font-display text-ink max-w-[24ch]">
                 Four lanes of work, deeply connected
               </h2>
               <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -223,7 +223,7 @@ export default function ServicesPage() {
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Growth blockers</span>
-          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
+          <h2 className="text-section font-display text-ink max-w-[24ch]">
             Fix what&rsquo;s slowing growth
           </h2>
         </div>
@@ -329,7 +329,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Process</span>
             <div className="flex flex-col gap-3">
-              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
+              <h2 className="text-section font-display text-ink max-w-[24ch]">
                 How a project starts
               </h2>
               <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">

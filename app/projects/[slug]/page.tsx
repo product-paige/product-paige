@@ -84,7 +84,7 @@ export default async function ProjectPage({
         </div>
         <div className="flex flex-col gap-3">
           <h1
-            className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] max-w-[32ch]"
+            className="text-display font-display max-w-[32ch]"
             style={{ color: heroFg }}
           >
             {project.kicker}
@@ -136,7 +136,7 @@ export default async function ProjectPage({
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Notes</span>
-              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+              <h2 className="text-section font-display text-ink max-w-[20ch]">
                 Behind the build
               </h2>
             </div>
@@ -173,7 +173,7 @@ export default async function ProjectPage({
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow !text-white">By the numbers</span>
-          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink !text-white">Outcomes worth measuring</h2>
+          <h2 className="text-section font-display text-ink !text-white">Outcomes worth measuring</h2>
         </div>
         <ul className="grid md:grid-cols-3 gap-6 md:gap-12">
           {project.highlights.map((h) => (
@@ -201,7 +201,7 @@ export default async function ProjectPage({
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">More work</span>
-          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">More projects</h2>
+          <h2 className="text-section font-display text-ink max-w-[24ch]">More projects</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           {related.map((r) => (

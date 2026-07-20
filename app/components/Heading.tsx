@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
 const H1_CLASS =
-  "text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink";
+  "text-display font-display text-ink";
 const H2_CLASS =
-  "text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink";
+  "text-section font-display text-ink";
 const H3_CLASS =
   "text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink";
 const CARD_TITLE_CLASS =

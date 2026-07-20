@@ -113,7 +113,7 @@ export default function AskPaigePage() {
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Ask Paige</span>
               <div className="flex flex-col gap-3">
-                <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
+                <h1 className="text-display font-display text-ink max-w-[20ch]">
                   One focused hour on what you&rsquo;re building
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -163,7 +163,7 @@ export default function AskPaigePage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Use cases</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+            <h2 className="text-section font-display text-ink max-w-[20ch]">
               Common places sessions start
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -196,7 +196,7 @@ export default function AskPaigePage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">How it works</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+            <h2 className="text-section font-display text-ink max-w-[20ch]">
               A single hour. Direct feedback. Nothing invented
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -232,7 +232,7 @@ export default function AskPaigePage() {
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Fit check</span>
-          <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+          <h2 className="text-section font-display text-ink max-w-[20ch]">
             A quick fit check
           </h2>
         </div>

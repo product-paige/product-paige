@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Blog</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[30ch]">
+            <h1 className="text-display font-display text-ink max-w-[30ch]">
               Notes on shipping clearly
             </h1>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -43,7 +43,7 @@ export default function BlogIndexPage() {
             <div className="flex flex-col gap-6 justify-center">
               <PostMeta items={["Featured", feature.category, feature.readingTime]} size="sm" />
               <div className="flex flex-col gap-3">
-                <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[18ch] group-hover:opacity-70 transition-opacity">
+                <h2 className="text-section font-display text-ink max-w-[18ch] group-hover:opacity-70 transition-opacity">
                   {feature.title}
                 </h2>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[520px]">
@@ -64,7 +64,7 @@ export default function BlogIndexPage() {
           <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">More posts</span>
-              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
+              <h2 className="text-section font-display text-ink max-w-[24ch]">
                 From the notebook
               </h2>
             </div>
