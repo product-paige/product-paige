@@ -273,7 +273,7 @@ export default function ServicesPage() {
               {s.eyebrow}
             </span>
           </div>
-          <article className="card card-blue-light !min-h-0 w-full !p-10">
+          <article className="card card-blue-light is-static !min-h-0 w-full !p-10">
             <div className="grid md:grid-cols-12 gap-6 md:gap-16 items-start w-full">
               <div className="md:col-span-5 flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
