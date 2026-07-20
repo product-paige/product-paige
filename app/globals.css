@@ -1556,11 +1556,8 @@ a {
      indicator (per-project bg) + active also merges into the panel below. */
   opacity: 1;
 }
-.folder-tab:hover {
-  /* No opacity change on hover — feels flicky over the chamfered clip.
-     A subtle brightness bump reads as a lift without shifting anything. */
-  filter: brightness(1.04);
-}
+/* No hover effect — the color (per-project or per-service bg) IS the
+   affordance, no lift/tint needed. */
 .folder-tab:focus-visible {
   outline: 2px solid #0E6BFF;
   outline-offset: -4px;
