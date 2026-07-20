@@ -1076,11 +1076,12 @@ body > * {
 /* Big section with chamfered corner — drop-shadow follows the silhouette,
    inset highlights give the chip a slight 3D presence. */
 .section-chamfer {
+  --section-chamfer-size: 80px;
   clip-path: polygon(
     0 0,
     100% 0,
-    100% calc(100% - 80px),
-    calc(100% - 80px) 100%,
+    100% calc(100% - var(--section-chamfer-size)),
+    calc(100% - var(--section-chamfer-size)) 100%,
     0 100%
   );
   /* Same 3D layered shadow as .btn — top highlight, bottom inset, hard ground
@@ -1091,6 +1092,12 @@ body > * {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.18),
     inset 0 -1px 0 rgba(0, 0, 0, 0.20);
+}
+/* Mobile: smaller chamfer so it doesn't eat the corner of narrow panels. */
+@media (max-width: 767px) {
+  .section-chamfer {
+    --section-chamfer-size: 40px;
+  }
 }
 
 /* Vertical section rail — narrow editorial spine on the left edge of a section */

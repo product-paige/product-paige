@@ -1,4 +1,5 @@
 import { BtnIcons } from "./BtnIcons";
+import { MobileMenu } from "./MobileMenu";
 
 export function SiteHeader() {
   return (
@@ -67,7 +68,7 @@ export function SiteHeader() {
         >
           Ask Paige
         </a>
-        <div className="divider-indent-left flex items-center px-4">
+        <div className="hidden md:flex divider-indent-left items-center px-4">
           <a
             href="/contact"
             className="inline-flex btn"
@@ -80,6 +81,7 @@ export function SiteHeader() {
             </span>
           </a>
         </div>
+        <MobileMenu />
       </div>
     </header>
   );

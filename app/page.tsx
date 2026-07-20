@@ -144,7 +144,7 @@ export default function Home() {
       <section
         id="hero"
         data-section="hero"
-        className="min-h-[640px] flex section-border-b"
+        className="min-h-[520px] md:min-h-[640px] flex section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
           <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
@@ -504,7 +504,7 @@ export default function Home() {
       <section
         id="about"
         data-section="about"
-        className="grid md:grid-cols-2 items-stretch section-border-b min-h-[560px]"
+        className="grid md:grid-cols-2 items-stretch section-border-b min-h-[440px] md:min-h-[560px]"
       >
         {/* Left column — portrait image fills the full space (bg-cover). */}
         <aside

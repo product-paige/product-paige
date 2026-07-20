@@ -139,7 +139,7 @@ export default function ServicesPage() {
       <section
         id="hero"
         data-section="hero"
-        className="min-h-[640px] flex section-border-b"
+        className="min-h-[520px] md:min-h-[640px] flex section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
           <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">

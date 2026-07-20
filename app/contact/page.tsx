@@ -63,7 +63,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="card card-sm card-cream is-static flex flex-col gap-4 !min-h-0 w-full flex-1 !p-10"
+      className="card card-sm card-cream is-static flex flex-col gap-4 !min-h-0 w-full flex-1 !p-6 md:!p-10"
     >
       <h2 className="text-xl font-display leading-[1.1] text-ink">
         Send a note
@@ -193,7 +193,7 @@ export default function ContactPage() {
 
           {/* Right: bg image behind, form card overlaid, 40px padding all around */}
           <aside
-            className="relative min-w-0 p-16 flex divider-indent-left bg-cover bg-center"
+            className="relative min-w-0 p-6 md:p-16 flex divider-indent-left bg-cover bg-center"
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
             <Suspense fallback={null}>
