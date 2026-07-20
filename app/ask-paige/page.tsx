@@ -159,15 +159,24 @@ export default function AskPaigePage() {
       
       {/* === SECTION: use-cases === */}
       <section id="use-cases" data-section="use-cases" className="p-6 md:p-10 flex flex-col gap-10 section-border-b">
-        <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
-          Most sessions land in one of these:
-        </p>
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Use cases</span>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+              Common places sessions start
+            </h2>
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+              Most sessions land in one of these. Not sure which fits? Send
+              what you&rsquo;re working on and we&rsquo;ll figure it out.
+            </p>
+          </div>
+        </div>
         <Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
             {useCases.map((u) => (
               <article
                 key={u.name}
-                className="card card-blue-light flex flex-col justify-between aspect-square !min-h-0"
+                className="card card-blue-light flex flex-col justify-between aspect-[4/3] !min-h-0 max-h-[280px]"
               >
                 <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white">
                   <PixelIcon name={u.icon} color="#ffffff" size={24} />
@@ -186,33 +195,42 @@ export default function AskPaigePage() {
       </section>
 
       
-      {/* === SECTION: how-it-works (chamfered, in framed container) === */}
-      <div data-section="how-it-works-frame" className="mx-3 md:mx-6">
-        <section data-section="how-it-works" className="bg-[#1a1a1a] text-white p-6 md:p-10 m-4 md:m-6 section-chamfer relative flex flex-col gap-12">
-          <Reveal>
-            <div className="grid md:grid-cols-12 gap-6 md:gap-12">
-              <div className="md:col-span-5">
-                <h2 className="font-display text-5xl leading-[1.1]">
-                  A single hour. Direct feedback. Nothing invented
-                </h2>
-              </div>
-              <ul className="md:col-span-7 flex flex-col gap-4">
-                {youGet.map((item, i) => (
-                  <li
-                    key={item}
-                    className="flex items-baseline gap-4 border-b border-white/20 pb-4"
-                  >
-                    <span className="font-display text-xl opacity-50 w-8 shrink-0">
-                      .{String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-base leading-[1.4]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </section>
-      </div>
+      {/* === SECTION: how-it-works === standard section pattern */}
+      <section
+        id="how-it-works"
+        data-section="how-it-works"
+        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">How it works</span>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+            <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+              A single hour. Direct feedback. Nothing invented
+            </h2>
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+              Async prep, a live conversation, a prioritized list of what
+              to shape next. That&rsquo;s the whole shape of it.
+            </p>
+          </div>
+        </div>
+        <Reveal>
+          <ol className="grid md:grid-cols-2 gap-6 md:gap-10">
+            {youGet.map((item, i) => (
+              <li
+                key={item}
+                className="flex items-baseline gap-4 border-t border-[#1A191E]/20 pt-4"
+              >
+                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60 w-8 shrink-0">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-base leading-[1.4] opacity-80">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+      </section>
 
       
       {/* === SECTION: fit-check === split into two columns */}
@@ -228,14 +246,14 @@ export default function AskPaigePage() {
         </div>
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
           <div className="flex flex-col gap-3">
-            <h3 className="text-xl font-display leading-[1.1] text-ink">Great fit for</h3>
+            <h3 className="text-xl">Great fit for</h3>
             <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">
               Founders, solo builders, small product teams, teams moving
               fast and needing clarity.
             </p>
           </div>
           <div className="flex flex-col gap-3">
-            <h3 className="text-xl font-display leading-[1.1] text-ink">Probably not a fit for</h3>
+            <h3 className="text-xl">Probably not a fit for</h3>
             <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">
               Enterprise procurement, long strategy engagements, &ldquo;tell
               us everything wrong with our business,&rdquo; pixel-perfect
