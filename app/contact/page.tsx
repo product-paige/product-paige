@@ -99,10 +99,12 @@ function ContactForm() {
           name="topic"
           value={topic}
           onChange={(e) => setTopic(e.target.value as TopicValue)}
-          className="appearance-none bg-white/60 border border-[#1A191E]/20 px-3 py-2.5 pr-10 text-base leading-[1.4] text-ink cursor-pointer bg-no-repeat bg-[position:right_12px_center] bg-[length:12px_8px] focus:outline-none focus:border-[#1A191E]/60 focus:bg-white transition-colors"
+          className="appearance-none bg-white border border-[#1A191E]/40 px-3 py-2.5 pr-10 text-base font-medium leading-none tracking-[-0.01em] text-ink cursor-pointer bg-no-repeat bg-[position:right_12px_center] bg-[length:14px_9px] focus:outline-none focus:border-[#1A191E] transition-colors"
           style={{
             backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%231A191E' stroke-width='1.5'><path d='M1 1.5L6 6.5L11 1.5'/></svg>\")",
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9' fill='none' stroke='%231A191E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M1 1.5L7 7L13 1.5'/></svg>\")",
+            boxShadow:
+              "inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.08), 0 1px 0 rgba(0,0,0,0.06)",
           }}
         >
           {TOPICS.map((t) => (
