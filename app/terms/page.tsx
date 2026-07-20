@@ -55,7 +55,7 @@ export default function TermsPage() {
           <span className="type-eyebrow">Terms</span>
           <div className="flex flex-col gap-3">
             <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">
-              The shape of the engagement.
+              The shape of the engagement
             </h1>
             <p className="text-lg leading-[1.4] opacity-80">
               Short, written, mutual — no surprises. These are the standard

@@ -167,7 +167,7 @@ export default function PortfolioLayout() {
         <div className="flex items-baseline justify-between">
         </div>
         <h2 className="font-display text-4xl md:text-5xl lg:text-5xl leading-[1.05] tracking-tightest max-w-[24ch]">
-          A showcase of what happens when curiosity drives the process.
+          A showcase of what happens when curiosity drives the process
         </h2>
         <div className="flex flex-col gap-16">
           {works.map((w, i) => (

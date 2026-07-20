@@ -176,7 +176,7 @@ export default function Home() {
           >
             <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
-                Paige Eaton.
+                Paige Eaton
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
                 Product marketer and UX designer. Canada, remote.
@@ -499,7 +499,7 @@ export default function Home() {
           <div className="flex flex-col gap-10">
             <span className="type-eyebrow">About me</span>
             <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[10ch]">
-              I&rsquo;m Paige.
+              I&rsquo;m Paige
             </h2>
           </div>
           <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">

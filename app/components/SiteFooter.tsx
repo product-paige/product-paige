@@ -12,7 +12,7 @@ export function SiteFooter() {
           <li><a href="/" className="hover:opacity-60">Home</a></li>
           <li><a href="/services" className="hover:opacity-60">Services</a></li>
           <li><a href="/#work" className="hover:opacity-60">Projects</a></li>
-          <li><a href="/blog" className="hover:opacity-60">Blog</a></li>
+          <li><a href="/blog" className="hover:opacity-60">Notes</a></li>
           <li><a href="/#about" className="hover:opacity-60">About</a></li>
           <li><a href="/ask-paige" className="hover:opacity-60">Ask Paige</a></li>
           <li><a href="/contact" className="hover:opacity-60">Contact</a></li>

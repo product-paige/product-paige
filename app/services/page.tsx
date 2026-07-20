@@ -146,7 +146,7 @@ export default function ServicesPage() {
               <span className="type-eyebrow">Services</span>
               <div className="flex flex-col gap-3">
                 <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">
-                  What we&rsquo;ll work on together.
+                  What we&rsquo;ll work on together
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
                   Positioning, ecommerce UX, AI content design, and product
@@ -173,7 +173,7 @@ export default function ServicesPage() {
           >
             <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
-                Four services. One practice.
+                Four services. One practice
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
                 Pick the one that fits — or send what&rsquo;s on your mind and
@@ -191,7 +191,7 @@ export default function ServicesPage() {
             <span className="type-eyebrow">Overview</span>
             <div className="flex flex-col gap-3">
               <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
-                Four lanes of work, deeply connected.
+                Four lanes of work, deeply connected
               </h2>
               <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
                 Most engagements pull from more than one. The thread between
@@ -331,7 +331,7 @@ export default function ServicesPage() {
             <span className="type-eyebrow">Process</span>
             <div className="flex flex-col gap-3">
               <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
-                How a project starts.
+                How a project starts
               </h2>
               <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
                 Short, written, mutual. No deck-thick proposals. Most projects
@@ -362,7 +362,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">Not ready for a project</span>
             <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink max-w-[20ch]">
-              Start with a single Ask Paige session.
+              Start with a single Ask Paige session
             </h2>
           </div>
           <div className="flex flex-col gap-6">

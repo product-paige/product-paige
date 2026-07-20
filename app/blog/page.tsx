@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
           <span className="type-eyebrow">Blog</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[14ch]">
-              Notes on shipping clearly.
+              Notes on shipping clearly
             </h1>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
               Short reads on positioning, ecommerce UX, and AI content design.

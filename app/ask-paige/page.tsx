@@ -113,7 +113,7 @@ export default function AskPaigePage() {
               <span className="type-eyebrow">Ask Paige</span>
               <div className="flex flex-col gap-3">
                 <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
-                  One focused hour on what you&rsquo;re building.
+                  One focused hour on what you&rsquo;re building
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
                   Send what you&rsquo;re building. A product, an onboarding
@@ -146,7 +146,7 @@ export default function AskPaigePage() {
           >
             <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
-                One focused hour.
+                One focused hour
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
                 Bring the product, the questions, the half-thoughts.
@@ -193,7 +193,7 @@ export default function AskPaigePage() {
             <div className="grid md:grid-cols-12 gap-6 md:gap-12">
               <div className="md:col-span-5">
                 <h2 className="font-display text-5xl leading-[1.1]">
-                  A single hour. Direct feedback. Nothing invented.
+                  A single hour. Direct feedback. Nothing invented
                 </h2>
               </div>
               <ul className="md:col-span-7 flex flex-col gap-4">
@@ -223,7 +223,7 @@ export default function AskPaigePage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Fit check</span>
           <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
-            A quick fit check.
+            A quick fit check
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">

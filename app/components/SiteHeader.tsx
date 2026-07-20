@@ -43,6 +43,14 @@ export function SiteHeader() {
         </li>
         <li className="flex">
           <a
+            href="/blog"
+            className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
+          >
+            Notes
+          </a>
+        </li>
+        <li className="flex">
+          <a
             href="/#about"
             className="text-base divider-indent-left divider-indent-right px-6 flex items-center hover:opacity-60 transition-opacity"
           >

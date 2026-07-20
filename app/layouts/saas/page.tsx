@@ -137,7 +137,7 @@ export default function SaasLayout() {
         <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end w-full">
           <div className="md:col-span-8 flex flex-col gap-10">
             <h1 className="font-display leading-[0.95] tracking-tightest text-5xl md:text-7xl lg:text-8xl max-w-[16ch]">
-              Decisions in weeks, not quarters.
+              Decisions in weeks, not quarters
             </h1>
             <div className="flex items-baseline gap-3 font-mono text-sm md:text-base tabular-nums">
               <span className="opacity-50">{">>>"}</span>
@@ -370,7 +370,7 @@ export default function SaasLayout() {
       >
         <div className="md:col-span-5 flex flex-col gap-6">
           <h2 className="font-display text-4xl md:text-5xl lg:text-5xl leading-[1.05]">
-            Three engagement shapes — pick what fits the work.
+            Three engagement shapes — pick what fits the work
           </h2>
           <a
             href="mailto:hello@productpaige.com?subject=Engagement"
@@ -419,7 +419,7 @@ export default function SaasLayout() {
           className="bg-[#1a1a1a] text-white p-10 m-6 section-chamfer relative grain-vintage flex flex-col gap-10 items-start"
         >
           <h2 className="font-display leading-[0.95] tracking-tightest text-4xl md:text-6xl lg:text-7xl max-w-[18ch]">
-            Accelerating clear decisions.
+            Accelerating clear decisions
           </h2>
           <a
             href="mailto:hello@productpaige.com?subject=Request"

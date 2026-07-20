@@ -50,7 +50,7 @@ export default function PrivacyPage() {
           <span className="type-eyebrow">Privacy</span>
           <div className="flex flex-col gap-3">
             <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]">
-              Plain-language privacy.
+              Plain-language privacy
             </h1>
             <p className="text-lg leading-[1.4] opacity-80">
               Product Paige is a one-person practice. The site collects very

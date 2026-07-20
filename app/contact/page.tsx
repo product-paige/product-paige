@@ -172,7 +172,7 @@ export default function ContactPage() {
               <span className="type-eyebrow">Contact</span>
               <div className="flex flex-col gap-3">
                 <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
-                  Send the part you can&rsquo;t see clearly yet.
+                  Send the part you can&rsquo;t see clearly yet
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
                   A link, a screenshot, the half-finished idea — whatever&rsquo;s
