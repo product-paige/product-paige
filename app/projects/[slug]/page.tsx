@@ -2,7 +2,19 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BtnIcons } from "../../components/BtnIcons";
 import { ClosingCTA } from "../../components/ClosingCTA";
+import { PixelIcon, type PixelIconName } from "../../components/PixelIcon";
 import { projects, projectList } from "../data";
+
+const caseBlocks: Array<{
+  key: "problem" | "approach" | "outcome";
+  eyebrow: string;
+  title: string;
+  icon: PixelIconName;
+}> = [
+  { key: "problem", eyebrow: "Problem", title: "The problem", icon: "megaphone" },
+  { key: "approach", eyebrow: "Approach", title: "The approach", icon: "cursor" },
+  { key: "outcome", eyebrow: "Outcome", title: "The outcome", icon: "target" },
+];
 
 export function generateStaticParams() {
   return projectList.map((p) => ({ slug: p.slug }));
@@ -70,11 +82,29 @@ export default async function ProjectPage({
           <span>{project.year}</span>
         </div>
         <div className="flex flex-col gap-3">
-          <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[18ch]" style={{ color: heroFg }}>
+          <h1
+            className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] max-w-[32ch]"
+            style={{ color: heroFg }}
+          >
             {project.kicker}
           </h1>
           <p className="text-sm leading-[1.4] opacity-70">{project.role}</p>
         </div>
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex btn self-start"
+          >
+            <span className="btn-text bg-[#1A191E] text-white">
+              View live project
+            </span>
+            <span className="btn-tab bg-[#1A191E] text-white">
+              <BtnIcons />
+            </span>
+          </a>
+        ) : null}
       </section>
 
       {/* === COVER IMAGE === */}
@@ -85,24 +115,48 @@ export default async function ProjectPage({
         />
       </section>
 
-      {/* === CASE STUDY: Problem / Approach / Outcome === */}
+      {/* === CASE STUDY: Problem / Approach / Outcome (as cards) === */}
       <section data-section="project-case" className="p-6 md:p-10 section-border-b">
-        <div className="grid md:grid-cols-3 gap-10 md:gap-16">
-          {[
-            { eyebrow: "Problem", title: "The problem", body: project.problem },
-            { eyebrow: "Approach", title: "The approach", body: project.approach },
-            { eyebrow: "Outcome", title: "The outcome", body: project.outcome },
-          ].map((b) => (
-            <article key={b.title} className="flex flex-col gap-6">
-              <span className="type-eyebrow">{b.eyebrow}</span>
-              <div className="flex flex-col gap-3">
-                <h2 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">{b.title}</h2>
-                <p className="text-base leading-[1.4] opacity-80">{b.body}</p>
+        <div className="grid md:grid-cols-3 gap-4">
+          {caseBlocks.map((b) => (
+            <article
+              key={b.key}
+              className="card card-blue-light flex flex-col justify-between !min-h-0"
+            >
+              <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white">
+                <PixelIcon name={b.icon} color="#ffffff" size={24} />
+              </div>
+              <div className="flex flex-col gap-2 mt-8">
+                <h3 className="text-xl">{b.title}</h3>
+                <p className="text-base leading-[1.4] opacity-80">
+                  {project[b.key]}
+                </p>
               </div>
             </article>
           ))}
         </div>
       </section>
+
+      {/* === NOTES (long-form narrative) === */}
+      {project.notes && project.notes.length > 0 ? (
+        <section data-section="project-notes" className="p-6 md:p-10 section-border-b">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+            <div className="flex flex-col gap-6">
+              <span className="type-eyebrow">Notes</span>
+              <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+                Behind the build
+              </h2>
+            </div>
+            <div className="flex flex-col gap-6 max-w-[560px]">
+              {project.notes.map((p, i) => (
+                <p key={i} className="text-lg leading-[1.4] opacity-80">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* === IMAGE GALLERY === */}
       <section data-section="project-gallery" className="p-6 md:p-10 section-border-b">

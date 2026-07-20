@@ -249,7 +249,6 @@ export default function AskPaigePage() {
       </section>
 
       <ClosingCTA
-        eyebrow="Book a session"
         title="Ready when you are."
         body="Send whatever's on your mind. I'll come back with what stands out and where to shape it next."
         ctaLabel="Book Ask Paige"

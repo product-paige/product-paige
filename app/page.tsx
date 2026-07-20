@@ -97,10 +97,9 @@ const tools: Array<{
   { name: "Claude",  bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
   { name: "Cursor",  bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
   { name: "Lovable", bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
-  { name: "v0",      bg: "#1A191E", fg: "#ffffff", icon: "sparkleA" },
+  { name: "Paper",   bg: "#D6D7D9", fg: "#1A191E", icon: "door" },
   { name: "Shopify", bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
   { name: "Notion",  bg: "#D6D7D9", fg: "#1A191E", icon: "door" },
-  { name: "Linear",  bg: "#D6D7D9", fg: "#1A191E", icon: "target" },
 ];
 
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
@@ -568,7 +567,6 @@ export default function Home() {
 
       {/* === CLOSING CTA === */}
       <ClosingCTA
-        eyebrow="Get in touch"
         title="Let's talk shop"
         body="Open for projects. Always up for trading notes on ecommerce, product, or the craft."
         ctaLabel="Say hi"

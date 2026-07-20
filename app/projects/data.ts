@@ -9,6 +9,10 @@ export type Project = {
   problem: string;
   approach: string;
   outcome: string;
+  /** Live URL for the "View live project" hero button. Optional. */
+  liveUrl?: string;
+  /** Long-form narrative shown in the Notes section. Array of paragraphs. */
+  notes?: string[];
   /** Labels for image placeholder tiles in the gallery */
   mockups: string[];
   /** Short result lines for the highlights block */
