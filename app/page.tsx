@@ -7,6 +7,7 @@ import { ClosingCTA } from "./components/ClosingCTA";
 import { TearText } from "./components/TearText";
 import { PostMeta } from "./components/PostMeta";
 import { IconCard } from "./components/IconCard";
+import { BlogCard } from "./components/BlogCard";
 import { projectList } from "./projects/data";
 import { blogList } from "./blog/data";
 
@@ -557,41 +558,7 @@ export default function Home() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
           {blogList.slice(0, 3).map((post) => (
-              <a
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="card grid-bg flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="svc-label text-ink">
-                    <span
-                      className="svc-label-text"
-                      style={{
-                        backgroundColor: "#D6D7D9",
-                        borderColor: "#1A191E",
-                      }}
-                    >
-                      {post.category}
-                    </span>
-                  </span>
-                  <span className="text-base opacity-60">
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                      timeZone: "UTC",
-                    })}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h3 className="text-xl group-hover:opacity-70 transition-opacity">
-                    {post.title}
-                  </h3>
-                  <p className="text-base opacity-80 line-clamp-3">
-                    {post.kicker}
-                  </p>
-                </div>
-              </a>
+            <BlogCard key={post.slug} post={post} />
           ))}
         </div>
       </section>

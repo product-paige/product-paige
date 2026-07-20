@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { ClosingCTA } from "../../components/ClosingCTA";
 import { PostMeta } from "../../components/PostMeta";
+import { BlogCard } from "../../components/BlogCard";
 import { blogPosts, blogList } from "../data";
 
 export default async function BlogPostPage({
@@ -97,26 +98,9 @@ export default async function BlogPostPage({
             <span className="type-eyebrow">More reading</span>
             <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">Keep going</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-stretch">
             {related.map((r) => (
-              <a
-                key={r.slug}
-                href={`/blog/${r.slug}`}
-                className="flex flex-col gap-4 group"
-              >
-                <div
-                  className="placeholder w-full aspect-[4/3] transition-opacity group-hover:opacity-90"
-                  aria-label={`Cover — ${r.title}`}
-                />
-                <PostMeta items={[r.category, r.readingTime]} size="sm" />
-                <h3 className="text-xl font-display leading-[1.1] text-ink group-hover:opacity-70 transition-opacity">
-                  {r.title}
-                </h3>
-                <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">{r.kicker}</p>
-                <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
-                  Read post ↗
-                </span>
-              </a>
+              <BlogCard key={r.slug} post={r} />
             ))}
           </div>
         </section>

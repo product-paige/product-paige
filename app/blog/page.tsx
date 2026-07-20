@@ -1,5 +1,6 @@
 import { ClosingCTA } from "../components/ClosingCTA";
 import { PostMeta } from "../components/PostMeta";
+import { BlogCard } from "../components/BlogCard";
 import { blogList } from "./data";
 
 export default function BlogIndexPage() {
@@ -17,7 +18,7 @@ export default function BlogIndexPage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Blog</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[14ch]">
+            <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[22ch]">
               Notes on shipping clearly
             </h1>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -67,25 +68,10 @@ export default function BlogIndexPage() {
                 From the notebook
               </h2>
             </div>
-            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
               {rest.map((p) => (
                 <li key={p.slug}>
-                  <a
-                    href={`/blog/${p.slug}`}
-                    className="flex flex-col gap-4 group h-full"
-                  >
-                    <div
-                      className="placeholder w-full aspect-[4/3] transition-opacity group-hover:opacity-90"
-                      aria-label={`Cover — ${p.title}`}
-                    />
-                    <PostMeta items={[p.category, p.readingTime]} size="sm" />
-                    <h3 className="text-xl font-display leading-[1.1] text-ink group-hover:opacity-70 transition-opacity">
-                      {p.title}
-                    </h3>
-                    <p className="text-base leading-[1.4] opacity-80 max-w-[420px]">
-                      {p.kicker}
-                    </p>
-                  </a>
+                  <BlogCard post={p} />
                 </li>
               ))}
             </ul>
