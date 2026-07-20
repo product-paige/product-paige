@@ -262,18 +262,31 @@ export default function ServicesPage() {
           data-section={`service-${s.slug}`}
           className="p-6 md:p-10 section-border-b"
         >
-          <article className="card card-blue-light !min-h-0 grid md:grid-cols-12 gap-6 md:gap-16 items-start">
-            <div className="md:col-span-5 flex flex-col gap-6">
-              <span className="type-eyebrow">{s.eyebrow}</span>
-              <div className="flex flex-col gap-3">
-                <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[16ch]">{s.title}</h2>
-                <p
-                  className="text-lg leading-[1.4] opacity-80 max-w-[460px]"
-                  dangerouslySetInnerHTML={{ __html: s.lead }}
-                />
+          {/* Folder tab that sits above the card like a filing tab. Uses the
+              same folder-tab clip-path as the Recent Work tabs; per-service
+              accent color set via inline style. */}
+          <div className="flex">
+            <span
+              className="folder-tab"
+              style={{ backgroundColor: "#DBE6EB", color: "#1A191E" }}
+            >
+              {s.eyebrow}
+            </span>
+          </div>
+          <article className="card card-blue-light !min-h-0 w-full">
+            <div className="grid md:grid-cols-12 gap-6 md:gap-16 items-start w-full">
+              <div className="md:col-span-5 flex flex-col gap-6">
+                <div className="flex flex-col gap-3">
+                  <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[16ch]">
+                    {s.title}
+                  </h2>
+                  <p
+                    className="text-lg leading-[1.4] opacity-80 max-w-[460px]"
+                    dangerouslySetInnerHTML={{ __html: s.lead }}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="md:col-span-7 flex flex-col gap-10">
+              <div className="md:col-span-7 flex flex-col gap-10">
               <div className="flex flex-col gap-3">
                 <h3 className="text-xl font-display leading-[1.1] text-ink">What it is</h3>
                 <p
@@ -315,6 +328,7 @@ export default function ServicesPage() {
                 </div>
               </div>
             </div>
+            </div>
           </article>
         </section>
       ))}
@@ -334,10 +348,10 @@ export default function ServicesPage() {
               </p>
             </div>
           </div>
-          <ol className="grid md:grid-cols-3 gap-6 md:gap-10 pt-6 border-t border-[#1A191E]/20">
+          <ol className="grid md:grid-cols-3 gap-6 md:gap-10">
             {process.map((p) => (
               <li key={p.step} className="flex flex-col gap-3.5">
-                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60">.{p.step}</span>
+                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60">{p.step}</span>
                 <div className="flex flex-col gap-2">
                   <h3 className="text-xl font-display leading-[1.1] text-ink">{p.title}</h3>
                   <p

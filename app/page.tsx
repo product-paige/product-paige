@@ -268,7 +268,7 @@ export default function Home() {
                   __html: capabilities[activeCap].blurb,
                 }}
               />
-              <a href="#categories" className="inline-flex btn self-start">
+              <a href="/services" className="inline-flex btn self-start">
                 <span className="btn-text bg-[#0E6BFF] text-white">
                   Explore services
                 </span>
