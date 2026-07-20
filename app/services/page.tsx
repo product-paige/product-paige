@@ -277,7 +277,7 @@ export default function ServicesPage() {
             <div className="grid md:grid-cols-12 gap-6 md:gap-16 items-start w-full">
               <div className="md:col-span-5 flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
-                  <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[16ch]">
+                  <h2 className="text-3xl md:text-4xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[16ch]">
                     {s.title}
                   </h2>
                   <p
