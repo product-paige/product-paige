@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { BtnIcons } from "../components/BtnIcons";
 import { ClosingCTA } from "../components/ClosingCTA";
+import { PixelIcon, type PixelIconName } from "../components/PixelIcon";
 
 function Reveal({
   children,
@@ -52,44 +53,48 @@ function Reveal({
   );
 }
 
-const useCases = [
+const useCases: Array<{
+  name: string;
+  blurb: string;
+  icon: PixelIconName;
+}> = [
   {
-    t: "Product feedback",
-    d: "Something feels off, but it’s hard to name. Great place to start.",
-    tone: "card-cream",
+    name: "Product feedback",
+    blurb: "Something feels off but hard to name. Great place to start.",
+    icon: "cursor",
   },
   {
-    t: "UX review",
-    d: "Onboarding, navigation, friction, and the drop-off moments that quietly cost users.",
-    tone: "card-blue-light",
+    name: "UX review",
+    blurb: "Onboarding, navigation, the drop-off moments quietly costing users.",
+    icon: "target",
   },
   {
-    t: "Homepage critique",
-    d: "Messaging, structure, and whether a stranger gets it in three seconds.",
-    tone: "card-blue-bright",
+    name: "Homepage critique",
+    blurb: "Messaging, structure, whether a stranger gets it in three seconds.",
+    icon: "browser",
   },
   {
-    t: "AI-built products",
-    d: "Vibe-coded or AI-assisted. What’s real, what’s noise, and what needs product thinking.",
-    tone: "card-red",
+    name: "AI-built products",
+    blurb: "Vibe-coded or AI-assisted. What&rsquo;s real, what&rsquo;s noise, what needs product thinking.",
+    icon: "sparkleA",
   },
   {
-    t: "Product clarity",
-    d: "What it does, who it’s for, and where the story is getting muddy.",
-    tone: "card-cream",
+    name: "Product clarity",
+    blurb: "What it does, who it&rsquo;s for, where the story is getting muddy.",
+    icon: "megaphone",
   },
   {
-    t: "SaaS and product-led tools",
-    d: "Especially software people actually pay for and rely on.",
-    tone: "card-blue-light",
+    name: "SaaS + product-led tools",
+    blurb: "Especially software people actually pay for and rely on.",
+    icon: "door",
   },
-] as const;
+];
 
 const youGet = [
-  "Async review before the call (links, screens, whatever you have)",
-  "Live session to go deep on what’s actually getting in the way",
-  "A short prioritized list of what to fix now vs later",
-  "Optional follow-up notes or a Loom if helpful",
+  "An async look at everything you send ahead of the call.",
+  "A live session, focused on what matters most.",
+  "A short list. What to shape now, what can wait.",
+  "Optional follow-up notes or a Loom if it helps.",
 ];
 
 export default function AskPaigePage() {
@@ -108,19 +113,18 @@ export default function AskPaigePage() {
               <span className="type-eyebrow">Ask Paige</span>
               <div className="flex flex-col gap-3">
                 <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
-                  Want help getting unstuck?
+                  One focused hour on what you&rsquo;re building.
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-                  Send what you&rsquo;re working on — a product, onboarding flow,
-                  homepage, positioning, or the half-finished idea you can&rsquo;t
-                  see clearly yet. Honest, product-minded feedback fast, without
-                  the consulting theatre.
+                  Send what you&rsquo;re building. A product, an onboarding
+                  flow, a homepage, positioning, or the half-formed idea. You
+                  get honest, product-minded feedback in a single session.
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-6 flex-wrap">
               <a
-                href="mailto:hello@productpaige.com?subject=Ask%20Paige%20%E2%80%94%20session%20booking"
+                href="/contact?topic=ask-paige"
                 className="inline-flex btn"
               >
                 <span className="btn-text bg-[#0E6BFF] text-white">
@@ -142,10 +146,10 @@ export default function AskPaigePage() {
           >
             <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
-                One conversation.
+                One focused hour.
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
-                The version of your product you&rsquo;ve been avoiding.
+                Bring the product, the questions, the half-thoughts.
               </p>
             </div>
           </aside>
@@ -154,18 +158,27 @@ export default function AskPaigePage() {
 
       
       {/* === SECTION: use-cases === */}
-      <section id="use-cases" data-section="use-cases" className="p-6 md:p-10 mx-3 md:mx-6 flex flex-col gap-12 section-border-b">
-        <p className="font-display text-2xl md:text-3xl leading-[1.2] max-w-[640px]">
-          Most sessions land in one of these buckets:
+      <section id="use-cases" data-section="use-cases" className="p-6 md:p-10 flex flex-col gap-10 section-border-b">
+        <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
+          Most sessions land in one of these:
         </p>
         <Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
-            {useCases.map((u, i) => (
-              <article key={u.t} className={`card ${u.tone} flex flex-col gap-4 h-full`}>
-                <h3 className="font-display text-2xl leading-[1.15] border-b border-current/30 pb-3">
-                  {u.t}
-                </h3>
-                <p className="text-base leading-[1.55] opacity-90">{u.d}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+            {useCases.map((u) => (
+              <article
+                key={u.name}
+                className="card card-blue-light flex flex-col justify-between aspect-square !min-h-0"
+              >
+                <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white">
+                  <PixelIcon name={u.icon} color="#ffffff" size={24} />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-xl">{u.name}</h3>
+                  <p
+                    className="text-base leading-[1.4] opacity-80"
+                    dangerouslySetInnerHTML={{ __html: u.blurb }}
+                  />
+                </div>
               </article>
             ))}
           </div>
@@ -180,7 +193,7 @@ export default function AskPaigePage() {
             <div className="grid md:grid-cols-12 gap-6 md:gap-12">
               <div className="md:col-span-5">
                 <h2 className="font-display text-5xl leading-[1.1]">
-                  One focused session. Clear feedback. No fake frameworks.
+                  A single hour. Direct feedback. Nothing invented.
                 </h2>
               </div>
               <ul className="md:col-span-7 flex flex-col gap-4">
@@ -210,7 +223,7 @@ export default function AskPaigePage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Fit check</span>
           <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
-            Saving us both a week.
+            A quick fit check.
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
@@ -236,10 +249,11 @@ export default function AskPaigePage() {
       </section>
 
       <ClosingCTA
-        title="Bring the messy version."
-        body="The confusing onboarding, the feature-heavy product, the homepage that almost works, the AI workflow held together with prompts and hope. That's usually where the interesting work starts."
+        eyebrow="Book a session"
+        title="Ready when you are."
+        body="Send whatever's on your mind. I'll come back with what stands out and where to shape it next."
         ctaLabel="Book Ask Paige"
-        ctaHref="mailto:hello@productpaige.com?subject=Ask%20Paige%20%E2%80%94%20session%20booking"
+        ctaHref="/contact?topic=ask-paige"
       />
     </div>
   );

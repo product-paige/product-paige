@@ -460,9 +460,9 @@ export default function Home() {
           ))}
         </div>
         <div className="flex flex-col gap-4">
-          <h3 className="text-sm leading-[1.4] opacity-60 uppercase tracking-[0.05em]">
-            Tools I lean on
-          </h3>
+          <p className="text-lg leading-[1.4] opacity-80">
+            Some of the tools I lean on:
+          </p>
           <ul className="flex flex-wrap gap-3">
             {tools.map((t) => (
               <li key={t.name}>
