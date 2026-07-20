@@ -352,17 +352,7 @@ export default function Home() {
                     zIndex: isActive ? 20 : recentWork.length - i,
                   }}
                 >
-                  <span className="whitespace-nowrap flex items-center gap-2">
-                    {w.client}
-                    {w.comingSoon ? (
-                      <span
-                        className="text-xs uppercase tracking-[0.08em] border border-current/50 px-1.5 py-0.5"
-                        aria-label="Coming soon"
-                      >
-                        Soon
-                      </span>
-                    ) : null}
-                  </span>
+                  <span className="whitespace-nowrap">{w.client}</span>
                 </button>
               );
             })}
@@ -400,8 +390,16 @@ export default function Home() {
               {/* Prominent CTA — hidden for coming-soon projects,
                   replaced with a static badge. */}
               {project.comingSoon ? (
-                <span className="inline-flex items-center gap-2 self-start text-sm uppercase tracking-[0.08em] border border-current/50 px-3 py-1.5">
-                  Coming soon
+                <span className="svc-label self-start text-ink">
+                  <span
+                    className="svc-label-text"
+                    style={{
+                      backgroundColor: "#D6D7D9",
+                      borderColor: "#1A191E",
+                    }}
+                  >
+                    Coming soon
+                  </span>
                 </span>
               ) : (
                 <a
@@ -462,8 +460,8 @@ export default function Home() {
               Move fast, keep it simple
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              Small prototypes. Clear decisions. Nothing heavier than it needs
-              to be.
+              Fast prototypes and clear decisions, without making it harder
+              than it needs to be.
             </p>
           </div>
         </div>

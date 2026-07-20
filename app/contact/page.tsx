@@ -70,22 +70,6 @@ function ContactForm() {
       </h2>
 
       <label className="flex flex-col gap-1.5">
-        <span className="text-sm leading-[1.4] opacity-70">Topic</span>
-        <select
-          name="topic"
-          value={topic}
-          onChange={(e) => setTopic(e.target.value as TopicValue)}
-          className="bg-white/60 border border-[#1A191E]/20 px-3 py-2.5 text-base leading-[1.4] focus:outline-none focus:border-[#1A191E]/60 focus:bg-white transition-colors"
-        >
-          {TOPICS.map((t) => (
-            <option key={t.value} value={t.value}>
-              {t.label}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label className="flex flex-col gap-1.5">
         <span className="text-sm leading-[1.4] opacity-70">Your name</span>
         <input
           type="text"
@@ -108,6 +92,21 @@ function ContactForm() {
           autoComplete="email"
           className="bg-white/60 border border-[#1A191E]/20 px-3 py-2.5 text-base leading-[1.4] focus:outline-none focus:border-[#1A191E]/60 focus:bg-white transition-colors"
         />
+      </label>
+      <label className="flex flex-col gap-1.5">
+        <span className="text-sm leading-[1.4] opacity-70">Topic</span>
+        <select
+          name="topic"
+          value={topic}
+          onChange={(e) => setTopic(e.target.value as TopicValue)}
+          className="bg-white/60 border border-[#1A191E]/20 px-3 py-2.5 text-base leading-[1.4] focus:outline-none focus:border-[#1A191E]/60 focus:bg-white transition-colors"
+        >
+          {TOPICS.map((t) => (
+            <option key={t.value} value={t.value}>
+              {t.label}
+            </option>
+          ))}
+        </select>
       </label>
       <label className="flex flex-col gap-1.5">
         <span className="text-sm leading-[1.4] opacity-70">
@@ -182,7 +181,7 @@ export default function ContactPage() {
               </div>
             </div>
             <p className="text-sm leading-[1.4] opacity-60">
-              Most replies within 48 hours · Canada · Remote · Booking Q3 2026
+              Most replies within 48 hours
             </p>
           </div>
 
