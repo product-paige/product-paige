@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BtnIcons } from "../../components/BtnIcons";
 import { ClosingCTA } from "../../components/ClosingCTA";
-import { PixelIcon, type PixelIconName } from "../../components/PixelIcon";
+import { type PixelIconName } from "../../components/PixelIcon";
+import { IconCard } from "../../components/IconCard";
 import { projects, projectList } from "../data";
 
 const caseBlocks: Array<{
@@ -119,20 +120,12 @@ export default async function ProjectPage({
       <section data-section="project-case" className="p-6 md:p-10 section-border-b">
         <div className="grid md:grid-cols-3 gap-4">
           {caseBlocks.map((b) => (
-            <article
+            <IconCard
               key={b.key}
-              className="card card-blue-light flex flex-col justify-between !min-h-0"
-            >
-              <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white">
-                <PixelIcon name={b.icon} color="#ffffff" size={24} />
-              </div>
-              <div className="flex flex-col gap-2 mt-8">
-                <h3 className="text-xl">{b.title}</h3>
-                <p className="text-base leading-[1.4] opacity-80">
-                  {project[b.key]}
-                </p>
-              </div>
-            </article>
+              name={b.title}
+              blurb={project[b.key]}
+              icon={b.icon}
+            />
           ))}
         </div>
       </section>

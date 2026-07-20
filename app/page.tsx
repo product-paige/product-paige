@@ -6,6 +6,7 @@ import { PixelIcon, type PixelIconName } from "./components/PixelIcon";
 import { ClosingCTA } from "./components/ClosingCTA";
 import { TearText } from "./components/TearText";
 import { PostMeta } from "./components/PostMeta";
+import { IconCard } from "./components/IconCard";
 import { projectList } from "./projects/data";
 import { blogList } from "./blog/data";
 
@@ -467,21 +468,13 @@ export default function Home() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
           {productCategories.map((c) => (
-            <article
+            <IconCard
               key={c.name}
-              className={`card ${c.tone} flex flex-col justify-between aspect-square !min-h-0`}
-            >
-              <div
-                className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px]"
-                style={{ backgroundColor: c.iconBg, color: c.iconFg }}
-              >
-                <PixelIcon name={c.icon} color={c.iconFg} size={24} />
-              </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-xl">{c.name}</h3>
-                <p className="text-base leading-[1.4] opacity-80">{c.blurb}</p>
-              </div>
-            </article>
+              name={c.name}
+              blurb={c.blurb}
+              icon={c.icon}
+              tone={c.tone}
+            />
           ))}
         </div>
         <div className="flex flex-col gap-4">

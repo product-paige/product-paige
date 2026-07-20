@@ -1,6 +1,7 @@
 import { BtnIcons } from "../components/BtnIcons";
 import { PixelIcon, type PixelIconName } from "../components/PixelIcon";
 import { ClosingCTA } from "../components/ClosingCTA";
+import { IconCard } from "../components/IconCard";
 
 type Service = {
   slug: string;
@@ -202,24 +203,13 @@ export default function ServicesPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
             {services.map((s) => (
-              <a
+              <IconCard
                 key={s.slug}
+                name={s.title}
+                blurb={s.lead}
+                icon={s.icon}
                 href={`#${s.slug}`}
-                className="card card-blue-light flex flex-col justify-between aspect-[4/3] !min-h-0 max-h-[280px] group"
-              >
-                <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E]">
-                  <PixelIcon name={s.icon} color="#ffffff" size={24} />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h3 className="text-xl group-hover:opacity-70 transition-opacity">
-                    {s.title}
-                  </h3>
-                  <p
-                    className="text-sm leading-[1.4] opacity-80"
-                    dangerouslySetInnerHTML={{ __html: s.lead }}
-                  />
-                </div>
-              </a>
+              />
             ))}
           </div>
         </div>

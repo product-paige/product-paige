@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { BtnIcons } from "../components/BtnIcons";
 import { ClosingCTA } from "../components/ClosingCTA";
-import { PixelIcon, type PixelIconName } from "../components/PixelIcon";
+import { type PixelIconName } from "../components/PixelIcon";
+import { IconCard } from "../components/IconCard";
 
 function Reveal({
   children,
@@ -174,21 +175,12 @@ export default function AskPaigePage() {
         <Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
             {useCases.map((u) => (
-              <article
+              <IconCard
                 key={u.name}
-                className="card card-blue-light flex flex-col justify-between aspect-[4/3] !min-h-0 max-h-[280px]"
-              >
-                <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white">
-                  <PixelIcon name={u.icon} color="#ffffff" size={24} />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h3 className="text-xl">{u.name}</h3>
-                  <p
-                    className="text-base leading-[1.4] opacity-80"
-                    dangerouslySetInnerHTML={{ __html: u.blurb }}
-                  />
-                </div>
-              </article>
+                name={u.name}
+                blurb={u.blurb}
+                icon={u.icon}
+              />
             ))}
           </div>
         </Reveal>
