@@ -211,7 +211,7 @@ export default function ServicesPage() {
                   <PixelIcon name={s.icon} color="#ffffff" size={24} />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-xl font-display leading-[1.1] text-ink group-hover:opacity-70 transition-opacity">
+                  <h3 className="text-xl group-hover:opacity-70 transition-opacity">
                     {s.title}
                   </h3>
                   <p
@@ -288,14 +288,14 @@ export default function ServicesPage() {
               </div>
               <div className="md:col-span-7 flex flex-col gap-10">
               <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-display leading-[1.1] text-ink">What it is</h3>
+                <h3 className="text-xl">What it is</h3>
                 <p
                   className="text-base leading-[1.4] opacity-80 max-w-[560px]"
                   dangerouslySetInnerHTML={{ __html: s.whatItIs }}
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-display leading-[1.1] text-ink">What&rsquo;s included</h3>
+                <h3 className="text-xl">What&rsquo;s included</h3>
                 <ul className="flex flex-col gap-3 max-w-[560px]">
                   {s.includes.map((item) => (
                     <li
@@ -313,14 +313,14 @@ export default function ServicesPage() {
               </div>
               <div className="grid sm:grid-cols-2 gap-10">
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-xl font-display leading-[1.1] text-ink">Deliverable</h3>
+                  <h3 className="text-xl">Deliverable</h3>
                   <p
                     className="text-base leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.deliverable }}
                   />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-xl font-display leading-[1.1] text-ink">Good for</h3>
+                  <h3 className="text-xl">Good for</h3>
                   <p
                     className="text-base leading-[1.4] opacity-80"
                     dangerouslySetInnerHTML={{ __html: s.goodFor }}
