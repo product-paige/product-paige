@@ -205,7 +205,7 @@ export default function ServicesPage() {
               <a
                 key={s.slug}
                 href={`#${s.slug}`}
-                className="card card-blue-light flex flex-col justify-between aspect-square !min-h-0 group"
+                className="card card-blue-light flex flex-col justify-between aspect-[4/3] !min-h-0 max-h-[280px] group"
               >
                 <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E]">
                   <PixelIcon name={s.icon} color="#ffffff" size={24} />
