@@ -73,7 +73,7 @@ export default async function BlogPostPage({
           <aside className="md:col-span-3 flex flex-col gap-3">
             <span className="type-eyebrow">Author</span>
             <div className="flex flex-col gap-1">
-              <p className="text-xl font-display leading-[1.1] text-ink">Paige Harris</p>
+              <p className="text-xl font-display leading-[1.1] text-ink">Paige Eaton</p>
               <p className="text-sm leading-[1.4] opacity-60">Product Paige</p>
             </div>
           </aside>

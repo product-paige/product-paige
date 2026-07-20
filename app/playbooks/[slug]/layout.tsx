@@ -23,7 +23,7 @@ export async function generateMetadata({
       description: playbook.kicker,
       url: `/playbooks/${slug}`,
       publishedTime: playbook.date,
-      authors: ["Paige Harris"],
+      authors: ["Paige Eaton"],
     },
     twitter: {
       card: "summary_large_image",

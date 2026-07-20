@@ -2,7 +2,7 @@ const sections = [
   {
     eyebrow: "Scope",
     title: "What this covers",
-    body: "This policy applies to productpaige.com and any direct correspondence with Product Paige (Paige Harris, sole practitioner). It does not cover third-party sites linked from here.",
+    body: "This policy applies to productpaige.com and any direct correspondence with Product Paige (Paige Eaton, sole practitioner). It does not cover third-party sites linked from here.",
   },
   {
     eyebrow: "Collection",

@@ -123,7 +123,7 @@ export default function PlaybookPage({
             {playbook.kicker}
           </p>
           <p className="text-sm opacity-70">
-            Paige Harris · {playbook.readingTime} read
+            Paige Eaton · {playbook.readingTime} read
           </p>
         </section>
       </div>

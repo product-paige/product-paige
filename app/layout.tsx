@@ -54,8 +54,8 @@ export const metadata: Metadata = {
     "positioning",
     "product narrative",
   ],
-  authors: [{ name: "Paige Harris", url: "https://productpaige.com" }],
-  creator: "Paige Harris",
+  authors: [{ name: "Paige Eaton", url: "https://productpaige.com" }],
+  creator: "Paige Eaton",
   publisher: "Product Paige",
   alternates: {
     canonical: "/",
@@ -128,7 +128,7 @@ export default function RootLayout({
                 {
                   "@type": "Person",
                   "@id": "https://productpaige.com/#paige",
-                  name: "Paige Harris",
+                  name: "Paige Eaton",
                   url: "https://productpaige.com",
                   jobTitle: "Product Marketer & UX Designer",
                   description:

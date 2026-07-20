@@ -1,7 +1,9 @@
 import { BtnIcons } from "./BtnIcons";
 
 type ClosingCTAProps = {
-  /** Main headline — renders at text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink scale, white on ink. */
+  /** Small eyebrow label above the headline. Defaults to "Get in touch". */
+  eyebrow?: string;
+  /** Main headline — display font, white on ink. */
   title: string;
   /** Optional supporting paragraph under the headline. */
   body?: string;
@@ -17,6 +19,7 @@ type ClosingCTAProps = {
  * grain treatment, and accent button styling. Pass just the copy.
  */
 export function ClosingCTA({
+  eyebrow = "Get in touch",
   title,
   body,
   ctaLabel = "Let's talk",
@@ -31,15 +34,18 @@ export function ClosingCTA({
         data-section="closing-cta"
         className="bg-[#1A191E] text-white py-16 px-10 section-chamfer relative grain-vintage flex flex-col md:flex-row md:items-center md:justify-between gap-10"
       >
-        <div className="flex flex-col gap-3 max-w-[1000px] flex-1 min-w-0">
-          <h2 className="text-5xl font-display leading-[1.05] text-white">
-            {title}
-          </h2>
-          {body ? (
-            <p className="text-lg leading-[1.4] text-white opacity-80 max-w-[720px]">
-              {body}
-            </p>
-          ) : null}
+        <div className="flex flex-col gap-6 max-w-[1000px] flex-1 min-w-0">
+          <span className="type-eyebrow">{eyebrow}</span>
+          <div className="flex flex-col gap-3">
+            <h2 className="text-5xl font-display leading-[1.05] text-white">
+              {title}
+            </h2>
+            {body ? (
+              <p className="text-lg leading-[1.4] text-white opacity-80 max-w-[720px]">
+                {body}
+              </p>
+            ) : null}
+          </div>
         </div>
         <a href={ctaHref} className="inline-flex btn shrink-0">
           <span className="btn-text bg-[#0E6BFF] text-white">{ctaLabel}</span>

@@ -32,7 +32,7 @@ const productCategories: Array<{
 }> = [
   {
     name: "Start rough, learn early",
-    blurb: "I'd rather get something real in front of people than polish in a vacuum.",
+    blurb: "Something real in front of people beats polished guesses.",
     tone: "card-blue-light",
     icon: "cursor",
     iconBg: "#1A191E",
@@ -40,7 +40,7 @@ const productCategories: Array<{
   },
   {
     name: "Clear before pretty",
-    blurb: "Structure and words first. The visual shine comes once it makes sense.",
+    blurb: "Structure and words first. The visual comes once it makes sense.",
     tone: "card-blue-light",
     icon: "target",
     iconBg: "#1A191E",
@@ -48,7 +48,7 @@ const productCategories: Array<{
   },
   {
     name: "Use good tools",
-    blurb: "The right tools cut the busywork so I can spend time on the hard part.",
+    blurb: "Good tools quiet the busywork. That leaves room for the hard part.",
     tone: "card-blue-light",
     icon: "sparkleA",
     iconBg: "#1A191E",
@@ -56,7 +56,7 @@ const productCategories: Array<{
   },
   {
     name: "Say less, mean more",
-    blurb: "Fewer words, sharper story. The point should land in one read.",
+    blurb: "Fewer words. Sharper story. Lands in one read.",
     tone: "card-blue-light",
     icon: "megaphone",
     iconBg: "#1A191E",
@@ -68,22 +68,22 @@ const capabilities = [
   {
     title: "Positioning + messaging",
     blurb:
-      "Clarify what you sell, who it&rsquo;s for, and why it matters, so customers understand the value faster.",
+      "The sentence that names what you sell, who it&rsquo;s for, and why it matters.",
   },
   {
-    title: "Ecommerce UX + conversion",
+    title: "UX + conversion",
     blurb:
-      "Clean up the path from first impression to action: product pages, landing pages, flows, and decision points.",
+      "The path from first look to action. Product pages, landing pages, decision points.",
   },
   {
     title: "AI content design",
     blurb:
-      "Use AI to create better product content, page systems, prompts, and workflows without losing taste or clarity.",
+      "AI-assisted content and workflows that keep taste and clarity intact.",
   },
   {
     title: "Product strategy",
     blurb:
-      "Decide what to fix, test, or build next based on customer friction, business goals, and what actually moves the needle.",
+      "What to build, test, or refine next, grounded in what customers actually do.",
   },
 ];
 
@@ -147,15 +147,15 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
           <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
             <div className="flex flex-col gap-6">
-              <span className="type-eyebrow">Open to new projects</span>
+              <span className="type-eyebrow">Available for projects</span>
               <div className="flex flex-col gap-3">
                 <h1 className="text-5xl md:text-6xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
-                  <TearText>{"Product marketing\n& UX design for\necommerce teams"}</TearText>
+                  <TearText>{"Product marketing\nand UX design\nfor ecommerce"}</TearText>
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
-                  I help DTC brands, app makers, and ecommerce SaaS teams
-                  sharpen positioning, clean up the customer experience, and
-                  make products people actually understand.
+                  I&rsquo;m Paige. For 13 years I&rsquo;ve worked with
+                  ecommerce teams. Shopify apps. DTC brands. Early-stage SaaS.
+                  I help them make products people can use and explain.
                 </p>
               </div>
             </div>
@@ -177,10 +177,10 @@ export default function Home() {
           >
             <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
-                Hi, I&rsquo;m Paige.
+                Paige Eaton.
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
-                13 years building in the Shopify and ecommerce ecosystem.
+                Product marketer and UX designer. Canada, remote.
               </p>
             </div>
           </aside>
@@ -234,9 +234,9 @@ export default function Home() {
           </div>
           <div className="flex flex-col justify-between gap-10 order-1 md:order-2 relative md:divider-indent-left">
             <div className="flex flex-col gap-6">
-              <span className="type-eyebrow">Capabilities</span>
+              <span className="type-eyebrow">Practice</span>
               <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[500px]">
-                What we&rsquo;ll improve
+                The work I do
               </h2>
             </div>
             <div className="flex flex-col gap-8">
@@ -289,14 +289,14 @@ export default function Home() {
         className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Recent work</span>
+          <span className="type-eyebrow">Portfolio</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
-              Recent work
+              Selected work
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              A mix of product audits, UX improvements, and personal projects
-              across the Shopify and ecommerce ecosystem.
+              A mix of product audits, UX work, and personal projects. All in
+              the Shopify and ecommerce world.
             </p>
           </div>
         </div>
@@ -429,14 +429,14 @@ export default function Home() {
         className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Categories</span>
+          <span className="type-eyebrow">How I work</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
-              Move fast &amp; keep it simple
+              Move fast, keep it simple
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              Fast prototypes and clear decisions, without making it harder
-              than it needs to be.
+              Small prototypes. Clear decisions. Nothing heavier than it needs
+              to be.
             </p>
           </div>
         </div>
@@ -498,20 +498,17 @@ export default function Home() {
         {/* Right column — eyebrow + h2 at top, bio at bottom, filling the column height */}
         <div className="p-6 md:p-10 flex flex-col gap-10 justify-between order-1 md:order-2 md:divider-indent-left">
           <div className="flex flex-col gap-10">
-            <span className="type-eyebrow">About</span>
+            <span className="type-eyebrow">About me</span>
             <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[10ch]">
-              A short paragraph about Paige
+              I&rsquo;m Paige.
             </h2>
           </div>
           <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-            For 13 years I&rsquo;ve helped online businesses — Shopify apps,
-            ecommerce SaaS, DTC brands, early teams — figure out how to
-            explain what they&rsquo;ve built. Usually the product is good.
+            For 13 years I&rsquo;ve worked with ecommerce teams. Shopify
+            apps. DTC brands. Early-stage SaaS. Usually the product is good.
             The hard part is getting people to understand it fast, trust it,
-            and know what to do next. That&rsquo;s what I do: the point where
-            product, marketing, design, and UX meet. I combine simple, clear
-            positioning with clean, modern design that has personality, looks
-            amazing, tells a story, and guides users where they need to go.
+            and know what to do next. That&rsquo;s the work I do. Positioning,
+            UX, and the space where they meet.
           </p>
         </div>
       </section>
@@ -528,7 +525,7 @@ export default function Home() {
           <span className="type-eyebrow">Notes</span>
           <div className="flex flex-wrap items-start justify-between gap-6">
             <h2 className="text-4xl md:text-5xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
-              Short reads on clarity, positioning &amp; UX
+              Short reads on clarity, positioning, and UX
             </h2>
             <a href="/blog" className="inline-flex btn shrink-0">
               <span className="btn-text bg-[#1A191E] text-white">
@@ -571,8 +568,10 @@ export default function Home() {
 
       {/* === CLOSING CTA === */}
       <ClosingCTA
-        title="Stop over-explaining the product"
-        body="Send a link and the part you can't see clearly yet. I'll help you find the seams, the friction, and what's worth fixing first."
+        eyebrow="Get in touch"
+        title="Let's talk shop"
+        body="Open for projects. Always up for trading notes on ecommerce, product, or the craft."
+        ctaLabel="Say hi"
       />
     </div>
   );

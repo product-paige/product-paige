@@ -23,7 +23,7 @@ export async function generateMetadata({
       description: post.kicker,
       url: `/blog/${slug}`,
       publishedTime: post.date,
-      authors: ["Paige Harris"],
+      authors: ["Paige Eaton"],
     },
     twitter: {
       card: "summary_large_image",

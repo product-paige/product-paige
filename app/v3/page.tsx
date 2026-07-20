@@ -537,7 +537,7 @@ export default function HomeV3() {
         <div className="grid md:grid-cols-12 gap-6 md:gap-12">
           <div className="md:col-span-2 md:col-start-1">
             <p className="font-display text-xl leading-[1.2]">
-              Paige Harris
+              Paige Eaton
             </p>
             <p className="text-sm opacity-60 mt-2">Canada</p>
             <div className="mt-12 hidden md:block">

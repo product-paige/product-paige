@@ -2,7 +2,7 @@ const sections = [
   {
     eyebrow: "Scope",
     title: "What's covered",
-    body: "These terms apply to consulting work performed by Product Paige (Paige Harris, sole practitioner) — including Ask Paige sessions, retainers, and project engagements — and to use of productpaige.com.",
+    body: "These terms apply to consulting work performed by Product Paige (Paige Eaton, sole practitioner) — including Ask Paige sessions, retainers, and project engagements — and to use of productpaige.com.",
   },
   {
     eyebrow: "Engagement",
