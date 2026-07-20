@@ -152,7 +152,7 @@ export default function Home() {
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Open to new projects</span>
               <div className="flex flex-col gap-3">
-                <h1 className="text-4xl md:text-5xl font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
+                <h1 className="text-4xl md:text-[52px] font-display leading-none tracking-[-1px] text-ink max-w-[20ch]">
                   <TearText>{"Product marketing\n& UX design for\necommerce teams"}</TearText>
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
@@ -238,7 +238,7 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-10 order-1 md:order-2 relative md:divider-indent-left">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Capabilities</span>
-              <h2 className="text-3xl md:text-4xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[500px]">
+              <h2 className="text-3xl md:text-[40px] font-display leading-[1.05] tracking-[-1px] text-ink max-w-[500px]">
                 What we&rsquo;ll improve
               </h2>
             </div>
@@ -294,7 +294,7 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Portfolio</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-3xl md:text-4xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
+            <h2 className="text-3xl md:text-[40px] font-display leading-[1.05] tracking-[-1px] text-ink max-w-[24ch]">
               Selected work
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -381,7 +381,7 @@ export default function Home() {
 
               {/* Title group */}
               <div className="flex flex-col gap-3">
-                <h3 className="text-3xl md:text-4xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[14ch]">
+                <h3 className="text-3xl md:text-[40px] font-display leading-[1.05] tracking-[-1px] text-ink max-w-[14ch]">
                   {project.client}
                 </h3>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[440px]">
@@ -458,7 +458,7 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">How I work</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-3xl md:text-4xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+            <h2 className="text-3xl md:text-[40px] font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
               Move fast, keep it simple
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
@@ -518,7 +518,7 @@ export default function Home() {
         <div className="p-6 md:p-10 flex flex-col gap-10 justify-between order-1 md:order-2 md:divider-indent-left">
           <div className="flex flex-col gap-10">
             <span className="type-eyebrow">About me</span>
-            <h2 className="text-3xl md:text-4xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[10ch]">
+            <h2 className="text-3xl md:text-[40px] font-display leading-[1.05] tracking-[-1px] text-ink max-w-[10ch]">
               I&rsquo;m Paige
             </h2>
           </div>
@@ -543,7 +543,7 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Notes</span>
           <div className="flex flex-wrap items-start justify-between gap-6">
-            <h2 className="text-3xl md:text-4xl font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
+            <h2 className="text-3xl md:text-[40px] font-display leading-[1.05] tracking-[-1px] text-ink max-w-[20ch]">
               Short reads on clarity, positioning, and UX
             </h2>
             <a href="/blog" className="inline-flex btn shrink-0">
