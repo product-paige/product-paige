@@ -21,20 +21,19 @@
 
   --font-sans: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   --font-display: var(--font-tiempos), "Tiempos Text", "Times New Roman", serif;
-  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace,
-    SFMono-Regular, Menlo, monospace;
+  --font-mono: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
 
   /* Fluid display sizes — generate `.text-display` and `.text-section`
      utilities. Change the two clamps here to resize the hero + section
      headings across the whole site. Line-heights + tracking match the
      current display h1/h2 usage so callers can drop the extra classes. */
-  --text-display: clamp(36px, 5vw, 52px);
-  --text-display--line-height: 1;
-  --text-display--letter-spacing: -1px;
+  --text-display: clamp(48px, 7.5vw, 88px);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -2px;
 
-  --text-section: clamp(30px, 4vw, 40px);
-  --text-section--line-height: 1.05;
-  --text-section--letter-spacing: -1px;
+  --text-section: clamp(40px, 5.5vw, 64px);
+  --text-section--line-height: 1;
+  --text-section--letter-spacing: -1.5px;
 }
 .type-eyebrow {
   /* Same typography as .btn — Funnel Sans medium 16px (text-base), -0.01em
@@ -616,7 +615,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 9px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -645,7 +644,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .paint-mockup-step-num {
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 9px;
   opacity: 0.4;
   width: 16px;
@@ -653,7 +652,7 @@ body:has(.theme-v3) .btn:active .btn-tab {
 }
 .paint-mockup-step-label { flex: 1; }
 .paint-mockup-step-state {
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 9px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1043,7 +1042,7 @@ body > * {
   display: inline-block;
   background: #1a1a1a;
   color: #fbfaf6;
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -1080,7 +1079,7 @@ body > * {
   isolation: isolate;
 }
 .rating-slab .rating-number {
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-weight: 500;
   font-size: 20px;
   letter-spacing: -0.02em;
@@ -1095,7 +1094,7 @@ body > * {
 /* Lecture-poster headline — Mono Medium uppercase tightly stacked.
    Used for the playbook hero on a colored chamfered card. */
 .poster-headline {
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: -0.005em;
@@ -1308,8 +1307,7 @@ body > * {
   align-items: center;
   padding: 7px 11px;
   border-radius: 4px;
-  font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace,
-    monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -1469,8 +1467,7 @@ h1, h2, h3, h4, h5 {
 }
 /* Mono number prefix that sits before each nav label (01, 02, …) */
 .nav-link-num {
-  font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace,
-    monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -1478,8 +1475,7 @@ h1, h2, h3, h4, h5 {
 }
 /* Mono number prefix on section eyebrows (e.g. "01 · Selected work") */
 .eyebrow-num {
-  font-family: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace,
-    monospace;
+  font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 0.9em;
   letter-spacing: 0.08em;
   margin-right: 0.5em;

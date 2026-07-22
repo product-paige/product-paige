@@ -13,10 +13,7 @@ export function SiteHeader() {
         className="px-6 flex items-center"
         aria-label="Product Paige — home"
       >
-        <span
-          className="text-[15px] text-ink whitespace-nowrap leading-none uppercase"
-          style={{ fontFamily: "var(--font-press-start)" }}
-        >
+        <span className="text-2xl font-display text-ink whitespace-nowrap leading-none">
           Product Paige
         </span>
       </a>

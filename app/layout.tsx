@@ -31,18 +31,6 @@ const tiempos = localFont({
   display: "swap",
 });
 
-const jetbrainsMono = localFont({
-  variable: "--font-jetbrains-mono",
-  src: [
-    {
-      path: "./fonts/JetBrainsMono-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-  ],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://productpaige.com"),
   title: {
@@ -121,7 +109,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${funnelSans.variable} ${tiempos.variable} ${jetbrainsMono.variable} ${pressStart2P.variable}`}
+      className={`${funnelSans.variable} ${tiempos.variable} ${pressStart2P.variable}`}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
