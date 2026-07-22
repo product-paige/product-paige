@@ -167,16 +167,16 @@ const heroFloatingCards: Array<{
     widthClass: "w-48",
   },
   {
-    // Up more and to the right (less clipping).
+    // Up + right; larger for a stronger left-side counterweight.
     card: { title: "Organic Moderne" },
-    position: { top: "18%", left: "-4%" },
+    position: { top: "16%", left: "-4%" },
     rotate: "-6deg",
-    widthClass: "w-44",
+    widthClass: "w-52",
   },
   {
-    // Down above the yellow "Hi I'm Paige" card.
+    // Sits just above the yellow "Hi I'm Paige" card.
     card: { title: "Onboarding is a promise" },
-    position: { bottom: "32%", right: "2%" },
+    position: { bottom: "18%", right: "2%" },
     rotate: "5deg",
     widthClass: "w-44",
   },
