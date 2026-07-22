@@ -959,6 +959,12 @@ body > * {
   position: relative;
   z-index: 1;
 }
+/* When a .card also opts into .grain-paper (blog cards), skip the built-in
+   overlay-blend grain and let grain-paper's multiply-blend grain be the
+   single texture — so the surface matches the CTA + folder cards exactly. */
+.card.grain-paper::before {
+  display: none;
+}
 .card:hover { opacity: 0.92; }
 .card-red { background: #0E6BFF; color: #ffffff; }
 .card-blue-bright { background: #cdb8e3; color: #ffffff; }
