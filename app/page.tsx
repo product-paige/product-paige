@@ -115,6 +115,7 @@ const recentWork: Array<{
   fg: string;
   href: string;
   comingSoon: boolean;
+  coverImage?: string;
 }> = projectList.map((p, i) => ({
   no: `Project ${String(i + 1).padStart(2, "0")}`,
   client: p.client,
@@ -125,6 +126,8 @@ const recentWork: Array<{
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
+  coverImage:
+    p.slug === "backspace-body" ? "/backspace-body-cover.jpg" : undefined,
 }));
 
 export default function Home() {
@@ -421,7 +424,15 @@ export default function Home() {
                 className="relative block order-1 md:order-2"
                 aria-hidden="true"
               >
-                <div className="placeholder w-full aspect-[3/2]" />
+                {project.coverImage ? (
+                  <img
+                    src={project.coverImage}
+                    alt=""
+                    className="w-full aspect-[3/2] object-cover"
+                  />
+                ) : (
+                  <div className="placeholder w-full aspect-[3/2]" />
+                )}
               </div>
             ) : (
               <a
@@ -430,10 +441,18 @@ export default function Home() {
                 className="relative block group order-1 md:order-2"
                 tabIndex={-1}
               >
-                <div
-                  className="placeholder w-full aspect-[3/2] transition-opacity group-hover:opacity-90"
-                  aria-hidden="true"
-                />
+                {project.coverImage ? (
+                  <img
+                    src={project.coverImage}
+                    alt=""
+                    className="w-full aspect-[3/2] object-cover transition-opacity group-hover:opacity-90"
+                  />
+                ) : (
+                  <div
+                    className="placeholder w-full aspect-[3/2] transition-opacity group-hover:opacity-90"
+                    aria-hidden="true"
+                  />
+                )}
                 <span className="sr-only">Open {project.client}</span>
               </a>
             )}
