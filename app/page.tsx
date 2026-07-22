@@ -220,7 +220,7 @@ export default function Home() {
       <section
         id="services"
         data-section="capabilities"
-        className="p-6 md:p-10 flex flex-col gap-6 section-border-b"
+        className="p-6 md:px-10 md:py-16 flex flex-col gap-6 section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-stretch">
           <div className="relative h-full order-2 md:order-1">
@@ -283,7 +283,7 @@ export default function Home() {
       <section
         id="work"
         data-section="recent-work"
-        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
+        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Recent work</span>
@@ -447,7 +447,7 @@ export default function Home() {
       <section
         id="categories"
         data-section="categories"
-        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
+        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">How I work</span>
@@ -556,7 +556,7 @@ export default function Home() {
       <section
         id="blog"
         data-section="blog"
-        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
+        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Notes</span>
