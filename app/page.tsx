@@ -145,36 +145,36 @@ const heroFloatingCards: Array<{
   widthClass: string;
 }> = [
   {
-    // Fully-visible centerpiece, no negative offsets.
+    // Fully-visible centerpiece, pushed up toward the top.
     card: {
       title: "Rinse Body Wash",
       variant: "shopify",
       price: "$24",
     },
-    position: { top: "22%", left: "28%" },
+    position: { top: "4%", left: "26%" },
     rotate: "3deg",
     widthClass: "w-52",
   },
   {
-    // Bottom-right corner, partly clipped and slipping behind the Paige card.
+    // Bottom-left, mostly visible.
     card: {
       title: "Backspace Body",
       image: "/backspace-body-cover.jpg",
       variant: "polaroid",
     },
-    position: { bottom: "-8%", right: "-6%" },
-    rotate: "6deg",
+    position: { bottom: "4%", left: "4%" },
+    rotate: "-4deg",
     widthClass: "w-48",
   },
   {
     card: { title: "Organic Moderne" },
-    position: { top: "8%", left: "-8%" },
+    position: { top: "36%", left: "-8%" },
     rotate: "-6deg",
     widthClass: "w-44",
   },
   {
     card: { title: "Onboarding is a promise" },
-    position: { top: "10%", right: "-6%" },
+    position: { top: "6%", right: "-8%" },
     rotate: "5deg",
     widthClass: "w-44",
   },
