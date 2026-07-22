@@ -122,7 +122,7 @@ const recentWork: Array<{
   blurb: p.kicker,
   date: `${p.year}`,
   tags: p.role.split(/[+&]/).map((t) => t.trim()),
-  bg: "#FBFAF6",
+  bg: "#FAF7D0",
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
