@@ -468,6 +468,12 @@ export default function Home() {
                         aria-hidden="true"
                       />
                     )}
+                    {/* Handwritten-style caption in the thick bottom margin */}
+                    <div className="absolute bottom-3 md:bottom-5 left-0 right-0 text-center px-4">
+                      <p className="font-display text-xl md:text-2xl text-ink italic leading-none">
+                        {project.client}
+                      </p>
+                    </div>
                   </div>
                 </>
               );
