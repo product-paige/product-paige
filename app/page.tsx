@@ -501,22 +501,22 @@ export default function Home() {
         data-section="about"
         className="grid md:grid-cols-2 items-stretch section-border-b min-h-[440px] md:min-h-[560px]"
       >
-        {/* Left column — bg image fills column, poster frame layered on top. */}
+        {/* Left column — bg image fills column, Polaroid frame layered on top. */}
         <aside
           className="relative min-h-[500px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16"
           style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           aria-label="About — portrait"
         >
-          {/* Poster frame — gray headshot placeholder with yellow border overlay */}
-          <div className="relative w-full h-full min-h-[360px] bg-[#8a8a8a] overflow-hidden">
-            {/* Yellow poster border */}
-            <div className="pointer-events-none absolute inset-0 border-[6px] border-[#F3EB88] rounded-[20px]" />
+          {/* Polaroid frame — white with thin top/sides, thick bottom caption strip */}
+          <div className="relative w-full h-full min-h-[380px] bg-white pt-3 px-3 pb-16 md:pt-4 md:px-4 md:pb-20 shadow-[0_10px_30px_rgba(0,0,0,0.15)]">
+            {/* Photo area — dark placeholder for headshot */}
+            <div className="w-full h-full bg-[#8a8a8a] overflow-hidden min-h-[300px]" />
 
-            {/* Bottom-left date chip */}
-            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-[#F3EB88] rounded-lg px-4 py-2 md:px-5 md:py-2.5">
-              <span className="font-sans font-bold text-xs md:text-base tracking-[0.15em] text-ink leading-none">
-                AVAILABLE &middot; Q3 &rarr; Q4
-              </span>
+            {/* Caption — handwritten-style bottom margin */}
+            <div className="absolute bottom-4 md:bottom-6 left-0 right-0 text-center px-4">
+              <p className="font-display text-base md:text-lg text-ink italic">
+                Paige &middot; &rsquo;26
+              </p>
             </div>
           </div>
         </aside>
