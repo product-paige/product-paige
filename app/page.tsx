@@ -507,12 +507,44 @@ export default function Home() {
         data-section="about"
         className="grid md:grid-cols-2 items-stretch section-border-b min-h-[440px] md:min-h-[560px]"
       >
-        {/* Left column — portrait image fills the full space (bg-cover). */}
+        {/* Left column — poster-style frame around portrait bg image. */}
         <aside
-          className="relative min-h-[400px] bg-cover bg-center order-2 md:order-1"
-          style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
+          className="relative min-h-[400px] p-6 md:p-16 order-2 md:order-1"
           aria-label="About — portrait"
-        />
+        >
+          <div
+            className="relative w-full h-full min-h-[360px] bg-cover bg-center overflow-hidden"
+            style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
+          >
+            {/* Yellow poster border */}
+            <div className="pointer-events-none absolute inset-0 border-[6px] border-[#F3EB88] rounded-[20px]" />
+
+            {/* Top-left title chip — sits on the border seam */}
+            <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-[#F3EB88] rounded-lg px-4 py-2 md:px-5 md:py-2.5">
+              <span className="font-sans font-bold text-lg md:text-2xl tracking-tight text-ink leading-none">
+                PAIGE &rsquo;26
+              </span>
+            </div>
+
+            {/* Placeholder middle text */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
+              <p className="text-4xl md:text-5xl font-display text-[#F3EB88] text-center leading-none tracking-[-1px]">
+                Notes
+                <br />
+                from
+                <br />
+                the field
+              </p>
+            </div>
+
+            {/* Bottom-left date chip */}
+            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-[#F3EB88] rounded-lg px-4 py-2 md:px-5 md:py-2.5">
+              <span className="font-sans font-bold text-xs md:text-base tracking-[0.15em] text-ink leading-none">
+                AVAILABLE &middot; Q3 &rarr; Q4
+              </span>
+            </div>
+          </div>
+        </aside>
 
         {/* Right column — eyebrow + h2 at top, bio at bottom, filling the column height */}
         <div className="p-6 md:p-10 flex flex-col gap-10 justify-between order-1 md:order-2 md:divider-indent-left">
