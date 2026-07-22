@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Funnel_Sans } from "next/font/google";
+import { Funnel_Sans, Press_Start_2P } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SiteHeader } from "./components/SiteHeader";
@@ -11,6 +11,12 @@ const funnelSans = Funnel_Sans({
   variable: "--font-funnel-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const pressStart2P = Press_Start_2P({
+  variable: "--font-press-start",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const tiempos = localFont({
@@ -115,7 +121,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${funnelSans.variable} ${tiempos.variable} ${jetbrainsMono.variable}`}
+      className={`${funnelSans.variable} ${tiempos.variable} ${jetbrainsMono.variable} ${pressStart2P.variable}`}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>

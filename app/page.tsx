@@ -96,6 +96,7 @@ const tools: Array<{
   icon: PixelIconName;
 }> = [
   { name: "Figma",   bg: "#D7DBD9", fg: "#1A191E", icon: "cursor" },
+  { name: "Framer",  bg: "#D7DBD9", fg: "#1A191E", icon: "cursor" },
   { name: "Claude",  bg: "#D7DBD9", fg: "#1A191E", icon: "sparkleA" },
   { name: "Cursor",  bg: "#D7DBD9", fg: "#1A191E", icon: "sparkleA" },
   { name: "Lovable", bg: "#D7DBD9", fg: "#1A191E", icon: "sparkleA" },
@@ -129,6 +130,86 @@ const recentWork: Array<{
   coverImage:
     p.slug === "backspace-body" ? "/backspace-body-cover.jpg" : undefined,
 }));
+
+type HeroCard = {
+  title: string;
+  image?: string;
+};
+
+const heroFloatingCards: Array<{
+  card: HeroCard;
+  position: React.CSSProperties;
+  rotate: string;
+  widthClass: string;
+}> = [
+  {
+    card: { title: "Backspace Body", image: "/backspace-body-cover.jpg" },
+    position: { top: "6%", left: "-4%" },
+    rotate: "-6deg",
+    widthClass: "w-52",
+  },
+  {
+    card: { title: "The eight-second test" },
+    position: { top: "10%", right: "-6%" },
+    rotate: "5deg",
+    widthClass: "w-48",
+  },
+  {
+    card: { title: "Organic Moderne" },
+    position: { top: "44%", left: "-6%" },
+    rotate: "4deg",
+    widthClass: "w-48",
+  },
+  {
+    card: { title: "Onboarding is a promise" },
+    position: { top: "40%", right: "-3%" },
+    rotate: "-4deg",
+    widthClass: "w-52",
+  },
+];
+
+function HeroFloatingCard({
+  card,
+  position,
+  rotate,
+  widthClass,
+}: {
+  card: HeroCard;
+  position: React.CSSProperties;
+  rotate: string;
+  widthClass: string;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      className={`absolute ${widthClass} rounded-lg border border-[#1A191E]/15 bg-white overflow-hidden transition-transform duration-500 shadow-[0_10px_24px_rgba(0,0,0,0.18)]`}
+      style={{
+        ...position,
+        transform: hovered
+          ? `rotate(${rotate}) scale(0.92)`
+          : `rotate(${rotate})`,
+        pointerEvents: "auto",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-hidden="true"
+    >
+      {card.image ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={card.image}
+          alt=""
+          className="w-full aspect-video object-cover"
+        />
+      ) : (
+        <div className="w-full aspect-video bg-[#D7DBD9]" />
+      )}
+      <div className="p-3">
+        <p className="text-sm text-ink line-clamp-1">{card.title}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const [activeCap, setActiveCap] = useState(0);
@@ -172,10 +253,21 @@ export default function Home() {
             </a>
           </div>
           <aside
-            className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center"
+            className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center overflow-hidden"
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
-            <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[360px]">
+            {/* Floating cards — layered over the bg image, clipped to the
+                column via overflow-hidden. Desktop only. */}
+            <div
+              className="absolute inset-0 hidden lg:block"
+              style={{ pointerEvents: "none" }}
+              aria-hidden="true"
+            >
+              {heroFloatingCards.map((c) => (
+                <HeroFloatingCard key={c.card.title} {...c} />
+              ))}
+            </div>
+            <div className="relative card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[360px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Hi, I&rsquo;m Paige
               </h3>
