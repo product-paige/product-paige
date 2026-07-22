@@ -17,11 +17,11 @@ const services: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "ecommerce UX",              bg: "#C3C9C7", fg: "#1A191E", icon: "browser" },
-  { name: "conversion design",         bg: "#C3C9C7", fg: "#1A191E", icon: "cursor" },
-  { name: "positioning + messaging",   bg: "#C3C9C7", fg: "#1A191E", icon: "megaphone" },
-  { name: "AI content design",         bg: "#C3C9C7", fg: "#1A191E", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#C3C9C7", fg: "#1A191E", icon: "target" },
+  { name: "ecommerce UX",              bg: "#DEE4E2", fg: "#1A191E", icon: "browser" },
+  { name: "conversion design",         bg: "#DEE4E2", fg: "#1A191E", icon: "cursor" },
+  { name: "positioning + messaging",   bg: "#DEE4E2", fg: "#1A191E", icon: "megaphone" },
+  { name: "AI content design",         bg: "#DEE4E2", fg: "#1A191E", icon: "sparkleA" },
+  { name: "product strategy",          bg: "#DEE4E2", fg: "#1A191E", icon: "target" },
 ];
 
 const productCategories: Array<{
@@ -95,13 +95,13 @@ const tools: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "Figma",   bg: "#C3C9C7", fg: "#1A191E", icon: "cursor" },
-  { name: "Claude",  bg: "#C3C9C7", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Cursor",  bg: "#C3C9C7", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Lovable", bg: "#C3C9C7", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Paper",   bg: "#C3C9C7", fg: "#1A191E", icon: "door" },
-  { name: "Shopify", bg: "#C3C9C7", fg: "#1A191E", icon: "browser" },
-  { name: "Notion",  bg: "#C3C9C7", fg: "#1A191E", icon: "door" },
+  { name: "Figma",   bg: "#DEE4E2", fg: "#1A191E", icon: "cursor" },
+  { name: "Claude",  bg: "#DEE4E2", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Cursor",  bg: "#DEE4E2", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Lovable", bg: "#DEE4E2", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Paper",   bg: "#DEE4E2", fg: "#1A191E", icon: "door" },
+  { name: "Shopify", bg: "#DEE4E2", fg: "#1A191E", icon: "browser" },
+  { name: "Notion",  bg: "#DEE4E2", fg: "#1A191E", icon: "door" },
 ];
 
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
@@ -390,7 +390,7 @@ export default function Home() {
                   <span
                     className="svc-label-text"
                     style={{
-                      backgroundColor: "#C3C9C7",
+                      backgroundColor: "#DEE4E2",
                       borderColor: "#1A191E",
                     }}
                   >
@@ -527,7 +527,7 @@ export default function Home() {
             {/* Paper card — square, textured, subtle 2d/3d chrome */}
             <div className="relative aspect-square bg-white grain-paper flex flex-col p-4 md:p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
               {/* Photo area — sage placeholder for headshot */}
-              <div className="w-full flex-1 bg-[#C3C9C7] overflow-hidden" />
+              <div className="w-full flex-1 bg-[#DEE4E2] overflow-hidden" />
             </div>
           </div>
         </aside>
