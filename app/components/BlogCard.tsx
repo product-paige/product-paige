@@ -36,7 +36,7 @@ export function BlogCard({ post }: BlogCardProps) {
         </span>
         <span className="text-base opacity-60">{dateLabel}</span>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1">
         <h3 className="text-xl group-hover:opacity-70 transition-opacity">
           {post.title}
         </h3>
