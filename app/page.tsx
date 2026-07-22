@@ -134,6 +134,8 @@ const recentWork: Array<{
 type HeroCard = {
   title: string;
   image?: string;
+  variant?: "default" | "shopify";
+  price?: string;
 };
 
 const heroFloatingCards: Array<{
@@ -149,8 +151,12 @@ const heroFloatingCards: Array<{
     widthClass: "w-52",
   },
   {
-    card: { title: "The eight-second test" },
-    position: { top: "10%", right: "-6%" },
+    card: {
+      title: "Rinse Body Wash",
+      variant: "shopify",
+      price: "$24",
+    },
+    position: { top: "8%", right: "-6%" },
     rotate: "5deg",
     widthClass: "w-48",
   },
@@ -194,19 +200,48 @@ function HeroFloatingCard({
       onMouseLeave={() => setHovered(false)}
       aria-hidden="true"
     >
-      {card.image ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={card.image}
-          alt=""
-          className="w-full aspect-video object-cover"
-        />
+      {card.variant === "shopify" ? (
+        <>
+          <div className="w-full aspect-square bg-[#D7DBD9]" />
+          <div className="p-3 flex flex-col gap-1.5">
+            <div className="flex items-center gap-0.5 text-[10px] leading-none text-[#1A191E]">
+              {"★★★★★".split("").map((s, i) => (
+                <span key={i}>{s}</span>
+              ))}
+              <span className="ml-1 opacity-60 text-[10px]">(128)</span>
+            </div>
+            <p className="text-sm text-ink line-clamp-1 font-medium">
+              {card.title}
+            </p>
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-sm text-ink">{card.price}</span>
+              <button
+                type="button"
+                className="text-[10px] leading-none uppercase tracking-widest bg-[#1A191E] text-white px-2.5 py-1.5 rounded"
+                tabIndex={-1}
+              >
+                Add
+              </button>
+            </div>
+          </div>
+        </>
       ) : (
-        <div className="w-full aspect-video bg-[#D7DBD9]" />
+        <>
+          {card.image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={card.image}
+              alt=""
+              className="w-full aspect-video object-cover"
+            />
+          ) : (
+            <div className="w-full aspect-video bg-[#D7DBD9]" />
+          )}
+          <div className="p-3">
+            <p className="text-sm text-ink line-clamp-1">{card.title}</p>
+          </div>
+        </>
       )}
-      <div className="p-3">
-        <p className="text-sm text-ink line-clamp-1">{card.title}</p>
-      </div>
     </div>
   );
 }
