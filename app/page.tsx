@@ -572,7 +572,7 @@ export default function Home() {
                 const body = rest.join(" — ");
                 return (
                   <div className="flex flex-col gap-3">
-                    <h3 className="text-section font-display text-ink max-w-[18ch]">
+                    <h3 className="text-3xl md:text-4xl font-display text-ink leading-[1.05] tracking-[-1px] max-w-[18ch]">
                       {headline}
                     </h3>
                     {body ? (
