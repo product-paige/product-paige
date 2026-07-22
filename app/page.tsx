@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { BtnIcons } from "./components/BtnIcons";
 import { PixelIcon, type PixelIconName } from "./components/PixelIcon";
-import { ClosingCTA } from "./components/ClosingCTA";
 import { TearText } from "./components/TearText";
 import { PostMeta } from "./components/PostMeta";
 import { IconCard } from "./components/IconCard";
@@ -844,12 +843,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === CLOSING CTA === */}
-      <ClosingCTA
-        title="Let's talk shop"
-        body="Open for projects. Always up for trading notes on ecommerce, product, or the craft."
-        ctaLabel="Say hi"
-      />
     </div>
   );
 }

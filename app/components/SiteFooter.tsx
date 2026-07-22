@@ -1,23 +1,38 @@
+import { BtnIcons } from "./BtnIcons";
+
 export function SiteFooter() {
   return (
-    <footer
-      data-section="site-footer"
-      className="p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
+    <section
+      data-section="closing-cta-wrap"
+      className="p-6 md:p-10 section-border-b"
     >
-      <p className="text-xl font-display leading-[1.1] text-ink">
-        Helping ecommerce teams ship products that feel obvious.
-      </p>
-      <nav>
-        <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-base md:justify-end">
-          <li><a href="/" className="hover:opacity-60">Home</a></li>
-          <li><a href="/services" className="hover:opacity-60">Services</a></li>
-          <li><a href="/#work" className="hover:opacity-60">Projects</a></li>
-          <li><a href="/blog" className="hover:opacity-60">Notes</a></li>
-          <li><a href="/#about" className="hover:opacity-60">About</a></li>
-          <li><a href="/ask-paige" className="hover:opacity-60">Ask Paige</a></li>
-          <li><a href="/contact" className="hover:opacity-60">Contact</a></li>
-        </ul>
-      </nav>
-    </footer>
+      <footer
+        data-section="site-footer"
+        className="bg-[#1A191E] text-white py-10 px-6 md:py-16 md:px-10 section-chamfer relative flex flex-col gap-10"
+      >
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+          <h2 className="text-3xl md:text-4xl font-display leading-[1.1] text-white max-w-[26ch]">
+            Helping ecommerce teams ship products that feel obvious.
+          </h2>
+          <a href="/contact" className="inline-flex btn shrink-0 self-start">
+            <span className="btn-text bg-[#E63946] text-white">Let&rsquo;s talk</span>
+            <span className="btn-tab bg-[#E63946] text-white">
+              <BtnIcons />
+            </span>
+          </a>
+        </div>
+        <nav>
+          <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-base">
+            <li><a href="/" className="hover:opacity-60 transition-opacity">Home</a></li>
+            <li><a href="/services" className="hover:opacity-60 transition-opacity">Services</a></li>
+            <li><a href="/#work" className="hover:opacity-60 transition-opacity">Projects</a></li>
+            <li><a href="/blog" className="hover:opacity-60 transition-opacity">Notes</a></li>
+            <li><a href="/#about" className="hover:opacity-60 transition-opacity">About</a></li>
+            <li><a href="/ask-paige" className="hover:opacity-60 transition-opacity">Ask Paige</a></li>
+            <li><a href="/contact" className="hover:opacity-60 transition-opacity">Contact</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </section>
   );
 }
