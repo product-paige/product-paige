@@ -365,7 +365,7 @@ export default function Home() {
             role="tabpanel"
             aria-labelledby={`project-tab-${activeProject}`}
             key={project.client}
-            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:h-[560px]"
+            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:h-[640px]"
             style={{ backgroundColor: project.bg, color: project.fg }}
           >
             {/* Text column — meta strip up top, big client + kicker in the
@@ -469,7 +469,7 @@ export default function Home() {
                       />
                     )}
                     {/* Handwritten-style caption in the thick bottom margin */}
-                    <div className="absolute bottom-3 md:bottom-5 left-0 right-0 text-center px-4">
+                    <div className="absolute bottom-3 md:bottom-5 left-3 md:left-4">
                       <p className="font-display text-xl md:text-2xl text-ink italic leading-none">
                         {project.client}
                       </p>
