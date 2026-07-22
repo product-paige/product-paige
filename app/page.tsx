@@ -184,7 +184,7 @@ const heroFloatingCards: Array<{
       variant: "testimonial",
       testimonial:
         "Shipped in two weeks what we'd been debating for six months. No politics, no deck-thick proposal — just the work.",
-      photoBg: "#3a2418",
+      photoBg: "#DEDCCD",
     },
     position: { top: "36%", left: "36%" },
     rotate: "5deg",
@@ -221,23 +221,22 @@ function HeroFloatingCard({
       {card.variant === "testimonial" ? (
         <div className="relative bg-white p-2.5">
           <div
-            className="relative w-full aspect-[3/4] flex flex-col justify-between p-3 text-white"
+            className="relative w-full aspect-[3/4] flex flex-col justify-between p-3 text-ink"
             style={{
-              backgroundColor: card.photoBg ?? "#3a2418",
+              backgroundColor: card.photoBg ?? "#DEDCCD",
               backgroundImage: card.image ? `url(${card.image})` : undefined,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black/20" />
             <div className="relative flex items-center justify-center gap-0.5 pt-2 text-xs tracking-widest">
               {"★★★★★"}
             </div>
-            <h4 className="relative font-sans font-extrabold text-white text-xl leading-[1] text-center px-1">
+            <h4 className="relative font-sans font-extrabold text-ink text-xl leading-[1] text-center px-1">
               {card.title}
             </h4>
             {card.testimonial ? (
-              <p className="relative text-[7px] leading-[1.4] uppercase tracking-[0.12em] text-center px-2 opacity-95">
+              <p className="relative text-[7px] leading-[1.4] uppercase tracking-[0.12em] text-center px-2 opacity-90">
                 &ldquo;{card.testimonial}&rdquo;
               </p>
             ) : (
@@ -504,20 +503,14 @@ export default function Home() {
         </div>
 
         {/* Tab strip + panel — full section width. Active tab sits flush on
-            top of the panel as one continuous folder shape. Each tab + the
-            panel uses its own project bg color (lavender / sky / yellow) so
-            you can read which project is active at a glance. On mobile the
-            tab strip scrolls horizontally with the scrollbar hidden. */}
+            top of the panel as one continuous folder shape. */}
         <div className="flex flex-col w-full">
-          {/* Tab strip — arrow-key navigable. snap-proximity (not mandatory)
-              so a partial scroll doesn't jerk to a fixed position. */}
+          {/* Tab strip — arrow-key navigable. */}
           <div
             role="tablist"
             aria-label="Recent projects"
             className="flex items-end overflow-x-auto scrollbar-hide snap-x snap-proximity"
             onKeyDown={(e) => {
-              // Arrow keys, Home + End for tablist navigation (WAI-ARIA
-              // authoring practices). Focus follows selection.
               const n = recentWork.length;
               let next = activeProject;
               if (e.key === "ArrowRight") next = (activeProject + 1) % n;
@@ -527,7 +520,6 @@ export default function Home() {
               else return;
               e.preventDefault();
               setActiveProject(next);
-              // Focus the newly-active tab so subsequent Tab moves to the panel.
               const btn = document.getElementById(`project-tab-${next}`);
               btn?.focus();
             }}
@@ -544,12 +536,10 @@ export default function Home() {
                   aria-selected={isActive}
                   aria-controls="project-panel"
                   tabIndex={isActive ? 0 : -1}
-                  className={`folder-tab grain-paper shrink-0 snap-start ${isActive ? "is-active" : ""}`}
+                  className={`folder-tab shrink-0 snap-start ${isActive ? "is-active" : ""}`}
                   style={{
                     backgroundColor: w.bg,
                     color: w.fg,
-                    /* Inactive tabs slip behind in reading order; later tabs
-                       sit further back so the cascade reads left → right. */
                     zIndex: isActive ? 20 : recentWork.length - i,
                   }}
                 >
@@ -559,15 +549,13 @@ export default function Home() {
             })}
           </div>
 
-          {/* Active project panel — stacks on mobile (image first for visual
-              hook), splits 40/60 on md+. Padding scales: 24px mobile → 48px
-              desktop so mobile gets more content room. */}
+          {/* Active project panel */}
           <div
             id="project-panel"
             role="tabpanel"
             aria-labelledby={`project-tab-${activeProject}`}
             key={project.client}
-            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:h-[640px]"
+            className="folder-panel grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:h-[640px]"
             style={{ backgroundColor: project.bg, color: project.fg }}
           >
             {/* Text column — meta strip up top, big client + kicker in the
@@ -716,24 +704,6 @@ export default function Home() {
       </section>
 
       
-
-      {/* Chapter break — architectural section transition between Recent Work
-          and How I Work. Full-width yellow slice with a big section number,
-          replaces the flat section-border-b line. */}
-      <div
-        data-section="chapter-break"
-        className="bg-[#F3EB88] grain-paper relative flex items-center justify-between px-6 md:px-10 py-6 md:py-8 section-border-b"
-      >
-        <span
-          className="font-display text-5xl md:text-7xl leading-none text-ink"
-          style={{ letterSpacing: "-2px" }}
-        >
-          05
-        </span>
-        <span className="type-eyebrow !bg-transparent !border-l-0 !border-r-0 !px-0 !py-0 text-xs md:text-sm tracking-[0.2em] uppercase">
-          How I work
-        </span>
-      </div>
 
       {/* === CATEGORIES — working-style copy + product-category cards + tools === */}
       <section
