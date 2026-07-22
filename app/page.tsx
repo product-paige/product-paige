@@ -186,7 +186,7 @@ const heroFloatingCards: Array<{
         "Shipped in two weeks what we'd been debating for six months. No politics, no deck-thick proposal — just the work.",
       photoBg: "#3a2418",
     },
-    position: { top: "36%", left: "34%" },
+    position: { top: "36%", left: "36%" },
     rotate: "5deg",
     widthClass: "w-44",
   },
@@ -219,19 +219,7 @@ function HeroFloatingCard({
       aria-hidden="true"
     >
       {card.variant === "testimonial" ? (
-        <div className="relative bg-white p-2.5 pb-8">
-          {/* Paperclip — clipped over the top-center of the card */}
-          <div
-            className="absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-9 rotate-[8deg] z-20"
-            aria-hidden="true"
-            style={{
-              background:
-                "linear-gradient(180deg, #c9c9d0 0%, #7d7d85 45%, #b1b1b8 100%)",
-              clipPath:
-                "polygon(50% 0, 100% 12%, 100% 100%, 60% 90%, 20% 100%, 0 12%)",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.35)",
-            }}
-          />
+        <div className="relative bg-white p-2.5">
           <div
             className="relative w-full aspect-[3/4] flex flex-col justify-between p-3 text-white"
             style={{
