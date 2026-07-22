@@ -96,7 +96,18 @@ html {
    content wrapper. Two-tone (dark outside, white highlight inside) to read
    as a recessed groove against the blue-grid gutter. */
 .page-content-frame {
+  position: relative;
   border: 1px solid rgba(0, 0, 0, 0.4);
+}
+/* Beveled inner highlight — painted above children so section bg images
+   (hero right-column, About aside) can't cover the 1px highlight and
+   look like they're bleeding into the outer border. */
+.page-content-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
   box-shadow:
     inset 1px 0 0 rgba(255, 255, 255, 0.95),
     inset -1px 0 0 rgba(255, 255, 255, 0.95),

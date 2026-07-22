@@ -63,7 +63,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="card card-sm card-cream is-static flex flex-col gap-4 !min-h-0 w-full flex-1 !p-6 md:!p-10"
+      className="card card-sm card-cream is-static flex flex-col gap-4 !min-h-0 w-full flex-1 !p-6 md:!p-10 [--chamfer:36px]"
     >
       <h2 className="text-xl font-display leading-[1.1] text-ink">
         Send a note
@@ -99,7 +99,7 @@ function ContactForm() {
           name="topic"
           value={topic}
           onChange={(e) => setTopic(e.target.value as TopicValue)}
-          className="appearance-none bg-white border border-[#1A191E]/40 px-3 py-2.5 pr-10 text-base font-medium leading-none tracking-[-0.01em] text-ink cursor-pointer bg-no-repeat bg-[position:right_12px_center] bg-[length:14px_9px] focus:outline-none focus:border-[#1A191E] transition-colors"
+          className="appearance-none bg-white border border-[#1A191E]/40 px-3 py-2.5 pr-10 text-base font-medium leading-[1.4] tracking-[-0.01em] text-ink cursor-pointer bg-no-repeat bg-[position:right_12px_center] bg-[length:14px_9px] focus:outline-none focus:border-[#1A191E] transition-colors"
           style={{
             backgroundImage:
               "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9' fill='none' stroke='%231A191E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M1 1.5L7 7L13 1.5'/></svg>\")",
