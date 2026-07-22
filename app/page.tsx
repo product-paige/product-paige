@@ -134,8 +134,10 @@ const recentWork: Array<{
 type HeroCard = {
   title: string;
   image?: string;
-  variant?: "default" | "shopify" | "polaroid";
+  variant?: "default" | "shopify" | "polaroid" | "testimonial";
   price?: string;
+  testimonial?: string;
+  photoBg?: string;
 };
 
 const heroFloatingCards: Array<{
@@ -175,10 +177,16 @@ const heroFloatingCards: Array<{
     widthClass: "w-72",
   },
   {
-    // Sits above the yellow "Hi I'm Paige" card — bumped up + inward
-    // so its title clears the yellow card instead of hiding behind it.
-    card: { title: "Onboarding is a promise" },
-    position: { bottom: "26%", right: "6%" },
+    // Editorial testimonial polaroid — sits above the yellow "Hi I'm
+    // Paige" card, angled to feel like a note pinned to the collage.
+    card: {
+      title: "Half a step ahead",
+      variant: "testimonial",
+      testimonial:
+        "Shipped in two weeks what we'd been debating for six months. No politics, no deck-thick proposal — just the work.",
+      photoBg: "#3a2418",
+    },
+    position: { bottom: "22%", right: "6%" },
     rotate: "5deg",
     widthClass: "w-44",
   },
@@ -198,7 +206,7 @@ function HeroFloatingCard({
   const [hovered, setHovered] = useState(false);
   return (
     <div
-      className={`absolute ${widthClass} rounded-lg bg-white overflow-hidden transition-transform duration-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_10px_24px_rgba(0,0,0,0.18)]`}
+      className={`absolute ${widthClass} ${card.variant === "shopify" ? "rounded-md" : ""} bg-white overflow-hidden transition-transform duration-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_10px_24px_rgba(0,0,0,0.18)]`}
       style={{
         ...position,
         transform: hovered
@@ -210,7 +218,34 @@ function HeroFloatingCard({
       onMouseLeave={() => setHovered(false)}
       aria-hidden="true"
     >
-      {card.variant === "polaroid" ? (
+      {card.variant === "testimonial" ? (
+        <div className="relative bg-white p-2.5 pb-8">
+          <div
+            className="relative w-full aspect-[3/4] flex flex-col justify-between p-3 text-white"
+            style={{
+              backgroundColor: card.photoBg ?? "#3a2418",
+              backgroundImage: card.image ? `url(${card.image})` : undefined,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/20" />
+            <div className="relative flex items-center justify-center gap-0.5 pt-2 text-xs tracking-widest">
+              {"★★★★★"}
+            </div>
+            <h4 className="relative font-sans font-extrabold text-white text-xl leading-[1] text-center px-1">
+              {card.title}
+            </h4>
+            {card.testimonial ? (
+              <p className="relative text-[7px] leading-[1.4] uppercase tracking-[0.12em] text-center px-2 opacity-95">
+                &ldquo;{card.testimonial}&rdquo;
+              </p>
+            ) : (
+              <span />
+            )}
+          </div>
+        </div>
+      ) : card.variant === "polaroid" ? (
         <div className="relative bg-white pt-2.5 px-2.5 pb-10">
           {card.image ? (
             // eslint-disable-next-line @next/next/no-img-element
