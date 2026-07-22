@@ -10,9 +10,16 @@ export function SiteHeader() {
       {/* Logo — always visible (acts as Home) */}
       <a
         href="/"
-        className="pl-6 pr-10 flex items-center text-xl font-display leading-[1.1] text-ink whitespace-nowrap"
+        className="pl-6 pr-10 flex items-center"
+        aria-label="Product Paige — home"
       >
-        Product Paige
+        <img
+          src="/logo.svg"
+          alt="Product Paige"
+          width={143}
+          height={28}
+          className="h-7 w-auto"
+        />
       </a>
 
       {/* Primary nav — ordered to match the homepage narrative
