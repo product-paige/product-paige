@@ -468,9 +468,14 @@ export default function Home() {
                         aria-hidden="true"
                       />
                     )}
-                    {/* Handwritten-style caption in the thick bottom margin */}
-                    <div className="absolute bottom-3 md:bottom-5 left-3 md:left-4">
-                      <p className="font-display text-xl md:text-2xl text-ink italic leading-none">
+                    {/* Handwritten-style caption in the thick bottom margin.
+                        `.grain-paper > *` forces position:relative on children,
+                        so we set position:absolute inline to win the cascade. */}
+                    <div
+                      className="bottom-3 md:bottom-5 left-3 md:left-4"
+                      style={{ position: "absolute" }}
+                    >
+                      <p className="font-display text-2xl md:text-3xl text-ink italic leading-none">
                         {project.client}
                       </p>
                     </div>
