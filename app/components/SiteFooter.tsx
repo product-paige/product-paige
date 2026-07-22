@@ -8,22 +8,41 @@ export function SiteFooter() {
     >
       <footer
         data-section="site-footer"
-        className="bg-[#1A191E] text-white py-10 px-6 md:py-16 md:px-10 section-chamfer relative flex flex-col gap-10"
+        className="bg-[#F3EB88] text-ink py-10 px-6 md:py-16 md:px-10 section-chamfer relative flex flex-col gap-10"
       >
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-          <h2 className="text-3xl md:text-4xl font-display leading-[1.1] text-white max-w-[26ch]">
+          <h2 className="text-3xl md:text-4xl font-display leading-[1.1] text-ink max-w-[26ch]">
             Helping ecommerce teams ship products that feel obvious.
           </h2>
-          <a href="/contact" className="inline-flex btn shrink-0 self-start">
-            <span className="btn-text bg-[#E63946] text-white">Let&rsquo;s talk</span>
-            <span className="btn-tab bg-[#E63946] text-white">
-              <BtnIcons />
-            </span>
-          </a>
+          <form
+            action="/api/subscribe"
+            method="post"
+            className="flex flex-col gap-2 shrink-0 self-start w-full md:w-auto"
+          >
+            <label htmlFor="footer-email" className="text-sm opacity-70">
+              Get notes in your inbox
+            </label>
+            <div className="flex items-stretch gap-2">
+              <input
+                id="footer-email"
+                type="email"
+                name="email"
+                required
+                placeholder="you@domain.com"
+                autoComplete="email"
+                className="bg-white/60 border border-[#1A191E]/25 focus:border-[#1A191E]/60 focus:bg-white px-3 py-2.5 text-base leading-[1.4] text-ink placeholder:text-ink/40 outline-none transition-colors min-w-0 w-full md:w-64"
+              />
+              <button type="submit" className="inline-flex btn shrink-0">
+                <span className="btn-text bg-[#1A191E] text-white">Subscribe</span>
+                <span className="btn-tab bg-[#1A191E] text-white">
+                  <BtnIcons />
+                </span>
+              </button>
+            </div>
+          </form>
         </div>
         <nav>
           <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-base">
-            <li><a href="/" className="hover:opacity-60 transition-opacity">Home</a></li>
             <li><a href="/services" className="hover:opacity-60 transition-opacity">Services</a></li>
             <li><a href="/#work" className="hover:opacity-60 transition-opacity">Projects</a></li>
             <li><a href="/blog" className="hover:opacity-60 transition-opacity">Notes</a></li>

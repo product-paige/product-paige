@@ -730,7 +730,7 @@ export default function Home() {
               blurb={c.blurb}
               icon={c.icon}
               tone={c.tone}
-              className="bg-[#D7DBD9] shadow-[inset_0_0_0_1px_#1A191E]"
+              className="bg-white shadow-[inset_0_0_0_1px_#1A191E]"
             />
           ))}
         </div>
