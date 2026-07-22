@@ -379,7 +379,7 @@ export default function Home() {
                   {project.tags.map((tag, i) => (
                     <span
                       key={`${tag}-${i}`}
-                      className="svc-label svc-label-sm text-ink"
+                      className="svc-label text-ink"
                     >
                       <span
                         className="svc-label-text"
