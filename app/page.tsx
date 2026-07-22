@@ -421,35 +421,35 @@ export default function Home() {
                 through. On mobile it sits ABOVE the text (order-1). */}
             {project.comingSoon ? (
               <div
-                className="relative block order-1 md:order-2 folder-image-chamfer-wrap"
+                className="relative block h-full min-h-[280px] order-1 md:order-2 folder-image-chamfer-wrap"
                 aria-hidden="true"
               >
                 {project.coverImage ? (
                   <img
                     src={project.coverImage}
                     alt=""
-                    className="w-full aspect-[3/2] object-cover folder-image-chamfer"
+                    className="w-full h-full object-cover folder-image-chamfer"
                   />
                 ) : (
-                  <div className="placeholder w-full aspect-[3/2] folder-image-chamfer" />
+                  <div className="placeholder w-full h-full folder-image-chamfer" />
                 )}
               </div>
             ) : (
               <a
                 href={project.href}
                 aria-label={`Open ${project.client}`}
-                className="relative block group order-1 md:order-2 folder-image-chamfer-wrap"
+                className="relative block h-full min-h-[280px] order-1 md:order-2 folder-image-chamfer-wrap"
                 tabIndex={-1}
               >
                 {project.coverImage ? (
                   <img
                     src={project.coverImage}
                     alt=""
-                    className="w-full aspect-[3/2] object-cover folder-image-chamfer transition-opacity group-hover:opacity-90"
+                    className="w-full h-full object-cover folder-image-chamfer"
                   />
                 ) : (
                   <div
-                    className="placeholder w-full aspect-[3/2] folder-image-chamfer transition-opacity group-hover:opacity-90"
+                    className="placeholder w-full h-full folder-image-chamfer"
                     aria-hidden="true"
                   />
                 )}

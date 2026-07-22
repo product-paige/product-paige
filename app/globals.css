@@ -1633,8 +1633,9 @@ a {
 }
 
 /* Chamfered bottom-right corner for the folder-panel project image.
-   Uses filter drop-shadow stack to approximate a 1px ink border that
-   follows the chamfer (border/box-shadow get clipped by clip-path). */
+   Inset box-shadow adds a subtle top highlight + bottom shadow inside
+   the clip (respects clip-path); the wrapper adds a soft ground shadow
+   — same 2d/3d chrome as .card. */
 .folder-image-chamfer {
   clip-path: polygon(
     0 0,
@@ -1643,13 +1644,14 @@ a {
     calc(100% - 48px) 100%,
     0 100%
   );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
 }
 .folder-image-chamfer-wrap {
   filter:
-    drop-shadow(1px 0 0 #1A191E)
-    drop-shadow(-1px 0 0 #1A191E)
-    drop-shadow(0 1px 0 #1A191E)
-    drop-shadow(0 -1px 0 #1A191E);
+    drop-shadow(0 1px 0 rgba(0, 0, 0, 0.1))
+    drop-shadow(0 2px 4px rgba(26, 26, 26, 0.08));
 }
 
 /* Masthead — horizontal scrolling ticker.
