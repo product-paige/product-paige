@@ -170,9 +170,9 @@ const heroFloatingCards: Array<{
     // Up + right; larger + placeholder image for a stronger left-side
     // counterweight to the Paige card at bottom-right.
     card: { title: "Organic Moderne", image: "" },
-    position: { top: "14%", left: "-4%" },
+    position: { top: "14%", left: "6%" },
     rotate: "-6deg",
-    widthClass: "w-56",
+    widthClass: "w-72",
   },
   {
     // Sits above the yellow "Hi I'm Paige" card — bumped up + inward
