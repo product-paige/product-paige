@@ -365,7 +365,7 @@ export default function Home() {
             role="tabpanel"
             aria-labelledby={`project-tab-${activeProject}`}
             key={project.client}
-            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:max-h-[560px]"
+            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:h-[560px]"
             style={{ backgroundColor: project.bg, color: project.fg }}
           >
             {/* Text column — meta strip up top, big client + kicker in the
@@ -439,43 +439,58 @@ export default function Home() {
             {/* Image column — landscape, clickable when shipped. For
                 coming-soon projects it's a plain div so nothing links
                 through. On mobile it sits ABOVE the text (order-1). */}
-            {project.comingSoon ? (
-              <div
-                className="relative block h-full min-h-[280px] order-1 md:order-2 folder-image-chamfer-wrap"
-                aria-hidden="true"
-              >
-                {project.coverImage ? (
-                  <img
-                    src={project.coverImage}
-                    alt=""
-                    className="w-full h-full object-cover folder-image-chamfer"
-                  />
-                ) : (
-                  <div className="placeholder w-full h-full folder-image-chamfer" />
-                )}
-              </div>
-            ) : (
-              <a
-                href={project.href}
-                aria-label={`Open ${project.client}`}
-                className="relative block h-full min-h-[280px] order-1 md:order-2 folder-image-chamfer-wrap"
-                tabIndex={-1}
-              >
-                {project.coverImage ? (
-                  <img
-                    src={project.coverImage}
-                    alt=""
-                    className="w-full h-full object-cover folder-image-chamfer"
-                  />
-                ) : (
+            {(() => {
+              const PaperCard = (
+                <>
+                  {/* Tape — overhangs the top-center of the paper card */}
                   <div
-                    className="placeholder w-full h-full folder-image-chamfer"
+                    className="absolute -top-5 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[110px] h-10 z-10"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(190,180,165,0.85) 0%, rgba(170,160,145,0.85) 100%)",
+                      boxShadow:
+                        "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.18), 0 3px 8px rgba(0,0,0,0.28)",
+                      clipPath: "polygon(4% 0, 96% 0, 100% 100%, 0 100%)",
+                    }}
                     aria-hidden="true"
                   />
-                )}
-                <span className="sr-only">Open {project.client}</span>
-              </a>
-            )}
+                  {/* White paper card with grain + 2d/3d chrome */}
+                  <div className="relative w-full h-full bg-white grain-paper flex flex-col p-3 md:p-4 pb-12 md:pb-16 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
+                    {project.coverImage ? (
+                      <img
+                        src={project.coverImage}
+                        alt=""
+                        className="w-full flex-1 object-cover min-h-0"
+                      />
+                    ) : (
+                      <div
+                        className="w-full flex-1 bg-[#D7DBD9]"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </div>
+                </>
+              );
+
+              return project.comingSoon ? (
+                <div
+                  className="relative block h-full min-h-[280px] order-1 md:order-2"
+                  aria-hidden="true"
+                >
+                  {PaperCard}
+                </div>
+              ) : (
+                <a
+                  href={project.href}
+                  aria-label={`Open ${project.client}`}
+                  className="relative block h-full min-h-[280px] order-1 md:order-2"
+                  tabIndex={-1}
+                >
+                  {PaperCard}
+                  <span className="sr-only">Open {project.client}</span>
+                </a>
+              );
+            })()}
           </div>
         </div>
       </section>
