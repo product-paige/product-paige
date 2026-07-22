@@ -121,7 +121,7 @@ const recentWork: Array<{
   blurb: p.kicker,
   date: `${p.year}`,
   tags: p.role.split(/[+&]/).map((t) => t.trim()),
-  bg: "#DEDCCD",
+  bg: "#FFFDDB",
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
@@ -172,7 +172,7 @@ export default function Home() {
             className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center"
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
-            <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[280px]">
+            <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[360px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Hi, I&rsquo;m Paige
               </h3>
@@ -503,17 +503,19 @@ export default function Home() {
       >
         {/* Left column — bg image fills column, Polaroid frame layered on top. */}
         <aside
-          className="relative min-h-[500px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16"
+          className="relative min-h-[500px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16 flex items-center justify-center"
           style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           aria-label="About — portrait"
         >
-          {/* Polaroid frame — white with thin top/sides, thick bottom caption strip */}
-          <div className="relative w-full h-full min-h-[380px] bg-white pt-3 px-3 pb-16 md:pt-4 md:px-4 md:pb-20 shadow-[0_10px_30px_rgba(0,0,0,0.15)]">
+          {/* Polaroid frame — accurate 88×108 proportions (photo ≈ square,
+              thick bottom caption strip), with a 2d/3d card treatment:
+              top highlight + bottom hairline + soft drop shadow. */}
+          <div className="relative aspect-[88/108] w-full max-w-[380px] bg-white grain-paper flex flex-col p-[6%] pb-[28%] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
             {/* Photo area — dark placeholder for headshot */}
-            <div className="w-full h-full bg-[#8a8a8a] overflow-hidden min-h-[300px]" />
+            <div className="w-full flex-1 bg-[#8a8a8a] overflow-hidden" />
 
-            {/* Caption — handwritten-style bottom margin */}
-            <div className="absolute bottom-4 md:bottom-6 left-0 right-0 text-center px-4">
+            {/* Caption — handwritten-style, sits in the thick bottom margin */}
+            <div className="absolute bottom-[6%] left-0 right-0 text-center px-4">
               <p className="font-display text-base md:text-lg text-ink italic">
                 Paige &middot; &rsquo;26
               </p>

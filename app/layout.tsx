@@ -3,6 +3,7 @@ import { Funnel_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SiteHeader } from "./components/SiteHeader";
+import { SiteMasthead } from "./components/SiteMasthead";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteBottomBar } from "./components/SiteBottomBar";
 
@@ -164,6 +165,7 @@ export default function RootLayout({
             data-layer="content-frame"
             className="bg-[#fbfaf6] page-content-frame"
           >
+            <SiteMasthead />
             <div data-layer="site-header-wrap" className="section-border-b">
               <SiteHeader />
             </div>
