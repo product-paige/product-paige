@@ -501,24 +501,33 @@ export default function Home() {
         data-section="about"
         className="grid md:grid-cols-2 items-stretch section-border-b min-h-[440px] md:min-h-[560px]"
       >
-        {/* Left column — bg image fills column, Polaroid frame layered on top. */}
+        {/* Left column — bg image fills column, taped paper card on top. */}
         <aside
-          className="relative min-h-[500px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16 flex items-center justify-center"
+          className="relative min-h-[500px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16 flex items-start justify-center pt-16 md:pt-24"
           style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           aria-label="About — portrait"
         >
-          {/* Polaroid frame — accurate 88×108 proportions (photo ≈ square,
-              thick bottom caption strip), with a 2d/3d card treatment:
-              top highlight + bottom hairline + soft drop shadow. */}
-          <div className="relative aspect-[88/108] w-full max-w-[380px] bg-white grain-paper flex flex-col p-[6%] pb-[28%] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
-            {/* Photo area — dark placeholder for headshot */}
-            <div className="w-full flex-1 bg-[#8a8a8a] overflow-hidden" />
+          {/* Taped square paper card — square, grain paper, subtle chrome, with
+              a masking-tape strip at the top center that overhangs the card. */}
+          <div className="relative w-full max-w-[380px]">
+            {/* Masking tape — overhangs the card top-center */}
+            <div
+              className="absolute -top-8 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[130px] h-12 z-10"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(190,180,165,0.85) 0%, rgba(170,160,145,0.85) 100%)",
+                boxShadow:
+                  "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.18), 0 3px 8px rgba(0,0,0,0.28)",
+                clipPath:
+                  "polygon(4% 0, 96% 0, 100% 100%, 0 100%)",
+              }}
+              aria-hidden="true"
+            />
 
-            {/* Caption — handwritten-style, sits in the thick bottom margin */}
-            <div className="absolute bottom-[6%] left-0 right-0 text-center px-4">
-              <p className="font-display text-base md:text-lg text-ink italic">
-                Paige &middot; &rsquo;26
-              </p>
+            {/* Paper card — square, textured, subtle 2d/3d chrome */}
+            <div className="relative aspect-square bg-white grain-paper flex flex-col p-4 md:p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
+              {/* Photo area — dark placeholder for headshot */}
+              <div className="w-full flex-1 bg-[#8a8a8a] overflow-hidden" />
             </div>
           </div>
         </aside>
