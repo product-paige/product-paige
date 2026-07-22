@@ -1577,8 +1577,8 @@ a {
   );
 }
 .folder-tab + .folder-tab {
-  /* Each subsequent tab slips behind the previous one's chamfered corner. */
-  margin-left: -18px;
+  /* Small gap between tabs so each border stays clean; no overlap. */
+  margin-left: 4px;
 }
 .folder-tab {
   /* Inactive + active tabs stay at full opacity — the color IS the state
