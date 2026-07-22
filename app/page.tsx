@@ -484,9 +484,6 @@ export default function Home() {
                             </span>
                           </span>
                         ))}
-                        <span className="text-sm opacity-60">
-                          {project.date}
-                        </span>
                       </div>
                     </div>
                   </div>
