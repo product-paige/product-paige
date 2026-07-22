@@ -428,10 +428,10 @@ export default function Home() {
                   <img
                     src={project.coverImage}
                     alt=""
-                    className="w-full aspect-[3/2] object-cover"
+                    className="w-full aspect-[3/2] object-cover border border-[#1A191E]"
                   />
                 ) : (
-                  <div className="placeholder w-full aspect-[3/2]" />
+                  <div className="placeholder w-full aspect-[3/2] border border-[#1A191E]" />
                 )}
               </div>
             ) : (
@@ -445,11 +445,11 @@ export default function Home() {
                   <img
                     src={project.coverImage}
                     alt=""
-                    className="w-full aspect-[3/2] object-cover transition-opacity group-hover:opacity-90"
+                    className="w-full aspect-[3/2] object-cover border border-[#1A191E] transition-opacity group-hover:opacity-90"
                   />
                 ) : (
                   <div
-                    className="placeholder w-full aspect-[3/2] transition-opacity group-hover:opacity-90"
+                    className="placeholder w-full aspect-[3/2] border border-[#1A191E] transition-opacity group-hover:opacity-90"
                     aria-hidden="true"
                   />
                 )}
