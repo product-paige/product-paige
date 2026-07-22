@@ -1594,8 +1594,8 @@ a {
   );
 }
 .folder-tab + .folder-tab {
-  /* Small gap between tabs so each border stays clean; no overlap. */
-  margin-left: 4px;
+  /* Tabs sit flush against each other, no gap. */
+  margin-left: 0;
 }
 .folder-tab {
   /* Inactive + active tabs stay at full opacity — the color IS the state
