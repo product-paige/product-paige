@@ -29,21 +29,21 @@ export function ClosingCTA({
     >
       <div
         data-section="closing-cta"
-        className="bg-[#1A191E] text-white py-10 px-6 md:py-16 md:px-10 section-chamfer relative grain-vintage flex flex-col md:flex-row md:items-start md:justify-between gap-10"
+        className="bg-[#F3EB88] text-ink py-10 px-6 md:py-16 md:px-10 section-chamfer relative grain-paper flex flex-col md:flex-row md:items-start md:justify-between gap-10"
       >
         <div className="flex flex-col gap-3 max-w-[1000px] flex-1 min-w-0">
-          <h2 className="text-5xl font-display leading-[1.05] text-white">
+          <h2 className="text-5xl font-display leading-[1.05] text-ink">
             {title}
           </h2>
           {body ? (
-            <p className="text-lg leading-[1.4] text-white opacity-80 max-w-[720px]">
+            <p className="text-lg leading-[1.4] text-ink opacity-80 max-w-[720px]">
               {body}
             </p>
           ) : null}
         </div>
         <a href={ctaHref} className="inline-flex btn shrink-0">
-          <span className="btn-text bg-[#0E6BFF] text-white">{ctaLabel}</span>
-          <span className="btn-tab bg-[#0E6BFF] text-white">
+          <span className="btn-text bg-[#1A191E] text-white">{ctaLabel}</span>
+          <span className="btn-tab bg-[#1A191E] text-white">
             <BtnIcons />
           </span>
         </a>
