@@ -2,10 +2,10 @@
 
 @theme inline {
   /* Strict palette (only these colors used for surfaces, accents, borders) */
-  --paper: #f5f0df;
-  --cream: #f0e6d4;
-  --pink-soft: #f0c4cc;
-  --light-blue: #b8d4e8;
+  --paper: #fbfaf6;
+  --cream: #f3eb88;
+  --pink-soft: #f7c8d4;
+  --light-blue: #dbe6eb;
   --mid-blue: #cdb8e3;
   --slate: #1A191E;
   --teal: #0a3a3a;
@@ -897,7 +897,7 @@ body > * {
 
 ::selection {
   background: #1a1a1a;
-  color: #f5f0df;
+  color: #fbfaf6;
 }
 
 /* Folio card variants — chamfered bottom-right corner */
@@ -963,7 +963,7 @@ body > * {
 .card-red { background: #0E6BFF; color: #ffffff; }
 .card-blue-bright { background: #cdb8e3; color: #ffffff; }
 .card-blue-light { background: #DBE6EB; color: #1a1a1a; }
-.card-cream { background: #f0e6d4; color: #1a1a1a; }
+.card-cream { background: #f3eb88; color: #1a1a1a; }
 
 /* Spiral notebook binding — column of shiny silver metal rings down the
    left edge of a .card. Each ring is a radial-gradient donut with a dark
@@ -1010,7 +1010,7 @@ body > * {
 .ticket {
   position: relative;
   display: block;
-  background: var(--cream, #f0e6d4);
+  background: var(--cream, #f3eb88);
   color: #1a1a1a;
   border: 1.5px dashed rgba(26, 26, 26, 0.55);
   padding: 24px;
@@ -1025,7 +1025,7 @@ body > * {
 .ticket-stamp {
   display: inline-block;
   background: #1a1a1a;
-  color: #f5f0df;
+  color: #fbfaf6;
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-size: 11px;
   font-weight: 500;
@@ -1046,7 +1046,7 @@ body > * {
   bottom: -8px;
   height: 16px;
   background:
-    radial-gradient(circle at 8px 8px, transparent 7px, var(--cream, #f0e6d4) 7.5px) 0 0 / 16px 16px;
+    radial-gradient(circle at 8px 8px, transparent 7px, var(--cream, #f3eb88) 7.5px) 0 0 / 16px 16px;
   z-index: -1;
 }
 
@@ -1068,7 +1068,7 @@ body > * {
   font-size: 20px;
   letter-spacing: -0.02em;
   background: #1a1a1a;
-  color: #f5f0df;
+  color: #fbfaf6;
   padding: 4px 10px;
   display: inline-block;
   margin-right: 8px;
@@ -1318,7 +1318,7 @@ body > * {
 /* Inverse pill — paper bg, ink text. Use on dark cards if you want
    the pill to flip and feel like a tag stuck to a board. */
 .pill-light {
-  background: #f5f0df;
+  background: #fbfaf6;
   color: #1a1a1a;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.7),
@@ -1644,7 +1644,7 @@ a {
 /* Image placeholder — architectural cross-out style */
 .placeholder {
   position: relative;
-  background: #f0e6d4;
+  background: #f3eb88;
   border: 1px solid rgba(26, 40, 64, 0.4);
   overflow: hidden;
 }
