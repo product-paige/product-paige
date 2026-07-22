@@ -10,11 +10,11 @@ export function SiteHeader() {
       {/* Logo — always visible (acts as Home) */}
       <a
         href="/"
-        className="pl-6 pr-10 flex items-center"
+        className="px-6 flex items-center"
         aria-label="Product Paige — home"
       >
         <span
-          className="text-[13px] text-ink whitespace-nowrap leading-none uppercase"
+          className="text-[15px] text-ink whitespace-nowrap leading-none uppercase"
           style={{ fontFamily: "var(--font-press-start)" }}
         >
           Product Paige
