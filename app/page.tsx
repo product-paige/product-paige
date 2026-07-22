@@ -373,28 +373,7 @@ export default function Home() {
                 so the landscape image reads first (visual hook) before the
                 copy + CTA. */}
             <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[380px] order-2 md:order-1">
-              {/* Meta strip: role tags as small pills on the left, year on the right */}
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={`${tag}-${i}`}
-                      className="svc-label text-ink"
-                    >
-                      <span
-                        className="svc-label-text"
-                        style={{
-                          backgroundColor: "#D7DBD9",
-                          borderColor: "#1A191E",
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    </span>
-                  ))}
-                </div>
-                <span className="text-sm opacity-60">{project.date}</span>
-              </div>
+              {/* Meta pills moved down to the polaroid caption row (right side). */}
 
               {/* Title group — headline is the kicker's lede (before the em-dash);
                   the remaining sentence becomes the supporting paragraph. */}
@@ -482,12 +461,33 @@ export default function Home() {
                         position:relative on children, so we set position
                         inline to win the cascade. */}
                     <div
-                      className="left-3 md:left-4 right-3 md:right-4 bottom-0 h-10 md:h-14 flex items-center"
+                      className="left-3 md:left-4 right-3 md:right-4 bottom-0 h-10 md:h-14 flex items-center justify-between gap-3"
                       style={{ position: "absolute" }}
                     >
                       <p className="font-display text-lg md:text-xl text-ink italic leading-none">
                         {project.client}
                       </p>
+                      <div className="flex flex-wrap items-center gap-2 justify-end">
+                        {project.tags.map((tag, i) => (
+                          <span
+                            key={`${tag}-${i}`}
+                            className="svc-label text-ink"
+                          >
+                            <span
+                              className="svc-label-text"
+                              style={{
+                                backgroundColor: "#D7DBD9",
+                                borderColor: "#1A191E",
+                              }}
+                            >
+                              {tag}
+                            </span>
+                          </span>
+                        ))}
+                        <span className="text-sm opacity-60">
+                          {project.date}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </>
