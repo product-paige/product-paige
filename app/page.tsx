@@ -365,16 +365,36 @@ export default function Home() {
             role="tabpanel"
             aria-labelledby={`project-tab-${activeProject}`}
             key={project.client}
-            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch"
+            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:max-h-[560px]"
             style={{ backgroundColor: project.bg, color: project.fg }}
           >
             {/* Text column — meta strip up top, big client + kicker in the
                 middle, prominent CTA at the bottom. Order flipped on mobile
                 so the landscape image reads first (visual hook) before the
                 copy + CTA. */}
-            <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[520px] order-2 md:order-1">
-              {/* Meta strip: client + role tags on the left, year on the right */}
-              <PostMeta items={project.tags} right={project.date} />
+            <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[380px] order-2 md:order-1">
+              {/* Meta strip: role tags as small pills on the left, year on the right */}
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  {project.tags.map((tag, i) => (
+                    <span
+                      key={`${tag}-${i}`}
+                      className="svc-label svc-label-sm text-ink"
+                    >
+                      <span
+                        className="svc-label-text"
+                        style={{
+                          backgroundColor: "#D7DBD9",
+                          borderColor: "#1A191E",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    </span>
+                  ))}
+                </div>
+                <span className="text-sm opacity-60">{project.date}</span>
+              </div>
 
               {/* Title group */}
               <div className="flex flex-col gap-3">
