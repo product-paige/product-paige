@@ -35,7 +35,7 @@ const productCategories: Array<{
   {
     name: "Start rough, learn early",
     blurb: "Something real in front of people beats polished guesses.",
-    tone: "card-blue-light",
+    tone: "",
     icon: "cursor",
     iconBg: "#1A191E",
     iconFg: "#ffffff",
@@ -43,7 +43,7 @@ const productCategories: Array<{
   {
     name: "Clear before pretty",
     blurb: "Structure and words first. The visual comes once it makes sense.",
-    tone: "card-blue-light",
+    tone: "",
     icon: "target",
     iconBg: "#1A191E",
     iconFg: "#ffffff",
@@ -51,7 +51,7 @@ const productCategories: Array<{
   {
     name: "Use good tools",
     blurb: "Good tools quiet the busywork. That leaves room for the hard part.",
-    tone: "card-blue-light",
+    tone: "",
     icon: "sparkleA",
     iconBg: "#1A191E",
     iconFg: "#ffffff",
@@ -59,7 +59,7 @@ const productCategories: Array<{
   {
     name: "Say less, mean more",
     blurb: "Fewer words. Sharper story. Lands in one read.",
-    tone: "card-blue-light",
+    tone: "",
     icon: "megaphone",
     iconBg: "#1A191E",
     iconFg: "#ffffff",
@@ -122,7 +122,7 @@ const recentWork: Array<{
   blurb: p.kicker,
   date: `${p.year}`,
   tags: p.role.split(/[+&]/).map((t) => t.trim()),
-  bg: "#FAF7D0",
+  bg: "#FBFAF6",
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
@@ -488,6 +488,7 @@ export default function Home() {
               blurb={c.blurb}
               icon={c.icon}
               tone={c.tone}
+              className="bg-[#D7DBD9] shadow-[inset_0_0_0_1px_#1A191E]"
             />
           ))}
         </div>

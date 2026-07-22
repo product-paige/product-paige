@@ -227,12 +227,6 @@ html {
   position: relative;
   z-index: 1;
 }
-/* Project folder tabs + panel run a lighter grain so the base yellow
-   (#FFFDDB) reads accurately rather than being darkened by multiply. */
-.folder-tab.grain-paper::after,
-.folder-panel.grain-paper::after {
-  opacity: 0.15;
-}
 
 /* Horizontal section divider — full-width rule that runs edge-to-edge,
    crossing UNDER the vertical page borders. Same two-tone bevel. */
