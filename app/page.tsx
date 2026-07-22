@@ -396,15 +396,24 @@ export default function Home() {
                 <span className="text-sm opacity-60">{project.date}</span>
               </div>
 
-              {/* Title group */}
-              <div className="flex flex-col gap-3">
-                <h3 className="text-section font-display text-ink max-w-[14ch]">
-                  {project.client}
-                </h3>
-                <p className="text-lg leading-[1.4] opacity-80 max-w-[440px]">
-                  {project.blurb}
-                </p>
-              </div>
+              {/* Title group — headline is the kicker's lede (before the em-dash);
+                  the remaining sentence becomes the supporting paragraph. */}
+              {(() => {
+                const [headline, ...rest] = project.blurb.split(" — ");
+                const body = rest.join(" — ");
+                return (
+                  <div className="flex flex-col gap-3">
+                    <h3 className="text-section font-display text-ink max-w-[18ch]">
+                      {headline}
+                    </h3>
+                    {body ? (
+                      <p className="text-lg leading-[1.4] opacity-80 max-w-[440px]">
+                        {body}
+                      </p>
+                    ) : null}
+                  </div>
+                );
+              })()}
 
               {/* Prominent CTA — hidden for coming-soon projects,
                   replaced with a static badge. */}
@@ -455,7 +464,7 @@ export default function Home() {
                     aria-hidden="true"
                   />
                   {/* White paper card with grain + 2d/3d chrome */}
-                  <div className="relative w-full h-full bg-white grain-paper flex flex-col p-3 md:p-4 pb-12 md:pb-16 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
+                  <div className="relative w-full h-full bg-white grain-paper flex flex-col p-3 md:p-4 pb-8 md:pb-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
                     {project.coverImage ? (
                       <img
                         src={project.coverImage}
@@ -472,10 +481,10 @@ export default function Home() {
                         `.grain-paper > *` forces position:relative on children,
                         so we set position:absolute inline to win the cascade. */}
                     <div
-                      className="bottom-3 md:bottom-5 left-3 md:left-4"
+                      className="bottom-2 md:bottom-3 left-3 md:left-4"
                       style={{ position: "absolute" }}
                     >
-                      <p className="font-display text-2xl md:text-3xl text-ink italic leading-none">
+                      <p className="font-display text-lg md:text-xl text-ink italic leading-none">
                         {project.client}
                       </p>
                     </div>
