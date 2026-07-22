@@ -503,12 +503,12 @@ export default function Home() {
       >
         {/* Left column — bg image fills column, poster frame layered on top. */}
         <aside
-          className="relative min-h-[400px] bg-cover bg-center order-2 md:order-1"
+          className="relative min-h-[500px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16"
           style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           aria-label="About — portrait"
         >
           {/* Poster frame — gray headshot placeholder with yellow border overlay */}
-          <div className="relative w-full h-full min-h-[400px] bg-[#8a8a8a] overflow-hidden">
+          <div className="relative w-full h-full min-h-[360px] bg-[#8a8a8a] overflow-hidden">
             {/* Yellow poster border */}
             <div className="pointer-events-none absolute inset-0 border-[6px] border-[#F3EB88] rounded-[20px]" />
 

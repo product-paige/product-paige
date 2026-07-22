@@ -16,9 +16,9 @@ export function SiteHeader() {
         <img
           src="/logo.svg"
           alt="Product Paige"
-          width={184}
-          height={36}
-          className="h-9 w-auto"
+          width={143}
+          height={28}
+          className="h-7 w-auto"
         />
       </a>
 

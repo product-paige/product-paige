@@ -1558,10 +1558,16 @@ a {
   transition: opacity 200ms ease;
   /* Same paper/editorial treatment as .svc-label — top highlight + bottom
      shadow read as a printed folder tab. Inset shadows are clipped by
-     clip-path so they trace the chamfered edge. */
+     clip-path so they trace the chamfered edge. drop-shadow stack
+     approximates a 1px ink border that follows the chamfer. */
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.22),
     inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  filter:
+    drop-shadow(1px 0 0 #1A191E)
+    drop-shadow(-1px 0 0 #1A191E)
+    drop-shadow(0 1px 0 #1A191E)
+    drop-shadow(0 -1px 0 #1A191E);
   clip-path: polygon(
     0 0,
     calc(100% - 18px) 0,
