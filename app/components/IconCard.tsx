@@ -41,14 +41,14 @@ export function IconCard({
   tone = "card-blue-light",
   className = "",
 }: IconCardProps) {
-  const shared = `card ${tone} flex flex-col gap-8 !min-h-0 md:!min-h-[280px] ${className}`.trim();
+  const shared = `card ${tone} flex flex-col justify-between gap-8 !min-h-0 md:!min-h-[280px] ${className}`.trim();
 
   const body = (
     <>
       <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white">
         <PixelIcon name={icon} color="#ffffff" size={24} />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         <h3 className="text-xl">{name}</h3>
         <p
           className="text-base leading-[1.4] opacity-80"
