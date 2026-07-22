@@ -438,10 +438,10 @@ export default function HomeV3() {
                 {capabilities[activeCap].blurb}
               </p>
               <a href="#services" className="btn self-start">
-                <span className="btn-text bg-[#E63946] text-white">
+                <span className="btn-text bg-[#0E6BFF] text-white">
                   Explore services
                 </span>
-                <span className="btn-tab bg-[#E63946] text-white">
+                <span className="btn-tab bg-[#0E6BFF] text-white">
                   <BtnIcons />
                 </span>
               </a>
@@ -581,7 +581,7 @@ export default function HomeV3() {
       <section
         id="newsletter"
         data-section="newsletter"
-        className="bg-[#E63946] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative"
+        className="bg-[#0E6BFF] text-white px-8 md:px-14 lg:px-16 py-16 m-6 section-chamfer relative"
       >
         <SectionRail>
           Prompt from Paige · Notes · MMXXVI
