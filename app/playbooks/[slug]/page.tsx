@@ -278,10 +278,10 @@ export default function PlaybookPage({
                   className="bg-white/15 text-white placeholder:text-white/60 px-4 py-3 focus:outline-none focus:bg-white/25 border border-white/30"
                 />
                 <button type="submit" className="btn self-start">
-                  <span className="btn-text bg-[#0E6BFF] text-white">
+                  <span className="btn-text bg-[#F3EB88] text-ink">
                     Subscribe
                   </span>
-                  <span className="btn-tab bg-[#0E6BFF] text-white">
+                  <span className="btn-tab bg-[#F3EB88] text-ink">
                     <BtnIcons />
                   </span>
                 </button>

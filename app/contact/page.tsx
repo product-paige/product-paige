@@ -133,14 +133,14 @@ function ContactForm() {
         disabled={status === "sending" || status === "sent"}
         className="inline-flex btn self-start mt-1 disabled:opacity-60"
       >
-        <span className="btn-text bg-[#0E6BFF] text-white">
+        <span className="btn-text bg-[#F3EB88] text-ink">
           {status === "sending"
             ? "Sending…"
             : status === "sent"
               ? "Sent — thanks."
               : "Send it"}
         </span>
-        <span className="btn-tab bg-[#0E6BFF] text-white">
+        <span className="btn-tab bg-[#F3EB88] text-ink">
           <BtnIcons />
         </span>
       </button>
