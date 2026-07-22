@@ -319,7 +319,7 @@ html {
    scoped to any surface. Pair with white text for readability. */
 /* light-blue grid for cards */
 .grid-bg {
-  background-color: #DBE6EB;
+  background-color: #DEDCCD;
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.65) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.65) 1px, transparent 1px),

@@ -121,14 +121,8 @@ const recentWork: Array<{
   blurb: p.kicker,
   date: `${p.year}`,
   tags: p.role.split(/[+&]/).map((t) => t.trim()),
-  bg: p.coverBg,
-  fg:
-    p.coverBg === "#f3eb88" ||
-    p.coverBg === "#DBE6EB" ||
-    p.coverBg === "#cdb8e3" ||
-    p.coverBg === "#f7c8d4"
-      ? "#1a1a1a"
-      : "#ffffff",
+  bg: "#DEDCCD",
+  fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
 }));
@@ -509,32 +503,14 @@ export default function Home() {
       >
         {/* Left column — bg image fills column, poster frame layered on top. */}
         <aside
-          className="relative min-h-[400px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16"
+          className="relative min-h-[400px] bg-cover bg-center order-2 md:order-1"
           style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           aria-label="About — portrait"
         >
           {/* Poster frame — gray headshot placeholder with yellow border overlay */}
-          <div className="relative w-full h-full min-h-[360px] bg-[#8a8a8a] overflow-hidden">
+          <div className="relative w-full h-full min-h-[400px] bg-[#8a8a8a] overflow-hidden">
             {/* Yellow poster border */}
             <div className="pointer-events-none absolute inset-0 border-[6px] border-[#F3EB88] rounded-[20px]" />
-
-            {/* Top-left title chip */}
-            <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-[#F3EB88] rounded-lg px-4 py-2 md:px-5 md:py-2.5">
-              <span className="font-sans font-bold text-lg md:text-2xl tracking-tight text-ink leading-none">
-                PAIGE &rsquo;26
-              </span>
-            </div>
-
-            {/* Placeholder middle text */}
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6">
-              <p className="text-4xl md:text-5xl font-display text-[#F3EB88] text-center leading-none tracking-[-1px]">
-                Notes
-                <br />
-                from
-                <br />
-                the field
-              </p>
-            </div>
 
             {/* Bottom-left date chip */}
             <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-[#F3EB88] rounded-lg px-4 py-2 md:px-5 md:py-2.5">
