@@ -1504,6 +1504,10 @@ a {
    smaller font, meant to sit next to body copy. */
 .svc-label.svc-label-sm { font-size: 11px; }
 .svc-label.svc-label-sm .svc-label-text { padding: 5px 8px; }
+/* Large chip variant — used on the homepage practice-area row. Roomier
+   padding so the chips read as first-class hero content, not meta chips. */
+.svc-label.svc-label-lg .svc-label-text { padding: 10px 14px; }
+.svc-label.svc-label-lg .svc-label-tab { width: 34px; }
 .svc-label-text,
 .svc-label-tab {
   /* Static 3D button styling — no hover since these aren't buttons. */

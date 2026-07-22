@@ -201,7 +201,7 @@ export default function Home() {
         <ul className="flex flex-wrap gap-3">
           {services.map((s) => (
             <li key={s.name}>
-              <span className="svc-label" style={{ color: s.fg }}>
+              <span className="svc-label svc-label-lg" style={{ color: s.fg }}>
                 <span
                   className="svc-label-text"
                   style={{ backgroundColor: s.bg, borderColor: s.fg }}
