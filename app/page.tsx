@@ -153,7 +153,7 @@ const heroFloatingCards: Array<{
       variant: "shopify",
       price: "$24",
     },
-    position: { top: "4%", right: "8%" },
+    position: { top: "4%", right: "3%" },
     rotate: "3deg",
     widthClass: "w-52",
   },
@@ -172,7 +172,7 @@ const heroFloatingCards: Array<{
     // Up + right; larger + placeholder image for a stronger left-side
     // counterweight to the Paige card at bottom-right.
     card: { title: "Organic Moderne", image: "" },
-    position: { top: "14%", left: "6%" },
+    position: { top: "8%", left: "6%" },
     rotate: "-6deg",
     widthClass: "w-72",
   },
