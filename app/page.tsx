@@ -145,13 +145,13 @@ const heroFloatingCards: Array<{
   widthClass: string;
 }> = [
   {
-    // Fully-visible centerpiece, pushed up toward the top.
+    // Top area, pushed further right.
     card: {
       title: "Rinse Body Wash",
       variant: "shopify",
       price: "$24",
     },
-    position: { top: "4%", left: "26%" },
+    position: { top: "4%", right: "8%" },
     rotate: "3deg",
     widthClass: "w-52",
   },
@@ -167,14 +167,16 @@ const heroFloatingCards: Array<{
     widthClass: "w-48",
   },
   {
+    // Up more and to the right (less clipping).
     card: { title: "Organic Moderne" },
-    position: { top: "36%", left: "-8%" },
+    position: { top: "18%", left: "-4%" },
     rotate: "-6deg",
     widthClass: "w-44",
   },
   {
+    // Down above the yellow "Hi I'm Paige" card.
     card: { title: "Onboarding is a promise" },
-    position: { top: "6%", right: "-8%" },
+    position: { bottom: "32%", right: "2%" },
     rotate: "5deg",
     widthClass: "w-44",
   },
@@ -194,7 +196,7 @@ function HeroFloatingCard({
   const [hovered, setHovered] = useState(false);
   return (
     <div
-      className={`absolute ${widthClass} rounded-lg border border-[#1A191E]/15 bg-white overflow-hidden transition-transform duration-500 shadow-[0_10px_24px_rgba(0,0,0,0.18)]`}
+      className={`absolute ${widthClass} rounded-lg bg-white overflow-hidden transition-transform duration-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_10px_24px_rgba(0,0,0,0.18)]`}
       style={{
         ...position,
         transform: hovered
@@ -218,9 +220,11 @@ function HeroFloatingCard({
           ) : (
             <div className="w-full aspect-square bg-[#D7DBD9]" />
           )}
-          <p className="absolute bottom-2 left-2.5 right-2.5 font-display italic text-sm text-ink leading-none">
-            {card.title}
-          </p>
+          <div className="absolute left-2.5 right-2.5 bottom-0 h-10 flex items-center">
+            <p className="font-display italic text-sm text-ink leading-none">
+              {card.title}
+            </p>
+          </div>
         </div>
       ) : card.variant === "shopify" ? (
         <>
