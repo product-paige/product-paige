@@ -837,7 +837,7 @@ export default function Home() {
           <span className="type-eyebrow">Notes</span>
           <div className="flex flex-wrap items-start justify-between gap-6">
             <h2 className="text-section font-display text-ink max-w-[20ch]">
-              Short reads on clarity, positioning, and UX
+              From the notebook
             </h2>
             <a href="/blog" className="inline-flex btn shrink-0">
               <span className="btn-text bg-[#1A191E] text-white">
