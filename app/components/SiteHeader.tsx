@@ -14,7 +14,7 @@ export function SiteHeader() {
         aria-label="Product Paige — home"
       >
         <span
-          className="text-[13px] text-ink whitespace-nowrap leading-none"
+          className="text-[13px] text-ink whitespace-nowrap leading-none uppercase"
           style={{ fontFamily: "var(--font-press-start)" }}
         >
           Product Paige
