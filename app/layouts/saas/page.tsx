@@ -158,10 +158,10 @@ export default function SaasLayout() {
                 href="/contact"
                 className="inline-flex btn"
               >
-                <span className="btn-text bg-[#F3EB88] text-ink">
+                <span className="btn-text bg-[#0E6BFF] text-white">
                   Let's talk
                 </span>
-                <span className="btn-tab bg-[#F3EB88] text-ink">
+                <span className="btn-tab bg-[#0E6BFF] text-white">
                   <BtnIcons />
                 </span>
               </a>
@@ -425,10 +425,10 @@ export default function SaasLayout() {
             href="mailto:hello@productpaige.com?subject=Request"
             className="inline-flex btn"
           >
-            <span className="btn-text bg-[#F3EB88] text-ink">
+            <span className="btn-text bg-[#0E6BFF] text-white">
               Request a project
             </span>
-            <span className="btn-tab bg-[#F3EB88] text-ink">
+            <span className="btn-tab bg-[#0E6BFF] text-white">
               <BtnIcons />
             </span>
           </a>

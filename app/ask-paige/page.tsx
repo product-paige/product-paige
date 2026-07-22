@@ -128,10 +128,10 @@ export default function AskPaigePage() {
                 href="/contact?topic=ask-paige"
                 className="inline-flex btn"
               >
-                <span className="btn-text bg-[#F3EB88] text-ink">
+                <span className="btn-text bg-[#0E6BFF] text-white">
                   Book a session
                 </span>
-                <span className="btn-tab bg-[#F3EB88] text-ink">
+                <span className="btn-tab bg-[#0E6BFF] text-white">
                   <BtnIcons />
                 </span>
               </a>

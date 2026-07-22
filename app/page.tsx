@@ -354,10 +354,10 @@ export default function Home() {
               href="/contact"
               className="inline-flex btn self-start"
             >
-              <span className="btn-text bg-[#F3EB88] text-ink">
+              <span className="btn-text bg-[#0E6BFF] text-white">
                 Let's talk
               </span>
-              <span className="btn-tab bg-[#F3EB88] text-ink">
+              <span className="btn-tab bg-[#0E6BFF] text-white">
                 <BtnIcons />
               </span>
             </a>
@@ -470,10 +470,10 @@ export default function Home() {
                 }}
               />
               <a href="/services" className="inline-flex btn self-start">
-                <span className="btn-text bg-[#F3EB88] text-ink">
+                <span className="btn-text bg-[#0E6BFF] text-white">
                   Explore services
                 </span>
-                <span className="btn-tab bg-[#F3EB88] text-ink">
+                <span className="btn-tab bg-[#0E6BFF] text-white">
                   <BtnIcons />
                 </span>
               </a>

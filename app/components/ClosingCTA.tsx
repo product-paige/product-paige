@@ -42,8 +42,8 @@ export function ClosingCTA({
           ) : null}
         </div>
         <a href={ctaHref} className="inline-flex btn shrink-0">
-          <span className="btn-text bg-[#F3EB88] text-ink">{ctaLabel}</span>
-          <span className="btn-tab bg-[#F3EB88] text-ink">
+          <span className="btn-text bg-[#0E6BFF] text-white">{ctaLabel}</span>
+          <span className="btn-tab bg-[#0E6BFF] text-white">
             <BtnIcons />
           </span>
         </a>
