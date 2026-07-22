@@ -160,10 +160,10 @@ export default function ServicesPage() {
               href="/contact"
               className="inline-flex btn self-start"
             >
-              <span className="btn-text bg-[#0E6BFF] text-white">
+              <span className="btn-text bg-[#E63946] text-white">
                 Let's talk
               </span>
-              <span className="btn-tab bg-[#0E6BFF] text-white">
+              <span className="btn-tab bg-[#E63946] text-white">
                 <BtnIcons />
               </span>
             </a>

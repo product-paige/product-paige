@@ -227,10 +227,10 @@ export default function PortfolioLayout() {
           href="/contact"
           className="inline-flex btn"
         >
-          <span className="btn-text bg-[#0E6BFF] text-white">
+          <span className="btn-text bg-[#E63946] text-white">
             Contact me
           </span>
-          <span className="btn-tab bg-[#0E6BFF] text-white">
+          <span className="btn-tab bg-[#E63946] text-white">
             <BtnIcons />
           </span>
         </a>
