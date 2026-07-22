@@ -46,7 +46,7 @@ export function IconCard({
   const body = (
     <>
       <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white">
-        <PixelIcon name={icon} color="#ffffff" size={24} />
+        <PixelIcon name={icon} color="#ffffff" size={28} />
       </div>
       <div className="flex flex-col gap-1">
         <h3 className="text-xl">{name}</h3>

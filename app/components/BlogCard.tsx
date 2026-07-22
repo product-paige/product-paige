@@ -20,7 +20,7 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <a
       href={`/blog/${post.slug}`}
-      className="card grain-off bg-white text-ink shadow-[inset_0_0_0_1px_#B8BCBA] flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
+      className="card grain-off bg-[#DBE6EB] text-ink flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
     >
       <div className="flex items-center justify-between gap-2">
         <span className="svc-label text-ink">
