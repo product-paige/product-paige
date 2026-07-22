@@ -292,10 +292,10 @@ export default function Home() {
         className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Portfolio</span>
+          <span className="type-eyebrow">Recent work</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="text-section font-display text-ink max-w-[24ch]">
-              Selected work
+              Projects in flight
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
               A mix of product audits, UX work, and personal projects. All in
@@ -376,8 +376,8 @@ export default function Home() {
                 so the landscape image reads first (visual hook) before the
                 copy + CTA. */}
             <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[520px] order-2 md:order-1">
-              {/* Meta strip: year on the left, role tags on the right */}
-              <PostMeta items={project.tags} right={project.date} />
+              {/* Meta strip: client + role tags on the left, year on the right */}
+              <PostMeta items={[project.client, ...project.tags]} right={project.date} />
 
               {/* Title group */}
               <div className="flex flex-col gap-3">
@@ -507,19 +507,18 @@ export default function Home() {
         data-section="about"
         className="grid md:grid-cols-2 items-stretch section-border-b min-h-[440px] md:min-h-[560px]"
       >
-        {/* Left column — poster-style frame around portrait bg image. */}
+        {/* Left column — bg image fills column, poster frame layered on top. */}
         <aside
-          className="relative min-h-[400px] p-6 md:p-16 order-2 md:order-1"
+          className="relative min-h-[400px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16"
+          style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           aria-label="About — portrait"
         >
-          <div
-            className="relative w-full h-full min-h-[360px] bg-cover bg-center overflow-hidden"
-            style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
-          >
+          {/* Poster frame — gray headshot placeholder with yellow border overlay */}
+          <div className="relative w-full h-full min-h-[360px] bg-[#8a8a8a] overflow-hidden">
             {/* Yellow poster border */}
             <div className="pointer-events-none absolute inset-0 border-[6px] border-[#F3EB88] rounded-[20px]" />
 
-            {/* Top-left title chip — sits on the border seam */}
+            {/* Top-left title chip */}
             <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-[#F3EB88] rounded-lg px-4 py-2 md:px-5 md:py-2.5">
               <span className="font-sans font-bold text-lg md:text-2xl tracking-tight text-ink leading-none">
                 PAIGE &rsquo;26
@@ -549,9 +548,9 @@ export default function Home() {
         {/* Right column — eyebrow + h2 at top, bio at bottom, filling the column height */}
         <div className="p-6 md:p-10 flex flex-col gap-10 justify-between order-1 md:order-2 md:divider-indent-left">
           <div className="flex flex-col gap-10">
-            <span className="type-eyebrow">About me</span>
-            <h2 className="text-section font-display text-ink max-w-[10ch]">
-              I&rsquo;m Paige
+            <span className="type-eyebrow">About</span>
+            <h2 className="text-section font-display text-ink max-w-[18ch]">
+              Half product marketer, half UX designer
             </h2>
           </div>
           <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
