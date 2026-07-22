@@ -717,6 +717,24 @@ export default function Home() {
 
       
 
+      {/* Chapter break — architectural section transition between Recent Work
+          and How I Work. Full-width yellow slice with a big section number,
+          replaces the flat section-border-b line. */}
+      <div
+        data-section="chapter-break"
+        className="bg-[#F3EB88] grain-paper relative flex items-center justify-between px-6 md:px-10 py-6 md:py-8 section-border-b"
+      >
+        <span
+          className="font-display text-5xl md:text-7xl leading-none text-ink"
+          style={{ letterSpacing: "-2px" }}
+        >
+          05
+        </span>
+        <span className="type-eyebrow !bg-transparent !border-l-0 !border-r-0 !px-0 !py-0 text-xs md:text-sm tracking-[0.2em] uppercase">
+          How I work
+        </span>
+      </div>
+
       {/* === CATEGORIES — working-style copy + product-category cards + tools === */}
       <section
         id="categories"

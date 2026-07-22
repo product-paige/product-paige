@@ -41,7 +41,7 @@ export function IconCard({
   tone = "card-blue-light",
   className = "",
 }: IconCardProps) {
-  const shared = `card ${tone} flex flex-col justify-between gap-8 !min-h-0 md:!min-h-[280px] ${className}`.trim();
+  const shared = `card grain-off ${tone} flex flex-col justify-between gap-8 !min-h-0 md:!min-h-[280px] ${className}`.trim();
 
   const body = (
     <>
