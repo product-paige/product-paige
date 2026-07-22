@@ -23,11 +23,11 @@ export function BlogCard({ post }: BlogCardProps) {
       className="card grain-paper bg-[#DEDCCD] text-ink flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
     >
       <div className="flex items-center justify-between gap-2">
-        <span className="svc-label" style={{ color: "#ffffff" }}>
+        <span className="svc-label text-ink">
           <span
             className="svc-label-text"
             style={{
-              backgroundColor: "#1A191E",
+              backgroundColor: "#C3C9C7",
               borderColor: "#1A191E",
             }}
           >

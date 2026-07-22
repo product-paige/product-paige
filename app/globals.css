@@ -1653,11 +1653,11 @@ a {
   .masthead-track { animation: none; }
 }
 
-/* Image placeholder — solid dark slab */
+/* Image placeholder — soft sage-gray slab */
 .placeholder {
   position: relative;
-  background: #1A191E;
-  border: 1px solid rgba(26, 25, 30, 0.6);
+  background: #C3C9C7;
+  border: 1px solid rgba(26, 25, 30, 0.35);
   overflow: hidden;
 }
 .placeholder > * {

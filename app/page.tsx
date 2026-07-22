@@ -17,11 +17,11 @@ const services: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "ecommerce UX",              bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
-  { name: "conversion design",         bg: "#D6D7D9", fg: "#1A191E", icon: "cursor" },
-  { name: "positioning + messaging",   bg: "#D6D7D9", fg: "#1A191E", icon: "megaphone" },
-  { name: "AI content design",         bg: "#D6D7D9", fg: "#1A191E", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#D6D7D9", fg: "#1A191E", icon: "target" },
+  { name: "ecommerce UX",              bg: "#C3C9C7", fg: "#1A191E", icon: "browser" },
+  { name: "conversion design",         bg: "#C3C9C7", fg: "#1A191E", icon: "cursor" },
+  { name: "positioning + messaging",   bg: "#C3C9C7", fg: "#1A191E", icon: "megaphone" },
+  { name: "AI content design",         bg: "#C3C9C7", fg: "#1A191E", icon: "sparkleA" },
+  { name: "product strategy",          bg: "#C3C9C7", fg: "#1A191E", icon: "target" },
 ];
 
 const productCategories: Array<{
@@ -95,13 +95,13 @@ const tools: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "Figma",   bg: "#D6D7D9", fg: "#1A191E", icon: "cursor" },
-  { name: "Claude",  bg: "#D6D7D9", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Cursor",  bg: "#D6D7D9", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Lovable", bg: "#D6D7D9", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Paper",   bg: "#D6D7D9", fg: "#1A191E", icon: "door" },
-  { name: "Shopify", bg: "#D6D7D9", fg: "#1A191E", icon: "browser" },
-  { name: "Notion",  bg: "#D6D7D9", fg: "#1A191E", icon: "door" },
+  { name: "Figma",   bg: "#C3C9C7", fg: "#1A191E", icon: "cursor" },
+  { name: "Claude",  bg: "#C3C9C7", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Cursor",  bg: "#C3C9C7", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Lovable", bg: "#C3C9C7", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Paper",   bg: "#C3C9C7", fg: "#1A191E", icon: "door" },
+  { name: "Shopify", bg: "#C3C9C7", fg: "#1A191E", icon: "browser" },
+  { name: "Notion",  bg: "#C3C9C7", fg: "#1A191E", icon: "door" },
 ];
 
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
@@ -121,7 +121,7 @@ const recentWork: Array<{
   blurb: p.kicker,
   date: `${p.year}`,
   tags: p.role.split(/[+&]/).map((t) => t.trim()),
-  bg: "#FFFDDB",
+  bg: "#FAF7D0",
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
@@ -390,7 +390,7 @@ export default function Home() {
                   <span
                     className="svc-label-text"
                     style={{
-                      backgroundColor: "#D6D7D9",
+                      backgroundColor: "#C3C9C7",
                       borderColor: "#1A191E",
                     }}
                   >
@@ -526,8 +526,8 @@ export default function Home() {
 
             {/* Paper card — square, textured, subtle 2d/3d chrome */}
             <div className="relative aspect-square bg-white grain-paper flex flex-col p-4 md:p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
-              {/* Photo area — dark placeholder for headshot */}
-              <div className="w-full flex-1 bg-[#8a8a8a] overflow-hidden" />
+              {/* Photo area — sage placeholder for headshot */}
+              <div className="w-full flex-1 bg-[#C3C9C7] overflow-hidden" />
             </div>
           </div>
         </aside>
