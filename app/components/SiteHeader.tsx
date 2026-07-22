@@ -13,13 +13,12 @@ export function SiteHeader() {
         className="pl-6 pr-10 flex items-center"
         aria-label="Product Paige — home"
       >
-        <img
-          src="/logo.png"
-          alt="Product Paige"
-          width={26}
-          height={38}
-          className="h-9 w-auto"
-        />
+        <span
+          className="text-[13px] text-ink whitespace-nowrap leading-none"
+          style={{ fontFamily: "var(--font-press-start)" }}
+        >
+          Product Paige
+        </span>
       </a>
 
       {/* Primary nav — ordered to match the homepage narrative
