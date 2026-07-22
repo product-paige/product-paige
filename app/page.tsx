@@ -186,7 +186,7 @@ const heroFloatingCards: Array<{
         "Shipped in two weeks what we'd been debating for six months. No politics, no deck-thick proposal — just the work.",
       photoBg: "#3a2418",
     },
-    position: { bottom: "22%", right: "6%" },
+    position: { top: "36%", left: "34%" },
     rotate: "5deg",
     widthClass: "w-44",
   },
@@ -206,7 +206,7 @@ function HeroFloatingCard({
   const [hovered, setHovered] = useState(false);
   return (
     <div
-      className={`absolute ${widthClass} ${card.variant === "shopify" ? "rounded-md" : ""} bg-white overflow-hidden transition-transform duration-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_10px_24px_rgba(0,0,0,0.18)]`}
+      className={`absolute ${widthClass} ${card.variant === "shopify" ? "rounded-md overflow-hidden" : ""} bg-white transition-transform duration-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_10px_24px_rgba(0,0,0,0.18)]`}
       style={{
         ...position,
         transform: hovered
@@ -220,6 +220,18 @@ function HeroFloatingCard({
     >
       {card.variant === "testimonial" ? (
         <div className="relative bg-white p-2.5 pb-8">
+          {/* Paperclip — clipped over the top-center of the card */}
+          <div
+            className="absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-9 rotate-[8deg] z-20"
+            aria-hidden="true"
+            style={{
+              background:
+                "linear-gradient(180deg, #c9c9d0 0%, #7d7d85 45%, #b1b1b8 100%)",
+              clipPath:
+                "polygon(50% 0, 100% 12%, 100% 100%, 60% 90%, 20% 100%, 0 12%)",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.35)",
+            }}
+          />
           <div
             className="relative w-full aspect-[3/4] flex flex-col justify-between p-3 text-white"
             style={{
@@ -247,6 +259,18 @@ function HeroFloatingCard({
         </div>
       ) : card.variant === "polaroid" ? (
         <div className="relative bg-white pt-2.5 px-2.5 pb-10">
+          {/* Masking tape overhanging the top */}
+          <div
+            className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-[4deg] w-16 h-5 z-20"
+            aria-hidden="true"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(190,180,165,0.85) 0%, rgba(170,160,145,0.85) 100%)",
+              boxShadow:
+                "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.18), 0 2px 5px rgba(0,0,0,0.28)",
+              clipPath: "polygon(4% 0, 96% 0, 100% 100%, 0 100%)",
+            }}
+          />
           {card.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
