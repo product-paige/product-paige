@@ -14,8 +14,10 @@ export function SiteHeader() {
         aria-label="Product Paige — home"
       >
         <img
-          src="/logo.svg"
+          src="/logo.png"
           alt="Product Paige"
+          width={26}
+          height={38}
           className="h-9 w-auto"
         />
       </a>

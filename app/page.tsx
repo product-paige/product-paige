@@ -134,7 +134,7 @@ const recentWork: Array<{
 type HeroCard = {
   title: string;
   image?: string;
-  variant?: "default" | "shopify";
+  variant?: "default" | "shopify" | "polaroid";
   price?: string;
 };
 
@@ -145,32 +145,38 @@ const heroFloatingCards: Array<{
   widthClass: string;
 }> = [
   {
-    card: { title: "Backspace Body", image: "/backspace-body-cover.jpg" },
-    position: { top: "6%", left: "-4%" },
-    rotate: "-6deg",
-    widthClass: "w-52",
-  },
-  {
+    // Fully-visible centerpiece, no negative offsets.
     card: {
       title: "Rinse Body Wash",
       variant: "shopify",
       price: "$24",
     },
-    position: { top: "8%", right: "-6%" },
-    rotate: "5deg",
+    position: { top: "22%", left: "28%" },
+    rotate: "3deg",
+    widthClass: "w-52",
+  },
+  {
+    // Bottom-right corner, partly clipped and slipping behind the Paige card.
+    card: {
+      title: "Backspace Body",
+      image: "/backspace-body-cover.jpg",
+      variant: "polaroid",
+    },
+    position: { bottom: "-8%", right: "-6%" },
+    rotate: "6deg",
     widthClass: "w-48",
   },
   {
     card: { title: "Organic Moderne" },
-    position: { top: "44%", left: "-6%" },
-    rotate: "4deg",
-    widthClass: "w-48",
+    position: { top: "8%", left: "-8%" },
+    rotate: "-6deg",
+    widthClass: "w-44",
   },
   {
     card: { title: "Onboarding is a promise" },
-    position: { top: "40%", right: "-3%" },
-    rotate: "-4deg",
-    widthClass: "w-52",
+    position: { top: "10%", right: "-6%" },
+    rotate: "5deg",
+    widthClass: "w-44",
   },
 ];
 
@@ -200,7 +206,23 @@ function HeroFloatingCard({
       onMouseLeave={() => setHovered(false)}
       aria-hidden="true"
     >
-      {card.variant === "shopify" ? (
+      {card.variant === "polaroid" ? (
+        <div className="relative bg-white pt-2.5 px-2.5 pb-10">
+          {card.image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={card.image}
+              alt=""
+              className="w-full aspect-square object-cover"
+            />
+          ) : (
+            <div className="w-full aspect-square bg-[#D7DBD9]" />
+          )}
+          <p className="absolute bottom-2 left-2.5 right-2.5 font-display italic text-sm text-ink leading-none">
+            {card.title}
+          </p>
+        </div>
+      ) : card.variant === "shopify" ? (
         <>
           <div className="w-full aspect-square bg-[#D7DBD9]" />
           <div className="p-3 flex flex-col gap-1.5">
