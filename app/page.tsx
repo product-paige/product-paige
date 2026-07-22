@@ -363,7 +363,8 @@ export default function Home() {
             </a>
           </div>
           <aside
-            className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-[#F2ECDD] grain-paper overflow-hidden"
+            className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center overflow-hidden"
+            style={{ backgroundImage: "url('/hero-alt-2.jpg')" }}
           >
             {/* Floating cards — layered over the bg image, clipped to the
                 column via overflow-hidden. Desktop only. */}
