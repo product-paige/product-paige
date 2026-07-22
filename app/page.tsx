@@ -464,7 +464,7 @@ export default function Home() {
                     aria-hidden="true"
                   />
                   {/* White paper card with grain + 2d/3d chrome */}
-                  <div className="relative w-full h-full bg-white grain-paper flex flex-col p-3 md:p-4 pb-8 md:pb-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
+                  <div className="relative w-full h-full bg-white grain-paper flex flex-col p-3 md:p-4 pb-10 md:pb-14 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
                     {project.coverImage ? (
                       <img
                         src={project.coverImage}
