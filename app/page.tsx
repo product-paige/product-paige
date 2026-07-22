@@ -167,16 +167,18 @@ const heroFloatingCards: Array<{
     widthClass: "w-48",
   },
   {
-    // Up + right; larger for a stronger left-side counterweight.
-    card: { title: "Organic Moderne" },
-    position: { top: "16%", left: "-4%" },
+    // Up + right; larger + placeholder image for a stronger left-side
+    // counterweight to the Paige card at bottom-right.
+    card: { title: "Organic Moderne", image: "" },
+    position: { top: "14%", left: "-4%" },
     rotate: "-6deg",
-    widthClass: "w-52",
+    widthClass: "w-56",
   },
   {
-    // Sits just above the yellow "Hi I'm Paige" card.
+    // Sits above the yellow "Hi I'm Paige" card — bumped up + inward
+    // so its title clears the yellow card instead of hiding behind it.
     card: { title: "Onboarding is a promise" },
-    position: { bottom: "18%", right: "2%" },
+    position: { bottom: "26%", right: "6%" },
     rotate: "5deg",
     widthClass: "w-44",
   },
@@ -735,7 +737,7 @@ export default function Home() {
         >
           {/* Taped square paper card — square, grain paper, subtle chrome, with
               a masking-tape strip at the top center that overhangs the card. */}
-          <div className="relative w-full max-w-[380px]">
+          <div className="relative w-full max-w-[380px] -rotate-[2deg]">
             {/* Masking tape — overhangs the card top-center */}
             <div
               className="absolute -top-8 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[130px] h-12 z-10"
