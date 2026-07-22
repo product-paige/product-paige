@@ -477,11 +477,12 @@ export default function Home() {
                         aria-hidden="true"
                       />
                     )}
-                    {/* Handwritten-style caption in the thick bottom margin.
-                        `.grain-paper > *` forces position:relative on children,
-                        so we set position:absolute inline to win the cascade. */}
+                    {/* Handwritten-style caption strip — flex-centered in the
+                        thick bottom margin. `.grain-paper > *` forces
+                        position:relative on children, so we set position
+                        inline to win the cascade. */}
                     <div
-                      className="bottom-2 md:bottom-3 left-3 md:left-4"
+                      className="left-3 md:left-4 right-3 md:right-4 bottom-0 h-10 md:h-14 flex items-center"
                       style={{ position: "absolute" }}
                     >
                       <p className="font-display text-lg md:text-xl text-ink italic leading-none">
