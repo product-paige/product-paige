@@ -352,10 +352,10 @@ export default function Home() {
               href="/contact"
               className="inline-flex btn self-start"
             >
-              <span className="btn-text bg-[#0E6BFF] text-white">
+              <span className="btn-text bg-[#1A191E] text-white">
                 Let's talk
               </span>
-              <span className="btn-tab bg-[#0E6BFF] text-white">
+              <span className="btn-tab bg-[#1A191E] text-white">
                 <BtnIcons />
               </span>
             </a>
