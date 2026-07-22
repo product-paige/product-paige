@@ -374,7 +374,7 @@ export default function Home() {
                 copy + CTA. */}
             <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[520px] order-2 md:order-1">
               {/* Meta strip: client + role tags on the left, year on the right */}
-              <PostMeta items={[project.client, ...project.tags]} right={project.date} />
+              <PostMeta items={project.tags} right={project.date} />
 
               {/* Title group */}
               <div className="flex flex-col gap-3">
@@ -421,35 +421,35 @@ export default function Home() {
                 through. On mobile it sits ABOVE the text (order-1). */}
             {project.comingSoon ? (
               <div
-                className="relative block order-1 md:order-2"
+                className="relative block order-1 md:order-2 folder-image-chamfer-wrap"
                 aria-hidden="true"
               >
                 {project.coverImage ? (
                   <img
                     src={project.coverImage}
                     alt=""
-                    className="w-full aspect-[3/2] object-cover border border-[#1A191E]"
+                    className="w-full aspect-[3/2] object-cover folder-image-chamfer"
                   />
                 ) : (
-                  <div className="placeholder w-full aspect-[3/2] border border-[#1A191E]" />
+                  <div className="placeholder w-full aspect-[3/2] folder-image-chamfer" />
                 )}
               </div>
             ) : (
               <a
                 href={project.href}
                 aria-label={`Open ${project.client}`}
-                className="relative block group order-1 md:order-2"
+                className="relative block group order-1 md:order-2 folder-image-chamfer-wrap"
                 tabIndex={-1}
               >
                 {project.coverImage ? (
                   <img
                     src={project.coverImage}
                     alt=""
-                    className="w-full aspect-[3/2] object-cover border border-[#1A191E] transition-opacity group-hover:opacity-90"
+                    className="w-full aspect-[3/2] object-cover folder-image-chamfer transition-opacity group-hover:opacity-90"
                   />
                 ) : (
                   <div
-                    className="placeholder w-full aspect-[3/2] border border-[#1A191E] transition-opacity group-hover:opacity-90"
+                    className="placeholder w-full aspect-[3/2] folder-image-chamfer transition-opacity group-hover:opacity-90"
                     aria-hidden="true"
                   />
                 )}

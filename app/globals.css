@@ -1622,13 +1622,6 @@ a {
 /* Panel that sits flush under the tab strip. Same 3D treatment as .btn / .card. */
 .folder-panel {
   position: relative;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 80px),
-    calc(100% - 80px) 100%,
-    0 100%
-  );
   filter:
     drop-shadow(0 1px 0 rgba(0, 0, 0, 0.12))
     drop-shadow(0 4px 8px rgba(26, 26, 26, 0.12));
@@ -1637,6 +1630,26 @@ a {
     inset 0 -1px 0 rgba(0, 0, 0, 0.18);
   transition: background-color 300ms ease, color 300ms ease;
   isolation: isolate;
+}
+
+/* Chamfered bottom-right corner for the folder-panel project image.
+   Uses filter drop-shadow stack to approximate a 1px ink border that
+   follows the chamfer (border/box-shadow get clipped by clip-path). */
+.folder-image-chamfer {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 48px),
+    calc(100% - 48px) 100%,
+    0 100%
+  );
+}
+.folder-image-chamfer-wrap {
+  filter:
+    drop-shadow(1px 0 0 #1A191E)
+    drop-shadow(-1px 0 0 #1A191E)
+    drop-shadow(0 1px 0 #1A191E)
+    drop-shadow(0 -1px 0 #1A191E);
 }
 
 /* Masthead — horizontal scrolling ticker.
