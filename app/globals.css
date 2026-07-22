@@ -1641,35 +1641,12 @@ a {
   .masthead-track { animation: none; }
 }
 
-/* Image placeholder — architectural cross-out style */
+/* Image placeholder — solid dark slab */
 .placeholder {
   position: relative;
-  background: #f3eb88;
-  border: 1px solid rgba(26, 40, 64, 0.4);
+  background: #1A191E;
+  border: 1px solid rgba(26, 25, 30, 0.6);
   overflow: hidden;
-}
-.placeholder::before,
-.placeholder::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.placeholder::before {
-  background:
-    linear-gradient(to top right,
-      transparent calc(50% - 0.5px),
-      rgba(26, 40, 64, 0.4) calc(50% - 0.5px),
-      rgba(26, 40, 64, 0.4) calc(50% + 0.5px),
-      transparent calc(50% + 0.5px));
-}
-.placeholder::after {
-  background:
-    linear-gradient(to bottom right,
-      transparent calc(50% - 0.5px),
-      rgba(26, 40, 64, 0.4) calc(50% - 0.5px),
-      rgba(26, 40, 64, 0.4) calc(50% + 0.5px),
-      transparent calc(50% + 0.5px));
 }
 .placeholder > * {
   position: relative;

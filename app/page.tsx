@@ -172,7 +172,7 @@ export default function Home() {
             className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center"
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
-            <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[380px]">
+            <div className="card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[280px]">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Hi, I&rsquo;m Paige
               </h3>
