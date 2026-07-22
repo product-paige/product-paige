@@ -363,14 +363,13 @@ export default function Home() {
             </a>
           </div>
           <aside
-            className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center overflow-hidden"
-            style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
+            className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-[#F2ECDD] grain-paper overflow-hidden"
           >
             {/* Floating cards — layered over the bg image, clipped to the
                 column via overflow-hidden. Desktop only. */}
             <div
-              className="absolute inset-0 hidden lg:block"
-              style={{ pointerEvents: "none" }}
+              className="inset-0 hidden lg:block"
+              style={{ position: "absolute", pointerEvents: "none" }}
               aria-hidden="true"
             >
               {heroFloatingCards.map((c) => (
