@@ -4,11 +4,11 @@ export function SiteFooter() {
   return (
     <footer
       data-section="site-footer"
-      className="bg-[#F3EB88] text-ink p-10 section-chamfer relative flex flex-col gap-10"
+      className="bg-[#F3EB88] text-ink p-10 pb-6 section-chamfer relative flex flex-col gap-10"
     >
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
         <h2 className="text-2xl md:text-3xl font-display leading-[1.1] text-ink max-w-[26ch]">
-          Helping ecommerce teams ship products that feel obvious.
+          Helping ecommerce teams ship products that feel obvious
         </h2>
         <form
           action="/api/subscribe"
