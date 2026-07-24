@@ -17,7 +17,7 @@ export function SiteFooter() {
         >
           <label
             htmlFor="footer-email"
-            className="text-base text-[#FBFAF6]"
+            className="text-lg leading-[1.4] text-[#FBFAF6]"
           >
             Get notes in your inbox
           </label>
