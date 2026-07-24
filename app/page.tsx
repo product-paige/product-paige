@@ -7,6 +7,7 @@ import { TearText } from "./components/TearText";
 import { PostMeta } from "./components/PostMeta";
 import { IconCard } from "./components/IconCard";
 import { BlogCard } from "./components/BlogCard";
+import { LinkBtn } from "./components/LinkBtn";
 import { projectList } from "./projects/data";
 import { blogList } from "./blog/data";
 
@@ -122,7 +123,7 @@ const recentWork: Array<{
   blurb: p.kicker,
   date: `${p.year}`,
   tags: p.role.split(/[+&]/).map((t) => t.trim()),
-  bg: "#F3EB88",
+  bg: "#FAF9F2",
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
@@ -550,7 +551,7 @@ export default function Home() {
             role="tabpanel"
             aria-labelledby={`project-tab-${activeProject}`}
             key={project.client}
-            className="folder-panel grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:h-[640px]"
+            className="folder-panel grain-paper grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-12 p-6 md:p-12 items-stretch md:h-[640px]"
             style={{ backgroundColor: project.bg, color: project.fg }}
           >
             {/* Text column — meta strip up top, big client + kicker in the
@@ -758,8 +759,8 @@ export default function Home() {
       >
         {/* Left column — bg image fills column, taped paper card on top. */}
         <aside
-          className="relative min-h-[500px] bg-cover bg-center order-2 md:order-1 p-6 md:p-16 flex items-start justify-center pt-16 md:pt-24"
-          style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
+          className="relative min-h-[500px] order-2 md:order-1 p-6 md:p-16 flex items-start justify-center pt-16 md:pt-24"
+          style={{ backgroundColor: "#DDDAD5" }}
           aria-label="About — portrait"
         >
           {/* Taped square paper card — square, grain paper, subtle chrome, with
@@ -814,14 +815,7 @@ export default function Home() {
             <h2 className="text-section font-display text-ink max-w-[20ch]">
               From the notebook
             </h2>
-            <a href="/blog" className="inline-flex btn shrink-0">
-              <span className="btn-text bg-[#1A191E] text-white">
-                Read all notes
-              </span>
-              <span className="btn-tab bg-[#1A191E] text-white">
-                <BtnIcons />
-              </span>
-            </a>
+            <LinkBtn href="/blog" className="shrink-0">Read all notes</LinkBtn>
           </div>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
