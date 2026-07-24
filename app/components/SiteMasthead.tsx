@@ -4,23 +4,31 @@ const items = [
 ];
 
 export function SiteMasthead() {
-  // Render the items twice so the marquee loops seamlessly.
-  const loop = [...items, ...items];
   return (
     <div
       data-section="masthead"
       className="bg-[#1A191E] text-white h-9 flex items-center overflow-hidden relative"
     >
       <div
-        className="masthead-track flex items-center whitespace-nowrap"
+        className="masthead-track flex items-center whitespace-nowrap shrink-0"
         style={{ fontSize: "14px", lineHeight: 1 }}
-        aria-hidden="true"
       >
-        {loop.map((item, i) => (
-          <span key={i} className="flex items-center">
-            <span className="px-6">{item}</span>
-            <span className="opacity-40">·</span>
-          </span>
+        {/* Two identical groups side-by-side; animation translates by
+            exactly the width of one group (-50% of the track), then the
+            second group snaps into the first group's position — seamless. */}
+        {[0, 1].map((groupIdx) => (
+          <div
+            key={groupIdx}
+            className="flex items-center shrink-0"
+            aria-hidden={groupIdx === 1 ? "true" : undefined}
+          >
+            {items.map((item, i) => (
+              <span key={i} className="flex items-center shrink-0">
+                <span className="px-6">{item}</span>
+                <span className="opacity-40">·</span>
+              </span>
+            ))}
+          </div>
         ))}
       </div>
     </div>

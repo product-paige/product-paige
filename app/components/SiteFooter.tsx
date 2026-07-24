@@ -4,10 +4,10 @@ export function SiteFooter() {
   return (
     <footer
       data-section="site-footer"
-      className="bg-[#F3EB88] text-ink p-10 pb-6 section-chamfer relative flex flex-col gap-10"
+      className="bg-[#1A191E] text-white p-10 pb-6 section-chamfer relative flex flex-col gap-10"
     >
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-        <h2 className="text-2xl md:text-3xl font-display leading-[1.1] text-ink max-w-[26ch]">
+        <h2 className="text-2xl md:text-3xl font-display leading-[1.1] text-white max-w-[26ch]">
           Helping ecommerce teams ship products that feel obvious
         </h2>
         <form
@@ -26,11 +26,11 @@ export function SiteFooter() {
               required
               placeholder="you@domain.com"
               autoComplete="email"
-              className="bg-white/60 border border-[#1A191E]/25 focus:border-[#1A191E]/60 focus:bg-white px-3 py-2.5 text-base leading-[1.4] text-ink placeholder:text-ink/40 outline-none transition-colors min-w-0 w-full md:w-64"
+              className="bg-white/10 border border-white/25 focus:border-white/60 focus:bg-white/15 px-3 py-2.5 text-base leading-[1.4] text-white placeholder:text-white/40 outline-none transition-colors min-w-0 w-full md:w-64"
             />
             <button type="submit" className="inline-flex btn shrink-0">
-              <span className="btn-text bg-[#1A191E] text-white">Subscribe</span>
-              <span className="btn-tab bg-[#1A191E] text-white">
+              <span className="btn-text bg-[#0E6BFF] text-white">Subscribe</span>
+              <span className="btn-tab bg-[#0E6BFF] text-white">
                 <BtnIcons />
               </span>
             </button>

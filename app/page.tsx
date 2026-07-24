@@ -801,11 +801,11 @@ export default function Home() {
 
       
 
-      {/* === BLOG — latest posts row === */}
+      {/* === BLOG — latest posts row === last section, no bottom border */}
       <section
         id="blog"
         data-section="blog"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
+        className="p-6 md:px-10 md:py-16 flex flex-col gap-10"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Notes</span>
