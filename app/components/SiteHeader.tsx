@@ -5,7 +5,7 @@ export function SiteHeader() {
   return (
     <header
       data-section="site-header"
-      className="h-[60px] flex items-stretch"
+      className="h-[52px] flex items-stretch"
     >
       {/* Logo — always visible (acts as Home) */}
       <a
