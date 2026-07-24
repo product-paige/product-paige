@@ -20,8 +20,20 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <a
       href={`/blog/${post.slug}`}
-      className="card grain-off bg-[#DBE6EB] text-ink flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group"
+      className="card grain-off bg-[#DBE6EB] text-ink flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group !pl-11"
     >
+      {/* Three hole punches down the left edge, evenly spaced —
+          binder-paper visual language. Inline position:absolute
+          overrides the .card > * relative + z-index rule. */}
+      <span
+        aria-hidden="true"
+        style={{ position: "absolute" }}
+        className="left-4 top-6 bottom-6 flex flex-col justify-between z-[1]"
+      >
+        <span className="block w-2.5 h-2.5 rounded-full bg-[#1A191E]/25" />
+        <span className="block w-2.5 h-2.5 rounded-full bg-[#1A191E]/25" />
+        <span className="block w-2.5 h-2.5 rounded-full bg-[#1A191E]/25" />
+      </span>
       <div className="flex items-center justify-between gap-2">
         <span className="svc-label text-ink">
           <span
