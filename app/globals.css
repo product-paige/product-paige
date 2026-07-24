@@ -1,23 +1,18 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Strict palette (only these colors used for surfaces, accents, borders) */
+  /* Strict palette — five colors doing all the work. */
   --paper: #fbfaf6;
-  --cream: #f3eb88;
-  --pink-soft: #f7c8d4;
-  --light-blue: #dbe6eb;
-  --mid-blue: #cdb8e3;
-  --slate: #1A191E;
-  --teal: #0a3a3a;
-  --burgundy: #7d1d2d;
-  --red: #0E6BFF;
+  --sky: #dbe6eb;
+  --yellow: #f3eb88;
+  --ink: #1A191E;
+  --blueprint: #0E6BFF;
 
   --color-bg: var(--paper);
-  --color-bg-soft: var(--cream);
-  --color-bg-dark: var(--navy);
-  --color-ink: #1A191E;
+  --color-bg-soft: var(--sky);
+  --color-ink: var(--ink);
   --color-on-dark: var(--paper);
-  --color-accent: var(--red);
+  --color-accent: var(--blueprint);
 
   --font-sans: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   --font-display: var(--font-tiempos), "Tiempos Text", "Times New Roman", serif;
@@ -1027,7 +1022,7 @@ body > * {
 .ticket {
   position: relative;
   display: block;
-  background: var(--cream, #f3eb88);
+  background: var(--yellow, #f3eb88);
   color: #1a1a1a;
   border: 1.5px dashed rgba(26, 26, 26, 0.55);
   padding: 24px;
@@ -1063,7 +1058,7 @@ body > * {
   bottom: -8px;
   height: 16px;
   background:
-    radial-gradient(circle at 8px 8px, transparent 7px, var(--cream, #f3eb88) 7.5px) 0 0 / 16px 16px;
+    radial-gradient(circle at 8px 8px, transparent 7px, var(--yellow, #f3eb88) 7.5px) 0 0 / 16px 16px;
   z-index: -1;
 }
 
@@ -1630,12 +1625,10 @@ a {
 /* Panel that sits flush under the tab strip. Same 3D treatment as .btn / .card. */
 .folder-panel {
   position: relative;
+  border: 1px solid #1A191E;
   filter:
-    drop-shadow(0 1px 0 rgba(0, 0, 0, 0.12))
-    drop-shadow(0 4px 8px rgba(26, 26, 26, 0.12));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+    drop-shadow(0 1px 0 rgba(0, 0, 0, 0.08))
+    drop-shadow(0 4px 8px rgba(26, 26, 26, 0.1));
   transition: background-color 300ms ease, color 300ms ease;
   isolation: isolate;
 }
@@ -1677,7 +1670,7 @@ a {
 /* Image placeholder — soft sage-gray slab */
 .placeholder {
   position: relative;
-  background: #D7DBD9;
+  background: #DBE6EB;
   border: 1px solid rgba(26, 25, 30, 0.35);
   overflow: hidden;
 }

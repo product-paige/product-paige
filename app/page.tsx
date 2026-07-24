@@ -16,11 +16,11 @@ const services: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "ecommerce UX",              bg: "#D7DBD9", fg: "#1A191E", icon: "browser" },
-  { name: "conversion design",         bg: "#D7DBD9", fg: "#1A191E", icon: "cursor" },
-  { name: "positioning + messaging",   bg: "#D7DBD9", fg: "#1A191E", icon: "megaphone" },
-  { name: "AI content design",         bg: "#D7DBD9", fg: "#1A191E", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#D7DBD9", fg: "#1A191E", icon: "target" },
+  { name: "ecommerce UX",              bg: "#DBE6EB", fg: "#1A191E", icon: "browser" },
+  { name: "conversion design",         bg: "#DBE6EB", fg: "#1A191E", icon: "cursor" },
+  { name: "positioning + messaging",   bg: "#DBE6EB", fg: "#1A191E", icon: "megaphone" },
+  { name: "AI content design",         bg: "#DBE6EB", fg: "#1A191E", icon: "sparkleA" },
+  { name: "product strategy",          bg: "#DBE6EB", fg: "#1A191E", icon: "target" },
 ];
 
 const productCategories: Array<{
@@ -94,14 +94,14 @@ const tools: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "Figma",   bg: "#D7DBD9", fg: "#1A191E", icon: "cursor" },
-  { name: "Framer",  bg: "#D7DBD9", fg: "#1A191E", icon: "cursor" },
-  { name: "Claude",  bg: "#D7DBD9", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Cursor",  bg: "#D7DBD9", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Lovable", bg: "#D7DBD9", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Paper",   bg: "#D7DBD9", fg: "#1A191E", icon: "door" },
-  { name: "Shopify", bg: "#D7DBD9", fg: "#1A191E", icon: "browser" },
-  { name: "Notion",  bg: "#D7DBD9", fg: "#1A191E", icon: "door" },
+  { name: "Figma",   bg: "#DBE6EB", fg: "#1A191E", icon: "cursor" },
+  { name: "Framer",  bg: "#DBE6EB", fg: "#1A191E", icon: "cursor" },
+  { name: "Claude",  bg: "#DBE6EB", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Cursor",  bg: "#DBE6EB", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Lovable", bg: "#DBE6EB", fg: "#1A191E", icon: "sparkleA" },
+  { name: "Paper",   bg: "#DBE6EB", fg: "#1A191E", icon: "door" },
+  { name: "Shopify", bg: "#DBE6EB", fg: "#1A191E", icon: "browser" },
+  { name: "Notion",  bg: "#DBE6EB", fg: "#1A191E", icon: "door" },
 ];
 
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
@@ -122,7 +122,7 @@ const recentWork: Array<{
   blurb: p.kicker,
   date: `${p.year}`,
   tags: p.role.split(/[+&]/).map((t) => t.trim()),
-  bg: "#D7DBD9",
+  bg: "#FBFAF6",
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
@@ -265,7 +265,7 @@ function HeroFloatingCard({
               className="w-full aspect-square object-cover"
             />
           ) : (
-            <div className="w-full aspect-square bg-[#D7DBD9]" />
+            <div className="w-full aspect-square bg-[#DBE6EB]" />
           )}
           <div className="absolute left-2.5 right-2.5 bottom-0 h-10 flex items-center">
             <p className="font-display italic text-sm text-ink leading-none">
@@ -275,7 +275,7 @@ function HeroFloatingCard({
         </div>
       ) : card.variant === "shopify" ? (
         <>
-          <div className="w-full aspect-square bg-[#D7DBD9]" />
+          <div className="w-full aspect-square bg-[#DBE6EB]" />
           <div className="p-3 flex flex-col gap-1.5">
             <div className="flex items-center gap-0.5 text-[10px] leading-none text-[#1A191E]">
               {"★★★★★".split("").map((s, i) => (
@@ -308,7 +308,7 @@ function HeroFloatingCard({
               className="w-full aspect-video object-cover"
             />
           ) : (
-            <div className="w-full aspect-video bg-[#D7DBD9]" />
+            <div className="w-full aspect-video bg-[#DBE6EB]" />
           )}
           <div className="p-3">
             <p className="text-sm text-ink line-clamp-1">{card.title}</p>
@@ -590,7 +590,7 @@ export default function Home() {
                   <span
                     className="svc-label-text"
                     style={{
-                      backgroundColor: "#D7DBD9",
+                      backgroundColor: "#DBE6EB",
                       borderColor: "#1A191E",
                     }}
                   >
@@ -641,7 +641,7 @@ export default function Home() {
                       />
                     ) : (
                       <div
-                        className="w-full flex-1 bg-[#D7DBD9]"
+                        className="w-full flex-1 bg-[#DBE6EB]"
                         aria-hidden="true"
                       />
                     )}
@@ -665,7 +665,7 @@ export default function Home() {
                             <span
                               className="svc-label-text"
                               style={{
-                                backgroundColor: "#D7DBD9",
+                                backgroundColor: "#DBE6EB",
                                 borderColor: "#1A191E",
                               }}
                             >
@@ -789,7 +789,7 @@ export default function Home() {
             {/* Paper card — square, textured, subtle 2d/3d chrome */}
             <div className="relative aspect-square bg-white grain-paper flex flex-col p-4 md:p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
               {/* Photo area — sage placeholder for headshot */}
-              <div className="w-full flex-1 bg-[#D7DBD9] overflow-hidden" />
+              <div className="w-full flex-1 bg-[#DBE6EB] overflow-hidden" />
             </div>
           </div>
         </aside>
