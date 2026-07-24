@@ -164,14 +164,17 @@ export default function ServicesPage() {
             style={{ backgroundImage: "url('/hero-bg-2.webp')" }}
           >
             <div
-              className="card card-sm is-static !min-h-0 w-full md:max-w-[380px] flex flex-col gap-4"
+              className="card card-sm is-static !min-h-0 w-full md:max-w-[380px] flex flex-col gap-3"
               style={{ backgroundColor: "#f3eb88" }}
             >
-              <h3 className="text-2xl font-display leading-[1.15] text-ink">
-                Not ready for a full project? Get one focused hour with me for
-                $250 — async review before, a prioritized list after.
+              <h3 className="text-2xl font-display leading-[1.1] text-ink">
+                Not ready for a full project?
               </h3>
-              <a href="/ask-paige" className="inline-flex btn self-start mt-1">
+              <p className="text-base leading-[1.4] text-ink/80">
+                Get one focused hour with me for $250 — async review before
+                the call, a prioritized list after.
+              </p>
+              <a href="/ask-paige" className="inline-flex btn self-start mt-2">
                 <span className="btn-text bg-[#1A191E] text-white">
                   Ask Paige
                 </span>
