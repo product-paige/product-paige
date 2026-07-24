@@ -7,7 +7,7 @@ export function SiteFooter() {
       className="bg-[#1A191E] text-white p-10 pb-6 section-chamfer relative flex flex-col gap-10"
     >
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-        <h2 className="text-2xl md:text-3xl font-display leading-[1.1] text-white max-w-[26ch]">
+        <h2 className="text-xl md:text-2xl font-display leading-[1.15] text-white max-w-[26ch]">
           Helping ecommerce teams ship products that feel obvious
         </h2>
         <form

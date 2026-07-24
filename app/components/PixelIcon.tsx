@@ -181,7 +181,7 @@ export function PixelIcon({
   // border, so every icon renders centered with consistent whitespace inside
   // its container — L-shapes like the cursor stop touching multiple edges.
   const { minX, minY, w, h } = boundingBox(grid);
-  const pad = 1;
+  const pad = 2;
   const style: CSSProperties = { color, shapeRendering: "crispEdges" };
   return (
     <svg

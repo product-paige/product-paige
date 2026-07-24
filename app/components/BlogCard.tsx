@@ -43,12 +43,13 @@ export function BlogCard({ post }: BlogCardProps) {
       />
       <div className="flex items-center justify-between gap-2">
         <span className="text-base opacity-60">{dateLabel}</span>
-        <span className="svc-label text-ink">
+        <span className="svc-label">
           <span
             className="svc-label-text"
             style={{
-              backgroundColor: "#DBE6EB",
+              backgroundColor: "#1A191E",
               borderColor: "#1A191E",
+              color: "#FBFAF6",
             }}
           >
             {post.category}

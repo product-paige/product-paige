@@ -16,11 +16,11 @@ const services: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "ecommerce UX",              bg: "#DBE6EB", fg: "#1A191E", icon: "browser" },
-  { name: "conversion design",         bg: "#DBE6EB", fg: "#1A191E", icon: "cursor" },
-  { name: "positioning + messaging",   bg: "#DBE6EB", fg: "#1A191E", icon: "megaphone" },
-  { name: "AI content design",         bg: "#DBE6EB", fg: "#1A191E", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#DBE6EB", fg: "#1A191E", icon: "target" },
+  { name: "ecommerce UX",              bg: "#1A191E", fg: "#FBFAF6", icon: "browser" },
+  { name: "conversion design",         bg: "#1A191E", fg: "#FBFAF6", icon: "cursor" },
+  { name: "positioning + messaging",   bg: "#1A191E", fg: "#FBFAF6", icon: "megaphone" },
+  { name: "AI content design",         bg: "#1A191E", fg: "#FBFAF6", icon: "sparkleA" },
+  { name: "product strategy",          bg: "#1A191E", fg: "#FBFAF6", icon: "target" },
 ];
 
 const productCategories: Array<{
@@ -94,14 +94,14 @@ const tools: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "Figma",   bg: "#DBE6EB", fg: "#1A191E", icon: "cursor" },
-  { name: "Framer",  bg: "#DBE6EB", fg: "#1A191E", icon: "cursor" },
-  { name: "Claude",  bg: "#DBE6EB", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Cursor",  bg: "#DBE6EB", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Lovable", bg: "#DBE6EB", fg: "#1A191E", icon: "sparkleA" },
-  { name: "Paper",   bg: "#DBE6EB", fg: "#1A191E", icon: "door" },
-  { name: "Shopify", bg: "#DBE6EB", fg: "#1A191E", icon: "browser" },
-  { name: "Notion",  bg: "#DBE6EB", fg: "#1A191E", icon: "door" },
+  { name: "Figma",   bg: "#1A191E", fg: "#FBFAF6", icon: "cursor" },
+  { name: "Framer",  bg: "#1A191E", fg: "#FBFAF6", icon: "cursor" },
+  { name: "Claude",  bg: "#1A191E", fg: "#FBFAF6", icon: "sparkleA" },
+  { name: "Cursor",  bg: "#1A191E", fg: "#FBFAF6", icon: "sparkleA" },
+  { name: "Lovable", bg: "#1A191E", fg: "#FBFAF6", icon: "sparkleA" },
+  { name: "Paper",   bg: "#1A191E", fg: "#FBFAF6", icon: "door" },
+  { name: "Shopify", bg: "#1A191E", fg: "#FBFAF6", icon: "browser" },
+  { name: "Notion",  bg: "#1A191E", fg: "#FBFAF6", icon: "door" },
 ];
 
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
@@ -657,8 +657,9 @@ export default function Home() {
                             <span
                               className="svc-label-text"
                               style={{
-                                backgroundColor: "#DBE6EB",
+                                backgroundColor: "#1A191E",
                                 borderColor: "#1A191E",
+                                color: "#FBFAF6",
                               }}
                             >
                               {tag}

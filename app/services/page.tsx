@@ -263,7 +263,7 @@ export default function ServicesPage() {
           <div className="flex">
             <span
               className="folder-tab"
-              style={{ backgroundColor: "#DBE6EB", color: "#1A191E" }}
+              style={{ backgroundColor: "#1A191E", color: "#FBFAF6" }}
             >
               {s.eyebrow}
             </span>
