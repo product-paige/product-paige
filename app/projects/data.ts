@@ -56,7 +56,7 @@ export const projects: Record<string, Project> = {
     year: "2026",
     role: "Content architecture + UX",
     kicker:
-      "Content-led commerce for a slow-living brand — search, filter, and stories merged.",
+      "Where content stops competing with commerce — one IA for products, journal, and seasonal stories.",
     coverBg: "#f3eb88",
     problem:
       "A slow-living brand sitting on hundreds of blog posts, products, and seasonal stories with no architecture connecting them. Visitors couldn&rsquo;t find anything; the SEO surface was leaving real organic traffic on the table.",
@@ -84,7 +84,7 @@ export const projects: Record<string, Project> = {
     role: "Strategy + Lovable build",
     comingSoon: true,
     kicker:
-      "Curated prompts for Shopify merchants working alongside Claude.",
+      "The prompt library Shopify merchants keep open — vetted Claude MCP prompts for copy, inventory, and customer replies.",
     coverBg: "#DBE6EB",
     problem:
       "With Claude&rsquo;s MCPs now connecting to Shopify, merchants suddenly need to know what to actually ask. The good prompts are scattered across Twitter threads and Reddit. Nothing curated, nothing tested, no shared starting point.",
