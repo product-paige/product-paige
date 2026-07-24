@@ -165,13 +165,15 @@ export default function RootLayout({
             </div>
             <main data-layer="page-content">{children}</main>
           </div>
-          {/* CTA + footer sit OUTSIDE the paper content frame, with a 40px
+          {/* CTA + footer sit OUTSIDE the paper content frame, with a 24px
               gap so the closing plaque reads as its own moment on the
-              blueprint rail. */}
-          <div data-layer="site-footer-wrap" className="mt-10">
+              blueprint rail. Bottom bar sits 24px below the footer. */}
+          <div data-layer="site-footer-wrap" className="mt-6">
             <SiteFooter />
           </div>
-          <SiteBottomBar />
+          <div className="mt-6">
+            <SiteBottomBar />
+          </div>
         </div>
       </body>
     </html>
