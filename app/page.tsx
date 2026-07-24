@@ -532,7 +532,7 @@ export default function Home() {
                   aria-selected={isActive}
                   aria-controls="project-panel"
                   tabIndex={isActive ? 0 : -1}
-                  className={`folder-tab shrink-0 snap-start ${isActive ? "is-active" : ""}`}
+                  className={`folder-tab grain-paper shrink-0 snap-start ${isActive ? "is-active" : ""}`}
                   style={{
                     backgroundColor: w.bg,
                     color: w.fg,

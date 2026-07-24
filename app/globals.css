@@ -1265,12 +1265,11 @@ body > * {
 /* Link button — circular icon badge + text. Lower-weight companion to the
    two-piece .btn pill. Used for "Read more"-style secondary CTAs. */
 .link-btn {
-  /* Same 15px medium type + tight tracking as .btn. Small 8px gap
-     between the icon chip and the label. */
+  /* Same 15px medium type + tight tracking as .btn. */
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 4px 0 0;
+  gap: 12px;
+  padding: 0 8px 0 0;
   font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 15px;
   font-weight: 500;
@@ -1278,9 +1277,18 @@ body > * {
   line-height: 1;
   color: #1A191E;
 }
+/* Match .btn's hover icon swap — up-right (default) → right (hover). */
+.link-btn-icon svg {
+  position: absolute;
+  transition: opacity 200ms ease;
+}
+.link-btn-icon svg.icon-hover { opacity: 0; }
+.link-btn:hover .link-btn-icon svg.icon-default { opacity: 0; }
+.link-btn:hover .link-btn-icon svg.icon-hover { opacity: 1; }
+.link-btn-icon { position: relative; }
 .link-btn-icon {
-  /* Same 40×40 chip as .btn-tab so the icon reads the same size next
-     to the primary CTA. Rounded square + 1px ink border + sky bg. */
+  /* Same 40×40 chip + exact 2D chip treatment as .btn-tab. No border —
+     the inset highlight + shadow stack is doing the same edge work. */
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -1290,20 +1298,19 @@ body > * {
   flex-shrink: 0;
   background: #EAF4FF;
   color: #1A191E;
-  border: 1px solid rgba(26, 25, 30, 0.6);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.08),
-    0 1px 0 rgba(0, 0, 0, 0.1),
-    0 2px 4px rgba(26, 26, 26, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(26, 26, 26, 0.1);
   transition: transform 150ms ease, box-shadow 150ms ease;
 }
 /* Match primary .btn hover — 1px lift + deeper drop shadow. */
 .link-btn:hover .link-btn-icon {
   transform: translateY(-1px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.22),
     0 2px 0 rgba(0, 0, 0, 0.14),
     0 5px 10px rgba(26, 26, 26, 0.18);
   filter: brightness(1.04);
@@ -1311,8 +1318,8 @@ body > * {
 .link-btn:active .link-btn-icon {
   transform: translateY(1px);
   box-shadow:
-    inset 0 1px 0 rgba(0, 0, 0, 0.12),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 1px 0 rgba(0, 0, 0, 0.18),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
     0 0 0 rgba(0, 0, 0, 0);
   filter: none;
 }
