@@ -158,16 +158,16 @@ export default function RootLayout({
             data-layer="content-frame"
             className="bg-[#fbfaf6] page-content-frame"
           >
-            <SiteMasthead />
-            {/* Sticky nav — pins to viewport top once the masthead scrolls
-                past. Semi-transparent paper bg + backdrop-blur so page
-                content passes underneath with a subtle frosted-glass
-                effect. Scroll-driven shadow kicks in on browsers that
-                support animation-timeline (Chromium 115+). */}
+            {/* Sticky top region — masthead + nav travel together and pin
+                at the top of the viewport on scroll. Backdrop-blur +
+                semi-transparent paper on the nav gives a frosted-glass
+                pass-through; scroll-driven shadow (Chromium 115+) lifts
+                the whole plaque once detached from the top. */}
             <div
               data-layer="site-header-wrap"
               className="site-header-sticky section-border-b sticky top-0 z-40 backdrop-blur-md bg-[#fbfaf6]/75"
             >
+              <SiteMasthead />
               <SiteHeader />
             </div>
             <main data-layer="page-content">{children}</main>
