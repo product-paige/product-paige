@@ -5,7 +5,6 @@ import "./globals.css";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteMasthead } from "./components/SiteMasthead";
 import { SiteFooter } from "./components/SiteFooter";
-import { SiteBottomBar } from "./components/SiteBottomBar";
 
 const funnelSans = Funnel_Sans({
   variable: "--font-funnel-sans",
@@ -167,12 +166,9 @@ export default function RootLayout({
           </div>
           {/* CTA + footer sit OUTSIDE the paper content frame, with a 24px
               gap so the closing plaque reads as its own moment on the
-              blueprint rail. Bottom bar sits 24px below the footer. */}
+              blueprint rail. Legal strip is folded into the footer. */}
           <div data-layer="site-footer-wrap" className="mt-6">
             <SiteFooter />
-          </div>
-          <div className="mt-6">
-            <SiteBottomBar />
           </div>
         </div>
       </body>
