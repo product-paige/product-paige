@@ -20,7 +20,7 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <a
       href={`/blog/${post.slug}`}
-      className="card grain-off bg-[#F1F1EE] text-ink flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group !pl-14"
+      className="card grain-paper bg-[#F1F1EE] text-ink flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group !pl-14"
     >
       {/* Three hole punches down the left edge, evenly spaced —
           binder-paper visual language. Inline position:absolute
