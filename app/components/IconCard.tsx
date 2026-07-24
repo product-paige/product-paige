@@ -45,7 +45,15 @@ export function IconCard({
 
   const body = (
     <>
-      <div className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white">
+      {/* Same 3D chip treatment as svc-label pills — inset highlight/shadow
+          on top+bottom edges plus a hard ground line and soft drop. */}
+      <div
+        className="w-14 h-14 flex items-center justify-center shrink-0 !rounded-[4px] bg-[#1A191E] text-white"
+        style={{
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.18), 0 1px 0 rgba(0,0,0,0.1), 0 2px 4px rgba(26,26,26,0.08)",
+        }}
+      >
         <PixelIcon name={icon} color="#ffffff" size={28} />
       </div>
       <div className="flex flex-col gap-1">

@@ -30,9 +30,9 @@ export function BlogCard({ post }: BlogCardProps) {
         style={{ position: "absolute" }}
         className="left-3 top-6 bottom-6 flex flex-col justify-between z-[1]"
       >
-        <span className="block w-3.5 h-3.5 rounded-full bg-[#FBFAF6]" />
-        <span className="block w-3.5 h-3.5 rounded-full bg-[#FBFAF6]" />
-        <span className="block w-3.5 h-3.5 rounded-full bg-[#FBFAF6]" />
+        <span className="block w-4 h-4 rounded-full bg-[#FBFAF6]" />
+        <span className="block w-4 h-4 rounded-full bg-[#FBFAF6]" />
+        <span className="block w-4 h-4 rounded-full bg-[#FBFAF6]" />
       </span>
       {/* Vertical margin rule running the full card height, just
           right of the hole-punch column. */}
