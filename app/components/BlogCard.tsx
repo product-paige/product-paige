@@ -34,6 +34,13 @@ export function BlogCard({ post }: BlogCardProps) {
         <span className="block w-2.5 h-2.5 rounded-full bg-[#1A191E]/25" />
         <span className="block w-2.5 h-2.5 rounded-full bg-[#1A191E]/25" />
       </span>
+      {/* Vertical margin rule running the full card height, just
+          right of the hole-punch column. */}
+      <span
+        aria-hidden="true"
+        style={{ position: "absolute" }}
+        className="left-9 top-0 bottom-0 w-px bg-[#1A191E]/25 z-[1]"
+      />
       <div className="flex items-center justify-between gap-2">
         <span className="svc-label text-ink">
           <span

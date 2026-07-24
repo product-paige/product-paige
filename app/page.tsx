@@ -814,10 +814,10 @@ export default function Home() {
               From the notebook
             </h2>
             <a href="/blog" className="inline-flex btn shrink-0">
-              <span className="btn-text !bg-transparent !shadow-none border border-dotted border-[#1A191E] text-ink">
+              <span className="btn-text bg-[#1A191E] text-white">
                 Read all notes
               </span>
-              <span className="btn-tab !bg-transparent !shadow-none border border-dotted border-[#1A191E] text-ink">
+              <span className="btn-tab bg-[#1A191E] text-white">
                 <BtnIcons />
               </span>
             </a>
