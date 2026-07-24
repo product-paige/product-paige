@@ -53,20 +53,23 @@ const ICONS = {
     "#..........#",
     "############",
   ],
-  // UX and conversion — classic cursor pointer arrow
+  // UX and conversion — classic cursor pointer arrow, shifted down + right
+  // one cell so the tip doesn't hug the (0,0) grid corner. That corner-hug
+  // was rendering right at the edge of the icon box even with the viewBox
+  // pad; keeping the shape inside the 10×11 inner region is the real fix.
   cursor: [
-    "#...........",
-    "##..........",
-    "###.........",
-    "####........",
-    "#####.......",
-    "######......",
-    "#######.....",
-    "########....",
-    "#########...",
-    "####........",
+    "............",
+    ".#..........",
+    ".##.........",
     ".###........",
+    ".####.......",
+    ".#####......",
+    ".######.....",
+    ".#######....",
+    ".########...",
+    ".####.......",
     "..###.......",
+    "...###......",
   ],
   // Positioning and narrative — megaphone cone
   megaphone: [
