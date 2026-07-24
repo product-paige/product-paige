@@ -7,7 +7,7 @@ export function SiteFooter() {
       className="bg-[#F3EB88] text-ink p-10 section-chamfer relative flex flex-col gap-10"
     >
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-        <h2 className="text-3xl md:text-4xl font-display leading-[1.1] text-ink max-w-[26ch]">
+        <h2 className="text-2xl md:text-3xl font-display leading-[1.1] text-ink max-w-[26ch]">
           Helping ecommerce teams ship products that feel obvious.
         </h2>
         <form
@@ -48,7 +48,7 @@ export function SiteFooter() {
         </ul>
       </nav>
       {/* Legal / copyright strip — folded into the footer plaque. */}
-      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 text-sm opacity-70 pt-6 border-t border-ink/20">
+      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 text-sm opacity-70">
         <span>© {new Date().getFullYear()} Product Paige</span>
         <a href="/privacy" className="hover:opacity-60 transition-opacity">Privacy</a>
         <a href="/terms" className="hover:opacity-60 transition-opacity">Terms</a>
