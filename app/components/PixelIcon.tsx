@@ -53,23 +53,22 @@ const ICONS = {
     "#..........#",
     "############",
   ],
-  // UX and conversion — classic cursor pointer arrow, shifted down + right
-  // one cell so the tip doesn't hug the (0,0) grid corner. That corner-hug
-  // was rendering right at the edge of the icon box even with the viewBox
-  // pad; keeping the shape inside the 10×11 inner region is the real fix.
+  // UX and conversion — chunkier arrow pointer that reads at pill size.
+  // Wider 2-pixel tip so the top of the arrow doesn't disappear at 18px;
+  // shorter body so the aspect is closer to square; short slanted tail.
   cursor: [
     "............",
-    ".#..........",
     ".##.........",
     ".###........",
     ".####.......",
     ".#####......",
     ".######.....",
     ".#######....",
-    ".########...",
-    ".####.......",
-    "..###.......",
-    "...###......",
+    ".###.##.....",
+    ".##...##....",
+    "......##....",
+    ".......##...",
+    "............",
   ],
   // Positioning and narrative — megaphone cone
   megaphone: [
