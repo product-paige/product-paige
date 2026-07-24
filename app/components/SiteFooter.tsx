@@ -15,7 +15,7 @@ export function SiteFooter() {
           method="post"
           className="flex flex-col gap-2 shrink-0 self-start w-full md:w-auto"
         >
-          <label htmlFor="footer-email" className="text-sm opacity-70">
+          <label htmlFor="footer-email" className="text-base opacity-80">
             Get notes in your inbox
           </label>
           <div className="flex items-stretch gap-2">
