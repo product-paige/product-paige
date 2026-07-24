@@ -17,11 +17,11 @@ const services: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "ecommerce UX",              bg: "#1A191E", fg: "#FBFAF6", icon: "browser" },
-  { name: "conversion design",         bg: "#1A191E", fg: "#FBFAF6", icon: "cursor" },
-  { name: "positioning + messaging",   bg: "#1A191E", fg: "#FBFAF6", icon: "megaphone" },
-  { name: "AI content design",         bg: "#1A191E", fg: "#FBFAF6", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#1A191E", fg: "#FBFAF6", icon: "target" },
+  { name: "ecommerce UX",              bg: "#3D3A45", fg: "#FBFAF6", icon: "browser" },
+  { name: "conversion design",         bg: "#3D3A45", fg: "#FBFAF6", icon: "cursor" },
+  { name: "positioning + messaging",   bg: "#3D3A45", fg: "#FBFAF6", icon: "megaphone" },
+  { name: "AI content design",         bg: "#3D3A45", fg: "#FBFAF6", icon: "sparkleA" },
+  { name: "product strategy",          bg: "#3D3A45", fg: "#FBFAF6", icon: "target" },
 ];
 
 const productCategories: Array<{
@@ -95,14 +95,14 @@ const tools: Array<{
   fg: string;
   icon: PixelIconName;
 }> = [
-  { name: "Figma",   bg: "#1A191E", fg: "#FBFAF6", icon: "cursor" },
-  { name: "Framer",  bg: "#1A191E", fg: "#FBFAF6", icon: "cursor" },
-  { name: "Claude",  bg: "#1A191E", fg: "#FBFAF6", icon: "sparkleA" },
-  { name: "Cursor",  bg: "#1A191E", fg: "#FBFAF6", icon: "sparkleA" },
-  { name: "Lovable", bg: "#1A191E", fg: "#FBFAF6", icon: "sparkleA" },
-  { name: "Paper",   bg: "#1A191E", fg: "#FBFAF6", icon: "door" },
-  { name: "Shopify", bg: "#1A191E", fg: "#FBFAF6", icon: "browser" },
-  { name: "Notion",  bg: "#1A191E", fg: "#FBFAF6", icon: "door" },
+  { name: "Figma",   bg: "#3D3A45", fg: "#FBFAF6", icon: "cursor" },
+  { name: "Framer",  bg: "#3D3A45", fg: "#FBFAF6", icon: "cursor" },
+  { name: "Claude",  bg: "#3D3A45", fg: "#FBFAF6", icon: "sparkleA" },
+  { name: "Cursor",  bg: "#3D3A45", fg: "#FBFAF6", icon: "sparkleA" },
+  { name: "Lovable", bg: "#3D3A45", fg: "#FBFAF6", icon: "sparkleA" },
+  { name: "Paper",   bg: "#3D3A45", fg: "#FBFAF6", icon: "door" },
+  { name: "Shopify", bg: "#3D3A45", fg: "#FBFAF6", icon: "browser" },
+  { name: "Notion",  bg: "#3D3A45", fg: "#FBFAF6", icon: "door" },
 ];
 
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
@@ -624,8 +624,9 @@ export default function Home() {
                     aria-hidden="true"
                     className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[140px] z-10"
                   />
-                  {/* White paper card with grain + 2d/3d chrome */}
-                  <div className="relative w-full h-full bg-white grain-paper flex flex-col p-3 md:p-4 pb-10 md:pb-14 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
+                  {/* White paper card with grain + 2d/3d chrome. Shrinks on
+                      hover, matching the hero yellow sticky note. */}
+                  <div className="relative w-full h-full bg-white grain-paper flex flex-col p-3 md:p-4 pb-10 md:pb-14 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)] transition-transform duration-500 group-hover:scale-[0.96]">
                     {project.coverImage ? (
                       <img
                         src={project.coverImage}
@@ -658,8 +659,8 @@ export default function Home() {
                             <span
                               className="svc-label-text"
                               style={{
-                                backgroundColor: "#1A191E",
-                                borderColor: "#1A191E",
+                                backgroundColor: "#3D3A45",
+                                borderColor: "#3D3A45",
                                 color: "#FBFAF6",
                               }}
                             >
@@ -684,7 +685,7 @@ export default function Home() {
                 <a
                   href={project.href}
                   aria-label={`Open ${project.client}`}
-                  className="relative block h-full min-h-[280px] order-1 md:order-2"
+                  className="group relative block h-full min-h-[280px] order-1 md:order-2"
                   tabIndex={-1}
                 >
                   {PaperCard}
@@ -727,25 +728,6 @@ export default function Home() {
               className="bg-[#DBE6EB]"
             />
           ))}
-        </div>
-        <div className="flex flex-col gap-4">
-          <p className="text-lg leading-[1.4] opacity-80">
-            Some of the tools I lean on:
-          </p>
-          <ul className="flex flex-wrap gap-3">
-            {tools.map((t) => (
-              <li key={t.name}>
-                <span className="svc-label" style={{ color: t.fg }}>
-                  <span
-                    className="svc-label-text"
-                    style={{ backgroundColor: t.bg, borderColor: t.fg }}
-                  >
-                    {t.name}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -791,13 +773,37 @@ export default function Home() {
               Half product marketer, half UX designer
             </h2>
           </div>
-          <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-            For 13 years I&rsquo;ve worked with ecommerce teams. Shopify
-            apps. DTC brands. Early-stage SaaS. Usually the product is good.
-            The hard part is getting people to understand it fast, trust it,
-            and know what to do next. That&rsquo;s the work I do. Positioning,
-            UX, and the space where they meet.
-          </p>
+          <div className="flex flex-col gap-6 max-w-[560px]">
+            <p className="text-lg leading-[1.4] opacity-80">
+              For 13 years I&rsquo;ve worked with ecommerce teams. Shopify
+              apps. DTC brands. Early-stage SaaS. Usually the product is
+              good. The hard part is getting people to understand it fast,
+              trust it, and know what to do next. That&rsquo;s the work I
+              do. Positioning, UX, and the space where they meet.
+            </p>
+            {/* Toolkit strip — sits under the bio as a "how I work" signal,
+                not a service offering. Moved here from the old Categories
+                section. */}
+            <div className="flex flex-col gap-3">
+              <p className="text-sm leading-[1.4] opacity-60">
+                Tools I lean on
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {tools.map((t) => (
+                  <li key={t.name}>
+                    <span className="svc-label" style={{ color: t.fg }}>
+                      <span
+                        className="svc-label-text"
+                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
+                      >
+                        {t.name}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -47,8 +47,8 @@ export function BlogCard({ post }: BlogCardProps) {
           <span
             className="svc-label-text"
             style={{
-              backgroundColor: "#1A191E",
-              borderColor: "#1A191E",
+              backgroundColor: "#3D3A45",
+              borderColor: "#3D3A45",
               color: "#FBFAF6",
             }}
           >
