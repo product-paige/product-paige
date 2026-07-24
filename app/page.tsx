@@ -557,7 +557,7 @@ export default function Home() {
                 middle, prominent CTA at the bottom. Order flipped on mobile
                 so the landscape image reads first (visual hook) before the
                 copy + CTA. */}
-            <div className="flex flex-col gap-6 md:gap-8 justify-between min-h-0 md:min-h-[380px] order-2 md:order-1">
+            <div className="flex flex-col gap-6 md:gap-8 justify-end min-h-0 md:min-h-[380px] order-2 md:order-1">
               {/* Meta pills moved down to the polaroid caption row (right side). */}
 
               {/* Title group — headline is the kicker's lede (before the em-dash);
@@ -813,12 +813,13 @@ export default function Home() {
             <h2 className="text-section font-display text-ink max-w-[20ch]">
               From the notebook
             </h2>
-            <a
-              href="/blog"
-              className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-dashed border-[#1A191E] text-ink text-base leading-none hover:bg-[#1A191E]/5 transition-colors self-start shrink-0"
-            >
-              Read all notes
-              <BtnIcons />
+            <a href="/blog" className="inline-flex btn shrink-0">
+              <span className="btn-text !bg-transparent !shadow-none border-2 border-dashed border-[#1A191E] text-ink">
+                Read all notes
+              </span>
+              <span className="btn-tab !bg-transparent !shadow-none border-2 border-dashed border-[#1A191E] text-ink">
+                <BtnIcons />
+              </span>
             </a>
           </div>
         </div>

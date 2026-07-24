@@ -1,6 +1,5 @@
 const items = [
   "Product strategy + UX for Shopify and ecommerce teams",
-  "Now booking · Q3 2026",
   "An independent practice · Canada · Remote",
 ];
 
