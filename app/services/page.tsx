@@ -198,7 +198,7 @@ export default function ServicesPage() {
           <span className="type-eyebrow">Where teams get stuck</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="text-section font-display text-ink max-w-[22ch]">
-              Four problems these services solve
+              The problems worth solving
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
               Most engagements start with one of these. The work below is how
@@ -210,7 +210,7 @@ export default function ServicesPage() {
           {growthBlockers.map((g) => (
             <article
               key={g.title}
-              className="flex flex-col gap-2 p-6 border border-[#1A191E]/20"
+              className="flex flex-col gap-2 p-6 border border-[#1A191E]/60"
             >
               <h3 className="text-xl font-display leading-[1.1] text-ink">
                 {g.title}
@@ -233,7 +233,7 @@ export default function ServicesPage() {
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">The work</span>
           <h2 className="text-section font-display text-ink max-w-[22ch]">
-            Four services, one practice
+            How I unstick them
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
@@ -268,7 +268,7 @@ export default function ServicesPage() {
               {s.eyebrow}
             </span>
           </div>
-          <article className="card card-blue-light is-static !min-h-0 w-full !p-10">
+          <article className="card card-blue-light is-static !min-h-0 w-full !px-10 !py-16">
             <div className="grid md:grid-cols-12 gap-6 md:gap-16 items-start w-full">
               <div className="md:col-span-5 flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
