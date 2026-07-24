@@ -28,11 +28,11 @@ export function BlogCard({ post }: BlogCardProps) {
       <span
         aria-hidden="true"
         style={{ position: "absolute" }}
-        className="left-4 top-6 bottom-6 flex flex-col justify-between z-[1]"
+        className="left-2.5 top-6 bottom-6 flex flex-col justify-between z-[1]"
       >
-        <span className="block w-2.5 h-2.5 rounded-full bg-[#1A191E]/25" />
-        <span className="block w-2.5 h-2.5 rounded-full bg-[#1A191E]/25" />
-        <span className="block w-2.5 h-2.5 rounded-full bg-[#1A191E]/25" />
+        <span className="block w-4 h-4 rounded-full bg-[#1A191E]/25" />
+        <span className="block w-4 h-4 rounded-full bg-[#1A191E]/25" />
+        <span className="block w-4 h-4 rounded-full bg-[#1A191E]/25" />
       </span>
       {/* Vertical margin rule running the full card height, just
           right of the hole-punch column. */}
@@ -42,6 +42,7 @@ export function BlogCard({ post }: BlogCardProps) {
         className="left-9 top-0 bottom-0 w-px bg-[#1A191E]/25 z-[1]"
       />
       <div className="flex items-center justify-between gap-2">
+        <span className="text-base opacity-60">{dateLabel}</span>
         <span className="svc-label text-ink">
           <span
             className="svc-label-text"
@@ -53,7 +54,6 @@ export function BlogCard({ post }: BlogCardProps) {
             {post.category}
           </span>
         </span>
-        <span className="text-base opacity-60">{dateLabel}</span>
       </div>
       <div className="flex flex-col gap-1">
         <h3 className="text-xl group-hover:opacity-70 transition-opacity">
