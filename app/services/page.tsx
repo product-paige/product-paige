@@ -104,20 +104,20 @@ const process = [
 
 const growthBlockers = [
   {
-    title: "Unclear product story",
+    title: "The product outgrew its story",
     body: "The product evolved, the message didn&rsquo;t. Buyers should not have to work this hard to understand it.",
   },
   {
-    title: "Confusing shopping or signup flow",
+    title: "The path to purchase leaks",
     body: "People are interested but they aren&rsquo;t sure what to do next. That friction costs sales, signups, and trust.",
   },
   {
-    title: "Too many priorities",
-    body: "Everything feels urgent. Work ships, but it&rsquo;s unclear what is actually moving the business forward.",
+    title: "Everything feels urgent",
+    body: "Work ships, but it&rsquo;s unclear what&rsquo;s actually moving the business forward.",
   },
   {
-    title: "Shaky product foundation",
-    body: "The core experience isn&rsquo;t clear yet. Scaling now just amplifies the friction.",
+    title: "The core isn’t clear yet",
+    body: "The product experience hasn&rsquo;t landed. Scaling now just amplifies the friction.",
   },
 ];
 
@@ -138,7 +138,7 @@ export default function ServicesPage() {
               <span className="type-eyebrow">Services</span>
               <div className="flex flex-col gap-3">
                 <h1 className="text-display font-display text-ink max-w-[18ch]">
-                  Fix what&rsquo;s slowing the product down
+                  Fix the parts you keep meaning to get to
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
                   Positioning, ecommerce UX, AI content, and product strategy
@@ -195,10 +195,10 @@ export default function ServicesPage() {
         className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Where teams get stuck</span>
+          <span className="type-eyebrow">Sound familiar?</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="text-section font-display text-ink max-w-[22ch]">
-              The problems worth solving
+              The parts that quietly cost you
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
               Most engagements start with one of these. The work below is how
@@ -231,9 +231,9 @@ export default function ServicesPage() {
         className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">The work</span>
+          <span className="type-eyebrow">Where I come in</span>
           <h2 className="text-section font-display text-ink max-w-[22ch]">
-            How I unstick them
+            How I unstick it
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
@@ -330,7 +330,7 @@ export default function ServicesPage() {
           <span className="type-eyebrow">Process</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="text-section font-display text-ink max-w-[22ch]">
-              How a project starts
+              How we start
             </h2>
             <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
               Short, written, mutual. No deck-thick proposals. Most projects
@@ -338,21 +338,23 @@ export default function ServicesPage() {
             </p>
           </div>
         </div>
-        <ol className="grid md:grid-cols-3 gap-6 md:gap-10">
+        <ol className="grid md:grid-cols-3 gap-6 md:gap-8">
           {process.map((p) => (
-            <li key={p.step} className="flex flex-col gap-3.5">
-              <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60">
+            <li
+              key={p.step}
+              className="card card-sm is-static !min-h-0 flex flex-col gap-3"
+              style={{ backgroundColor: "#f3eb88" }}
+            >
+              <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase text-ink/60">
                 {p.step}
               </span>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-display leading-[1.1] text-ink">
-                  {p.title}
-                </h3>
-                <p
-                  className="text-base leading-[1.4] opacity-80"
-                  dangerouslySetInnerHTML={{ __html: p.body }}
-                />
-              </div>
+              <h3 className="text-xl font-display leading-[1.1] text-ink">
+                {p.title}
+              </h3>
+              <p
+                className="text-base leading-[1.4] text-ink/80"
+                dangerouslySetInnerHTML={{ __html: p.body }}
+              />
             </li>
           ))}
         </ol>
