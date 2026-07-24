@@ -104,20 +104,20 @@ const process = [
 
 const growthBlockers = [
   {
-    title: "The product outgrew its story",
-    body: "The product evolved, the message didn&rsquo;t. Buyers should not have to work this hard to understand it.",
+    title: "Unclear product story",
+    body: "The product evolved, but the message didn&rsquo;t. Customers should not have to work this hard to understand it.",
   },
   {
-    title: "The path to purchase leaks",
-    body: "People are interested but they aren&rsquo;t sure what to do next. That friction costs sales, signups, and trust.",
+    title: "Confusing shopping or signup flow",
+    body: "People are interested, but they are not sure what to do next. That friction costs sales, signups, and trust.",
   },
   {
-    title: "Everything feels urgent",
-    body: "Work ships, but it&rsquo;s unclear what&rsquo;s actually moving the business forward.",
+    title: "Too many priorities",
+    body: "Everything feels urgent. Work ships, but it&rsquo;s unclear what is actually moving the business forward.",
   },
   {
-    title: "The core isn’t clear yet",
-    body: "The product experience hasn&rsquo;t landed. Scaling now just amplifies the friction.",
+    title: "Shaky product foundation",
+    body: "The core experience is not clear enough yet. Scaling now just amplifies the friction.",
   },
 ];
 
@@ -167,7 +167,7 @@ export default function ServicesPage() {
               className="card card-sm is-static !min-h-0 w-full md:max-w-[380px] flex flex-col gap-3"
               style={{ backgroundColor: "#f3eb88" }}
             >
-              <h3 className="text-2xl font-display leading-[1.1] text-ink">
+              <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Not ready for a full project?
               </h3>
               <p className="text-base leading-[1.4] text-ink/80">
@@ -345,7 +345,7 @@ export default function ServicesPage() {
               className="card card-sm is-static !min-h-0 flex flex-col gap-3"
               style={{ backgroundColor: "#f3eb88" }}
             >
-              <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase text-ink/60">
+              <span className="font-display text-4xl leading-none text-ink/40">
                 {p.step}
               </span>
               <h3 className="text-xl font-display leading-[1.1] text-ink">
