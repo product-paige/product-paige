@@ -1,10 +1,10 @@
 import type { ComponentProps } from "react";
-import { BtnIcons } from "./BtnIcons";
 
 /**
- * Rounded-square icon chip + text link. Secondary CTA companion to the
- * two-piece .btn pill. Uses BtnIcons so the arrow swaps up-right → right
- * on hover exactly like the primary button.
+ * Underlined text link. Secondary CTA — pairs with the two-piece .btn
+ * pill (primary) as the plain-text counterpart. Underline sits a few
+ * px below the baseline so the letters and the rule read as separate
+ * lines instead of one thick stroke.
  */
 export function LinkBtn({
   children,
@@ -13,10 +13,7 @@ export function LinkBtn({
 }: ComponentProps<"a">) {
   return (
     <a className={`link-btn ${className}`.trim()} {...rest}>
-      <span className="link-btn-icon" aria-hidden="true">
-        <BtnIcons />
-      </span>
-      <span>{children}</span>
+      {children}
     </a>
   );
 }

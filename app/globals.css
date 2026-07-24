@@ -1265,63 +1265,52 @@ body > * {
 /* Link button — circular icon badge + text. Lower-weight companion to the
    two-piece .btn pill. Used for "Read more"-style secondary CTAs. */
 .link-btn {
-  /* Same 15px medium type + tight tracking as .btn. */
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 8px 0 0;
+  /* Underlined text link. Same 15px medium type + tight tracking as
+     .btn, so it reads as a matching secondary CTA. Underline sits 6px
+     below the baseline for that "text + rule" feel, not "bar under
+     letters". Subtle text-shadow gives it the same lifted feel as the
+     2D chip on the primary btn. */
+  display: inline-block;
   font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1;
   color: #1A191E;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: text-underline-offset 150ms ease, text-decoration-thickness 150ms ease, opacity 150ms ease;
 }
-/* Match .btn's hover icon swap — up-right (default) → right (hover). */
-.link-btn-icon svg {
-  position: absolute;
-  transition: opacity 200ms ease;
+.link-btn:hover {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
 }
-.link-btn-icon svg.icon-hover { opacity: 0; }
-.link-btn:hover .link-btn-icon svg.icon-default { opacity: 0; }
-.link-btn:hover .link-btn-icon svg.icon-hover { opacity: 1; }
-.link-btn-icon { position: relative; }
-.link-btn-icon {
-  /* Same 40×40 chip + exact 2D chip treatment as .btn-tab. No border —
-     the inset highlight + shadow stack is doing the same edge work. */
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: #EAF4FF;
-  color: #1A191E;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
-    0 1px 0 rgba(0, 0, 0, 0.12),
-    0 2px 4px rgba(26, 26, 26, 0.1);
-  transition: transform 150ms ease, box-shadow 150ms ease;
-}
-/* Match primary .btn hover — 1px lift + deeper drop shadow. */
-.link-btn:hover .link-btn-icon {
-  transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.22),
-    0 2px 0 rgba(0, 0, 0, 0.14),
-    0 5px 10px rgba(26, 26, 26, 0.18);
-  filter: brightness(1.04);
-}
-.link-btn:active .link-btn-icon {
-  transform: translateY(1px);
-  box-shadow:
-    inset 0 1px 0 rgba(0, 0, 0, 0.18),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
-    0 0 0 rgba(0, 0, 0, 0);
-  filter: none;
+.link-btn:active { opacity: 0.7; }
+
+/* Sticky nav — scroll-driven drop shadow that fades in as the user
+   scrolls, so the header reads as a floating plaque once it detaches
+   from the top of the page. Chromium 115+. Non-supporting browsers
+   still get sticky + backdrop-blur + section-border-b as a fallback. */
+@supports (animation-timeline: scroll()) {
+  .site-header-sticky {
+    animation: header-lift linear both;
+    animation-timeline: scroll(root);
+    animation-range: 40px 160px;
+  }
+  @keyframes header-lift {
+    from {
+      box-shadow: none;
+      background-color: rgba(251, 250, 246, 0.75);
+    }
+    to {
+      box-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.05),
+        0 8px 20px rgba(26, 25, 30, 0.08);
+      background-color: rgba(251, 250, 246, 0.92);
+    }
+  }
 }
 
 /* Standalone label pill — same 2D treatment as .btn-text, but no icon tab.

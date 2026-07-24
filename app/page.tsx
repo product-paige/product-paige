@@ -350,7 +350,7 @@ export default function Home() {
               className="inline-flex btn self-start"
             >
               <span className="btn-text bg-[#0E6BFF] text-white">
-                Let's talk
+                Let&rsquo;s talk
               </span>
               <span className="btn-tab bg-[#0E6BFF] text-white">
                 <BtnIcons />
