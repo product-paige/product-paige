@@ -725,7 +725,7 @@ export default function Home() {
               blurb={c.blurb}
               icon={c.icon}
               tone={c.tone}
-              className="bg-[#DBE6EB]"
+              className="bg-[#f3eb88]"
             />
           ))}
         </div>
