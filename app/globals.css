@@ -22,9 +22,9 @@
      utilities. Change the two clamps here to resize the hero + section
      headings across the whole site. Line-heights + tracking match the
      current display h1/h2 usage so callers can drop the extra classes. */
-  --text-display: clamp(40px, 5.5vw, 64px);
+  --text-display: clamp(34px, 4.6vw, 52px);
   --text-display--line-height: 1;
-  --text-display--letter-spacing: -1.2px;
+  --text-display--letter-spacing: -1px;
 
   --text-section: clamp(34px, 4.5vw, 48px);
   --text-section--line-height: 1.05;

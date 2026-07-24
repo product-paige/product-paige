@@ -13,10 +13,11 @@ export function SiteMasthead() {
         className="masthead-track flex items-center whitespace-nowrap shrink-0"
         style={{ fontSize: "14px", lineHeight: 1 }}
       >
-        {/* Two identical groups side-by-side; animation translates by
-            exactly the width of one group (-50% of the track), then the
-            second group snaps into the first group's position — seamless. */}
-        {[0, 1].map((groupIdx) => (
+        {/* Four identical groups side-by-side. Track is now wide enough
+            that -50% translation lands within rendered content on any
+            reasonable viewport, so the wrap-around is invisible instead
+            of exposing blank space at the tail. */}
+        {[0, 1, 2, 3].map((groupIdx) => (
           <div
             key={groupIdx}
             className="flex items-center shrink-0"
@@ -25,7 +26,7 @@ export function SiteMasthead() {
             {items.map((item, i) => (
               <span key={i} className="flex items-center shrink-0">
                 <span className="px-6">{item}</span>
-                <span className="opacity-40">·</span>
+                <span className="opacity-40">/</span>
               </span>
             ))}
           </div>
