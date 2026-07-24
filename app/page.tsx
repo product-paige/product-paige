@@ -122,7 +122,7 @@ const recentWork: Array<{
   blurb: p.kicker,
   date: `${p.year}`,
   tags: p.role.split(/[+&]/).map((t) => t.trim()),
-  bg: "#FBFAF6",
+  bg: "#F3EB88",
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
@@ -246,16 +246,12 @@ function HeroFloatingCard({
       ) : card.variant === "polaroid" ? (
         <div className="relative bg-white pt-2.5 px-2.5 pb-10">
           {/* Masking tape overhanging the top */}
-          <div
-            className="absolute -top-3 left-1/2 -translate-x-1/2 -rotate-[4deg] w-16 h-5 z-20"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/tape.svg"
+            alt=""
             aria-hidden="true"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(190,180,165,0.85) 0%, rgba(170,160,145,0.85) 100%)",
-              boxShadow:
-                "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.18), 0 2px 5px rgba(0,0,0,0.28)",
-              clipPath: "polygon(4% 0, 96% 0, 100% 100%, 0 100%)",
-            }}
+            className="pointer-events-none absolute -top-4 left-1/2 -translate-x-1/2 -rotate-[4deg] w-24 z-20"
           />
           {card.image ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -352,10 +348,10 @@ export default function Home() {
               href="/contact"
               className="inline-flex btn self-start"
             >
-              <span className="btn-text bg-[#1A191E] text-white">
+              <span className="btn-text bg-[#0E6BFF] text-white">
                 Let's talk
               </span>
-              <span className="btn-tab bg-[#1A191E] text-white">
+              <span className="btn-tab bg-[#0E6BFF] text-white">
                 <BtnIcons />
               </span>
             </a>
@@ -375,7 +371,7 @@ export default function Home() {
                 <HeroFloatingCard key={c.card.title} {...c} />
               ))}
             </div>
-            <div className="relative card card-sm card-cream flex flex-col gap-2 !min-h-0 w-full md:max-w-[360px]">
+            <div className="relative card card-sm card-cream flex flex-col justify-between gap-2 !min-h-0 w-full md:w-[260px] md:max-w-[260px] md:aspect-square">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Hi, I&rsquo;m Paige
               </h3>
@@ -620,16 +616,12 @@ export default function Home() {
               const PaperCard = (
                 <>
                   {/* Tape — overhangs the top-center of the paper card */}
-                  <div
-                    className="absolute -top-5 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[110px] h-10 z-10"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgba(190,180,165,0.85) 0%, rgba(170,160,145,0.85) 100%)",
-                      boxShadow:
-                        "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.18), 0 3px 8px rgba(0,0,0,0.28)",
-                      clipPath: "polygon(4% 0, 96% 0, 100% 100%, 0 100%)",
-                    }}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/tape.svg"
+                    alt=""
                     aria-hidden="true"
+                    className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[140px] z-10"
                   />
                   {/* White paper card with grain + 2d/3d chrome */}
                   <div className="relative w-full h-full bg-white grain-paper flex flex-col p-3 md:p-4 pb-10 md:pb-14 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
@@ -773,17 +765,12 @@ export default function Home() {
               a masking-tape strip at the top center that overhangs the card. */}
           <div className="relative w-full max-w-[380px] -rotate-[2deg]">
             {/* Masking tape — overhangs the card top-center */}
-            <div
-              className="absolute -top-8 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[130px] h-12 z-10"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(190,180,165,0.85) 0%, rgba(170,160,145,0.85) 100%)",
-                boxShadow:
-                  "inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.18), 0 3px 8px rgba(0,0,0,0.28)",
-                clipPath:
-                  "polygon(4% 0, 96% 0, 100% 100%, 0 100%)",
-              }}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/tape.svg"
+              alt=""
               aria-hidden="true"
+              className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[160px] z-10"
             />
 
             {/* Paper card — square, textured, subtle 2d/3d chrome */}
@@ -826,13 +813,12 @@ export default function Home() {
             <h2 className="text-section font-display text-ink max-w-[20ch]">
               From the notebook
             </h2>
-            <a href="/blog" className="inline-flex btn shrink-0">
-              <span className="btn-text bg-[#1A191E] text-white">
-                Read all notes
-              </span>
-              <span className="btn-tab bg-[#1A191E] text-white">
-                <BtnIcons />
-              </span>
+            <a
+              href="/blog"
+              className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-dashed border-[#1A191E] text-ink text-base leading-none hover:bg-[#1A191E]/5 transition-colors self-start shrink-0"
+            >
+              Read all notes
+              <BtnIcons />
             </a>
           </div>
         </div>
