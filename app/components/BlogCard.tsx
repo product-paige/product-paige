@@ -33,7 +33,6 @@ export function BlogCard({ post }: BlogCardProps) {
         <span className="block w-3.5 h-3.5 rounded-full bg-[#1A191E]/25" />
         <span className="block w-3.5 h-3.5 rounded-full bg-[#1A191E]/25" />
         <span className="block w-3.5 h-3.5 rounded-full bg-[#1A191E]/25" />
-        <span className="block w-3.5 h-3.5 rounded-full bg-[#1A191E]/25" />
       </span>
       {/* Vertical margin rule running the full card height, just
           right of the hole-punch column. */}
