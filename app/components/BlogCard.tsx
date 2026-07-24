@@ -59,7 +59,7 @@ export function BlogCard({ post }: BlogCardProps) {
         <h3 className="text-xl group-hover:opacity-70 transition-opacity">
           {post.title}
         </h3>
-        <p className="text-base opacity-80 line-clamp-3">{post.kicker}</p>
+        <p className="text-base opacity-80 line-clamp-2">{post.kicker}</p>
       </div>
     </a>
   );
