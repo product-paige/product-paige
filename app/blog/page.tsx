@@ -15,17 +15,14 @@ export default function BlogIndexPage() {
         data-section="blog-hero"
         className="p-6 md:p-10 section-border-b"
       >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Blog</span>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h1 className="text-display font-display text-ink max-w-[30ch]">
-              Notes on shipping clearly
-            </h1>
-            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              Short reads on positioning, ecommerce UX, and AI content design.
-              For founders and product teams shipping fast.
-            </p>
-          </div>
+        <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+          <h1 className="text-display font-display text-ink max-w-[30ch]">
+            Notes on shipping clearly
+          </h1>
+          <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+            Short reads on positioning, ecommerce UX, and AI content design.
+            For founders and product teams shipping fast.
+          </p>
         </div>
       </section>
 

@@ -21,17 +21,14 @@ export default function ProjectsIndexPage() {
         data-section="projects-hero"
         className="p-6 md:p-10 section-border-b"
       >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Projects</span>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h1 className="text-display font-display text-ink max-w-[24ch]">
-              A few things I&rsquo;ve been building
-            </h1>
-            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              Product audits, UX work, and personal builds — all in the
-              Shopify and ecommerce world. Some shipped, some in flight.
-            </p>
-          </div>
+        <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+          <h1 className="text-display font-display text-ink max-w-[24ch]">
+            A few things I&rsquo;ve been building
+          </h1>
+          <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+            Product audits, UX work, and personal builds — all in the
+            Shopify and ecommerce world. Some shipped, some in flight.
+          </p>
         </div>
       </section>
 
