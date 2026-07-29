@@ -1,4 +1,5 @@
 import type { BlogPost } from "../blog/data";
+import { BtnIcons } from "./BtnIcons";
 
 type FeaturedBlogCardProps = {
   post: Pick<BlogPost, "slug" | "title" | "kicker" | "category" | "readingTime">;
@@ -25,11 +26,21 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
         />
         {/* Text + meta column — right */}
         <div className="flex flex-col gap-6 justify-center">
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2 text-sm leading-[1.4] opacity-70">
-            <span>Featured</span>
-            <span aria-hidden="true">·</span>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-base leading-[1.4] opacity-70">
+            <span className="svc-label">
+              <span
+                className="svc-label-text"
+                style={{
+                  backgroundColor: "#3D3A45",
+                  borderColor: "#3D3A45",
+                  color: "#FBFAF6",
+                }}
+              >
+                Featured
+              </span>
+            </span>
             <span>{post.category}</span>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true" className="opacity-40">·</span>
             <span>{post.readingTime}</span>
           </div>
           <div className="flex flex-col gap-3">
@@ -40,8 +51,11 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
               {post.kicker}
             </p>
           </div>
-          <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
-            Read post ↗
+          <span className="inline-flex btn self-start">
+            <span className="btn-text bg-[#0E6BFF] text-white">Read post</span>
+            <span className="btn-tab bg-[#0E6BFF] text-white">
+              <BtnIcons />
+            </span>
           </span>
         </div>
       </div>

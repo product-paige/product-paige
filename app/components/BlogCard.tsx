@@ -41,20 +41,9 @@ export function BlogCard({ post }: BlogCardProps) {
         style={{ position: "absolute" }}
         className="left-9 top-0 bottom-0 w-px bg-[#1A191E]/25 z-[1]"
       />
-      <div className="flex items-center justify-between gap-2">
-        <span className="text-base opacity-60">{dateLabel}</span>
-        <span className="svc-label">
-          <span
-            className="svc-label-text"
-            style={{
-              backgroundColor: "#3D3A45",
-              borderColor: "#3D3A45",
-              color: "#FBFAF6",
-            }}
-          >
-            {post.category}
-          </span>
-        </span>
+      <div className="flex items-baseline justify-between gap-2 text-base opacity-70">
+        <span>{dateLabel}</span>
+        <span>{post.category}</span>
       </div>
       <div className="flex flex-col gap-1">
         <h3 className="text-xl group-hover:opacity-70 transition-opacity">
