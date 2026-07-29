@@ -78,18 +78,23 @@ export default async function ProjectPage({
         className="p-6 md:p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
         style={{ backgroundColor: project.coverBg, color: heroFg }}
       >
-        <div className="flex items-baseline justify-between text-sm leading-[1.4] opacity-80">
-          <span>{project.client}</span>
+        <div className="flex items-baseline justify-between text-base leading-[1.4] opacity-80">
+          <span>{project.role}</span>
           <span>{project.year}</span>
         </div>
         <div className="flex flex-col gap-3">
           <h1
-            className="text-display font-display max-w-[32ch]"
+            className="text-display font-display max-w-[20ch]"
             style={{ color: heroFg }}
           >
-            {project.kicker}
+            {project.client}
           </h1>
-          <p className="text-sm leading-[1.4] opacity-70">{project.role}</p>
+          {/* Subheading — the pre-em-dash portion of the kicker, so it
+              reads as a single short line. Falls back to the full
+              kicker if there's no em-dash. */}
+          <p className="text-lg md:text-xl leading-[1.3] opacity-80 max-w-[42ch]">
+            {project.kicker.split(" — ")[0]}
+          </p>
         </div>
         {project.liveUrl ? (
           <a
