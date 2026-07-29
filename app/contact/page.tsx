@@ -22,10 +22,14 @@ function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [company, setCompany] = useState(""); // honeypot — must stay empty
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
   const [errorMsg, setErrorMsg] = useState("");
+  // Timestamp captured on mount; sent with the form so the server can
+  // reject sub-2s submissions from bots.
+  const [renderedAt] = useState(() => Date.now());
 
   // If the ?topic= URL param changes after mount (client-side nav), sync it.
   useEffect(() => {
@@ -41,7 +45,14 @@ function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, topic, message }),
+        body: JSON.stringify({
+          name,
+          email,
+          topic,
+          message,
+          company_website: company,
+          renderedAt,
+        }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => null)) as {
@@ -68,6 +79,32 @@ function ContactForm() {
       <h2 className="text-xl font-display leading-[1.1] text-ink">
         Send a note
       </h2>
+
+      {/* Honeypot — off-screen, aria-hidden, not tab-reachable. Real
+          users never touch it; bots fill every field so a non-empty
+          value here is a strong spam signal. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: 1,
+          height: 1,
+          overflow: "hidden",
+        }}
+      >
+        <label>
+          Company website
+          <input
+            type="text"
+            name="company_website"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+      </div>
 
       <label className="flex flex-col gap-1.5">
         <span className="text-sm leading-[1.4] opacity-70">Your name</span>
