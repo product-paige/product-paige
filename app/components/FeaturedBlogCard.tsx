@@ -2,7 +2,7 @@ import type { BlogPost } from "../blog/data";
 import { BtnIcons } from "./BtnIcons";
 
 type FeaturedBlogCardProps = {
-  post: Pick<BlogPost, "slug" | "title" | "kicker" | "category" | "readingTime">;
+  post: Pick<BlogPost, "slug" | "title" | "kicker" | "category" | "date">;
 };
 
 /**
@@ -13,6 +13,13 @@ type FeaturedBlogCardProps = {
  * a grid applied directly to the anchor.
  */
 export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
+  const dateLabel = new Date(post.date).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+
   return (
     <a
       href={`/blog/${post.slug}`}
@@ -41,7 +48,7 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
             </span>
             <span>{post.category}</span>
             <span aria-hidden="true" className="opacity-40">·</span>
-            <span>{post.readingTime}</span>
+            <span>{dateLabel}</span>
           </div>
           <div className="flex flex-col gap-3">
             <h2 className="text-section font-display text-ink max-w-[18ch] group-hover:opacity-70 transition-opacity">
