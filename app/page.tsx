@@ -400,18 +400,18 @@ export default function Home() {
 
       
 
-      {/* === CAPABILITIES === Left column carries the section intro
-          (eyebrow + h2 + static lead + active blurb); right column
-          carries the numbered list. Right col picks up the vertical
-          divider via `md:divider-indent-left`. */}
+      {/* === CAPABILITIES === Flush section (no outer padding). Left
+          column carries eyebrow + h2 + lead with 40px inner padding;
+          right column carries the numbered list + dynamic paragraph
+          with a vertical divider between the columns. */}
       <section
         id="services"
         data-section="capabilities"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-6 section-border-b"
+        className="flex flex-col section-border-b"
       >
-        <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-stretch">
-          <div className="flex flex-col gap-6">
-            <span className="type-eyebrow">What I do</span>
+        <div className="grid md:grid-cols-2 gap-0 items-stretch">
+          <div className="flex flex-col gap-6 p-6 md:p-10">
+            <span className="type-eyebrow">Capabilities</span>
             <h2 className="text-section font-display text-ink max-w-[18ch]">
               Building better Shopify experiences
             </h2>
@@ -420,7 +420,10 @@ export default function Home() {
               what actually moves things forward.
             </p>
           </div>
-          <div className="flex flex-col gap-8 relative md:divider-indent-left md:pl-10 md:min-h-full">
+          <div
+            className="flex flex-col gap-8 p-6 md:p-10 md:min-h-full"
+            style={{ borderLeft: "1px solid rgba(26, 25, 30, 0.25)" }}
+          >
             <ul className="border-t border-[#1a1a1a]/25">
               {capabilities.map((c, i) => (
                 <li

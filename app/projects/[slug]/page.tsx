@@ -68,70 +68,75 @@ export default async function ProjectPage({
   return (
     <div className="theme contents">
 
-      {/* === BREADCRUMB === Projects / [current project name]. */}
-      <nav
-        aria-label="Breadcrumb"
-        className="p-6 md:px-10 md:pt-10 md:pb-0 text-base leading-[1.4]"
-      >
-        <ol className="flex flex-wrap items-baseline gap-x-2">
-          <li>
-            <a
-              href="/#work"
-              className="opacity-70 hover:opacity-100 transition-opacity underline underline-offset-4 decoration-1"
-            >
-              Projects
-            </a>
-          </li>
-          <li aria-hidden="true" className="opacity-40">
-            /
-          </li>
-          <li aria-current="page" className="text-ink">
-            {project.client}
-          </li>
-        </ol>
-      </nav>
-
-      {/* === HERO === two-column layout matching the homepage hero:
-          left carries eyebrow + h1 + kicker + optional CTA; right is a
-          full-bleed panel filled with the project's cover bg. */}
+      {/* === HERO === two-column layout matching the homepage hero.
+          Breadcrumb sits inside the top of the left column so the
+          section starts flush with the nav (no extra top padding). */}
       <section
         id="hero"
         data-section="project-hero"
         className="min-h-[520px] md:min-h-[640px] flex section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
-          <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
-            <div className="flex flex-col gap-6">
-              <span className="type-eyebrow">{project.role}</span>
-              <div className="flex flex-col gap-3">
-                <h1 className="text-display font-display text-ink max-w-[18ch]">
+          <div className="flex flex-col justify-between gap-10 p-6 md:p-10 min-w-0">
+            <nav
+              aria-label="Breadcrumb"
+              className="text-base leading-[1.4]"
+            >
+              <ol className="flex flex-wrap items-baseline gap-x-2">
+                <li>
+                  <a
+                    href="/#work"
+                    className="opacity-70 hover:opacity-100 transition-opacity underline underline-offset-4 decoration-1"
+                  >
+                    Projects
+                  </a>
+                </li>
+                <li aria-hidden="true" className="opacity-40">
+                  /
+                </li>
+                <li aria-current="page" className="text-ink">
                   {project.client}
-                </h1>
-                <p className="text-lg leading-[1.4] opacity-80 max-w-[42ch]">
-                  {project.kicker.split(" — ")[0]}
-                </p>
+                </li>
+              </ol>
+            </nav>
+
+            <div className="flex flex-col gap-10">
+              <div className="flex flex-col gap-6">
+                <span className="type-eyebrow">{project.role}</span>
+                <div className="flex flex-col gap-3">
+                  <h1 className="text-display font-display text-ink max-w-[18ch]">
+                    {project.client}
+                  </h1>
+                  <p className="text-lg leading-[1.4] opacity-80 max-w-[42ch]">
+                    {project.kicker.split(" — ")[0]}
+                  </p>
+                </div>
               </div>
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex btn self-start"
+                >
+                  <span className="btn-text bg-[#0E6BFF] text-white">
+                    View live project
+                  </span>
+                  <span className="btn-tab bg-[#0E6BFF] text-white">
+                    <BtnIcons />
+                  </span>
+                </a>
+              ) : null}
             </div>
-            {project.liveUrl ? (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex btn self-start"
-              >
-                <span className="btn-text bg-[#0E6BFF] text-white">
-                  View live project
-                </span>
-                <span className="btn-tab bg-[#0E6BFF] text-white">
-                  <BtnIcons />
-                </span>
-              </a>
-            ) : null}
           </div>
           <aside
             aria-label={`Cover — ${project.client}`}
-            className="relative min-h-[420px] md:min-h-0 md:divider-indent-left"
-            style={{ backgroundColor: project.coverBg, color: heroFg }}
+            className="relative min-h-[420px] md:min-h-0"
+            style={{
+              backgroundColor: project.coverBg,
+              color: heroFg,
+              borderLeft: "1px solid rgba(26, 25, 30, 0.25)",
+            }}
           />
         </div>
       </section>
