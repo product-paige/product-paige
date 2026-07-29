@@ -1,5 +1,6 @@
 import { BtnIcons } from "./BtnIcons";
 import { MobileMenu } from "./MobileMenu";
+import { SocialLinks } from "./SocialLinks";
 
 export function SiteHeader() {
   return (
@@ -54,8 +55,11 @@ export function SiteHeader() {
         </li>
       </ul>
 
-      {/* Right group — secondary text link + primary pill */}
+      {/* Right group — social icons, secondary text link, primary pill */}
       <div className="flex items-stretch ml-auto">
+        <div className="hidden md:flex divider-indent-left items-center px-4">
+          <SocialLinks />
+        </div>
         <a
           href="/ask-paige"
           className="hidden md:flex text-base divider-indent-left px-6 items-center hover:opacity-60 transition-opacity"
