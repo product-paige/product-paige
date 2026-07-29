@@ -707,7 +707,61 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* === PROCESS — 3-step "how a project looks" strip === */}
+      <section
+        id="process"
+        data-section="process"
+        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Process</span>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+            <h2 className="text-section font-display text-ink max-w-[22ch]">
+              How a project starts
+            </h2>
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+              Short, written, mutual. No deck-thick proposals. Most projects
+              are scoped and started in the same week.
+            </p>
+          </div>
+        </div>
+        <ol className="grid md:grid-cols-3 gap-6 md:gap-8">
+          {[
+            {
+              step: "01",
+              title: "Send a link or a screenshot",
+              body: "Email what you&rsquo;re working on and the thing you can&rsquo;t see clearly. Messier the better.",
+            },
+            {
+              step: "02",
+              title: "We scope it together",
+              body: "Short call to align on the problem, deliverable, timeline, and price. Written scope before anything starts. No surprise invoices.",
+            },
+            {
+              step: "03",
+              title: "Two-week sprint",
+              body: "Async reviews + a live working session. Real artifacts your team can use the day they&rsquo;re delivered.",
+            },
+          ].map((p) => (
+            <li
+              key={p.step}
+              className="card card-sm is-static !min-h-0 flex flex-col gap-3"
+              style={{ backgroundColor: "#f3eb88" }}
+            >
+              <span className="font-display text-4xl leading-none text-ink/40">
+                {p.step}
+              </span>
+              <h3 className="text-xl font-display leading-[1.1] text-ink">
+                {p.title}
+              </h3>
+              <p
+                className="text-base leading-[1.4] text-ink/80"
+                dangerouslySetInnerHTML={{ __html: p.body }}
+              />
+            </li>
+          ))}
+        </ol>
+      </section>
 
       {/* === BLOG — latest posts row === last section, no bottom border */}
       <section

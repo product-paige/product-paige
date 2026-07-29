@@ -58,9 +58,7 @@ export default async function ProjectPage({
   const project = projects[slug];
   if (!project) notFound();
 
-  const related = projectList.filter((p) => p.slug !== slug).slice(0, 2);
-
-  // Hero text contrast — same rules as the playbook hero
+  // Hero text contrast — light bgs get ink text, dark bgs get paper.
   const lightHero =
     project.coverBg === "#f3eb88" ||
     project.coverBg === "#DBE6EB" ||
@@ -70,11 +68,24 @@ export default async function ProjectPage({
   return (
     <div className="theme contents">
 
-      {/* === HERO === */}
+      {/* === BREADCRUMB === back link sits above the hero plaque. */}
+      <div className="p-6 md:px-10 md:pt-10 md:pb-0">
+        <a
+          href="/#work"
+          className="inline-flex items-center gap-2 text-base opacity-70 hover:opacity-100 transition-opacity"
+        >
+          <span aria-hidden="true">←</span>
+          <span className="underline underline-offset-4 decoration-1">
+            All projects
+          </span>
+        </a>
+      </div>
+
+      {/* === HERO === chamfered plaque with client + kicker. */}
       <section
         id="hero"
         data-section="project-hero"
-        className="p-6 md:p-10 m-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
+        className="p-6 md:p-10 mx-6 md:mx-10 mt-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
         style={{ backgroundColor: project.coverBg, color: heroFg }}
       >
         <div className="flex items-baseline justify-between text-base leading-[1.4] opacity-80">
@@ -88,9 +99,6 @@ export default async function ProjectPage({
           >
             {project.client}
           </h1>
-          {/* Subheading — the pre-em-dash portion of the kicker, so it
-              reads as a single short line. Falls back to the full
-              kicker if there's no em-dash. */}
           <p className="text-lg md:text-xl leading-[1.3] opacity-80 max-w-[42ch]">
             {project.kicker.split(" — ")[0]}
           </p>
@@ -113,7 +121,10 @@ export default async function ProjectPage({
       </section>
 
       {/* === COVER IMAGE === */}
-      <section data-section="project-cover" className="p-6 md:p-10">
+      <section
+        data-section="project-cover"
+        className="p-6 md:px-10 md:py-16 section-border-b"
+      >
         <div
           className="placeholder w-full aspect-[16/9]"
           aria-label={`Cover image — ${project.client}`}
@@ -121,7 +132,10 @@ export default async function ProjectPage({
       </section>
 
       {/* === CASE STUDY: Problem / Approach / Outcome (as cards) === */}
-      <section data-section="project-case" className="p-6 md:p-10 section-border-b">
+      <section
+        data-section="project-case"
+        className="p-6 md:px-10 md:py-16 section-border-b"
+      >
         <div className="grid md:grid-cols-3 gap-4">
           {caseBlocks.map((b) => (
             <IconCard
@@ -136,11 +150,14 @@ export default async function ProjectPage({
 
       {/* === NOTES (long-form narrative) === */}
       {project.notes && project.notes.length > 0 ? (
-        <section data-section="project-notes" className="p-6 md:p-10 section-border-b">
+        <section
+          data-section="project-notes"
+          className="p-6 md:px-10 md:py-16 section-border-b"
+        >
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Notes</span>
-              <h2 className="text-section font-display text-ink max-w-[20ch]">
+              <h2 className="text-2xl md:text-3xl font-display text-ink max-w-[18ch] leading-[1.15] tracking-[-0.5px]">
                 Behind the build
               </h2>
             </div>
@@ -155,30 +172,43 @@ export default async function ProjectPage({
         </section>
       ) : null}
 
-      {/* === IMAGE GALLERY === */}
-      <section data-section="project-gallery" className="p-6 md:p-10 section-border-b">
-        <div className="grid md:grid-cols-2 gap-6">
+      {/* === IMAGE GALLERY === selected screens from the project. */}
+      <section
+        data-section="project-gallery"
+        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
+      >
+        <div className="flex flex-col gap-6">
+          <span className="type-eyebrow">Selected work</span>
+          <h2 className="text-2xl md:text-3xl font-display text-ink max-w-[24ch] leading-[1.15] tracking-[-0.5px]">
+            A few pieces of the build
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6 md:gap-10">
           {project.mockups.map((m) => (
             <figure key={m} className="flex flex-col gap-3">
               <div
                 className="placeholder w-full aspect-[4/3]"
                 aria-label={`Mockup — ${m}`}
               />
-              <figcaption className="text-sm leading-[1.4] opacity-70">{m}</figcaption>
+              <figcaption className="text-base leading-[1.4] opacity-80">
+                {m}
+              </figcaption>
             </figure>
           ))}
         </div>
       </section>
 
-      {/* === HIGHLIGHTS === */}
+      {/* === HIGHLIGHTS === dark plaque with the metrics. */}
       <section
         data-section="project-highlights"
-        className="bg-[#1A191E] text-white p-6 md:p-10 m-4 md:m-6 section-chamfer relative grain-vintage flex flex-col gap-10"
+        className="bg-[#1A191E] text-white p-6 md:p-10 mx-6 md:mx-10 my-10 md:my-16 section-chamfer relative grain-vintage flex flex-col gap-10"
       >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow !text-white">By the numbers</span>
-          <h2 className="text-section font-display text-ink !text-white">Outcomes worth measuring</h2>
-        </div>
+        <h2
+          className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-0.5px]"
+          style={{ color: "#FBFAF6" }}
+        >
+          Outcomes worth measuring
+        </h2>
         <ul className="grid md:grid-cols-3 gap-6 md:gap-12">
           {project.highlights.map((h) => (
             <li
@@ -191,44 +221,12 @@ export default async function ProjectPage({
               >
                 {h.metric}
               </span>
-              <span className="text-sm leading-[1.4] opacity-70">{h.label}</span>
+              <span className="text-base leading-[1.4] opacity-80">
+                {h.label}
+              </span>
             </li>
           ))}
         </ul>
-      </section>
-
-      {/* === RELATED PROJECTS === */}
-      <section
-        id="related"
-        data-section="project-related"
-        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
-      >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">More work</span>
-          <h2 className="text-section font-display text-ink max-w-[24ch]">More projects</h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-6 items-stretch">
-          {related.map((r) => (
-            <a
-              key={r.slug}
-              href={`/projects/${r.slug}`}
-              className="flex flex-col gap-4 group"
-            >
-              <div
-                className="placeholder w-full aspect-[4/3]"
-                aria-label={`Image — ${r.client}`}
-              />
-              <div className="flex items-baseline justify-between text-sm leading-[1.4] opacity-70">
-                <span>{r.client}</span>
-                <span>{r.year}</span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">{r.kicker}</h3>
-              <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
-                View project ↗
-              </span>
-            </a>
-          ))}
-        </div>
       </section>
 
       {/* === CLOSING CTA === */}
