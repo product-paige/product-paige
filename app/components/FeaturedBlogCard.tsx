@@ -31,8 +31,9 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
           className="placeholder w-full aspect-[4/3] transition-opacity group-hover:opacity-90"
           aria-label={`Cover — ${post.title}`}
         />
-        {/* Text + meta column — right */}
-        <div className="flex flex-col gap-8 justify-center">
+        {/* Text + meta column — right. Meta pinned to top, title +
+            kicker + CTA pinned to bottom via justify-between. */}
+        <div className="flex flex-col gap-8 justify-between min-h-full">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-base leading-[1.4] opacity-70">
             <span className="svc-label">
               <span
@@ -50,20 +51,22 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
             <span aria-hidden="true" className="opacity-40">·</span>
             <span>{dateLabel}</span>
           </div>
-          <div className="flex flex-col gap-3">
-            <h2 className="text-section font-display text-ink max-w-[18ch] group-hover:opacity-70 transition-opacity">
-              {post.title}
-            </h2>
-            <p className="text-lg leading-[1.4] opacity-80 max-w-[520px]">
-              {post.kicker}
-            </p>
-          </div>
-          <span className="inline-flex btn self-start">
-            <span className="btn-text bg-[#0E6BFF] text-white">Read post</span>
-            <span className="btn-tab bg-[#0E6BFF] text-white">
-              <BtnIcons />
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-section font-display text-ink max-w-[18ch] group-hover:opacity-70 transition-opacity">
+                {post.title}
+              </h2>
+              <p className="text-lg leading-[1.4] opacity-80 max-w-[520px]">
+                {post.kicker}
+              </p>
+            </div>
+            <span className="inline-flex btn self-start">
+              <span className="btn-text bg-[#0E6BFF] text-white">Read post</span>
+              <span className="btn-tab bg-[#0E6BFF] text-white">
+                <BtnIcons />
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </a>
