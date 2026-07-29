@@ -38,20 +38,48 @@ export default function ProjectsIndexPage() {
       {/* === FEATURED PROJECT === most recent, big spread. */}
       {feature ? (
         <section
+          id="feature"
           data-section="projects-feature"
-          className="p-6 md:p-10 section-border-b"
+          className="min-h-[520px] md:min-h-[640px] flex section-border-b"
         >
           <a
             href={`/projects/${feature.slug}`}
-            className="grid md:grid-cols-2 gap-6 md:gap-12 items-stretch group"
+            className="grid md:grid-cols-2 gap-0 items-stretch w-full group"
           >
+            <div className="flex flex-col justify-between gap-10 p-6 md:p-10 min-w-0">
+              <span className="type-eyebrow">Featured</span>
+              <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-baseline gap-3 text-sm leading-[1.4] opacity-70">
+                    <span>{feature.role}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{feature.year}</span>
+                  </div>
+                  <h2 className="text-display font-display text-ink max-w-[18ch] group-hover:opacity-70 transition-opacity">
+                    {feature.client}
+                  </h2>
+                  <p className="text-lg leading-[1.4] opacity-80 max-w-[42ch]">
+                    {feature.kicker}
+                  </p>
+                </div>
+                <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
+                  View project ↗
+                </span>
+              </div>
+            </div>
             <div
-              className="w-full aspect-[4/3] relative overflow-hidden"
-              style={{ backgroundColor: feature.coverBg }}
+              className="relative min-h-[420px] md:min-h-0 overflow-hidden section-border-b"
+              style={{
+                backgroundColor: feature.coverBg,
+                borderLeft: "1px solid rgba(26, 25, 30, 0.25)",
+              }}
               aria-label={`Cover — ${feature.client}`}
             >
               {feature.comingSoon ? (
-                <span className="svc-label absolute top-4 right-4">
+                <span
+                  className="svc-label z-[2]"
+                  style={{ position: "absolute", top: "16px", right: "16px" }}
+                >
                   <span
                     className="svc-label-text"
                     style={{
@@ -64,26 +92,6 @@ export default function ProjectsIndexPage() {
                   </span>
                 </span>
               ) : null}
-            </div>
-            <div className="flex flex-col gap-6 justify-center">
-              <div className="flex items-baseline gap-3 text-sm leading-[1.4] opacity-70">
-                <span>Featured</span>
-                <span aria-hidden="true">·</span>
-                <span>{feature.role}</span>
-                <span aria-hidden="true">·</span>
-                <span>{feature.year}</span>
-              </div>
-              <div className="flex flex-col gap-3">
-                <h2 className="text-section font-display text-ink max-w-[18ch] group-hover:opacity-70 transition-opacity">
-                  {feature.client}
-                </h2>
-                <p className="text-lg leading-[1.4] opacity-80 max-w-[520px]">
-                  {feature.kicker}
-                </p>
-              </div>
-              <span className="text-[15px] font-medium leading-none tracking-[-0.01em] border-b border-[#1A191E] pb-0.5 self-start group-hover:opacity-60 transition-opacity">
-                View project ↗
-              </span>
             </div>
           </a>
         </section>
