@@ -329,17 +329,6 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <a
-              href="/contact"
-              className="inline-flex btn self-start"
-            >
-              <span className="btn-text bg-[#0E6BFF] text-white">
-                Let&rsquo;s talk
-              </span>
-              <span className="btn-tab bg-[#0E6BFF] text-white">
-                <BtnIcons />
-              </span>
-            </a>
           </div>
           <aside
             className="relative min-w-0 p-6 flex items-end justify-end divider-indent-left bg-cover bg-center overflow-hidden"
@@ -356,13 +345,24 @@ export default function Home() {
                 <HeroFloatingCard key={c.card.title} {...c} />
               ))}
             </div>
-            <div className="relative card card-sm card-cream flex flex-col justify-between gap-2 !min-h-0 w-full md:w-[260px] md:max-w-[260px] md:aspect-square">
+            <div className="relative card card-sm card-cream flex flex-col gap-3 !min-h-0 w-full md:w-[260px] md:max-w-[260px] md:aspect-square">
               <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Hi, I&rsquo;m Paige
               </h3>
               <p className="text-base leading-[1.2] opacity-80">
                 13 years building in the Shopify and ecommerce ecosystem.
               </p>
+              <a
+                href="/about"
+                className="inline-flex btn self-start mt-auto"
+              >
+                <span className="btn-text bg-[#1A191E] text-white">
+                  About me
+                </span>
+                <span className="btn-tab bg-[#1A191E] text-white">
+                  <BtnIcons />
+                </span>
+              </a>
             </div>
           </aside>
         </div>
