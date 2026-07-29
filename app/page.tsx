@@ -751,14 +751,11 @@ export default function Home() {
         data-section="blog"
         className="p-6 md:px-10 md:py-16 flex flex-col gap-10"
       >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Notes</span>
-          <div className="flex flex-wrap items-start justify-between gap-6">
-            <h2 className="text-section font-display text-ink max-w-[20ch]">
-              From the notebook
-            </h2>
-            <LinkBtn href="/blog" className="shrink-0">Read all notes</LinkBtn>
-          </div>
+        <div className="flex flex-wrap items-start justify-between gap-6">
+          <h2 className="text-section font-display text-ink max-w-[20ch]">
+            From the notebook
+          </h2>
+          <LinkBtn href="/blog" className="shrink-0">Read all notes</LinkBtn>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
           {blogList.slice(0, 3).map((post) => (
