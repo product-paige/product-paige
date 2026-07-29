@@ -45,7 +45,7 @@ export default function BlogIndexPage() {
       {feature ? (
         <section
           data-section="blog-feature"
-          className="p-6 md:p-10 section-border-b"
+          className="p-6 md:p-10"
         >
           <FeaturedBlogCard post={feature} />
         </section>

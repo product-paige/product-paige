@@ -12,7 +12,7 @@ export default async function BlogPostPage({
   const post = blogPosts[slug];
   if (!post) notFound();
 
-  const related = blogList.filter((p) => p.slug !== slug).slice(0, 2);
+  const related = blogList.filter((p) => p.slug !== slug).slice(0, 3);
   const dateFormatted = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -114,7 +114,9 @@ export default async function BlogPostPage({
         </div>
       </section>
 
-      {/* === RELATED === */}
+      {/* === RELATED === always 3 columns; if there are fewer than
+          three related posts, the empty columns are left blank so the
+          grid rhythm holds. */}
       {related.length > 0 ? (
         <section
           data-section="post-related"
@@ -124,7 +126,7 @@ export default async function BlogPostPage({
             <span className="type-eyebrow">More reading</span>
             <h2 className="text-section font-display text-ink max-w-[24ch]">Keep going</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-stretch">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 items-stretch">
             {related.map((r) => (
               <BlogCard key={r.slug} post={r} />
             ))}
