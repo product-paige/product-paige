@@ -89,22 +89,6 @@ const capabilities = [
   },
 ];
 
-const tools: Array<{
-  name: string;
-  bg: string;
-  fg: string;
-  icon: PixelIconName;
-}> = [
-  { name: "Figma",   bg: "#3D3A45", fg: "#FBFAF6", icon: "cursor" },
-  { name: "Framer",  bg: "#3D3A45", fg: "#FBFAF6", icon: "cursor" },
-  { name: "Claude",  bg: "#3D3A45", fg: "#FBFAF6", icon: "sparkleA" },
-  { name: "Cursor",  bg: "#3D3A45", fg: "#FBFAF6", icon: "sparkleA" },
-  { name: "Lovable", bg: "#3D3A45", fg: "#FBFAF6", icon: "sparkleA" },
-  { name: "Paper",   bg: "#3D3A45", fg: "#FBFAF6", icon: "door" },
-  { name: "Shopify", bg: "#3D3A45", fg: "#FBFAF6", icon: "browser" },
-  { name: "Notion",  bg: "#3D3A45", fg: "#FBFAF6", icon: "door" },
-];
-
 /** Map each project to a folder-tab entry. Pulls real case-study data from /projects/data. */
 const recentWork: Array<{
   no: string;
@@ -724,82 +708,6 @@ export default function Home() {
       </section>
 
 
-
-      {/* === WHO — ABOUT === */}
-      <section
-        id="about"
-        data-section="about"
-        className="grid md:grid-cols-2 items-stretch section-border-b min-h-[440px] md:min-h-[560px]"
-      >
-        {/* Left column — bg image fills column, taped paper card on top. */}
-        <aside
-          className="relative min-h-[500px] order-2 md:order-1 p-6 md:p-16 flex items-start justify-center pt-16 md:pt-24"
-          style={{ backgroundColor: "#DDDAD5" }}
-          aria-label="About — portrait"
-        >
-          {/* Taped square paper card — square, grain paper, subtle chrome, with
-              a masking-tape strip at the top center that overhangs the card. */}
-          <div className="relative w-full max-w-[380px] -rotate-[2deg]">
-            {/* Masking tape — overhangs the card top-center */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/tape.svg"
-              alt=""
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 -rotate-[3deg] w-[160px] z-10"
-            />
-
-            {/* Paper card — square, textured, subtle 2d/3d chrome */}
-            <div className="relative aspect-square bg-white grain-paper flex flex-col p-4 md:p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
-              {/* Photo area — sage placeholder for headshot */}
-              <div className="w-full flex-1 bg-[#DBE6EB] overflow-hidden" />
-            </div>
-          </div>
-        </aside>
-
-        {/* Right column — eyebrow + h2 at top, bio at bottom, filling the column height */}
-        <div className="p-6 md:p-10 flex flex-col gap-10 justify-between order-1 md:order-2 md:divider-indent-left">
-          <div className="flex flex-col gap-10">
-            <span className="type-eyebrow">About</span>
-            <h2 className="text-section font-display text-ink max-w-[18ch]">
-              Half product marketer, half UX designer
-            </h2>
-          </div>
-          <div className="flex flex-col gap-6 max-w-[560px]">
-            <p className="text-lg leading-[1.4] opacity-80">
-              For 13 years I&rsquo;ve worked with ecommerce teams. Shopify
-              apps. DTC brands. Early-stage SaaS. Usually the product is
-              good. The hard part is getting people to understand it fast,
-              trust it, and know what to do next. That&rsquo;s the work I
-              do. Positioning, UX, and the space where they meet.
-            </p>
-            {/* Toolkit strip — sits under the bio as a "how I work" signal,
-                not a service offering. Moved here from the old Categories
-                section. */}
-            <div className="flex flex-col gap-3">
-              <p className="text-sm leading-[1.4] opacity-60">
-                Tools I lean on
-              </p>
-              <ul className="flex flex-wrap gap-2">
-                {tools.map((t) => (
-                  <li key={t.name}>
-                    <span className="svc-label" style={{ color: t.fg }}>
-                      <span
-                        className="svc-label-text"
-                        style={{ backgroundColor: t.bg, borderColor: t.fg }}
-                      >
-                        {t.name}
-                      </span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
 
       {/* === BLOG — latest posts row === last section, no bottom border */}
       <section
