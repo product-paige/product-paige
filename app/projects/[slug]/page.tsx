@@ -85,7 +85,7 @@ export default async function ProjectPage({
               <ol className="flex flex-wrap items-baseline gap-x-2">
                 <li>
                   <a
-                    href="/projects"
+                    href="/#work"
                     className="opacity-70 hover:opacity-100 transition-opacity underline underline-offset-4 decoration-1"
                   >
                     Projects
