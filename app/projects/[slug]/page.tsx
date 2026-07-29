@@ -64,7 +64,6 @@ export default async function ProjectPage({
   const lightHero =
     project.coverBg === "#f3eb88" ||
     project.coverBg === "#DBE6EB" ||
-    project.coverBg === "#cdb8e3" ||
     project.coverBg === "#f7c8d4";
   const heroFg = lightHero ? "#1a1a1a" : "#ffffff";
 

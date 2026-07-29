@@ -73,7 +73,6 @@ export default function PlaybookPage({
   const lightHero =
     playbook.heroBg === "#f3eb88" ||
     playbook.heroBg === "#DBE6EB" ||
-    playbook.heroBg === "#cdb8e3" ||
     playbook.heroBg === "#f7c8d4";
   const heroFg = lightHero ? "#1a1a1a" : "#ffffff";
 

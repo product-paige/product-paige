@@ -15,7 +15,7 @@ export type Playbook = {
   /** Hero background — Tailwind arbitrary class without the bracket prefix */
   heroBg: string;
   /** Card tone class used on the home grid */
-  homeTone: "card-red" | "card-blue-bright" | "card-blue-light" | "card-cream";
+  homeTone: "card-red" | "card-blue-light" | "card-cream";
   chapters: string[];
   /** Map chapter title → array of paragraphs */
   chapterBodies: Record<string, string[]>;
@@ -87,8 +87,8 @@ export const playbooks: Record<string, Playbook> = {
     date: "Nov 12, 2026",
     body: "Weekly habits that keep momentum without chaos. Clear decisions, fewer rabbit holes.",
     chips: ["systems", "focus", "cadence"],
-    heroBg: "#cdb8e3", // sage
-    homeTone: "card-blue-bright",
+    heroBg: "#DBE6EB", // sky
+    homeTone: "card-blue-light",
     status: "coming-soon",
     chapters: [
       "Why most operating systems collapse",

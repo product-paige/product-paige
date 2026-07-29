@@ -61,7 +61,7 @@ const capabilities = [
   {
     title: "AI content design",
     body: "Conversations, prompts, and UI for the AI features inside your product. Tone, fallbacks, and the rules that keep it on-brand.",
-    placeholderTone: "card-blue-bright",
+    placeholderTone: "card-blue-light",
   },
 ];
 

@@ -30,7 +30,7 @@ export const projects: Record<string, Project> = {
     role: "Brand + Shopify build",
     kicker:
       "Refill-first body care brand on Shopify — end-to-end build for a refill-first body care brand — brand, story, and Shopify Horizon theme with variant-carousel and refill flows.",
-    coverBg: "#cdb8e3",
+    coverBg: "#DBE6EB",
     problem:
       "A founder with a product, a vision, and no name. The category was crowded with brands that all looked the same — clinical, identical packaging, single-purchase only. No story, no system, no reason to come back.",
     approach:

@@ -20,7 +20,7 @@ const works = [
     blurb:
       "When therapists spend less time clicking, they have more time for patients.",
     tags: ["Healthcare", "Workflow design"],
-    tone: "card-blue-bright",
+    tone: "card-blue-light",
   },
   {
     no: "project 02",
@@ -109,7 +109,7 @@ export default function PortfolioLayout() {
       >
         <h2 className="font-display leading-[1.05] tracking-tightest text-4xl md:text-6xl lg:text-7xl max-w-[20ch]">
           I design{" "}
-          <span className="inline-block align-middle w-12 h-12 bg-[#cdb8e3] mx-2" />{" "}
+          <span className="inline-block align-middle w-12 h-12 bg-[#DBE6EB] mx-2" />{" "}
           outstanding digital products{" "}
           <span className="inline-block align-middle w-12 h-12 bg-[#0E6BFF] mx-2" />
           .
