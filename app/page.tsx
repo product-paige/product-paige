@@ -354,7 +354,7 @@ export default function Home() {
           <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Open to new projects</span>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-4">
                 <h1 className="text-display font-display text-ink max-w-[20ch]">
                   <TearText>{"Product marketing\n& UX design for\necommerce teams"}</TearText>
                 </h1>
@@ -446,7 +446,7 @@ export default function Home() {
         className="flex flex-col section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch">
-          <div className="flex flex-col gap-6 p-6 md:p-10 md:justify-end">
+          <div className="flex flex-col gap-4 p-6 md:p-10 md:justify-end">
             <h2 className="text-section font-display text-ink max-w-[18ch]">
               Building better Shopify experiences
             </h2>
