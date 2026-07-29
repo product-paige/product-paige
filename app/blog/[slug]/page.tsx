@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { ClosingCTA } from "../../components/ClosingCTA";
-import { PostMeta } from "../../components/PostMeta";
 import { BlogCard } from "../../components/BlogCard";
 import { blogPosts, blogList } from "../data";
 
@@ -47,29 +46,56 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
       />
 
-      {/* === HERO === */}
+      {/* === BREADCRUMB === Notebook / [post title]. */}
+      <nav
+        aria-label="Breadcrumb"
+        className="p-6 md:px-10 md:pt-10 md:pb-0 text-base leading-[1.4]"
+      >
+        <ol className="flex flex-wrap items-baseline gap-x-2">
+          <li>
+            <a
+              href="/blog"
+              className="opacity-70 hover:opacity-100 transition-opacity underline underline-offset-4 decoration-1"
+            >
+              Notebook
+            </a>
+          </li>
+          <li aria-hidden="true" className="opacity-40">
+            /
+          </li>
+          <li aria-current="page" className="text-ink line-clamp-1 max-w-[60ch]">
+            {post.title}
+          </li>
+        </ol>
+      </nav>
+
+      {/* === HERO === chamfered plaque, same shape as project hero. */}
       <section
         id="post-hero"
         data-section="post-hero"
-        className="p-6 md:p-10 section-border-b"
+        className="p-6 md:p-10 mx-6 md:mx-10 mt-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
+        style={{ backgroundColor: "#DBE6EB", color: "#1a1a1a" }}
       >
-        <div className="flex flex-col gap-6 max-w-[820px]">
-          <PostMeta items={["Blog", post.category, post.readingTime, dateFormatted]} />
-          <h1 className="text-display font-display text-ink max-w-[18ch]">{post.title}</h1>
-          <p className="text-lg leading-[1.4] opacity-80">{post.kicker}</p>
+        <div className="flex items-baseline justify-between text-base leading-[1.4] opacity-80">
+          <span>{post.category}</span>
+          <span>{dateFormatted}</span>
         </div>
-      </section>
-
-      {/* === COVER === */}
-      <section data-section="post-cover" className="p-6 md:p-10 section-border-b">
-        <div
-          className="placeholder w-full aspect-[16/9]"
-          aria-label={`Cover — ${post.title}`}
-        />
+        <div className="flex flex-col gap-3">
+          <h1 className="text-display font-display text-ink max-w-[20ch]">
+            {post.title}
+          </h1>
+          <p className="text-lg md:text-xl leading-[1.3] opacity-80 max-w-[42ch]">
+            {post.kicker}
+          </p>
+        </div>
+        <p className="text-base opacity-60">{post.readingTime}</p>
       </section>
 
       {/* === BODY === */}
-      <section data-section="post-body" className="p-6 md:p-10 section-border-b">
+      <section
+        data-section="post-body"
+        className="p-6 md:px-10 md:py-16 section-border-b"
+      >
         <div className="grid md:grid-cols-12 gap-6 md:gap-16">
           <aside className="md:col-span-3 flex flex-col gap-3">
             <span className="type-eyebrow">Author</span>
@@ -92,7 +118,7 @@ export default async function BlogPostPage({
       {related.length > 0 ? (
         <section
           data-section="post-related"
-          className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
+          className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
         >
           <div className="flex flex-col gap-6">
             <span className="type-eyebrow">More reading</span>
