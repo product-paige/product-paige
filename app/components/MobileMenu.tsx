@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 
 const LINKS: Array<{ href: string; label: string }> = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
   { href: "/#work", label: "Projects" },
-  { href: "/blog", label: "Notes" },
-  { href: "/#about", label: "About" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Notebook" },
   { href: "/ask-paige", label: "Ask Paige" },
   { href: "/contact", label: "Contact" },
 ];

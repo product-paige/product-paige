@@ -18,23 +18,14 @@ export function SiteHeader() {
         </span>
       </a>
 
-      {/* Primary nav — ordered to match the homepage narrative
-          (what → how → projects → who → subscribe). */}
+      {/* Primary nav — Home / Projects / About / Notebook. */}
       <ul className="hidden md:flex flex-1 items-stretch">
         <li className="flex">
           <a
-            href="/services"
+            href="/"
             className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
-            Services
-          </a>
-        </li>
-        <li className="flex">
-          <a
-            href="/#working-style"
-            className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
-          >
-            Process
+            Home
           </a>
         </li>
         <li className="flex">
@@ -47,18 +38,18 @@ export function SiteHeader() {
         </li>
         <li className="flex">
           <a
-            href="/blog"
+            href="/about"
             className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
-            Notes
+            About
           </a>
         </li>
         <li className="flex">
           <a
-            href="/#about"
+            href="/blog"
             className="text-base divider-indent-left divider-indent-right px-6 flex items-center hover:opacity-60 transition-opacity"
           >
-            About
+            Notebook
           </a>
         </li>
       </ul>
