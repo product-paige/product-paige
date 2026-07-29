@@ -400,55 +400,58 @@ export default function Home() {
 
       
 
-      {/* === CAPABILITIES === */}
+      {/* === CAPABILITIES === Left column carries the section intro
+          (eyebrow + h2 + static lead + active blurb); right column
+          carries the numbered list. Right col picks up the vertical
+          divider via `md:divider-indent-left`. */}
       <section
         id="services"
         data-section="capabilities"
         className="p-6 md:px-10 md:py-16 flex flex-col gap-6 section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-stretch">
-          <div className="relative h-full order-2 md:order-1">
-            <div
-              className="placeholder w-full h-full min-h-[480px]"
-              aria-label="Capabilities — image placeholder"
-            />
+          <div className="flex flex-col gap-6">
+            <span className="type-eyebrow">What I do</span>
+            <h2 className="text-section font-display text-ink max-w-[18ch]">
+              Building better Shopify experiences
+            </h2>
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[480px]">
+              Understand the problem, simplify the experience, and focus on
+              what actually moves things forward.
+            </p>
           </div>
-          <div className="flex flex-col justify-between gap-10 order-1 md:order-2 relative md:divider-indent-left">
-            <div className="flex flex-col gap-6">
-              <span className="type-eyebrow">Capabilities</span>
-              <h2 className="text-section font-display text-ink max-w-[500px]">
-                What we&rsquo;ll improve
-              </h2>
-            </div>
-            <div className="flex flex-col gap-8">
-              <ul className="border-t border-[#1a1a1a]/25 max-w-[500px]">
-                {capabilities.map((c, i) => (
-                  <li
-                    key={c.title}
-                    className="border-b border-[#1a1a1a]/25"
+          <div className="flex flex-col gap-8 relative md:divider-indent-left md:pl-10 md:min-h-full">
+            <ul className="border-t border-[#1a1a1a]/25">
+              {capabilities.map((c, i) => (
+                <li
+                  key={c.title}
+                  className="border-b border-[#1a1a1a]/25"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setActiveCap(i)}
+                    className={`w-full flex items-baseline justify-between gap-6 py-5 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink transition-opacity ${
+                      activeCap === i
+                        ? "opacity-100"
+                        : "opacity-30 hover:opacity-60"
+                    }`}
                   >
-                    <button
-                      type="button"
-                      onClick={() => setActiveCap(i)}
-                      className={`w-full text-left py-4 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink transition-opacity ${
-                        activeCap === i
-                          ? "opacity-100"
-                          : "opacity-30 hover:opacity-60"
-                      }`}
-                    >
-                      {c.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <p
-                key={activeCap}
-                className="text-lg leading-[1.4] opacity-80 max-w-[480px] min-h-[4em]"
-                dangerouslySetInnerHTML={{
-                  __html: capabilities[activeCap].blurb,
-                }}
-              />
-            </div>
+                    <span className="text-left">{c.title}</span>
+                    <span className="font-mono text-sm opacity-70 tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {/* Dynamic paragraph — updates as the reader taps items. */}
+            <p
+              key={activeCap}
+              className="text-lg leading-[1.4] opacity-80 max-w-[520px] min-h-[3em]"
+              dangerouslySetInnerHTML={{
+                __html: capabilities[activeCap].blurb,
+              }}
+            />
           </div>
         </div>
       </section>

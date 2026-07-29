@@ -91,54 +91,49 @@ export default async function ProjectPage({
         </ol>
       </nav>
 
-      {/* === HERO === chamfered plaque with client + kicker. */}
+      {/* === HERO === two-column layout matching the homepage hero:
+          left carries eyebrow + h1 + kicker + optional CTA; right is a
+          full-bleed panel filled with the project's cover bg. */}
       <section
         id="hero"
         data-section="project-hero"
-        className="p-6 md:p-10 mx-6 md:mx-10 mt-6 section-chamfer relative overflow-hidden flex flex-col gap-6"
-        style={{ backgroundColor: project.coverBg, color: heroFg }}
+        className="min-h-[520px] md:min-h-[640px] flex section-border-b"
       >
-        <div className="flex items-baseline justify-between text-base leading-[1.4] opacity-80">
-          <span>{project.role}</span>
-          <span>{project.year}</span>
+        <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
+          <div className="flex flex-col gap-10 justify-end p-6 md:p-10 min-w-0">
+            <div className="flex flex-col gap-6">
+              <span className="type-eyebrow">{project.role}</span>
+              <div className="flex flex-col gap-3">
+                <h1 className="text-display font-display text-ink max-w-[18ch]">
+                  {project.client}
+                </h1>
+                <p className="text-lg leading-[1.4] opacity-80 max-w-[42ch]">
+                  {project.kicker.split(" — ")[0]}
+                </p>
+              </div>
+            </div>
+            {project.liveUrl ? (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex btn self-start"
+              >
+                <span className="btn-text bg-[#0E6BFF] text-white">
+                  View live project
+                </span>
+                <span className="btn-tab bg-[#0E6BFF] text-white">
+                  <BtnIcons />
+                </span>
+              </a>
+            ) : null}
+          </div>
+          <aside
+            aria-label={`Cover — ${project.client}`}
+            className="relative min-h-[420px] md:min-h-0 md:divider-indent-left"
+            style={{ backgroundColor: project.coverBg, color: heroFg }}
+          />
         </div>
-        <div className="flex flex-col gap-3">
-          <h1
-            className="text-display font-display max-w-[20ch]"
-            style={{ color: heroFg }}
-          >
-            {project.client}
-          </h1>
-          <p className="text-lg md:text-xl leading-[1.3] opacity-80 max-w-[42ch]">
-            {project.kicker.split(" — ")[0]}
-          </p>
-        </div>
-        {project.liveUrl ? (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="inline-flex btn self-start"
-          >
-            <span className="btn-text bg-[#1A191E] text-white">
-              View live project
-            </span>
-            <span className="btn-tab bg-[#1A191E] text-white">
-              <BtnIcons />
-            </span>
-          </a>
-        ) : null}
-      </section>
-
-      {/* === COVER IMAGE === */}
-      <section
-        data-section="project-cover"
-        className="p-6 md:px-10 md:py-16 section-border-b"
-      >
-        <div
-          className="placeholder w-full aspect-[16/9]"
-          aria-label={`Cover image — ${project.client}`}
-        />
       </section>
 
       {/* === CASE STUDY: Problem / Approach / Outcome (as cards) === */}
