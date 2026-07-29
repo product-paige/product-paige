@@ -8,12 +8,9 @@ export function SiteFooter() {
       className="bg-[#1A191E] text-white p-10 pb-6 section-chamfer relative flex flex-col gap-10"
     >
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-        <div className="flex flex-col gap-6 max-w-[26ch]">
-          <h2 className="text-xl md:text-2xl font-display leading-[1.15] text-white">
-            Helping ecommerce teams ship products that feel obvious
-          </h2>
-          <SocialLinks />
-        </div>
+        <h2 className="text-xl md:text-2xl font-display leading-[1.15] text-white max-w-[26ch]">
+          Helping ecommerce teams ship products that feel obvious
+        </h2>
         <form
           action="/api/subscribe"
           method="post"
@@ -56,11 +53,15 @@ export function SiteFooter() {
           <li><a href="/contact" className="hover:opacity-60 transition-opacity">Contact</a></li>
         </ul>
       </nav>
-      {/* Legal / copyright strip — folded into the footer plaque. */}
-      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 text-sm opacity-70">
-        <span>© {new Date().getFullYear()} Product Paige</span>
-        <a href="/privacy" className="hover:opacity-60 transition-opacity">Privacy</a>
-        <a href="/terms" className="hover:opacity-60 transition-opacity">Terms</a>
+      {/* Legal / copyright strip — © + legal on the left, socials
+          floated to the far right on the same baseline. */}
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 text-sm">
+        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 opacity-70">
+          <span>© {new Date().getFullYear()} Product Paige</span>
+          <a href="/privacy" className="hover:opacity-60 transition-opacity">Privacy</a>
+          <a href="/terms" className="hover:opacity-60 transition-opacity">Terms</a>
+        </div>
+        <SocialLinks />
       </div>
     </footer>
   );

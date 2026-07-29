@@ -26,9 +26,9 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
       className="card grain-paper bg-[#FAF9F2] text-ink group !min-h-0 !p-6 md:!p-10"
     >
       <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-stretch h-full">
-        {/* Image column — left */}
+        {/* Image column — left, 16:9 horizontal */}
         <div
-          className="placeholder w-full aspect-[4/3] transition-opacity group-hover:opacity-90"
+          className="placeholder w-full aspect-[16/9] transition-opacity group-hover:opacity-90"
           aria-label={`Cover — ${post.title}`}
         />
         {/* Text + meta column — right. Meta pinned to top, title +
