@@ -424,7 +424,7 @@ export default function Home() {
             className="flex flex-col gap-8 p-6 md:p-10 md:min-h-full"
             style={{ borderLeft: "1px solid rgba(26, 25, 30, 0.25)" }}
           >
-            <ul className="border-t border-[#1a1a1a]/25">
+            <ul>
               {capabilities.map((c, i) => (
                 <li
                   key={c.title}
@@ -440,7 +440,7 @@ export default function Home() {
                     }`}
                   >
                     <span className="text-left">{c.title}</span>
-                    <span className="font-mono text-sm opacity-70 tabular-nums">
+                    <span className="font-display text-xl md:text-2xl opacity-70 tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </button>
