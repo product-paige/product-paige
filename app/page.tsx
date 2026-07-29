@@ -469,16 +469,13 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => setActiveCap(i)}
-                    className={`w-full flex items-baseline justify-between gap-6 py-5 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink transition-opacity ${
+                    className={`w-full text-left py-5 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink transition-opacity ${
                       activeCap === i
                         ? "opacity-100"
                         : "opacity-30 hover:opacity-60"
                     }`}
                   >
-                    <span className="text-left">{c.title}</span>
-                    <span className="font-display text-xl md:text-2xl opacity-70 tabular-nums">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    {c.title}
                   </button>
                 </li>
               ))}
