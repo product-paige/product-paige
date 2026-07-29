@@ -118,10 +118,14 @@ const recentWork: Array<{
 type HeroCard = {
   title: string;
   image?: string;
-  variant?: "default" | "shopify" | "polaroid" | "testimonial";
+  variant?: "default" | "shopify" | "polaroid" | "testimonial" | "email";
   price?: string;
   testimonial?: string;
   photoBg?: string;
+  /** Email variant only — the "from" name shown above the subject. */
+  from?: string;
+  /** Email variant only — pretty timestamp. */
+  timestamp?: string;
 };
 
 const heroFloatingCards: Array<{
@@ -161,18 +165,19 @@ const heroFloatingCards: Array<{
     widthClass: "w-72",
   },
   {
-    // Editorial testimonial polaroid — sits above the yellow "Hi I'm
-    // Paige" card, angled to feel like a note pinned to the collage.
+    // Email preview — mimics an inbox row / client thank-you note.
+    // Sits above the yellow "Hi I'm Paige" card, angled slightly.
     card: {
       title: "Half a step ahead",
-      variant: "testimonial",
+      variant: "email",
+      from: "Cee, Backspace Body",
+      timestamp: "Tue 2:14 pm",
       testimonial:
         "Shipped in two weeks what we'd been debating for six months. No politics, no deck-thick proposal — just the work.",
-      photoBg: "#DEDCCD",
     },
     position: { top: "36%", left: "36%" },
     rotate: "5deg",
-    widthClass: "w-44",
+    widthClass: "w-64",
   },
 ];
 
@@ -202,7 +207,38 @@ function HeroFloatingCard({
       onMouseLeave={() => setHovered(false)}
       aria-hidden="true"
     >
-      {card.variant === "testimonial" ? (
+      {card.variant === "email" ? (
+        <div className="relative bg-white flex flex-col">
+          {/* Header strip — sender + timestamp */}
+          <div className="flex items-center justify-between gap-2 border-b border-[#1A191E]/10 px-3 py-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <span
+                aria-hidden="true"
+                className="w-5 h-5 rounded-full bg-[#DBE6EB] flex items-center justify-center text-[10px] font-medium text-ink shrink-0"
+              >
+                {(card.from ?? "•").charAt(0)}
+              </span>
+              <span className="text-[10px] leading-none text-ink truncate">
+                {card.from ?? "Client"}
+              </span>
+            </div>
+            <span className="text-[9px] leading-none opacity-50 shrink-0">
+              {card.timestamp ?? ""}
+            </span>
+          </div>
+          {/* Body — subject + preview */}
+          <div className="flex flex-col gap-1 px-3 py-2.5">
+            <p className="text-[11px] leading-[1.2] font-medium text-ink">
+              {card.title}
+            </p>
+            {card.testimonial ? (
+              <p className="text-[9px] leading-[1.4] opacity-70 line-clamp-3">
+                {card.testimonial}
+              </p>
+            ) : null}
+          </div>
+        </div>
+      ) : card.variant === "testimonial" ? (
         <div className="relative bg-white p-2.5">
           <div
             className="relative w-full aspect-[3/4] flex flex-col justify-between p-3 text-ink"
@@ -410,8 +446,7 @@ export default function Home() {
         className="flex flex-col section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch">
-          <div className="flex flex-col gap-6 p-6 md:p-10">
-            <span className="type-eyebrow">Capabilities</span>
+          <div className="flex flex-col gap-6 p-6 md:p-10 md:justify-end">
             <h2 className="text-section font-display text-ink max-w-[18ch]">
               Building better Shopify experiences
             </h2>
@@ -424,6 +459,7 @@ export default function Home() {
             className="flex flex-col gap-8 p-6 md:p-10 md:min-h-full"
             style={{ borderLeft: "1px solid rgba(26, 25, 30, 0.25)" }}
           >
+            <span className="type-eyebrow">Capabilities</span>
             <ul>
               {capabilities.map((c, i) => (
                 <li
@@ -468,7 +504,6 @@ export default function Home() {
         className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Recent work</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="text-section font-display text-ink max-w-[24ch]">
               Projects in flight

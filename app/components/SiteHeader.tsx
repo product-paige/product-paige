@@ -31,7 +31,7 @@ export function SiteHeader() {
         </li>
         <li className="flex">
           <a
-            href="/#work"
+            href="/projects"
             className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
             Projects
