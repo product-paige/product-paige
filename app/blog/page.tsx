@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { ClosingCTA } from "../components/ClosingCTA";
 import { BlogCard } from "../components/BlogCard";
 import { FeaturedBlogCard } from "../components/FeaturedBlogCard";
 import { blogList } from "./data";
@@ -46,7 +45,7 @@ export default function BlogIndexPage() {
       {feature ? (
         <section
           data-section="blog-feature"
-          className="p-6 md:px-10 md:py-16 section-border-b"
+          className="p-6 md:p-10 section-border-b"
         >
           <FeaturedBlogCard post={feature} />
         </section>
@@ -58,7 +57,7 @@ export default function BlogIndexPage() {
       {rest.length > 0 ? (
         <section
           data-section="blog-list"
-          className="p-6 md:px-10 md:py-16 section-border-b"
+          className="p-6 md:p-10 section-border-b"
         >
           <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-6">
@@ -107,12 +106,6 @@ export default function BlogIndexPage() {
         </section>
       ) : null}
 
-      <ClosingCTA
-        title="Have a topic you want me to write about?"
-        body="Send it. Best posts start from a real question a founder is stuck on."
-        ctaLabel="Say hello"
-        ctaHref="mailto:hello@productpaige.com?subject=Blog%20topic%20idea"
-      />
     </div>
   );
 }
