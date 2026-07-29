@@ -68,18 +68,28 @@ export default async function ProjectPage({
   return (
     <div className="theme contents">
 
-      {/* === BREADCRUMB === back link sits above the hero plaque. */}
-      <div className="p-6 md:px-10 md:pt-10 md:pb-0">
-        <a
-          href="/#work"
-          className="inline-flex items-center gap-2 text-base opacity-70 hover:opacity-100 transition-opacity"
-        >
-          <span aria-hidden="true">←</span>
-          <span className="underline underline-offset-4 decoration-1">
-            All projects
-          </span>
-        </a>
-      </div>
+      {/* === BREADCRUMB === Projects / [current project name]. */}
+      <nav
+        aria-label="Breadcrumb"
+        className="p-6 md:px-10 md:pt-10 md:pb-0 text-base leading-[1.4]"
+      >
+        <ol className="flex flex-wrap items-baseline gap-x-2">
+          <li>
+            <a
+              href="/#work"
+              className="opacity-70 hover:opacity-100 transition-opacity underline underline-offset-4 decoration-1"
+            >
+              Projects
+            </a>
+          </li>
+          <li aria-hidden="true" className="opacity-40">
+            /
+          </li>
+          <li aria-current="page" className="text-ink">
+            {project.client}
+          </li>
+        </ol>
+      </nav>
 
       {/* === HERO === chamfered plaque with client + kicker. */}
       <section
