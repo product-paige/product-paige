@@ -32,7 +32,7 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
           aria-label={`Cover — ${post.title}`}
         />
         {/* Text + meta column — right */}
-        <div className="flex flex-col gap-6 justify-center">
+        <div className="flex flex-col gap-8 justify-center">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-base leading-[1.4] opacity-70">
             <span className="svc-label">
               <span
