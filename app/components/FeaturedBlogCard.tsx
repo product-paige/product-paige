@@ -34,7 +34,7 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
         {/* Text + meta column — right. Meta pinned to top, title +
             kicker + CTA pinned to bottom via justify-between. */}
         <div className="flex flex-col gap-8 justify-between min-h-full">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-base leading-[1.4] opacity-70">
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-base leading-[1.4]">
             <span className="svc-label">
               <span
                 className="svc-label-text"
@@ -47,9 +47,11 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
                 Featured
               </span>
             </span>
-            <span>{post.category}</span>
-            <span aria-hidden="true" className="opacity-40">·</span>
-            <span>{dateLabel}</span>
+            <span className="flex items-center gap-x-2 opacity-70">
+              <span>{dateLabel}</span>
+              <span aria-hidden="true" className="opacity-40">/</span>
+              <span>{post.category}</span>
+            </span>
           </div>
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-3">
