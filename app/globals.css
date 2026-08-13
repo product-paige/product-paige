@@ -363,193 +363,6 @@ body:has(.theme) .page-grid {
 }
 
 /* ------------------------------------------------------------------ */
-/* Theme: v3 — brand-board palette (Playful operator-first).
-   Off-white paper · ink · royal blue · periwinkle · teal · hot pink
-   · lavender · cool gray. */
-.theme-v3 {
-  --paper: #f5f3ef;
-  --cream: #ffffff;       /* card-cream becomes paper-white slab */
-  --pink-soft: #ff7dae;   /* hot pink slot */
-  --light-blue: #8ca2ff;  /* periwinkle */
-  --slate: #0d0d10;       /* near-black ink */
-  --red: #0E6BFF;
-  --teal: #0fa3a3;
-  --lavender: #c37bff;
-  --gray-cool: #cfcfd4;
-}
-body:has(.theme-v3) {
-  background: #f5f3ef;
-}
-.theme-v3 .card-blue-light  { background: #8ca2ff; color: #0d0d10; }
-.theme-v3 .card-cream       { background: #ffffff; color: #0d0d10; }
-.theme-v3 .card-red         { background: #ff7dae; color: #0d0d10; }
-body:has(.theme-v3)::before {
-  opacity: 0.12;
-}
-body:has(.theme-v3) .page-grid {
-  display: none;
-}
-
-/* Super-shiny chrome button — applied to every .btn on a /v3 page.
-   Keeps the original two-piece pill shape (4px corners, 2px gap), but
-   each piece becomes a polished chrome capsule with a classic vertical
-   chrome-cylinder gradient (white top + dark band middle + light bottom). */
-body:has(.theme-v3) .btn-text,
-body:has(.theme-v3) .btn-tab {
-  /* Polished chrome — bright, smooth, with subtle iridescent kisses at
-     the edges (pink top, soft blue/purple bottom). No harsh dark band. */
-  background: linear-gradient(
-    180deg,
-    #ffe8f0 0%,
-    #ffffff 12%,
-    #f4f4f8 35%,
-    #d8d8e4 65%,
-    #b8c4d8 85%,
-    #c8c0d8 100%
-  ) !important;
-  color: #0d0d10 !important;
-  /* Soft shine: glossy top, subtle bottom shadow, 1px glassy bevel, ground */
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
-    0 1px 0 rgba(0, 0, 0, 0.15),
-    0 3px 8px rgba(26, 26, 26, 0.16) !important;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
-  transition: filter 180ms ease, transform 150ms ease;
-}
-body:has(.theme-v3) .btn:hover .btn-text,
-body:has(.theme-v3) .btn:hover .btn-tab {
-  filter: brightness(1.06) saturate(1.1);
-}
-body:has(.theme-v3) .btn:active .btn-text,
-body:has(.theme-v3) .btn:active .btn-tab {
-  transform: translateY(1px);
-  /* Flip the chrome — dark band on top, light at bottom, like pressed metal */
-  background: linear-gradient(
-    180deg,
-    #c0c0cc 0%,
-    #6e6e7a 20%,
-    #4a4a54 50%,
-    #8c8c98 75%,
-    #e0e0ea 100%
-  ) !important;
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.35),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.15),
-    0 0 0 rgba(0, 0, 0, 0) !important;
-}
-
-
-/* ------------------------------------------------------------------ */
-/* Win95-style popup dialog — used in the /v3 hero as a playful UI cue.
-   Classic raised bevel: light top-left + dark bottom-right edges. */
-.win95-dialog {
-  background: #ececec;
-  border: 2px solid;
-  border-top-color: #ffffff;
-  border-left-color: #ffffff;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
-  box-shadow:
-    1px 1px 0 #000000,
-    2px 2px 0 rgba(0, 0, 0, 0.35);
-  font-family: "Tahoma", "Geneva", system-ui, sans-serif;
-  font-size: 13px;
-  color: #000;
-  letter-spacing: 0;
-  line-height: 1.2;
-  width: 100%;
-  max-width: 360px;
-  user-select: none;
-}
-.win95-titlebar {
-  background: linear-gradient(to right, #ff7dae, #ffb8d0);
-  padding: 3px 4px 3px 6px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 12px;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
-}
-.win95-title {
-  letter-spacing: 0;
-}
-.win95-close {
-  background: #ececec;
-  border: 1.5px solid;
-  border-top-color: #ffffff;
-  border-left-color: #ffffff;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
-  width: 17px;
-  height: 16px;
-  font-size: 10px;
-  line-height: 1;
-  color: #000;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0;
-  font-family: inherit;
-  font-weight: 700;
-}
-.win95-body {
-  padding: 16px 14px;
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 13px;
-  color: #000;
-}
-.win95-icon {
-  font-size: 28px;
-  line-height: 1;
-  flex-shrink: 0;
-  filter: saturate(1.2);
-}
-.win95-message {
-  flex: 1;
-  padding-top: 4px;
-}
-.win95-actions {
-  padding: 0 14px 14px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-.win95-button {
-  background: #ececec;
-  border: 1.5px solid;
-  border-top-color: #ffffff;
-  border-left-color: #ffffff;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
-  padding: 4px 22px;
-  font-size: 13px;
-  font-family: inherit;
-  color: #000;
-  cursor: pointer;
-  line-height: 1.2;
-  min-width: 75px;
-  text-align: center;
-}
-.win95-button:hover {
-  background: #d8d8d8;
-}
-.win95-button:active {
-  border-top-color: #808080;
-  border-left-color: #808080;
-  border-right-color: #ffffff;
-  border-bottom-color: #ffffff;
-}
-
-
-/* ------------------------------------------------------------------ */
 /* Editorial "torn from the page" heading hover —
    each character lifts, rotates, casts a soft shadow, shifts to red. */
 .tear {
@@ -999,14 +812,14 @@ body > * {
 /* Link button — circular icon badge + text. Lower-weight companion to the
    two-piece .btn pill. Used for "Read more"-style secondary CTAs. */
 .link-btn {
-  /* Underlined text link. Same 15px medium type + tight tracking as
-     .btn, so it reads as a matching secondary CTA. Underline sits 6px
+  /* Underlined text link. 16px (text-base) matches body copy so it
+     reads as a matching secondary CTA in-flow. Underline sits 6px
      below the baseline for that "text + rule" feel, not "bar under
-     letters". Subtle text-shadow gives it the same lifted feel as the
-     2D chip on the primary btn. */
+     letters". Subtle text-shadow gives it the same lifted feel as
+     the 2D chip on the primary btn. */
   display: inline-block;
   font-family: var(--font-funnel-sans), "Funnel Sans", system-ui, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1;

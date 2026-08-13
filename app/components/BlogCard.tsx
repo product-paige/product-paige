@@ -1,7 +1,10 @@
 import type { BlogPost } from "../blog/data";
 
 type BlogCardProps = {
-  post: Pick<BlogPost, "slug" | "title" | "kicker" | "category" | "date">;
+  post: Pick<
+    BlogPost,
+    "slug" | "title" | "kicker" | "category" | "date" | "coverImage"
+  >;
 };
 
 /**
@@ -20,7 +23,7 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <a
       href={`/blog/${post.slug}`}
-      className="card grain-paper bg-[#FAF9F2] text-ink flex flex-col justify-between gap-8 !min-h-0 aspect-[16/9] group !pl-14"
+      className="card grain-paper bg-[#FAF9F2] text-ink flex flex-col justify-between gap-6 !min-h-0 group !pl-14"
     >
       {/* Three hole punches down the left edge, evenly spaced —
           binder-paper visual language. Inline position:absolute
@@ -41,10 +44,32 @@ export function BlogCard({ post }: BlogCardProps) {
         style={{ position: "absolute" }}
         className="left-9 top-0 bottom-0 w-px bg-[#1A191E]/25 z-[1]"
       />
-      <div className="flex items-baseline justify-between gap-2 text-base opacity-70">
-        <span>{dateLabel}</span>
-        <span>{post.category}</span>
+      <div className="flex items-center justify-between gap-2 text-base">
+        <span className="opacity-70">{dateLabel}</span>
+        {/* Category as a grey pill, matching the label style used on the
+            project tabs and capability groups. */}
+        <span className="svc-label text-ink shrink-0">
+          <span
+            className="svc-label-text"
+            style={{
+              backgroundColor: "#3D3A45",
+              borderColor: "#3D3A45",
+              color: "#FBFAF6",
+            }}
+          >
+            {post.category}
+          </span>
+        </span>
       </div>
+      {post.coverImage ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={post.coverImage}
+          alt=""
+          aria-hidden="true"
+          className="w-full aspect-[16/9] object-cover"
+        />
+      ) : null}
       <div className="flex flex-col gap-1">
         <h3 className="text-xl group-hover:opacity-70 transition-opacity">
           {post.title}

@@ -2,90 +2,72 @@
 
 import { useState } from "react";
 import { BtnIcons } from "./components/BtnIcons";
-import { PixelIcon, type PixelIconName } from "./components/PixelIcon";
 import { TearText } from "./components/TearText";
 import { PostMeta } from "./components/PostMeta";
-import { IconCard } from "./components/IconCard";
 import { BlogCard } from "./components/BlogCard";
 import { LinkBtn } from "./components/LinkBtn";
+import { IconCard } from "./components/IconCard";
+import type { PixelIconName } from "./components/PixelIcon";
 import { projectList } from "./projects/data";
 import { blogList } from "./blog/data";
 
-const services: Array<{
-  name: string;
-  bg: string;
-  fg: string;
-  icon: PixelIconName;
-}> = [
-  { name: "ecommerce UX",              bg: "#3D3A45", fg: "#FBFAF6", icon: "browser" },
-  { name: "conversion design",         bg: "#3D3A45", fg: "#FBFAF6", icon: "cursor" },
-  { name: "positioning + messaging",   bg: "#3D3A45", fg: "#FBFAF6", icon: "megaphone" },
-  { name: "AI content design",         bg: "#3D3A45", fg: "#FBFAF6", icon: "sparkleA" },
-  { name: "product strategy",          bg: "#3D3A45", fg: "#FBFAF6", icon: "target" },
-];
-
-const productCategories: Array<{
+/** Working-style cards. Moved here from the About page. */
+const workingStyle: Array<{
   name: string;
   blurb: string;
-  tone: string;
   icon: PixelIconName;
-  iconBg: string;
-  iconFg: string;
 }> = [
   {
     name: "Start rough, learn early",
     blurb: "Something real in front of people beats polished guesses.",
-    tone: "",
     icon: "cursor",
-    iconBg: "#1A191E",
-    iconFg: "#ffffff",
   },
   {
     name: "Clear before pretty",
     blurb: "Structure and words first. The visual comes once it makes sense.",
-    tone: "",
     icon: "target",
-    iconBg: "#1A191E",
-    iconFg: "#ffffff",
   },
   {
-    name: "Use good tools",
-    blurb: "Good tools quiet the busywork. That leaves room for the hard part.",
-    tone: "",
-    icon: "sparkleA",
-    iconBg: "#1A191E",
-    iconFg: "#ffffff",
+    name: "Scope it in writing",
+    blurb: "Agreed before the work starts. No moving targets, no surprise invoices.",
+    icon: "gear",
   },
   {
     name: "Say less, mean more",
     blurb: "Fewer words. Sharper story. Lands in one read.",
-    tone: "",
     icon: "megaphone",
-    iconBg: "#1A191E",
-    iconFg: "#ffffff",
   },
 ];
 
-const capabilities = [
+/** Capabilities, grouped into three practice areas. `sub` lists the
+ *  specific disciplines inside each group; `blurb` is the accordion body. */
+const capabilities: Array<{ title: string; sub: string; blurb: string }> = [
   {
-    title: "Positioning + messaging",
+    title: "Strategy",
+    sub: "Positioning + messaging · Product strategy",
     blurb:
-      "The sentence that names what you sell, who it&rsquo;s for, and why it matters.",
+      "Positioning, product strategy, and the sentence that names what you sell, who it&rsquo;s for, and why it matters. I help teams get clear before they get loud — the story has to work before the design or the growth tactics can.",
   },
   {
-    title: "UX + conversion",
+    title: "Design",
+    sub: "UX + conversion · Web + app design",
     blurb:
-      "The path from first look to action. Product pages, landing pages, decision points.",
+      "UX, conversion, and web + app design. I simplify the experience, remove friction, and make sure it looks as good as it works — from first click to onboarding to checkout.",
   },
   {
-    title: "AI content design",
+    title: "Brand",
+    sub: "Brand identity · Content + voice",
     blurb:
-      "AI-assisted content and workflows that keep taste and clarity intact.",
+      "Brand identity, content, and voice — built from experience, not theory. I&rsquo;ve launched two ecommerce brands from scratch, so I know what it takes to make a brand people actually trust, not just notice.",
   },
   {
-    title: "Product strategy",
+    // PLACEHOLDER 4th group — Growth is the pick because it's the territory
+    // your own copy keeps returning to (the callout, the About "special
+    // projects" line). Swap the title/sub/blurb once you decide.
+    title: "Growth",
+    sub: "Experiments + AI tooling · Demand gen",
     blurb:
-      "What to build, test, or refine next, grounded in what customers actually do.",
+      "Scrappy growth experiments — AI-coded mini tools, demand gen, and top-of-funnel plays. Built fast, tested fast, killed fast if they don&rsquo;t work. The point is learning what moves, not shipping something permanent.",
   },
 ];
 
@@ -356,7 +338,7 @@ export default function Home() {
               <span className="type-eyebrow">Open to new projects</span>
               <div className="flex flex-col gap-4">
                 <h1 className="text-display font-display text-ink max-w-[20ch]">
-                  <TearText>{"Product marketing\n& UX design for\necommerce teams"}</TearText>
+                  <TearText>{"Multidisciplinary\nproduct marketer\n& designer"}</TearText>
                 </h1>
                 <p className="text-lg leading-[1.4] opacity-80 max-w-[640px]">
                   I help DTC brands, app makers, and ecommerce SaaS teams
@@ -385,8 +367,9 @@ export default function Home() {
               <h3 className="text-xl font-display leading-[1.1] text-ink">
                 Hi, I&rsquo;m Paige
               </h3>
-              <p className="text-base leading-[1.2] opacity-80">
-                13 years building in the Shopify and ecommerce ecosystem.
+              <p className="text-base leading-[1.25] opacity-80">
+                13 years across Shopify, ecommerce, and product-led SaaS —
+                plus two brands built from scratch.
               </p>
               <a
                 href="/about"
@@ -406,44 +389,14 @@ export default function Home() {
 
       
 
-      {/* === PRACTICE AREAS (chips) === */}
-      <section
-        id="practice-areas"
-        data-section="practice-areas"
-        className="p-6 md:p-10 section-border-b"
-      >
-        <ul className="flex flex-wrap gap-3">
-          {services.map((s) => (
-            <li key={s.name}>
-              <span className="svc-label svc-label-lg" style={{ color: s.fg }}>
-                <span
-                  className="svc-label-text"
-                  style={{ backgroundColor: s.bg, borderColor: s.fg }}
-                >
-                  {s.name}
-                </span>
-                <span
-                  className="svc-label-tab"
-                  style={{ backgroundColor: s.bg, borderColor: s.fg }}
-                >
-                  <PixelIcon name={s.icon} color={s.fg} size={18} />
-                </span>
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      
-
       {/* === CAPABILITIES === Flush section (no outer padding). Left
-          column carries eyebrow + h2 + lead with 40px inner padding;
-          right column carries the numbered list + dynamic paragraph
-          with a vertical divider between the columns. */}
+          column: h2 + lead pinned to the bottom. Right column: full-
+          bleed accordion. Section auto-sizes to accordion content so
+          padding never gets weird when items open/close. */}
       <section
         id="services"
         data-section="capabilities"
-        className="flex flex-col section-border-b"
+        className="section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch">
           <div className="flex flex-col gap-4 p-6 md:p-10 md:justify-end">
@@ -454,40 +407,82 @@ export default function Home() {
               Understand the problem, simplify the experience, and focus on
               what actually moves things forward.
             </p>
+            {/* Callout — the scrappy-experiments note. Sits under the lead
+                so it reads as an aside to the three capability groups. */}
+            <aside className="mt-4 border-l-2 border-[#0E6BFF] pl-4 py-1 max-w-[480px]">
+              <p className="text-base leading-[1.4] opacity-80">
+                I also love a good scrappy growth experiment — AI-coded mini
+                tools, demand gen and top-of-funnel plays. Built fast, tested
+                fast, killed fast if they don&rsquo;t work.
+              </p>
+            </aside>
           </div>
-          <div
-            className="flex flex-col gap-8 p-6 md:p-10 md:min-h-full"
-            style={{ borderLeft: "1px solid rgba(26, 25, 30, 0.25)" }}
-          >
-            <span className="type-eyebrow">Capabilities</span>
-            <ul>
-              {capabilities.map((c, i) => (
-                <li
-                  key={c.title}
-                  className="border-b border-[#1a1a1a]/25"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setActiveCap(i)}
-                    className={`w-full text-left py-5 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink transition-opacity ${
-                      activeCap === i
-                        ? "opacity-100"
-                        : "opacity-30 hover:opacity-60"
-                    }`}
+          {/* Accordion. First item open by default (activeCap=0),
+              one-open-at-a-time via the single activeCap state. Row
+              dividers span the full column width; heading + description
+              take their own inner horizontal padding. */}
+          <div className="divider-indent-left flex flex-col">
+            <ul className="flex flex-col border-t border-[#1a1a1a]/25">
+              {capabilities.map((c, i) => {
+                const isOpen = activeCap === i;
+                return (
+                  <li
+                    key={c.title}
+                    className="border-b border-[#1a1a1a]/25 last:border-b-0"
                   >
-                    {c.title}
-                  </button>
-                </li>
-              ))}
+                    <button
+                      type="button"
+                      onClick={() => setActiveCap(isOpen ? -1 : i)}
+                      aria-expanded={isOpen}
+                      className={`w-full text-left px-6 md:px-10 py-8 text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink transition-opacity ${
+                        isOpen ? "opacity-100" : "opacity-40 hover:opacity-80"
+                      }`}
+                    >
+                      <span className="block">{c.title}</span>
+                      {/* Disciplines as grey pills — same label style as the
+                          project tabs and blog categories. */}
+                      <span className="flex flex-wrap items-center gap-2 mt-3">
+                        {c.sub.split("·").map((s) => (
+                          <span key={s} className="svc-label text-ink">
+                            <span
+                              className="svc-label-text"
+                              style={{
+                                backgroundColor: "#3D3A45",
+                                borderColor: "#3D3A45",
+                                color: "#FBFAF6",
+                              }}
+                            >
+                              {s.trim()}
+                            </span>
+                          </span>
+                        ))}
+                      </span>
+                    </button>
+                    {/* Smooth accordion via a 0fr → 1fr grid row.
+                        The inner div uses overflow-hidden so the
+                        contents clip while the parent row height
+                        animates. Fade + tiny lift on the copy makes
+                        the reveal feel deliberate. */}
+                    <div
+                      className={`grid transition-[grid-template-rows] duration-500 ease-out ${
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div
+                          className={`px-6 md:px-10 pb-6 transition-opacity duration-500 ease-out ${
+                            isOpen ? "opacity-100" : "opacity-0"
+                          }`}
+                          dangerouslySetInnerHTML={{
+                            __html: `<p class="text-base leading-[1.4] opacity-80 max-w-[640px]">${c.blurb}</p>`,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
-            {/* Dynamic paragraph — updates as the reader taps items. */}
-            <p
-              key={activeCap}
-              className="text-lg leading-[1.4] opacity-80 max-w-[520px] min-h-[3em]"
-              dangerouslySetInnerHTML={{
-                __html: capabilities[activeCap].blurb,
-              }}
-            />
           </div>
         </div>
       </section>
@@ -711,35 +706,30 @@ export default function Home() {
         </div>
       </section>
 
-      
-
-      {/* === CATEGORIES — working-style copy + product-category cards + tools === */}
+      {/* === WORKING STYLE === yellow icon cards. How I work, in four
+          claims someone could actually disagree with. */}
       <section
-        id="categories"
-        data-section="categories"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
+        id="working-style"
+        data-section="working-style"
+        className="p-6 md:px-10 md:py-10 flex flex-col gap-10 section-border-b"
       >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">How I work</span>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-section font-display text-ink max-w-[20ch]">
-              Move fast, keep it simple
-            </h2>
-            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              Fast prototypes and clear decisions, without making it harder
-              than it needs to be.
-            </p>
-          </div>
+        <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
+          <h2 className="text-section font-display text-ink max-w-[20ch]">
+            Move fast, keep it simple
+          </h2>
+          <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+            Fast prototypes and clear decisions, without making it harder
+            than it needs to be.
+          </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-          {productCategories.map((c) => (
+          {workingStyle.map((c) => (
             <IconCard
               key={c.name}
               name={c.name}
               blurb={c.blurb}
               icon={c.icon}
-              tone={c.tone}
-              className="bg-[#f3eb88]"
+              tone="card-cream"
             />
           ))}
         </div>
@@ -749,7 +739,7 @@ export default function Home() {
       <section
         id="blog"
         data-section="blog"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-10"
+        className="p-6 md:px-10 md:py-10 flex flex-col gap-10"
       >
         <div className="flex flex-wrap items-start justify-between gap-6">
           <h2 className="text-section font-display text-ink max-w-[20ch]">

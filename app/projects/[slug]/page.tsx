@@ -107,9 +107,12 @@ export default async function ProjectPage({
                   <h1 className="text-display font-display text-ink max-w-[18ch]">
                     {project.client}
                   </h1>
-                  <p className="text-lg leading-[1.4] opacity-80 max-w-[42ch]">
-                    {project.kicker.split(" — ")[0]}
-                  </p>
+                  <p
+                    className="text-lg leading-[1.4] opacity-80 max-w-[56ch]"
+                    dangerouslySetInnerHTML={{
+                      __html: project.summary ?? project.kicker.split(" — ")[0],
+                    }}
+                  />
                 </div>
               </div>
               {project.liveUrl ? (
@@ -131,11 +134,10 @@ export default async function ProjectPage({
           </div>
           <aside
             aria-label={`Cover — ${project.client}`}
-            className="relative min-h-[420px] md:min-h-0"
+            className="relative min-h-[420px] md:min-h-0 divider-indent-left"
             style={{
               backgroundColor: project.coverBg,
               color: heroFg,
-              borderLeft: "1px solid rgba(26, 25, 30, 0.25)",
             }}
           />
         </div>
@@ -144,7 +146,7 @@ export default async function ProjectPage({
       {/* === CASE STUDY: Problem / Approach / Outcome (as cards) === */}
       <section
         data-section="project-case"
-        className="p-6 md:px-10 md:py-16 section-border-b"
+        className="p-6 md:px-10 md:py-10 section-border-b"
       >
         <div className="grid md:grid-cols-3 gap-4">
           {caseBlocks.map((b) => (
@@ -162,7 +164,7 @@ export default async function ProjectPage({
       {project.notes && project.notes.length > 0 ? (
         <section
           data-section="project-notes"
-          className="p-6 md:px-10 md:py-16 section-border-b"
+          className="p-6 md:px-10 md:py-10 section-border-b"
         >
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <div className="flex flex-col gap-6">
@@ -185,7 +187,7 @@ export default async function ProjectPage({
       {/* === IMAGE GALLERY === selected screens from the project. */}
       <section
         data-section="project-gallery"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
+        className="p-6 md:px-10 md:py-10 flex flex-col gap-10 section-border-b"
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Selected work</span>

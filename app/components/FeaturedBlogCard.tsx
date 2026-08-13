@@ -2,7 +2,7 @@ import type { BlogPost } from "../blog/data";
 import { BtnIcons } from "./BtnIcons";
 
 type FeaturedBlogCardProps = {
-  post: Pick<BlogPost, "slug" | "title" | "kicker" | "category" | "date">;
+  post: Pick<BlogPost, "slug" | "title" | "kicker" | "category" | "date" | "excerpt">;
 };
 
 /**
@@ -26,9 +26,9 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
       className="card grain-paper bg-[#FAF9F2] text-ink group !min-h-0 !p-6 md:!p-10"
     >
       <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-stretch h-full">
-        {/* Image column — left, 16:9 horizontal */}
+        {/* Image column — left, 3:2 horizontal. */}
         <div
-          className="placeholder w-full aspect-[16/9] transition-opacity group-hover:opacity-90"
+          className="placeholder w-full aspect-[3/2] transition-opacity group-hover:opacity-90"
           aria-label={`Cover — ${post.title}`}
         />
         {/* Text + meta column — right. Meta pinned to top, title +
@@ -59,7 +59,7 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
                 {post.title}
               </h2>
               <p className="text-lg leading-[1.4] opacity-80 max-w-[520px]">
-                {post.kicker}
+                {post.excerpt ?? post.kicker}
               </p>
             </div>
             <span className="inline-flex btn self-start">

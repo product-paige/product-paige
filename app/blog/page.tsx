@@ -28,7 +28,7 @@ export default function BlogIndexPage() {
       <section
         id="blog-hero"
         data-section="blog-hero"
-        className="p-6 md:px-10 md:py-16 section-border-b"
+        className="p-6 md:px-10 md:py-10 section-border-b"
       >
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
           <h1 className="text-display font-display text-ink max-w-[30ch]">
@@ -41,11 +41,14 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
-      {/* === FEATURED POST === image left, text right (FeaturedBlogCard). */}
+      {/* === FEATURED POST === image left, text right (FeaturedBlogCard).
+          Bottom padding is 0 so the gap between this section and the
+          category-filter section below adds up to exactly 40px (the
+          list section's top padding is 40px). */}
       {feature ? (
         <section
           data-section="blog-feature"
-          className="p-6 md:p-10"
+          className="p-6 pb-0 md:px-10 md:pt-10 md:pb-0"
         >
           <FeaturedBlogCard post={feature} />
         </section>
@@ -57,7 +60,7 @@ export default function BlogIndexPage() {
       {rest.length > 0 ? (
         <section
           data-section="blog-list"
-          className="p-6 md:p-10 section-border-b"
+          className="p-6 md:px-10 md:pt-10 md:pb-10 section-border-b"
         >
           <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-6">

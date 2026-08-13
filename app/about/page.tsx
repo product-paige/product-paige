@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { BtnIcons } from "../components/BtnIcons";
+import { ClosingCTA } from "../components/ClosingCTA";
+import { PixelIcon, type PixelIconName } from "../components/PixelIcon";
 
 export const metadata: Metadata = {
   title: "About",
@@ -8,62 +10,27 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
-const tools: Array<{ name: string; bg: string; fg: string }> = [
-  { name: "Figma", bg: "#3D3A45", fg: "#FBFAF6" },
-  { name: "Framer", bg: "#3D3A45", fg: "#FBFAF6" },
-  { name: "Claude", bg: "#3D3A45", fg: "#FBFAF6" },
-  { name: "Cursor", bg: "#3D3A45", fg: "#FBFAF6" },
-  { name: "Lovable", bg: "#3D3A45", fg: "#FBFAF6" },
-  { name: "Paper", bg: "#3D3A45", fg: "#FBFAF6" },
-  { name: "Shopify", bg: "#3D3A45", fg: "#FBFAF6" },
-  { name: "Notion", bg: "#3D3A45", fg: "#FBFAF6" },
+/** Chip colours. Every chip on this page uses the same pair. */
+const CHIP_BG = "#3D3A45";
+const CHIP_FG = "#FBFAF6";
+
+const services: Array<{ name: string; icon: PixelIconName }> = [
+  { name: "ecommerce UX",            icon: "browser" },
+  { name: "conversion design",       icon: "cursor" },
+  { name: "positioning + messaging", icon: "megaphone" },
+  { name: "AI content design",       icon: "sparkleA" },
+  { name: "product strategy",        icon: "target" },
 ];
 
-const timeline: Array<{ year: string; title: string; body: string }> = [
-  {
-    year: "2013",
-    title: "First Shopify build",
-    body: "Started building on Shopify when merchants were still asking whether it could handle real stores. Learned the platform inside-out from the theme side.",
-  },
-  {
-    year: "2016",
-    title: "Product marketing shift",
-    body: "Moved from build to positioning. Realized the hardest part of ecommerce isn't the store — it's getting people to understand why the product exists.",
-  },
-  {
-    year: "2020",
-    title: "Ecommerce SaaS + DTC",
-    body: "Started splitting time between app-makers building on Shopify and DTC brands selling on it. Onboarding, PDPs, positioning across both.",
-  },
-  {
-    year: "2024",
-    title: "AI + content design",
-    body: "Started designing AI-assisted content systems for teams shipping at scale. Prompt libraries, page templates, editorial guardrails.",
-  },
-  {
-    year: "2026",
-    title: "Independent practice",
-    body: "Full-time independent. Two-week sprints, written scopes, no consulting theatre.",
-  },
-];
-
-const values: Array<{ title: string; body: string }> = [
-  {
-    title: "Written before pretty",
-    body: "The words come first. If the message doesn't land as plain text, no amount of design can save it.",
-  },
-  {
-    title: "Ship real artifacts",
-    body: "Every engagement produces something a team can use the day it's delivered. No deck-thick proposals.",
-  },
-  {
-    title: "Merchant-first thinking",
-    body: "13 years of watching merchants use ecommerce tools means I default to their POV, not the platform's.",
-  },
-  {
-    title: "One-sentence tests",
-    body: "If a product can't be explained in eight seconds, positioning has more work to do than design does.",
-  },
+const tools: string[] = [
+  "Figma",
+  "Framer",
+  "Claude",
+  "Cursor",
+  "Lovable",
+  "Paper",
+  "Shopify",
+  "Notion",
 ];
 
 export default function AboutPage() {
@@ -79,7 +46,7 @@ export default function AboutPage() {
       >
         <div className="grid md:grid-cols-2 gap-0 items-stretch w-full">
           <aside
-            className="relative min-h-[420px] p-6 md:p-16 flex items-center justify-center order-2 md:order-1"
+            className="relative min-h-[420px] p-6 md:p-16 flex items-center justify-center order-2 md:order-1 section-border-b"
             style={{ backgroundColor: "#DDDAD5" }}
             aria-label="Portrait"
           >
@@ -127,133 +94,120 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* === LONGER BIO === */}
+      {/* === PRACTICE AREAS (chips) === same visual pattern as the old
+          homepage strip — a run of service chips that gives readers a
+          quick shape of what I work on. */}
       <section
-        data-section="bio"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
+        id="practice-areas"
+        data-section="practice-areas"
+        className="p-6 md:p-10 section-border-b"
       >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">The longer version</span>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-section font-display text-ink max-w-[22ch]">
-              How I got here
-            </h2>
-            <div className="flex flex-col gap-4 text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              <p>
-                I started on the build side — Liquid themes, custom sections,
-                Shopify apps back when merchants weren&rsquo;t sure the
-                platform could handle real volume. Turns out most of the
-                interesting problems weren&rsquo;t technical.
-              </p>
-              <p>
-                The gap between a good product and a product people
-                understand is usually shorter than teams think. It&rsquo;s
-                one paragraph on a homepage, one clarified onboarding step,
-                one PDP that stops burying the answer. That gap is where I
-                do my best work.
-              </p>
-              <p>
-                Now I run an independent practice. Two-week sprints, one
-                deliverable at a time, and a written scope before anything
-                starts. Based in Canada, remote by default.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* === TIMELINE === */}
-      <section
-        data-section="timeline"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
-      >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Timeline</span>
-          <h2 className="text-section font-display text-ink max-w-[22ch]">
-            13 years, five turning points
-          </h2>
-        </div>
-        <ol className="grid md:grid-cols-2 gap-4 items-stretch">
-          {timeline.map((t) => (
-            <li
-              key={t.year}
-              className="flex flex-col gap-2 p-6 border border-[#1A191E]/60"
-            >
-              <span className="font-display text-3xl leading-none text-ink/40">
-                {t.year}
-              </span>
-              <h3 className="text-xl font-display leading-[1.1] text-ink mt-1">
-                {t.title}
-              </h3>
-              <p className="text-base leading-[1.4] opacity-80 max-w-[480px]">
-                {t.body}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* === VALUES === */}
-      <section
-        data-section="values"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-10 section-border-b"
-      >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">How I work</span>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-section font-display text-ink max-w-[22ch]">
-              What I bring to every project
-            </h2>
-            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
-              The through-line across everything I make. If a project
-              can&rsquo;t hit these, I&rsquo;m probably not the right person
-              to run it.
-            </p>
-          </div>
-        </div>
-        <div className="grid md:grid-cols-2 gap-4 items-stretch">
-          {values.map((v) => (
-            <article
-              key={v.title}
-              className="card grain-paper bg-[#FAF9F2] flex flex-col gap-3 !min-h-0 !p-8"
-            >
-              <h3 className="text-xl font-display leading-[1.1] text-ink">
-                {v.title}
-              </h3>
-              <p className="text-base leading-[1.4] opacity-80 max-w-[480px]">
-                {v.body}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* === TOOLS === */}
-      <section
-        data-section="tools"
-        className="p-6 md:px-10 md:py-16 flex flex-col gap-8"
-      >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Toolkit</span>
-          <h2 className="text-section font-display text-ink max-w-[22ch]">
-            Tools I lean on
-          </h2>
-        </div>
-        <ul className="flex flex-wrap gap-2">
-          {tools.map((t) => (
-            <li key={t.name}>
-              <span className="svc-label" style={{ color: t.fg }}>
+        <ul className="flex flex-wrap gap-3">
+          {services.map((s) => (
+            <li key={s.name}>
+              <span className="svc-label svc-label-lg" style={{ color: CHIP_FG }}>
                 <span
                   className="svc-label-text"
-                  style={{ backgroundColor: t.bg, borderColor: t.fg }}
+                  style={{ backgroundColor: CHIP_BG, borderColor: CHIP_FG }}
                 >
-                  {t.name}
+                  {s.name}
+                </span>
+                <span
+                  className="svc-label-tab"
+                  style={{ backgroundColor: CHIP_BG, borderColor: CHIP_FG }}
+                >
+                  <PixelIcon name={s.icon} color={CHIP_FG} size={18} />
                 </span>
               </span>
             </li>
           ))}
         </ul>
       </section>
+
+      {/* === LONGER BIO === Left column: h2 on top with tools floated to
+          the bottom of the column. Right column: story copy. Vertical
+          divider between the two matches the Capabilities pattern. */}
+      <section
+        data-section="bio"
+        className="flex flex-col section-border-b"
+      >
+        <div className="grid md:grid-cols-2 gap-0 items-stretch">
+          <div className="flex flex-col gap-10 p-6 md:p-10 md:min-h-[420px]">
+            <h2 className="text-section font-display text-ink max-w-[22ch]">
+              How I got here
+            </h2>
+          </div>
+          <div className="divider-indent-left flex flex-col gap-4 text-lg leading-[1.4] opacity-80 max-w-[560px] p-6 md:p-10">
+            <p>
+              My background spans product-led SaaS and ecommerce. On the
+              SaaS side, I&rsquo;ve worked across both funded and
+              bootstrapped companies, mainly in PLG. On the ecommerce side,
+              I&rsquo;ve launched two brands from scratch — bootstrapped, one
+              with a cofounder — handling everything from product
+              development and manufacturer sourcing to brand and
+              go-to-market, both to the point of running independently.
+            </p>
+            <p>
+              One of my favorite things to work on: special projects —
+              scrappy growth experiments, often AI-coded mini tools or apps
+              for demand gen and top-of-funnel — built fast, tested fast, and
+              killed fast if they don&rsquo;t work.
+            </p>
+            <p>
+              That range is also how I work: fast learner, semi-technical,
+              fluent with AI tools, which lets me move quickly across
+              strategy, UX, and brand without needing a big team around me.
+              I&rsquo;m good at taking something complicated and making it
+              simple, clear, and good-looking — the product story, the user
+              journey, the visual execution.
+            </p>
+            <p>
+              I&rsquo;m also a perfectionist and a fixer — I care, sometimes
+              to a fault, about getting the last details right, and if
+              something looks broken or messy, I want to jump in
+              immediately, even when that&rsquo;s not the right first move.
+            </p>
+            <p>
+              I take the work seriously — not myself. Good work, good times.
+              Easy to work with, hard to rattle — I&rsquo;ll probably make
+              you laugh at some point in the process.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* === TOOLS === its own section now rather than tucked into the bio
+          column. No icons on these chips — deliberately lighter weight than
+          the practice-area chips up top, since the kit matters less than
+          the work. */}
+      <section
+        id="tools"
+        data-section="tools"
+        className="p-6 md:p-10 flex flex-col gap-6 section-border-b"
+      >
+        <h2 className="text-sm uppercase tracking-[0.14em] font-mono opacity-60">
+          Tools I lean on
+        </h2>
+        <ul className="flex flex-wrap gap-2">
+          {tools.map((name) => (
+            <li key={name}>
+              <span className="svc-label" style={{ color: CHIP_FG }}>
+                <span
+                  className="svc-label-text"
+                  style={{ backgroundColor: CHIP_BG, borderColor: CHIP_FG }}
+                >
+                  {name}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <ClosingCTA
+        title="Want to work together?"
+        body="Two-week sprints, one deliverable at a time, a written scope before anything starts. Tell me what you're shipping."
+      />
     </div>
   );
 }

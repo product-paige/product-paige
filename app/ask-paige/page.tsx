@@ -99,6 +99,7 @@ const youGet = [
 ];
 
 export default function AskPaigePage() {
+  const [activeStep, setActiveStep] = useState(0);
   return (
     <div className="theme contents">
 
@@ -161,7 +162,6 @@ export default function AskPaigePage() {
       {/* === SECTION: use-cases === */}
       <section id="use-cases" data-section="use-cases" className="p-6 md:p-10 flex flex-col gap-10 section-border-b">
         <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Use cases</span>
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <h2 className="text-section font-display text-ink max-w-[20ch]">
               Common places sessions start
@@ -187,41 +187,59 @@ export default function AskPaigePage() {
       </section>
 
       
-      {/* === SECTION: how-it-works === standard section pattern */}
+      {/* === SECTION: how-it-works === matches Capabilities UX. Left col
+          carries h2 + lead floated to the bottom; right col carries the
+          interactive numbered list + dynamic paragraph with a vertical
+          divider between the columns. */}
       <section
         id="how-it-works"
         data-section="how-it-works"
-        className="p-6 md:p-10 flex flex-col gap-10 section-border-b"
+        className="flex flex-col section-border-b"
       >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">How it works</span>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
-            <h2 className="text-section font-display text-ink max-w-[20ch]">
-              A single hour. Direct feedback. Nothing invented
+        <div className="grid md:grid-cols-2 gap-0 items-stretch">
+          <div className="flex flex-col gap-4 p-6 md:p-10 md:justify-end">
+            <h2 className="text-section font-display text-ink max-w-[18ch]">
+              How it works
             </h2>
-            <p className="text-lg leading-[1.4] opacity-80 max-w-[560px]">
+            <p className="text-lg leading-[1.4] opacity-80 max-w-[480px]">
               Async prep, a live conversation, a prioritized list of what
               to shape next. That&rsquo;s the whole shape of it.
             </p>
           </div>
+          <div className="divider-indent-left flex flex-col gap-8 p-6 md:p-10 md:min-h-full">
+            <ul>
+              {youGet.map((item, i) => (
+                <li
+                  key={item}
+                  className="border-b border-[#1a1a1a]/25"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setActiveStep(i)}
+                    className={`w-full text-left py-5 flex items-baseline gap-4 transition-opacity ${
+                      activeStep === i
+                        ? "opacity-100"
+                        : "opacity-30 hover:opacity-60"
+                    }`}
+                  >
+                    <span className="font-display text-2xl md:text-3xl leading-none tracking-[-1px] text-ink/40 shrink-0 w-10">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">
+                      {item.split(".")[0]}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <p
+              key={activeStep}
+              className="text-lg leading-[1.4] opacity-80 max-w-[520px] min-h-[3em]"
+            >
+              {youGet[activeStep]}
+            </p>
+          </div>
         </div>
-        <Reveal>
-          <ol className="grid md:grid-cols-2 gap-6 md:gap-10">
-            {youGet.map((item, i) => (
-              <li
-                key={item}
-                className="flex items-baseline gap-4 border-t border-[#1A191E]/20 pt-4"
-              >
-                <span className="font-mono text-[11px] leading-[1.2] tracking-[0.1em] uppercase opacity-60 w-8 shrink-0">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="text-base leading-[1.4] opacity-80">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
       </section>
 
       
@@ -230,12 +248,9 @@ export default function AskPaigePage() {
         data-section="fit-check"
         className="p-6 md:p-10 section-border-b flex flex-col gap-10"
       >
-        <div className="flex flex-col gap-6">
-          <span className="type-eyebrow">Fit check</span>
-          <h2 className="text-section font-display text-ink max-w-[20ch]">
-            A quick fit check
-          </h2>
-        </div>
+        <h2 className="text-section font-display text-ink max-w-[20ch]">
+          A quick fit check
+        </h2>
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
           <div className="flex flex-col gap-3">
             <h3 className="text-xl">Great fit for</h3>
