@@ -1,25 +1,9 @@
-"use client";
-
-import { useState } from "react";
-import { BlogCard } from "../components/BlogCard";
+import { PostFilter } from "../components/blog/PostFilter";
 import { FeaturedBlogCard } from "../components/FeaturedBlogCard";
 import { blogList } from "./data";
 
-const ALL = "All";
-
 export default function BlogIndexPage() {
   const [feature, ...rest] = blogList;
-  const [activeCategory, setActiveCategory] = useState<string>(ALL);
-
-  const categories = [
-    ALL,
-    ...Array.from(new Set(blogList.map((p) => p.category))),
-  ];
-
-  const filteredRest =
-    activeCategory === ALL
-      ? rest
-      : rest.filter((p) => p.category === activeCategory);
 
   return (
     <div className="theme contents">
@@ -62,50 +46,7 @@ export default function BlogIndexPage() {
           data-section="blog-list"
           className="p-6 md:px-10 md:pt-10 md:pb-10 section-border-b"
         >
-          <div className="flex flex-col gap-10">
-            <div className="flex flex-col gap-6">
-              <ul className="flex flex-wrap gap-2">
-                {categories.map((c) => {
-                  const isActive = c === activeCategory;
-                  return (
-                    <li key={c}>
-                      <button
-                        type="button"
-                        onClick={() => setActiveCategory(c)}
-                        aria-pressed={isActive}
-                        className="svc-label"
-                      >
-                        <span
-                          className="svc-label-text"
-                          style={{
-                            backgroundColor: isActive ? "#1A191E" : "#FBFAF6",
-                            borderColor: "#1A191E",
-                            color: isActive ? "#FBFAF6" : "#1A191E",
-                            cursor: "pointer",
-                          }}
-                        >
-                          {c}
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            {filteredRest.length > 0 ? (
-              <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch">
-                {filteredRest.map((p) => (
-                  <li key={p.slug}>
-                    <BlogCard post={p} />
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-base opacity-60">
-                No posts in this category yet.
-              </p>
-            )}
-          </div>
+          <PostFilter posts={rest} />
         </section>
       ) : null}
 
