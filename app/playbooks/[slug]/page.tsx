@@ -1,6 +1,6 @@
-"use client";
-
-import { use, useEffect, useState } from "react";
+import { use } from "react";
+import { BtnIcons } from "../../components/BtnIcons";
+import { ChapterNav } from "../../components/playbooks/ChapterNav";
 import { notFound } from "next/navigation";
 import { playbooks, playbookList } from "../data";
 
@@ -11,47 +11,6 @@ function SquareMarker({ className = "" }: { className?: string }) {
       aria-hidden="true"
       className={`block w-2 h-2 bg-current shrink-0 ${className}`}
     />
-  );
-}
-
-function ArrowUpRight({ size = 16, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 256 256"
-      width={size}
-      height={size}
-      fill="currentColor"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z" />
-    </svg>
-  );
-}
-
-function ArrowRight({ size = 16, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 256 256"
-      width={size}
-      height={size}
-      fill="currentColor"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" />
-    </svg>
-  );
-}
-
-function BtnIcons() {
-  return (
-    <>
-      <ArrowUpRight className="icon-default" />
-      <ArrowRight className="icon-hover" />
-    </>
   );
 }
 
@@ -77,33 +36,6 @@ export default function PlaybookPage({
   const heroFg = lightHero ? "#1a1a1a" : "#ffffff";
 
   // Scroll spy — track which chapter is currently in view.
-  const [activeChapter, setActiveChapter] = useState(0);
-  useEffect(() => {
-    const sections = playbook.chapters
-      .map((_, i) => document.getElementById(`ch-${i + 1}`))
-      .filter((el): el is HTMLElement => el !== null);
-    if (sections.length === 0) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        // Pick the section whose top is closest to (but at or above) the viewport top band.
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort(
-            (a, b) =>
-              Math.abs(a.boundingClientRect.top) -
-              Math.abs(b.boundingClientRect.top)
-          );
-        if (visible[0]) {
-          const idx = sections.indexOf(visible[0].target as HTMLElement);
-          if (idx !== -1) setActiveChapter(idx);
-        }
-      },
-      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
-    );
-    sections.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, [playbook.chapters]);
-
   return (
     <div className="theme contents">
 
@@ -136,26 +68,7 @@ export default function PlaybookPage({
         <div className="grid md:grid-cols-12 gap-12 md:gap-24">
           {/* Left rail — sticky table of contents */}
           <aside className="md:col-span-3 md:sticky md:top-24 self-start flex flex-col gap-4">
-            <ol className="border-t border-[#1a1a1a]/25">
-              {playbook.chapters.map((c, i) => {
-                const isActive = activeChapter === i;
-                return (
-                  <li key={c} className="border-b border-[#1a1a1a]/25">
-                    <a
-                      href={`#ch-${i + 1}`}
-                      className={`py-3 flex items-center gap-3 transition-all duration-500 ease-out will-change-transform ${
-                        isActive
-                          ? "opacity-100 translate-x-2"
-                          : "opacity-60 hover:opacity-90"
-                      }`}
-                    >
-                      <SquareMarker />
-                      <span className="text-base leading-[1.15]">{c}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ol>
+            <ChapterNav chapters={playbook.chapters} />
           </aside>
 
           {/* Right column — chapter content streams */}
