@@ -26,8 +26,7 @@ const recentWork: Array<{
   fg: "#1a1a1a",
   href: `/projects/${p.slug}`,
   comingSoon: p.comingSoon ?? false,
-  coverImage:
-    p.slug === "backspace-body" ? "/backspace-body-cover.jpg" : undefined,
+  coverImage: p.coverImage,
 }));
 
 /** Recent work — folder-tab selector with a detail panel per project. */
@@ -191,10 +190,11 @@ export function RecentWork() {
                         className="w-full flex-1 object-cover min-h-0"
                       />
                     ) : (
-                      <div
-                        className="w-full flex-1 bg-[#DBE6EB]"
-                        aria-hidden="true"
-                      />
+                      <div className="placeholder w-full flex-1">
+                        <span className="placeholder-label">
+                          {project.client}
+                        </span>
+                      </div>
                     )}
                     {/* Handwritten-style caption strip — flex-centered in the
                         thick bottom margin. `.grain-paper > *` forces

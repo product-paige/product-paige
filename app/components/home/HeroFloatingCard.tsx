@@ -79,7 +79,7 @@ export function HeroFloatingCard({
               className="w-full aspect-square object-cover"
             />
           ) : (
-            <div className="w-full aspect-square bg-[#DBE6EB]" />
+            <div className="placeholder w-full aspect-square" />
           )}
           <div className="absolute left-2.5 right-2.5 bottom-0 h-10 flex items-center">
             <p className="font-display italic text-sm text-ink leading-none">
@@ -89,7 +89,7 @@ export function HeroFloatingCard({
         </div>
       ) : card.variant === "shopify" ? (
         <>
-          <div className="w-full aspect-square bg-[#DBE6EB]" />
+          <div className="placeholder w-full aspect-square" />
           <div className="p-3 flex flex-col gap-1.5">
             <div className="flex items-center gap-0.5 text-[10px] leading-none text-[#1A191E]">
               {"★★★★★".split("").map((s, i) => (
@@ -122,7 +122,7 @@ export function HeroFloatingCard({
               className="w-full aspect-video object-cover"
             />
           ) : (
-            <div className="w-full aspect-video bg-[#DBE6EB]" />
+            <div className="placeholder w-full aspect-video" />
           )}
           <div className="p-3">
             <p className="text-sm text-ink line-clamp-1">{card.title}</p>

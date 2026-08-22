@@ -110,10 +110,10 @@ export function PostBody({ body }: { body: BlogBlock[] }) {
                   <div
                     role="img"
                     aria-label={block.alt ?? "Image placeholder"}
-                    className="w-full aspect-[16/9] bg-[#DBE6EB] flex items-center justify-center"
+                    className="placeholder w-full aspect-[16/9]"
                   >
-                    <span className="text-sm opacity-50 uppercase tracking-[0.14em] font-mono">
-                      Image
+                    <span className="placeholder-label">
+                      {block.alt ?? "Image"}
                     </span>
                   </div>
                   {block.caption ? (

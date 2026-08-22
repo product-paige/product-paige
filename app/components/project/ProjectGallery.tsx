@@ -20,7 +20,9 @@ export function ProjectGallery({ project }: { project: Project }) {
               <div
                 className="placeholder w-full aspect-[4/3]"
                 aria-label={`Mockup — ${m}`}
-              />
+              >
+                <span className="placeholder-label">{m}</span>
+              </div>
               <figcaption className="text-base leading-[1.4] opacity-80">
                 {m}
               </figcaption>

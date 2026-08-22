@@ -77,12 +77,28 @@ export function ProjectHero({
           </div>
           <aside
             aria-label={`Cover — ${project.client}`}
-            className="relative min-h-[420px] md:min-h-0 divider-indent-left"
+            className="relative min-h-[420px] md:min-h-0 divider-indent-left overflow-hidden"
             style={{
               backgroundColor: project.coverBg,
               color: heroFg,
             }}
-          />
+          >
+            {project.coverImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={project.coverImage}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+              <div className="placeholder w-full h-full !border-0">
+                <span className="placeholder-label">
+                  Cover — {project.client}
+                </span>
+              </div>
+            )}
+          </aside>
         </div>
       </section>
     </>

@@ -9,6 +9,9 @@ export type Project = {
   summary?: string;
   /** Hero background color. Use one of the palette pastels or ink. */
   coverBg: string;
+  /** Hero cover image. When absent the hero shows a labelled placeholder
+   *  over coverBg. Also used for the homepage project tab. */
+  coverImage?: string;
   problem: string;
   approach: string;
   outcome: string;
@@ -38,6 +41,7 @@ export const projects: Record<string, Project> = {
     client: "Backspace Body",
     year: "2026",
     role: "Brand + Ecommerce UX",
+    coverImage: "/backspace-body-cover.jpg",
     kicker:
       "A refill-first body care brand concept — naming, identity, and the Shopify experience to carry it.",
     summary:

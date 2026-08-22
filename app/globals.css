@@ -1239,14 +1239,58 @@ a {
   .masthead-track { animation: none; }
 }
 
-/* Image placeholder — soft sage-gray slab */
+/* Image placeholder — soft sage-gray slab crossed with faint diagonals so
+   an empty slot reads as "artwork pending", not as a broken image. Matches
+   the .placeholder-card treatment used in the playbook templates. */
 .placeholder {
   position: relative;
   background: #DBE6EB;
   border: 1px solid rgba(26, 25, 30, 0.35);
   overflow: hidden;
 }
+.placeholder::before,
+.placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+}
+.placeholder::before {
+  background: linear-gradient(
+    to top right,
+    transparent calc(50% - 0.5px),
+    rgba(26, 25, 30, 1) calc(50% - 0.5px),
+    rgba(26, 25, 30, 1) calc(50% + 0.5px),
+    transparent calc(50% + 0.5px)
+  );
+}
+.placeholder::after {
+  background: linear-gradient(
+    to bottom right,
+    transparent calc(50% - 0.5px),
+    rgba(26, 25, 30, 1) calc(50% - 0.5px),
+    rgba(26, 25, 30, 1) calc(50% + 0.5px),
+    transparent calc(50% + 0.5px)
+  );
+}
 .placeholder > * {
   position: relative;
   z-index: 1;
+}
+/* Optional caption centred in a placeholder slot. */
+.placeholder-label {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(26, 25, 30, 0.55);
+  text-align: center;
+  padding: 8px;
 }

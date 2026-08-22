@@ -56,10 +56,12 @@ export default function AboutPage() {
                 className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 rotate-[2deg] w-[140px] z-10"
               />
               <div className="relative w-full aspect-square bg-white grain-paper p-3 md:p-4 flex flex-col shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-1px_0_rgba(0,0,0,0.12),0_1px_0_rgba(0,0,0,0.12),0_14px_28px_rgba(26,26,26,0.22)]">
-                <div
-                  className="w-full flex-1 bg-[#DBE6EB]"
-                  aria-hidden="true"
-                />
+                {/* Portrait slot — swap this div for an <img> once the
+                    photo exists. Uses .placeholder so an empty slot reads
+                    as pending rather than broken. */}
+                <div className="placeholder w-full flex-1">
+                  <span className="placeholder-label">Portrait</span>
+                </div>
               </div>
             </div>
           </aside>
