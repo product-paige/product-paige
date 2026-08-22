@@ -1,5 +1,6 @@
 import type { BlogPost } from "../blog/data";
 import { BtnIcons } from "./BtnIcons";
+import { Chip } from "./Chip";
 
 type FeaturedBlogCardProps = {
   post: Pick<BlogPost, "slug" | "title" | "kicker" | "category" | "date" | "excerpt">;
@@ -35,18 +36,7 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
             kicker + CTA pinned to bottom via justify-between. */}
         <div className="flex flex-col gap-8 justify-between min-h-full">
           <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-base leading-[1.4]">
-            <span className="svc-label">
-              <span
-                className="svc-label-text"
-                style={{
-                  backgroundColor: "#3D3A45",
-                  borderColor: "#3D3A45",
-                  color: "#FBFAF6",
-                }}
-              >
-                Featured
-              </span>
-            </span>
+            <Chip>Featured</Chip>
             <span className="flex items-center gap-x-2 opacity-70">
               <span>{dateLabel}</span>
               <span aria-hidden="true" className="opacity-40">/</span>

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { BtnIcons } from "../components/BtnIcons";
 import { ClosingCTA } from "../components/ClosingCTA";
 import { type PixelIconName } from "../components/PixelIcon";
-import { IconCard } from "../components/IconCard";
 
 function Reveal({
   children,
@@ -91,11 +90,25 @@ const useCases: Array<{
   },
 ];
 
-const youGet = [
-  "An async look at everything you send ahead of the call.",
-  "A live session, focused on what matters most.",
-  "A short list. What to shape now, what can wait.",
-  "Optional follow-up notes or a Loom if it helps.",
+/** How-it-works steps. `title` stays short for the stepper; `detail`
+ *  is the expanded line shown under the active step. */
+const youGet: Array<{ title: string; detail: string }> = [
+  {
+    title: "Async prep",
+    detail: "An async look at everything you send ahead of the call.",
+  },
+  {
+    title: "Live session",
+    detail: "A live session, focused on what matters most.",
+  },
+  {
+    title: "A short list",
+    detail: "What to shape now, what can wait.",
+  },
+  {
+    title: "Follow-up",
+    detail: "Optional follow-up notes or a Loom if it helps.",
+  },
 ];
 
 export default function AskPaigePage() {
@@ -173,16 +186,22 @@ export default function AskPaigePage() {
           </div>
         </div>
         <Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
+          {/* Minimal list rather than filled icon cards — the page reads
+              quieter and the copy carries it. */}
+          <ul className="grid sm:grid-cols-2 gap-x-10 border-t border-[#1a1a1a]/20">
             {useCases.map((u) => (
-              <IconCard
+              <li
                 key={u.name}
-                name={u.name}
-                blurb={u.blurb}
-                icon={u.icon}
-              />
+                className="flex flex-col gap-1 py-5 border-b border-[#1a1a1a]/20"
+              >
+                <h3 className="text-xl leading-[1.2] text-ink">{u.name}</h3>
+                <p
+                  className="text-base leading-[1.4] opacity-70 max-w-[420px]"
+                  dangerouslySetInnerHTML={{ __html: u.blurb }}
+                />
+              </li>
             ))}
-          </div>
+          </ul>
         </Reveal>
       </section>
 
@@ -210,7 +229,7 @@ export default function AskPaigePage() {
             <ul>
               {youGet.map((item, i) => (
                 <li
-                  key={item}
+                  key={item.title}
                   className="border-b border-[#1a1a1a]/25"
                 >
                   <button
@@ -226,7 +245,7 @@ export default function AskPaigePage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-1px] text-ink">
-                      {item.split(".")[0]}
+                      {item.title}
                     </span>
                   </button>
                 </li>
@@ -236,7 +255,7 @@ export default function AskPaigePage() {
               key={activeStep}
               className="text-lg leading-[1.4] opacity-80 max-w-[520px] min-h-[3em]"
             >
-              {youGet[activeStep]}
+              {youGet[activeStep].detail}
             </p>
           </div>
         </div>

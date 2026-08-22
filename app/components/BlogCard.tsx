@@ -1,4 +1,5 @@
 import type { BlogPost } from "../blog/data";
+import { Chip } from "./Chip";
 
 type BlogCardProps = {
   post: Pick<
@@ -48,18 +49,7 @@ export function BlogCard({ post }: BlogCardProps) {
         <span className="opacity-70">{dateLabel}</span>
         {/* Category as a grey pill, matching the label style used on the
             project tabs and capability groups. */}
-        <span className="svc-label text-ink shrink-0">
-          <span
-            className="svc-label-text"
-            style={{
-              backgroundColor: "#3D3A45",
-              borderColor: "#3D3A45",
-              color: "#FBFAF6",
-            }}
-          >
-            {post.category}
-          </span>
-        </span>
+        <Chip className="shrink-0">{post.category}</Chip>
       </div>
       {post.coverImage ? (
         // eslint-disable-next-line @next/next/no-img-element

@@ -33,6 +33,35 @@ export type Project = {
  * come from you; don't ship invented ones on a portfolio.
  */
 export const projects: Record<string, Project> = {
+  "backspace-body": {
+    slug: "backspace-body",
+    client: "Backspace Body",
+    year: "2026",
+    role: "Brand + Ecommerce UX",
+    kicker:
+      "A refill-first body care brand concept — naming, identity, and the Shopify experience to carry it.",
+    summary:
+      "A self-directed concept for a refill-first body care brand: naming and positioning through identity, then a Shopify storefront designed around refills and subscriptions rather than one-off purchases. Built to show what the category looks like when the brand and the buying experience are designed together.",
+    coverBg: "#DBE6EB",
+    problem:
+      "Body care is a category of look-alikes — clinical packaging, interchangeable names, single-purchase mechanics. Refill programs are usually bolted on after launch, so the experience fights the business model it&rsquo;s meant to support.",
+    approach:
+      "Ran it end to end as a concept: naming and positioning first, then identity and a copy system, then a Shopify Horizon storefront designed for refills from the first screen. A variant carousel handles bundles and refill packs natively instead of stacking three apps to fake it.",
+    outcome:
+      "A complete brand-to-storefront concept where the refill loop is the design, not a feature — showing the brand layer and the ecommerce UX layer built as a single argument.",
+    mockups: [
+      "Naming + identity",
+      "Shopify storefront",
+      "Refill flow",
+      "Subscription mechanics",
+    ],
+    highlights: [
+      { metric: "Concept", label: "Self-directed" },
+      { metric: "End-to-end", label: "Name → storefront" },
+      { metric: "Refill-first", label: "Designed, not bolted on" },
+    ],
+  },
+
   perch: {
     slug: "perch",
     client: "Perch",
@@ -118,35 +147,6 @@ export const projects: Record<string, Project> = {
       { metric: "1", label: "Shared taxonomy" },
       { metric: "Editorial", label: "Led, commerce-linked" },
       { metric: "IA", label: "Rebuilt from scratch" },
-    ],
-  },
-
-  "backspace-body": {
-    slug: "backspace-body",
-    client: "Backspace Body",
-    year: "2026",
-    role: "Brand + Ecommerce UX",
-    kicker:
-      "A refill-first body care brand concept — naming, identity, and the Shopify experience to carry it.",
-    summary:
-      "A self-directed concept for a refill-first body care brand: naming and positioning through identity, then a Shopify storefront designed around refills and subscriptions rather than one-off purchases. Built to show what the category looks like when the brand and the buying experience are designed together.",
-    coverBg: "#DBE6EB",
-    problem:
-      "Body care is a category of look-alikes — clinical packaging, interchangeable names, single-purchase mechanics. Refill programs are usually bolted on after launch, so the experience fights the business model it&rsquo;s meant to support.",
-    approach:
-      "Ran it end to end as a concept: naming and positioning first, then identity and a copy system, then a Shopify Horizon storefront designed for refills from the first screen. A variant carousel handles bundles and refill packs natively instead of stacking three apps to fake it.",
-    outcome:
-      "A complete brand-to-storefront concept where the refill loop is the design, not a feature — showing the brand layer and the ecommerce UX layer built as a single argument.",
-    mockups: [
-      "Naming + identity",
-      "Shopify storefront",
-      "Refill flow",
-      "Subscription mechanics",
-    ],
-    highlights: [
-      { metric: "Concept", label: "Self-directed" },
-      { metric: "End-to-end", label: "Name → storefront" },
-      { metric: "Refill-first", label: "Designed, not bolted on" },
     ],
   },
 };

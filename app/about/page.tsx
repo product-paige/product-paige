@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { BtnIcons } from "../components/BtnIcons";
 import { ClosingCTA } from "../components/ClosingCTA";
-import { PixelIcon, type PixelIconName } from "../components/PixelIcon";
+import type { PixelIconName } from "../components/PixelIcon";
+import { Chip } from "../components/Chip";
 
 export const metadata: Metadata = {
   title: "About",
@@ -9,10 +10,6 @@ export const metadata: Metadata = {
     "13 years inside the Shopify and ecommerce ecosystem. Half product marketer, half UX designer. Independent practice based in Canada.",
   alternates: { canonical: "/about" },
 };
-
-/** Chip colours. Every chip on this page uses the same pair. */
-const CHIP_BG = "#3D3A45";
-const CHIP_FG = "#FBFAF6";
 
 const services: Array<{ name: string; icon: PixelIconName }> = [
   { name: "ecommerce UX",            icon: "browser" },
@@ -105,20 +102,9 @@ export default function AboutPage() {
         <ul className="flex flex-wrap gap-3">
           {services.map((s) => (
             <li key={s.name}>
-              <span className="svc-label svc-label-lg" style={{ color: CHIP_FG }}>
-                <span
-                  className="svc-label-text"
-                  style={{ backgroundColor: CHIP_BG, borderColor: CHIP_FG }}
-                >
-                  {s.name}
-                </span>
-                <span
-                  className="svc-label-tab"
-                  style={{ backgroundColor: CHIP_BG, borderColor: CHIP_FG }}
-                >
-                  <PixelIcon name={s.icon} color={CHIP_FG} size={18} />
-                </span>
-              </span>
+              <Chip size="lg" icon={s.icon}>
+                {s.name}
+              </Chip>
             </li>
           ))}
         </ul>
@@ -191,14 +177,7 @@ export default function AboutPage() {
         <ul className="flex flex-wrap gap-2">
           {tools.map((name) => (
             <li key={name}>
-              <span className="svc-label" style={{ color: CHIP_FG }}>
-                <span
-                  className="svc-label-text"
-                  style={{ backgroundColor: CHIP_BG, borderColor: CHIP_FG }}
-                >
-                  {name}
-                </span>
-              </span>
+              <Chip>{name}</Chip>
             </li>
           ))}
         </ul>

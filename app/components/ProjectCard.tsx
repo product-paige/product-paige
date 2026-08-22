@@ -1,4 +1,5 @@
 import type { Project } from "../projects/data";
+import { Chip } from "./Chip";
 
 type ProjectCardProps = {
   project: Pick<
@@ -27,21 +28,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         aria-label={`Cover — ${project.client}`}
       >
         {project.comingSoon ? (
-          <span
-            className="svc-label z-[2]"
-            style={{ position: "absolute", top: "12px", right: "12px" }}
-          >
-            <span
-              className="svc-label-text"
-              style={{
-                backgroundColor: "#3D3A45",
-                borderColor: "#3D3A45",
-                color: "#FBFAF6",
-              }}
-            >
-              Coming soon
-            </span>
-          </span>
+          <Chip>Coming soon</Chip>
         ) : null}
       </div>
       <div className="flex flex-col gap-3 px-2 pb-2 flex-1">
