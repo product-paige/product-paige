@@ -29,7 +29,7 @@ const capabilities: Array<{ title: string; sub: string; blurb: string }> = [
     title: "Growth",
     sub: "Experiments + AI tooling · Demand gen",
     blurb:
-      "Scrappy growth experiments — AI-coded mini tools, demand gen, and top-of-funnel plays. Built fast, tested fast, killed fast if they don&rsquo;t work. The point is learning what moves, not shipping something permanent.",
+      "Scrappy growth experiments: AI-coded mini tools, demand gen, and top-of-funnel plays. I build with Claude, including MCP integrations that plug straight into Shopify. Built fast, tested fast, killed fast if they don&rsquo;t work. The point is learning what moves, not shipping something permanent.",
   },
 ];
 

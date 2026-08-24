@@ -134,38 +134,27 @@ export default function AboutPage() {
           </div>
           <div className="divider-indent-left flex flex-col gap-4 text-lg leading-[1.4] opacity-80 max-w-[560px] p-6 md:p-10">
             <p>
-              My background spans product-led SaaS and ecommerce. On the
-              SaaS side, I&rsquo;ve worked across both funded and
-              bootstrapped companies, mainly in PLG. On the ecommerce side,
-              I&rsquo;ve launched two brands from scratch — bootstrapped, one
-              with a cofounder — handling everything from product
-              development and manufacturer sourcing to brand and
-              go-to-market, both to the point of running independently.
+              My background spans product-led SaaS and ecommerce, across
+              funded startups and bootstrapped teams. I&rsquo;ve also launched
+              two
+              ecommerce brands from scratch, one with a cofounder, handling
+              everything from manufacturer sourcing to go-to-market.
             </p>
             <p>
-              One of my favorite things to work on: special projects —
-              scrappy growth experiments, often AI-coded mini tools or apps
-              for demand gen and top-of-funnel — built fast, tested fast, and
-              killed fast if they don&rsquo;t work.
+              I build growth experiments and AI-coded mini tools: fast to
+              make, fast to test, and killed just as fast if they
+              aren&rsquo;t performing. Semi-technical and fluent with AI
+              tools, mostly Claude and Cursor, which means I move across
+              strategy, UX, and brand without needing a big team behind me.
             </p>
             <p>
-              That range is also how I work: fast learner, semi-technical,
-              fluent with AI tools, which lets me move quickly across
-              strategy, UX, and brand without needing a big team around me.
-              I&rsquo;m good at taking something complicated and making it
-              simple, clear, and good-looking — the product story, the user
-              journey, the visual execution.
+              I&rsquo;m great at making complicated things simple like the
+              product story, user journey, and visual execution. I&rsquo;m a
+              perfectionist about the last details (sometimes to a fault).
             </p>
             <p>
-              I&rsquo;m also a perfectionist and a fixer — I care, sometimes
-              to a fault, about getting the last details right, and if
-              something looks broken or messy, I want to jump in
-              immediately, even when that&rsquo;s not the right first move.
-            </p>
-            <p>
-              I take the work seriously — not myself. Good work, good times.
-              Easy to work with, hard to rattle — I&rsquo;ll probably make
-              you laugh at some point in the process.
+              I take the work seriously, not myself! Always open to new
+              opportunities and meeting with people who love what they do.
             </p>
           </div>
         </div>

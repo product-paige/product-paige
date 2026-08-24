@@ -109,7 +109,7 @@ export const projects: Record<string, Project> = {
     problem:
       "Merchants got powerful AI tooling and no method. The useful prompts live in scattered threads and screenshots — untested, uncredited, and impossible to apply consistently across a brand. The gap isn&rsquo;t access to AI, it&rsquo;s knowing what to ask and keeping the answers on-brand.",
     approach:
-      "Treated it as a product, not content. Built a taxonomy first — brand voice, product copy, merchandising, customer replies — then wrote and tested prompts against real Shopify stores. Designed the library so a merchant can find the right prompt, understand why it works, and adapt it to their own voice instead of pasting someone else&rsquo;s.",
+      "Treated it as a product, not content. Built a taxonomy first (brand voice, product copy, merchandising, customer replies), then wrote and tested every prompt against real Shopify stores through Claude&rsquo;s MCP connection, so the outputs were checked against live catalogue data rather than guessed at. Designed the library so a merchant can find the right prompt, understand why it works, and adapt it to their own voice instead of pasting someone else&rsquo;s.",
     outcome:
       "A packaged playbook that holds a brand&rsquo;s voice steady across everything AI touches — the strategy, brand, and design layers shipped as one tool.",
     mockups: [
