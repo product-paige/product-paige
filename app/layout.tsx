@@ -62,21 +62,12 @@ export const metadata: Metadata = {
     title: "Product Paige — Product marketing + UX design for Shopify teams",
     description:
       "Sharper positioning and a story buyers can repeat. The product lands in eight seconds — to merchants, not just to you.",
-    images: [
-      {
-        url: "/og-image.webp",
-        width: 1200,
-        height: 630,
-        alt: "Product Paige",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Product Paige — Product marketing + UX design for Shopify teams",
     description:
       "13 years inside the Shopify and ecommerce ecosystem. Sharper positioning, cleaner onboarding, product people actually understand.",
-    images: ["/og-image.webp"],
     creator: "@productpaige",
   },
   robots: {

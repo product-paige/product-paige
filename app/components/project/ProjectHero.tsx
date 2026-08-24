@@ -51,7 +51,7 @@ export function ProjectHero({
                     {project.client}
                   </h1>
                   <p
-                    className="text-lg leading-[1.4] opacity-80 max-w-[56ch]"
+                    className="text-lg leading-[1.5] opacity-80 max-w-[56ch]"
                     dangerouslySetInnerHTML={{
                       __html: project.summary ?? project.kicker.split(" — ")[0],
                     }}

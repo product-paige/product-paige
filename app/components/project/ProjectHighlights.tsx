@@ -10,7 +10,7 @@ export function ProjectHighlights({ project }: { project: Project }) {
         className="bg-[#1A191E] text-white p-6 md:p-10 mx-6 md:mx-10 my-10 md:my-16 section-chamfer relative grain-vintage flex flex-col gap-10"
       >
         <h2
-          className="text-2xl md:text-3xl font-display leading-[1.15] tracking-[-0.5px]"
+          className="text-section font-display"
           style={{ color: "#FBFAF6" }}
         >
           Outcomes worth measuring

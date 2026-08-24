@@ -18,7 +18,7 @@ export function SiteHeader() {
         </span>
       </a>
 
-      {/* Primary nav — Home / Projects / About. */}
+      {/* Primary nav — Home / Projects / Services / About. */}
       <ul className="hidden md:flex flex-1 items-stretch">
         <li className="flex">
           <a
@@ -34,6 +34,14 @@ export function SiteHeader() {
             className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
           >
             Projects
+          </a>
+        </li>
+        <li className="flex">
+          <a
+            href="/services"
+            className="text-base divider-indent-left px-6 flex items-center hover:opacity-60 transition-opacity"
+          >
+            Services
           </a>
         </li>
         <li className="flex">

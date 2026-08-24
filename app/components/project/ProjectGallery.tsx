@@ -10,7 +10,7 @@ export function ProjectGallery({ project }: { project: Project }) {
       >
         <div className="flex flex-col gap-6">
           <span className="type-eyebrow">Selected work</span>
-          <h2 className="text-2xl md:text-3xl font-display text-ink max-w-[24ch] leading-[1.15] tracking-[-0.5px]">
+          <h2 className="text-section font-display text-ink max-w-[24ch]">
             A few pieces of the build
           </h2>
         </div>

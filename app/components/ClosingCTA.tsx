@@ -32,11 +32,11 @@ export function ClosingCTA({
         className="bg-[#F3EB88] text-ink py-10 px-6 md:py-10 md:px-10 section-chamfer relative flex flex-col md:flex-row md:items-start md:justify-between gap-10"
       >
         <div className="flex flex-col gap-3 max-w-[1000px] flex-1 min-w-0">
-          <h2 className="text-5xl font-display leading-[1.05] text-ink">
+          <h2 className="text-section font-display text-ink">
             {title}
           </h2>
           {body ? (
-            <p className="text-lg leading-[1.4] text-ink opacity-80 max-w-[720px]">
+            <p className="text-lg leading-[1.5] text-ink opacity-80 max-w-[60ch]">
               {body}
             </p>
           ) : null}

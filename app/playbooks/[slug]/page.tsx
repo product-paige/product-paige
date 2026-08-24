@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { use } from "react";
 import { BtnIcons } from "../../components/BtnIcons";
 import { ChapterNav } from "../../components/playbooks/ChapterNav";
@@ -12,6 +13,27 @@ function SquareMarker({ className = "" }: { className?: string }) {
       className={`block w-2 h-2 bg-current shrink-0 ${className}`}
     />
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const playbook = playbooks[slug];
+  if (!playbook) return {};
+  return {
+    title: playbook.title,
+    description: playbook.kicker,
+    alternates: { canonical: `/playbooks/${slug}` },
+    openGraph: {
+      type: "article",
+      title: `${playbook.title} · Product Paige`,
+      description: playbook.kicker,
+      url: `/playbooks/${slug}`,
+    },
+  };
 }
 
 export default function PlaybookPage({

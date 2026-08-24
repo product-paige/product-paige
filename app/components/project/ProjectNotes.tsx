@@ -14,7 +14,7 @@ export function ProjectNotes({ project }: { project: Project }) {
           <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-start">
             <div className="flex flex-col gap-6">
               <span className="type-eyebrow">Notes</span>
-              <h2 className="text-2xl md:text-3xl font-display text-ink max-w-[18ch] leading-[1.15] tracking-[-0.5px]">
+              <h2 className="text-section font-display text-ink max-w-[18ch]">
                 Behind the build
               </h2>
             </div>

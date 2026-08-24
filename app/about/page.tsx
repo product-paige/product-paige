@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "13 years inside the Shopify and ecommerce ecosystem. Half product marketer, half UX designer. Independent practice based in Canada.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    type: "profile",
+    title: "About · Product Paige",
+    description:
+      "13 years across Shopify, ecommerce, and product-led SaaS — plus two brands built from scratch.",
+    url: "/about",
+  },
 };
 
 const services: Array<{ name: string; icon: PixelIconName }> = [
