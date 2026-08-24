@@ -51,7 +51,10 @@ const MAX_PER_IP_PER_HOUR = 3;
 const MAX_GLOBAL_PER_HOUR = 30;
 const rateBuckets = new Map<string, number[]>();
 
-function checkRate(ip: string): { ok: boolean; retryAfter?: number } {
+function checkRate(
+  ip: string,
+  { record = true }: { record?: boolean } = {},
+): { ok: boolean; retryAfter?: number } {
   const now = Date.now();
   const cutoff = now - HOUR_MS;
 
@@ -77,7 +80,7 @@ function checkRate(ip: string): { ok: boolean; retryAfter?: number } {
     return { ok: false, retryAfter: Math.ceil((oldest + HOUR_MS - now) / 1000) };
   }
 
-  rateBuckets.set(ip, [...stamps, now]);
+  if (record) rateBuckets.set(ip, [...stamps, now]);
   return { ok: true };
 }
 
@@ -91,12 +94,14 @@ export async function POST(req: Request) {
     );
   }
 
-  // Rate limit first — cheap check, prevents payload parsing on abuse.
+  // Rate limit gate. This only *reads* the bucket — a request is not
+  // counted until it turns out to be a valid submission, so someone who
+  // mistypes their email three times isn't locked out for an hour.
   const ip =
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
     req.headers.get("x-real-ip") ??
     "unknown";
-  const rate = checkRate(ip);
+  const rate = checkRate(ip, { record: false });
   if (!rate.ok) {
     return NextResponse.json(
       { error: "Too many messages. Please try again later." },
@@ -142,6 +147,9 @@ export async function POST(req: Request) {
   if (!isNonEmptyString(message)) {
     return NextResponse.json({ error: "Message is required." }, { status: 400 });
   }
+
+  // Valid submission — now it counts against the hourly quota.
+  checkRate(ip);
 
   const topicKey =
     typeof topic === "string" && topic in TOPIC_LABELS ? topic : "general";
