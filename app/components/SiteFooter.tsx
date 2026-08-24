@@ -48,7 +48,6 @@ export function SiteFooter() {
           <li><a href="/" className="hover:opacity-60 transition-opacity">Home</a></li>
           <li><a href="/#work" className="hover:opacity-60 transition-opacity">Projects</a></li>
           <li><a href="/about" className="hover:opacity-60 transition-opacity">About</a></li>
-          <li><a href="/blog" className="hover:opacity-60 transition-opacity">Notebook</a></li>
           <li><a href="/ask-paige" className="hover:opacity-60 transition-opacity">Ask Paige</a></li>
           <li><a href="/contact" className="hover:opacity-60 transition-opacity">Contact</a></li>
         </ul>
