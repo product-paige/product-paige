@@ -132,7 +132,7 @@ export default function AboutPage() {
               How I got here
             </h2>
           </div>
-          <div className="divider-indent-left flex flex-col gap-4 text-lg leading-[1.4] opacity-80 max-w-[560px] p-6 md:p-10">
+          <div className="divider-indent-left flex flex-col gap-4 text-lg leading-[1.5] opacity-80 p-6 md:p-10">
             <p>
               My background spans product-led SaaS and ecommerce, across
               funded startups and bootstrapped teams. I&rsquo;ve also launched
