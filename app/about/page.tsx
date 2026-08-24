@@ -144,8 +144,9 @@ export default function AboutPage() {
               I build growth experiments and AI-coded mini tools: fast to
               make, fast to test, and killed just as fast if they
               aren&rsquo;t performing. Semi-technical and fluent with AI
-              tools, mostly Claude and Cursor, which means I move across
-              strategy, UX, and brand without needing a big team behind me.
+              tools, mostly Claude and MCP integrations, which means I move
+              across strategy, UX, and brand without needing a big team
+              behind me.
             </p>
             <p>
               I&rsquo;m great at making complicated things simple like the
