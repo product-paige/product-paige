@@ -1294,3 +1294,22 @@ a {
   text-align: center;
   padding: 8px;
 }
+
+/* ------------------------------------------------------------------ */
+/* Coming-soon mode. The temporary homepage sets .coming-soon, which
+   hides the masthead, sticky nav and footer so the page stands alone
+   without any change to the root layout. Delete this block when the
+   real homepage comes back. */
+body:has(.coming-soon) [data-section="masthead"],
+body:has(.coming-soon) [data-layer="site-header-wrap"],
+body:has(.coming-soon) [data-layer="site-footer-wrap"] {
+  display: none;
+}
+/* No bottom rule on the frame — nothing follows it in this mode. */
+body:has(.coming-soon) .page-content-frame {
+  border-bottom: none;
+}
+body:has(.coming-soon) .page-content-frame::after {
+  display: none;
+}
+
