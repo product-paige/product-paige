@@ -36,7 +36,7 @@ export default function Home() {
         <section id="about" className="relative z-1">
           <Container className="graph-grid relative rounded-t-[28px] bg-dark py-8 text-white lg:rounded-t-[40px] lg:py-20">
             <Reveal>
-              <h2 className="serif text-[clamp(40px,6.4vw,92px)] leading-[0.95]"><Rich text={about.heading} /></h2>
+              <h2 className="serif text-[clamp(36px,5vw,72px)] leading-[1]"><Rich text={about.heading} /></h2>
             </Reveal>
 
             <div className="mt-10 grid items-start gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-6">
