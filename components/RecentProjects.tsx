@@ -1,59 +1,19 @@
 "use client";
 
 import { projects } from "@/content";
-import { useEffect, useRef, type CSSProperties } from "react";
-import { ArrowUpRight, Chip, Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
-
-type Project = (typeof projects.items)[number];
+import { useEffect, useRef } from "react";
+import { Folder } from "./Folder";
+import { Container, Reveal, Rich, sectionHeading } from "./ui";
 
 function Head() {
   return (
     <Reveal className="mb-12 grid gap-5 lg:mb-16 lg:grid-cols-2 lg:items-end lg:gap-16">
       <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
-      <p className="lede max-w-xl">{projects.body}</p>
-    </Reveal>
-  );
-}
-
-/** The cover, or a plain sheet with the client's name while there's no image yet. */
-function Cover({ p, className = "" }: { p: Project; className?: string }) {
-  return p.image ? (
-    <span className={`photo-grain block ${className}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={p.image} alt="" loading="lazy" decoding="async" className="size-full object-cover" />
-    </span>
-  ) : (
-    <div className={`grid place-items-center bg-white/55 ${className}`}>
-      <span className="serif text-[clamp(28px,3vw,44px)] text-ink/35">{p.client}</span>
-    </div>
-  );
-}
-
-/** A manila folder: a tab on the left, then the body in the project's colour. */
-function Folder({ p, i }: { p: Project; i: number }) {
-  return (
-    <a href={p.href} className="folder group flex flex-col" style={{ "--tone": p.tone } as CSSProperties}>
-      <span className="folder-tab self-start text-[14px] font-medium">
-        Project {String(i + 1).padStart(2, "0")}
-      </span>
-      <div className="folder-body grid gap-5 p-5 lg:p-6">
-        {/* Cover first, with the role pill over its top-right corner. */}
-        <div className="relative">
-          <Cover p={p} className="aspect-[4/3] w-full lg:aspect-[16/9]" />
-          <Chip className="absolute top-3 right-3 bg-white/85">{p.role}</Chip>
-        </div>
-        <div>
-          <div className="flex items-center justify-between gap-3">
-            <h3 className={sansTitle}>{p.client}</h3>
-            {/* The buttons' arrow tab; it turns when the folder is hovered. */}
-            <span className="btn shrink-0" aria-hidden>
-              <span className="btn-tab size-8"><ArrowUpRight turn className="size-5" /></span>
-            </span>
-          </div>
-          <p className="mt-2 truncate text-ink/70" title={p.excerpt}>{p.excerpt}</p>
-        </div>
+      <div>
+        <p className="lede max-w-xl">{projects.body}</p>
+        <a href="/projects" className="link mt-4 inline-block text-[15px]">See all projects</a>
       </div>
-    </a>
+    </Reveal>
   );
 }
 
@@ -149,7 +109,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
             >
               {projects.items.map((p, i) => (
                 <div
-                  key={p.href}
+                  key={p.slug}
                   className="w-[82%] shrink-0 snap-start sm:w-[60%] lg:w-[min(500px,38vw)]"
                   style={{ rotate: `${i % 2 ? 1 : -1}deg` }}
                 >

@@ -14,7 +14,7 @@ export const site = {
   url: "https://productpaige.com",
   // Keeps search engines from listing the site. Set to false at launch.
   hideFromSearch: true,
-  bookingUrl: "#contact",
+  bookingUrl: "/#contact",
   email: "hello@productpaige.com",
   // Form service URL (e.g. Formspree). Until it's set, the form opens the
   // visitor's email app with their message filled in.
@@ -195,42 +195,138 @@ export const blog = {
   ],
 };
 
-// From productpaige.com/projects. Only Backspace Body has a cover image so far;
-// the others show their folder colour until they get one.
+// Case studies, from productpaige.com/projects. Each gets a page at /projects/<slug>.
+// Only Backspace Body has a cover image so far; the others show their name on a plain sheet.
+// To confirm: Product Prompt is hidden on productpaige.com right now, and the 92%
+// Canadian figure for Organic Moderne is the only hard number on the site.
+export type Project = {
+  slug: string;
+  client: string;
+  /** One line on the folder card. */
+  excerpt: string;
+  role: string;
+  image?: string;
+  liveUrl?: string;
+  /** Under the name on the case study page. */
+  tagline: string;
+  summary: string;
+  capabilities: string[];
+  specs: { label: string; value: string }[];
+  highlights: { label: string; value: string }[];
+  problem: string;
+  approach: string;
+  outcome: string;
+};
+
 export const projects = {
   heading: "Recent projects",
   body: "A mix of product audits, UX work and personal projects, all in the Shopify and ecommerce world.",
+  pageHeading: "Projects",
+  pageBody: "Brands, stores and sites I’ve designed and built, each with a short case study.",
   items: [
     {
+      slug: "backspace-body",
       client: "Backspace Body",
       excerpt: "A concept body care brand on Shopify",
       role: "Brand and build",
       image: "/projects/backspace-body.jpg",
-      tone: "#e9dcc0",
-      href: "https://productpaige.com/projects/backspace-body",
+      tagline: "A body care brand that doesn’t exist, built like it does",
+      summary:
+        "Backspace Body is a concept brand for family body care: unisex, fragrance-free, refill-first, one range covering body, hair, face and hands. Not a set of mockups, but a working Shopify storefront with 21 products, real copy, ingredient data and SEO behind all of it.",
+      capabilities: ["Naming and identity", "Copywriting", "Product data", "Shopify theme build", "SEO"],
+      specs: [
+        { label: "Platform", value: "Shopify (Horizon)" },
+        { label: "Built with", value: "Claude Code + Shopify MCP" },
+      ],
+      highlights: [
+        { label: "Products", value: "21 across 30 variants" },
+        { label: "Ingredient glossary", value: "49 entries" },
+        { label: "Surfaces", value: "Store, blog, help center, footprint" },
+      ],
+      problem:
+        "Body care sells on fragrance and gendered packaging, with six bottles doing one job. Refills are an opt-in extra, and nothing covers body, hair and face in one range.",
+      approach:
+        "Designed in Paper, built on Shopify Horizon. Ingredient data lives in metaobjects read from one source, so the glossary, product pages and filters can’t disagree.",
+      outcome:
+        "The storefront runs: mega nav, blog, help center, footprint page, and a refill flow that works end to end rather than being described. Every claim traces to a source.",
     },
     {
+      slug: "organic-moderne",
       client: "Organic Moderne",
       excerpt: "An editorial and affiliate site for Canadians",
       role: "Websites",
-      tone: "#d8e4ee",
-      href: "https://productpaige.com/projects/organic-moderne",
+      liveUrl: "https://organicmoderne.com/",
+      tagline: "A Canadian shopping guide for a look that mostly ships from the States",
+      summary:
+        "Organic Moderne is an editorial and affiliate site for warm-minimal interiors, built for Canadian shoppers specifically. Long-form guides, a directory of Canadian stores, a design glossary and a filterable shop, all written in Notion and published without touching code.",
+      capabilities: ["Content architecture", "SEO", "Affiliate integration", "UI design", "Front-end build"],
+      specs: [
+        { label: "Platform", value: "React, Vite, Supabase" },
+        { label: "CMS", value: "Notion" },
+      ],
+      highlights: [
+        { label: "Articles", value: "Around sixty" },
+        { label: "Curated products", value: "A hundred-odd" },
+        { label: "Audience", value: "92% Canadian" },
+      ],
+      problem:
+        "Canadians searching for organic-modern furniture get sent to US retailers: USD pricing, cross-border shipping, duties after checkout. What ranks is written for US shoppers.",
+      approach:
+        "Notion is the source of truth, syncing to Supabase through edge functions, so publishing is a content action rather than a deploy. Every route is prerendered with structured data.",
+      outcome:
+        "Articles, products, a glossary, an FAQ and a directory of Canadian stores, all published without touching code. The store pages outrank the long guides.",
     },
     {
+      slug: "brand-playbook",
       client: "Brand Playbook",
       excerpt: "A resource hub for solo Shopify founders",
       role: "Websites",
-      tone: "#dce2d4",
-      href: "https://productpaige.com/projects/brand-playbook",
+      liveUrl: "https://brandplaybook.shop/",
+      tagline: "The Shopify guide I wanted when I was figuring it out alone",
+      summary:
+        "Brand Playbook is a resource hub for solo founders building a Shopify store without an agency behind them: playbooks, answers, a glossary and a vetted tool stack. It’s structured around the order decisions actually come up in: start, validate, build, launch, grow, operate.",
+      capabilities: ["Positioning", "Information architecture", "Design system", "Content structure", "Front-end build"],
+      specs: [
+        { label: "Platform", value: "Web" },
+        { label: "CMS", value: "Notion" },
+      ],
+      highlights: [
+        { label: "Structure", value: "Six stages, one path" },
+        { label: "Guides", value: "A pillar guide per stage" },
+        { label: "Readers", value: "Accounts and saved items" },
+      ],
+      problem:
+        "Advice for new Shopify merchants is either a 90-second reel or a $5k agency retainer. What sits between is written to rank, not to be used: the same six tips, no sequencing.",
+      approach:
+        "Structure first rather than pages: six stages, pillar guides inside each, flat URLs, nothing nested. Content is written in Notion and mapped to the site schema.",
+      outcome:
+        "Library, playbooks, questions, glossary, stack and tutorials, every page prerendered for search. Write in Notion and it ships with the schema already attached.",
     },
     {
+      slug: "product-prompt",
       client: "Product Prompt",
       excerpt: "A paid content platform for AI builders",
       role: "Websites",
-      tone: "#efe7c8",
-      href: "https://productpaige.com/projects/product-prompt",
+      liveUrl: "https://www.productprompt.io/",
+      tagline: "The marketing playbook for people who can suddenly build anything, and sell none of it",
+      summary:
+        "Product Prompt is a paid content platform (guides, workflows and a newsletter) for people building apps with AI. It teaches the less glamorous half of shipping: positioning, launch, activation, pricing and growth. The parts the AI tools don’t hand you.",
+      capabilities: ["Positioning", "Brand and identity", "Product design", "Full-stack build", "Payments and paywall"],
+      specs: [
+        { label: "Platform", value: "Next.js, Supabase, Stripe" },
+        { label: "CMS", value: "Sanity" },
+      ],
+      highlights: [
+        { label: "Guide library", value: "10 guides, 75 chapters" },
+        { label: "Access model", value: "One-time, not subscription" },
+        { label: "Status", value: "Newly live" },
+      ],
+      problem: "AI collapsed the cost of building an app. It didn’t touch anything that happens after that.",
+      approach:
+        "Positioning first: building got easy, the marketing part didn’t, and every other decision followed from that.",
+      outcome: "A live paid content platform, with the library architected and ready to write into.",
     },
-  ] as { client: string; excerpt: string; role: string; image?: string; tone: string; href: string }[],
+  ] as Project[],
 };
 
 // The section is hidden while this list is empty. Add real quotes with names and companies.

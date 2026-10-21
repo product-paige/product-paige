@@ -3,6 +3,10 @@ import { Reveal } from "./Reveal";
 
 export { Reveal };
 
+// Every section: the same padding top and bottom (32px phones, 80px desktop), so sections sit
+// 64px / 160px apart, with a full-width grid line on the boundary.
+export const section = "border-t border-grid py-8 lg:py-20";
+
 // Type scale: the hero headline sets its own size, then sectionHeading (56px max)
 // for every h2, then cardTitle (32px max) for every card and list title.
 export const sectionHeading = "serif text-[clamp(32px,4.1vw,56px)] leading-[1]";

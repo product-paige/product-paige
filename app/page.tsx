@@ -1,20 +1,17 @@
 import {
-  about, approach, audiences, closing, contact, faq, hero, models, nav, services, site, testimonials,
+  about, approach, audiences, contact, faq, hero, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
-import { Nav } from "@/components/Nav";
 import { RecentProjects } from "@/components/RecentProjects";
+import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import type { CSSProperties } from "react";
 import {
-  ArrowUpRight, Button, Check, Chip, Container, Reveal, Rich, SectionHead, cardTitle, listTitle, sectionHeading, sideHeading,
+  Button, Check, Chip, Container, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading, sideHeading,
 } from "@/components/ui";
 
-// Every section: the same padding top and bottom (32px phones, 80px desktop), so sections sit
-// 64px / 160px apart, with a full-width grid line on the boundary.
-const section = "border-t border-grid py-8 lg:py-20";
 // Hover lift shared by every card.
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
@@ -25,25 +22,8 @@ const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 export default function Home() {
   return (
     <>
-      <div aria-hidden className="page-rails"><i className="rails-inner" /></div>
-      <header className="rails sticky top-0 z-10 border-b border-grid bg-white">
-        <i aria-hidden className="rails-inner" />
-        <Container tight className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
-          <Nav items={nav} />
-          <a href="#top" className="serif text-[19px] leading-[0.95] lg:text-center lg:text-[26px]">
-            {site.logo.split(" ")[0]}<br />{site.logo.split(" ").slice(1).join(" ")}
-          </a>
-          <div className="flex items-center justify-end gap-5">
-            {site.availability && (
-              <span className="hidden items-center gap-2 text-[13px] text-live-text xl:inline-flex">
-                <i className="pulse-dot size-[9px] rounded-full bg-live" aria-hidden />
-                {site.availability}
-              </span>
-            )}
-            <Button href={site.bookingUrl}>Book an intro call</Button>
-          </div>
-        </Container>
-      </header>
+      <PageRails />
+      <SiteHeader />
 
       <main id="top">
         {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
@@ -290,19 +270,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="rails on-dark relative border-t border-grid bg-dark text-white">
-        <i aria-hidden className="rails-inner" />
-        <Container className="flex flex-col items-start gap-4 py-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-          {site.linkedin && (
-            <a href={site.linkedin} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 rounded-ui border border-line-dark px-4 py-2 text-sm label transition hover:bg-white/10">
-              LinkedIn
-              <ArrowUpRight className="size-3.5" />
-            </a>
-          )}
-          <span className="text-[13px] text-white/60">{closing.footer}</span>
-          <span className="text-[13px] text-white/60">© {new Date().getFullYear()} {site.name}</span>
-        </Container>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
