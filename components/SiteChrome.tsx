@@ -9,7 +9,7 @@ export function PageRails() {
 
 export function SiteHeader() {
   return (
-    <header className="rails sticky top-0 z-10 border-b border-grid bg-white">
+    <header className="rails sticky top-0 z-10 border-b border-grid bg-paper">
       <i aria-hidden className="rails-inner" />
       <Container tight className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
         <Nav items={nav} />
