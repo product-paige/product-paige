@@ -63,7 +63,7 @@ export function EditorialHero() {
                   <Chip key={t.label} icon={<TagIcon name={t.icon} />} style={{ "--i": i } as CSSProperties}>{t.label}</Chip>
                 ))}
               </div>
-              <p className="flex shrink-0 items-center gap-3 text-[14px] font-medium tracking-[0.08em] uppercase">
+              <p className="flex shrink-0 items-center gap-3 font-sans text-[16px] font-medium">
                 <Asterisk className="size-5" />
                 {site.availability}
               </p>
