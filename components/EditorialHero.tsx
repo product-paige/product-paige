@@ -1,7 +1,7 @@
 import { hero, site } from "@/content";
 import { CartMockup, ProductPageMockup } from "./Mockups";
 import { TagIcon } from "./TagIcon";
-import { Chip, Container, sansTitle } from "./ui";
+import { Chip, Container } from "./ui";
 
 /** A bold six-armed asterisk, as on printed ephemera. */
 function Asterisk({ className = "" }: { className?: string }) {
@@ -44,8 +44,8 @@ export function EditorialHero() {
             {/* A landscape phone cart mockup on the right, beside "& build" and "for Shopify teams" */}
             <CartMockup className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-2 lg:row-start-2 lg:mt-[0.12em] lg:block" />
 
-            {/* Intro under "for Shopify teams", in the blog card heading style */}
-            <p className={`${sansTitle} max-w-xl lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start`}>{hero.lede}</p>
+            {/* Intro under "for Shopify teams", in Manrope medium, 22px on desktop */}
+            <p className={`max-w-xl font-sans text-[18px] leading-snug font-medium tracking-[-0.03em] lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start lg:text-[22px]`}>{hero.lede}</p>
 
             {/* Under the rule: the hero pills on the left, the booking line on the right */}
             <div className="flex flex-col gap-5 border-t border-line pt-7 lg:col-span-12 lg:pt-10 lg:row-start-5 lg:mt-8 lg:flex-row lg:items-center lg:justify-between">
