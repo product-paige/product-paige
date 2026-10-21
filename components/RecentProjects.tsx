@@ -47,7 +47,7 @@ function Folder({ p, i }: { p: Project; i: number }) {
             <h3 className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
             {/* The buttons' arrow tab; it turns when the folder is hovered. */}
             <span className="btn shrink-0" aria-hidden>
-              <span className="btn-tab h-10"><ArrowUpRight turn /></span>
+              <span className="btn-tab size-8"><ArrowUpRight turn className="size-5" /></span>
             </span>
           </div>
           <p className="mt-2 max-w-[42ch] text-ink/70">{p.excerpt}</p>
