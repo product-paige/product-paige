@@ -34,14 +34,14 @@ export const site = {
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#projects" },
-  { label: "Services", href: "#services" },
+  { label: "How I can help", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const hero = {
   heading: "Product, design and build support for Shopify teams",
   lede:
-    "A one-person studio launching and fixing Shopify stores. Strategy, design and the build itself, from one person instead of three handoffs.",
+    "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
   tags: [
     "Ecommerce + DTC",
     "Shopify apps + ecosystem",
@@ -67,7 +67,7 @@ export const approach = {
 export const about = {
   heading: "Hey, I’m Paige\nI make things online and off",
   paragraphs: [
-    "A decade and more in Shopify and ecommerce, across funded startups and bootstrapped teams. I’ve been the first marketing hire twice, and I’ve run two ecommerce brands of my own, one with a cofounder, handling everything from sourcing a manufacturer to go-to-market.",
+    "My whole career has been in Shopify and ecommerce, across funded startups and bootstrapped teams. I’ve been the first marketing hire twice, and I’ve run two ecommerce brands of my own, one with a cofounder, handling everything from sourcing a manufacturer to go-to-market.",
     "Now I do strategy, design and the build itself: Shopify themes and modern site builders, with Claude Code and MCP wired into Figma and Shopify, so design, copy and working code happen in one pass instead of three handoffs. I’m not a developer, and I’ll say so before you pay me anything.",
   ],
   // The stats line under the About text.
@@ -153,7 +153,7 @@ export const models = {
       featured: true,
     },
     {
-      tag: "Sprints",
+      tag: "Projects",
       title: "One-time project",
       body: "One focused piece of work, live before your deadline.",
       price: "$4,000",

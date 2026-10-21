@@ -99,7 +99,8 @@
     display: inline-flex;
     align-items: stretch;
     gap: 2px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 1;
     white-space: nowrap;
     --btn-bg: var(--color-ink);
