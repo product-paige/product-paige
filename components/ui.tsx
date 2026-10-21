@@ -55,7 +55,7 @@ export function Button({
   const inner = (
     <>
       <span className="btn-text">{children}</span>
-      <span className="btn-tab">{arrow === "down" ? <ArrowDown /> : <ArrowUpRight />}</span>
+      <span className="btn-tab">{arrow === "down" ? <ArrowDown /> : <ArrowUpRight turn />}</span>
     </>
   );
   return href ? (
@@ -65,18 +65,21 @@ export function Button({
   );
 }
 
-/** Thin up-right arrow. Nudges up and right when its parent `group` is hovered. */
-export function ArrowUpRight({ className = "" }: { className?: string }) {
+/**
+ * Thin up-right arrow. Nudges up and right when its parent `group` is hovered,
+ * or with `turn`, swings round to point right (as in buttons).
+ */
+export function ArrowUpRight({ className = "", turn = false }: { className?: string; turn?: boolean }) {
   return (
     <svg
       aria-hidden
       viewBox="0 0 16 16"
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.25}
+      strokeWidth={1}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={`size-4 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${className}`}
+      className={`size-4 shrink-0 transition-transform duration-200 ${turn ? "group-hover:rotate-45" : "group-hover:-translate-y-0.5 group-hover:translate-x-0.5"} ${className}`}
     >
       <path d="M4.5 11.5l7-7M5.5 4.5h6v6" />
     </svg>
@@ -109,7 +112,7 @@ export function ArrowDown({ className = "" }: { className?: string }) {
       viewBox="0 0 16 16"
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.25}
+      strokeWidth={1}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`size-4 shrink-0 transition-transform duration-200 group-hover:translate-y-0.5 ${className}`}
