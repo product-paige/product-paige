@@ -5,6 +5,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
+import { TagIcon } from "@/components/TagIcon";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import type { CSSProperties } from "react";
@@ -29,21 +30,21 @@ export default function Home() {
         {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
             slides up over it, then both scroll away together. */}
         <div className="relative">
-        {/* Hero: a block of the blog cards' grey paper, with the same grain. Desktop: it fills the first screen under the 68px header, content
+        {/* Hero: on the page background. Desktop: it fills the first screen under the 68px header, content
             centred but nudged up (extra bottom padding) since the torn paper covers the bottom; the
             About panel peeks 64px at the bottom. Like About, the block is the Container
             itself, so from md up it stays between the page rails. */}
         <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)]">
-          <Container className="paper-grain bg-scrap pt-8 pb-20 lg:flex lg:flex-col lg:justify-center lg:pt-16 lg:pb-40">
+          <Container className="pt-8 pb-20 lg:flex lg:flex-col lg:justify-center lg:pt-16 lg:pb-40">
             <h1 className="rise serif mb-6 max-w-4xl text-[clamp(34px,5vw,72px)] leading-[1] text-balance" style={delay(100)}>
               <Rich text={hero.heading} />
             </h1>
             <div className="rise" style={delay(200)}>
               <p className="lede mb-10 max-w-2xl lg:mb-12 lg:max-w-3xl">{hero.lede}</p>
-              {/* Dark pills, each with the accent dot. */}
-              <div className="flex flex-wrap gap-2" style={{ "--color-chip": "var(--color-ink)" } as CSSProperties}>
-                {hero.tags.map((t) => (
-                  <Chip key={t} dot="var(--color-accent)" className="text-white">{t}</Chip>
+              {/* Light pills, each with a line icon; a highlight travels along them (.pill-cycle). */}
+              <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
+                {hero.tags.map((t, i) => (
+                  <Chip key={t.label} icon={<TagIcon name={t.icon} />} style={{ "--i": i } as CSSProperties}>{t.label}</Chip>
                 ))}
               </div>
             </div>
@@ -145,37 +146,7 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* Approach */}
-        <section id="approach" className={section}>
-          <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
-            <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <h2 className={sideHeading}><Rich text={approach.heading} /></h2>
-              <p className="lede mt-5 max-w-xl">{approach.body}</p>
-            </Reveal>
-            {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
-                (grey and small until the line reaches it). */}
-            <ol className="relative grid gap-12 lg:gap-16 before:absolute before:top-2 before:bottom-2 before:left-[9px] before:w-px before:bg-line before:content-['']">
-              <TimelineProgress />
-              {approach.steps.map((p, i) => (
-                <Reveal as="li" key={p.title} delay={i * 120} className="group pl-12">
-                  {/* Number and title share one line; the dot sits on the first line, out on the timeline. */}
-                  <h3 className={`${listTitle} relative flex items-baseline gap-4`}>
-                    <span
-                      data-dot
-                      aria-hidden
-                      className="absolute top-[0.52em] -left-12 size-[19px] -translate-y-1/2 rounded-full bg-ink ring-[6px] ring-paper transition duration-500 group-data-pending:scale-[0.6] group-data-pending:bg-muted"
-                    />
-                    <span className="text-muted">{String(i + 1).padStart(2, "0")}</span>
-                    {p.title}
-                  </h3>
-                  <p className="mt-3 max-w-[40ch] text-muted">{p.body}</p>
-                </Reveal>
-              ))}
-            </ol>
-          </Container>
-        </section>
-
-        {/* Engagement models: extra space above on desktop, to separate it from the approach timeline */}
+        {/* Engagement models */}
         <section className={section}>
           <Container>
             <SectionHead heading={models.heading} />
@@ -206,6 +177,36 @@ export default function Home() {
             <Reveal className="mt-8 flex justify-center lg:mt-12">
               <Button href={site.bookingUrl}>Book an intro call</Button>
             </Reveal>
+          </Container>
+        </section>
+
+        {/* Approach */}
+        <section id="approach" className={section}>
+          <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
+            <Reveal className="lg:sticky lg:top-28 lg:self-start">
+              <h2 className={sideHeading}><Rich text={approach.heading} /></h2>
+              <p className="lede mt-5 max-w-xl">{approach.body}</p>
+            </Reveal>
+            {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
+                (grey and small until the line reaches it). */}
+            <ol className="relative grid gap-12 lg:gap-16 before:absolute before:top-2 before:bottom-2 before:left-[9px] before:w-px before:bg-line before:content-['']">
+              <TimelineProgress />
+              {approach.steps.map((p, i) => (
+                <Reveal as="li" key={p.title} delay={i * 120} className="group pl-12">
+                  {/* Number and title share one line; the dot sits on the first line, out on the timeline. */}
+                  <h3 className={`${listTitle} relative flex items-baseline gap-4`}>
+                    <span
+                      data-dot
+                      aria-hidden
+                      className="absolute top-[0.52em] -left-12 size-[19px] -translate-y-1/2 rounded-full bg-ink ring-[6px] ring-paper transition duration-500 group-data-pending:scale-[0.6] group-data-pending:bg-muted"
+                    />
+                    <span className="text-muted">{String(i + 1).padStart(2, "0")}</span>
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 max-w-[40ch] text-muted">{p.body}</p>
+                </Reveal>
+              ))}
+            </ol>
           </Container>
         </section>
 

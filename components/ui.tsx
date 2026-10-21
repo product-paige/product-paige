@@ -144,11 +144,14 @@ export function ArrowDown({ className = "" }: { className?: string }) {
 
 export function Chip({
   dot,
+  icon,
   className = "",
   style,
   children,
 }: {
   dot?: string;
+  /** A small line icon before the label, in place of a dot. */
+  icon?: ReactNode;
   className?: string;
   style?: CSSProperties;
   children: ReactNode;
@@ -156,6 +159,7 @@ export function Chip({
   return (
     <span className={`chip bg-chip ${className}`} style={style}>
       {dot && <i aria-hidden className="size-2 rounded-full" style={{ background: dot }} />}
+      {icon}
       {children}
     </span>
   );

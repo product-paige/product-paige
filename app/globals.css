@@ -137,7 +137,7 @@
   .btn:active .btn-tab { transform: translateX(-2px); }
   .btn:disabled { opacity: 0.5; pointer-events: none; }
 
-  /* Pill: flat, with the buttons' shape and type, on its own background. */
+  /* Pill: the buttons' shape and type with a soft lifted shadow, on its own background. */
   .chip {
     display: inline-flex;
     align-items: center;
@@ -147,6 +147,11 @@
     font-size: 14px;
     line-height: 1;
     white-space: nowrap;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.5),
+      inset 0 -1px 0 rgb(0 0 0 / 0.06),
+      0 1px 0 rgb(0 0 0 / 0.06),
+      0 2px 4px rgb(26 26 26 / 0.06);
     @media (width >= 64rem) { padding: 8px 12px; }
   }
 
@@ -351,6 +356,16 @@
 }
 .pulse-dot { animation: pulse-ring 2.4s infinite; }
 
+/* Hero pills: a soft highlight travels along them, warming each pill to a light tint of
+   the accent in turn. 1.6s per pill, looping. */
+@keyframes pill-glow {
+  0%, 30%, 100% { background-color: var(--color-chip); }
+  8%, 20% { background-color: color-mix(in srgb, var(--color-accent) 18%, white); }
+}
+.pill-cycle > * {
+  animation: pill-glow calc(var(--n) * 1.6s) ease-in-out calc(var(--i) * 1.6s + 1.2s) infinite;
+}
+
 /* Hero: fades up on load with CSS alone, so it paints straight away
    instead of waiting for JS like the scroll reveals below. */
 @keyframes rise {
@@ -370,6 +385,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .pulse-dot, .rise { animation: none; }
+  .pulse-dot, .rise, .pill-cycle > * { animation: none; }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }

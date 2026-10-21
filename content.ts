@@ -5,6 +5,8 @@
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
 // availability line, photo, testimonials, the $1,500 tier.
 
+import type { TagIconName } from "./components/TagIcon";
+
 export const site = {
   name: "Paige Eaton",
   // Header logo, on one line.
@@ -42,14 +44,15 @@ export const hero = {
   heading: "Product, design and build support for Shopify teams",
   lede:
     "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
+  // Each pill has a line icon (see components/TagIcon.tsx for the names).
   tags: [
-    "Ecommerce + DTC",
-    "Shopify apps + ecosystem",
-    "Product-led SaaS",
-    "Loyalty + retention",
-    "AI + developer tools",
-    "Apparel",
-  ],
+    { label: "Ecommerce + DTC", icon: "bag" },
+    { label: "Shopify apps + ecosystem", icon: "apps" },
+    { label: "Product-led SaaS", icon: "window" },
+    { label: "Loyalty + retention", icon: "heart" },
+    { label: "AI + developer tools", icon: "sparkle" },
+    { label: "Apparel", icon: "shirt" },
+  ] as { label: string; icon: TagIconName }[],
 };
 
 export const approach = {
