@@ -338,8 +338,8 @@ export const testimonials = {
 };
 
 export const faq = {
-  heading: "Questions nobody asked, but might",
-  body: "Have a question that isn’t here? Send it over and I’ll answer by email.",
+  heading: "Things founders ask me",
+  body: "Everything you might still be wondering.",
   items: [
     {
       q: "Do you work with teams that already have a designer?",
@@ -366,6 +366,43 @@ export const faq = {
       a: "Access to what already exists, one person who can make decisions, and a rough idea of what success looks like. I’ll do the digging from there.",
     },
   ],
+};
+
+// Privacy and terms, ported unchanged from productpaige.com/privacy and /terms.
+// To confirm before launch: the terms name British Columbia law (the site says Ontario),
+// and the privacy policy mentions Vercel Analytics, which this site doesn't use yet.
+export const legal = {
+  privacy: {
+    label: "Privacy",
+    heading: "Plain-language privacy",
+    lede: "Product Paige is a one-person practice. The site collects very little, uses what it has only to reply to you, and never sells your data.",
+    effective: "June 26, 2026",
+    sections: [
+      { label: "Scope", title: "What this covers", body: "This policy applies to productpaige.com and any direct correspondence with Product Paige (Paige Eaton, sole practitioner). It does not cover third-party sites linked from here." },
+      { label: "Collection", title: "What gets collected", body: "Just the basics needed to run a small consulting site: anonymized analytics (page views, referrer, country), the email address you send messages from, and any information you choose to share in those messages. No tracking pixels, no fingerprinting, no third-party ad networks." },
+      { label: "Usage", title: "How it's used", body: "Analytics inform what content is working and where the site can be improved. Email correspondence is used only to reply to your message and, if a project starts, to deliver the work. Information is never sold, rented, or shared with marketing partners." },
+      { label: "Storage", title: "Where it lives", body: "Analytics: Vercel Analytics (no cookies, no personal identifiers). Email: stored in a personal inbox provider (Google Workspace). Project work: stored in personal tools (Notion, Figma, Linear) under standard provider security." },
+      { label: "Cookies", title: "Cookies", body: "The site uses essential cookies only — those required for the site to function. No analytics cookies, no marketing cookies, no consent banner needed." },
+      { label: "Rights", title: "Your rights", body: "You can request to see, correct, or delete any information held about you at any time. Email hello@productpaige.com and you'll get a response within 30 days." },
+      { label: "Updates", title: "Changes to this policy", body: "If this policy changes, the updated version will be posted on this page with a new effective date. For substantive changes, returning clients will be notified by email." },
+    ],
+  },
+  terms: {
+    label: "Terms",
+    heading: "The shape of the engagement",
+    lede: "Short, written, mutual — no surprises. These are the standard terms for any work with Product Paige. A signed scope of work takes precedence over anything below.",
+    effective: "June 26, 2026",
+    sections: [
+      { label: "Scope", title: "What's covered", body: "These terms apply to consulting work performed by Product Paige (Paige Eaton, sole practitioner) — including Ask Paige sessions, retainers, and project engagements — and to use of productpaige.com." },
+      { label: "Engagement", title: "How work is scoped", body: "Every engagement starts with a written scope: what's included, what's not, the expected timeline, and the price. Anything outside that scope is a new engagement with its own scope and price. No surprise invoices." },
+      { label: "Payment", title: "Payment terms", body: "Ask Paige sessions: paid in full before the session. Retainers and project work: 50% on signature, 50% on delivery, unless otherwise written into the scope. Invoices are payable within 14 days via Wise, Stripe, or bank transfer. Currency is USD unless otherwise agreed." },
+      { label: "Deliverables", title: "Ownership of deliverables", body: "On final payment, ownership of all written deliverables, design files, and code transfers to the client. The right to reference the engagement in case studies and portfolio work is retained — sensitive details can be anonymized on request before any public reference." },
+      { label: "Confidentiality", title: "Confidentiality", body: "Anything shared in the course of an engagement is treated as confidential and is not discussed with third parties without permission. A mutual NDA can be signed before any sensitive material is reviewed." },
+      { label: "Cancellation", title: "Cancellation + refunds", body: "Ask Paige sessions: full refund if canceled 48+ hours before the scheduled time, no refund within 48 hours (one reschedule allowed). Project work: 50% deposit is non-refundable after work begins; remaining balance is owed for work completed up to the cancellation date." },
+      { label: "Liability", title: "Limitations", body: "Product Paige provides product strategy, marketing, and design advice — not legal, financial, accounting, or regulatory advice. Total liability for any engagement is limited to fees paid for that engagement. Work is delivered as-is with no implied warranty of merchantability or fitness for a particular purpose." },
+      { label: "Jurisdiction", title: "Governing law", body: "These terms are governed by the laws of British Columbia, Canada. Any disputes will be resolved in the courts of British Columbia unless both parties agree to binding arbitration." },
+    ],
+  },
 };
 
 export const closing = {

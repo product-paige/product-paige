@@ -1,4 +1,4 @@
-import { closing, nav, site } from "@/content";
+import { closing, legal, nav, site } from "@/content";
 import { Nav } from "./Nav";
 import { ArrowUpRight, Button, Container } from "./ui";
 
@@ -54,7 +54,11 @@ export function SiteFooter() {
           </a>
         )}
         <span className="text-[14px] text-white/60">{closing.footer}</span>
-        <span className="text-[14px] text-white/60">© {new Date().getFullYear()} {site.name}</span>
+        <span className="flex flex-wrap items-center gap-5 text-[14px] text-white/60">
+          <a href="/privacy" className="link">{legal.privacy.label}</a>
+          <a href="/terms" className="link">{legal.terms.label}</a>
+          <span>© {new Date().getFullYear()} {site.name}</span>
+        </span>
       </Container>
     </footer>
   );
