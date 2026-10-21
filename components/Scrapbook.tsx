@@ -1,5 +1,5 @@
 import { blog } from "@/content";
-import { Container, Reveal, Rich, sectionHeading } from "./ui";
+import { Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
 
 /**
  * Blog teaser: three posts as loose-leaf notebook pages (punch holes, a margin
@@ -25,7 +25,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
                 </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
-                <h3 className="mt-6 text-[19px] leading-snug lg:text-[21px]">{p.title}</h3>
+                <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
                 <p className="mt-2 text-muted">{p.excerpt}</p>
               </a>
             </Reveal>
