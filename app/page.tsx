@@ -100,7 +100,7 @@ export default function Home() {
         {/* Audiences */}
         <section className={section}>
           <Container>
-            <SectionHead heading={audiences.heading} />
+            <SectionHead heading={audiences.heading} body={audiences.body} />
             <div className="grid gap-3 md:grid-cols-2">
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>

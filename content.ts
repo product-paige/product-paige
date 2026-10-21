@@ -35,7 +35,7 @@ export const site = {
 // An accent underline marks the menu item whose section is on screen.
 export const nav = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#projects" },
+  { label: "Projects", href: "#projects" },
   { label: "Capabilities", href: "#services" },
   { label: "Services", href: "#pricing" },
   { label: "Scrapbook", href: "#blog" },
@@ -110,6 +110,7 @@ export const services = {
 
 export const audiences = {
   heading: "Who I work with",
+  body: "I work closely with founders and small teams building on Shopify, typically at the startup or scale-up stage.",
   items: [
     {
       tone: "bg-scrap",
