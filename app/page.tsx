@@ -24,7 +24,8 @@ const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0 z-10 bg-paper/85 backdrop-blur-md backdrop-saturate-150">
+      <div aria-hidden className="page-rails" />
+      <header className="rails sticky top-0 z-10 bg-paper/85 backdrop-blur-md backdrop-saturate-150">
         <Container className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
           <Nav items={nav} />
           <a href="#top" className="serif text-[19px] leading-[0.95] lg:text-center lg:text-[26px]">

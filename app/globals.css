@@ -160,6 +160,32 @@
   .btn-text, .btn-tab, .link { transition: none; }
 }
 
+/* Page rails: thin lines down the left and right edges of the content column.
+   .page-rails is fixed behind the content, so the About panel (z-1) slides over
+   and hides them; .rails draws the same pair on the sticky header, which sits above.
+   Grey at 25% so they read on both the white and the dark sections. */
+.page-rails {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.page-rails, .rails {
+  @media (width >= 48rem) {
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgb(128 128 128 / 0.25);
+      pointer-events: none;
+    }
+    &::before { left: max(12px, calc(50% - 680px)); }
+    &::after { right: max(12px, calc(50% - 680px)); }
+  }
+}
+
 /* Native select with a thin chevron, so it looks the same in every browser */
 @utility select {
   appearance: none;
