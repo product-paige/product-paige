@@ -107,7 +107,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
               {projects.items.map((p, i) => (
                 <div
                   key={p.slug}
-                  className="w-[82%] shrink-0 snap-start sm:w-[60%] lg:w-[min(500px,38vw)]"
+                  className="w-[86%] shrink-0 snap-start sm:w-[64%] lg:w-[min(560px,42vw)]"
                 >
                   <Folder p={p} i={i} />
                 </div>

@@ -9,7 +9,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import {
-  Button, Check, Chip, Container, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading, sideHeading,
+  Button, Check, Chip, Container, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -39,7 +39,7 @@ export default function Home() {
           <div className="mx-auto w-full max-w-[1360px] md:w-[calc(100%-24px)] md:px-6 lg:px-10">
           <div className="folded-top relative bg-dark px-6 py-10 text-white sm:px-8 md:px-10 lg:px-16 lg:py-24 xl:px-24">
             <Reveal>
-              <h2 className="serif text-[clamp(36px,5vw,72px)] leading-[1]"><Rich text={about.heading} /></h2>
+              <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
             </Reveal>
 
             <div className="mt-10 grid items-start gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-6">
@@ -192,9 +192,9 @@ export default function Home() {
 
         {/* FAQ */}
         <section id="faq" className={section}>
-          <Container className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
+          <Container className="grid gap-8 lg:grid-cols-2 lg:gap-16">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <h2 className={sideHeading}><Rich text={faq.heading} /></h2>
+              <h2 className={sectionHeading}><Rich text={faq.heading} /></h2>
               <p className="lede mt-5 max-w-lg">{faq.body}</p>
             </Reveal>
             <Reveal>
@@ -233,7 +233,7 @@ export default function Home() {
         {/* Contact and footer share one dark block. */}
         <section id="contact" className={`rails on-dark relative bg-dark text-white ${section}`}>
           <i aria-hidden className="rails-inner" />
-          <Container className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <Container className="grid gap-8 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <h2 className={`${sectionHeading} mb-5`}><Rich text={contact.heading} /></h2>
               <p className="lede max-w-md text-white">{contact.body}</p>

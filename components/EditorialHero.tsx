@@ -23,7 +23,7 @@ function Asterisk({ className = "" }: { className?: string }) {
 export function EditorialHero() {
   // On desktop each phrase of the headline is its own grid item (the h1 is display: contents),
   // drawn above the mockups so a descender like the g in "design" sits on top of them.
-  const line = "block lg:relative lg:z-1 lg:whitespace-nowrap";
+  const line = "block lg:relative lg:z-1 lg:whitespace-nowrap lg:tracking-[-0.04em]";
   const type = "lg:text-[9.7cqw]";
   return (
     <section className="relative lg:sticky lg:top-[68px]">
