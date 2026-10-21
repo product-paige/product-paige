@@ -39,9 +39,9 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 className="group/q flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-[18px] text-left text-base font-medium lg:px-6 lg:py-5 lg:text-lg"
               >
                 {f.q}
-                {/* Thin plus on a small 3D key; the key fills and the plus turns to a cross when open. */}
+                {/* Thin plus in a small square; the square fills and the plus turns to a cross when open. */}
                 <span
-                  className={`key grid size-8 shrink-0 place-items-center rounded-ui border ${isOpen ? "border-ink bg-ink text-white" : "border-line bg-white group-hover/q:border-ink/40"}`}
+                  className={`grid size-8 shrink-0 place-items-center rounded-ui border transition-colors duration-300 ${isOpen ? "border-ink bg-ink text-white" : "border-line group-hover/q:border-ink/40"}`}
                 >
                   <svg
                     aria-hidden
