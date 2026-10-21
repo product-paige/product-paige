@@ -33,8 +33,8 @@ export const site = {
 // An accent underline marks the menu item whose section is on screen.
 export const nav = [
   { label: "About", href: "#about" },
+  { label: "Work", href: "#projects" },
   { label: "Services", href: "#services" },
-  { label: "Process", href: "#approach" },
   { label: "Contact", href: "#contact" },
 ];
 
