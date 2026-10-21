@@ -8,7 +8,7 @@ type Project = (typeof projects.items)[number];
 
 function Head() {
   return (
-    <Reveal className="mb-10 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-16">
+    <Reveal className="mb-12 grid gap-5 lg:mb-16 lg:grid-cols-2 lg:items-end lg:gap-16">
       <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
       <p className="lede max-w-xl">{projects.body}</p>
     </Reveal>
