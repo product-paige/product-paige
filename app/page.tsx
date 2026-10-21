@@ -95,7 +95,7 @@ export default function Home() {
             <div className="grid gap-3 md:grid-cols-2">
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
-                  <div className={`${a.tone} flex h-full flex-col p-6 ${lift} lg:p-10`}>
+                  <div className={`${a.tone} folded flex h-full flex-col p-6 ${lift} lg:p-10`}>
                     <h3 className={`${cardTitle} mb-8 lg:mb-16`}>{a.title}</h3>
                     {/* Rules run edge to edge across the card; the items keep their inset. */}
                     <ul className="mt-auto -mx-6 divide-y divide-line border-y border-line lg:-mx-10">
