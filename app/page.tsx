@@ -68,11 +68,13 @@ export default function Home() {
         </section>
 
         {/* About */}
-        {/* About: a sheet of paper with a torn top edge (the edge image sits just above the section). */}
-        <section id="about" className="relative z-1 bg-sheet py-8 lg:py-20">
+        {/* About: a sheet of paper with a torn top edge (the edge image sits just above the sheet).
+            The sheet is the Container itself, so from md up it stays between the page rails. */}
+        <section id="about" className="relative z-1">
+          <Container className="relative bg-sheet py-8 lg:py-20">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/paper-edge.svg" alt="" aria-hidden className="pointer-events-none absolute bottom-full left-0 h-[clamp(64px,12vw,230px)] w-full translate-y-px select-none" />
-          <Container className="grid gap-8 lg:grid-cols-[5fr_7fr] lg:gap-20">
+          <div className="grid gap-8 lg:grid-cols-[5fr_7fr] lg:gap-20">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <figure className="photo-grain folded aspect-[4/5] bg-chip [--fold-color:#e6e2da]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -98,6 +100,7 @@ export default function Home() {
                 ))}
               </Reveal>
             </div>
+          </div>
           </Container>
         </section>
 
