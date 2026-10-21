@@ -131,7 +131,7 @@ export function Chip({
   children: ReactNode;
 }) {
   return (
-    <span className={`inline-flex items-center gap-2 rounded-full bg-chip px-4 py-2 text-[14px] label lg:text-[15px] ${className}`} style={style}>
+    <span className={`chip bg-chip ${className}`} style={style}>
       {dot && <i aria-hidden className="size-2 rounded-full" style={{ background: dot }} />}
       {children}
     </span>

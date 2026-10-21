@@ -87,7 +87,7 @@ export default function Home() {
                 {about.facts.map((f) => (
                   <div key={f.label} className="border-b border-white/15 py-5 pr-4">
                     <p className="mb-1 text-[13px] label text-white/60">{f.label}</p>
-                    <p className="serif text-[20px] lg:text-2xl">{f.value}</p>
+                    <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
                   </div>
                 ))}
               </Reveal>
