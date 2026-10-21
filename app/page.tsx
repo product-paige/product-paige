@@ -207,7 +207,7 @@ export default function Home() {
 
         {/* FAQ */}
         <section id="faq" className={`${jumpGap} ${section}`}>
-          <Container className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-32">
+          <Container className="grid gap-8 lg:grid-cols-2 lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <h2 className={sideHeading}><Rich text={faq.heading} /></h2>
               <p className="lede mt-5 mb-7 max-w-lg">{faq.body}</p>
