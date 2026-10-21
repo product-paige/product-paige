@@ -130,9 +130,9 @@ export default function Home() {
           <Container>
             <SectionHead heading={services.heading} />
             {/* Dividers run out to the page rails; the rows keep the usual inset. */}
-            <div className="border-b border-line md:-mx-6 lg:-mx-8">
+            <div className="border-b border-line md:-mx-6 lg:-mx-10">
               {services.items.map((s) => (
-                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-line py-6 md:grid-cols-[1.1fr_1fr] md:gap-6 md:px-6 md:py-10 lg:px-8">
+                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-line py-6 md:grid-cols-[1.1fr_1fr] md:gap-6 md:px-6 md:py-10 lg:px-10">
                   <div>
                     <h3 className={listTitle}>{s.title}</h3>
                     <div className="mt-3.5 flex flex-wrap gap-2">
