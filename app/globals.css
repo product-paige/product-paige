@@ -322,8 +322,6 @@
   background: #fff;
   rotate: -2deg;
   box-shadow: 0 1px 0 rgb(0 0 0 / 0.06), 0 12px 28px rgb(26 26 26 / 0.12);
-  transition: rotate 500ms var(--ease-soft);
-  &:hover { rotate: 0deg; }
 }
 /* Tape: a strip of blue masking tape (public/tape.webp, from productpaige.com) across the top. */
 .tape {
