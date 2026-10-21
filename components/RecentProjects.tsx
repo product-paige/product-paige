@@ -52,7 +52,8 @@ function Folder({ p, i }: { p: Project; i: number }) {
 
 /**
  * Recent projects as a filing drawer: the section pins while you scroll, and the folders
- * slide sideways past. On phones it's a swipeable row instead.
+ * slide sideways past; they can also be dragged with the mouse. On phones it's a
+ * swipeable row instead.
  */
 export function RecentProjects({ className = "" }: { className?: string }) {
   const outer = useRef<HTMLDivElement>(null);
@@ -78,13 +79,54 @@ export function RecentProjects({ className = "" }: { className?: string }) {
       row.style.transform = `translateX(${-progress * distance}px)`;
     };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+
+    // Mouse drag. Pinned (desktop), the row's position follows the page scroll one to
+    // one, so dragging scrolls the page; otherwise it scrolls the row itself. Touch
+    // keeps its native swipe. A drag of more than a few pixels doesn't open the link.
+    let drag: { x: number; scrollY: number; scrollLeft: number; moved: boolean } | null = null;
+    const onDown = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      drag = { x: e.clientX, scrollY: window.scrollY, scrollLeft: row.scrollLeft, moved: false };
+    };
+    const onMove = (e: PointerEvent) => {
+      if (!drag) return;
+      const dx = e.clientX - drag.x;
+      if (!drag.moved && Math.abs(dx) < 5) return;
+      if (!drag.moved) {
+        drag.moved = true;
+        try { row.setPointerCapture(e.pointerId); } catch {}
+        row.dataset.dragging = "";
+      }
+      if (desktop.matches) window.scrollTo({ top: drag.scrollY - dx, behavior: "instant" });
+      else row.scrollLeft = drag.scrollLeft - dx;
+    };
+    const onUp = () => {
+      if (!drag) return;
+      const moved = drag.moved;
+      drag = null;
+      delete row.dataset.dragging;
+      // Swallow the click that ends a drag, so it doesn't follow the folder's link.
+      if (moved) row.addEventListener("click", (e) => e.preventDefault(), { capture: true, once: true });
+    };
+    const noNativeDrag = (e: DragEvent) => e.preventDefault();
+
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    row.addEventListener("pointerdown", onDown);
+    row.addEventListener("pointermove", onMove);
+    row.addEventListener("pointerup", onUp);
+    row.addEventListener("pointercancel", onUp);
+    row.addEventListener("dragstart", noNativeDrag);
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      row.removeEventListener("pointerdown", onDown);
+      row.removeEventListener("pointermove", onMove);
+      row.removeEventListener("pointerup", onUp);
+      row.removeEventListener("pointercancel", onUp);
+      row.removeEventListener("dragstart", noNativeDrag);
     };
   }, []);
 
@@ -96,7 +138,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
             <Head />
             <div
               ref={track}
-              className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0"
+              className="-mx-4 flex cursor-grab snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 select-none data-dragging:cursor-grabbing data-dragging:snap-none sm:-mx-6 sm:px-6 lg:mx-0 lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0"
             >
               {projects.items.map((p, i) => (
                 <div
