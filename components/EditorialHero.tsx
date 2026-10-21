@@ -15,7 +15,7 @@ function Asterisk({ className = "" }: { className?: string }) {
 /**
  * The hero, laid out like an editorial spread: the headline is broken across a
  * 12-column grid and wraps around two ecommerce mockups (an arched product page and a phone
- * cart down the right edge). On desktop the type is sized to the width of the grid (9.7cqw), so each phrase fills its
+ * cart down the right edge). On desktop the type is sized to the width of the grid (9.5cqw), so each phrase fills its
  * columns at any screen size, and the images take their height from the lines of text beside
  * them (sized in em of the same type). Phones get the plain stack: arched photo, headline, intro.
  * On desktop it stays pinned under the header while the dark About panel slides up over it.
@@ -23,7 +23,7 @@ function Asterisk({ className = "" }: { className?: string }) {
 export function EditorialHero() {
   // On desktop each phrase of the headline is its own grid item (the h1 is display: contents).
   const line = "block lg:whitespace-nowrap";
-  const type = "lg:text-[9.7cqw]";
+  const type = "lg:text-[9.5cqw]";
   return (
     <section className="relative lg:sticky lg:top-[68px]">
       <Container className="py-10 lg:py-14">
@@ -31,9 +31,8 @@ export function EditorialHero() {
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
             {/* Arched product page mockup, exactly two lines of type tall, so the three lines keep an even 1.08em pitch, beside "Product, design / & build" */}
             <div className={`relative lg:col-span-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 ${type}`}>
-              {/* The Shopify glyph, as a grey mark. On desktop its top lines up with the cap height of
-                  "Product, design" (0.19em below the row, in the headline's own size). */}
-              <span aria-hidden className="shopify-mark absolute -top-5 -left-3 z-1 h-10 w-[35px] lg:top-[0.19em] lg:left-0 lg:h-12 lg:w-[42px]" />
+              {/* The Shopify glyph, as a grey mark. On desktop its top lines up with the top of the image. */}
+              <span aria-hidden className="shopify-mark absolute -top-5 -left-3 z-1 h-10 w-[35px] lg:top-0 lg:left-0 lg:h-12 lg:w-[42px]" />
               <ProductPageMockup className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2.16em] lg:rounded-tl-[1.4em]" />
             </div>
 
