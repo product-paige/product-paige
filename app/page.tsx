@@ -37,7 +37,7 @@ export default function Home() {
           {/* Same outer box as Container, padded so the dark block's edges sit on the inner rails
               (24px md, 40px lg in from the outer ones); the content keeps the usual inset inside. */}
           <div className="mx-auto w-full max-w-[1360px] md:w-[calc(100%-24px)] md:px-6 lg:px-10">
-          <div className="folded-top relative rounded-tl-[6px] bg-dark px-4 py-8 text-white sm:px-6 lg:px-10 lg:py-20">
+          <div className="folded-top relative rounded-tl-[6px] bg-dark px-4 py-10 text-white sm:px-6 lg:px-10 lg:py-24">
             <Reveal>
               <h2 className="serif text-[clamp(36px,5vw,72px)] leading-[1]"><Rich text={about.heading} /></h2>
             </Reveal>
