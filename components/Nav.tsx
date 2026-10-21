@@ -40,7 +40,7 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
   }, [items]);
 
   return (
-    <nav aria-label="Sections" className="hidden gap-5 lg:flex">
+    <nav aria-label="Sections" className="hidden gap-5 xl:flex">
       {items.map((n) => {
         const isActive = active === n.href;
         return (

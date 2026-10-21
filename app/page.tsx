@@ -147,7 +147,7 @@ export default function Home() {
         </section>
 
         {/* Engagement models */}
-        <section className={section}>
+        <section id="pricing" className={section}>
           <Container>
             <SectionHead heading={models.heading} />
             <div className="grid gap-3 lg:grid-cols-3">

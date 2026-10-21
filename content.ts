@@ -37,7 +37,8 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#projects" },
   { label: "How I can help", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "#pricing" },
+  { label: "Scrapbook", href: "#blog" },
 ];
 
 export const hero = {
