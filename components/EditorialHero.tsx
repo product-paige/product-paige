@@ -37,20 +37,20 @@ export function EditorialHero() {
       <Container className="paper-grain bg-paper py-10 lg:py-14">
         <div className="@container">
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
-            {/* Arched photo, two lines of type tall, beside "Product, design / & build" */}
+            {/* Arched photo, exactly two lines of type tall, so the three lines keep an even 1em pitch, beside "Product, design / & build" */}
             <div className={`relative lg:col-span-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 ${type}`}>
               <Asterisk className="absolute -top-4 -left-3 z-1 size-9 lg:-top-5 lg:-left-5 lg:size-11" />
-              <Placeholder label="Image" className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2.3em] lg:rounded-tl-[1.4em]" />
+              <Placeholder label="Image" className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2em] lg:rounded-tl-[1.4em]" />
             </div>
 
-            <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] lg:contents`}>
+            <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] lg:contents lg:leading-none`}>
               <span className={`${line} ${type} lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:self-start`}>Product, design </span>
-              <span className={`${line} ${type} lg:col-span-5 lg:col-start-5 lg:row-start-2 lg:self-end`}>& build </span>
-              <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:mt-[0.2em] lg:self-start`}>for Shopify teams</span>
+              <span className={`${line} ${type} lg:col-span-5 lg:col-start-5 lg:row-start-2 lg:self-start`}>& build </span>
+              <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:self-start`}>for Shopify teams</span>
             </h1>
 
             {/* A tall print down the right edge, from "& build" to the bottom of the intro */}
-            <Placeholder label="Image" className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-3 lg:row-start-2 lg:mt-[0.15em] lg:grid lg:text-[8.6cqw]" />
+            <Placeholder label="Image" className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-3 lg:row-start-2 lg:mt-[0.12em] lg:grid lg:text-[8.6cqw]" />
 
             {/* Intro under "for Shopify teams" */}
             <p className="max-w-2xl text-[20px] leading-snug lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start lg:text-[22px]">{hero.lede}</p>
