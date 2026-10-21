@@ -315,12 +315,28 @@
   background: var(--color-scrap) var(--grain);
 }
 
-/* Graph grid: thin light lines in 40px squares, for dark blocks (About). Centred so the
-   squares sit evenly. */
+/* Hero: a blue grid with a torn sheet of paper down the middle, behind the text. The
+   sheet's left and right edges are a fixed jagged outline (px in from each side), so the
+   tear keeps its shape at any width. */
+.hero-grid {
+  background-color: #a9c1ee;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.55) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
+}
+.torn-sheet {
+  background: var(--paper-grain), #fdf3e6;
+  clip-path: polygon(8.2px 0.0%, 4.0px 1.43%, 4.8px 2.86%, 0.2px 4.29%, 0px 5.71%, 3.3px 7.14%, 4.6px 8.57%, 5.3px 10.0%, 0.8px 11.43%, 0.0px 12.86%, 0.6px 14.29%, 1.4px 15.71%, 0px 17.14%, 1.2px 18.57%, 4.0px 20.0%, 2.6px 21.43%, 4.6px 22.86%, 4.8px 24.29%, 2.7px 25.71%, 2.8px 27.14%, 0px 28.57%, 10.6px 30.0%, 9.0px 31.43%, 9.8px 32.86%, 14.3px 34.29%, 9.9px 35.71%, 7.7px 37.14%, 2.9px 38.57%, 4.1px 40.0%, 6.7px 41.43%, 5.7px 42.86%, 1.5px 44.29%, 5.4px 45.71%, 7.4px 47.14%, 12.0px 48.57%, 8.5px 50.0%, 8.4px 51.43%, 6.2px 52.86%, 7.3px 54.29%, 9.2px 55.71%, 8.7px 57.14%, 7.7px 58.57%, 3.1px 60.0%, 7.9px 61.43%, 0.3px 62.86%, 1.0px 64.29%, 0px 65.71%, 1.1px 67.14%, 5.7px 68.57%, 1.9px 70.0%, 1.7px 71.43%, 0px 72.86%, 0px 74.29%, 0px 75.71%, 0px 77.14%, 2.6px 78.57%, 4.5px 80.0%, 8.6px 81.43%, 9.0px 82.86%, 10.3px 84.29%, 13.4px 85.71%, 10.4px 87.14%, 15.3px 88.57%, 12.9px 90.0%, 12.3px 91.43%, 16.9px 92.86%, 12.9px 94.29%, 10.0px 95.71%, 9.7px 97.14%, 13.1px 98.57%, 15.9px 100.0%, calc(100% - 25.6px) 100.0%, calc(100% - 26px) 98.57%, calc(100% - 26px) 97.14%, calc(100% - 24.8px) 95.71%, calc(100% - 19.5px) 94.29%, calc(100% - 10.1px) 92.86%, calc(100% - 11.1px) 91.43%, calc(100% - 6.3px) 90.0%, calc(100% - 1.6px) 88.57%, calc(100% - 0px) 87.14%, calc(100% - 1.1px) 85.71%, calc(100% - 1.0px) 84.29%, calc(100% - 5.8px) 82.86%, calc(100% - 2.8px) 81.43%, calc(100% - 2.8px) 80.0%, calc(100% - 2.5px) 78.57%, calc(100% - 5.5px) 77.14%, calc(100% - 0.8px) 75.71%, calc(100% - 5.4px) 74.29%, calc(100% - 1.1px) 72.86%, calc(100% - 6.0px) 71.43%, calc(100% - 10.3px) 70.0%, calc(100% - 7.3px) 68.57%, calc(100% - 15.6px) 67.14%, calc(100% - 12.6px) 65.71%, calc(100% - 10.6px) 64.29%, calc(100% - 11.5px) 62.86%, calc(100% - 8.0px) 61.43%, calc(100% - 10.3px) 60.0%, calc(100% - 12.6px) 58.57%, calc(100% - 7.9px) 57.14%, calc(100% - 13.8px) 55.71%, calc(100% - 14.9px) 54.29%, calc(100% - 14.4px) 52.86%, calc(100% - 18.5px) 51.43%, calc(100% - 20.1px) 50.0%, calc(100% - 23.5px) 48.57%, calc(100% - 19.6px) 47.14%, calc(100% - 22.4px) 45.71%, calc(100% - 26px) 44.29%, calc(100% - 26px) 42.86%, calc(100% - 24.2px) 41.43%, calc(100% - 24.9px) 40.0%, calc(100% - 26px) 38.57%, calc(100% - 26px) 37.14%, calc(100% - 25.0px) 35.71%, calc(100% - 24.9px) 34.29%, calc(100% - 23.0px) 32.86%, calc(100% - 23.6px) 31.43%, calc(100% - 23.5px) 30.0%, calc(100% - 26px) 28.57%, calc(100% - 24.0px) 27.14%, calc(100% - 25.7px) 25.71%, calc(100% - 26px) 24.29%, calc(100% - 26px) 22.86%, calc(100% - 26px) 21.43%, calc(100% - 26px) 20.0%, calc(100% - 23.1px) 18.57%, calc(100% - 19.2px) 17.14%, calc(100% - 9.8px) 15.71%, calc(100% - 7.2px) 14.29%, calc(100% - 11.9px) 12.86%, calc(100% - 7.0px) 11.43%, calc(100% - 6.8px) 10.0%, calc(100% - 11.6px) 8.57%, calc(100% - 10.0px) 7.14%, calc(100% - 6.9px) 5.71%, calc(100% - 11.6px) 4.29%, calc(100% - 9.4px) 2.86%, calc(100% - 9.8px) 1.43%, calc(100% - 13.9px) 0.0%);
+}
+
+/* Graph grid: thin lines in 40px squares. Light on dark blocks (About); set --grid-line
+   for light ones (the hero). Centred so the squares sit evenly. */
 .graph-grid {
   background-image:
-    linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    linear-gradient(var(--grid-line, rgb(255 255 255 / 0.06)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line, rgb(255 255 255 / 0.06)) 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: center top;
 }

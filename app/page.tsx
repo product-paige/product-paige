@@ -30,21 +30,24 @@ export default function Home() {
         {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
             slides up over it, then both scroll away together. */}
         <div className="relative">
-        {/* Hero: on the page background. Desktop: it fills the first screen under the 68px header, content
+        {/* Hero: a blue grid with a torn paper sheet behind the text. Desktop: it fills the first screen under the 68px header, content
             centred; the About panel peeks 64px at the bottom. Like About, the block is the Container
             itself, so from md up it stays between the page rails. */}
         <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_212px)]">
-          <Container className="pt-8 pb-12 lg:flex lg:flex-col lg:justify-center lg:py-16">
-            <h1 className="rise serif mb-6 max-w-4xl text-[clamp(34px,5vw,72px)] leading-[1] text-balance" style={delay(100)}>
-              <Rich text={hero.heading} />
-            </h1>
-            <div className="rise" style={delay(200)}>
-              <p className="lede mb-10 max-w-3xl lg:mb-12 lg:max-w-[880px]">{hero.lede}</p>
-              {/* Light pills, each with a line icon; a highlight travels along them (.pill-cycle). */}
-              <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
-                {hero.tags.map((t, i) => (
-                  <Chip key={t.label} icon={<TagIcon name={t.icon} />} style={{ "--i": i } as CSSProperties}>{t.label}</Chip>
-                ))}
+          <Container className="hero-grid relative overflow-hidden pt-12 pb-14 lg:flex lg:flex-col lg:justify-center lg:py-20">
+            <i aria-hidden className="torn-sheet absolute inset-y-0 left-1/2 w-[calc(100%-24px)] -translate-x-1/2 sm:w-[min(860px,86%)] lg:w-[min(860px,68%)]" />
+            <div className="relative mx-auto max-w-[820px] px-4 text-center sm:px-10">
+              <h1 className="rise serif mb-6 text-[clamp(34px,5vw,72px)] leading-[1] text-balance" style={delay(100)}>
+                <Rich text={hero.heading} />
+              </h1>
+              <div className="rise" style={delay(200)}>
+                <p className="lede mx-auto mb-10 max-w-2xl lg:mb-12">{hero.lede}</p>
+                {/* Dark pills, each with a line icon; a highlight travels along them (.pill-cycle). */}
+                <div className="pill-cycle flex flex-wrap justify-center gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
+                  {hero.tags.map((t, i) => (
+                    <Chip key={t.label} icon={<TagIcon name={t.icon} />} style={{ "--i": i } as CSSProperties}>{t.label}</Chip>
+                  ))}
+                </div>
               </div>
             </div>
           </Container>
