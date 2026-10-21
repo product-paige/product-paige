@@ -188,7 +188,7 @@ export default function Home() {
               <p className="lede mt-5 max-w-xl">{approach.body}</p>
             </Reveal>
             {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
-                (grey and small until the line reaches it). */}
+                (grey and small until the line reaches it, then accent red). */}
             <ol className="relative grid gap-12 lg:gap-16 before:absolute before:top-2 before:bottom-2 before:left-[9px] before:w-px before:bg-line before:content-['']">
               <TimelineProgress />
               {approach.steps.map((p, i) => (
@@ -198,7 +198,7 @@ export default function Home() {
                     <span
                       data-dot
                       aria-hidden
-                      className="absolute top-[0.52em] -left-12 size-[19px] -translate-y-1/2 rounded-full bg-ink ring-[6px] ring-paper transition duration-500 group-data-pending:scale-[0.6] group-data-pending:bg-muted"
+                      className="absolute top-[0.52em] -left-[46px] size-[15px] -translate-y-1/2 rounded-full bg-accent ring-[6px] ring-paper transition duration-500 group-data-pending:scale-[0.6] group-data-pending:bg-muted"
                     />
                     <span className="text-muted">{String(i + 1).padStart(2, "0")}</span>
                     {p.title}
