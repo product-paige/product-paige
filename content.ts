@@ -102,8 +102,8 @@ export const audiences = {
   heading: "Who I work with",
   items: [
     {
-      tone: "bg-butter",
-      title: "Starting from scratch",
+      tone: "bg-scrap",
+      title: "You’re starting from scratch",
       points: [
         "You’ve got the product, just not the store",
         "Your brand guidelines are three screenshots and a vibe",
@@ -111,8 +111,8 @@ export const audiences = {
       ],
     },
     {
-      tone: "bg-sky",
-      title: "Already selling",
+      tone: "bg-scrap",
+      title: "You’re already selling on Shopify",
       points: [
         "Your traffic window-shops, then leaves",
         "It still looks like the theme’s demo store",
