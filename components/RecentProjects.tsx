@@ -37,7 +37,7 @@ function Folder({ p, i }: { p: Project; i: number }) {
       <div className="folder-body grid gap-6 p-5 lg:p-8">
         <div className="flex flex-col">
           <p className="font-mono text-[12px] uppercase tracking-[0.08em] text-ink/60">{p.role} · {p.year}</p>
-          <h3 className="serif mt-3 text-[clamp(26px,2.6vw,38px)] leading-[1.05]">{p.client}</h3>
+          <h3 className="serif mt-3 text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
           <p className="mt-2 max-w-[42ch] text-ink/70">{p.excerpt}</p>
           <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[15px]">
             <span className="link">View project</span>

@@ -1,5 +1,5 @@
 import { blog } from "@/content";
-import { Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
+import { ArrowUpRight, Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
 
 /**
  * Blog teaser: three posts as loose-leaf notebook pages (punch holes, a margin
@@ -11,8 +11,9 @@ export function Scrapbook({ className = "" }: { className?: string }) {
       <Container>
         <Reveal className="mb-8 flex flex-wrap items-end justify-between gap-4 lg:mb-16">
           <h2 className={sectionHeading}><Rich text={blog.heading} /></h2>
-          <a href={blog.href} className="link font-mono text-[13px] uppercase tracking-[0.06em]">
-            {blog.linkLabel}
+          <a href={blog.href} className="group inline-flex items-center gap-1.5 text-[15px]">
+            <span className="link">{blog.linkLabel}</span>
+            <ArrowUpRight />
           </a>
         </Reveal>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
