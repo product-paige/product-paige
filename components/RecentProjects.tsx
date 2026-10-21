@@ -2,7 +2,7 @@
 
 import { projects } from "@/content";
 import { useEffect, useRef, type CSSProperties } from "react";
-import { ArrowUpRight, Container, Reveal, Rich, sectionHeading } from "./ui";
+import { ArrowUpRight, Chip, Container, Reveal, Rich, sectionHeading } from "./ui";
 
 type Project = (typeof projects.items)[number];
 
@@ -36,12 +36,16 @@ function Folder({ p, i }: { p: Project; i: number }) {
       </span>
       <div className="folder-body grid gap-6 p-5 lg:p-8">
         <div className="flex flex-col">
-          <p className="font-mono text-[12px] uppercase tracking-[0.08em] text-ink/60">{p.role} · {p.year}</p>
-          <h3 className="serif mt-3 text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
+            <Chip className="shrink-0 bg-white/60">{p.role}</Chip>
+          </div>
           <p className="mt-2 max-w-[42ch] text-ink/70">{p.excerpt}</p>
-          <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[15px]">
-            <span className="link">View project</span>
-            <ArrowUpRight />
+          {/* The buttons' arrow tab; hovering anywhere on the folder fills it (see .folder in globals.css). */}
+          <span className="mt-auto pt-6">
+            <span className="btn" aria-hidden>
+              <span className="btn-tab h-10"><ArrowUpRight turn className="size-5" /></span>
+            </span>
           </span>
         </div>
         <Cover p={p} className="aspect-[4/3] w-full rounded-[3px] lg:aspect-[16/9]" />

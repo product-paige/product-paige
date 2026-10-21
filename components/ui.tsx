@@ -59,7 +59,7 @@ export function Button({
   const inner = (
     <>
       <span className="btn-text">{children}</span>
-      <span className="btn-tab">{arrow === "down" ? <ArrowDown /> : <ArrowUpRight turn />}</span>
+      <span className="btn-tab">{arrow === "down" ? <ArrowDown className="size-5" /> : <ArrowUpRight turn className="size-5" />}</span>
     </>
   );
   return href ? (

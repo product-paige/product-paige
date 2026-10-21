@@ -207,7 +207,6 @@ export const projects = {
       client: "Backspace Body",
       excerpt: "A concept body care brand, built as a working Shopify store",
       role: "Brand and build",
-      year: "2026",
       image: "/projects/backspace-body.jpg",
       tone: "#e9dcc0",
       href: "https://productpaige.com/projects/backspace-body",
@@ -216,7 +215,6 @@ export const projects = {
       client: "Organic Moderne",
       excerpt: "An editorial and affiliate site for Canadian shoppers",
       role: "Websites",
-      year: "2026",
       tone: "#d8e4ee",
       href: "https://productpaige.com/projects/organic-moderne",
     },
@@ -224,7 +222,6 @@ export const projects = {
       client: "Brand Playbook",
       excerpt: "A resource hub for solo founders on Shopify",
       role: "Websites",
-      year: "2026",
       tone: "#dce2d4",
       href: "https://productpaige.com/projects/brand-playbook",
     },
@@ -232,11 +229,10 @@ export const projects = {
       client: "Product Prompt",
       excerpt: "A paid content platform for people building with AI",
       role: "Websites",
-      year: "2026",
       tone: "#efe7c8",
       href: "https://productpaige.com/projects/product-prompt",
     },
-  ] as { client: string; excerpt: string; role: string; year: string; image?: string; tone: string; href: string }[],
+  ] as { client: string; excerpt: string; role: string; image?: string; tone: string; href: string }[],
 };
 
 // The section is hidden while this list is empty. Add real quotes with names and companies.

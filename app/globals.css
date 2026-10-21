@@ -299,6 +299,8 @@
   transition: transform 500ms var(--ease-soft);
 }
 .folder:hover .folder-body { transform: translateY(-3px); }
+.folder:hover .btn-tab, .folder:focus-visible .btn-tab { color: #fff; }
+.folder:hover .btn-tab::before, .folder:focus-visible .btn-tab::before { transform: scaleX(1); }
 
 /* Native select with a thin chevron, so it looks the same in every browser */
 @utility select {
