@@ -44,7 +44,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                     read the same size as the plus (a diagonal looks bigger, so a touch under √2). The
                     stroke stays 1px. */}
                 <span
-                  className={`grid size-8 shrink-0 place-items-center rounded-ui border transition-colors duration-300 ${isOpen ? "border-ink bg-ink text-white" : "border-line group-hover/q:border-ink/40"}`}
+                  className={`grid size-8 shrink-0 place-items-center rounded-ui border transition-colors duration-300 ${isOpen ? "border-dark bg-dark text-white" : "border-line group-hover/q:border-ink/40"}`}
                 >
                   <svg
                     aria-hidden
