@@ -4,7 +4,7 @@ import {
 import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
 import { Nav } from "@/components/Nav";
-import { FilingDrawer, FolderStack, TapedPile } from "@/components/ProjectOptions";
+import { RecentProjects } from "@/components/RecentProjects";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import type { CSSProperties } from "react";
@@ -152,10 +152,8 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* Recent projects: three options to compare. Keep one, delete the others. */}
-        <FolderStack className={`section-line ${section}`} />
-        <FilingDrawer className={`section-line ${section}`} />
-        <TapedPile className={`section-line ${section}`} />
+        {/* Recent projects */}
+        <RecentProjects className={`section-line ${section}`} />
 
         {/* Approach */}
         <section id="approach" className={`section-line ${jumpGap} ${section}`}>
