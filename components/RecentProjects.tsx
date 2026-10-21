@@ -108,7 +108,6 @@ export function RecentProjects({ className = "" }: { className?: string }) {
                 <div
                   key={p.slug}
                   className="w-[82%] shrink-0 snap-start sm:w-[60%] lg:w-[min(500px,38vw)]"
-                  style={{ rotate: `${i % 2 ? 1 : -1}deg` }}
                 >
                   <Folder p={p} i={i} />
                 </div>

@@ -13,10 +13,10 @@ function AnnouncementBar() {
   return (
     <div className="rails on-dark relative bg-dark text-white">
       <i aria-hidden className="rails-inner" />
-      <Container className="flex h-9 items-center justify-center gap-2 text-[13px]">
+      <Container className="flex h-9 items-center justify-center gap-2 text-[14px]">
         <i className="pulse-dot size-[7px] shrink-0 rounded-full bg-live" aria-hidden />
         <span>{site.availability}</span>
-        <span aria-hidden className="text-white/40">·</span>
+        <span aria-hidden className="text-white/60">·</span>
         <a href={site.bookingUrl} className="link">Book an intro call</a>
       </Container>
     </div>
@@ -54,8 +54,8 @@ export function SiteFooter() {
             <ArrowUpRight className="size-3.5" />
           </a>
         )}
-        <span className="text-[13px] text-white/60">{closing.footer}</span>
-        <span className="text-[13px] text-white/60">© {new Date().getFullYear()} {site.name}</span>
+        <span className="text-[14px] text-white/60">{closing.footer}</span>
+        <span className="text-[14px] text-white/60">© {new Date().getFullYear()} {site.name}</span>
       </Container>
     </footer>
   );

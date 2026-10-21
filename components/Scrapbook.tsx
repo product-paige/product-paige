@@ -12,7 +12,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
       <Container>
         <Reveal className="mb-8 flex flex-wrap items-end justify-between gap-4 lg:mb-16">
           <h2 className={sectionHeading}><Rich text={blog.heading} /></h2>
-          <a href={blog.href} className="link text-[15px]">
+          <a href={blog.href} className="link">
             {blog.linkLabel}
           </a>
         </Reveal>

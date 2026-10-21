@@ -47,12 +47,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
         <section className="border-t border-grid">
           <Container className="grid lg:grid-cols-2 lg:pr-0">
             <Reveal className="py-8 lg:py-20 lg:pr-16">
-              <a href="/#projects" className="link text-[15px]">All projects</a>
+              <a href="/#projects" className="link">All projects</a>
               <div className="mt-8 lg:mt-12">
                 <Chip>{p.role}</Chip>
               </div>
               <h1 className={`${sectionHeading} mt-5`}>{p.client}</h1>
-              <p className="serif mt-4 text-[22px] leading-[1.2] text-ink/80 lg:text-[26px]">{p.tagline}</p>
+              <p className="serif mt-4 text-[22px] leading-[1.2] text-muted lg:text-[28px]">{p.tagline}</p>
               <p className="mt-6 max-w-xl">{p.summary}</p>
               <ul className="mt-6 flex flex-wrap gap-2" aria-label="What it involved">
                 {p.capabilities.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
@@ -78,7 +78,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             <Reveal className="grid border-t border-line sm:grid-cols-3">
               {facts.map((f) => (
                 <div key={f.label} className="border-b border-line py-5 pr-4">
-                  <p className="mb-1 text-[13px] label text-muted">{f.label}</p>
+                  <p className="mb-1 text-[14px] label text-muted">{f.label}</p>
                   <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
                 </div>
               ))}
@@ -94,7 +94,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 <Reveal key={s.title} delay={i * 120}>
                   <div className="scrap loose-leaf folded">
                     <h2 className={sansTitle}>{s.title}</h2>
-                    <p className="mt-3 text-ink/80">{s.body}</p>
+                    <p className="mt-3">{s.body}</p>
                   </div>
                 </Reveal>
               ))}

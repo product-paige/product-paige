@@ -7,7 +7,7 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 // Styled for the dark contact section. Fields are 16px so iOS doesn't zoom in on focus.
 const field =
-  "w-full rounded-ui border border-line-dark bg-white/5 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/40 focus:border-white/60 [&>option]:text-ink";
+  "w-full rounded-ui border border-line-dark bg-white/5 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/60 focus:border-white/60 [&>option]:text-ink";
 const label = "mb-2 block text-sm label text-white/60";
 
 /**
@@ -67,7 +67,7 @@ export function ContactForm({
 
   if (status === "sent") {
     return (
-      <p role="status" className="rounded-ui bg-sage p-8 text-[17px] text-ink">
+      <p role="status" className="rounded-ui bg-sage p-8 text-ink">
         {success}
       </p>
     );
@@ -109,7 +109,7 @@ export function ContactForm({
         <Button type="submit" light disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
         </Button>
-        <p aria-live="polite" className="text-[13px] text-white/60">
+        <p aria-live="polite" className="text-[14px] text-white/60">
           {status === "error" ? `That didn’t send. Please email ${email} instead.` : ""}
         </p>
       </div>

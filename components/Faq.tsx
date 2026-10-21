@@ -58,7 +58,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
             >
               <div className="overflow-hidden" inert={!isOpen}>
                 <p
-                  className={`max-w-xl pr-16 pb-6 pl-4 text-ink/80 transition-[opacity,translate] duration-500 lg:pl-6 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+                  className={`max-w-xl pr-16 pb-6 pl-4 transition-[opacity,translate] duration-500 lg:pl-6 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
                 </p>

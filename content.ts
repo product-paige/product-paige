@@ -57,10 +57,10 @@ export const approach = {
   body:
     "A fixed price in writing before any work starts, then async work with as few calls as possible.",
   steps: [
-    { dot: "#a9c3d9", title: "You send it over", body: "A link to your site and a screenshot of what’s bothering you. Whatever you have is enough to start." },
-    { dot: "#dcc87e", title: "I come back with a price", body: "A fixed price, what’s included and how long it takes, in writing. A short call only if needed." },
-    { dot: "#dfae95", title: "The work", body: "Async by default, with one live session. Calls only when they’d be faster than writing it down." },
-    { dot: "#c3b3dd", title: "Handover", body: "Design files, copy, code and your theme, all handed over so you can keep going without me." },
+    { title: "You send it over", body: "A link to your site and a screenshot of what’s bothering you. Whatever you have is enough to start." },
+    { title: "I come back with a price", body: "A fixed price, what’s included and how long it takes, in writing. A short call only if needed." },
+    { title: "The work", body: "Async by default, with one live session. Calls only when they’d be faster than writing it down." },
+    { title: "Handover", body: "Design files, copy, code and your theme, all handed over so you can keep going without me." },
   ],
 };
 

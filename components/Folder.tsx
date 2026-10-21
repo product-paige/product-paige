@@ -14,7 +14,7 @@ export function Cover({ p, className = "" }: { p: Project; className?: string })
     </span>
   ) : (
     <div className={`grid place-items-center bg-white/55 ${className}`}>
-      <span className="serif text-[clamp(28px,3vw,44px)] text-ink/35">{p.client}</span>
+      <span className="serif text-[28px] text-muted">{p.client}</span>
     </div>
   );
 }
@@ -40,7 +40,7 @@ export function Folder({ p, i }: { p: Project; i: number }) {
               <span className="btn-tab size-8"><ArrowUpRight turn className="size-5" /></span>
             </span>
           </div>
-          <p className="mt-2 truncate text-ink/70" title={p.excerpt}>{p.excerpt}</p>
+          <p className="mt-2 truncate text-muted" title={p.excerpt}>{p.excerpt}</p>
         </div>
       </div>
     </a>

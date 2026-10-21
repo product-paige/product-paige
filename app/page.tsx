@@ -39,12 +39,11 @@ export default function Home() {
               <Rich text={hero.heading} />
             </h1>
             <div className="rise" style={delay(200)}>
-              <p className="lede mb-10 max-w-2xl lg:mb-12 lg:max-w-3xl lg:text-[20px]">{hero.lede}</p>
-              {/* A soft highlight travels along the pills in turn: the dark pill warms towards the accent.
-                  Every pill shares the one accent dot. */}
-              <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length, "--color-chip": "var(--color-ink)", "--glow-base": "var(--color-ink)" } as CSSProperties}>
-                {hero.tags.map((t, i) => (
-                  <Chip key={t} dot="var(--color-accent)" className="text-white" style={{ "--i": i, "--tint": "var(--color-accent)" } as CSSProperties}>{t}</Chip>
+              <p className="lede mb-10 max-w-2xl lg:mb-12 lg:max-w-3xl">{hero.lede}</p>
+              {/* Dark pills, each with the accent dot. */}
+              <div className="flex flex-wrap gap-2" style={{ "--color-chip": "var(--color-ink)" } as CSSProperties}>
+                {hero.tags.map((t) => (
+                  <Chip key={t} dot="var(--color-accent)" className="text-white">{t}</Chip>
                 ))}
               </div>
             </div>
@@ -73,7 +72,7 @@ export default function Home() {
             </Reveal>
             <div>
               <Reveal>
-                <h2 className="serif mb-8 text-[clamp(28px,2.8vw,38px)] leading-[1.1] text-balance"><Rich text={about.heading} /></h2>
+                <h2 className="serif mb-5 text-[clamp(28px,2.8vw,38px)] leading-[1.1] text-balance"><Rich text={about.heading} /></h2>
               </Reveal>
               <div className="lede space-y-5">
                 {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
@@ -82,7 +81,7 @@ export default function Home() {
               <Reveal className="mt-10 grid border-t border-line sm:grid-cols-3 lg:mt-14">
                 {about.facts.map((f) => (
                   <div key={f.label} className="border-b border-line py-5 pr-4">
-                    <p className="mb-1 text-[13px] label text-muted">{f.label}</p>
+                    <p className="mb-1 text-[14px] label text-muted">{f.label}</p>
                     <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
                   </div>
                 ))}
@@ -110,7 +109,7 @@ export default function Home() {
                     <ul className="mt-auto -mx-6 divide-y divide-line border-y border-line lg:-mx-10">
                       {a.points.map((p) => (
                         <li key={p} className="flex items-start gap-3 px-6 py-3 lg:px-10 lg:py-4">
-                          <Check className="mt-0.5 text-ink/55" />
+                          <Check className="mt-0.5 text-muted" />
                           {p}
                         </li>
                       ))}
@@ -153,18 +152,18 @@ export default function Home() {
               <h2 className={sideHeading}><Rich text={approach.heading} /></h2>
               <p className="lede mt-5 max-w-xl">{approach.body}</p>
             </Reveal>
-            {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a colour dot per step. */}
+            {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
+                (grey and small until the line reaches it). */}
             <ol className="relative grid gap-12 lg:gap-16 before:absolute before:top-2 before:bottom-2 before:left-[9px] before:w-px before:bg-line before:content-['']">
               <TimelineProgress />
               {approach.steps.map((p, i) => (
                 <Reveal as="li" key={p.title} delay={i * 120} className="group pl-12">
                   {/* Number and title share one line; the dot sits on the first line, out on the timeline. */}
-                  <h3 className="serif relative flex items-baseline gap-4 text-[clamp(22px,2vw,28px)] leading-[1.1]">
+                  <h3 className={`${listTitle} relative flex items-baseline gap-4`}>
                     <span
                       data-dot
                       aria-hidden
-                      className="absolute top-[0.52em] -left-12 size-[19px] -translate-y-1/2 rounded-full ring-[6px] ring-paper transition duration-500 group-data-pending:scale-[0.6] group-data-pending:grayscale"
-                      style={{ background: p.dot }}
+                      className="absolute top-[0.52em] -left-12 size-[19px] -translate-y-1/2 rounded-full bg-ink ring-[6px] ring-paper transition duration-500 group-data-pending:scale-[0.6] group-data-pending:bg-muted"
                     />
                     <span className="text-muted">{String(i + 1).padStart(2, "0")}</span>
                     {p.title}
@@ -185,7 +184,7 @@ export default function Home() {
                 <Reveal key={m.tag} delay={i * 120}>
                   {/* Hover lives on this inner layer so it doesn't fight the reveal's transition. */}
                   <div
-                    className={`flex h-full flex-col gap-5 border p-6 tilt lg:p-8 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
+                    className={`flex h-full flex-col gap-5 border p-6 ${lift} lg:p-8 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
                   >
                     <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
                     <h3 className={cardTitle}>{m.title}</h3>
@@ -193,7 +192,7 @@ export default function Home() {
                     <div className="mt-auto pt-8 lg:pt-12">
                       <p className={`text-sm label ${m.featured ? "text-white/60" : "text-muted"}`}>Starting at</p>
                       <p className="mt-1 flex items-baseline gap-1.5">
-                        <span className={`serif text-[32px] leading-none ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
+                        <span className={`serif text-[28px] leading-none ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
                         <span className={m.featured ? "text-white/60" : "text-muted"}>{models.currency} {m.per}</span>
                       </p>
                     </div>
@@ -240,7 +239,7 @@ export default function Home() {
                     </blockquote>
                     <figcaption className="flex items-center gap-3">
                       <i className="size-[34px] shrink-0 rounded-full bg-white/60" aria-hidden />
-                      <span>{t.name}<br /><span className="text-ink/60">{t.title}</span></span>
+                      <span>{t.name}<br /><span className="text-muted">{t.title}</span></span>
                     </figcaption>
                   </figure>
                 </Reveal>
