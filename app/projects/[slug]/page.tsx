@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { projects, site } from "@/content";
+import { projects, site, type Project } from "@/content";
+import { Faq } from "@/components/Faq";
 import { Cover, Folder } from "@/components/Folder";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { Button, Chip, Container, Reveal, sansTitle, section, sectionHeading } from "@/components/ui";
+import { Button, Chip, Container, Reveal, section, sectionHeading, sideHeading } from "@/components/ui";
 
 type Params = { slug: string };
+
+// Panels shown until a project has its own screenshots.
+const placeholderGallery: NonNullable<Project["gallery"]> = [{ caption: "Homepage" }, { caption: "Product page" }, { caption: "Mobile" }];
 
 export function generateStaticParams(): Params[] {
   return projects.items.map((p) => ({ slug: p.slug }));
@@ -19,83 +23,85 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 }
 
 /**
- * A short case study: the project at a glance (name, tagline, summary, what it involved,
- * cover and key facts), then the problem, approach and outcome as three loose-leaf pages,
- * and the next project to read.
+ * A case study laid out like a studio project page: on desktop a narrow column on the left stays
+ * pinned (cover, name, the brief as an accordion, key facts and scope) while large image panels
+ * scroll past on the right. Then the next project to read.
  */
 export default async function CaseStudyPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const index = projects.items.findIndex((x) => x.slug === slug);
   if (index === -1) notFound();
   const p = projects.items[index];
-  const next = projects.items[(index + 1) % projects.items.length];
   const nextIndex = (index + 1) % projects.items.length;
+  const next = projects.items[nextIndex];
   const facts = [...p.highlights, ...p.specs];
   const story = [
-    { title: "Problem", body: p.problem },
-    { title: "Approach", body: p.approach },
-    { title: "Outcome", body: p.outcome },
+    { q: "Brief", a: p.summary },
+    { q: "Problem", a: p.problem },
+    { q: "Approach", a: p.approach },
+    { q: "Outcome", a: p.outcome },
   ];
+  const gallery = p.gallery ?? placeholderGallery;
 
   return (
     <>
       <PageRails />
       <SiteHeader />
       <main>
-        {/* At a glance: text on the left; on desktop the square cover fills the width of the right
-            column, from the divider out to the page rail. Phones stack the cover under the text. */}
-        <section className="border-t border-grid">
-          <Container className="grid lg:grid-cols-2 lg:pr-0">
-            <Reveal className="py-8 lg:py-20 lg:pr-16">
+        <section className="border-t border-grid py-8 lg:py-12">
+          <Container className="grid gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-12">
+            {/* Pinned column */}
+            <Reveal className="lg:sticky lg:top-[92px] lg:self-start">
               <a href="/#projects" className="link">All projects</a>
-              <div className="mt-8 lg:mt-12">
+              <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-ui bg-scrap">
+                <Cover p={p} className="absolute inset-0 size-full" />
+              </div>
+              <div className="mt-5">
                 <Chip>{p.role}</Chip>
               </div>
-              <h1 className={`${sectionHeading} mt-5`}>{p.client}</h1>
-              <p className="serif mt-4 text-[22px] leading-[1.2] text-muted lg:text-[28px]">{p.tagline}</p>
-              <p className="mt-6 max-w-xl">{p.summary}</p>
-              <ul className="mt-6 flex flex-wrap gap-2" aria-label="What it involved">
+              <h1 className={`${sideHeading} mt-4`}>{p.client}</h1>
+              <p className="mt-2 text-muted">{p.tagline}</p>
+
+              <div className="mt-6">
+                <Faq items={story} />
+              </div>
+
+              <dl className="mt-6 grid grid-cols-2 border-t border-line">
+                {facts.map((f) => (
+                  <div key={f.label} className="border-b border-line py-3 pr-3">
+                    <dt className="text-[14px] text-muted">{f.label}</dt>
+                    <dd className="serif mt-0.5 text-[18px] leading-snug">{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <ul className="mt-6 flex flex-wrap gap-2" aria-label="Scope">
                 {p.capabilities.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
               </ul>
               {p.liveUrl && (
-                <div className="mt-8">
+                <div className="mt-6">
                   <Button href={p.liveUrl}>View the live site</Button>
                 </div>
               )}
             </Reveal>
-            {/* The divider runs the full height of the hero; the cover is a square at the top. */}
-            <div className="mb-8 lg:mb-0 lg:border-l lg:border-grid">
-              <div className="relative aspect-square bg-scrap">
-                <Cover p={p} className="absolute inset-0 size-full" />
-              </div>
-            </div>
-          </Container>
-        </section>
 
-        {/* Key facts, in the same style as the About facts */}
-        <section className={section}>
-          <Container>
-            <Reveal className="grid border-t border-line sm:grid-cols-3">
-              {facts.map((f) => (
-                <div key={f.label} className="border-b border-line py-5 pr-4">
-                  <p className="mb-1 text-[14px] label text-muted">{f.label}</p>
-                  <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
-                </div>
-              ))}
-            </Reveal>
-          </Container>
-        </section>
-
-        {/* The short case study */}
-        <section className={section}>
-          <Container>
-            <div className="grid gap-5 md:grid-cols-3 lg:gap-8">
-              {story.map((s, i) => (
-                <Reveal key={s.title} delay={i * 120}>
-                  <div className="scrap loose-leaf folded">
-                    <h2 className={sansTitle}>{s.title}</h2>
-                    <p className="mt-3">{s.body}</p>
-                  </div>
+            {/* Large panels */}
+            <div className="grid gap-4 lg:gap-6">
+              {gallery.map((g, i) => (
+                <Reveal key={g.caption} delay={i === 0 ? 120 : 0}>
+                  <figure className="relative aspect-[4/3] overflow-hidden rounded-ui bg-scrap lg:aspect-[16/11]">
+                    {g.src ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={g.src} alt={`${p.client}: ${g.caption}`} loading={i === 0 ? "eager" : "lazy"} decoding="async" className="size-full object-cover" />
+                    ) : (
+                      <span className="grid size-full place-items-center serif text-[28px] text-muted">{g.caption}</span>
+                    )}
+                    {g.src && (
+                      <figcaption className="absolute bottom-3 left-3">
+                        <Chip className="bg-paper">{g.caption}</Chip>
+                      </figcaption>
+                    )}
+                  </figure>
                 </Reveal>
               ))}
             </div>

@@ -211,6 +211,8 @@ export type Project = {
   excerpt: string;
   role: string;
   image?: string;
+  /** Large panels on the case study page. Without `src`, a panel shows its caption as a placeholder. */
+  gallery?: { src?: string; caption: string }[];
   liveUrl?: string;
   /** Under the name on the case study page. */
   tagline: string;
