@@ -317,10 +317,10 @@
   background: var(--color-scrap) var(--grain);
 }
 
-/* The Shopify glyph in the hero: the logo used as a mask, filled with a soft grey
+/* The Shopify glyph in the hero: the logo used as a mask, filled with a dark grey
    rather than the file's black */
 .shopify-mark {
-  background: var(--color-muted);
+  background: color-mix(in srgb, var(--color-ink) 75%, var(--color-muted));
   mask: url("/logos/shopify-glyph.svg") center / contain no-repeat;
 }
 
