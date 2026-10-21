@@ -46,10 +46,10 @@ export function EditorialHero() {
             <CartMockup className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-2 lg:row-start-2 lg:mt-[0.12em] lg:block" />
 
             {/* Intro under "for Shopify teams", in Manrope medium, 22px on desktop */}
-            <p className={`max-w-xl font-sans text-[18px] leading-snug font-medium tracking-[-0.03em] lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start lg:text-[22px]`}>{hero.lede}</p>
+            <p className={`max-w-xl font-sans text-[18px] leading-snug font-medium tracking-[-0.03em] lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-6 lg:self-start lg:text-[22px]`}>{hero.lede}</p>
 
             {/* Under the rule: the hero pills on the left, the booking line on the right */}
-            <div className="flex flex-col gap-5 border-t border-line pt-6 lg:col-span-12 lg:pt-8 lg:row-start-5 lg:mt-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex flex-col gap-5 border-t border-line pt-6 lg:col-span-12 lg:pt-8 lg:row-start-5 lg:mt-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex flex-wrap gap-2 text-white [--color-chip:var(--color-ink)]">
                 {hero.tags.map((t) => (
                   <Chip key={t.label} icon={<TagIcon name={t.icon} />}>{t.label}</Chip>
