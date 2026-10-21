@@ -65,10 +65,16 @@ export const approach = {
 };
 
 export const about = {
-  heading: "Hi, I’m Paige",
+  heading: "Hey, I’m Paige\nI make things online and off",
   paragraphs: [
     "A decade and more in Shopify and ecommerce, across funded startups and bootstrapped teams. I’ve been the first marketing hire twice, and I’ve run two ecommerce brands of my own, one with a cofounder, handling everything from sourcing a manufacturer to go-to-market.",
     "Now I do strategy, design and the build itself: Shopify themes and modern site builders, with Claude Code and MCP wired into Figma and Shopify, so design, copy and working code happen in one pass instead of three handoffs. I’m not a developer, and I’ll say so before you pay me anything.",
+  ],
+  // The stats line under the About text.
+  facts: [
+    { label: "Based in", value: "Kitchener, Ontario" },
+    { label: "Experience", value: "13+ years on Shopify" },
+    { label: "Founder", value: "2x brand founder" },
   ],
 };
 

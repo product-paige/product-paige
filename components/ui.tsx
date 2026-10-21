@@ -18,17 +18,27 @@ export const listTitle = "serif text-[clamp(26px,2.9vw,39px)] leading-[1.07]";
 // Manrope medium: small card headings that sit with body text (blog cards, project folders).
 export const sansTitle = "font-sans text-[17px] font-medium leading-snug tracking-[-0.01em] lg:text-[19px]";
 
-/** Renders "*word*" as <em>word</em>, and keeps hyphenated words like "fast-growing" on one line. */
+/**
+ * Renders "*word*" as <em>word</em>, keeps hyphenated words like "fast-growing" on one line,
+ * and turns "\n" into a line break (for two-line headings without a full stop).
+ */
 export function Rich({ text }: { text: string }) {
   const keepTogether = (part: string) =>
     part.split(/(\S+-\S+)/g).map((piece, j) =>
       piece.includes("-") && !/\s/.test(piece) ? <span key={j} className="whitespace-nowrap">{piece}</span> : piece,
     );
+  const line = (l: string) =>
+    l.split(/(\*[^*]+\*)/g).map((part, i) =>
+      part.startsWith("*") && part.endsWith("*") ? <em key={i}>{keepTogether(part.slice(1, -1))}</em> : <Fragment key={i}>{keepTogether(part)}</Fragment>,
+    );
   return (
     <>
-      {text.split(/(\*[^*]+\*)/g).map((part, i) =>
-        part.startsWith("*") && part.endsWith("*") ? <em key={i}>{keepTogether(part.slice(1, -1))}</em> : <Fragment key={i}>{keepTogether(part)}</Fragment>,
-      )}
+      {text.split("\n").map((l, i) => (
+        <Fragment key={i}>
+          {i > 0 && <br />}
+          {line(l)}
+        </Fragment>
+      ))}
     </>
   );
 }
