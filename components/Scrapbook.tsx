@@ -22,7 +22,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
               <a href={p.href} className="scrap loose-leaf folded group">
                 <div className="mb-5 flex items-center justify-between gap-3">
                   <time className="font-mono text-[13px] uppercase tracking-[0.06em] text-muted">{p.date}</time>
-                  <span className="rounded-[4px] bg-ink px-2.5 py-1.5 text-[13px] leading-none text-white">{p.tag}</span>
+                  <span className="rounded-ui bg-ink px-2.5 py-1.5 text-[13px] leading-none text-white">{p.tag}</span>
                 </div>
                 <span className="photo-grain block">
                   {/* eslint-disable-next-line @next/next/no-img-element */}

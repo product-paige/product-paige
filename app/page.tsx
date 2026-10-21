@@ -193,7 +193,7 @@ export default function Home() {
                 <Reveal key={m.tag} delay={i * 120}>
                   {/* Hover lives on this inner layer so it doesn't fight the reveal's transition. */}
                   <div
-                    className={`flex h-full flex-col gap-5 rounded-xl border p-6 ${lift} lg:p-7 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface hover:border-ink/25"}`}
+                    className={`folded flex h-full flex-col gap-5 border p-6 ${lift} lg:p-7 ${m.featured ? "border-dark bg-dark text-white [--fold-color:rgb(255_255_255/0.14)]" : "border-line bg-surface hover:border-ink/25"}`}
                   >
                     <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
                     <h3 className={cardTitle}>{m.title}</h3>
@@ -242,7 +242,7 @@ export default function Home() {
             <div className="grid gap-3 lg:grid-cols-3">
               {testimonials.items.map((t, i) => (
                 <Reveal key={t.quote} delay={i * 120}>
-                  <figure className={`flex h-full flex-col justify-between gap-6 rounded-xl p-6 lg:gap-8 lg:p-7 ${quoteTones[i % quoteTones.length]} ${lift} lg:min-h-[300px]`}>
+                  <figure className={`folded flex h-full flex-col justify-between gap-6 p-6 lg:gap-8 lg:p-7 ${quoteTones[i % quoteTones.length]} ${lift} lg:min-h-[300px]`}>
                     <blockquote className="serif text-[20px] leading-[1.25] lg:text-2xl">
                       “{t.quote}”
                     </blockquote>
@@ -281,7 +281,7 @@ export default function Home() {
       <footer className="bg-dark text-white">
         <Container className="flex flex-col items-start gap-4 border-t border-white/10 py-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
           {site.linkedin && (
-            <a href={site.linkedin} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 px-4 py-2 text-sm label transition hover:bg-white/10">
+            <a href={site.linkedin} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 rounded-ui border border-white/20 px-4 py-2 text-sm label transition hover:bg-white/10">
               LinkedIn
               <ArrowUpRight className="size-3.5" />
             </a>

@@ -39,7 +39,7 @@ function Folder({ p, i }: { p: Project; i: number }) {
       <div className="folder-body grid gap-5 p-5 lg:p-6">
         {/* Cover first, with the role pill over its top-right corner. */}
         <div className="relative">
-          <Cover p={p} className="aspect-[4/3] w-full rounded-[3px] lg:aspect-[16/9]" />
+          <Cover p={p} className="aspect-[4/3] w-full lg:aspect-[16/9]" />
           <Chip className="absolute top-3 right-3 bg-white/85">{p.role}</Chip>
         </div>
         <div>
