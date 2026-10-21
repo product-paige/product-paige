@@ -7,7 +7,7 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 // Styled for the dark contact section. Fields are 16px so iOS doesn't zoom in on focus.
 const field =
-  "w-full rounded-ui border border-white/15 bg-white/5 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/40 focus:border-white/60 [&>option]:text-ink";
+  "w-full rounded-ui border border-line-dark bg-white/5 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/40 focus:border-white/60 [&>option]:text-ink";
 const label = "mb-2 block text-sm label text-white/60";
 
 /**

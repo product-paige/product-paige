@@ -118,7 +118,7 @@ export default function Home() {
                 <Reveal key={a.title} delay={i * 120}>
                   <div className={`${a.tone} loose-leaf folded flex h-full flex-col p-6 ${lift} lg:p-10`}>
                     <h3 className={`${cardTitle} mb-8 lg:mb-16`}>{a.title}</h3>
-                    <ul className="mt-auto divide-y divide-black/10 border-y border-black/10">
+                    <ul className="mt-auto divide-y divide-line border-y border-line">
                       {a.points.map((p) => (
                         <li key={p} className="flex items-start gap-3 py-3 lg:py-4">
                           <Check className="mt-0.5 text-ink/55" />
@@ -199,7 +199,7 @@ export default function Home() {
                 <Reveal key={m.tag} delay={i * 120}>
                   {/* Hover lives on this inner layer so it doesn't fight the reveal's transition. */}
                   <div
-                    className={`folded flex h-full flex-col gap-5 border p-6 ${lift} lg:p-7 ${m.featured ? "border-dark bg-dark text-white [--fold-color:rgb(255_255_255/0.14)]" : "border-line bg-surface hover:border-ink/25"}`}
+                    className={`folded flex h-full flex-col gap-5 border p-6 ${lift} lg:p-7 ${m.featured ? "border-dark bg-dark text-white [--fold-color:rgb(255_255_255/0.14)]" : "border-line bg-surface hover:border-ink/40"}`}
                   >
                     <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
                     <h3 className={cardTitle}>{m.title}</h3>
@@ -211,7 +211,7 @@ export default function Home() {
                         <span className={m.featured ? "text-white/60" : "text-muted"}>{models.currency} {m.per}</span>
                       </p>
                     </div>
-                    <ul className={`divide-y border-t ${m.featured ? "divide-white/15 border-white/15" : "divide-line border-line"}`}>
+                    <ul className={`divide-y border-t ${m.featured ? "divide-line-dark border-line-dark" : "divide-line border-line"}`}>
                       {m.points.map((p) => <li key={p} className="py-2.5">{p}</li>)}
                     </ul>
                   </div>
@@ -285,9 +285,9 @@ export default function Home() {
       </main>
 
       <footer className="bg-dark text-white">
-        <Container className="flex flex-col items-start gap-4 border-t border-white/10 py-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+        <Container className="flex flex-col items-start gap-4 border-t border-line-dark py-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
           {site.linkedin && (
-            <a href={site.linkedin} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 rounded-ui border border-white/20 px-4 py-2 text-sm label transition hover:bg-white/10">
+            <a href={site.linkedin} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 rounded-ui border border-line-dark px-4 py-2 text-sm label transition hover:bg-white/10">
               LinkedIn
               <ArrowUpRight className="size-3.5" />
             </a>
