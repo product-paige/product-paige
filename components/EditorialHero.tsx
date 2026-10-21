@@ -31,7 +31,8 @@ export function EditorialHero() {
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
             {/* Arched product page mockup, exactly two lines of type tall, so the three lines keep an even 1.08em pitch, beside "Product, design / & build" */}
             <div className={`relative lg:col-span-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 ${type}`}>
-              <Asterisk className="absolute -top-4 -left-3 z-1 size-9 lg:-top-5 lg:-left-5 lg:size-11" />
+              {/* The Shopify glyph, as a soft grey mark pinned to the corner */}
+              <span aria-hidden className="shopify-mark absolute -top-5 -left-3 z-1 h-10 w-[35px] lg:-top-7 lg:-left-6 lg:h-12 lg:w-[42px]" />
               <ProductPageMockup className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2.16em] lg:rounded-tl-[1.4em]" />
             </div>
 

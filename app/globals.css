@@ -317,6 +317,13 @@
   background: var(--color-scrap) var(--grain);
 }
 
+/* The Shopify glyph in the hero: the logo used as a mask, filled with a soft grey
+   rather than the file's black */
+.shopify-mark {
+  background: var(--color-muted);
+  mask: url("/logos/shopify-glyph.svg") center / contain no-repeat;
+}
+
 /* Folded top-right corner (the About block): the corner is cut away and a flap in
    --fold-color sits in its place, as if the page were turned down. */
 .folded-top {
