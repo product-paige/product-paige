@@ -17,6 +17,7 @@
   --color-dark: #1e1e1e;    /* contact, footer, featured card */
   --color-sheet: #faf9f7;   /* About: matches public/paper-edge.svg */
   --color-live: #2fa84f;    /* availability dot */
+  --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
   --color-accent: #e01321;  /* active-menu dot, timeline fill, link hover, selection, focus */
   --color-grid: color-mix(in srgb, var(--color-accent) 15%, transparent); /* grid lines and hatching */
 

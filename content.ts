@@ -25,7 +25,7 @@ export const site = {
   photo: "/about.jpg",
   photoAlt: "Someone in a red jumper and jeans lying upside down on a pink sofa, a book over their face",
   // Shown beside the header button. Leave empty to hide it.
-  availability: "",
+  availability: "Booking for November ’26",
   metaDescription:
     "Paige Eaton is a product marketer and designer in Kitchener, Ontario. Strategy, design and the build itself for Shopify and ecommerce teams.",
 };

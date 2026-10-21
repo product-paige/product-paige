@@ -35,7 +35,7 @@ export default function Home() {
           </a>
           <div className="flex items-center justify-end gap-5">
             {site.availability && (
-              <span className="hidden items-center gap-2 text-[13px] text-muted xl:inline-flex">
+              <span className="hidden items-center gap-2 text-[13px] text-live-text xl:inline-flex">
                 <i className="pulse-dot size-[9px] rounded-full bg-live" aria-hidden />
                 {site.availability}
               </span>
