@@ -3,7 +3,7 @@ import { Container, Reveal, Rich, sectionHeading } from "./ui";
 
 /**
  * Blog teaser: three posts as loose-leaf notebook pages (punch holes, a margin
- * rule and a folded corner; see .scrap and .folded in globals.css). Each card links to the post.
+ * rule and a folded corner; see .scrap, .loose-leaf and .folded in globals.css). Each card links to the post.
  */
 export function Scrapbook({ className = "" }: { className?: string }) {
   return (
@@ -18,7 +18,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {blog.posts.map((p, i) => (
             <Reveal key={p.href} delay={i * 120}>
-              <a href={p.href} className="scrap folded group">
+              <a href={p.href} className="scrap loose-leaf folded group">
                 <div className="mb-5 flex items-center justify-between gap-3">
                   <time className="font-mono text-[13px] uppercase tracking-[0.06em] text-muted">{p.date}</time>
                   <span className="rounded-[4px] bg-ink px-2.5 py-1.5 text-[13px] leading-none text-white">{p.tag}</span>
