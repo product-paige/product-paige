@@ -7,7 +7,7 @@
 
 export const site = {
   name: "Paige Eaton",
-  // Header logo, set on two lines (first word, then the rest).
+  // Header logo, on one line.
   logo: "Product Paige",
   role: "Product marketer & designer",
   location: "Kitchener, Ontario",
