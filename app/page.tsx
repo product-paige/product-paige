@@ -24,8 +24,9 @@ const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 export default function Home() {
   return (
     <>
-      <div aria-hidden className="page-rails" />
-      <header className="rails sticky top-0 z-10 bg-paper/85 backdrop-blur-md backdrop-saturate-150">
+      <div aria-hidden className="page-rails"><i className="rails-inner" /></div>
+      <header className="rails sticky top-0 z-10 border-b border-grid bg-paper/85 backdrop-blur-md backdrop-saturate-150">
+        <i aria-hidden className="rails-inner" />
         <Container className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
           <Nav items={nav} />
           <a href="#top" className="serif text-[19px] leading-[0.95] lg:text-center lg:text-[26px]">
@@ -126,13 +127,13 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <section id="services" className={`${jumpGap} ${section}`}>
+        <section id="services" className={`section-line ${jumpGap} ${section}`}>
           <Container>
             <SectionHead heading={services.heading} />
             {/* Dividers run out to the page rails; the rows keep the usual inset. */}
-            <div className="border-b border-line md:-mx-6 lg:-mx-10">
+            <div className="border-b border-grid md:-mx-6 lg:-mx-10">
               {services.items.map((s) => (
-                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-line py-6 md:grid-cols-[1.1fr_1fr] md:gap-6 md:px-6 md:py-10 lg:px-10">
+                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-grid py-6 md:grid-cols-[1.1fr_1fr] md:gap-6 md:px-6 md:py-10 lg:px-10">
                   <div>
                     <h3 className={listTitle}>{s.title}</h3>
                     <div className="mt-3.5 flex flex-wrap gap-2">
@@ -147,7 +148,7 @@ export default function Home() {
         </section>
 
         {/* Approach */}
-        <section id="approach" className={`${jumpGap} ${section}`}>
+        <section id="approach" className={`section-line ${jumpGap} ${section}`}>
           <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <h2 className={sideHeading}><Rich text={approach.heading} /></h2>
@@ -177,7 +178,7 @@ export default function Home() {
         </section>
 
         {/* Engagement models: extra space above on desktop, to separate it from the approach timeline */}
-        <section className={`lg:pt-16 ${section}`}>
+        <section className={`section-line lg:pt-16 ${section}`}>
           <Container>
             <SectionHead heading={models.heading} />
             <div className="grid gap-3 lg:grid-cols-3">
@@ -208,7 +209,7 @@ export default function Home() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className={`${jumpGap} ${section}`}>
+        <section id="faq" className={`section-line ${jumpGap} ${section}`}>
           <Container className="grid gap-8 lg:grid-cols-2 lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <h2 className={sideHeading}><Rich text={faq.heading} /></h2>
@@ -223,7 +224,7 @@ export default function Home() {
 
         {/* Testimonials: hidden until there are real quotes */}
         {testimonials.items.length > 0 && (
-        <section className={section}>
+        <section className={`section-line ${section}`}>
           <Container>
             <SectionHead heading={testimonials.heading} />
             <div className="grid gap-3 lg:grid-cols-3">
@@ -246,7 +247,7 @@ export default function Home() {
         )}
 
         {/* Contact and footer share one dark block. */}
-        <section id="contact" className={`bg-dark pt-16 text-white lg:pt-40 ${section}`}>
+        <section id="contact" className={`section-line bg-dark pt-16 text-white lg:pt-40 ${section}`}>
           <Container className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
             <Reveal>
               <h2 className={`${sectionHeading} mb-5`}><Rich text={contact.heading} /></h2>

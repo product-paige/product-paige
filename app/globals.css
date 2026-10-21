@@ -15,6 +15,7 @@
   --color-dark: #1e1e1e;    /* About, contact, footer, featured card */
   --color-live: #2fa84f;    /* availability dot */
   --color-accent: #e01321;  /* active-menu dot, timeline fill, link hover, selection, focus */
+  --color-grid: color-mix(in srgb, var(--color-accent) 15%, transparent); /* grid lines and hatching */
 
   /* Card colours */
   --color-sage: #dce2d4;
@@ -173,10 +174,10 @@
   .btn-text, .btn-tab, .btn-tab::before, .link { transition: none; }
 }
 
-/* Page rails: thin lines down the left and right edges of the content column.
-   They sit on the outer edge of Container. .page-rails is fixed behind the content, so the About panel (z-1) slides over
-   and hides them; .rails draws the same pair on the sticky header, which sits above.
-   Grey at 25% so they read on both the white and the dark sections. */
+/* Page grid, from md up. Outer rails sit on Container's outer edge with hatched
+   margins outside them; inner rails (.rails-inner) sit on its padding edge.
+   .page-rails is fixed behind the content, so the About panel (z-1) slides over and
+   hides it; .rails draws the same frame on the sticky header, which sits above. */
 .page-rails {
   position: fixed;
   inset: 0;
@@ -184,18 +185,50 @@
   pointer-events: none;
 }
 .page-rails, .rails {
+  --rail: max(12px, calc(50% - 680px));
+  --pad: 24px;
+  @media (width >= 64rem) { --pad: 40px; }
   @media (width >= 48rem) {
     &::before, &::after {
       content: "";
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 1px;
-      background: rgb(128 128 128 / 0.25);
+      width: var(--rail);
+      background: repeating-linear-gradient(-30deg, var(--color-grid) 0 1px, transparent 1px 12px);
       pointer-events: none;
     }
-    &::before { left: max(12px, calc(50% - 680px)); }
-    &::after { right: max(12px, calc(50% - 680px)); }
+    &::before { left: 0; border-right: 1px solid var(--color-grid); }
+    &::after { right: 0; border-left: 1px solid var(--color-grid); }
+  }
+}
+.rails-inner {
+  display: none;
+  @media (width >= 48rem) {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--rail) + var(--pad));
+    right: calc(var(--rail) + var(--pad));
+    border-inline: 1px solid var(--color-grid);
+    pointer-events: none;
+  }
+}
+
+/* Section line: a full-width rule halfway through the gap above a section
+   (sections are 64px apart on phones, 160px from desktop up). */
+.section-line {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -32px;
+    height: 1px;
+    background: var(--color-grid);
+    @media (width >= 64rem) { top: -80px; }
   }
 }
 
