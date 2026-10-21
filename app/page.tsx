@@ -91,7 +91,7 @@ export default function Home() {
               <div className="lede space-y-5">
                 {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
               </div>
-              <Reveal className="mt-10 grid grid-cols-2 border-t border-line sm:grid-cols-3 lg:mt-20">
+              <Reveal className="mt-10 grid border-t border-line sm:grid-cols-3 lg:mt-20">
                 {about.facts.map((f) => (
                   <div key={f.label} className="border-b border-line py-5 pr-4">
                     <p className="mb-1 text-[13px] label text-muted">{f.label}</p>

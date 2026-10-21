@@ -74,9 +74,6 @@ export const about = {
     { label: "Based in", value: "Kitchener, Ontario" },
     { label: "Recent", value: "Kiite · Enzuzo · Smile.io" },
     { label: "Experience", value: "A decade and more" },
-    { label: "Works", value: "Remote, async by default" },
-    { label: "Platform", value: "Shopify and ecommerce" },
-    { label: "First marketing hire", value: "Twice" },
   ],
 };
 
