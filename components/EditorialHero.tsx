@@ -64,7 +64,7 @@ export function EditorialHero() {
                 ))}
               </div>
               <p className="flex shrink-0 items-center gap-3 font-sans text-[16px] font-medium">
-                <Asterisk className="size-5" />
+                <Asterisk className="blink size-5" />
                 {site.availability}
               </p>
             </div>

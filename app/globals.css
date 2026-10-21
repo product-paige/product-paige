@@ -365,6 +365,13 @@
 }
 .pulse-dot { animation: pulse-ring 2.4s infinite; }
 
+/* The asterisk beside the booking line in the hero: a slow on-off blink */
+@keyframes blink {
+  0%, 45%, 100% { opacity: 1; }
+  55%, 90% { opacity: 0.15; }
+}
+.blink { animation: blink 1.6s ease-in-out infinite; }
+
 /* Hero pills: dark, with a highlight that travels along them, warming each pill towards
    the accent in turn. 1.6s per pill, looping. */
 .pill-cycle { --color-chip: var(--color-ink); color: #fff; }
@@ -388,6 +395,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .pulse-dot, .pill-cycle > * { animation: none; }
+  .pulse-dot, .blink, .pill-cycle > * { animation: none; }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
