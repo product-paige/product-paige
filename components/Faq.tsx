@@ -34,7 +34,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className="flex w-full cursor-pointer items-center justify-between gap-6 py-6 text-left text-base lg:text-lg"
+                className="flex w-full cursor-pointer items-center justify-between gap-6 py-[18px] text-left text-base lg:py-5 lg:text-lg"
               >
                 {f.q}
                 {/* Thin plus, same stroke as the arrows; turns into a cross when open. */}
@@ -59,7 +59,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
             >
               <div className="overflow-hidden" inert={!isOpen}>
                 <p
-                  className={`max-w-xl pb-6 text-ink/80 transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+                  className={`max-w-xl pr-12 pb-5 text-ink/80 transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
                 </p>

@@ -243,7 +243,7 @@ export const testimonials = {
 };
 
 export const faq = {
-  heading: "Common questions",
+  heading: "Questions nobody asked, but might",
   body: "Have a question that isn’t here? Send it over and I’ll answer by email.",
   items: [
     {
