@@ -37,16 +37,19 @@ function Folder({ p, i }: { p: Project; i: number }) {
         Project {String(i + 1).padStart(2, "0")}
       </span>
       <div className="folder-body grid gap-5 p-5 lg:p-6">
-        {/* Cover first, with the role pill and the buttons' arrow tab (turns on hover) over its top corners. */}
+        {/* Cover first, with the role pill over its top-left corner. */}
         <div className="relative">
           <Cover p={p} className="aspect-[4/3] w-full rounded-[3px] lg:aspect-[16/9]" />
           <Chip className="absolute top-3 left-3 bg-white/85">{p.role}</Chip>
-          <span className="btn absolute top-3 right-3" aria-hidden>
-            <span className="btn-tab h-10"><ArrowUpRight turn className="size-5" /></span>
-          </span>
         </div>
         <div>
-          <h3 className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
+            {/* The buttons' arrow tab; it turns when the folder is hovered. */}
+            <span className="btn shrink-0" aria-hidden>
+              <span className="btn-tab h-10"><ArrowUpRight turn /></span>
+            </span>
+          </div>
           <p className="mt-2 max-w-[42ch] text-ink/70">{p.excerpt}</p>
         </div>
       </div>
