@@ -1,15 +1,13 @@
 import {
-  about, approach, audiences, contact, faq, hero, models, services, site, testimonials,
+  about, approach, audiences, contact, faq, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { Faq } from "@/components/Faq";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { TagIcon } from "@/components/TagIcon";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
-import type { CSSProperties } from "react";
 import {
   Button, Check, Chip, Container, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading, sideHeading,
 } from "@/components/ui";
@@ -18,8 +16,6 @@ import {
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
-// Stagger for the hero's on-load fade.
-const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
 
 export default function Home() {
   return (
@@ -28,37 +24,11 @@ export default function Home() {
       <SiteHeader />
 
       <main id="top">
-        {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
-            slides up over it, then both scroll away together. */}
+        {/* Hero and About share a wrapper */}
         <div className="relative">
-        {/* Hero: a soft red grid with a torn paper sheet behind the text. Desktop: it fills the first screen under the 68px header, content
-            centred; the About panel peeks 64px at the bottom. Like About, the block is the Container
-            itself, so from md up it stays between the page rails. */}
-        <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_212px)]">
-          <Container className="hero-grid relative overflow-hidden pt-12 pb-14 lg:flex lg:flex-col lg:justify-center lg:py-20">
-            <i aria-hidden className="torn-sheet absolute inset-y-0 left-1/2 w-[calc(100%-24px)] -translate-x-1/2 sm:w-[min(1120px,90%)] lg:w-[calc(min(6.6vw,96px)*10.4)]" />
-            <div className="relative mx-auto max-w-[1200px] px-4 text-center sm:px-10">
-              <h1 className="rise serif mb-6 text-[clamp(40px,6.6vw,96px)] leading-[1] text-balance" style={delay(100)}>
-                <Rich text={hero.heading} />
-              </h1>
-              <div className="rise" style={delay(200)}>
-                <p className="lede mx-auto mb-10 max-w-2xl lg:mb-12">{hero.lede}</p>
-                {/* Dark pills, each with a line icon; a highlight travels along them (.pill-cycle). */}
-                <div className="pill-cycle mx-auto flex max-w-[720px] flex-wrap justify-center gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
-                  {hero.tags.map((t, i) => (
-                    <Chip key={t.label} icon={<TagIcon name={t.icon} />} style={{ "--i": i } as CSSProperties}>{t.label}</Chip>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
-
-        {/* Alternative hero to compare: an editorial spread with image placeholders */}
         <EditorialHero />
 
-        {/* About */}
-        {/* About: a dark block that slides up over the hero. The block is the Container itself, so from
+        {/* About: a dark block. The block is the Container itself, so from
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
           <Container className="graph-grid relative bg-dark py-8 text-white lg:py-20">

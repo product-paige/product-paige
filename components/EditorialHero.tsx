@@ -22,7 +22,7 @@ function Placeholder({ label, className = "" }: { label: string; className?: str
 }
 
 /**
- * Alternative hero, laid out like an editorial spread: the headline is broken across a
+ * The hero, laid out like an editorial spread: the headline is broken across a
  * 12-column grid and wraps around image placeholders (an arched photo and a tall print down
  * the right edge). On desktop the type is sized to the width of the grid (8.6cqw), so each phrase fills its
  * columns at any screen size, and the images take their height from the lines of text beside
@@ -33,7 +33,7 @@ export function EditorialHero() {
   const line = "block lg:whitespace-nowrap";
   const type = "lg:text-[8.6cqw]";
   return (
-    <section className="relative z-1 border-t border-grid">
+    <section className="relative">
       <Container className="paper-grain bg-paper py-10 lg:py-14">
         <div className="@container">
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
@@ -44,9 +44,9 @@ export function EditorialHero() {
             </div>
 
             <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] lg:contents lg:leading-none`}>
-              <span className={`${line} ${type} lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:self-start`}>Product, design </span>
-              <span className={`${line} ${type} lg:col-span-5 lg:col-start-5 lg:row-start-2 lg:self-start`}>& build </span>
-              <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:self-start`}>for Shopify teams</span>
+              <span className={`${line} ${type} lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:self-start`}>{hero.heading[0]} </span>
+              <span className={`${line} ${type} lg:col-span-5 lg:col-start-5 lg:row-start-2 lg:self-start`}>{hero.heading[1]} </span>
+              <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:self-start`}>{hero.heading[2]}</span>
             </h1>
 
             {/* A tall print down the right edge, from "& build" to the bottom of the intro */}

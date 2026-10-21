@@ -41,7 +41,8 @@ export const nav = [
 ];
 
 export const hero = {
-  heading: "Product, design & build\nsupport for Shopify teams",
+  // The headline, one phrase per line of the editorial layout.
+  heading: ["Product, design", "& build", "for Shopify teams"],
   lede:
     "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
   // Each pill has a line icon (see components/TagIcon.tsx for the names).
