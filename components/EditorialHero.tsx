@@ -26,7 +26,7 @@ export function EditorialHero() {
   const type = "lg:text-[9.5cqw]";
   return (
     <section className="relative lg:sticky lg:top-[68px]">
-      <Container className="py-10 lg:py-14">
+      <Container className="pt-10 pb-6 lg:pt-14 lg:pb-8">
         <div className="@container">
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
             {/* Arched product page mockup, exactly two lines of type tall, so the three lines keep an even 1.08em pitch, beside "Product, design / & build" */}
