@@ -1,7 +1,6 @@
 import {
   about, approach, audiences, contact, faq, hero, models, services, site, testimonials,
 } from "@/content";
-import { AboutEditorial, AboutFile, AboutPolaroid } from "@/components/AboutOptions";
 import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
 import { RecentProjects } from "@/components/RecentProjects";
@@ -59,17 +58,17 @@ export default function Home() {
           <Container className="relative bg-sheet py-8 lg:py-20">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/paper-edge.svg" alt="" aria-hidden className="pointer-events-none absolute bottom-full left-0 h-[clamp(64px,12vw,230px)] w-full translate-y-px select-none" />
-          <div className="grid gap-8 lg:grid-cols-[5fr_7fr] lg:gap-20">
-            <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <figure className="photo-grain folded aspect-[4/5] bg-chip [--fold-color:#e6e2da]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={site.photo} alt={site.photoAlt} width={540} height={700} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
-                <figcaption className="absolute inset-x-0 bottom-0 z-1 bg-linear-to-t from-black/45 to-transparent p-7 pt-16 font-hand text-[24px] leading-tight text-white lg:text-[28px]">
-                  <span className="inline-block -rotate-2">
-                  {/* Non-breaking space before the dot, so a wrapped line never starts with one. */}
-                  {site.name} · {site.role}
-                  </span>
-                </figcaption>
+          {/* A taped, tilted Polaroid with a handwritten caption, beside the text. */}
+          <div className="grid items-center gap-12 lg:grid-cols-[5fr_7fr] lg:gap-20">
+            <Reveal className="mx-auto w-full max-w-[420px] lg:mx-0">
+              <figure className="polaroid">
+                <i aria-hidden className="tape" />
+                <span className="photo-grain block aspect-[4/5]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={site.photo} alt={site.photoAlt} width={540} height={675} loading="lazy" decoding="async" className="size-full object-cover" />
+                </span>
+                {/* Non-breaking space before the dot, so a wrapped line never starts with one. */}
+                <figcaption className="font-hand mt-4 text-center text-[24px] leading-tight lg:text-[26px]">{site.name}{"\u00a0"}· {site.role}</figcaption>
               </figure>
             </Reveal>
             <div>
@@ -79,25 +78,12 @@ export default function Home() {
               <div className="lede space-y-5">
                 {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
               </div>
-              <Reveal className="mt-10 grid border-t border-line sm:grid-cols-3 lg:mt-20">
-                {about.facts.map((f) => (
-                  <div key={f.label} className="border-b border-line py-5 pr-4">
-                    <p className="mb-1 text-[13px] label text-muted">{f.label}</p>
-                    <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
-                  </div>
-                ))}
-              </Reveal>
             </div>
           </div>
           </Container>
         </section>
 
         </div>
-
-        {/* About: three layouts to compare. Keep one, delete the others. */}
-        <AboutPolaroid />
-        <AboutFile />
-        <AboutEditorial />
 
         {/* Recent projects */}
         <RecentProjects className={`${section} lg:pt-0`} />

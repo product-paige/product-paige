@@ -314,8 +314,6 @@
   background: var(--color-scrap) var(--grain);
 }
 
-/* About options (three layouts being compared; delete the unused ones) */
-
 /* Polaroid: a white print with a deep bottom margin, tilted, with tape across the top. */
 .polaroid {
   position: relative;
@@ -340,16 +338,6 @@
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
   clip-path: polygon(0 8%, 6% 0, 12% 10%, 20% 2%, 30% 8%, 42% 0, 55% 9%, 68% 1%, 80% 8%, 90% 0, 100% 10%, 97% 50%, 100% 92%, 90% 100%, 78% 90%, 64% 100%, 50% 92%, 36% 100%, 22% 91%, 10% 100%, 0 90%, 3% 50%);
 }
-/* Leader: a dotted rule filling the space between a label and its value. */
-.leader::after {
-  content: "";
-  order: 1;
-  flex: 1;
-  border-bottom: 1px dotted var(--color-line);
-  translate: 0 -4px;
-}
-.leader > dd { order: 2; }
-
 /* Native select with a thin chevron, so it looks the same in every browser */
 @utility select {
   appearance: none;
