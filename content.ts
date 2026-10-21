@@ -164,6 +164,81 @@ export const models = {
   ],
 };
 
+// Latest three posts from productpaige.com/blog. Images are the covers used there.
+export const blog = {
+  heading: "From the scrapbook",
+  linkLabel: "Read the scrapbook",
+  href: "https://productpaige.com/blog",
+  posts: [
+    {
+      title: "Shopify’s agent blueprint",
+      excerpt: "Shopify open-sourced a shopping agent. The useful part isn’t the code.",
+      date: "Sep 3, 2026",
+      tag: "AI",
+      image: "/blog/agent-blueprint.jpg",
+      href: "https://productpaige.com/blog/shopifys-agent-blueprint",
+    },
+    {
+      title: "The eight-second test",
+      excerpt: "How to tell if your homepage works, before you rebuild it again.",
+      date: "Aug 14, 2026",
+      tag: "Positioning",
+      image: "/blog/eight-second-test.jpg",
+      href: "https://productpaige.com/blog/the-eight-second-test",
+    },
+    {
+      title: "Onboarding is a promise",
+      excerpt: "Every onboarding step promises something. Break it, lose the merchant.",
+      date: "Jul 30, 2026",
+      tag: "UX",
+      image: "/blog/onboarding-promise.jpg",
+      href: "https://productpaige.com/blog/onboarding-is-a-promise",
+    },
+  ],
+};
+
+// From productpaige.com/projects. Only Backspace Body has a cover image so far;
+// the others show their folder colour until they get one.
+export const projects = {
+  heading: "Recent projects",
+  body: "A mix of product audits, UX work and personal projects, all in the Shopify and ecommerce world.",
+  items: [
+    {
+      client: "Backspace Body",
+      title: "A concept body care brand, built as a working Shopify store",
+      role: "Brand and build",
+      year: "2026",
+      image: "/projects/backspace-body.jpg",
+      tone: "#e9dcc0",
+      href: "https://productpaige.com/projects/backspace-body",
+    },
+    {
+      client: "Organic Moderne",
+      title: "An editorial and affiliate site for Canadian shoppers",
+      role: "Websites",
+      year: "2026",
+      tone: "#d8e4ee",
+      href: "https://productpaige.com/projects/organic-moderne",
+    },
+    {
+      client: "Brand Playbook",
+      title: "A resource hub for solo founders on Shopify",
+      role: "Websites",
+      year: "2026",
+      tone: "#dce2d4",
+      href: "https://productpaige.com/projects/brand-playbook",
+    },
+    {
+      client: "Product Prompt",
+      title: "A paid content platform for people building with AI",
+      role: "Websites",
+      year: "2026",
+      tone: "#efe7c8",
+      href: "https://productpaige.com/projects/product-prompt",
+    },
+  ] as { client: string; title: string; role: string; year: string; image?: string; tone: string; href: string }[],
+};
+
 // The section is hidden while this list is empty. Add real quotes with names and companies.
 export const testimonials = {
   heading: "From people I’ve worked with",

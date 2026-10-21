@@ -4,6 +4,7 @@
 @theme {
   --font-serif: var(--font-tiempos), Georgia, serif;
   --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-mono: var(--font-azeret), ui-monospace, monospace;
 
   /* White */
   --color-paper: #ffffff;   /* page background */
@@ -172,7 +173,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn-text, .btn-tab, .btn-tab::before, .link { transition: none; }
+  .btn-text, .btn-tab, .btn-tab::before, .link, .scrap { transition: none; }
 }
 
 /* Page grid, from md up. Outer rails sit on Container's outer edge with hatched
@@ -231,6 +232,40 @@
     background: var(--color-grid);
     @media (width >= 64rem) { top: -80px; }
   }
+}
+
+/* Scrapbook card: a loose-leaf page. Three punch holes (page-coloured circles) and a
+   margin rule down the left, a faint paper grain, and a folded bottom-right corner. */
+.scrap {
+  --fold: 40px;
+  position: relative;
+  display: block;
+  height: 100%;
+  padding: 28px 28px 36px 76px;
+  background-color: #ebe9e4;
+  background-image:
+    radial-gradient(circle at 26px 40px, var(--color-paper) 9px, transparent 9.5px),
+    radial-gradient(circle at 26px 50%, var(--color-paper) 9px, transparent 9.5px),
+    radial-gradient(circle at 26px calc(100% - 40px), var(--color-paper) 9px, transparent 9.5px),
+    linear-gradient(90deg, transparent 52px, rgb(0 0 0 / 0.1) 52px 53px, transparent 53px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.28 0 0 0 0 0.25 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--fold)), calc(100% - var(--fold)) 100%, 0 100%);
+  transition: transform 500ms var(--ease-soft);
+  /* The folded-over corner: a darker triangle tucked into the cut. */
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: var(--fold);
+    height: var(--fold);
+    background: linear-gradient(315deg, transparent 50%, #d9d6cf 50%);
+    box-shadow: -1px -1px 3px rgb(0 0 0 / 0.08);
+  }
+  &:hover { transform: translateY(-4px) rotate(-0.6deg); }
+  & img { transition: filter 500ms var(--ease-soft); }
+  &:hover img { filter: saturate(1.15); }
+  @media (width < 48rem) { padding-left: 68px; }
 }
 
 /* Native select with a thin chevron, so it looks the same in every browser */

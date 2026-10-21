@@ -37,12 +37,18 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 className="flex w-full cursor-pointer items-center justify-between gap-6 py-6 text-left text-base lg:text-lg"
               >
                 {f.q}
-                <span
+                {/* Thin plus, same stroke as the arrows; turns into a cross when open. */}
+                <svg
                   aria-hidden
-                  className={`text-2xl font-light leading-none transition-transform duration-500 ${isOpen ? "rotate-45" : ""}`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1}
+                  strokeLinecap="round"
+                  className={`size-6 shrink-0 transition-transform duration-500 lg:size-7 ${isOpen ? "rotate-45" : ""}`}
                 >
-                  +
-                </span>
+                  <path d="M12 3v18M3 12h18" />
+                </svg>
               </button>
             </h3>
             <div

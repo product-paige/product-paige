@@ -4,6 +4,7 @@ import {
 import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
 import { Nav } from "@/components/Nav";
+import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import type { CSSProperties } from "react";
 import {
@@ -68,7 +69,7 @@ export default function Home() {
 
         {/* About */}
         {/* About: a sheet of paper with a torn top edge (the edge image sits just above the section). */}
-        <section id="about" className="relative z-1 bg-sheet pt-12 pb-12 lg:pt-32 lg:pb-32">
+        <section id="about" className="relative z-1 bg-sheet pt-8 pb-12 lg:pt-20 lg:pb-32">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/paper-edge.svg" alt="" aria-hidden className="pointer-events-none absolute bottom-full left-0 h-[clamp(64px,12vw,230px)] w-full translate-y-px select-none" />
           <Container className="grid gap-8 lg:grid-cols-[5fr_7fr] lg:gap-20">
@@ -224,6 +225,9 @@ export default function Home() {
             </Reveal>
           </Container>
         </section>
+
+        {/* Blog */}
+        <Scrapbook className={`section-line ${jumpGap} ${section}`} />
 
         {/* Testimonials: hidden until there are real quotes */}
         {testimonials.items.length > 0 && (

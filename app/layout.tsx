@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Azeret_Mono, Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { site } from "@/content";
@@ -12,6 +12,12 @@ const serif = localFont({
     { path: "./fonts/TiemposText-RegularItalic.otf", weight: "400", style: "italic" },
   ],
   variable: "--font-tiempos",
+});
+
+// Dates and small labels on the scrapbook and project cards.
+const mono = Azeret_Mono({
+  subsets: ["latin"],
+  variable: "--font-azeret",
 });
 
 const sans = Manrope({
@@ -31,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
       <body>
         {/* Set before hydration so scroll-reveal content doesn't flash. Without JS, nothing is hidden. */}
         <Script id="reveal-ready" strategy="beforeInteractive">
