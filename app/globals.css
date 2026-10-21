@@ -18,7 +18,7 @@
   --color-line-dark: rgb(255 255 255 / 0.15);
   --color-chip: #f4f4f2;
   --color-dark: #1e1e1e;    /* contact, footer, featured card */
-  --color-sheet: #f1ede4;   /* About paper (and the open FAQ row): matches public/paper-edge.svg */
+  --color-sheet: #faf9f7;   /* About: matches public/paper-edge.svg */
   --color-live: #2fa84f;    /* availability dot */
   --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
   --color-accent: #e01321;  /* timeline fill, selection, focus */
