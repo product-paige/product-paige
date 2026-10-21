@@ -7,7 +7,7 @@
   --font-hand: var(--font-caveat), cursive;
 
   /* White */
-  --color-paper: #ffffff;   /* page background */
+  --color-paper: #f4f4f1;   /* page background */
   --color-surface: #ffffff; /* cards */
   --color-ink: #1e1e1e;
   --color-muted: #6b6b6b;
@@ -16,7 +16,7 @@
      twin on dark blocks. Ink is for interaction (hover, open) only. */
   --color-line: rgb(30 30 30 / 0.1);
   --color-line-dark: rgb(255 255 255 / 0.15);
-  --color-chip: #f4f4f2;
+  --color-chip: rgb(30 30 30 / 0.05); /* pills: a translucent ink, so they show on any light surface */
   --color-dark: #1e1e1e;    /* contact, footer, featured card */
   --color-sheet: #faf9f7;   /* About: matches public/paper-edge.svg */
   --color-live: #2fa84f;    /* availability dot */
