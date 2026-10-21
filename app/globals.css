@@ -69,6 +69,8 @@
     /* 15px body text on phones, 16px from desktop up. */
     @apply bg-paper font-sans text-[15px] text-ink antialiased lg:text-base;
   }
+  /* Every heading, serif or sans, is set a touch tight. */
+  h1, h2, h3, h4, h5, h6 { letter-spacing: var(--tracking-display); }
 }
 
 /* Display type: the serif used for every heading */

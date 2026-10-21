@@ -16,7 +16,7 @@ export const cardTitle = "serif text-[clamp(22px,2vw,28px)] leading-[1.1]";
 // Titles in the open lists (How I can help rows, the process steps).
 export const listTitle = cardTitle;
 // Manrope medium: small card headings that sit with body text (blog cards, project folders).
-export const sansTitle = "font-sans text-[17px] font-medium leading-snug tracking-[-0.01em] lg:text-[18px]";
+export const sansTitle = "font-sans text-[17px] font-medium leading-snug tracking-[-0.03em] lg:text-[18px]";
 
 /**
  * Renders "*word*" as <em>word</em>, keeps hyphenated words like "fast-growing" on one line,
