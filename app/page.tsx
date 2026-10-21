@@ -28,7 +28,7 @@ export default function Home() {
       <div aria-hidden className="page-rails"><i className="rails-inner" /></div>
       <header className="rails sticky top-0 z-10 border-b border-grid bg-paper/85 backdrop-blur-md backdrop-saturate-150">
         <i aria-hidden className="rails-inner" />
-        <Container className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
+        <Container tight className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
           <Nav items={nav} />
           <a href="#top" className="serif text-[19px] leading-[0.95] lg:text-center lg:text-[26px]">
             {site.logo.split(" ")[0]}<br />{site.logo.split(" ").slice(1).join(" ")}
