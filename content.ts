@@ -41,7 +41,7 @@ export const nav = [
 ];
 
 export const hero = {
-  heading: "Product, design and build support for Shopify teams",
+  heading: "Product, design & build support for Shopify teams",
   lede:
     "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
   // Each pill has a line icon (see components/TagIcon.tsx for the names).
