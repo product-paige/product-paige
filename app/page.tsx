@@ -44,7 +44,7 @@ export default function Home() {
 
             <div className="mt-10 grid items-start gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-6">
               {/* A taped Polaroid */}
-              <Reveal className="mx-auto w-full max-w-[420px] lg:col-span-5 lg:mx-0">
+              <Reveal className="mx-auto w-full max-w-[460px] lg:col-span-6 lg:mx-0 lg:max-w-none lg:pr-16">
                 <figure className="polaroid">
                   <i aria-hidden className="tape" />
                   <span className="photo-grain block aspect-square">
