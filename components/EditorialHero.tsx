@@ -35,7 +35,7 @@ export function EditorialHero() {
               <ProductPageMockup className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2.16em] lg:rounded-tl-[1.4em]" />
             </div>
 
-            <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] tracking-[-0.045em] lg:contents lg:leading-[1.08]`}>
+            <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] tracking-[-0.06em] lg:contents lg:leading-[1.08]`}>
               <span className={`${line} ${type} lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:self-start`}>{hero.heading[0]} </span>
               <span className={`${line} ${type} lg:col-span-5 lg:col-start-5 lg:row-start-2 lg:self-start`}>{hero.heading[1]} </span>
               <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:self-start`}>{hero.heading[2]}</span>
