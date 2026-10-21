@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Scroll effect for the approach timeline. Drop it inside the <ol>: a dark
+ * Scroll effect for the approach timeline. Drop it inside the <ol>: an accent
  * line grows down the grey track as you scroll, and each step stays dimmed
  * (data-pending) until the line reaches its dot. Without JS the track stays
  * grey and every dot shows in full; with reduced motion the line is drawn in full.
@@ -51,7 +51,7 @@ export function TimelineProgress() {
     <span
       ref={ref}
       aria-hidden
-      className="absolute top-2 bottom-2 left-[9px] w-px origin-top bg-ink"
+      className="absolute top-2 bottom-2 left-[9px] w-px origin-top bg-accent"
       style={{ transform: "scaleY(0)" }}
     />
   );

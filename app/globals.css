@@ -13,7 +13,8 @@
   --color-line: #ececec;
   --color-chip: #f4f4f2;
   --color-dark: #1e1e1e;    /* About, contact, footer, featured card */
-  --color-live: #2fa84f;    /* availability and active-menu dots */
+  --color-live: #2fa84f;    /* availability dot */
+  --color-accent: #e01321;  /* active-menu dot, timeline fill, link hover, selection, focus */
 
   /* Card colours */
   --color-sage: #dce2d4;
@@ -45,6 +46,8 @@
     @media (width >= 64rem) { scroll-padding-top: 68px; }
     -webkit-text-size-adjust: 100%;
   }
+  ::selection { background: var(--color-accent); color: #fff; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
   body {
     /* 15px body text on phones, 16px from desktop up. */
     @apply bg-paper font-sans text-[15px] text-ink antialiased lg:text-base;
@@ -140,11 +143,11 @@
     @media (width >= 64rem) { padding: 8px 12px; font-size: 15px; }
   }
 
-  /* Text link: a faint resting underline, with a full-strength one sweeping in on hover. */
+  /* Text link: a faint resting underline, with an accent one sweeping in on hover. */
   .link {
     padding-bottom: 3px;
     background-image:
-      linear-gradient(currentColor, currentColor),
+      linear-gradient(var(--color-accent), var(--color-accent)),
       linear-gradient(color-mix(in srgb, currentColor 35%, transparent), color-mix(in srgb, currentColor 35%, transparent));
     background-repeat: no-repeat;
     background-position: 0 100%, 0 100%;

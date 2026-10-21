@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 /**
- * Top menu. A small dot, in each item's own colour, marks the section currently
+ * Top menu. A small accent dot marks the section currently
  * in the middle of the screen. It hangs just left of the label, so labels never shift.
  */
-export function Nav({ items }: { items: { label: string; href: string; dot: string }[] }) {
+export function Nav({ items }: { items: { label: string; href: string }[] }) {
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
@@ -52,8 +52,7 @@ export function Nav({ items }: { items: { label: string; href: string; dot: stri
           >
             <i
               aria-hidden
-              className={`absolute top-1/2 -left-3.5 -mt-1 size-2 rounded-full transition duration-500 ${isActive ? "scale-100 opacity-100" : "scale-50 opacity-0"}`}
-              style={{ background: n.dot }}
+              className={`absolute top-1/2 -left-3.5 -mt-1 size-2 rounded-full bg-accent transition duration-500 ${isActive ? "scale-100 opacity-100" : "scale-50 opacity-0"}`}
             />
             {n.label}
           </a>
