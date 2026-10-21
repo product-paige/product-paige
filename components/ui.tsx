@@ -5,12 +5,12 @@ export { Reveal };
 
 // Type scale: the hero headline sets its own size, then sectionHeading (72px max)
 // for every h2, then cardTitle (32px max) for every card and list title.
-export const sectionHeading = "serif text-[clamp(38px,5vw,72px)] leading-[0.98]";
+export const sectionHeading = "serif text-[clamp(32px,4vw,56px)] leading-[1.02]";
 // Section headings that sit in a side column (My approach, Common questions): a step smaller.
-export const sideHeading = "serif text-[clamp(38px,4.2vw,60px)] leading-[0.98]";
-export const cardTitle = "serif text-[clamp(26px,2.2vw,32px)] leading-[1.04]";
+export const sideHeading = "serif text-[clamp(32px,3.4vw,48px)] leading-[1.02]";
+export const cardTitle = "serif text-[clamp(22px,1.8vw,26px)] leading-[1.1]";
 // Larger titles for the open lists (Capabilities rows, approach timeline): 44px max.
-export const listTitle = "serif text-[clamp(28px,3.2vw,44px)] leading-[1.04]";
+export const listTitle = "serif text-[clamp(24px,2.6vw,34px)] leading-[1.1]";
 
 /** Renders "*word*" as <em>word</em>, and keeps hyphenated words like "fast-growing" on one line. */
 export function Rich({ text }: { text: string }) {
