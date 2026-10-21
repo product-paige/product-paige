@@ -42,34 +42,37 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
       <PageRails />
       <SiteHeader />
       <main>
-        {/* At a glance */}
+        {/* At a glance: text on the left; on desktop the cover fills the right column, from the
+            divider out to the page rail and top to bottom. Phones stack the cover under the text. */}
+        <section className="border-t border-grid">
+          <Container className="grid lg:grid-cols-2 lg:pr-0">
+            <Reveal className="py-8 lg:py-20 lg:pr-16">
+              <a href="/projects" className="link text-[15px]">All projects</a>
+              <div className="mt-8 lg:mt-12">
+                <Chip>{p.role}</Chip>
+              </div>
+              <h1 className={`${sectionHeading} mt-5`}>{p.client}</h1>
+              <p className="serif mt-4 text-[22px] leading-[1.2] text-ink/80 lg:text-[26px]">{p.tagline}</p>
+              <p className="mt-6 max-w-xl">{p.summary}</p>
+              <ul className="mt-6 flex flex-wrap gap-2" aria-label="What it involved">
+                {p.capabilities.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
+              </ul>
+              {p.liveUrl && (
+                <div className="mt-8">
+                  <Button href={p.liveUrl}>View the live site</Button>
+                </div>
+              )}
+            </Reveal>
+            <div className="relative mb-8 aspect-[4/3] bg-scrap lg:mb-0 lg:aspect-auto lg:border-l lg:border-grid">
+              <Cover p={p} className="absolute inset-0 size-full" />
+            </div>
+          </Container>
+        </section>
+
+        {/* Key facts, in the same style as the About facts */}
         <section className={section}>
           <Container>
-            <a href="/projects" className="link text-[15px]">All projects</a>
-            <div className="mt-8 grid gap-10 lg:mt-12 lg:grid-cols-[5fr_6fr] lg:gap-16">
-              <Reveal>
-                <Chip>{p.role}</Chip>
-                <h1 className={`${sectionHeading} mt-5`}>{p.client}</h1>
-                <p className="serif mt-4 text-[22px] leading-[1.2] text-ink/80 lg:text-[26px]">{p.tagline}</p>
-                <p className="mt-6 max-w-xl">{p.summary}</p>
-                <ul className="mt-6 flex flex-wrap gap-2" aria-label="What it involved">
-                  {p.capabilities.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
-                </ul>
-                {p.liveUrl && (
-                  <div className="mt-8">
-                    <Button href={p.liveUrl}>View the live site</Button>
-                  </div>
-                )}
-              </Reveal>
-              <Reveal delay={120}>
-                <div className="folded overflow-hidden bg-scrap">
-                  <Cover p={p} className="aspect-[4/3] w-full" />
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Key facts, in the same style as the About facts */}
-            <Reveal className="mt-12 grid border-t border-line sm:grid-cols-3 lg:mt-20">
+            <Reveal className="grid border-t border-line sm:grid-cols-3">
               {facts.map((f) => (
                 <div key={f.label} className="border-b border-line py-5 pr-4">
                   <p className="mb-1 text-[13px] label text-muted">{f.label}</p>
