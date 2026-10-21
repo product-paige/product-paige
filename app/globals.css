@@ -363,11 +363,12 @@
 }
 .pulse-dot { animation: pulse-ring 2.4s infinite; }
 
-/* Hero pills: a soft highlight travels along them, warming each pill to a light tint of
+/* Hero pills: dark, with a highlight that travels along them, warming each pill towards
    the accent in turn. 1.6s per pill, looping. */
+.pill-cycle { --color-chip: var(--color-ink); color: #fff; }
 @keyframes pill-glow {
   0%, 30%, 100% { background-color: var(--color-chip); }
-  8%, 20% { background-color: color-mix(in srgb, var(--color-accent) 18%, white); }
+  8%, 20% { background-color: color-mix(in srgb, var(--color-accent) 75%, var(--color-ink)); }
 }
 .pill-cycle > * {
   animation: pill-glow calc(var(--n) * 1.6s) ease-in-out calc(var(--i) * 1.6s + 1.2s) infinite;
