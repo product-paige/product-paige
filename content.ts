@@ -206,7 +206,7 @@ export const projects = {
   items: [
     {
       client: "Backspace Body",
-      excerpt: "A concept body care brand, built as a working Shopify store",
+      excerpt: "A concept body care brand on Shopify",
       role: "Brand and build",
       image: "/projects/backspace-body.jpg",
       tone: "#e9dcc0",
@@ -214,21 +214,21 @@ export const projects = {
     },
     {
       client: "Organic Moderne",
-      excerpt: "An editorial and affiliate site for Canadian shoppers",
+      excerpt: "An editorial and affiliate site for Canadians",
       role: "Websites",
       tone: "#d8e4ee",
       href: "https://productpaige.com/projects/organic-moderne",
     },
     {
       client: "Brand Playbook",
-      excerpt: "A resource hub for solo founders on Shopify",
+      excerpt: "A resource hub for solo Shopify founders",
       role: "Websites",
       tone: "#dce2d4",
       href: "https://productpaige.com/projects/brand-playbook",
     },
     {
       client: "Product Prompt",
-      excerpt: "A paid content platform for people building with AI",
+      excerpt: "A paid content platform for AI builders",
       role: "Websites",
       tone: "#efe7c8",
       href: "https://productpaige.com/projects/product-prompt",

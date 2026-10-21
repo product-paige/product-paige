@@ -50,7 +50,7 @@ function Folder({ p, i }: { p: Project; i: number }) {
               <span className="btn-tab size-8"><ArrowUpRight turn className="size-5" /></span>
             </span>
           </div>
-          <p className="mt-2 max-w-[42ch] text-ink/70">{p.excerpt}</p>
+          <p className="mt-2 truncate text-ink/70" title={p.excerpt}>{p.excerpt}</p>
         </div>
       </div>
     </a>
