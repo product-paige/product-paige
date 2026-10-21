@@ -43,12 +43,12 @@ export const hero = {
   lede:
     "A one-person studio launching and fixing Shopify stores. Strategy, design and the build itself, from one person instead of three handoffs.",
   tags: [
-    { label: "Ecommerce + DTC", dot: "#2f6bff" },
-    { label: "Shopify apps + ecosystem", dot: "#e8553d" },
-    { label: "Product-led SaaS", dot: "#b04de0" },
-    { label: "Loyalty + retention", dot: "#3cc0d6" },
-    { label: "AI + developer tools", dot: "#e8a23d" },
-    { label: "Apparel", dot: "#2fa84f" },
+    "Ecommerce + DTC",
+    "Shopify apps + ecosystem",
+    "Product-led SaaS",
+    "Loyalty + retention",
+    "AI + developer tools",
+    "Apparel",
   ],
 };
 

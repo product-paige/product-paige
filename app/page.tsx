@@ -40,11 +40,11 @@ export default function Home() {
             </h1>
             <div className="rise" style={delay(200)}>
               <p className="lede mb-10 max-w-2xl lg:mb-12 lg:max-w-3xl lg:text-[20px]">{hero.lede}</p>
-              {/* A soft highlight travels along the pills, tinting each with its own dot colour in turn.
-                  On the hero the pills are dark, and the highlight mixes into the dark too. */}
+              {/* A soft highlight travels along the pills in turn: the dark pill warms towards the accent.
+                  Every pill shares the one accent dot. */}
               <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length, "--color-chip": "var(--color-ink)", "--glow-base": "var(--color-ink)" } as CSSProperties}>
                 {hero.tags.map((t, i) => (
-                  <Chip key={t.label} dot={t.dot} className="text-white" style={{ "--i": i, "--tint": t.dot } as CSSProperties}>{t.label}</Chip>
+                  <Chip key={t} dot="var(--color-accent)" className="text-white" style={{ "--i": i, "--tint": "var(--color-accent)" } as CSSProperties}>{t}</Chip>
                 ))}
               </div>
             </div>
