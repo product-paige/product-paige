@@ -161,7 +161,7 @@
 }
 
 /* Page rails: thin lines down the left and right edges of the content column.
-   .page-rails is fixed behind the content, so the About panel (z-1) slides over
+   They sit on the outer edge of Container. .page-rails is fixed behind the content, so the About panel (z-1) slides over
    and hides them; .rails draws the same pair on the sticky header, which sits above.
    Grey at 25% so they read on both the white and the dark sections. */
 .page-rails {
