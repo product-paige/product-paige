@@ -81,8 +81,8 @@ export default function Home() {
                 <img src={site.photo} alt={site.photoAlt} width={540} height={700} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
                 <figcaption className="absolute inset-x-0 bottom-0 z-1 bg-linear-to-t from-black/45 to-transparent p-7 pt-16 font-hand text-[24px] leading-tight text-white lg:text-[28px]">
                   <span className="inline-block -rotate-2">
-                  {/* Non-breaking space before each dot, so a wrapped line never starts with one. */}
-                  {site.name} · {site.role} · {site.location}
+                  {/* Non-breaking space before the dot, so a wrapped line never starts with one. */}
+                  {site.name} · {site.role}
                   </span>
                 </figcaption>
               </figure>
