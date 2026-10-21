@@ -1,6 +1,7 @@
 import {
   about, approach, audiences, contact, faq, hero, models, services, site, testimonials,
 } from "@/content";
+import { AboutEditorial, AboutFile, AboutPolaroid } from "@/components/AboutOptions";
 import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
 import { RecentProjects } from "@/components/RecentProjects";
@@ -93,6 +94,14 @@ export default function Home() {
 
         </div>
 
+        {/* About: three layouts to compare. Keep one, delete the others. */}
+        <AboutPolaroid />
+        <AboutFile />
+        <AboutEditorial />
+
+        {/* Recent projects */}
+        <RecentProjects className={`${section} lg:pt-0`} />
+
         {/* Audiences */}
         <section className={section}>
           <Container>
@@ -141,9 +150,6 @@ export default function Home() {
             </div>
           </Container>
         </section>
-
-        {/* Recent projects */}
-        <RecentProjects className={`${section} lg:pt-0`} />
 
         {/* Approach */}
         <section id="approach" className={section}>

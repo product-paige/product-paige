@@ -314,6 +314,42 @@
   background: var(--color-scrap) var(--grain);
 }
 
+/* About options (three layouts being compared; delete the unused ones) */
+
+/* Polaroid: a white print with a deep bottom margin, tilted, with tape across the top. */
+.polaroid {
+  position: relative;
+  padding: 12px 12px 20px;
+  background: #fff;
+  rotate: -2deg;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.06), 0 12px 28px rgb(26 26 26 / 0.12);
+  transition: rotate 500ms var(--ease-soft);
+  &:hover { rotate: 0deg; }
+}
+/* Tape: a translucent paper strip with torn ends. */
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  z-index: 2;
+  width: 120px;
+  height: 30px;
+  translate: -50% 0;
+  rotate: 3deg;
+  background: rgb(236 230 214 / 0.78);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+  clip-path: polygon(0 8%, 6% 0, 12% 10%, 20% 2%, 30% 8%, 42% 0, 55% 9%, 68% 1%, 80% 8%, 90% 0, 100% 10%, 97% 50%, 100% 92%, 90% 100%, 78% 90%, 64% 100%, 50% 92%, 36% 100%, 22% 91%, 10% 100%, 0 90%, 3% 50%);
+}
+/* Leader: a dotted rule filling the space between a label and its value. */
+.leader::after {
+  content: "";
+  order: 1;
+  flex: 1;
+  border-bottom: 1px dotted var(--color-line);
+  translate: 0 -4px;
+}
+.leader > dd { order: 2; }
+
 /* Native select with a thin chevron, so it looks the same in every browser */
 @utility select {
   appearance: none;

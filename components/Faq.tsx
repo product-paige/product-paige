@@ -3,20 +3,15 @@
 import { useId, useState } from "react";
 
 /**
- * Accordion that slides each answer open and closed. Several can be open at
- * once, like the native <details> it replaces; the first starts open.
+ * Accordion that slides each answer open and closed. One answer at a time: opening a
+ * question closes the one before it. The first starts open.
  */
 export function Faq({ items }: { items: { q: string; a: string }[] }) {
-  const [open, setOpen] = useState<Set<number>>(() => new Set([0]));
+  const [open, setOpen] = useState<number | null>(0);
   const id = useId();
 
   function toggle(i: number) {
-    setOpen((prev) => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
-      return next;
-    });
+    setOpen((prev) => (prev === i ? null : i));
   }
 
   return (
@@ -24,7 +19,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
     // takes the paper tint.
     <div className="border border-line">
       {items.map((f, i) => {
-        const isOpen = open.has(i);
+        const isOpen = open === i;
         const buttonId = `${id}-q${i}`;
         const panelId = `${id}-a${i}`;
         return (
