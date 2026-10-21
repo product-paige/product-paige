@@ -103,20 +103,20 @@ export const audiences = {
   items: [
     {
       tone: "bg-butter",
-      title: "Brands getting started",
+      title: "Starting from scratch",
       points: [
-        "You’re launching your first Shopify store",
-        "You need the brand, site and copy",
-        "There’s a launch date but no builder",
+        "You’ve got the product, just not the store",
+        "Your brand guidelines are three screenshots and a vibe",
+        "Launch day is booked. The website is not",
       ],
     },
     {
       tone: "bg-sky",
-      title: "Brands with an existing store",
+      title: "Already selling",
       points: [
-        "Traffic comes in but doesn’t convert",
-        "It still looks like the default theme",
-        "The brand has outgrown the site",
+        "Your traffic window-shops, then leaves",
+        "It still looks like the theme’s demo store",
+        "You’ve outgrown the site you built at 2am",
       ],
     },
   ],
