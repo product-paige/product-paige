@@ -10,7 +10,7 @@ export const section = "border-t border-grid py-8 lg:py-20";
 // Type scale. Serif: 72px hero headline, 56px full-width section headings, 38px headings in a
 // side column, 28px card and list titles, 20px facts and prices. Sans: 18px intros (.lede), 16px body, 14px small labels.
 export const sectionHeading = "serif text-[clamp(32px,4.1vw,56px)] leading-[1]";
-// Headings in a side column, beside their content (About, My process, the FAQ): a step down.
+// Headings in a side column beside longer content (About, the FAQ): a step down.
 export const sideHeading = "serif text-[clamp(28px,2.8vw,38px)] leading-[1.1] text-balance";
 export const cardTitle = "serif text-[clamp(22px,2vw,28px)] leading-[1.1]";
 // Titles in the open lists (How I can help rows, the process steps).

@@ -184,7 +184,7 @@ export default function Home() {
         <section id="approach" className={section}>
           <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <h2 className={sideHeading}><Rich text={approach.heading} /></h2>
+              <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
               <p className="lede mt-5 max-w-xl">{approach.body}</p>
             </Reveal>
             {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
