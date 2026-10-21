@@ -12,7 +12,7 @@ export const cardTitle = "serif text-[clamp(24px,2vw,29px)] leading-[1.07]";
 // Larger titles for the open lists (How I can help rows).
 export const listTitle = "serif text-[clamp(26px,2.9vw,39px)] leading-[1.07]";
 // Manrope medium: small card headings that sit with body text (blog cards).
-export const sansTitle = "font-sans text-[19px] font-medium leading-snug tracking-[-0.01em] lg:text-[21px]";
+export const sansTitle = "font-sans text-[17px] font-medium leading-snug tracking-[-0.01em] lg:text-[19px]";
 
 /** Renders "*word*" as <em>word</em>, and keeps hyphenated words like "fast-growing" on one line. */
 export function Rich({ text }: { text: string }) {
