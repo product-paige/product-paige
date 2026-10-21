@@ -50,11 +50,12 @@ export default function Home() {
             slides up over it, then both scroll away together. */}
         <div className="relative">
         {/* Hero: a dark block. Desktop: it fills the first screen under the 68px header, content
-            centred; the About panel peeks 64px at the bottom. Like About, the block is the Container
+            centred but nudged up (extra bottom padding) since the torn paper covers the bottom; the
+            About panel peeks 64px at the bottom. Like About, the block is the Container
             itself, so from md up it stays between the page rails. */}
         <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)]">
-          <Container className="bg-dark pt-10 pb-20 text-white lg:flex lg:flex-col lg:justify-center lg:py-16">
-            <h1 className="rise serif mb-6 max-w-6xl text-[clamp(40px,6.3vw,92px)] leading-[0.97]" style={delay(100)}>
+          <Container className="bg-dark pt-8 pb-20 text-white lg:flex lg:flex-col lg:justify-center lg:pt-16 lg:pb-40">
+            <h1 className="rise serif mb-6 max-w-6xl text-[clamp(38px,5.8vw,84px)] leading-[0.97]" style={delay(100)}>
               <Rich text={hero.heading} />
             </h1>
             <div className="rise" style={delay(200)}>
