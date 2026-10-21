@@ -317,15 +317,6 @@
   background: var(--color-scrap) var(--grain);
 }
 
-/* Drop cap: the first letter of a paragraph set large in the serif, three lines deep */
-.drop-cap::first-letter {
-  float: left;
-  margin: 0.06em 0.1em 0 0;
-  font-family: var(--font-serif);
-  font-size: 3.6em;
-  line-height: 0.8;
-}
-
 /* Graph grid: thin lines in 40px squares. Light on dark blocks (About); set --grid-line
    for light ones (the hero). Centred so the squares sit evenly. */
 .graph-grid {

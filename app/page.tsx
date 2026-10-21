@@ -31,7 +31,7 @@ export default function Home() {
 
         {/* About: a dark block with rounded top corners that slides up over the hero, laid out like a
             magazine page: a running head, the heading across the full width, then the Polaroid
-            beside the text, which opens with a drop cap. The block is the Container itself, so from
+            beside the text. The block is the Container itself, so from
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
           <Container className="graph-grid relative rounded-t-[28px] bg-dark pt-5 pb-8 text-white lg:rounded-t-[40px] lg:pt-8 lg:pb-20">
@@ -63,7 +63,7 @@ export default function Home() {
               </Reveal>
               <div className="lg:col-span-6 lg:col-start-7">
                 <div className="lede space-y-5">
-                  {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80} className={i === 0 ? "drop-cap" : ""}>{p}</Reveal>)}
+                  {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
                 </div>
                 {/* Stats line */}
                 <Reveal className="mt-10 grid border-t border-line-dark sm:grid-cols-3 lg:mt-14">
