@@ -6,10 +6,10 @@ export { Reveal };
 // Type scale: the hero headline sets its own size, then sectionHeading (72px max)
 // for every h2, then cardTitle (32px max) for every card and list title.
 export const sectionHeading = "serif text-[clamp(34px,4.5vw,64px)] leading-[1]";
-// Section headings that sit in a side column (My approach, Common questions): a step smaller.
+// Section headings that sit in a side column (My process, Common questions): a step smaller.
 export const sideHeading = "serif text-[clamp(34px,3.8vw,54px)] leading-[1]";
 export const cardTitle = "serif text-[clamp(24px,2vw,29px)] leading-[1.07]";
-// Larger titles for the open lists (Capabilities rows, approach timeline): 44px max.
+// Larger titles for the open lists (Capabilities rows).
 export const listTitle = "serif text-[clamp(26px,2.9vw,39px)] leading-[1.07]";
 // Manrope medium: small card headings that sit with body text (blog cards).
 export const sansTitle = "font-sans text-[19px] font-medium leading-snug tracking-[-0.01em] lg:text-[21px]";

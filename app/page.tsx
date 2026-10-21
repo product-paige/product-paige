@@ -168,7 +168,7 @@ export default function Home() {
               {approach.steps.map((p, i) => (
                 <Reveal as="li" key={p.title} delay={i * 120} className="group pl-12">
                   {/* Number and title share one line; the dot sits on the first line, out on the timeline. */}
-                  <h3 className={`${listTitle} relative flex items-baseline gap-4`}>
+                  <h3 className="serif relative flex items-baseline gap-4 text-[clamp(22px,2vw,28px)] leading-[1.1]">
                     <span
                       data-dot
                       aria-hidden

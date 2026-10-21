@@ -33,7 +33,7 @@ export const site = {
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Approach", href: "#approach" },
+  { label: "Process", href: "#approach" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -52,7 +52,7 @@ export const hero = {
 };
 
 export const approach = {
-  heading: "My approach",
+  heading: "My process",
   body:
     "A fixed price in writing before any work starts, then async work with as few calls as possible.",
   steps: [
