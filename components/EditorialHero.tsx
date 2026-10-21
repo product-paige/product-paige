@@ -56,7 +56,7 @@ export function EditorialHero() {
             {/* Intro under "for Shopify teams", in the blog card heading style */}
             <p className={`${sansTitle} max-w-xl lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start`}>{hero.lede}</p>
 
-            {/* Under the rule: the hero pills on the left, the sign-off on the right */}
+            {/* Under the rule: the hero pills on the left, the booking line on the right */}
             <div className="flex flex-col gap-5 border-t border-line pt-5 lg:col-span-12 lg:row-start-5 lg:mt-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
                 {hero.tags.map((t, i) => (
@@ -65,7 +65,7 @@ export function EditorialHero() {
               </div>
               <p className="flex shrink-0 items-center gap-3 text-[14px] font-medium tracking-[0.08em] uppercase">
                 <Asterisk className="size-5" />
-                {site.logo}
+                {site.availability}
               </p>
             </div>
           </div>
