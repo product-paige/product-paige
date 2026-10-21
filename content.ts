@@ -3,7 +3,7 @@
 // Headings carry no periods. (Optional: wrap a word in *asterisks* to italicise it.)
 //
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
-// availability line, photo, testimonials, the $1,500 tier.
+// availability line, photo, testimonials, the prices ($1,500, $4,000 and $8,500).
 
 import type { TagIconName } from "./components/TagIcon";
 
@@ -47,10 +47,10 @@ export const hero = {
     "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
   // Each pill has a line icon (see components/TagIcon.tsx for the names).
   tags: [
-    { label: "Ecommerce", icon: "bag" },
-    { label: "Shopify apps", icon: "apps" },
-    { label: "SaaS", icon: "window" },
-    { label: "AI tools", icon: "sparkle" },
+    { label: "Store launches", icon: "bag" },
+    { label: "Redesigns", icon: "window" },
+    { label: "Conversion", icon: "sparkle" },
+    { label: "Shopify themes", icon: "apps" },
   ] as { label: string; icon: TagIconName }[],
 };
 
@@ -137,6 +137,7 @@ export const models = {
   // Set pricePlaceholder to true to fade the prices.
   pricePlaceholder: false,
   currency: "USD",
+  // Smallest to biggest, left to right; each card has one starting price.
   items: [
     {
       tag: "Strategy",
@@ -144,24 +145,24 @@ export const models = {
       body: "Find out what’s wrong and what to fix first.",
       price: "$150",
       per: "/ call",
-      points: ["A focused hour, booked within days", "A written list of what to fix first", "Or a full-week review and plan"],
-    },
-    {
-      tag: "Websites",
-      title: "Store design and build",
-      body: "Your store designed, written and built, start to finish.",
-      price: "$1,500",
-      per: "/ project",
-      points: ["A refresh in your own theme", "Or a full build from scratch, from $8,500", "Design, copy, QA and launch"],
-      featured: true,
+      points: ["A focused hour, booked within days", "A written list of what to fix first", "Or a full review and plan, quoted up front"],
     },
     {
       tag: "Projects",
-      title: "One-time project",
-      body: "One focused piece of work, live before your deadline.",
-      price: "$4,000",
+      title: "One focused project",
+      body: "One part of your store, done properly and live before your deadline.",
+      price: "$1,500",
       per: "/ project",
-      points: ["A page, an email set or an AI-built tool", "Or a whole campaign", "Done in two to three weeks"],
+      points: ["A theme refresh, a landing page or an email set", "Or a whole campaign, from $4,000", "Done in two to three weeks"],
+    },
+    {
+      tag: "Websites",
+      title: "Full store build",
+      body: "Your store designed, written and built from scratch.",
+      price: "$8,500",
+      per: "/ project",
+      points: ["Strategy, design and copy", "Built in Shopify, tested and launched", "Handed over so your team can run it"],
+      featured: true,
     },
   ],
 };
