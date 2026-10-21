@@ -2,6 +2,7 @@ import {
   about, approach, audiences, contact, faq, hero, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
+import { EditorialHero } from "@/components/EditorialHero";
 import { Faq } from "@/components/Faq";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
@@ -52,6 +53,9 @@ export default function Home() {
             </div>
           </Container>
         </section>
+
+        {/* Alternative hero to compare: an editorial spread with image placeholders */}
+        <EditorialHero />
 
         {/* About */}
         {/* About: a dark block that slides up over the hero. The block is the Container itself, so from
