@@ -43,7 +43,7 @@ export default function Home() {
             </Reveal>
 
             <div className="mt-10 grid items-start gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-6">
-              {/* A taped Polaroid with a caption */}
+              {/* A taped Polaroid */}
               <Reveal className="mx-auto w-full max-w-[420px] lg:col-span-5 lg:mx-0">
                 <figure className="polaroid">
                   <i aria-hidden className="tape" />
@@ -51,8 +51,6 @@ export default function Home() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
                   </span>
-                  {/* Non-breaking space before the dot, so a wrapped line never starts with one. */}
-                  <figcaption className="mt-4 text-center text-[16px] leading-tight font-medium text-ink">{site.name}{"\u00a0"}· {site.role}</figcaption>
                 </figure>
               </Reveal>
               <div className="lg:col-span-6 lg:col-start-7">
