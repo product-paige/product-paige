@@ -1,5 +1,5 @@
 import {
-  about, approach, audiences, closing, contact, faq, hero, models, nav, proof, services, site, testimonials,
+  about, approach, audiences, closing, contact, faq, hero, models, nav, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
@@ -49,21 +49,6 @@ export default function Home() {
         {/* Desktop: hero fills the first screen under the 68px header, content centred; the About panel peeks 64px at the bottom. */}
         <section className="pt-10 pb-12 lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)] lg:flex-col lg:justify-center lg:py-16">
           <Container>
-            {/* Proof: a small line above the headline */}
-            <div className="rise mb-8 flex flex-wrap items-center gap-x-8 gap-y-3 lg:mb-10">
-              <p className="text-[15px] label text-muted">{proof.label}</p>
-              <ul className="flex flex-wrap items-center gap-x-8 gap-y-2">
-                {proof.names.map((n, i) =>
-                  n.placeholder ? (
-                    <li key={i} className="rounded-md border border-dashed border-muted/40 px-3 py-1 text-[13px] label text-muted">
-                      {n.name}
-                    </li>
-                  ) : (
-                    <li key={i} className="serif text-2xl text-muted/80">{n.name}</li>
-                  ),
-                )}
-              </ul>
-            </div>
             <h1 className="rise serif mb-6 max-w-6xl text-[clamp(44px,7vw,104px)] leading-[0.94]" style={delay(100)}>
               <Rich text={hero.heading} />
             </h1>

@@ -4,7 +4,7 @@
 // add "italic" back to the Newsreader styles in app/layout.tsx first.)
 //
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
-// availability line, photo, naming past clients, testimonials, the $1,500 tier.
+// availability line, photo, testimonials, the $1,500 tier.
 
 export const site = {
   name: "Paige Eaton",
@@ -48,18 +48,6 @@ export const hero = {
     { label: "AI + developer tools", dot: "#e8a23d" },
     { label: "Apparel", dot: "#2fa84f" },
   ],
-};
-
-// Past employers or notable clients, shown as plain text.
-export const proof = {
-  label: "Previously worked at",
-  names: [
-    { name: "Kiite" },
-    { name: "Enzuzo" },
-    { name: "Smile.io" },
-    { name: "Prosper" },
-    { name: "LAC Swim" },
-  ] as { name: string; placeholder?: boolean }[],
 };
 
 export const approach = {
