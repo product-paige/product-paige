@@ -315,12 +315,21 @@
   background: var(--color-scrap) var(--grain);
 }
 
-/* Polaroid: a white print with a deep bottom margin, tilted, with tape across the top. */
+/* Graph grid: thin light lines in 40px squares, for dark blocks (About). Centred so the
+   squares sit evenly. */
+.graph-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
+}
+
+/* Polaroid: a white print with a deep bottom margin and tape across the top. */
 .polaroid {
   position: relative;
   padding: 12px 12px 20px;
   background: #fff;
-  rotate: -2deg;
   box-shadow: 0 1px 0 rgb(0 0 0 / 0.06), 0 12px 28px rgb(26 26 26 / 0.12);
 }
 /* Tape: a strip of blue masking tape (public/tape.webp, from productpaige.com) across the top. */

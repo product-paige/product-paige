@@ -33,13 +33,13 @@ export default function Home() {
         {/* Hero: on the page background. Desktop: it fills the first screen under the 68px header, content
             centred; the About panel peeks 64px at the bottom. Like About, the block is the Container
             itself, so from md up it stays between the page rails. */}
-        <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)]">
+        <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_212px)]">
           <Container className="pt-8 pb-12 lg:flex lg:flex-col lg:justify-center lg:py-16">
             <h1 className="rise serif mb-6 max-w-4xl text-[clamp(34px,5vw,72px)] leading-[1] text-balance" style={delay(100)}>
               <Rich text={hero.heading} />
             </h1>
             <div className="rise" style={delay(200)}>
-              <p className="lede mb-10 max-w-2xl lg:mb-12 lg:max-w-3xl">{hero.lede}</p>
+              <p className="lede mb-10 max-w-3xl lg:mb-12 lg:max-w-[880px]">{hero.lede}</p>
               {/* Light pills, each with a line icon; a highlight travels along them (.pill-cycle). */}
               <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
                 {hero.tags.map((t, i) => (
@@ -54,7 +54,7 @@ export default function Home() {
         {/* About: a dark block that slides up over the hero. The block is the Container itself, so from
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
-          <Container className="relative bg-dark py-8 text-white lg:py-20">
+          <Container className="graph-grid relative bg-dark py-8 text-white lg:py-20">
           {/* A taped, tilted Polaroid with a handwritten caption, beside the text. */}
           <div className="grid items-center gap-12 lg:grid-cols-[5fr_7fr] lg:gap-20">
             <Reveal className="mx-auto w-full max-w-[420px] lg:mx-0">
