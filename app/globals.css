@@ -358,19 +358,13 @@
   background-repeat: no-repeat;
 }
 
-/* Availability dot */
-@keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-live) 45%, transparent); }
-  70%, 100% { box-shadow: 0 0 0 7px transparent; }
+/* The asterisk beside the booking line in the hero: the availability green, with a glow
+   that spreads and fades */
+@keyframes star-pulse {
+  0% { filter: drop-shadow(0 0 0 color-mix(in srgb, var(--color-live) 60%, transparent)); }
+  70%, 100% { filter: drop-shadow(0 0 7px transparent); }
 }
-.pulse-dot { animation: pulse-ring 2.4s infinite; }
-
-/* The asterisk beside the booking line in the hero: a slow on-off blink */
-@keyframes blink {
-  0%, 45%, 100% { opacity: 1; }
-  55%, 90% { opacity: 0.15; }
-}
-.blink { animation: blink 1.6s ease-in-out infinite; }
+.live-star { color: var(--color-live); animation: star-pulse 2.4s infinite; }
 
 /* Hero pills: dark, with a highlight that travels along them, warming each pill towards
    the accent in turn. 1.6s per pill, looping. */
@@ -395,6 +389,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .pulse-dot, .blink, .pill-cycle > * { animation: none; }
+  .live-star, .pill-cycle > * { animation: none; }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }

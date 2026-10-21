@@ -7,25 +7,9 @@ export function PageRails() {
   return <div aria-hidden className="page-rails"><i className="rails-inner" /></div>;
 }
 
-/** A slim dark bar above the header with the booking line. Scrolls away; the header stays.
- * The header button is the call to action, so the bar doesn't repeat it. */
-function AnnouncementBar() {
-  if (!site.availability) return null;
-  return (
-    <div className="rails on-dark relative bg-dark text-white">
-      <i aria-hidden className="rails-inner" />
-      <Container className="flex h-9 items-center justify-center gap-2 text-[14px]">
-        <i className="pulse-dot size-[7px] shrink-0 rounded-full bg-live" aria-hidden />
-        <span>{site.availability}</span>
-      </Container>
-    </div>
-  );
-}
-
 export function SiteHeader() {
   return (
     <>
-      <AnnouncementBar />
       <header className="rails sticky top-0 z-10 border-b border-grid bg-paper">
         <i aria-hidden className="rails-inner" />
         <Container tight className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] xl:grid-cols-[1fr_auto_1fr]">

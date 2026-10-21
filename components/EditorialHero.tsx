@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { hero, site } from "@/content";
+import { CartMockup, ProductPageMockup } from "./Mockups";
 import { TagIcon } from "./TagIcon";
 import { Chip, Container, sansTitle } from "./ui";
 
@@ -12,19 +13,10 @@ function Asterisk({ className = "" }: { className?: string }) {
   );
 }
 
-/** An image placeholder: a grey sheet with a small label, until real photos go in. */
-function Placeholder({ label, className = "" }: { label: string; className?: string }) {
-  return (
-    <div className={`photo-grain grid place-items-center bg-scrap text-muted ${className}`}>
-      <span className="font-sans text-[14px]">{label}</span>
-    </div>
-  );
-}
-
 /**
  * The hero, laid out like an editorial spread: the headline is broken across a
- * 12-column grid and wraps around image placeholders (an arched photo and a tall print down
- * the right edge). On desktop the type is sized to the width of the grid (8.6cqw), so each phrase fills its
+ * 12-column grid and wraps around two ecommerce mockups (an arched product page and a phone
+ * cart down the right edge). On desktop the type is sized to the width of the grid (8.6cqw), so each phrase fills its
  * columns at any screen size, and the images take their height from the lines of text beside
  * them (sized in em of the same type). Phones get the plain stack: arched photo, headline, intro.
  * On desktop it stays pinned under the header while the dark About panel slides up over it.
@@ -38,10 +30,10 @@ export function EditorialHero() {
       <Container className="paper-grain bg-paper py-10 lg:py-14">
         <div className="@container">
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
-            {/* Arched photo, exactly two lines of type tall, so the three lines keep an even 1em pitch, beside "Product, design / & build" */}
+            {/* Arched product page mockup, exactly two lines of type tall, so the three lines keep an even 1em pitch, beside "Product, design / & build" */}
             <div className={`relative lg:col-span-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 ${type}`}>
               <Asterisk className="absolute -top-4 -left-3 z-1 size-9 lg:-top-5 lg:-left-5 lg:size-11" />
-              <Placeholder label="Image" className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2em] lg:rounded-tl-[1.4em]" />
+              <ProductPageMockup className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2em] lg:rounded-tl-[1.4em]" />
             </div>
 
             <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] lg:contents lg:leading-none`}>
@@ -50,8 +42,8 @@ export function EditorialHero() {
               <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:self-start`}>{hero.heading[2]}</span>
             </h1>
 
-            {/* A tall print down the right edge, from "& build" to the bottom of the intro */}
-            <Placeholder label="Image" className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-3 lg:row-start-2 lg:mt-[0.12em] lg:grid lg:text-[8.6cqw]" />
+            {/* A phone cart mockup down the right edge, from "& build" to the bottom of the intro */}
+            <CartMockup className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-3 lg:row-start-2 lg:mt-[0.12em] lg:block" />
 
             {/* Intro under "for Shopify teams", in the blog card heading style */}
             <p className={`${sansTitle} max-w-xl lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start`}>{hero.lede}</p>
@@ -63,8 +55,8 @@ export function EditorialHero() {
                   <Chip key={t.label} icon={<TagIcon name={t.icon} />} style={{ "--i": i } as CSSProperties}>{t.label}</Chip>
                 ))}
               </div>
-              <p className="flex shrink-0 items-center gap-3 font-sans text-[16px] font-medium">
-                <Asterisk className="blink size-5" />
+              <p className="flex shrink-0 items-center gap-3 font-sans text-[17px] font-medium lg:text-[20px]">
+                <Asterisk className="live-star size-5" />
                 {site.availability}
               </p>
             </div>
