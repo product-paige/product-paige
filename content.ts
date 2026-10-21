@@ -3,7 +3,7 @@
 // Headings carry no periods. (Optional: wrap a word in *asterisks* to italicise it.)
 //
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
-// availability line, photo, testimonials, the prices ($1,500, $4,000 and $8,500).
+// availability line, photo, testimonials, the prices ($300, $1,500, $4,000 and $8,500).
 
 import type { TagIconName } from "./components/TagIcon";
 
@@ -143,9 +143,9 @@ export const models = {
       tag: "Strategy",
       title: "Advice and reviews",
       body: "Find out what’s wrong and what to fix first.",
-      price: "$150",
-      per: "/ call",
-      points: ["A focused hour, booked within days", "A written list of what to fix first", "Or a full review and plan, quoted up front"],
+      price: "$300",
+      per: "/ session",
+      points: ["Two focused hours, booked within days", "A written list of what to fix first", "Or a full review and plan, quoted up front"],
     },
     {
       tag: "Projects",
