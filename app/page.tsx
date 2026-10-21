@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <div aria-hidden className="page-rails"><i className="rails-inner" /></div>
-      <header className="rails sticky top-0 z-10 border-b border-grid bg-paper/85 backdrop-blur-md backdrop-saturate-150">
+      <header className="rails sticky top-0 z-10 border-b border-grid bg-white">
         <i aria-hidden className="rails-inner" />
         <Container tight className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
           <Nav items={nav} />
