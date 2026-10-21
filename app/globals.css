@@ -331,11 +331,12 @@
 }
 .pulse-dot { animation: pulse-ring 2.4s infinite; }
 
-/* Hero pills: one at a time, each pill's background warms to a pastel of its
-   dot colour, then hands over to the next. 1.6s per pill, looping. */
+/* Hero pills: one at a time, each pill's background warms to a tint of its dot colour
+   (mixed with --glow-base, white by default), then hands over to the next. 1.6s per pill,
+   looping. */
 @keyframes pill-glow {
   0%, 30%, 100% { background-color: var(--color-chip); }
-  8%, 20% { background-color: color-mix(in srgb, var(--tint) 40%, white); }
+  8%, 20% { background-color: color-mix(in srgb, var(--tint) 40%, var(--glow-base, white)); }
 }
 .pill-cycle > * {
   animation: pill-glow calc(var(--n) * 1.6s) ease-in-out calc(var(--i) * 1.6s + 1.2s) infinite;

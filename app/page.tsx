@@ -41,10 +41,10 @@ export default function Home() {
             <div className="rise" style={delay(200)}>
               <p className="lede mb-10 max-w-2xl lg:mb-12 lg:max-w-3xl lg:text-[20px]">{hero.lede}</p>
               {/* A soft highlight travels along the pills, tinting each with its own dot colour in turn.
-                  On the grey paper hero the pills are white rather than the usual translucent grey. */}
-              <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length, "--color-chip": "#fff" } as CSSProperties}>
+                  On the hero the pills are dark, and the highlight mixes into the dark too. */}
+              <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length, "--color-chip": "var(--color-ink)", "--glow-base": "var(--color-ink)" } as CSSProperties}>
                 {hero.tags.map((t, i) => (
-                  <Chip key={t.label} dot={t.dot} className="text-ink" style={{ "--i": i, "--tint": t.dot } as CSSProperties}>{t.label}</Chip>
+                  <Chip key={t.label} dot={t.dot} className="text-white" style={{ "--i": i, "--tint": t.dot } as CSSProperties}>{t.label}</Chip>
                 ))}
               </div>
             </div>
