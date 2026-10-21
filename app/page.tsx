@@ -213,6 +213,9 @@ export default function Home() {
                 </Reveal>
               ))}
             </div>
+            <Reveal className="mt-8 flex justify-center lg:mt-12">
+              <Button href={site.bookingUrl}>Book an intro call</Button>
+            </Reveal>
           </Container>
         </section>
 
@@ -221,8 +224,7 @@ export default function Home() {
           <Container className="grid gap-8 lg:grid-cols-2 lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <h2 className={sideHeading}><Rich text={faq.heading} /></h2>
-              <p className="lede mt-5 mb-7 max-w-lg">{faq.body}</p>
-              <Button href={site.bookingUrl}>Book an intro call</Button>
+              <p className="lede mt-5 max-w-lg">{faq.body}</p>
             </Reveal>
             <Reveal>
               <Faq items={faq.items} />
