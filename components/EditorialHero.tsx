@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { hero, site } from "@/content";
 import { TagIcon } from "./TagIcon";
-import { Chip, Container } from "./ui";
+import { Chip, Container, sansTitle } from "./ui";
 
 /** A bold six-armed asterisk, as on printed ephemera. */
 function Asterisk({ className = "" }: { className?: string }) {
@@ -27,13 +27,14 @@ function Placeholder({ label, className = "" }: { label: string; className?: str
  * the right edge). On desktop the type is sized to the width of the grid (8.6cqw), so each phrase fills its
  * columns at any screen size, and the images take their height from the lines of text beside
  * them (sized in em of the same type). Phones get the plain stack: arched photo, headline, intro.
+ * On desktop it stays pinned under the header while the dark About panel slides up over it.
  */
 export function EditorialHero() {
   // On desktop each phrase of the headline is its own grid item (the h1 is display: contents).
   const line = "block lg:whitespace-nowrap";
   const type = "lg:text-[8.6cqw]";
   return (
-    <section className="relative">
+    <section className="relative lg:sticky lg:top-[68px]">
       <Container className="paper-grain bg-paper py-10 lg:py-14">
         <div className="@container">
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
@@ -52,8 +53,8 @@ export function EditorialHero() {
             {/* A tall print down the right edge, from "& build" to the bottom of the intro */}
             <Placeholder label="Image" className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-3 lg:row-start-2 lg:mt-[0.12em] lg:grid lg:text-[8.6cqw]" />
 
-            {/* Intro under "for Shopify teams" */}
-            <p className="max-w-2xl text-[20px] leading-snug lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start lg:text-[22px]">{hero.lede}</p>
+            {/* Intro under "for Shopify teams", in the blog card heading style */}
+            <p className={`${sansTitle} max-w-xl lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start`}>{hero.lede}</p>
 
             {/* Under the rule: the hero pills on the left, the sign-off on the right */}
             <div className="flex flex-col gap-5 border-t border-line pt-5 lg:col-span-12 lg:row-start-5 lg:mt-8 lg:flex-row lg:items-center lg:justify-between">

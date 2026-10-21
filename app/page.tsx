@@ -24,11 +24,12 @@ export default function Home() {
       <SiteHeader />
 
       <main id="top">
-        {/* Hero and About share a wrapper */}
+        {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
+            slides up over it, then both scroll away together. */}
         <div className="relative">
         <EditorialHero />
 
-        {/* About: a dark block. The block is the Container itself, so from
+        {/* About: a dark block that slides up over the hero. The block is the Container itself, so from
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
           <Container className="graph-grid relative bg-dark py-8 text-white lg:py-20">
