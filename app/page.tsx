@@ -95,12 +95,12 @@ export default function Home() {
             <div className="grid gap-3 md:grid-cols-2">
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
-                  <div className={`${a.tone} loose-leaf folded flex h-full flex-col p-6 ${lift} lg:p-10`}>
+                  <div className={`${a.tone} flex h-full flex-col p-6 ${lift} lg:p-10`}>
                     <h3 className={`${cardTitle} mb-8 lg:mb-16`}>{a.title}</h3>
-                    {/* Rules run from the margin line to the card edge; the items keep their inset. */}
-                    <ul className="mt-auto -mr-6 -ml-4 divide-y divide-line border-y border-line md:-ml-5 lg:-mr-10">
+                    {/* Rules run edge to edge across the card; the items keep their inset. */}
+                    <ul className="mt-auto -mx-6 divide-y divide-line border-y border-line lg:-mx-10">
                       {a.points.map((p) => (
-                        <li key={p} className="flex items-start gap-3 py-3 pr-6 pl-4 md:pl-5 lg:py-4 lg:pr-10">
+                        <li key={p} className="flex items-start gap-3 px-6 py-3 lg:px-10 lg:py-4">
                           <Check className="mt-0.5 text-ink/55" />
                           {p}
                         </li>
@@ -176,7 +176,7 @@ export default function Home() {
                 <Reveal key={m.tag} delay={i * 120}>
                   {/* Hover lives on this inner layer so it doesn't fight the reveal's transition. */}
                   <div
-                    className={`folded flex h-full flex-col gap-5 border p-6 tilt lg:p-7 ${m.featured ? "border-dark bg-dark text-white [--fold-color:rgb(255_255_255/0.14)]" : "border-line bg-surface"}`}
+                    className={`flex h-full flex-col gap-5 border p-6 tilt lg:p-7 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
                   >
                     <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
                     <h3 className={cardTitle}>{m.title}</h3>
