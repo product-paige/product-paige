@@ -7,7 +7,7 @@
 // photo, past employers, About details, testimonials, the 50–250+ people range.
 
 export const site = {
-  name: "Stephanie Kessler",
+  name: "Paige Eaton",
   role: "Fractional HR Leader",
   location: "Ontario, Canada",
   url: "https://stephaniekessler.com",
