@@ -36,21 +36,19 @@ function Folder({ p, i }: { p: Project; i: number }) {
       <span className="folder-tab self-start font-mono text-[12px] uppercase tracking-[0.08em]">
         Project {String(i + 1).padStart(2, "0")}
       </span>
-      <div className="folder-body grid gap-6 p-5 lg:p-8">
-        <div className="flex flex-col">
-          <div className="flex items-center justify-between gap-3">
-            <h3 className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
-            <Chip className="shrink-0 bg-white/60">{p.role}</Chip>
-          </div>
-          <p className="mt-2 max-w-[42ch] text-ink/70">{p.excerpt}</p>
-          {/* The buttons' arrow tab; hovering anywhere on the folder fills it (see .folder in globals.css). */}
-          <span className="mt-auto pt-6">
-            <span className="btn" aria-hidden>
-              <span className="btn-tab h-10"><ArrowUpRight turn className="size-5" /></span>
-            </span>
+      <div className="folder-body grid gap-5 p-5 lg:p-6">
+        {/* Cover first, with the role pill and the buttons' arrow tab (turns on hover) over its top corners. */}
+        <div className="relative">
+          <Cover p={p} className="aspect-[4/3] w-full rounded-[3px] lg:aspect-[16/9]" />
+          <Chip className="absolute top-3 left-3 bg-white/85">{p.role}</Chip>
+          <span className="btn absolute top-3 right-3" aria-hidden>
+            <span className="btn-tab h-10"><ArrowUpRight turn className="size-5" /></span>
           </span>
         </div>
-        <Cover p={p} className="aspect-[4/3] w-full rounded-[3px] lg:aspect-[16/9]" />
+        <div>
+          <h3 className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
+          <p className="mt-2 max-w-[42ch] text-ink/70">{p.excerpt}</p>
+        </div>
       </div>
     </a>
   );
