@@ -52,7 +52,7 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
           >
             <i
               aria-hidden
-              className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left bg-accent transition-transform duration-500 ${isActive ? "scale-x-100" : "scale-x-0"}`}
+              className={`absolute inset-x-0 -bottom-0.5 h-px origin-left bg-accent transition-transform duration-500 ${isActive ? "scale-x-100" : "scale-x-0"}`}
             />
             {n.label}
           </a>
