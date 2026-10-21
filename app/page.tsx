@@ -55,14 +55,14 @@ export default function Home() {
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
           <Container className="graph-grid relative bg-dark py-8 text-white lg:py-20">
-          {/* A taped, tilted Polaroid with a handwritten caption, beside the text. */}
+          {/* A taped Polaroid with a handwritten caption, beside the text. */}
           <div className="grid items-center gap-12 lg:grid-cols-[5fr_7fr] lg:gap-20">
             <Reveal className="mx-auto w-full max-w-[420px] lg:mx-0">
               <figure className="polaroid">
                 <i aria-hidden className="tape" />
-                <span className="photo-grain block aspect-[4/5]">
+                <span className="photo-grain block aspect-square">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={site.photo} alt={site.photoAlt} width={540} height={675} loading="lazy" decoding="async" className="size-full object-cover" />
+                  <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
                 </span>
                 {/* Non-breaking space before the dot, so a wrapped line never starts with one. */}
                 <figcaption className="font-hand mt-4 text-center text-[24px] leading-tight text-ink lg:text-[26px]">{site.name}{"\u00a0"}· {site.role}</figcaption>
@@ -70,7 +70,7 @@ export default function Home() {
             </Reveal>
             <div>
               <Reveal>
-                <h2 className={`${sideHeading} mb-5`}><Rich text={about.heading} /></h2>
+                <h2 className="mb-5 font-sans text-[clamp(26px,2.6vw,36px)] leading-[1.15] font-medium tracking-[-0.02em] text-balance"><Rich text={about.heading} /></h2>
               </Reveal>
               <div className="lede space-y-5">
                 {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
@@ -80,7 +80,7 @@ export default function Home() {
                 {about.facts.map((f) => (
                   <div key={f.label} className="border-b border-line-dark py-5 pr-4">
                     <p className="mb-1 text-[14px] label text-white/60">{f.label}</p>
-                    <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
+                    <p className="text-[17px] leading-snug font-medium lg:text-[18px]">{f.value}</p>
                   </div>
                 ))}
               </Reveal>
