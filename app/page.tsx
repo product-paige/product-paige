@@ -73,7 +73,7 @@ export default function Home() {
             </Reveal>
             <div>
               <Reveal>
-                <h2 className={`${sectionHeading} mb-8 text-balance`}><Rich text={about.heading} /></h2>
+                <h2 className="serif mb-8 text-[clamp(28px,2.8vw,38px)] leading-[1.1] text-balance"><Rich text={about.heading} /></h2>
               </Reveal>
               <div className="lede space-y-5">
                 {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
