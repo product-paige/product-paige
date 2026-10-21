@@ -34,7 +34,7 @@ export default function Home() {
             beside the text. The block is the Container itself, so from
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
-          <Container className="folded-top relative rounded-t-[28px] bg-dark py-8 text-white lg:rounded-t-[40px] lg:py-20">
+          <Container className="folded-top relative rounded-tl-[6px] bg-dark py-8 text-white lg:py-20">
             <Reveal>
               <h2 className="serif text-[clamp(36px,5vw,72px)] leading-[1]"><Rich text={about.heading} /></h2>
             </Reveal>
