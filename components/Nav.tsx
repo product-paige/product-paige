@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 /**
- * Top menu. A small accent dot marks the section currently
- * in the middle of the screen. It hangs just left of the label, so labels never shift.
+ * Top menu. An accent underline sweeps in under the item whose section is currently
+ * in the middle of the screen. It sits below the label, so labels never shift.
  */
 export function Nav({ items }: { items: { label: string; href: string }[] }) {
   const [active, setActive] = useState<string | null>(null);
@@ -52,7 +52,7 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
           >
             <i
               aria-hidden
-              className={`absolute top-1/2 -left-3.5 -mt-1 size-2 rounded-full bg-accent transition duration-500 ${isActive ? "scale-100 opacity-100" : "scale-50 opacity-0"}`}
+              className={`absolute inset-x-0 -bottom-1 h-px origin-left bg-accent transition-transform duration-500 ${isActive ? "scale-x-100" : "scale-x-0"}`}
             />
             {n.label}
           </a>

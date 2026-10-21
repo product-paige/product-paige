@@ -30,7 +30,7 @@ export const site = {
     "Paige Eaton is a product marketer and designer in Kitchener, Ontario. Strategy, design and the build itself for Shopify and ecommerce teams.",
 };
 
-// A dot (the accent colour) marks the menu item whose section is on screen.
+// An accent underline marks the menu item whose section is on screen.
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
