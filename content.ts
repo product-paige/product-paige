@@ -1,7 +1,6 @@
 // All copy for the page lives here. To reuse this site as a base for someone else,
 // replace this file and the photo; the components read everything from it.
-// Headings carry no periods. (Optional: wrap a word in *asterisks* to italicise it;
-// add "italic" back to the Newsreader styles in app/layout.tsx first.)
+// Headings carry no periods. (Optional: wrap a word in *asterisks* to italicise it.)
 //
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
 // availability line, photo, testimonials, the $1,500 tier.

@@ -2,7 +2,7 @@
 
 /* Base theme. Swap these tokens to restyle the whole site. */
 @theme {
-  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-serif: var(--font-tiempos), Georgia, serif;
   --font-sans: var(--font-manrope), system-ui, sans-serif;
 
   /* White */
@@ -54,7 +54,7 @@
 /* Display type: the serif used for every heading */
 @utility serif {
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: var(--tracking-display);
   & em { font-style: italic; letter-spacing: -0.04em; }
 }

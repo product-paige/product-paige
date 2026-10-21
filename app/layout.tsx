@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Newsreader, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import { site } from "@/content";
 import "./globals.css";
 
-const serif = Newsreader({
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["normal"],
-  variable: "--font-newsreader",
+// Tiempos Text (Klim), licensed by Paige.
+const serif = localFont({
+  src: [
+    { path: "./fonts/TiemposText-Regular.otf", weight: "400", style: "normal" },
+    { path: "./fonts/TiemposText-RegularItalic.otf", weight: "400", style: "italic" },
+  ],
+  variable: "--font-tiempos",
 });
 
 const sans = Manrope({
