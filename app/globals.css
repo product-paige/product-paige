@@ -324,19 +324,19 @@
   transition: rotate 500ms var(--ease-soft);
   &:hover { rotate: 0deg; }
 }
-/* Tape: a translucent paper strip with torn ends. */
+/* Tape: a strip of blue masking tape (public/tape.webp, from productpaige.com) across the top. */
 .tape {
   position: absolute;
-  top: -14px;
+  top: -22px;
   left: 50%;
   z-index: 2;
-  width: 120px;
-  height: 30px;
+  width: 150px;
+  aspect-ratio: 560 / 192;
   translate: -50% 0;
-  rotate: 3deg;
-  background: rgb(236 230 214 / 0.78);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
-  clip-path: polygon(0 8%, 6% 0, 12% 10%, 20% 2%, 30% 8%, 42% 0, 55% 9%, 68% 1%, 80% 8%, 90% 0, 100% 10%, 97% 50%, 100% 92%, 90% 100%, 78% 90%, 64% 100%, 50% 92%, 36% 100%, 22% 91%, 10% 100%, 0 90%, 3% 50%);
+  rotate: -4deg;
+  background: url("/tape.webp") center / contain no-repeat;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.12));
+  pointer-events: none;
 }
 /* Native select with a thin chevron, so it looks the same in every browser */
 @utility select {
