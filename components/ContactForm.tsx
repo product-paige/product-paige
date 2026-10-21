@@ -17,7 +17,7 @@ const label = "mb-2 block text-sm label text-white/60";
 export function ContactForm({
   endpoint,
   email,
-  teamSizes,
+  deadlines,
   interests,
   messageLabel,
   messagePlaceholder,
@@ -25,7 +25,7 @@ export function ContactForm({
 }: {
   endpoint: string;
   email: string;
-  teamSizes: string[];
+  deadlines: string[];
   interests: string[];
   messageLabel: string;
   messagePlaceholder: string;
@@ -43,12 +43,13 @@ export function ContactForm({
       const body = [
         get("message"),
         "",
-        `${get("name")}${get("company") ? `, ${get("company")}` : ""}`,
-        get("size") ? `Team size: ${get("size")}` : "",
+        get("name"),
+        get("website") ? `Website: ${get("website")}` : "",
+        get("deadline") ? `Deadline: ${get("deadline")}` : "",
         get("interest") ? `Interested in: ${get("interest")}` : "",
         get("email"),
       ].filter((line, i) => i < 2 || line).join("\n");
-      const subject = `Intro from ${get("name")}${get("company") ? ` (${get("company")})` : ""}`;
+      const subject = `Intro from ${get("name")}${get("website") ? ` (${get("website")})` : ""}`;
       window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       return;
     }
@@ -83,14 +84,14 @@ export function ContactForm({
         <input id="cf-email" name="email" type="email" required autoComplete="email" className={field} />
       </div>
       <div>
-        <label htmlFor="cf-company" className={label}>Company</label>
-        <input id="cf-company" name="company" autoComplete="organization" className={field} />
+        <label htmlFor="cf-website" className={label}>Website</label>
+        <input id="cf-website" name="website" type="url" inputMode="url" placeholder="https://" autoComplete="url" className={field} />
       </div>
       <div>
-        <label htmlFor="cf-size" className={label}>Team size</label>
-        <select id="cf-size" name="size" defaultValue="" className={`${field} select`}>
+        <label htmlFor="cf-deadline" className={label}>Deadline</label>
+        <select id="cf-deadline" name="deadline" defaultValue="" className={`${field} select`}>
           <option value="">Choose one</option>
-          {teamSizes.map((s) => <option key={s}>{s}</option>)}
+          {deadlines.map((s) => <option key={s}>{s}</option>)}
         </select>
       </div>
       <div className="sm:col-span-2">

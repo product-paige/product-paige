@@ -31,10 +31,12 @@ export default function Home() {
             {site.name.split(" ")[0]}<br />{site.name.split(" ").slice(1).join(" ")}
           </a>
           <div className="flex items-center justify-end gap-5">
-            <span className="hidden items-center gap-2 text-[13px] text-muted xl:inline-flex">
-              <i className="pulse-dot size-[9px] rounded-full bg-live" aria-hidden />
-              {site.availability}
-            </span>
+            {site.availability && (
+              <span className="hidden items-center gap-2 text-[13px] text-muted xl:inline-flex">
+                <i className="pulse-dot size-[9px] rounded-full bg-live" aria-hidden />
+                {site.availability}
+              </span>
+            )}
             <Button href={site.bookingUrl} size="sm">Book an intro call</Button>
           </div>
         </Container>
@@ -232,7 +234,8 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* Testimonials */}
+        {/* Testimonials: hidden until there are real quotes */}
+        {testimonials.items.length > 0 && (
         <section className={section}>
           <Container>
             <SectionHead heading={testimonials.heading} />
@@ -253,6 +256,7 @@ export default function Home() {
             </div>
           </Container>
         </section>
+        )}
 
         {/* Contact and footer share one dark block. */}
         <section id="contact" className={`bg-dark pt-16 text-white lg:pt-40 ${section}`}>
@@ -268,7 +272,7 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={120}>
-              <ContactForm endpoint={site.formEndpoint} email={site.email} teamSizes={contact.teamSizes} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />
+              <ContactForm endpoint={site.formEndpoint} email={site.email} deadlines={contact.deadlines} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />
             </Reveal>
           </Container>
         </section>
@@ -276,10 +280,12 @@ export default function Home() {
 
       <footer className="bg-dark text-white">
         <Container className="flex flex-col items-start gap-4 border-t border-white/10 py-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-          <a href={site.linkedin} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 px-4 py-2 text-sm label transition hover:bg-white/10">
-            LinkedIn
-            <ArrowUpRight className="size-3.5" />
-          </a>
+          {site.linkedin && (
+            <a href={site.linkedin} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 px-4 py-2 text-sm label transition hover:bg-white/10">
+              LinkedIn
+              <ArrowUpRight className="size-3.5" />
+            </a>
+          )}
           <span className="text-[13px] text-white/60">{closing.footer}</span>
           <span className="text-[13px] text-white/60">© {new Date().getFullYear()} {site.name}</span>
         </Container>

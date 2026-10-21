@@ -3,27 +3,29 @@
 // Headings carry no periods. (Optional: wrap a word in *asterisks* to italicise it;
 // add "italic" back to the Newsreader styles in app/layout.tsx first.)
 //
-// To confirm with Stephanie: booking link, email, form endpoint, availability,
-// photo, past employers, About details, testimonials, the 50–250+ people range.
+// To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
+// availability line, photo, naming past clients, testimonials, the $1,500 tier.
 
 export const site = {
   name: "Paige Eaton",
-  role: "Fractional HR Leader",
-  location: "Ontario, Canada",
-  url: "https://stephaniekessler.com",
+  role: "Product marketer & designer",
+  location: "Kitchener, Ontario",
+  url: "https://productpaige.com",
   // Keeps search engines from listing the site. Set to false at launch.
   hideFromSearch: true,
   bookingUrl: "#contact",
-  email: "hello@example.com",
+  email: "hello@productpaige.com",
   // Form service URL (e.g. Formspree). Until it's set, the form opens the
   // visitor's email app with their message filled in.
   formEndpoint: "",
-  linkedin: "https://www.linkedin.com/in/stephaniekessler/",
-  // Headshot in public/. For a new site, start from /photo-placeholder.svg.
-  photo: "/stephanie.jpg",
-  availability: "Accepting new clients Q1 ’27",
+  // Leave empty to hide the LinkedIn link in the footer.
+  linkedin: "",
+  // Headshot in public/. Swap the placeholder for a real photo.
+  photo: "/photo-placeholder.svg",
+  // Shown beside the header button. Leave empty to hide it.
+  availability: "",
   metaDescription:
-    "Stephanie Kessler is a fractional HR leader in Ontario, giving teams of 50 to 250+ people experienced HR support, part time.",
+    "Paige Eaton is a product marketer and designer in Kitchener, Ontario. Strategy, design and the build itself for Shopify and ecommerce teams.",
 };
 
 // Each menu item's dot colour shows while its section is on screen (same colours as the hero pills).
@@ -35,55 +37,56 @@ export const nav = [
 ];
 
 export const hero = {
-  heading: "Senior HR support for fast-growing teams",
+  heading: "Product, design and build support for Shopify teams",
   lede:
-    "I’m a senior HR leader based in Ontario. I give teams of 50 to 250+ people experienced HR support, part time, so you don’t need to hire someone full time.",
+    "A one-person studio launching and fixing Shopify stores. Strategy, design and the build itself, from one person instead of three handoffs.",
   tags: [
-    { label: "Startups", dot: "#2f6bff" },
-    { label: "Scale-ups", dot: "#e8553d" },
-    { label: "Tech & hardware", dot: "#b04de0" },
-    { label: "Product & Engineering", dot: "#3cc0d6" },
-    { label: "HR systems", dot: "#e8a23d" },
-    { label: "Acquisitions", dot: "#2fa84f" },
+    { label: "Ecommerce + DTC", dot: "#2f6bff" },
+    { label: "Shopify apps + ecosystem", dot: "#e8553d" },
+    { label: "Product-led SaaS", dot: "#b04de0" },
+    { label: "Loyalty + retention", dot: "#3cc0d6" },
+    { label: "AI + developer tools", dot: "#e8a23d" },
+    { label: "Apparel", dot: "#2fa84f" },
   ],
 };
 
-// Past employers or notable clients (three reads best). Replace the placeholder
-// slots with real names as Stephanie confirms them.
+// Past employers or notable clients, shown as plain text.
 export const proof = {
   label: "Previously worked at",
   names: [
-    { name: "ecobee" },
-    { name: "Generac" },
-    { name: "Past employer", placeholder: true },
-  ],
+    { name: "Kiite" },
+    { name: "Enzuzo" },
+    { name: "Smile.io" },
+    { name: "Prosper" },
+    { name: "LAC Swim" },
+  ] as { name: string; placeholder?: boolean }[],
 };
 
-// How Stephanie works. A sensible default: confirm the steps with her.
 export const approach = {
   heading: "My approach",
   body:
-    "When HR has been someone’s side job for a while, it’s hard to know where to start. Here’s how I keep it simple.",
+    "A fixed price in writing before any work starts, then async work with as few calls as possible.",
   steps: [
-    { dot: "#a9c3d9", title: "Get to know your team", body: "In the first couple of weeks I meet your leaders, look at what’s already in place and find the gaps." },
-    { dot: "#dcc87e", title: "Set the priorities", body: "We pick the few things that will make the biggest difference this quarter, and put them in order." },
-    { dot: "#dfae95", title: "Bring the plan to life", body: "I roll things out with your team and keep things moving async between weekly check-ins." },
+    { dot: "#a9c3d9", title: "You send it over", body: "A link to your site, a screenshot of the thing that’s bothering you. Whatever you have is enough to start." },
+    { dot: "#dcc87e", title: "I come back with a price", body: "A fixed price, what’s included and how long it takes, in writing. One short call only if the scope needs one." },
+    { dot: "#dfae95", title: "The work", body: "Async by default, plus one live session. Calls only when they’d be faster than writing." },
+    { dot: "#c3b3dd", title: "Handover", body: "Whatever the work produced, from design files and copy to code and your theme, handed over so you can keep going without me." },
   ],
 };
 
 export const about = {
-  heading: "Hi, I’m Stephanie",
+  heading: "Hi, I’m Paige",
   paragraphs: [
-    "I’m an HR leader based in Ontario, Canada. I spent more than five years in People Operations at ecobee, the smart-home company, through years of growth, hiring and change, including its acquisition by Generac.",
-    "There I worked closely with Product & Engineering leaders on team structure, performance and hiring, helped lead the year-long move of ecobee and Generac onto Workday, and ran workshops for engineering leaders. Now I work as a fractional HR leader with a few companies at a time, so each one gets my full attention and a plan that fits how their team works.",
+    "A decade and more in Shopify and ecommerce, across funded startups and bootstrapped teams. I’ve been the first marketing hire twice, and I’ve run two ecommerce brands of my own, one with a cofounder, handling everything from sourcing a manufacturer to go-to-market.",
+    "Now I do strategy, design and the build itself: Shopify themes and modern site builders, with Claude Code and MCP wired into Figma and Shopify, so design, copy and working code happen in one pass instead of three handoffs. I’m not a developer, and I’ll say so before you pay me anything.",
   ],
   facts: [
-    { label: "Based in", value: "Ontario, Canada" },
-    { label: "Recent", value: "ecobee · Generac" },
-    { label: "Time", value: "1–3 days a week" },
-    { label: "Works", value: "Remote" },
-    { label: "Team size", value: "50–250+ people" },
-    { label: "HR systems", value: "Workday" },
+    { label: "Based in", value: "Kitchener, Ontario" },
+    { label: "Recent", value: "Kiite · Enzuzo · Smile.io" },
+    { label: "Experience", value: "A decade and more" },
+    { label: "Works", value: "Remote, async by default" },
+    { label: "Platform", value: "Shopify and ecommerce" },
+    { label: "First marketing hire", value: "Twice" },
   ],
 };
 
@@ -91,24 +94,24 @@ export const services = {
   heading: "Capabilities",
   items: [
     {
-      title: "HR strategy & policies",
-      tags: ["Org design", "Workforce plan", "Handbook"],
-      body: "Getting the basics right: org design, a workforce plan for the year ahead, and a handbook your team can rely on.",
+      title: "Web and product design",
+      tags: ["Shopify themes", "Typography and color", "Product data"],
+      body: "A Shopify storefront or marketing site. A refresh of what you already have, or the whole thing designed and built from scratch: hero, homepage and product page, built in your own theme.",
     },
     {
-      title: "HRIS selection & rollout",
-      tags: ["Workday", "HRIS", "Integration"],
-      body: "I’ll help you choose an HR system, set it up and get people using it. I’ve done this on Workday across two merged companies.",
+      title: "UX and conversion",
+      tags: ["UX review", "Conversion", "Scoped plan"],
+      body: "What’s wrong, and what to fix first. A positioning and UX review with a written, ranked list, and I’ll tell you if you don’t need me.",
     },
     {
-      title: "Leadership & manager support",
-      tags: ["Product & Engineering", "Coaching", "Workshops"],
-      body: "Coaching and workshops for your leaders and new managers, plus support with reorgs, performance reviews and tough conversations.",
+      title: "Positioning and messaging",
+      tags: ["Positioning", "Copywriting", "Product strategy"],
+      body: "Naming, positioning and the copy across the whole thing, so the product makes sense to someone outside the building.",
     },
     {
-      title: "Hiring plans & onboarding",
-      tags: ["Hiring plans", "Process", "Onboarding"],
-      body: "A hiring plan that fits your budget, a process your managers will follow, and a smooth first 90 days for every new hire.",
+      title: "AI content design",
+      tags: ["Landing pages", "Email design", "Campaign copy"],
+      body: "Landing pages, email design, content, or a whole campaign. Scoped, built, shipped and handed over, live before the date you need it.",
     },
   ],
 };
@@ -118,20 +121,20 @@ export const audiences = {
   items: [
     {
       tone: "bg-sky",
-      title: "A founder-led company",
+      title: "You already have a store",
       points: [
-        "You have 50 to 250+ people and no one dedicated to HR",
-        "A founder or ops lead is looking after HR on the side",
-        "You’re about to hire fast and need the basics first",
+        "Traffic that doesn’t convert",
+        "It still looks like the theme it came from",
+        "The brand has outgrown the site",
       ],
     },
     {
       tone: "bg-butter",
-      title: "A company in transition",
+      title: "Nobody owns this yet",
       points: [
-        "An acquisition, a new HR system or new leaders",
-        "You’d like experienced HR support while it settles",
-        "You want someone who has been through it before",
+        "Something’s wrong and you can’t name it",
+        "You’re getting conflicting advice",
+        "A launch date that isn’t moving, and nobody to build it",
       ],
     },
   ],
@@ -140,89 +143,87 @@ export const audiences = {
 
 export const models = {
   heading: "Ways to work together",
-  // SAMPLE PRICES for the preview only, not Stephanie's real rates.
-  // Replace before launch. Set pricePlaceholder to true to fade them.
+  // Set pricePlaceholder to true to fade the prices.
   pricePlaceholder: false,
   currency: "USD",
   items: [
     {
-      tag: "Advisory",
-      title: "A sounding board",
-      body: "A few hours a week of senior advice for founders who already have someone handling HR.",
-      price: "$1,500",
-      per: "/ month",
-      points: ["A few hours a week", "Advice on tricky people decisions", "Reviews of plans and policies"],
+      tag: "Strategy",
+      title: "What’s wrong, and what to fix first",
+      body: "A focused call or a full review, ending in a written list of what to fix first.",
+      price: "$150",
+      per: "/ call",
+      points: ["One focused hour, booked within a few days", "A written list, ranked by what to fix first", "Or a full week’s review: positioning, UX and a scoped plan"],
     },
     {
-      tag: "Embedded",
-      title: "Your part-time HR leader",
-      body: "I join your leadership team and run HR for you, from planning to the day-to-day work.",
-      price: "$4,500",
-      per: "/ month",
-      points: ["One to three days a week", "I own the HR plan", "Hands-on help"],
+      tag: "Websites",
+      title: "Design, copy and build",
+      body: "Your storefront designed, written and built, in your own theme or from scratch.",
+      price: "$1,500",
+      per: "/ project",
+      points: ["One to two weeks: hero, homepage and product page, in your own theme", "Or built from scratch: positioning, naming, copy, product data", "QA, launch and files, from $8,500"],
       featured: true,
     },
     {
-      tag: "Project",
-      title: "One focused project",
-      body: "One focused piece of work with a clear scope and end date, delivered start to finish.",
-      price: "$5,000",
+      tag: "Sprints",
+      title: "Live before your deadline",
+      body: "One focused piece of work with a fixed scope, shipped before the date you need it.",
+      price: "$4,000",
       per: "/ project",
-      points: ["HRIS selection & rollout", "Post-acquisition integration", "Hiring plan or manager training"],
+      points: ["Two to three weeks: a page, an email set or an AI-coded tool", "Or a whole campaign: landing page and email sequence", "Clean files, nothing to unpick"],
     },
   ],
 };
 
-// Placeholders: replace with real quotes before launch.
+// The section is hidden while this list is empty. Add real quotes with names and companies.
 export const testimonials = {
   heading: "From people I’ve worked with",
-  items: [
-    { quote: "Testimonial from an engineering or product leader you partnered with.", name: "Name", title: "Title, Company" },
-    { quote: "Testimonial from a founder, CEO or COO about the impact on the business.", name: "Name", title: "Title, Company" },
-    { quote: "Testimonial from someone on your HR team about how you lead.", name: "Name", title: "Title, Company" },
-  ],
-  placeholder: true,
+  items: [] as { quote: string; name: string; title: string }[],
 };
 
 export const faq = {
   heading: "Common questions",
-  body: "Have a question that isn’t here? Ask me on an intro call.",
+  body: "Have a question that isn’t here? Send it over and I’ll answer by email.",
   items: [
     {
-      q: "What does a fractional HR leader do?",
-      a: "Everything a full-time HR leader would do, for fewer days a week. That means planning with the founders, and also the detailed work, like writing policies and offer letters.",
+      q: "Do you work with teams that already have a designer?",
+      a: "Yes. Often the gap isn’t design capacity, it’s the positioning and structure underneath it. I’m happy to hand off clean files and rationale to whoever is building.",
     },
     {
-      q: "When should we bring one in?",
-      a: "Usually when you have 50 to 250+ people and HR is still someone’s side job. It’s also a good time before a hiring push, during an acquisition, or when you’re rolling out a new HR system.",
+      q: "Do you write custom code?",
+      a: "Shopify themes, modern site builders and AI-assisted builds, yes. That’s most of what I do, and it’s why one person can cover design, copy and the build. Custom application engineering, no. If you need a backend built from scratch, you want a developer, and I’m happy to say so before you’ve paid me anything.",
     },
     {
-      q: "How much time do you spend with us?",
-      a: "Most clients have me one to three days a week. We’ll agree on a schedule at the start and keep a short weekly check-in with one person on your side. In between, I’m reachable async in your chat and shared docs.",
+      q: "Do you work with non-Shopify teams?",
+      a: "Yes. Shopify is where most of the ecommerce work lands, but marketing sites, product UX and content projects aren’t platform-specific.",
     },
     {
-      q: "Do you work with teams outside Ontario?",
-      a: "Yes. I work remotely with teams across Canada and the US.",
+      q: "What happens if the scope changes halfway through?",
+      a: "We rewrite it. The scope is a document we both keep, so a change is a conversation and a new line, not a surprise invoice at the end.",
     },
     {
-      q: "What happens when we’re ready for a full-time HR hire?",
-      a: "Then I’ll help you find the right person. I can write the job description, help run the search and hand over everything I’ve set up.",
+      q: "Can I hire you part-time instead of per project?",
+      a: "Yes. I take part-time and full-time contract work alongside project work. Email me and say roughly what you need and for how long.",
+    },
+    {
+      q: "What do you need from us?",
+      a: "Access to what already exists, one person who can make decisions, and a rough idea of what success looks like. I’ll do the digging from there.",
     },
   ],
 };
 
 export const closing = {
-  footer: "Based in Ontario, working with teams across Canada and the US",
+  footer: "Based in Kitchener, Ontario, working remotely",
 };
 
 export const contact = {
-  heading: "Let’s talk about your team",
-  body: "Tell me where your team is and what’s on your plate. I’ll reply by email, and if it sounds like a fit, we’ll set up a short intro call.",
+  heading: "Let’s talk about your store",
+  body: "Tell me where your store is and what’s on your plate. I’ll reply by email, and if it sounds like a fit, we’ll set up a short intro call.",
   emailNote: "Prefer email?",
   messageLabel: "What would you like help with?",
-  messagePlaceholder: "A few lines is plenty, e.g. we’re about to hire 15 people and don’t have an HR process yet.",
-  teamSizes: ["Under 50", "50–100", "100–250", "250+"],
-  // The engagement types from "Ways to work together", plus a catch-all.
-  interests: ["Advisory", "Embedded (part-time HR leader)", "A defined project", "Not sure yet"],
+  messagePlaceholder: "A few lines is plenty, e.g. our product pages get traffic but hardly anyone adds to cart.",
+  deadlines: ["No fixed date", "Within a month", "1–3 months", "It’s urgent"],
+  // The offers from "Ways to work together", in more detail, plus a catch-all.
+  interests: ["Ask Paige", "Get a full review", "Store refresh", "New build", "Ship a one-off", "Launch a campaign", "Not sure yet"],
   success: "Thanks, your message is on its way. I’ll reply by email soon, usually to suggest a time for a short intro call.",
 };
