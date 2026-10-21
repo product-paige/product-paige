@@ -5,6 +5,7 @@
   --font-serif: var(--font-tiempos), Georgia, serif;
   --font-sans: var(--font-manrope), system-ui, sans-serif;
   --font-mono: var(--font-azeret), ui-monospace, monospace;
+  --font-hand: var(--font-caveat), cursive;
 
   /* White */
   --color-paper: #ffffff;   /* page background */

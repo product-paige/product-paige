@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Azeret_Mono, Manrope } from "next/font/google";
+import { Azeret_Mono, Caveat, Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { site } from "@/content";
@@ -20,6 +20,12 @@ const mono = Azeret_Mono({
   variable: "--font-azeret",
 });
 
+// Handwriting, for the note on the About photo.
+const hand = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+});
+
 const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
@@ -37,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable} ${hand.variable}`} suppressHydrationWarning>
       <body>
         {/* Set before hydration so scroll-reveal content doesn't flash. Without JS, nothing is hidden. */}
         <Script id="reveal-ready" strategy="beforeInteractive">
