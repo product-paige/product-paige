@@ -112,26 +112,10 @@
   }
   .btn-text { padding: 12px 16px; }
   .btn-tab {
-    position: relative;
-    overflow: hidden;
     width: 40px;
     justify-content: center;
-    transition: transform 150ms ease, box-shadow 150ms ease, color 300ms var(--ease-soft);
   }
-  /* Hover: the accent wipes across the tab from the seam outwards, and the arrow
-     (see ArrowUpRight's `turn`) swings round to point right. */
-  .btn-tab::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--color-accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 300ms var(--ease-soft);
-  }
-  .btn-tab svg { position: relative; }
-  .btn:hover .btn-tab, .btn:focus-visible .btn-tab { color: #fff; }
-  .btn:hover .btn-tab::before, .btn:focus-visible .btn-tab::before { transform: scaleX(1); }
+  /* Hover: the arrow (see ArrowUpRight's `turn`) swings round to point right. */
   /* Press: the tab closes the seam against the label and both pieces sit flat. */
   .btn:active .btn-text,
   .btn:active .btn-tab { box-shadow: inset 0 1px 0 rgb(0 0 0 / 0.18); }
@@ -173,7 +157,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn-text, .btn-tab, .btn-tab::before, .link, .scrap { transition: none; }
+  .btn-text, .btn-tab, .link, .scrap { transition: none; }
 }
 
 /* Page grid, from md up. Outer rails sit on Container's outer edge with hatched
@@ -215,22 +199,6 @@
     right: calc(var(--rail) + var(--pad));
     border-inline: 1px solid var(--color-grid);
     pointer-events: none;
-  }
-}
-
-/* Section line: a full-width rule halfway through the gap above a section
-   (sections are 64px apart on phones, 160px from desktop up). */
-.section-line {
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -32px;
-    height: 1px;
-    background: var(--color-grid);
-    @media (width >= 64rem) { top: -80px; }
   }
 }
 
@@ -299,8 +267,6 @@
   transition: transform 500ms var(--ease-soft);
 }
 .folder:hover .folder-body { transform: translateY(-3px); }
-.folder:hover .btn-tab, .folder:focus-visible .btn-tab { color: #fff; }
-.folder:hover .btn-tab::before, .folder:focus-visible .btn-tab::before { transform: scaleX(1); }
 
 /* Native select with a thin chevron, so it looks the same in every browser */
 @utility select {

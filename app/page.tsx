@@ -12,10 +12,9 @@ import {
   ArrowUpRight, Button, Check, Chip, Container, Reveal, Rich, SectionHead, cardTitle, listTitle, sectionHeading, sideHeading,
 } from "@/components/ui";
 
-// One gap between every section (160px desktop, 64px phones): each section carries it as bottom padding.
-const section = "pb-16 lg:pb-40";
-// Breathing room above the heading when a menu link jumps to a section with no top padding.
-const jumpGap = "scroll-mt-8 lg:scroll-mt-16";
+// Every section: the same padding top and bottom (32px phones, 80px desktop), so sections sit
+// 64px / 160px apart, with a full-width grid line on the boundary.
+const section = "border-t border-grid py-8 lg:py-20";
 // Hover lift shared by every card.
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
@@ -70,7 +69,7 @@ export default function Home() {
 
         {/* About */}
         {/* About: a sheet of paper with a torn top edge (the edge image sits just above the section). */}
-        <section id="about" className="relative z-1 bg-sheet pt-8 pb-12 lg:pt-20 lg:pb-32">
+        <section id="about" className="relative z-1 bg-sheet py-8 lg:py-20">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/paper-edge.svg" alt="" aria-hidden className="pointer-events-none absolute bottom-full left-0 h-[clamp(64px,12vw,230px)] w-full translate-y-px select-none" />
           <Container className="grid gap-8 lg:grid-cols-[5fr_7fr] lg:gap-20">
@@ -105,7 +104,7 @@ export default function Home() {
         </div>
 
         {/* Audiences */}
-        <section className={`pt-12 lg:pt-40 ${section}`}>
+        <section className={section}>
           <Container>
             <SectionHead heading={audiences.heading} />
             <div className="grid gap-3 md:grid-cols-2">
@@ -132,7 +131,7 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <section id="services" className={`section-line ${jumpGap} ${section}`}>
+        <section id="services" className={section}>
           <Container>
             <SectionHead heading={services.heading} />
             {/* Dividers run out to the page rails; the rows keep the usual inset. */}
@@ -153,10 +152,10 @@ export default function Home() {
         </section>
 
         {/* Recent projects */}
-        <RecentProjects className={`section-line ${section}`} />
+        <RecentProjects className={`${section} lg:pt-0`} />
 
         {/* Approach */}
-        <section id="approach" className={`section-line ${jumpGap} ${section}`}>
+        <section id="approach" className={section}>
           <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <h2 className={sideHeading}><Rich text={approach.heading} /></h2>
@@ -186,7 +185,7 @@ export default function Home() {
         </section>
 
         {/* Engagement models: extra space above on desktop, to separate it from the approach timeline */}
-        <section className={`section-line lg:pt-16 ${section}`}>
+        <section className={section}>
           <Container>
             <SectionHead heading={models.heading} />
             <div className="grid gap-3 lg:grid-cols-3">
@@ -220,7 +219,7 @@ export default function Home() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className={`section-line ${jumpGap} ${section}`}>
+        <section id="faq" className={section}>
           <Container className="grid gap-8 lg:grid-cols-2 lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <h2 className={sideHeading}><Rich text={faq.heading} /></h2>
@@ -233,11 +232,11 @@ export default function Home() {
         </section>
 
         {/* Blog */}
-        <Scrapbook className={`section-line ${jumpGap} ${section}`} />
+        <Scrapbook className={section} />
 
         {/* Testimonials: hidden until there are real quotes */}
         {testimonials.items.length > 0 && (
-        <section className={`section-line ${section}`}>
+        <section className={section}>
           <Container>
             <SectionHead heading={testimonials.heading} />
             <div className="grid gap-3 lg:grid-cols-3">
@@ -260,7 +259,7 @@ export default function Home() {
         )}
 
         {/* Contact and footer share one dark block. */}
-        <section id="contact" className={`section-line bg-dark pt-16 text-white lg:pt-40 ${section}`}>
+        <section id="contact" className={`bg-dark text-white ${section}`}>
           <Container className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
             <Reveal>
               <h2 className={`${sectionHeading} mb-5`}><Rich text={contact.heading} /></h2>

@@ -137,7 +137,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
   return (
     <section className={className}>
       <div ref={outer} className="relative">
-        <div className="lg:sticky lg:top-[68px] lg:flex lg:h-[calc(100svh-68px)] lg:flex-col lg:overflow-x-clip lg:pt-12">
+        <div className="lg:sticky lg:top-[68px] lg:flex lg:h-[calc(100svh-68px)] lg:flex-col lg:overflow-x-clip lg:pt-20">
           <Container>
             <Head />
             <div
