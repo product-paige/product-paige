@@ -331,7 +331,6 @@
     width: var(--fold);
     height: var(--fold);
     background: linear-gradient(225deg, transparent 50%, var(--fold-color, #555) 50%);
-    border-bottom-left-radius: 6px;
     pointer-events: none;
   }
   @media (width >= 64rem) { --fold: 64px; }
