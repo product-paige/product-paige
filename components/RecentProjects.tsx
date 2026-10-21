@@ -8,7 +8,7 @@ type Project = (typeof projects.items)[number];
 
 function Head() {
   return (
-    <Reveal className="mb-10 grid gap-5 lg:mb-16 lg:grid-cols-2 lg:items-end lg:gap-16">
+    <Reveal className="mb-10 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-16">
       <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
       <p className="lede max-w-xl">{projects.body}</p>
     </Reveal>
@@ -27,11 +27,11 @@ function Cover({ p, className = "" }: { p: Project; className?: string }) {
   );
 }
 
-/** A manila folder: a tab on the right, then the body in the project's colour. */
+/** A manila folder: a tab on the left, then the body in the project's colour. */
 function Folder({ p, i }: { p: Project; i: number }) {
   return (
     <a href={p.href} className="folder group flex flex-col" style={{ "--tone": p.tone } as CSSProperties}>
-      <span className="folder-tab self-end font-mono text-[12px] uppercase tracking-[0.08em]">
+      <span className="folder-tab self-start font-mono text-[12px] uppercase tracking-[0.08em]">
         Project {String(i + 1).padStart(2, "0")}
       </span>
       <div className="folder-body grid gap-6 p-5 lg:p-8">
@@ -44,7 +44,7 @@ function Folder({ p, i }: { p: Project; i: number }) {
             <ArrowUpRight />
           </span>
         </div>
-        <Cover p={p} className="aspect-[4/3] w-full rounded-[3px]" />
+        <Cover p={p} className="aspect-[4/3] w-full rounded-[3px] lg:aspect-[16/9]" />
       </div>
     </a>
   );
@@ -91,7 +91,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
   return (
     <section className={className}>
       <div ref={outer} className="relative">
-        <div className="lg:sticky lg:top-[68px] lg:flex lg:h-[calc(100svh-68px)] lg:flex-col lg:justify-center lg:overflow-hidden">
+        <div className="lg:sticky lg:top-[68px] lg:flex lg:h-[calc(100svh-68px)] lg:flex-col lg:overflow-x-clip lg:pt-12">
           <Container>
             <Head />
             <div
@@ -101,7 +101,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
               {projects.items.map((p, i) => (
                 <div
                   key={p.href}
-                  className="w-[82%] shrink-0 snap-start sm:w-[60%] lg:w-[min(560px,42vw)]"
+                  className="w-[82%] shrink-0 snap-start sm:w-[60%] lg:w-[min(500px,38vw)]"
                   style={{ rotate: `${i % 2 ? 1 : -1}deg` }}
                 >
                   <Folder p={p} i={i} />

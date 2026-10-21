@@ -111,7 +111,7 @@ export default function Home() {
             <div className="grid gap-3 md:grid-cols-2">
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
-                  <div className={`${a.tone} flex h-full flex-col rounded-xl p-6 ${lift} lg:p-10`}>
+                  <div className={`${a.tone} paper-grain folded flex h-full flex-col p-6 ${lift} lg:p-10`}>
                     <h3 className={`${cardTitle} mb-8 lg:mb-16`}>{a.title}</h3>
                     <ul className="mt-auto divide-y divide-black/10 border-y border-black/10">
                       {a.points.map((p) => (
