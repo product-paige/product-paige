@@ -42,8 +42,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
       <PageRails />
       <SiteHeader />
       <main>
-        {/* At a glance: text on the left; on desktop the cover fills the right column, from the
-            divider out to the page rail and top to bottom. Phones stack the cover under the text. */}
+        {/* At a glance: text on the left; on desktop the square cover fills the width of the right
+            column, from the divider out to the page rail. Phones stack the cover under the text. */}
         <section className="border-t border-grid">
           <Container className="grid lg:grid-cols-2 lg:pr-0">
             <Reveal className="py-8 lg:py-20 lg:pr-16">
@@ -63,8 +63,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 </div>
               )}
             </Reveal>
-            <div className="relative mb-8 aspect-[4/3] bg-scrap lg:mb-0 lg:aspect-auto lg:border-l lg:border-grid">
-              <Cover p={p} className="absolute inset-0 size-full" />
+            {/* The divider runs the full height of the hero; the cover is a square at the top. */}
+            <div className="mb-8 lg:mb-0 lg:border-l lg:border-grid">
+              <div className="relative aspect-square bg-scrap">
+                <Cover p={p} className="absolute inset-0 size-full" />
+              </div>
             </div>
           </Container>
         </section>
