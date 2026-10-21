@@ -37,7 +37,7 @@ export default function Home() {
                 {site.availability}
               </span>
             )}
-            <Button href={site.bookingUrl} size="sm">Book an intro call</Button>
+            <Button href={site.bookingUrl}>Book an intro call</Button>
           </div>
         </Container>
       </header>
@@ -251,7 +251,7 @@ export default function Home() {
               <p className="lede max-w-md text-white">{contact.body}</p>
               <p className="mt-6 text-white/60">
                 {contact.emailNote}{" "}
-                <a href={`mailto:${site.email}`} className="text-white underline decoration-white/30 underline-offset-4 transition hover:decoration-white">
+                <a href={`mailto:${site.email}`} className="link text-white">
                   {site.email}
                 </a>
               </p>

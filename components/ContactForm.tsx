@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { ArrowUpRight } from "@/components/ui";
+import { Button } from "@/components/ui";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -106,14 +106,9 @@ export function ContactForm({
         <textarea id="cf-message" name="message" required rows={5} placeholder={messagePlaceholder} className={`${field} resize-y`} />
       </div>
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
-        <button
-          type="submit"
-          disabled={status === "sending"}
-          className="group inline-flex items-center gap-1.5 rounded-full bg-paper px-5 py-3 text-base font-medium text-ink transition hover:-translate-y-px hover:opacity-85 disabled:opacity-50"
-        >
+        <Button type="submit" light disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
-          <ArrowUpRight />
-        </button>
+        </Button>
         <p aria-live="polite" className="text-[13px] text-white/60">
           {status === "error" ? `That didn’t send. Please email ${email} instead.` : ""}
         </p>

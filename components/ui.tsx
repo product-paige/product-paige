@@ -31,37 +31,37 @@ export function Container({ className = "", children }: { className?: string; ch
   return <div className={`mx-auto w-full max-w-[1360px] px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>;
 }
 
+/**
+ * The site's one button: a label chip and an arrow tab. A link when given `href`,
+ * otherwise a <button> (e.g. a form submit). `light` for dark sections.
+ */
 export function Button({
   href,
-  variant = "solid",
-  size = "md",
+  light = false,
   arrow = "up-right",
+  type = "button",
+  disabled,
   children,
 }: {
-  href: string;
-  variant?: "solid" | "ghost";
-  size?: "md" | "sm";
+  href?: string;
+  light?: boolean;
   /** "down" for links that scroll further down the page. */
   arrow?: "up-right" | "down";
+  type?: "button" | "submit";
+  disabled?: boolean;
   children: ReactNode;
 }) {
-  const sizes = size === "sm" ? "px-4 py-2 text-sm" : "px-5 py-3 text-base";
-  const styles =
-    variant === "solid"
-      ? "bg-ink text-white hover:opacity-85"
-      : "bg-surface text-ink border border-line hover:bg-chip";
-  return (
-    <a
-      href={href}
-      className={`group inline-flex items-center gap-1.5 whitespace-nowrap rounded-full font-medium transition hover:-translate-y-px ${sizes} ${styles}`}
-    >
-      {children}
-      {arrow === "down" ? (
-        <ArrowDown className={size === "sm" ? "size-3.5" : ""} />
-      ) : (
-        <ArrowUpRight className={size === "sm" ? "size-3.5" : ""} />
-      )}
-    </a>
+  const className = `group btn ${light ? "btn-light" : ""}`;
+  const inner = (
+    <>
+      <span className="btn-text">{children}</span>
+      <span className="btn-tab">{arrow === "down" ? <ArrowDown /> : <ArrowUpRight />}</span>
+    </>
+  );
+  return href ? (
+    <a href={href} className={className}>{inner}</a>
+  ) : (
+    <button type={type} disabled={disabled} className={className}>{inner}</button>
   );
 }
 
