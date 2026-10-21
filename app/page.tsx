@@ -49,7 +49,7 @@ export default function Home() {
         {/* Desktop: hero fills the first screen under the 68px header, content centred; the About panel peeks 64px at the bottom. */}
         <section className="pt-10 pb-12 lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)] lg:flex-col lg:justify-center lg:py-16">
           <Container>
-            <h1 className="rise serif mb-6 max-w-6xl text-[clamp(38px,5.6vw,80px)] leading-[1]" style={delay(100)}>
+            <h1 className="rise serif mb-6 max-w-6xl text-[clamp(40px,6.3vw,92px)] leading-[0.97]" style={delay(100)}>
               <Rich text={hero.heading} />
             </h1>
             <div className="rise" style={delay(200)}>
