@@ -45,7 +45,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                   stroke="currentColor"
                   strokeWidth={1}
                   strokeLinecap="round"
-                  className={`size-6 shrink-0 transition-transform duration-500 lg:size-7 ${isOpen ? "rotate-45" : ""}`}
+                  className={`size-5 shrink-0 transition-transform duration-500 lg:size-6 ${isOpen ? "rotate-45" : ""}`}
                 >
                   <path d="M12 3v18M3 12h18" />
                 </svg>
