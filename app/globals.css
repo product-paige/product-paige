@@ -315,11 +315,11 @@
   background: var(--color-scrap) var(--grain);
 }
 
-/* Hero: a blue grid with a torn sheet of paper down the middle, behind the text. The
+/* Hero: a soft red grid with a torn sheet of paper down the middle, behind the text. The
    sheet's left and right edges are a fixed jagged outline (px in from each side), so the
    tear keeps its shape at any width. */
 .hero-grid {
-  background-color: #a9c1ee;
+  background-color: color-mix(in srgb, var(--color-accent) 30%, #fff);
   background-image:
     linear-gradient(rgb(255 255 255 / 0.55) 1px, transparent 1px),
     linear-gradient(90deg, rgb(255 255 255 / 0.55) 1px, transparent 1px);

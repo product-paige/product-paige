@@ -30,14 +30,14 @@ export default function Home() {
         {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
             slides up over it, then both scroll away together. */}
         <div className="relative">
-        {/* Hero: a blue grid with a torn paper sheet behind the text. Desktop: it fills the first screen under the 68px header, content
+        {/* Hero: a soft red grid with a torn paper sheet behind the text. Desktop: it fills the first screen under the 68px header, content
             centred; the About panel peeks 64px at the bottom. Like About, the block is the Container
             itself, so from md up it stays between the page rails. */}
         <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_212px)]">
           <Container className="hero-grid relative overflow-hidden pt-12 pb-14 lg:flex lg:flex-col lg:justify-center lg:py-20">
-            <i aria-hidden className="torn-sheet absolute inset-y-0 left-1/2 w-[calc(100%-24px)] -translate-x-1/2 sm:w-[min(860px,86%)] lg:w-[min(860px,68%)]" />
-            <div className="relative mx-auto max-w-[820px] px-4 text-center sm:px-10">
-              <h1 className="rise serif mb-6 text-[clamp(34px,5vw,72px)] leading-[1] text-balance" style={delay(100)}>
+            <i aria-hidden className="torn-sheet absolute inset-y-0 left-1/2 w-[calc(100%-24px)] -translate-x-1/2 sm:w-[min(1120px,90%)] lg:w-[min(1120px,80%)]" />
+            <div className="relative mx-auto max-w-[1080px] px-4 text-center sm:px-10">
+              <h1 className="rise serif mb-6 text-[clamp(40px,6.6vw,96px)] leading-[1] text-balance" style={delay(100)}>
                 <Rich text={hero.heading} />
               </h1>
               <div className="rise" style={delay(200)}>
