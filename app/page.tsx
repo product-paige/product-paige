@@ -31,10 +31,13 @@ export default function Home() {
 
         {/* About: a dark block with a rounded top-left corner and a folded top-right one, that slides up over the hero, laid out like a
             magazine page: the heading across the full width, then the Polaroid
-            beside the text. The block is the Container itself, so from
-            md up it stays between the page rails. */}
+            beside the text. From md up the block sits between the
+            inner rails. */}
         <section id="about" className="relative z-1">
-          <Container className="folded-top relative rounded-tl-[6px] bg-dark py-8 text-white lg:py-20">
+          {/* Same outer box as Container, padded so the dark block's edges sit on the inner rails
+              (24px md, 40px lg in from the outer ones); the content keeps the usual inset inside. */}
+          <div className="mx-auto w-full max-w-[1360px] md:w-[calc(100%-24px)] md:px-6 lg:px-10">
+          <div className="folded-top relative rounded-tl-[6px] bg-dark px-4 py-8 text-white sm:px-6 lg:px-10 lg:py-20">
             <Reveal>
               <h2 className="serif text-[clamp(36px,5vw,72px)] leading-[1]"><Rich text={about.heading} /></h2>
             </Reveal>
@@ -67,7 +70,8 @@ export default function Home() {
                 </Reveal>
               </div>
             </div>
-          </Container>
+          </div>
+          </div>
         </section>
 
         </div>
