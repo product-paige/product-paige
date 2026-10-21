@@ -67,7 +67,10 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section id="about" className={`relative z-1 bg-dark pt-12 pb-12 text-white lg:rounded-t-[28px] lg:pt-32 lg:pb-32`}>
+        {/* About: a sheet of paper with a torn top edge (the edge image sits just above the section). */}
+        <section id="about" className="relative z-1 bg-sheet pt-12 pb-12 lg:pt-32 lg:pb-32">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/paper-edge.svg" alt="" aria-hidden className="pointer-events-none absolute bottom-full left-0 h-[clamp(64px,12vw,230px)] w-full translate-y-px select-none" />
           <Container className="grid gap-8 lg:grid-cols-[5fr_7fr] lg:gap-20">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <figure className="relative aspect-[4/5] overflow-hidden rounded-xl bg-chip">
@@ -85,10 +88,10 @@ export default function Home() {
               <div className="lede space-y-5">
                 {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
               </div>
-              <Reveal className="mt-10 grid grid-cols-2 border-t border-white/15 sm:grid-cols-3 lg:mt-20">
+              <Reveal className="mt-10 grid grid-cols-2 border-t border-line sm:grid-cols-3 lg:mt-20">
                 {about.facts.map((f) => (
-                  <div key={f.label} className="border-b border-white/15 py-5 pr-4">
-                    <p className="mb-1 text-[13px] label text-white/60">{f.label}</p>
+                  <div key={f.label} className="border-b border-line py-5 pr-4">
+                    <p className="mb-1 text-[13px] label text-muted">{f.label}</p>
                     <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
                   </div>
                 ))}
@@ -131,9 +134,9 @@ export default function Home() {
           <Container>
             <SectionHead heading={services.heading} />
             {/* Dividers run out to the page rails; the rows keep the usual inset. */}
-            <div className="border-b border-grid md:-mx-6 lg:-mx-10">
+            <div className="border-b border-grid md:-mx-12 lg:-mx-20">
               {services.items.map((s) => (
-                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-grid py-6 md:grid-cols-[1.1fr_1fr] md:gap-6 md:px-6 md:py-10 lg:px-10">
+                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-grid py-6 md:grid-cols-[1.1fr_1fr] md:gap-6 md:px-12 md:py-10 lg:px-20">
                   <div>
                     <h3 className={listTitle}>{s.title}</h3>
                     <div className="mt-3.5 flex flex-wrap gap-2">

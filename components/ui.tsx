@@ -28,8 +28,9 @@ export function Rich({ text }: { text: string }) {
 }
 
 export function Container({ className = "", children }: { className?: string; children: ReactNode }) {
-  // From md up the outer edge sits 12px in from the window, exactly on the page rails (see .page-rails).
-  return <div className={`mx-auto w-full max-w-[1360px] px-4 sm:px-6 md:w-[calc(100%-24px)] lg:px-10 ${className}`}>{children}</div>;
+  // From md up the outer edge sits 12px in from the window, exactly on the page rails, and the
+  // content sits a further gap inside the inner rails (24px + 24px md, 40px + 40px lg; see .page-rails).
+  return <div className={`mx-auto w-full max-w-[1360px] px-4 sm:px-6 md:w-[calc(100%-24px)] md:px-12 lg:px-20 ${className}`}>{children}</div>;
 }
 
 /**
