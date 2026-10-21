@@ -75,7 +75,7 @@ export default function Home() {
         </div>
 
         {/* Recent projects */}
-        <RecentProjects className={`${section} lg:pt-0`} />
+        <RecentProjects className="border-t border-grid py-8 lg:py-0" />
 
         {/* Audiences */}
         <section className={section}>
