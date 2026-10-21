@@ -20,13 +20,15 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
   }
 
   return (
-    <div className="border-b border-line">
+    // A ruled card: one border around the list and a rule between questions. Each row has a
+    // mono number, and the open one takes the paper tint.
+    <div className="border border-line">
       {items.map((f, i) => {
         const isOpen = open.has(i);
         const buttonId = `${id}-q${i}`;
         const panelId = `${id}-a${i}`;
         return (
-          <div key={f.q} className="border-t border-line">
+          <div key={f.q} className={`border-line transition-colors duration-500 not-first:border-t ${isOpen ? "bg-sheet" : ""}`}>
             <h3>
               <button
                 id={buttonId}
@@ -34,21 +36,26 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className="flex w-full cursor-pointer items-center justify-between gap-6 py-[18px] text-left text-base font-medium lg:py-5 lg:text-lg"
+                className="group/q grid w-full cursor-pointer grid-cols-[28px_1fr_auto] items-center gap-3 px-4 py-[18px] text-left text-base font-medium lg:grid-cols-[36px_1fr_auto] lg:gap-4 lg:px-6 lg:py-5 lg:text-lg"
               >
+                <span className="font-mono text-[12px] font-normal tracking-[0.06em] text-muted">{String(i + 1).padStart(2, "0")}</span>
                 {f.q}
-                {/* Thin plus, same stroke as the arrows; turns into a cross when open. */}
-                <svg
-                  aria-hidden
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1}
-                  strokeLinecap="round"
-                  className={`size-5 shrink-0 transition-transform duration-500 lg:size-6 ${isOpen ? "rotate-45" : ""}`}
+                {/* Thin plus in a small square; the square fills and the plus turns to a cross when open. */}
+                <span
+                  className={`grid size-8 place-items-center rounded-ui border transition-colors duration-300 ${isOpen ? "border-ink bg-ink text-white" : "border-line group-hover/q:border-ink/40"}`}
                 >
-                  <path d="M12 3v18M3 12h18" />
-                </svg>
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1}
+                    strokeLinecap="round"
+                    className={`size-5 transition-transform duration-500 ${isOpen ? "rotate-45" : ""}`}
+                  >
+                    <path d="M12 4v16M4 12h16" />
+                  </svg>
+                </span>
               </button>
             </h3>
             <div
@@ -58,8 +65,9 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
               className={`grid transition-[grid-template-rows] duration-500 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
             >
               <div className="overflow-hidden" inert={!isOpen}>
+                {/* Indented to line up with the question text, past the number column. */}
                 <p
-                  className={`max-w-xl pr-12 pb-5 text-ink/80 transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+                  className={`max-w-xl pr-16 pb-6 pl-[56px] text-ink/80 transition-[opacity,translate] duration-500 lg:pl-[76px] ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
                 </p>

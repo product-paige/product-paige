@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 
 /**
- * Top menu. An accent underline sweeps in under the item whose section is currently
- * in the middle of the screen. It sits below the label, so labels never shift.
+ * Top menu. A highlighter stroke (see .highlight in globals.css) is drawn across the item
+ * whose section is currently in the middle of the screen. It sits behind the label, so
+ * labels never shift.
  */
 export function Nav({ items }: { items: { label: string; href: string }[] }) {
   const [active, setActive] = useState<string | null>(null);
@@ -50,10 +51,7 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
             aria-current={isActive ? "location" : undefined}
             className="relative text-[15px] font-normal transition hover:text-muted"
           >
-            <i
-              aria-hidden
-              className={`absolute inset-x-0 -bottom-1 h-px origin-left bg-accent transition-transform duration-500 ${isActive ? "scale-x-100" : "scale-x-0"}`}
-            />
+            <i aria-hidden className={`highlight ${isActive ? "scale-x-100" : "scale-x-0"}`} />
             {n.label}
           </a>
         );
