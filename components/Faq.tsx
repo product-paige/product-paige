@@ -34,7 +34,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className="flex w-full cursor-pointer items-center justify-between gap-6 py-[18px] text-left text-base lg:py-5 lg:text-lg"
+                className="flex w-full cursor-pointer items-center justify-between gap-6 py-[18px] text-left text-base font-medium lg:py-5 lg:text-lg"
               >
                 {f.q}
                 {/* Thin plus, same stroke as the arrows; turns into a cross when open. */}
