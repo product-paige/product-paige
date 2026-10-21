@@ -120,7 +120,7 @@ export default function Home() {
               ))}
             </div>
             <Reveal className="mt-8 flex justify-center lg:mt-12">
-              <Button href="#services" arrow="down">How I can help</Button>
+              <a href="#services" className="link">How I can help</a>
             </Reveal>
           </Container>
         </section>
