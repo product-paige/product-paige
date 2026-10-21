@@ -216,8 +216,6 @@ export type Project = {
 export const projects = {
   heading: "Recent projects",
   body: "A mix of product audits, UX work and personal projects, all in the Shopify and ecommerce world.",
-  pageHeading: "Projects",
-  pageBody: "Brands, stores and sites I’ve designed and built, each with a short case study.",
   items: [
     {
       slug: "backspace-body",

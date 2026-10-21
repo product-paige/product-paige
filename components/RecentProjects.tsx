@@ -9,10 +9,7 @@ function Head() {
   return (
     <Reveal className="mb-12 grid gap-5 lg:mb-16 lg:grid-cols-2 lg:items-end lg:gap-16">
       <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
-      <div>
-        <p className="lede max-w-xl">{projects.body}</p>
-        <a href="/projects" className="link mt-4 inline-block text-[15px]">See all projects</a>
-      </div>
+      <p className="lede max-w-xl">{projects.body}</p>
     </Reveal>
   );
 }
@@ -98,7 +95,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
   }, []);
 
   return (
-    <section className={className}>
+    <section id="projects" className={className}>
       <div ref={outer} className="relative">
         <div className="lg:sticky lg:top-[68px] lg:flex lg:h-[calc(100svh-68px)] lg:flex-col lg:overflow-x-clip lg:pt-20">
           <Container>

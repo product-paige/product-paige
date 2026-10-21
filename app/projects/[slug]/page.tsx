@@ -47,7 +47,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
         <section className="border-t border-grid">
           <Container className="grid lg:grid-cols-2 lg:pr-0">
             <Reveal className="py-8 lg:py-20 lg:pr-16">
-              <a href="/projects" className="link text-[15px]">All projects</a>
+              <a href="/#projects" className="link text-[15px]">All projects</a>
               <div className="mt-8 lg:mt-12">
                 <Chip>{p.role}</Chip>
               </div>
