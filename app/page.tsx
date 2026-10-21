@@ -29,41 +29,53 @@ export default function Home() {
         <div className="relative">
         <EditorialHero />
 
-        {/* About: a dark block that slides up over the hero. The block is the Container itself, so from
+        {/* About: a dark block with rounded top corners that slides up over the hero, laid out like a
+            magazine page: a running head, the heading across the full width, then the Polaroid
+            beside the text, which opens with a drop cap. The block is the Container itself, so from
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
-          <Container className="graph-grid relative bg-dark py-8 text-white lg:py-20">
-          {/* A taped Polaroid with a caption, beside the text. */}
-          <div className="grid items-center gap-12 lg:grid-cols-[5fr_7fr] lg:gap-20">
-            <Reveal className="mx-auto w-full max-w-[420px] lg:mx-0">
-              <figure className="polaroid">
-                <i aria-hidden className="tape" />
-                <span className="photo-grain block aspect-square">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
-                </span>
-                {/* Non-breaking space before the dot, so a wrapped line never starts with one. */}
-                <figcaption className="mt-4 text-center text-[16px] leading-tight font-medium text-ink">{site.name}{"\u00a0"}· {site.role}</figcaption>
-              </figure>
-            </Reveal>
-            <div>
-              <Reveal>
-                <h2 className={`${sideHeading} mb-5`}><Rich text={about.heading} /></h2>
-              </Reveal>
-              <div className="lede space-y-5">
-                {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
-              </div>
-              {/* Stats line */}
-              <Reveal className="mt-10 grid border-t border-line-dark sm:grid-cols-3 lg:mt-14">
-                {about.facts.map((f) => (
-                  <div key={f.label} className="border-b border-line-dark py-5 pr-4">
-                    <p className="mb-1 text-[14px] label text-white/60">{f.label}</p>
-                    <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
-                  </div>
-                ))}
-              </Reveal>
+          <Container className="graph-grid relative rounded-t-[28px] bg-dark pt-5 pb-8 text-white lg:rounded-t-[40px] lg:pt-8 lg:pb-20">
+            {/* Running head */}
+            <div className="flex items-center justify-between border-b border-line-dark pb-4 text-[14px] font-medium text-white/70 lg:pb-5">
+              <span className="flex items-center gap-2.5">
+                <svg aria-hidden viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={3.2} strokeLinecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9" /></svg>
+                About
+              </span>
+              <span>{about.facts[0].value}</span>
             </div>
-          </div>
+
+            <Reveal>
+              <h2 className="serif mt-8 text-[clamp(40px,6.4vw,92px)] leading-[0.95] lg:mt-12"><Rich text={about.heading} /></h2>
+            </Reveal>
+
+            <div className="mt-10 grid items-start gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-6">
+              {/* A taped Polaroid with a caption */}
+              <Reveal className="mx-auto w-full max-w-[420px] lg:col-span-5 lg:mx-0">
+                <figure className="polaroid">
+                  <i aria-hidden className="tape" />
+                  <span className="photo-grain block aspect-square">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
+                  </span>
+                  {/* Non-breaking space before the dot, so a wrapped line never starts with one. */}
+                  <figcaption className="mt-4 text-center text-[16px] leading-tight font-medium text-ink">{site.name}{"\u00a0"}· {site.role}</figcaption>
+                </figure>
+              </Reveal>
+              <div className="lg:col-span-6 lg:col-start-7">
+                <div className="lede space-y-5">
+                  {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80} className={i === 0 ? "drop-cap" : ""}>{p}</Reveal>)}
+                </div>
+                {/* Stats line */}
+                <Reveal className="mt-10 grid border-t border-line-dark sm:grid-cols-3 lg:mt-14">
+                  {about.facts.map((f) => (
+                    <div key={f.label} className="border-b border-line-dark py-5 pr-4">
+                      <p className="mb-1 text-[14px] label text-white/60">{f.label}</p>
+                      <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
+                    </div>
+                  ))}
+                </Reveal>
+              </div>
+            </div>
           </Container>
         </section>
 
