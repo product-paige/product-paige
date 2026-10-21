@@ -268,6 +268,63 @@
   @media (width < 48rem) { padding-left: 68px; }
 }
 
+/* Recent projects (three options while Paige picks one) */
+
+/* Folder: a tab sticking up from a body in the project's colour (--tone), with grain. */
+.folder {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  filter: drop-shadow(0 1px 0 rgb(0 0 0 / 0.08)) drop-shadow(0 8px 18px rgb(26 26 26 / 0.08));
+}
+.folder-tab {
+  position: relative;
+  display: inline-block;
+  margin-left: var(--tab, 8%);
+  padding: 10px 18px 8px;
+  border-radius: 8px 8px 0 0;
+  background: var(--tone) var(--grain);
+}
+.folder-body {
+  border-radius: 4px 10px 10px 10px;
+  background: var(--tone) var(--grain);
+  transition: transform 500ms var(--ease-soft);
+}
+.folder:hover .folder-body { transform: translateY(-3px); }
+
+/* Taped sheet: white paper with tape across the top, tilted by --r. */
+.taped {
+  position: relative;
+  padding: 14px 14px 22px;
+  background: #fff;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.06), 0 10px 24px rgb(26 26 26 / 0.08);
+  rotate: var(--r);
+  transition: rotate 500ms var(--ease-soft);
+  &:hover { rotate: 0deg; }
+}
+.taped-tape {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  width: 120px;
+  translate: -50% 0;
+  rotate: calc(var(--r) * -2);
+  z-index: 1;
+  pointer-events: none;
+}
+/* Each sheet drops in tilted and settles as it scrolls into view. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .taped {
+      animation: settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+  }
+}
+@keyframes settle {
+  from { rotate: var(--r0); translate: 0 80px; opacity: 0.2; }
+  to { rotate: var(--r); translate: 0 0; opacity: 1; }
+}
+
 /* Native select with a thin chevron, so it looks the same in every browser */
 @utility select {
   appearance: none;
