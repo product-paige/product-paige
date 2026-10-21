@@ -171,7 +171,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn-text, .btn-tab, .link, .scrap { transition: none; }
+  .btn-text, .btn-tab, .link, .tilt { transition: none; }
 }
 
 /* Page grid, from md up. Outer rails sit on Container's outer edge with hatched
@@ -274,6 +274,12 @@
   @media (width < 48rem) { padding-left: 56px; }
 }
 
+/* Tilt: the card hover. Lifts 4px with a slight turn, like picking up a page. */
+.tilt {
+  transition: transform 500ms var(--ease-soft);
+  &:hover { transform: translateY(-4px) rotate(-0.6deg); }
+}
+
 /* Scrapbook card: a grey loose-leaf page (with .loose-leaf and .folded). */
 .scrap {
   display: block;
@@ -282,8 +288,6 @@
   padding-right: 28px;
   padding-bottom: 36px;
   background-color: var(--color-scrap);
-  transition: transform 500ms var(--ease-soft);
-  &:hover { transform: translateY(-4px) rotate(-0.6deg); }
   & img { transition: filter 500ms var(--ease-soft); }
   &:hover img { filter: saturate(1.15); }
 }

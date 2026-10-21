@@ -18,7 +18,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {blog.posts.map((p, i) => (
             <Reveal key={p.href} delay={i * 120}>
-              <a href={p.href} className="scrap loose-leaf folded group">
+              <a href={p.href} className="scrap loose-leaf folded tilt group">
                 <div className="mb-5 flex items-center justify-between gap-3">
                   <time className="text-[14px] font-medium uppercase tracking-[0.06em] text-muted">{p.date}</time>
                   <Chip className="bg-white/70">{p.tag}</Chip>

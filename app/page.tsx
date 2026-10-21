@@ -203,7 +203,7 @@ export default function Home() {
                 <Reveal key={m.tag} delay={i * 120}>
                   {/* Hover lives on this inner layer so it doesn't fight the reveal's transition. */}
                   <div
-                    className={`folded flex h-full flex-col gap-5 border p-6 ${lift} lg:p-7 ${m.featured ? "border-dark bg-dark text-white [--fold-color:rgb(255_255_255/0.14)]" : "border-line bg-surface hover:border-ink/40"}`}
+                    className={`folded flex h-full flex-col gap-5 border p-6 tilt lg:p-7 ${m.featured ? "border-dark bg-dark text-white [--fold-color:rgb(255_255_255/0.14)]" : "border-line bg-surface"}`}
                   >
                     <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
                     <h3 className={cardTitle}>{m.title}</h3>

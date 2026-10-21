@@ -2,7 +2,7 @@
 
 import { projects } from "@/content";
 import { useEffect, useRef, type CSSProperties } from "react";
-import { ArrowUpRight, Chip, Container, Reveal, Rich, sectionHeading } from "./ui";
+import { ArrowUpRight, Chip, Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
 
 type Project = (typeof projects.items)[number];
 
@@ -44,7 +44,7 @@ function Folder({ p, i }: { p: Project; i: number }) {
         </div>
         <div>
           <div className="flex items-center justify-between gap-3">
-            <h3 className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{p.client}</h3>
+            <h3 className={sansTitle}>{p.client}</h3>
             {/* The buttons' arrow tab; it turns when the folder is hovered. */}
             <span className="btn shrink-0" aria-hidden>
               <span className="btn-tab size-8"><ArrowUpRight turn className="size-5" /></span>
