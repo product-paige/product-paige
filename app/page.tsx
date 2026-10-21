@@ -194,7 +194,7 @@ export default function Home() {
         <section id="faq" className={section}>
           <Container className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <h2 className="serif text-[clamp(32px,4.2vw,56px)] leading-[1] tracking-[-0.04em] text-balance"><Rich text={faq.heading} /></h2>
+              <h2 className={sectionHeading}><Rich text={faq.heading} /></h2>
               <p className="lede mt-5 max-w-lg">{faq.body}</p>
             </Reveal>
             <Reveal>

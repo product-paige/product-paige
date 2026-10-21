@@ -341,7 +341,7 @@ export const testimonials = {
 };
 
 export const faq = {
-  heading: "Things founders ask me",
+  heading: "FAQs",
   body: "Everything you might still be wondering.",
   items: [
     {
