@@ -269,7 +269,8 @@ export default function Home() {
         )}
 
         {/* Contact and footer share one dark block. */}
-        <section id="contact" className={`bg-dark text-white ${section}`}>
+        <section id="contact" className={`rails on-dark relative bg-dark text-white ${section}`}>
+          <i aria-hidden className="rails-inner" />
           <Container className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
             <Reveal>
               <h2 className={`${sectionHeading} mb-5`}><Rich text={contact.heading} /></h2>
@@ -288,8 +289,9 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-dark text-white">
-        <Container className="flex flex-col items-start gap-4 border-t border-line-dark py-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+      <footer className="rails on-dark relative border-t border-grid bg-dark text-white">
+        <i aria-hidden className="rails-inner" />
+        <Container className="flex flex-col items-start gap-4 py-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
           {site.linkedin && (
             <a href={site.linkedin} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 rounded-ui border border-line-dark px-4 py-2 text-sm label transition hover:bg-white/10">
               LinkedIn

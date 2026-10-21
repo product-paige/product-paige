@@ -3,11 +3,11 @@ import { Reveal } from "./Reveal";
 
 export { Reveal };
 
-// Type scale: the hero headline sets its own size, then sectionHeading (72px max)
+// Type scale: the hero headline sets its own size, then sectionHeading (56px max)
 // for every h2, then cardTitle (32px max) for every card and list title.
-export const sectionHeading = "serif text-[clamp(34px,4.5vw,64px)] leading-[1]";
+export const sectionHeading = "serif text-[clamp(32px,4.1vw,56px)] leading-[1]";
 // Section headings that sit in a side column (My process, the FAQ): a step smaller.
-export const sideHeading = "serif text-[clamp(34px,3.8vw,54px)] leading-[1]";
+export const sideHeading = "serif text-[clamp(32px,3.5vw,48px)] leading-[1]";
 export const cardTitle = "serif text-[clamp(24px,2vw,29px)] leading-[1.07]";
 // Larger titles for the open lists (How I can help rows).
 export const listTitle = "serif text-[clamp(26px,2.9vw,39px)] leading-[1.07]";

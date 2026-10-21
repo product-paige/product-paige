@@ -208,6 +208,9 @@
     &::after { right: 0; border-left: 1px solid var(--color-grid); }
   }
 }
+/* Dark blocks (contact, footer) draw their own .rails with the grid in light ink, since the
+   page grid's dark tint disappears on them. */
+.on-dark { --color-grid: rgb(255 255 255 / 0.14); }
 .rails-inner {
   display: none;
   @media (width >= 48rem) {
