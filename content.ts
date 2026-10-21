@@ -107,21 +107,21 @@ export const audiences = {
   heading: "Who I work with",
   items: [
     {
+      tone: "bg-butter",
+      title: "Brands getting started",
+      points: [
+        "You’re launching your first Shopify store",
+        "You need the brand, site and copy",
+        "There’s a launch date but no builder",
+      ],
+    },
+    {
       tone: "bg-sky",
-      title: "You already have a store",
+      title: "Brands with an existing store",
       points: [
         "Traffic comes in but doesn’t convert",
         "It still looks like the default theme",
         "The brand has outgrown the site",
-      ],
-    },
-    {
-      tone: "bg-butter",
-      title: "Nobody owns this yet",
-      points: [
-        "Something’s off and you can’t name it",
-        "You’re hearing conflicting advice",
-        "A launch date with nobody to build it",
       ],
     },
   ],
