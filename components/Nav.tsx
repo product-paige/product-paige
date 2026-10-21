@@ -49,7 +49,7 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
             // Rooted, so the menu also works from the project pages.
             href={`/${n.href}`}
             aria-current={isActive ? "location" : undefined}
-            className="relative text-[16px] font-normal transition hover:text-muted"
+            className="relative text-[16px] font-medium transition hover:text-muted"
           >
             <i
               aria-hidden

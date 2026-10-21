@@ -24,7 +24,7 @@ export const site = {
   // About photo in public/, and its description for screen readers.
   photo: "/about.jpg",
   photoAlt: "Someone in a red jumper and jeans lying upside down on a pink sofa, a book over their face",
-  // Shown beside the header button. Leave empty to hide it.
+  // Shown in the dark announcement bar at the top. Leave empty to hide the bar.
   availability: "Booking for November ’26",
   metaDescription:
     "Paige Eaton is a product marketer and designer in Kitchener, Ontario. Strategy, design and the build itself for Shopify and ecommerce teams.",

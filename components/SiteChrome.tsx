@@ -7,26 +7,39 @@ export function PageRails() {
   return <div aria-hidden className="page-rails"><i className="rails-inner" /></div>;
 }
 
+/** A slim dark bar above the header with the booking line. Scrolls away; the header stays. */
+function AnnouncementBar() {
+  if (!site.availability) return null;
+  return (
+    <div className="rails on-dark relative bg-dark text-white">
+      <i aria-hidden className="rails-inner" />
+      <Container className="flex h-9 items-center justify-center gap-2 text-[13px]">
+        <i className="pulse-dot size-[7px] shrink-0 rounded-full bg-live" aria-hidden />
+        <span>{site.availability}</span>
+        <span aria-hidden className="text-white/40">·</span>
+        <a href={site.bookingUrl} className="link">Book an intro call</a>
+      </Container>
+    </div>
+  );
+}
+
 export function SiteHeader() {
   return (
-    <header className="rails sticky top-0 z-10 border-b border-grid bg-paper">
-      <i aria-hidden className="rails-inner" />
-      <Container tight className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
-        <Nav items={nav} />
-        <a href="/" className="serif text-[20px] leading-none whitespace-nowrap lg:text-center lg:text-[24px]">
-          {site.logo}
-        </a>
-        <div className="flex items-center justify-end gap-5">
-          {site.availability && (
-            <span className="hidden items-center gap-2 text-[13px] text-live-text xl:inline-flex">
-              <i className="pulse-dot size-[9px] rounded-full bg-live" aria-hidden />
-              {site.availability}
-            </span>
-          )}
-          <Button href={site.bookingUrl}>Book an intro call</Button>
-        </div>
-      </Container>
-    </header>
+    <>
+      <AnnouncementBar />
+      <header className="rails sticky top-0 z-10 border-b border-grid bg-paper">
+        <i aria-hidden className="rails-inner" />
+        <Container tight className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] lg:grid-cols-[1fr_auto_1fr]">
+          <Nav items={nav} />
+          <a href="/" className="serif text-[20px] leading-none whitespace-nowrap lg:text-center lg:text-[24px]">
+            {site.logo}
+          </a>
+          <div className="flex items-center justify-end">
+            <Button href={site.bookingUrl}>Book an intro call</Button>
+          </div>
+        </Container>
+      </header>
+    </>
   );
 }
 
