@@ -31,11 +31,10 @@ export default function Home() {
             slides up over it, then both scroll away together. */}
         <div className="relative">
         {/* Hero: on the page background. Desktop: it fills the first screen under the 68px header, content
-            centred but nudged up (extra bottom padding) since the torn paper covers the bottom; the
-            About panel peeks 64px at the bottom. Like About, the block is the Container
+            centred; the About panel peeks 64px at the bottom. Like About, the block is the Container
             itself, so from md up it stays between the page rails. */}
         <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)]">
-          <Container className="pt-8 pb-20 lg:flex lg:flex-col lg:justify-center lg:pt-16 lg:pb-40">
+          <Container className="pt-8 pb-12 lg:flex lg:flex-col lg:justify-center lg:py-16">
             <h1 className="rise serif mb-6 max-w-4xl text-[clamp(34px,5vw,72px)] leading-[1] text-balance" style={delay(100)}>
               <Rich text={hero.heading} />
             </h1>
@@ -52,12 +51,10 @@ export default function Home() {
         </section>
 
         {/* About */}
-        {/* About: a sheet of paper with a torn top edge (the edge image sits just above the sheet).
-            The sheet is the Container itself, so from md up it stays between the page rails. */}
+        {/* About: a dark block that slides up over the hero. The block is the Container itself, so from
+            md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
-          <Container className="relative bg-sheet py-8 lg:py-20">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/paper-edge.svg" alt="" aria-hidden className="pointer-events-none absolute bottom-full left-0 h-[clamp(64px,12vw,230px)] w-full translate-y-px select-none" />
+          <Container className="relative bg-dark py-8 text-white lg:py-20">
           {/* A taped, tilted Polaroid with a handwritten caption, beside the text. */}
           <div className="grid items-center gap-12 lg:grid-cols-[5fr_7fr] lg:gap-20">
             <Reveal className="mx-auto w-full max-w-[420px] lg:mx-0">
@@ -68,7 +65,7 @@ export default function Home() {
                   <img src={site.photo} alt={site.photoAlt} width={540} height={675} loading="lazy" decoding="async" className="size-full object-cover" />
                 </span>
                 {/* Non-breaking space before the dot, so a wrapped line never starts with one. */}
-                <figcaption className="font-hand mt-4 text-center text-[24px] leading-tight lg:text-[26px]">{site.name}{"\u00a0"}· {site.role}</figcaption>
+                <figcaption className="font-hand mt-4 text-center text-[24px] leading-tight text-ink lg:text-[26px]">{site.name}{"\u00a0"}· {site.role}</figcaption>
               </figure>
             </Reveal>
             <div>
@@ -79,10 +76,10 @@ export default function Home() {
                 {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
               </div>
               {/* Stats line */}
-              <Reveal className="mt-10 grid border-t border-line sm:grid-cols-3 lg:mt-14">
+              <Reveal className="mt-10 grid border-t border-line-dark sm:grid-cols-3 lg:mt-14">
                 {about.facts.map((f) => (
-                  <div key={f.label} className="border-b border-line py-5 pr-4">
-                    <p className="mb-1 text-[14px] label text-muted">{f.label}</p>
+                  <div key={f.label} className="border-b border-line-dark py-5 pr-4">
+                    <p className="mb-1 text-[14px] label text-white/60">{f.label}</p>
                     <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
                   </div>
                 ))}
