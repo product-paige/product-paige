@@ -29,7 +29,7 @@ export default function Home() {
         <div className="relative">
         <EditorialHero />
 
-        {/* About: a dark block with a rounded top-left corner and a folded top-right one, that slides up over the hero, laid out like a
+        {/* About: a dark block with a folded top-right corner, that slides up over the hero, laid out like a
             magazine page: the heading across the full width, then the Polaroid
             beside the text. From md up the block sits between the
             inner rails. */}
@@ -37,7 +37,7 @@ export default function Home() {
           {/* Same outer box as Container, padded so the dark block's edges sit on the inner rails
               (24px md, 40px lg in from the outer ones); inside, the content has its own padding, balanced with the top and bottom. */}
           <div className="mx-auto w-full max-w-[1360px] md:w-[calc(100%-24px)] md:px-6 lg:px-10">
-          <div className="folded-top relative rounded-tl-[6px] bg-dark px-6 py-10 text-white sm:px-8 md:px-10 lg:px-16 lg:py-24 xl:px-24">
+          <div className="folded-top relative bg-dark px-6 py-10 text-white sm:px-8 md:px-10 lg:px-16 lg:py-24 xl:px-24">
             <Reveal>
               <h2 className="serif text-[clamp(36px,5vw,72px)] leading-[1]"><Rich text={about.heading} /></h2>
             </Reveal>
