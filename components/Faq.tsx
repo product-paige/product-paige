@@ -39,25 +39,20 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 className="group/q flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-[18px] text-left text-base font-medium lg:px-6 lg:py-5 lg:text-lg"
               >
                 {f.q}
-                {/* Thin plus in a small square; the square fills and the plus turns to a cross when open.
-                    Rotated 45° the arms run diagonally and look shorter, so the cross scales up a little to
-                    read the same size as the plus (a diagonal looks bigger, so a touch under √2). The
-                    stroke stays 1px. */}
-                <span
-                  className={`grid size-8 shrink-0 place-items-center rounded-ui border transition-colors duration-300 ${isOpen ? "border-ink bg-ink text-white" : "border-line group-hover/q:border-ink/40"}`}
+                {/* Thin plus that turns to a cross when open. Rotated 45° the arms run diagonally and look
+                    shorter, so the cross scales up a little to read the same size as the plus (a diagonal
+                    looks bigger, so a touch under √2). The stroke stays 1px. */}
+                <svg
+                  aria-hidden
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1}
+                  strokeLinecap="round"
+                  className={`size-5 shrink-0 transition-[rotate,scale] duration-500 lg:size-6 ${isOpen ? "rotate-45 scale-[1.2]" : ""}`}
                 >
-                  <svg
-                    aria-hidden
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1}
-                    strokeLinecap="round"
-                    className={`size-5 transition-[rotate,scale] duration-500 ${isOpen ? "rotate-45 scale-[1.2]" : ""}`}
-                  >
-                    <path d="M12 4v16M4 12h16" vectorEffect="non-scaling-stroke" />
-                  </svg>
-                </span>
+                  <path d="M12 4v16M4 12h16" vectorEffect="non-scaling-stroke" />
+                </svg>
               </button>
             </h3>
             <div
