@@ -29,12 +29,12 @@ export default function Home() {
         <div className="relative">
         <EditorialHero />
 
-        {/* About: a dark block with rounded top corners that slides up over the hero, laid out like a
+        {/* About: a dark block with a rounded top-left corner and a folded top-right one, that slides up over the hero, laid out like a
             magazine page: the heading across the full width, then the Polaroid
             beside the text. The block is the Container itself, so from
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
-          <Container className="graph-grid relative rounded-t-[28px] bg-dark py-8 text-white lg:rounded-t-[40px] lg:py-20">
+          <Container className="folded-top relative rounded-t-[28px] bg-dark py-8 text-white lg:rounded-t-[40px] lg:py-20">
             <Reveal>
               <h2 className="serif text-[clamp(36px,5vw,72px)] leading-[1]"><Rich text={about.heading} /></h2>
             </Reveal>

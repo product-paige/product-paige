@@ -317,14 +317,24 @@
   background: var(--color-scrap) var(--grain);
 }
 
-/* Graph grid: thin lines in 40px squares. Light on dark blocks (About); set --grid-line
-   for light ones (the hero). Centred so the squares sit evenly. */
-.graph-grid {
-  background-image:
-    linear-gradient(var(--grid-line, rgb(255 255 255 / 0.06)) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line, rgb(255 255 255 / 0.06)) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center top;
+/* Folded top-right corner (the About block): the corner is cut away and a flap in
+   --fold-color sits in its place, as if the page were turned down. */
+.folded-top {
+  --fold: 44px;
+  clip-path: polygon(0 0, calc(100% - var(--fold)) 0, 100% var(--fold), 100% 100%, 0 100%);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: var(--fold);
+    height: var(--fold);
+    background: linear-gradient(225deg, transparent 50%, var(--fold-color, #555) 50%);
+    border-bottom-left-radius: 6px;
+    pointer-events: none;
+  }
+  @media (width >= 64rem) { --fold: 64px; }
 }
 
 /* Polaroid: a white print with a deep bottom margin and tape across the top. */
