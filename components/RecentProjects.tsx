@@ -33,7 +33,7 @@ function Cover({ p, className = "" }: { p: Project; className?: string }) {
 function Folder({ p, i }: { p: Project; i: number }) {
   return (
     <a href={p.href} className="folder group flex flex-col" style={{ "--tone": p.tone } as CSSProperties}>
-      <span className="folder-tab self-start text-[12px] font-medium uppercase tracking-[0.08em]">
+      <span className="folder-tab self-start text-[14px] font-medium uppercase tracking-[0.06em]">
         Project {String(i + 1).padStart(2, "0")}
       </span>
       <div className="folder-body grid gap-5 p-5 lg:p-6">
