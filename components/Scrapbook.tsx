@@ -1,4 +1,5 @@
 import { blog } from "@/content";
+import type { CSSProperties } from "react";
 import { Chip, Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
 
 /**
@@ -21,7 +22,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
               <a href={p.href} className="scrap loose-leaf folded tilt group">
                 <div className="mb-5 flex items-center justify-between gap-3">
                   <time className="text-[14px] font-medium text-muted">{p.date}</time>
-                  <Chip className="bg-white/70">{p.tag}</Chip>
+                  <Chip className="text-white" style={{ "--color-chip": "var(--color-ink)" } as CSSProperties}>{p.tag}</Chip>
                 </div>
                 <span className="photo-grain block">
                   {/* eslint-disable-next-line @next/next/no-img-element */}

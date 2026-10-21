@@ -1,5 +1,9 @@
 import type { Project } from "@/content";
+import type { CSSProperties } from "react";
 import { ArrowUpRight, Chip, sansTitle } from "./ui";
+
+// Dark pills (role tags), like the hero pills.
+const dark = { "--color-chip": "var(--color-ink)" } as CSSProperties;
 
 /** The cover, or a plain sheet with the client's name while there's no image yet. */
 export function Cover({ p, className = "" }: { p: Project; className?: string }) {
@@ -26,7 +30,7 @@ export function Folder({ p, i }: { p: Project; i: number }) {
         {/* Cover first, with the role pill over its top-right corner. */}
         <div className="relative">
           <Cover p={p} className="aspect-[4/3] w-full lg:aspect-[16/9]" />
-          <Chip className="absolute top-3 right-3 bg-white/85">{p.role}</Chip>
+          <Chip className="absolute top-3 right-3 text-white" style={dark}>{p.role}</Chip>
         </div>
         <div>
           <div className="flex items-center justify-between gap-3">
