@@ -185,12 +185,12 @@ export default function Home() {
                 <Reveal key={m.tag} delay={i * 120}>
                   {/* Hover lives on this inner layer so it doesn't fight the reveal's transition. */}
                   <div
-                    className={`flex h-full flex-col gap-5 border p-6 tilt lg:p-7 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
+                    className={`flex h-full flex-col gap-5 border p-6 tilt lg:p-8 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
                   >
                     <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
                     <h3 className={cardTitle}>{m.title}</h3>
                     <p className={m.featured ? "text-white/60" : "text-muted"}>{m.body}</p>
-                    <div className="mt-auto pt-4">
+                    <div className="mt-auto pt-8 lg:pt-12">
                       <p className={`text-sm label ${m.featured ? "text-white/60" : "text-muted"}`}>Starting at</p>
                       <p className="mt-1 flex items-baseline gap-1.5">
                         <span className={`serif text-[32px] leading-none ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
