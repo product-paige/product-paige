@@ -49,9 +49,11 @@ export default function Home() {
         {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
             slides up over it, then both scroll away together. */}
         <div className="relative">
-        {/* Desktop: hero fills the first screen under the 68px header, content centred; the About panel peeks 64px at the bottom. */}
-        <section className="pt-10 pb-12 lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)] lg:flex-col lg:justify-center lg:py-16">
-          <Container>
+        {/* Hero: a dark block. Desktop: it fills the first screen under the 68px header, content
+            centred; the About panel peeks 64px at the bottom. Like About, the block is the Container
+            itself, so from md up it stays between the page rails. */}
+        <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)]">
+          <Container className="bg-dark pt-10 pb-20 text-white lg:flex lg:flex-col lg:justify-center lg:py-16">
             <h1 className="rise serif mb-6 max-w-6xl text-[clamp(40px,6.3vw,92px)] leading-[0.97]" style={delay(100)}>
               <Rich text={hero.heading} />
             </h1>
@@ -60,7 +62,7 @@ export default function Home() {
               {/* A soft highlight travels along the pills, tinting each with its own dot colour in turn. */}
               <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
                 {hero.tags.map((t, i) => (
-                  <Chip key={t.label} dot={t.dot} style={{ "--i": i, "--tint": t.dot } as CSSProperties}>{t.label}</Chip>
+                  <Chip key={t.label} dot={t.dot} className="text-ink" style={{ "--i": i, "--tint": t.dot } as CSSProperties}>{t.label}</Chip>
                 ))}
               </div>
             </div>
