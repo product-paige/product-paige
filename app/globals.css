@@ -202,20 +202,41 @@
   }
 }
 
-/* Folded corner: the bottom-right corner is cut off, and a slightly darker
-   triangle sits in the cut as the page folded over. Works on any background. */
+/* Photo grain: fine film grain and a faint warm paper tint over a photo, so photos
+   sit with the paper textures. Put it on the photo's wrapper (an <img> can't hold it). */
+.photo-grain {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.25 0 0 0 0 0.22 0 0 0 0 0.2 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+      rgb(245 235 215 / 0.08);
+    mix-blend-mode: multiply;
+    opacity: 0.35;
+  }
+}
+
+/* Folded corner: the bottom-right corner is cut off, and a triangle sits in the cut as
+   the page folded over. --fold-color is the back of the page: a faint shade by default
+   (works on any coloured paper); photos set a solid paper colour. Drawn with ::before so
+   it can share an element with .photo-grain. */
 .folded {
   --fold: 40px;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--fold)), calc(100% - var(--fold)) 100%, 0 100%);
-  &::after {
+  &::before {
     content: "";
     position: absolute;
     right: 0;
     bottom: 0;
+    z-index: 2;
     width: var(--fold);
     height: var(--fold);
-    background: linear-gradient(315deg, transparent 50%, rgb(0 0 0 / 0.08) 50%);
+    background: linear-gradient(315deg, transparent 50%, var(--fold-color, rgb(0 0 0 / 0.08)) 50%);
     pointer-events: none;
   }
 }

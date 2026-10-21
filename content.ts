@@ -21,8 +21,9 @@ export const site = {
   formEndpoint: "",
   // Leave empty to hide the LinkedIn link in the footer.
   linkedin: "",
-  // Headshot in public/. Swap the placeholder for a real photo.
-  photo: "/photo-placeholder.svg",
+  // About photo in public/, and its description for screen readers.
+  photo: "/about.jpg",
+  photoAlt: "Someone in a red jumper and jeans lying upside down on a pink sofa, a book over their face",
   // Shown beside the header button. Leave empty to hide it.
   availability: "",
   metaDescription:

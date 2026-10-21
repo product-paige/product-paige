@@ -18,8 +18,10 @@ function Head() {
 /** The cover, or a plain sheet with the client's name while there's no image yet. */
 function Cover({ p, className = "" }: { p: Project; className?: string }) {
   return p.image ? (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img src={p.image} alt="" loading="lazy" decoding="async" className={`object-cover ${className}`} />
+    <span className={`photo-grain block ${className}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={p.image} alt="" loading="lazy" decoding="async" className="size-full object-cover" />
+    </span>
   ) : (
     <div className={`grid place-items-center bg-white/55 ${className}`}>
       <span className="serif text-[clamp(28px,3vw,44px)] text-ink/35">{p.client}</span>

@@ -74,10 +74,10 @@ export default function Home() {
           <img src="/paper-edge.svg" alt="" aria-hidden className="pointer-events-none absolute bottom-full left-0 h-[clamp(64px,12vw,230px)] w-full translate-y-px select-none" />
           <Container className="grid gap-8 lg:grid-cols-[5fr_7fr] lg:gap-20">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <figure className="relative aspect-[4/5] overflow-hidden rounded-xl bg-chip">
+              <figure className="photo-grain folded aspect-[4/5] bg-chip [--fold-color:#e6e2da]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={site.photo} alt={site.name} width={540} height={700} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover object-top" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/45 to-transparent p-7 pt-16 text-white">
+                <img src={site.photo} alt={site.photoAlt} width={540} height={700} loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
+                <figcaption className="absolute inset-x-0 bottom-0 z-1 bg-linear-to-t from-black/45 to-transparent p-7 pt-16 text-white">
                   {site.name} · {site.role} · {site.location}
                 </figcaption>
               </figure>

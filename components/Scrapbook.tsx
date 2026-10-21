@@ -24,8 +24,10 @@ export function Scrapbook({ className = "" }: { className?: string }) {
                   <time className="font-mono text-[13px] uppercase tracking-[0.06em] text-muted">{p.date}</time>
                   <span className="rounded-[4px] bg-ink px-2.5 py-1.5 text-[13px] leading-none text-white">{p.tag}</span>
                 </div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
+                <span className="photo-grain block">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
+                </span>
                 <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
                 <p className="mt-2 text-muted">{p.excerpt}</p>
               </a>
