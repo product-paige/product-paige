@@ -9,7 +9,7 @@
   /* White */
   --color-paper: #f4f4f1;   /* page background */
   --color-surface: #ffffff; /* cards */
-  --color-ink: #383838;     /* text */
+  --color-ink: #383838;     /* text and dark buttons */
   --color-muted: #6b6b6b;
   /* Lines. Grid (below) is the page frame only, a step stronger than line. Line is every rule inside content,
      translucent so it reads the same on white, paper and coloured cards; line-dark is its
@@ -17,7 +17,7 @@
   --color-line: rgb(56 56 56 / 0.1);
   --color-line-dark: rgb(255 255 255 / 0.15);
   --color-chip: rgb(56 56 56 / 0.05); /* pills: a translucent ink, so they show on any light surface */
-  --color-dark: #1e1e1e;    /* buttons, contact, footer, featured card */
+  --color-dark: #1e1e1e;    /* contact, footer, featured card */
   --color-sheet: #faf9f7;   /* About: matches public/paper-edge.svg */
   --color-live: #2fa84f;    /* availability dot */
   --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
@@ -101,7 +101,7 @@
     font-size: 15px;
     line-height: 1;
     white-space: nowrap;
-    --btn-bg: var(--color-dark);
+    --btn-bg: var(--color-ink);
     --btn-fg: #fff;
   }
   .btn-light {
