@@ -46,12 +46,10 @@ export const hero = {
     "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
   // Each pill has a line icon (see components/TagIcon.tsx for the names).
   tags: [
-    { label: "Ecommerce + DTC", icon: "bag" },
-    { label: "Shopify apps + ecosystem", icon: "apps" },
-    { label: "Product-led SaaS", icon: "window" },
-    { label: "Loyalty + retention", icon: "heart" },
-    { label: "AI + developer tools", icon: "sparkle" },
-    { label: "Apparel", icon: "shirt" },
+    { label: "Ecommerce", icon: "bag" },
+    { label: "Shopify apps", icon: "apps" },
+    { label: "SaaS", icon: "window" },
+    { label: "AI tools", icon: "sparkle" },
   ] as { label: string; icon: TagIconName }[],
 };
 
