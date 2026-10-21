@@ -23,8 +23,8 @@ function Placeholder({ label, className = "" }: { label: string; className?: str
 
 /**
  * Alternative hero, laid out like an editorial spread: the headline is broken across a
- * 12-column grid and wraps around image placeholders (an arched photo, a small print and a
- * landscape oval). On desktop the type is sized to the width of the grid (8.6cqw), so each phrase fills its
+ * 12-column grid and wraps around image placeholders (an arched photo and a tall print down
+ * the right edge). On desktop the type is sized to the width of the grid (8.6cqw), so each phrase fills its
  * columns at any screen size, and the images take their height from the lines of text beside
  * them (sized in em of the same type). Phones get the plain stack: arched photo, headline, intro.
  */
@@ -45,17 +45,15 @@ export function EditorialHero() {
 
             <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] lg:contents`}>
               <span className={`${line} ${type} lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:self-start`}>Product, design </span>
-              <span className={`${line} ${type} lg:col-span-4 lg:col-start-5 lg:row-start-2 lg:self-end`}>& build </span>
-              <span className={`${line} ${type} lg:col-span-6 lg:col-start-1 lg:row-start-3 lg:mt-[0.2em] lg:self-start`}>for Shopify </span>
-              <span className={`${line} ${type} lg:col-span-3 lg:col-start-10 lg:row-start-3 lg:mt-[0.2em] lg:self-start lg:justify-self-end`}>teams</span>
+              <span className={`${line} ${type} lg:col-span-5 lg:col-start-5 lg:row-start-2 lg:self-end`}>& build </span>
+              <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:mt-[0.2em] lg:self-start`}>for Shopify teams</span>
             </h1>
 
-            {/* Small print beside "& build", and an oval between "for Shopify" and "teams" */}
-            <Placeholder label="Image" className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-start-2 lg:mb-[0.12em] lg:grid lg:h-[0.85em] lg:self-end lg:text-[8.6cqw]" />
-            <Placeholder label="Image" className="hidden rounded-[50%] lg:col-span-3 lg:col-start-7 lg:row-span-2 lg:row-start-3 lg:mt-[0.3em] lg:grid lg:h-[1.5em] lg:text-[8.6cqw]" />
+            {/* A tall print down the right edge, from "& build" to the bottom of the intro */}
+            <Placeholder label="Image" className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-3 lg:row-start-2 lg:mt-[0.15em] lg:grid lg:text-[8.6cqw]" />
 
-            {/* Intro under "for Shopify", beside the oval */}
-            <p className="max-w-lg text-[20px] leading-snug lg:col-span-6 lg:text-[22px] lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start">{hero.lede}</p>
+            {/* Intro under "for Shopify teams" */}
+            <p className="max-w-2xl text-[20px] leading-snug lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start lg:text-[22px]">{hero.lede}</p>
 
             {/* Under the rule: the hero pills on the left, the sign-off on the right */}
             <div className="flex flex-col gap-5 border-t border-line pt-5 lg:col-span-12 lg:row-start-5 lg:mt-8 lg:flex-row lg:items-center lg:justify-between">
