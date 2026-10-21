@@ -11,7 +11,7 @@
   --color-surface: #ffffff; /* cards */
   --color-ink: #383838;     /* text */
   --color-muted: #6b6b6b;
-  /* Lines. Grid (red tint, below) is the page frame only. Line is every rule inside content,
+  /* Lines. Grid (below) is the page frame only, a step stronger than line. Line is every rule inside content,
      translucent so it reads the same on white, paper and coloured cards; line-dark is its
      twin on dark blocks. Ink is for interaction (hover, open) only. */
   --color-line: rgb(56 56 56 / 0.1);
@@ -22,7 +22,7 @@
   --color-live: #2fa84f;    /* availability dot */
   --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
   --color-accent: #e01321;  /* timeline fill, selection, focus */
-  --color-grid: color-mix(in srgb, var(--color-accent) 15%, transparent); /* grid lines and hatching */
+  --color-grid: rgb(56 56 56 / 0.14); /* page frame: rails, hatching, section lines (a step above --color-line) */
 
   /* Card colours */
   --color-sage: #dce2d4;
