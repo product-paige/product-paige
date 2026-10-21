@@ -1,0 +1,151 @@
+import { Fragment, type CSSProperties, type ReactNode } from "react";
+import { Reveal } from "./Reveal";
+
+export { Reveal };
+
+// Type scale: the hero headline sets its own size, then sectionHeading (72px max)
+// for every h2, then cardTitle (32px max) for every card and list title.
+export const sectionHeading = "serif text-[clamp(38px,5vw,72px)] leading-[0.98]";
+// Section headings that sit in a side column (My approach, Common questions): a step smaller.
+export const sideHeading = "serif text-[clamp(38px,4.2vw,60px)] leading-[0.98]";
+export const cardTitle = "serif text-[clamp(26px,2.2vw,32px)] leading-[1.04]";
+// Larger titles for the open lists (Capabilities rows, approach timeline): 44px max.
+export const listTitle = "serif text-[clamp(28px,3.2vw,44px)] leading-[1.04]";
+
+/** Renders "*word*" as <em>word</em>, and keeps hyphenated words like "fast-growing" on one line. */
+export function Rich({ text }: { text: string }) {
+  const keepTogether = (part: string) =>
+    part.split(/(\S+-\S+)/g).map((piece, j) =>
+      piece.includes("-") && !/\s/.test(piece) ? <span key={j} className="whitespace-nowrap">{piece}</span> : piece,
+    );
+  return (
+    <>
+      {text.split(/(\*[^*]+\*)/g).map((part, i) =>
+        part.startsWith("*") && part.endsWith("*") ? <em key={i}>{keepTogether(part.slice(1, -1))}</em> : <Fragment key={i}>{keepTogether(part)}</Fragment>,
+      )}
+    </>
+  );
+}
+
+export function Container({ className = "", children }: { className?: string; children: ReactNode }) {
+  return <div className={`mx-auto w-full max-w-[1360px] px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>;
+}
+
+export function Button({
+  href,
+  variant = "solid",
+  size = "md",
+  arrow = "up-right",
+  children,
+}: {
+  href: string;
+  variant?: "solid" | "ghost";
+  size?: "md" | "sm";
+  /** "down" for links that scroll further down the page. */
+  arrow?: "up-right" | "down";
+  children: ReactNode;
+}) {
+  const sizes = size === "sm" ? "px-4 py-2 text-sm" : "px-5 py-3 text-base";
+  const styles =
+    variant === "solid"
+      ? "bg-ink text-white hover:opacity-85"
+      : "bg-surface text-ink border border-line hover:bg-chip";
+  return (
+    <a
+      href={href}
+      className={`group inline-flex items-center gap-1.5 whitespace-nowrap rounded-full font-medium transition hover:-translate-y-px ${sizes} ${styles}`}
+    >
+      {children}
+      {arrow === "down" ? (
+        <ArrowDown className={size === "sm" ? "size-3.5" : ""} />
+      ) : (
+        <ArrowUpRight className={size === "sm" ? "size-3.5" : ""} />
+      )}
+    </a>
+  );
+}
+
+/** Thin up-right arrow. Nudges up and right when its parent `group` is hovered. */
+export function ArrowUpRight({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.25}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`size-4 shrink-0 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${className}`}
+    >
+      <path d="M4.5 11.5l7-7M5.5 4.5h6v6" />
+    </svg>
+  );
+}
+
+/** Thin checkmark, a touch larger and lighter than the arrows. */
+export function Check({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`size-5 shrink-0 ${className}`}
+    >
+      <path d="M3 8.5l3.25 3.25L13 5" />
+    </svg>
+  );
+}
+
+/** Thin down arrow. Nudges down when its parent `group` is hovered. */
+export function ArrowDown({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.25}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`size-4 shrink-0 transition-transform duration-200 group-hover:translate-y-0.5 ${className}`}
+    >
+      <path d="M8 3v10M3.5 8.5L8 13l4.5-4.5" />
+    </svg>
+  );
+}
+
+export function Chip({
+  dot,
+  className = "",
+  style,
+  children,
+}: {
+  dot?: string;
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+}) {
+  return (
+    <span className={`inline-flex items-center gap-2 rounded-full bg-chip px-4 py-2 text-[14px] label lg:text-[15px] ${className}`} style={style}>
+      {dot && <i aria-hidden className="size-2 rounded-full" style={{ background: dot }} />}
+      {children}
+    </span>
+  );
+}
+
+/** Section title: wide heading, with an optional short note underneath. */
+export function SectionHead({ heading, body }: { heading: string; body?: string }) {
+  return (
+    <Reveal className="mb-8 lg:mb-16">
+      <h2 className={`${sectionHeading} lg:max-w-4xl`}>
+        <Rich text={heading} />
+      </h2>
+      {body && <p className="lede mt-5 max-w-xl">{body}</p>}
+    </Reveal>
+  );
+}

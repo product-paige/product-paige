@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Placeholder portrait">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="20%" r="120%">
+      <stop offset="0" stop-color="#efe6dc"/>
+      <stop offset="0.6" stop-color="#e2d4c4"/>
+      <stop offset="1" stop-color="#d6c3ae"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <!-- Head and shoulders silhouette -->
+  <circle cx="400" cy="400" r="138" fill="#cdb79e"/>
+  <path d="M130 1000c0-190 120-330 270-330s270 140 270 330z" fill="#cdb79e"/>
+</svg>
