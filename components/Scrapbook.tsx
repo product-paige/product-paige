@@ -20,7 +20,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
             <Reveal key={p.href} delay={i * 120}>
               <a href={p.href} className="scrap loose-leaf folded group">
                 <div className="mb-5 flex items-center justify-between gap-3">
-                  <time className="font-mono text-[13px] uppercase tracking-[0.06em] text-muted">{p.date}</time>
+                  <time className="text-[12px] font-medium uppercase tracking-[0.08em] text-muted">{p.date}</time>
                   <Chip className="bg-white/70">{p.tag}</Chip>
                 </div>
                 <span className="photo-grain block">
