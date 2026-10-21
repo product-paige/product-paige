@@ -49,19 +49,19 @@ export default function Home() {
         {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
             slides up over it, then both scroll away together. */}
         <div className="relative">
-        {/* Hero: a block tinted with 5% of #1b1d1e over the page. Desktop: it fills the first screen under the 68px header, content
+        {/* Hero: a block of the blog cards' grey paper, with the same grain. Desktop: it fills the first screen under the 68px header, content
             centred but nudged up (extra bottom padding) since the torn paper covers the bottom; the
             About panel peeks 64px at the bottom. Like About, the block is the Container
             itself, so from md up it stays between the page rails. */}
         <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_132px)]">
-          <Container className="bg-[rgb(27_29_30/0.05)] pt-8 pb-20 lg:flex lg:flex-col lg:justify-center lg:pt-16 lg:pb-40">
-            <h1 className="rise serif mb-6 max-w-6xl text-[clamp(38px,5.8vw,84px)] leading-[0.97]" style={delay(100)}>
+          <Container className="paper-grain bg-scrap pt-8 pb-20 lg:flex lg:flex-col lg:justify-center lg:pt-16 lg:pb-40">
+            <h1 className="rise serif mb-6 max-w-4xl text-[clamp(34px,5vw,72px)] leading-[1] text-balance" style={delay(100)}>
               <Rich text={hero.heading} />
             </h1>
             <div className="rise" style={delay(200)}>
               <p className="lede mb-10 max-w-2xl lg:mb-12 lg:max-w-3xl lg:text-[20px]">{hero.lede}</p>
               {/* A soft highlight travels along the pills, tinting each with its own dot colour in turn.
-                  On the tinted hero the pills are white rather than the usual translucent grey. */}
+                  On the grey paper hero the pills are white rather than the usual translucent grey. */}
               <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length, "--color-chip": "#fff" } as CSSProperties}>
                 {hero.tags.map((t, i) => (
                   <Chip key={t.label} dot={t.dot} className="text-ink" style={{ "--i": i, "--tint": t.dot } as CSSProperties}>{t.label}</Chip>
