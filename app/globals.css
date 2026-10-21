@@ -22,7 +22,7 @@
   --color-sheet: #f4f2ec;   /* About paper (and the open FAQ row): a step below the page; matches public/paper-edge.svg */
   --color-live: #2fa84f;    /* availability dot */
   --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
-  --color-accent: #e01321;  /* timeline fill, selection, focus */
+  --color-accent: #e01321;  /* active-menu underline, link hover, timeline fill, selection, focus */
   --color-grid: rgb(56 56 56 / 0.14); /* page frame: rails, hatching, section lines (a step above --color-line) */
 
   /* Card colours */
@@ -45,9 +45,6 @@
   /* Paper grain: faint noise for paper surfaces (loose-leaf cards, the hero). */
   --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.28 0 0 0 0 0.25 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
-  /* Highlighter: a yellow marker stroke with uneven edges, for the active menu item and
-     text links on hover. */
-  --highlighter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M1 2.5 C 20 0.8 45 1.8 70 0.9 S 92 1.6 99 0.8 L 98.5 18.6 C 80 19.6 55 18.2 30 19.3 S 8 18.6 1.5 19.5 Z' fill='%23ffd60a' fill-opacity='.6'/%3E%3C/svg%3E");
 
   --tracking-display: -0.03em;
 
@@ -157,22 +154,19 @@
     @media (width >= 64rem) { padding: 8px 12px; }
   }
 
-  /* Text link: a faint resting underline, with the highlighter swept across the whole
-     word on hover. A little side padding (taken back with margin) lets the stroke overhang. */
+  /* Text link: a faint resting underline, with an accent one sweeping in on hover. */
   .link {
-    padding: 0 3px 3px;
-    margin: 0 -3px;
+    padding-bottom: 3px;
     background-image:
-      var(--highlighter),
+      linear-gradient(var(--color-accent), var(--color-accent)),
       linear-gradient(color-mix(in srgb, currentColor 35%, transparent), color-mix(in srgb, currentColor 35%, transparent));
     background-repeat: no-repeat;
-    background-position: 0 0, 3px 100%;
-    background-size: 0% 100%, calc(100% - 6px) 1px;
-    transition: background-size 400ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    background-position: 0 100%, 0 100%;
+    background-size: 0% 1px, 100% 1px;
+    transition: background-size 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
   }
   .link:hover,
-  .link:focus-visible,
-  .group:hover .link { background-size: 100% 100%, calc(100% - 6px) 1px; }
+  .link:focus-visible { background-size: 100% 1px, 100% 1px; }
   .link:active { opacity: 0.7; }
 }
 
@@ -314,18 +308,6 @@
   /* Square where the tab joins, rounded elsewhere like a real folder. */
   border-radius: 0 var(--radius-ui) var(--radius-ui) var(--radius-ui);
   background: var(--tone) var(--grain);
-}
-
-/* Highlighter behind a menu label: the yellow stroke over the full height of the text,
-   drawn in from the left with scale-x. Sits behind the text (z -1). */
-.highlight {
-  position: absolute;
-  inset: -2px -4px;
-  z-index: -1;
-  transform-origin: left;
-  background: var(--highlighter) center / 100% 100% no-repeat;
-  transition: transform 500ms var(--ease-soft);
-  pointer-events: none;
 }
 
 /* Native select with a thin chevron, so it looks the same in every browser */
