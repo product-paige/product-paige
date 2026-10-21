@@ -30,22 +30,13 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: a dark block with rounded top corners that slides up over the hero, laid out like a
-            magazine page: a running head, the heading across the full width, then the Polaroid
+            magazine page: the heading across the full width, then the Polaroid
             beside the text. The block is the Container itself, so from
             md up it stays between the page rails. */}
         <section id="about" className="relative z-1">
-          <Container className="graph-grid relative rounded-t-[28px] bg-dark pt-5 pb-8 text-white lg:rounded-t-[40px] lg:pt-8 lg:pb-20">
-            {/* Running head */}
-            <div className="flex items-center justify-between border-b border-line-dark pb-4 text-[14px] font-medium text-white/70 lg:pb-5">
-              <span className="flex items-center gap-2.5">
-                <svg aria-hidden viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={3.2} strokeLinecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9" /></svg>
-                About
-              </span>
-              <span>{about.facts[0].value}</span>
-            </div>
-
+          <Container className="graph-grid relative rounded-t-[28px] bg-dark py-8 text-white lg:rounded-t-[40px] lg:py-20">
             <Reveal>
-              <h2 className="serif mt-8 text-[clamp(40px,6.4vw,92px)] leading-[0.95] lg:mt-12"><Rich text={about.heading} /></h2>
+              <h2 className="serif text-[clamp(40px,6.4vw,92px)] leading-[0.95]"><Rich text={about.heading} /></h2>
             </Reveal>
 
             <div className="mt-10 grid items-start gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-6">

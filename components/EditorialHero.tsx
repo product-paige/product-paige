@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import { hero, site } from "@/content";
 import { CartMockup, ProductPageMockup } from "./Mockups";
 import { TagIcon } from "./TagIcon";
@@ -30,13 +29,13 @@ export function EditorialHero() {
       <Container className="paper-grain bg-paper py-10 lg:py-14">
         <div className="@container">
           <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
-            {/* Arched product page mockup, exactly two lines of type tall, so the three lines keep an even 1em pitch, beside "Product, design / & build" */}
+            {/* Arched product page mockup, exactly two lines of type tall, so the three lines keep an even 1.08em pitch, beside "Product, design / & build" */}
             <div className={`relative lg:col-span-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 ${type}`}>
               <Asterisk className="absolute -top-4 -left-3 z-1 size-9 lg:-top-5 lg:-left-5 lg:size-11" />
-              <ProductPageMockup className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2em] lg:rounded-tl-[1.4em]" />
+              <ProductPageMockup className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2.16em] lg:rounded-tl-[1.4em]" />
             </div>
 
-            <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] lg:contents lg:leading-none`}>
+            <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] lg:contents lg:leading-[1.08]`}>
               <span className={`${line} ${type} lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:self-start`}>{hero.heading[0]} </span>
               <span className={`${line} ${type} lg:col-span-5 lg:col-start-5 lg:row-start-2 lg:self-start`}>{hero.heading[1]} </span>
               <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:self-start`}>{hero.heading[2]}</span>
@@ -50,9 +49,9 @@ export function EditorialHero() {
 
             {/* Under the rule: the hero pills on the left, the booking line on the right */}
             <div className="flex flex-col gap-5 border-t border-line pt-5 lg:col-span-12 lg:row-start-5 lg:mt-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="pill-cycle flex flex-wrap gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
-                {hero.tags.map((t, i) => (
-                  <Chip key={t.label} icon={<TagIcon name={t.icon} />} style={{ "--i": i } as CSSProperties}>{t.label}</Chip>
+              <div className="flex flex-wrap gap-2 text-white [--color-chip:var(--color-ink)]">
+                {hero.tags.map((t) => (
+                  <Chip key={t.label} icon={<TagIcon name={t.icon} />}>{t.label}</Chip>
                 ))}
               </div>
               <p className="flex shrink-0 items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:text-[20px]">

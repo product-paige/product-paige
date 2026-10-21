@@ -366,17 +366,6 @@
 }
 .live-star { color: var(--color-live); animation: star-pulse 2.4s infinite; }
 
-/* Hero pills: dark, with a highlight that travels along them, warming each pill towards
-   the accent in turn. 1.6s per pill, looping. */
-.pill-cycle { --color-chip: var(--color-ink); color: #fff; }
-@keyframes pill-glow {
-  0%, 30%, 100% { background-color: var(--color-chip); }
-  8%, 20% { background-color: color-mix(in srgb, var(--color-accent) 75%, var(--color-ink)); }
-}
-.pill-cycle > * {
-  animation: pill-glow calc(var(--n) * 1.6s) ease-in-out calc(var(--i) * 1.6s + 1.2s) infinite;
-}
-
 /* Scroll reveal. Only hides content once JS has marked the page ready,
    so the page still reads fine without JS. */
 .reveal-ready [data-reveal] {
@@ -389,6 +378,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .live-star, .pill-cycle > * { animation: none; }
+  .live-star { animation: none; }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }

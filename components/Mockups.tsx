@@ -1,7 +1,7 @@
 /**
  * Small ecommerce UX mockups drawn in HTML, for the hero. Each one is its own size container
  * and sets every measure in cqw, so the whole screen scales with the box it sits in. The screens
- * are drawn at full width, then scaled to 78% from the top, leaving a margin of colour around them.
+ * are drawn at full width, then scaled down from the top, leaving a margin of colour around them.
  */
 
 const stars = "★★★★★";
@@ -10,7 +10,7 @@ const stars = "★★★★★";
 export function ProductPageMockup({ className = "" }: { className?: string }) {
   return (
     <div aria-hidden className={`@container relative overflow-hidden bg-sky font-sans ${className}`}>
-      <div className="absolute inset-x-[9cqw] top-[15cqw] bottom-[-40cqw] origin-top scale-[0.78] overflow-hidden rounded-[2cqw] bg-white shadow-[0_2cqw_6cqw_rgb(26_26_26/0.12)]">
+      <div className="absolute inset-x-[9cqw] top-[16cqw] bottom-[-50cqw] origin-top scale-[0.7] overflow-hidden rounded-[2cqw] bg-white shadow-[0_2cqw_6cqw_rgb(26_26_26/0.12)]">
         {/* Browser bar */}
         <div className="flex items-center gap-[1cqw] border-b border-line px-[2.4cqw] py-[1.8cqw]">
           {[0, 1, 2].map((i) => <i key={i} className="size-[1.4cqw] rounded-full bg-ink/15" />)}
@@ -52,7 +52,7 @@ export function CartMockup({ className = "" }: { className?: string }) {
   ];
   return (
     <div aria-hidden className={`@container relative overflow-hidden bg-butter font-sans ${className}`}>
-      <div className="absolute inset-x-[14cqw] top-[16cqw] bottom-[-40cqw] origin-top scale-[0.78] overflow-hidden rounded-[9cqw] border-[2.4cqw] border-ink bg-white shadow-[0_3cqw_8cqw_rgb(26_26_26/0.16)]">
+      <div className="absolute inset-x-[5cqw] top-[12cqw] bottom-[-40cqw] origin-top scale-[0.82] overflow-hidden rounded-[9cqw] border-[2.4cqw] border-ink bg-white shadow-[0_3cqw_8cqw_rgb(26_26_26/0.16)]">
         <div className="mx-auto mt-[2.4cqw] h-[3.4cqw] w-[22cqw] rounded-full bg-ink" />
         <div className="flex flex-col gap-[3.4cqw] p-[5cqw] text-ink">
           <div className="flex items-baseline justify-between">
