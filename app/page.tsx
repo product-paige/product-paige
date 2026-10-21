@@ -35,15 +35,15 @@ export default function Home() {
             itself, so from md up it stays between the page rails. */}
         <section className="relative lg:sticky lg:top-[68px] lg:flex lg:min-h-[calc(100svh_-_212px)]">
           <Container className="hero-grid relative overflow-hidden pt-12 pb-14 lg:flex lg:flex-col lg:justify-center lg:py-20">
-            <i aria-hidden className="torn-sheet absolute inset-y-0 left-1/2 w-[calc(100%-24px)] -translate-x-1/2 sm:w-[min(1120px,90%)] lg:w-[min(1120px,80%)]" />
-            <div className="relative mx-auto max-w-[1080px] px-4 text-center sm:px-10">
+            <i aria-hidden className="torn-sheet absolute inset-y-0 left-1/2 w-[calc(100%-24px)] -translate-x-1/2 sm:w-[min(1120px,90%)] lg:w-[calc(min(6.6vw,96px)*10.4)]" />
+            <div className="relative mx-auto max-w-[1200px] px-4 text-center sm:px-10">
               <h1 className="rise serif mb-6 text-[clamp(40px,6.6vw,96px)] leading-[1] text-balance" style={delay(100)}>
                 <Rich text={hero.heading} />
               </h1>
               <div className="rise" style={delay(200)}>
                 <p className="lede mx-auto mb-10 max-w-2xl lg:mb-12">{hero.lede}</p>
                 {/* Dark pills, each with a line icon; a highlight travels along them (.pill-cycle). */}
-                <div className="pill-cycle flex flex-wrap justify-center gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
+                <div className="pill-cycle mx-auto flex max-w-[720px] flex-wrap justify-center gap-2" style={{ "--n": hero.tags.length } as CSSProperties}>
                   {hero.tags.map((t, i) => (
                     <Chip key={t.label} icon={<TagIcon name={t.icon} />} style={{ "--i": i } as CSSProperties}>{t.label}</Chip>
                   ))}

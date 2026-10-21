@@ -317,7 +317,8 @@
 
 /* Hero: a soft red grid with a torn sheet of paper down the middle, behind the text. The
    sheet's left and right edges are a fixed jagged outline (px in from each side), so the
-   tear keeps its shape at any width. */
+   tear keeps its shape at any width. On desktop the sheet is sized to the headline (in em of
+   its font size) so the longest line runs just past the torn edges. */
 .hero-grid {
   background-color: color-mix(in srgb, var(--color-accent) 30%, #fff);
   background-image:
