@@ -9,7 +9,7 @@ export const sectionHeading = "serif text-[clamp(34px,4.5vw,64px)] leading-[1]";
 // Section headings that sit in a side column (My process, Common questions): a step smaller.
 export const sideHeading = "serif text-[clamp(34px,3.8vw,54px)] leading-[1]";
 export const cardTitle = "serif text-[clamp(24px,2vw,29px)] leading-[1.07]";
-// Larger titles for the open lists (Capabilities rows).
+// Larger titles for the open lists (How I can help rows).
 export const listTitle = "serif text-[clamp(26px,2.9vw,39px)] leading-[1.07]";
 // Manrope medium: small card headings that sit with body text (blog cards).
 export const sansTitle = "font-sans text-[19px] font-medium leading-snug tracking-[-0.01em] lg:text-[21px]";

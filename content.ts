@@ -56,10 +56,10 @@ export const approach = {
   body:
     "A fixed price in writing before any work starts, then async work with as few calls as possible.",
   steps: [
-    { dot: "#a9c3d9", title: "You send it over", body: "A link to your site, a screenshot of the thing that’s bothering you. Whatever you have is enough to start." },
-    { dot: "#dcc87e", title: "I come back with a price", body: "A fixed price, what’s included and how long it takes, in writing. One short call only if the scope needs one." },
-    { dot: "#dfae95", title: "The work", body: "Async by default, plus one live session. Calls only when they’d be faster than writing." },
-    { dot: "#c3b3dd", title: "Handover", body: "Whatever the work produced, from design files and copy to code and your theme, handed over so you can keep going without me." },
+    { dot: "#a9c3d9", title: "You send it over", body: "A link to your site and a screenshot of what’s bothering you. Whatever you have is enough to start." },
+    { dot: "#dcc87e", title: "I come back with a price", body: "A fixed price, what’s included and how long it takes, in writing. A short call only if needed." },
+    { dot: "#dfae95", title: "The work", body: "Async by default, with one live session. Calls only when they’d be faster than writing it down." },
+    { dot: "#c3b3dd", title: "Handover", body: "Design files, copy, code and your theme, all handed over so you can keep going without me." },
   ],
 };
 
@@ -80,27 +80,27 @@ export const about = {
 };
 
 export const services = {
-  heading: "Capabilities",
+  heading: "How I can help",
   items: [
     {
       title: "Web and product design",
       tags: ["Shopify themes", "Typography and color", "Product data"],
-      body: "A Shopify storefront or marketing site. A refresh of what you already have, or the whole thing designed and built from scratch: hero, homepage and product page, built in your own theme.",
+      body: "Shopify storefronts and marketing sites. A refresh of what you already have, or designed and built from scratch in your theme.",
     },
     {
       title: "UX and conversion",
       tags: ["UX review", "Conversion", "Scoped plan"],
-      body: "What’s wrong, and what to fix first. A positioning and UX review with a written, ranked list, and I’ll tell you if you don’t need me.",
+      body: "A positioning and UX review, with a written list of what to fix first. I’ll tell you if you don’t need me.",
     },
     {
       title: "Positioning and messaging",
       tags: ["Positioning", "Copywriting", "Product strategy"],
-      body: "Naming, positioning and the copy across the whole thing, so the product makes sense to someone outside the building.",
+      body: "Naming, positioning and copy across the whole site. Your product will make sense to someone outside the building.",
     },
     {
-      title: "AI content design",
+      title: "Content and campaigns",
       tags: ["Landing pages", "Email design", "Campaign copy"],
-      body: "Landing pages, email design, content, or a whole campaign. Scoped, built, shipped and handed over, live before the date you need it.",
+      body: "Landing pages, emails or a whole campaign, made with AI tools. Scoped, built and handed over before your launch date.",
     },
   ],
 };
@@ -112,8 +112,8 @@ export const audiences = {
       tone: "bg-sky",
       title: "You already have a store",
       points: [
-        "Traffic that doesn’t convert",
-        "It still looks like the theme it came from",
+        "Traffic comes in but doesn’t convert",
+        "It still looks like the default theme",
         "The brand has outgrown the site",
       ],
     },
@@ -121,9 +121,9 @@ export const audiences = {
       tone: "bg-butter",
       title: "Nobody owns this yet",
       points: [
-        "Something’s wrong and you can’t name it",
-        "You’re getting conflicting advice",
-        "A launch date that isn’t moving, and nobody to build it",
+        "Something’s off and you can’t name it",
+        "You’re hearing conflicting advice",
+        "A launch date with nobody to build it",
       ],
     },
   ],
@@ -147,7 +147,7 @@ export const models = {
     {
       tag: "Websites",
       title: "Store design and build",
-      body: "Your store designed, written and built.",
+      body: "Your store designed, written and built, start to finish.",
       price: "$1,500",
       per: "/ project",
       points: ["A refresh in your own theme", "Or a full build from scratch, from $8,500", "Design, copy, QA and launch"],
