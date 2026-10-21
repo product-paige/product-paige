@@ -15,7 +15,7 @@ function Asterisk({ className = "" }: { className?: string }) {
 /**
  * The hero, laid out like an editorial spread: the headline is broken across a
  * 12-column grid and wraps around two ecommerce mockups (an arched product page and a phone
- * cart down the right edge). On desktop the type is sized to the width of the grid (8.6cqw), so each phrase fills its
+ * cart down the right edge). On desktop the type is sized to the width of the grid (9.5cqw), so each phrase fills its
  * columns at any screen size, and the images take their height from the lines of text beside
  * them (sized in em of the same type). Phones get the plain stack: arched photo, headline, intro.
  * On desktop it stays pinned under the header while the dark About panel slides up over it.
@@ -23,7 +23,7 @@ function Asterisk({ className = "" }: { className?: string }) {
 export function EditorialHero() {
   // On desktop each phrase of the headline is its own grid item (the h1 is display: contents).
   const line = "block lg:whitespace-nowrap";
-  const type = "lg:text-[8.6cqw]";
+  const type = "lg:text-[9.5cqw]";
   return (
     <section className="relative lg:sticky lg:top-[68px]">
       <Container className="paper-grain bg-paper py-10 lg:py-14">
@@ -35,14 +35,14 @@ export function EditorialHero() {
               <ProductPageMockup className="aspect-[4/3] rounded-tl-[120px] rounded-tr-[6px] rounded-b-[6px] lg:aspect-auto lg:h-[2.16em] lg:rounded-tl-[1.4em]" />
             </div>
 
-            <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] lg:contents lg:leading-[1.08]`}>
+            <h1 className={`serif text-[clamp(44px,11vw,72px)] leading-[0.95] tracking-[-0.045em] lg:contents lg:leading-[1.08]`}>
               <span className={`${line} ${type} lg:col-span-8 lg:col-start-5 lg:row-start-1 lg:self-start`}>{hero.heading[0]} </span>
               <span className={`${line} ${type} lg:col-span-5 lg:col-start-5 lg:row-start-2 lg:self-start`}>{hero.heading[1]} </span>
               <span className={`${line} ${type} lg:col-span-9 lg:col-start-1 lg:row-start-3 lg:self-start`}>{hero.heading[2]}</span>
             </h1>
 
-            {/* A phone cart mockup down the right edge, from "& build" to the bottom of the intro */}
-            <CartMockup className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-3 lg:row-start-2 lg:mt-[0.12em] lg:block" />
+            {/* A landscape phone cart mockup on the right, beside "& build" and "for Shopify teams" */}
+            <CartMockup className="hidden rounded-[6px] lg:col-span-3 lg:col-start-10 lg:row-span-2 lg:row-start-2 lg:mt-[0.12em] lg:block" />
 
             {/* Intro under "for Shopify teams", in the blog card heading style */}
             <p className={`${sansTitle} max-w-xl lg:col-span-8 lg:col-start-1 lg:row-start-4 lg:mt-4 lg:self-start`}>{hero.lede}</p>

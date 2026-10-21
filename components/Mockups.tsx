@@ -52,7 +52,7 @@ export function CartMockup({ className = "" }: { className?: string }) {
   ];
   return (
     <div aria-hidden className={`@container relative overflow-hidden bg-butter font-sans ${className}`}>
-      <div className="absolute inset-x-[5cqw] top-[12cqw] bottom-[-40cqw] origin-top scale-[0.82] overflow-hidden rounded-[9cqw] border-[2.4cqw] border-ink bg-white shadow-[0_3cqw_8cqw_rgb(26_26_26/0.16)]">
+      <div className="absolute inset-x-[20cqw] top-[9cqw] bottom-[-60cqw] origin-top scale-[0.82] overflow-hidden rounded-[9cqw] border-[2.4cqw] border-ink bg-white shadow-[0_3cqw_8cqw_rgb(26_26_26/0.16)]">
         <div className="mx-auto mt-[2.4cqw] h-[3.4cqw] w-[22cqw] rounded-full bg-ink" />
         <div className="flex flex-col gap-[3.4cqw] p-[5cqw] text-ink">
           <div className="flex items-baseline justify-between">
