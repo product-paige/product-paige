@@ -177,7 +177,7 @@
   .btn-text, .btn-tab, .link, .tilt { transition: none; }
 }
 
-/* Page grid, from md up. Outer rails sit on Container's outer edge with a gridded
+/* Page grid, from md up. Outer rails sit on Container's outer edge, with gridded
    margins outside them; inner rails (.rails-inner) sit on its padding edge.
    .page-rails is fixed behind the content, so the About panel (z-1) slides over and
    hides it; .rails draws the same frame on the sticky header, which sits above. */
