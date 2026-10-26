@@ -41,7 +41,7 @@ export const nav = [
 ];
 
 export const hero = {
-  // The headline, one phrase per line of the editorial layout.
+  // The headline, one phrase per line.
   heading: ["Product, design", "& build", "for Shopify teams"],
   lede:
     "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
