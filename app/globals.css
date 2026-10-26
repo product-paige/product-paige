@@ -198,17 +198,27 @@
       top: 0;
       bottom: 0;
       width: var(--rail);
-      /* A fine square grid. Fixed to the window so the squares line up across the header,
-         the page and the dark blocks, which each draw their own strips. */
-      background-image:
-        linear-gradient(var(--color-grid) 1px, transparent 1px),
+      /* A fine square grid, fixed to the window so the squares line up across the header,
+         the page and the dark blocks, which each draw their own strips. Over it, a soft
+         shadow cast from the content column's edge, darkest at the rail, so the column
+         reads as a raised sheet. */
+      --squares: linear-gradient(var(--color-grid) 1px, transparent 1px),
         linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
-      background-size: 16px 16px;
-      background-attachment: fixed;
+      --shade: rgb(26 26 26 / 0.12), rgb(26 26 26 / 0.04) 10px, transparent 32px;
+      background-size: 100% 100%, 16px 16px, 16px 16px;
+      background-attachment: scroll, fixed, fixed;
       pointer-events: none;
     }
-    &::before { left: 0; border-right: 1px solid var(--color-grid); }
-    &::after { right: 0; border-left: 1px solid var(--color-grid); }
+    &::before {
+      left: 0;
+      border-right: 1px solid var(--color-grid);
+      background-image: linear-gradient(to left, var(--shade)), var(--squares);
+    }
+    &::after {
+      right: 0;
+      border-left: 1px solid var(--color-grid);
+      background-image: linear-gradient(to right, var(--shade)), var(--squares);
+    }
   }
 }
 /* Dark blocks (contact, footer) draw their own .rails with the grid in light ink, since the
