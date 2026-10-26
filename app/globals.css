@@ -23,7 +23,7 @@
   --color-live: #2fa84f;    /* availability dot */
   --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
   --color-accent: #e01321;  /* active-menu underline, link hover, timeline fill, selection, focus */
-  --color-grid: rgb(56 56 56 / 0.14); /* page frame: rails, hatching, section lines (a step above --color-line) */
+  --color-grid: rgb(56 56 56 / 0.14); /* page frame: rails, side grid, section lines (a step above --color-line) */
 
   /* Card colours */
   --color-sage: #dce2d4;
@@ -177,7 +177,7 @@
   .btn-text, .btn-tab, .link, .tilt { transition: none; }
 }
 
-/* Page grid, from md up. Outer rails sit on Container's outer edge with hatched
+/* Page grid, from md up. Outer rails sit on Container's outer edge with a gridded
    margins outside them; inner rails (.rails-inner) sit on its padding edge.
    .page-rails is fixed behind the content, so the About panel (z-1) slides over and
    hides it; .rails draws the same frame on the sticky header, which sits above. */
@@ -188,7 +188,7 @@
   pointer-events: none;
 }
 .page-rails, .rails {
-  --rail: max(12px, calc(50% - 680px));
+  --rail: max(12px, calc(50% - 600px));
   --pad: 24px;
   @media (width >= 64rem) { --pad: 40px; }
   @media (width >= 48rem) {
@@ -198,7 +198,13 @@
       top: 0;
       bottom: 0;
       width: var(--rail);
-      background: repeating-linear-gradient(-30deg, var(--color-grid) 0 1px, transparent 1px 12px);
+      /* A fine square grid. Fixed to the window so the squares line up across the header,
+         the page and the dark blocks, which each draw their own strips. */
+      background-image:
+        linear-gradient(var(--color-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+      background-size: 16px 16px;
+      background-attachment: fixed;
       pointer-events: none;
     }
     &::before { left: 0; border-right: 1px solid var(--color-grid); }
