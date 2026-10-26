@@ -188,7 +188,7 @@
   pointer-events: none;
 }
 .page-rails, .rails {
-  --rail: max(12px, calc(50% - 600px));
+  --rail: max(12px, calc(50% - 680px));
   --pad: 24px;
   @media (width >= 64rem) { --pad: 40px; }
   @media (width >= 48rem) {

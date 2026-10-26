@@ -48,7 +48,7 @@ export function Container({ className = "", tight = false, children }: { classNa
   // content sits a further gap inside the inner rails (24px + 24px md, 40px + 40px lg; see .page-rails).
   // `tight` (the header) sits just 16px inside the inner rails instead.
   const pad = tight ? "md:px-10 lg:px-14" : "md:px-12 lg:px-20";
-  return <div className={`mx-auto w-full max-w-[1200px] px-4 sm:px-6 md:w-[calc(100%-24px)] ${pad} ${className}`}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[1360px] px-4 sm:px-6 md:w-[calc(100%-24px)] ${pad} ${className}`}>{children}</div>;
 }
 
 /**
