@@ -56,6 +56,7 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Services", href: "#pricing" },
+  { label: "Approach", href: "/approach" },
   { label: "Scrapbook", href: "#blog" },
 ];
 
@@ -366,6 +367,42 @@ export const projects = {
 export const testimonials = {
   heading: "From people I’ve worked with",
   items: [] as { quote: string; name: string; title: string }[],
+};
+
+// The /approach page. "Who I work with" and the FAQs there are the shared sections (audiences
+// and faq), so they match the homepage; only the Who I work with intro is the page's own.
+export const approachPage = {
+  eyebrow: "How the work runs",
+  heading: "My approach",
+  lede: "Four phases. Most projects use two or three of them, not all four — and I’ll say which ones you actually need before you’ve paid me anything.",
+  audiencesBody: "Founders and small teams in ecommerce and consumer apps, usually at the startup or scale-up stage.",
+  phases: [
+    {
+      title: "Positioning and messaging",
+      body: "Naming, positioning and copy across the whole site, including the definitional pages AI assistants cite. Your product will make sense to someone outside the building.",
+      includes: ["Positioning", "Naming and identity", "Brand and identity", "Copywriting", "AI content design", "Content structure"],
+      caseStudies: ["backspace-body", "brand-playbook"],
+    },
+    {
+      title: "Web and product design",
+      body: "Storefronts, marketing sites and product surfaces — built with Claude Code and MCP wired into Figma and Shopify. A refresh of what exists, or the whole thing from scratch.",
+      includes: ["Shopify themes", "Shopify theme build", "Claude Code + MCP", "Design system", "Typography and color", "Product data", "Front-end build", "QA and launch"],
+      caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
+    },
+    {
+      title: "UX and conversion",
+      body: "A positioning and UX review, with a written list of what to fix first. I’ll tell you if you don’t need me.",
+      includes: ["UX review", "Conversion", "Scoped plan", "Information architecture", "Product design", "UI design"],
+      caseStudies: ["organic-moderne", "brand-playbook"],
+    },
+    {
+      title: "Content and campaigns",
+      body: "Landing pages, emails, an AI-coded tool or a whole campaign. Scoped, built and handed over before your launch date.",
+      includes: ["Landing pages", "Email design", "Campaign copy", "Content architecture", "SEO"],
+      caseStudies: ["backspace-body", "organic-moderne"],
+    },
+  ],
+  cta: { heading: "Not sure which of these you need?", button: "Let’s talk", href: "/#contact" },
 };
 
 export const faq = {

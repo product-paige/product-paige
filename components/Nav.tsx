@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useState } from "react";
 
 /**
@@ -12,9 +13,12 @@ import { Fragment, useEffect, useState } from "react";
  */
 export function Nav({ items }: { items: { label: string; href: string }[] }) {
   const [active, setActive] = useState<string | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
+    // Only the homepage sections (#…) are watched; page links like /approach aren't.
     const sections = items
+      .filter((n) => n.href.startsWith("#"))
       .map((n) => document.querySelector<HTMLElement>(n.href))
       .filter((el): el is HTMLElement => el !== null);
 
@@ -46,13 +50,14 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
   return (
     <nav aria-label="Sections" className="hidden self-stretch xl:flex">
       {items.map((n, i) => {
-        const isActive = active === n.href;
+        const isActive = active === n.href || (n.href.startsWith("/") && pathname === n.href);
         return (
           <Fragment key={n.href}>
           {i > 0 && <span aria-hidden className="w-px bg-grid" />}
           <a
-            // Rooted, so the menu also works from the project pages.
-            href={`/${n.href}`}
+            // Sections are rooted (/#about), so the menu also works from other pages; page links
+            // (/approach) go as they are, and show as current on their own page.
+            href={n.href.startsWith("/") ? n.href : `/${n.href}`}
             aria-current={isActive ? "location" : undefined}
             className="group flex items-center px-5 text-[16px] font-medium transition-colors duration-300 hover:bg-sheet"
           >
