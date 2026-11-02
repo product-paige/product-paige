@@ -71,10 +71,9 @@ export default function Home() {
               </Reveal>
             </div>
 
-            {/* The panel: from the column's left edge out past the inner rail to the page sheet's
-                edge (lg:-mr-20 cancels the Container's padding), square on that side. */}
-            <Reveal className="relative lg:-mr-20">
-              <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_18px_40px_rgb(26_26_26/0.08)] lg:aspect-auto lg:h-[620px] lg:rounded-r-none lg:border-r-0">
+            {/* The board: a rounded sheet of blue graph paper, filling its column. */}
+            <Reveal className="relative">
+              <div className="relative aspect-[5/4] overflow-hidden rounded-[20px] lg:aspect-auto lg:h-[620px]">
                 {/* One sheet of graph paper, with punched holes along the top */}
                 <div aria-hidden className="page-graph absolute inset-0" />
                 <div aria-hidden className="absolute inset-x-8 top-5 flex justify-between">

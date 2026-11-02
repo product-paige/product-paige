@@ -336,13 +336,12 @@
   }
 }
 
-/* Notebook spread (the About panel): graph paper on the left page, ruled paper on the right
-*/
+/* The About board: pale blue graph paper. */
 .page-graph {
-  background-color: #fbfaf6;
+  background-color: var(--color-sky);
   background-image:
-    linear-gradient(rgb(56 56 56 / 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(56 56 56 / 0.09) 1px, transparent 1px);
+    linear-gradient(rgb(40 70 100 / 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(40 70 100 / 0.1) 1px, transparent 1px);
   background-size: 18px 18px;
 }
 /* Folded top-right corner (the About block): the corner is cut away and a flap in
