@@ -27,22 +27,6 @@ function Caption({ p }: { p: Project }) {
   );
 }
 
-// C. One line: the cover, then the name, the role and an arrow on a single line.
-function OneLine({ p }: { p: Project }) {
-  return (
-    <span className="block bg-paper">
-      <Cover p={p} className="aspect-[16/10] w-full" />
-      <span className="flex items-center justify-between gap-3 px-4 py-3.5">
-        <span className="min-w-0 truncate">
-          <span className="font-medium">{p.client}</span>
-          <span className="text-muted"> · {p.role}</span>
-        </span>
-        <Arrow />
-      </span>
-    </span>
-  );
-}
-
 // D. Text first: the name and a line on it on top, a hairline, then the cover.
 function TextFirst({ p }: { p: Project }) {
   return (
@@ -156,7 +140,6 @@ export function ProjectCardOptions() {
   return (
     <>
       <Option label="Option B · Print and caption" card={(p) => <Caption p={p} />} />
-      <Option label="Option C · One line" card={(p) => <OneLine p={p} />} />
       <Option label="Option D · Text first" card={(p) => <TextFirst p={p} />} />
       <Launches />
     </>
