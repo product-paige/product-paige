@@ -1,6 +1,6 @@
 import { audiences } from "@/content";
 import { CuttingMat } from "./CuttingMat";
-import { Container, Reveal, Rich, section, sectionHeading } from "./ui";
+import { Container, Reveal, Rich, sansTitle, section, sectionHeading } from "./ui";
 
 // Each card's tilt on the mat, in turn.
 const tilts = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1"];
@@ -31,7 +31,8 @@ export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: s
                     wrapper as a drop-shadow, since the fold's clip-path would cut a box-shadow off. */}
                 <div className={`h-full drop-shadow-[0_14px_22px_rgb(0_0_0/0.2)] transition-transform duration-300 hover:rotate-0 ${tilts[i % tilts.length]}`}>
                 <div className="folded flex h-full flex-col bg-paper p-6 pb-12 lg:p-8 lg:pb-14">
-                  <h3 className="font-sans text-[22px] font-semibold leading-tight tracking-[-0.03em]">{a.title}</h3>
+                  {/* Same title style as the Scrapbook cards */}
+                  <h3 className={sansTitle}>{a.title}</h3>
                   <p className="mt-3 text-[17px] font-medium leading-snug lg:text-[18px]">{a.body}</p>
                   <p className="mt-3 text-[15px]">{a.detail}</p>
                 </div>
