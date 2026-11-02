@@ -1,6 +1,6 @@
 import { audiences } from "@/content";
 import { CuttingMat } from "./CuttingMat";
-import { Container, Reveal, SectionHead, section } from "./ui";
+import { Container, Reveal, Rich, section, sectionHeading } from "./ui";
 
 // Each card's tilt on the mat, in turn.
 const tilts = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1"];
@@ -30,7 +30,11 @@ export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: s
   return (
     <section className={section}>
       <Container>
-        <SectionHead heading={audiences.heading} body={body} />
+        {/* The heading on the left, the intro line on the right, level with it */}
+        <Reveal className="mb-8 grid gap-4 lg:mb-12 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <h2 className={sectionHeading}><Rich text={audiences.heading} /></h2>
+          <p className="lede max-w-xl lg:justify-self-end">{body}</p>
+        </Reveal>
         {/* The cards laid out on the bright blue cutting mat */}
         <div className="relative overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:px-14 lg:py-16">
           <CuttingMat />
