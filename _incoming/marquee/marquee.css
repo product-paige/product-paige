@@ -1,0 +1,55 @@
+/* Scrolling examples row — the CSS half.
+   Extracted from product-paige-website/app/globals.css.
+   Everything the marquee needs, in dependency order.
+
+   ⚠ UNLAYERED ON PURPOSE. In the source project this lives in a plain
+   (unlayered) globals.css, which in Tailwind v4 means it BEATS layered
+   utilities regardless of specificity. If you paste it inside @layer,
+   .card and .grain-paper will start losing to utility classes. */
+
+
+/* ---------- keyframes ---------- */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ---------- track ---------- */
+
+
+
+/* ---------- pause on drag / focus ---------- */
+
+
+
+/* ---------- reduced motion ---------- */
+/* Anyone who asked the OS for less motion gets a static row they can
+   still scroll by hand. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+
+/* ---------- hidden scrollbar ---------- */
+
+
+
+/* ---------- .card — the chamfered cut-out ---------- */
+
+
+
+/* ---------- .card small chamfer ---------- */
+
+
+
+/* ---------- .grain-paper — multiply-blend noise ---------- */
+
+
+
+/* ---------- .placeholder ---------- */
+
+
+
+/* ---------- .type-meta ---------- */
+

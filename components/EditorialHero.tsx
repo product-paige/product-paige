@@ -1,4 +1,5 @@
 import { hero, site } from "@/content";
+import { CartMockup } from "./Mockups";
 import { TagIcon } from "./TagIcon";
 import { Chip, Container } from "./ui";
 
@@ -12,13 +13,21 @@ function Asterisk({ className = "" }: { className?: string }) {
 }
 
 /**
- * The hero: the headline in three stacked lines, the intro, then a rule with the hero pills on
- * the left and the booking line on the right.
+ * The hero: the booking line, the headline, the intro, a row of storefront screens, then a rule
+ * with the hero pills.
  */
+// The cart mockup's shape (width / height); it's drawn in HTML, so this is ours to pick.
+const cartRatio = 0.9;
+
 export function EditorialHero() {
   return (
     <section className="relative">
       <Container className="pt-14 lg:pt-20">
+        {/* Booking line, above the headline */}
+        <p className="mb-6 flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:mb-8 lg:text-[20px]">
+          <Asterisk className="live-star size-5" />
+          {site.availability}
+        </p>
         {/* Desktop: sized to the content width (the window less the rails and padding, 184px) so
             the longer line, about 12.5em, always fits on one line; capped at 88px. */}
         <h1 className="serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(88px,calc((100vw-184px)/12.8))]">
@@ -28,19 +37,41 @@ export function EditorialHero() {
         {/* Intro, in Manrope medium, 22px on desktop */}
         <p className="mt-6 max-w-xl font-sans text-[18px] leading-snug font-medium tracking-[-0.03em] lg:mt-8 lg:text-[22px]">{hero.lede}</p>
 
-        {/* Under the rule: the hero pills on the left, the booking line on the right. The rule runs
-            the full width of the page sheet, like the section lines, and the row sits centred between
-            it and the next section's line, with the usual inset. */}
-        <div className="-mx-4 mt-12 flex flex-col gap-5 border-t border-grid px-4 py-6 sm:-mx-6 sm:px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:mt-20 lg:flex-row lg:items-center lg:justify-between lg:px-20 lg:py-8">
+        {/* Storefront screens: a row of framed shots, each with a dark label. On desktop it's a grid
+            whose columns are as wide as each screen's shape (width / height), so all four come out
+            the same height and the row fills the content width exactly. Phones scroll it sideways. */}
+        <div
+          className="-mx-4 mt-10 flex gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 lg:mt-14 lg:grid lg:gap-5 lg:overflow-visible lg:pb-0"
+          style={{ gridTemplateColumns: [...hero.shots.map((x) => x.width / x.height), cartRatio].map((r) => `${r.toFixed(3)}fr`).join(" ") }}
+        >
+          {hero.shots.map((shot) => (
+            <figure key={shot.src} className="relative h-[220px] shrink-0 overflow-hidden rounded-[6px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_12px_28px_rgb(26_26_26/0.08)] lg:h-auto lg:w-full" style={{ aspectRatio: `${shot.width} / ${shot.height}` }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" className="size-full object-cover" />
+              {/* Bottom left: the badge if the screen has one (with its icon), otherwise its label */}
+              <figcaption className="absolute bottom-3 left-3">
+                <Chip className="text-white [--color-chip:var(--color-ink)]" icon={shot.tagIcon && <TagIcon name={shot.tagIcon} />}>{shot.tag ?? shot.label}</Chip>
+              </figcaption>
+            </figure>
+          ))}
+          {/* A fourth screen drawn in HTML: a cart on a phone */}
+          <figure className="relative h-[220px] shrink-0 overflow-hidden rounded-[6px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_12px_28px_rgb(26_26_26/0.08)] lg:h-auto lg:w-full" style={{ aspectRatio: `${cartRatio}` }}>
+            <CartMockup className="size-full" />
+            <figcaption className="absolute bottom-3 left-3">
+              <Chip className="text-white [--color-chip:var(--color-ink)]" icon={<TagIcon name="sparkle" />}>CRO optimization</Chip>
+            </figcaption>
+          </figure>
+        </div>
+
+        {/* Under the rule: the hero pills. The rule runs the full width of the page sheet, like the
+            section lines, and the row sits centred between it and the next section's line, with the
+            usual inset. */}
+        <div className="-mx-4 mt-12 flex flex-col gap-5 border-t border-grid px-4 py-6 sm:-mx-6 sm:px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:mt-16 lg:flex-row lg:items-center lg:justify-between lg:px-20 lg:py-8">
           <div className="flex flex-wrap gap-2 text-white [--color-chip:var(--color-ink)]">
             {hero.tags.map((t) => (
               <Chip key={t.label} icon={<TagIcon name={t.icon} />}>{t.label}</Chip>
             ))}
           </div>
-          <p className="flex shrink-0 items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:text-[20px]">
-            <Asterisk className="live-star size-5" />
-            {site.availability}
-          </p>
         </div>
       </Container>
     </section>

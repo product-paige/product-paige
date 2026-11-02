@@ -52,6 +52,13 @@ export const hero = {
     { label: "Conversion", icon: "sparkle" },
     { label: "Shopify themes", icon: "apps" },
   ] as { label: string; icon: TagIconName }[],
+  // Storefront screens shown in a row under the intro. Width and height are the files' own;
+  // `tag` and `tagIcon` (optional) replace the label at the bottom left with a badge.
+  shots: [
+    { src: "/hero/homepage.jpg", label: "Homepage", tag: "Shopify themes", tagIcon: "apps", alt: "A children's clothing homepage: a serif headline over two photos, with category links between them", width: 701, height: 493 },
+    { src: "/hero/product-card.jpg", label: "Product card", tag: "Product pages", tagIcon: "bag", alt: "A product card for a green coat dress on a cream background, with a Staff pick badge, star rating and price", width: 349, height: 554 },
+    { src: "/hero/collection-banner.jpg", label: "Collection banner", alt: "A jewelry banner: gold and pearl earrings on stone, with a serif headline and a Shop now button", width: 720, height: 745 },
+  ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; tagIcon?: TagIconName }[],
 };
 
 export const approach = {
