@@ -1,13 +1,14 @@
 import {
-  about, approach, art, audiences, contact, faq, models, services, site, testimonials,
+  about, approach, art, contact, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
-import { Faq } from "@/components/Faq";
+import { FaqSection } from "@/components/FaqSection";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
+import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
   Button, Chip, Container, Illo, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
@@ -94,35 +95,8 @@ export default function Home() {
         <RecentProjects className="border-t border-grid py-8 lg:py-0" />
 
 
-        {/* Audiences */}
-        <section className={section}>
-          <Container>
-            <SectionHead heading={audiences.heading} body={audiences.body} />
-            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-              {audiences.items.map((a, i) => (
-                <Reveal key={a.title} delay={i * 120}>
-                  <div className={`${a.tone} folded flex h-full flex-col px-6 pt-6 pb-12 ${lift} lg:px-8 lg:pt-8 lg:pb-14`}>
-                    <h3 className={cardTitle}>{a.title}</h3>
-                    <p className="mt-2 text-muted">{a.body}</p>
-                    {/* Rules run edge to edge across the card; the items keep their inset. The list follows
-                        straight on from the text, and the card's bottom padding leaves room for the fold. */}
-                    <ul className="mt-6 -mx-6 divide-y divide-line border-y border-line lg:mt-8 lg:-mx-8">
-                      {a.points.map((p, pi) => (
-                        <li key={p} className="flex items-start gap-3 px-6 py-3 text-[15px] lg:px-8 lg:py-3.5">
-                          <ScribbleBullet variant={pi} className="mt-0.5 text-accent" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal className="mt-8 flex justify-center lg:mt-12">
-              <a href="#services" className="link">How I can help</a>
-            </Reveal>
-          </Container>
-        </section>
+        {/* Audiences (shared with /approach) */}
+        <WhoIWorkWith link />
 
         {/* Services */}
         <section id="services" className={section}>
@@ -214,17 +188,7 @@ export default function Home() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className={section}>
-          <Container className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
-            <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <h2 className={sectionHeading}><Rich text={faq.heading} /></h2>
-              <p className="lede mt-5 max-w-lg">{faq.body}</p>
-            </Reveal>
-            <Reveal>
-              <Faq items={faq.items} />
-            </Reveal>
-          </Container>
-        </section>
+        <FaqSection />
 
         {/* Blog */}
         <Scrapbook className={section} />

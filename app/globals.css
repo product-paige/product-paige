@@ -14,7 +14,7 @@
   /* Lines. Grid (below) is the page frame only, a step stronger than line. Line is every rule inside content,
      translucent so it reads the same on white, paper and coloured cards; line-dark is its
      twin on dark blocks. Ink is for interaction (hover, open) only. */
-  --color-line: rgb(56 56 56 / 0.1);
+  --color-line: rgb(56 56 56 / 0.14);
   --color-line-dark: rgb(255 255 255 / 0.15);
   --color-chip: rgb(56 56 56 / 0.05); /* pills: a translucent ink, so they show on any light surface */
   --color-dark: #383838;    /* contact, footer, featured card (same as ink) */
@@ -23,7 +23,7 @@
   --color-live: #2fa84f;    /* availability dot */
   --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
   --color-accent: #e01321;  /* active-menu underline, link hover, timeline fill, selection, focus */
-  --color-grid: rgb(56 56 56 / 0.14); /* page frame: rails, side grid, section lines (a step above --color-line) */
+  --color-grid: rgb(56 56 56 / 0.22); /* page frame: rails, side grid, section lines (a step above --color-line) */
 
   /* Card colours */
   --color-sage: #dce2d4;
