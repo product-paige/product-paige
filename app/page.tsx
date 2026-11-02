@@ -88,8 +88,6 @@ export default function Home() {
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
                   <div className={`${a.tone} folded flex h-full flex-col px-6 pt-6 pb-12 ${lift} lg:px-8 lg:pt-8 lg:pb-14`}>
-                    {/* The card's illustration, above the title */}
-                    <Illo art={a.art} className="mb-8 h-24 w-auto self-start lg:mb-10 lg:h-28" />
                     <h3 className={cardTitle}>{a.title}</h3>
                     <p className="mt-2 text-muted">{a.body}</p>
                     {/* Rules run edge to edge across the card; the items keep their inset. The list follows

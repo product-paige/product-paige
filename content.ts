@@ -137,7 +137,6 @@ export const audiences = {
       tone: "bg-scrap",
       title: "Starting out",
       body: "Your first Shopify store is on the way.",
-      art: art.seedling,
       points: [
         "You’ve got the product, just not the store",
         "Your brand guide is three screenshots",
@@ -148,7 +147,6 @@ export const audiences = {
       tone: "bg-scrap",
       title: "Already selling",
       body: "You’ve got customers. You want more.",
-      art: art.cashRegister,
       points: [
         "Traffic browses, then bounces",
         "It still looks like the theme’s demo store",
@@ -159,7 +157,6 @@ export const audiences = {
       tone: "bg-scrap",
       title: "Building for Shopify",
       body: "Apps and tools for Shopify merchants.",
-      art: art.laptop,
       points: [
         "Your app works. Your listing doesn’t sell it",
         "Merchants install, poke around, uninstall",
