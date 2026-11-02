@@ -518,3 +518,8 @@
 /* Navy: navy ground and ink on ivory, teal accent */
 :root[data-palette="navy"] { --color-ground-bg: #1a303c; --color-paper: #fdfdf3; --color-ink: #1a303c; --color-accent: #306170; --color-dark: #1a303c; --color-sky: #d9ece1; --color-sage: #d2dbbc; --color-butter: #fbede4; }
 :root[data-palette="navy"][data-mode="dark"] { --color-ground-bg: #306170; --color-paper: #1a303c; --color-ink: #d9ece1; --color-accent: #e0746c; }
+
+/* Paper: a neutral ground, paper-white page, off-black text and dark blocks, one blue for
+   buttons and links. The card tints are all neutrals. */
+:root[data-palette="paper"] { --color-ground-bg: #d8d4cb; --color-ground: rgb(255 255 255 / 0.4); --color-paper: #fbfaf6; --color-ink: #1d1d1b; --color-accent: #2450e0; --color-dark: #1d1d1b; --color-sky: #ebe8e1; --color-sage: #e4e1d8; --color-butter: #efece5; }
+:root[data-palette="paper"][data-mode="dark"] { --color-ground-bg: #0e0e0d; --color-ground: rgb(255 255 255 / 0.08); --color-paper: #1a1a18; --color-ink: #f3f1eb; --color-accent: #5c84ff; --color-sky: #262623; --color-sage: #22221f; --color-butter: #2a2926; }

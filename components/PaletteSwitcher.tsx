@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 // in light and dark. Remembers the choice in this browser. Remove once one is picked.
 const palettes = [
   { id: "", label: "Current", swatch: "#2c5ce0" },
+  { id: "paper", label: "Paper", swatch: "#2450e0" },
   { id: "teal", label: "Teal", swatch: "#306170" },
   { id: "oxblood", label: "Oxblood", swatch: "#650814" },
   { id: "coral", label: "Coral", swatch: "#e0746c" },
