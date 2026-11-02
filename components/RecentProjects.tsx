@@ -43,30 +43,28 @@ function PhoneMockup({ p }: { p: Project }) {
  */
 export function RecentProjects({ className = "" }: { className?: string }) {
   const track = useRef<HTMLUListElement>(null);
-  const [active, setActive] = useState(0);
+  // Whether the row is scrolled to its start or end, to switch the arrows off there.
+  const [edge, setEdge] = useState({ start: true, end: false });
 
-  // The current project is the one whose left edge is nearest the track's.
   useEffect(() => {
     const row = track.current;
     if (!row) return;
-    const onScroll = () => {
-      const items = [...row.children] as HTMLElement[];
-      const left = row.getBoundingClientRect().left;
-      let best = 0;
-      items.forEach((el, i) => {
-        if (Math.abs(el.getBoundingClientRect().left - left) < Math.abs(items[best].getBoundingClientRect().left - left)) best = i;
-      });
-      // At the end of the row, the last dot.
-      setActive(row.scrollLeft + row.clientWidth >= row.scrollWidth - 4 ? items.length - 1 : best);
-    };
+    const onScroll = () =>
+      setEdge({ start: row.scrollLeft <= 4, end: row.scrollLeft + row.clientWidth >= row.scrollWidth - 4 });
+    onScroll();
     row.addEventListener("scroll", onScroll, { passive: true });
-    return () => row.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      row.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
-  const go = (i: number) => {
+  // Move the row by one card (its width plus the gap); scroll snapping lines it up.
+  const step = (dir: 1 | -1) => {
     const row = track.current;
-    const el = row?.children[i] as HTMLElement | undefined;
-    if (row && el) row.scrollTo({ left: el.offsetLeft - row.offsetLeft, behavior: "smooth" });
+    const [a, b] = row ? ([...row.children] as HTMLElement[]) : [];
+    if (row && a) row.scrollBy({ left: dir * (b ? b.offsetLeft - a.offsetLeft : a.offsetWidth), behavior: "smooth" });
   };
 
   return (
@@ -79,12 +77,12 @@ export function RecentProjects({ className = "" }: { className?: string }) {
             {projects.heading}
           </h2>
           <div className="flex gap-1.5">
-            {([["Previous project", -1], ["Next project", 1]] as const).map(([label, step]) => {
-              const off = step < 0 ? active === 0 : active === projects.items.length - 1;
+            {([["Previous project", -1], ["Next project", 1]] as const).map(([label, dir]) => {
+              const off = dir < 0 ? edge.start : edge.end;
               return (
-                <button key={label} type="button" aria-label={label} disabled={off} onClick={() => go(active + step)} className="btn disabled:cursor-default disabled:opacity-35">
+                <button key={label} type="button" aria-label={label} disabled={off} onClick={() => step(dir)} className="btn disabled:cursor-default disabled:opacity-35">
                   <span className="btn-tab size-10">
-                    <svg viewBox="0 0 20 20" className={`size-5 ${step < 0 ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <svg viewBox="0 0 20 20" className={`size-5 ${dir < 0 ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                       <path d="M4 10h12M11 5l5 5-5 5" />
                     </svg>
                   </span>
