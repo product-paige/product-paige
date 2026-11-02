@@ -2,7 +2,6 @@ import {
   about, approach, contact, services, site, testimonials,
 } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
-import { AudienceOptions } from "@/components/AudienceOptions";
 import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
@@ -75,9 +74,6 @@ export default function Home() {
 
         {/* Audiences (shared with /approach) */}
         <WhoIWorkWith link />
-
-        {/* Three other ways to do Who I work with, to compare (temporary) */}
-        <AudienceOptions />
 
         {/* Services */}
         <section id="services" className={section}>
