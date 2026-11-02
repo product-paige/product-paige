@@ -236,6 +236,7 @@ export default function Home() {
           <i aria-hidden className="rails-inner" />
           <Container className="grid gap-8 lg:grid-cols-2 lg:gap-16">
             <Reveal>
+              <Illo art={contact.art} className="mb-6 h-28 w-auto lg:mb-8 lg:h-36" />
               <h2 className={`${sectionHeading} mb-5`}><Rich text={contact.heading} /></h2>
               <p className="lede max-w-md text-white">{contact.body}</p>
               <p className="mt-6 text-white/60">
@@ -244,7 +245,6 @@ export default function Home() {
                   {site.email}
                 </a>
               </p>
-              <Illo art={contact.art} className="mt-10 hidden h-44 w-auto lg:block" />
             </Reveal>
             <Reveal delay={120}>
               <ContactForm endpoint={site.formEndpoint} email={site.email} deadlines={contact.deadlines} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />
