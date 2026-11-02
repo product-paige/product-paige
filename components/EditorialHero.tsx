@@ -23,7 +23,7 @@ export function EditorialHero() {
       <Container className="relative pt-14 pb-14 lg:pt-20 lg:pb-20">
         {/* A sticker on the right (desktop): the beauty box, tilted, its top just above the headline
             and drawn behind it (the headline sits above, z-1). */}
-        <Illo art={art.parcel} className="pointer-events-none absolute top-[112px] right-[4%] hidden w-[clamp(160px,14vw,210px)] rotate-[8deg] drop-shadow-[0_10px_18px_rgb(26_26_26/0.15)] lg:block" />
+        <Illo art={art.parcel} className="pointer-events-none absolute top-[96px] right-[3%] hidden w-[clamp(220px,19vw,290px)] rotate-[8deg] lg:block" />
         {/* Booking line, above the headline */}
         <p className="mb-6 flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:mb-8 lg:text-[20px]">
           <Asterisk className="live-star size-5" />
