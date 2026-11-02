@@ -20,14 +20,14 @@ export function Phases({ caseStudies = false, topBorder = false }: { caseStudies
           </div>
           <div className="space-y-6">
             <div>
-              <p className="mono text-[12px] text-muted">Can include</p>
+              <p className="text-[14px] font-medium">Can include</p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {ph.includes.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
               </ul>
             </div>
             {caseStudies && (
               <div>
-                <p className="mono text-[12px] text-muted">Case studies</p>
+                <p className="text-[14px] font-medium">Case studies</p>
                 <p className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
                   {ph.caseStudies.map((slug) => {
                     const p = project(slug);
