@@ -7,25 +7,15 @@ import { ArrowUpRight, Chip, Container, Reveal, Rich, sectionHeading } from "./u
 const fan = ["lg:-rotate-[4deg] lg:translate-y-6", "lg:rotate-[1.5deg] lg:-translate-y-1", "lg:rotate-[5deg] lg:translate-y-8"];
 const fanPhone = ["-rotate-1", "rotate-1", "-rotate-[0.5deg]"];
 
-/** A project as a spec sheet: the cover inset at the top, the name and a line on it, then the role and scope in ruled rows. */
+/** A project as a sheet: the cover inset at the top, the name and a line on it, then its role and an arrow. */
 function SpecSheet({ p }: { p: Project }) {
   return (
     <span className="flex h-full flex-col bg-paper p-4 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] transition-shadow duration-300 group-hover:shadow-[0_1px_0_rgb(0_0_0/0.06),0_20px_40px_rgb(26_26_26/0.16)] lg:p-5">
       <Cover p={p} className="aspect-[16/10] w-full" />
       <span className="mt-4 block font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.client}</span>
       <span className="mt-1 block text-[15px] text-muted">{p.excerpt}</span>
-      <span className="mt-4 block border-t border-line text-[13px]">
-        <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">
-          <span className="text-muted">Role</span>
-          <span>{p.role}</span>
-        </span>
-        <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">
-          <span className="text-muted">Scope</span>
-          <span>{p.capabilities.slice(0, 3).join(", ")}</span>
-        </span>
-      </span>
-      <span className="mt-auto flex items-center justify-between gap-3 pt-4">
-        <Chip>Case study</Chip>
+      <span className="mt-auto flex items-center justify-between gap-3 pt-5">
+        <Chip>{p.role}</Chip>
         {/* The buttons' arrow tab; it turns on hover */}
         <span className="btn" aria-hidden><span className="btn-tab size-8"><ArrowUpRight turn className="size-4" /></span></span>
       </span>
