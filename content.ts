@@ -93,7 +93,7 @@ export const about = {
   proof: [
     "Up to speed fast, without hand-holding",
     "13+ years across Shopify themes, apps and the platform",
-    "Always learning the newest tools, AI included",
+    "Always upskilling tools and processes",
     "2x bootstrapped brand founder, so I get it",
   ],
   // Tool logos stuck to the photo panel.
