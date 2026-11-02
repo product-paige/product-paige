@@ -67,11 +67,10 @@ export function PricingTable() {
   return (
     <section id="pricing" className={section}>
       <Container>
-        <h2 className={sectionHeading}>{models.heading}</h2>
-
-        {/* Laid on the bright blue cutting mat */}
-        <div className="relative mt-8 overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:mt-10 lg:px-14 lg:py-16">
+        {/* Laid on the bright blue cutting mat, the heading on it in white */}
+        <div className="relative overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:px-14 lg:py-16">
           <CuttingMat />
+          <h2 className={`${sectionHeading} relative mb-8 text-white lg:mb-12`}>{models.heading}</h2>
         {/* Phones: each option as its own block, stacked, so all three are visible */}
         <div className="relative space-y-8 md:hidden">
           {models.items.map((m, i) => (
