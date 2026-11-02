@@ -2,7 +2,6 @@
 
 import { models, site } from "@/content";
 import { useState, type ReactNode } from "react";
-import { CuttingMat } from "./CuttingMat";
 import { Button, Container, ScribbleBullet, section, sectionHeading } from "./ui";
 
 type Model = (typeof models.items)[number];
@@ -51,7 +50,6 @@ export function PricingTable() {
   // The picked option: its tab and its whole column take the same grey (the site's grey paper); other tabs are paper. Starts on the featured one.
   const [picked, setPicked] = useState(Math.max(0, models.items.findIndex((m) => m.featured)));
   const pickedBg = "bg-scrap";
-  // On the mat every cell is paper, so the table reads as a sheet laid on it.
   const tint = (i: number) => (picked === i ? pickedBg : "bg-paper");
   const Tab = ({ m, i }: { m: Model; i: number }) => (
     <button
@@ -67,10 +65,8 @@ export function PricingTable() {
   return (
     <section id="pricing" className={section}>
       <Container>
-        {/* Laid on the bright blue cutting mat, the heading on it in white */}
-        <div className="relative overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:px-14 lg:py-16">
-          <CuttingMat />
-          <h2 className={`${sectionHeading} relative mb-8 text-white lg:mb-12`}>{models.heading}</h2>
+        <h2 className={`${sectionHeading} mb-8 lg:mb-10`}>{models.heading}</h2>
+        <div>
         {/* Phones: each option as its own block, stacked, so all three are visible */}
         <div className="relative space-y-8 md:hidden">
           {models.items.map((m, i) => (
