@@ -28,7 +28,7 @@ export function PricingTable() {
       "Starting at",
       (m) => (
         <span className="flex items-baseline gap-1.5">
-          <span className={`serif text-[28px] leading-none ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
+          <span className={`font-sans text-[20px] font-semibold leading-none tracking-[-0.02em] ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
           <span className="text-muted">{models.currency} {m.per}</span>
         </span>
       ),
