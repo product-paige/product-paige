@@ -18,10 +18,10 @@ export function SiteHeader() {
             {site.logo}
           </a>
           {/* The button, with a full-height rule on its left (from xl, where the menu shows) and
-              the same 24px either side of it as the menu items have. */}
+              the same 20px either side of it as the menu items have. */}
           <div className="flex items-center justify-end self-stretch">
             <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
-            <div className="xl:px-6">
+            <div className="xl:px-5">
               <Button href={site.bookingUrl} accent>Book an intro call</Button>
             </div>
           </div>

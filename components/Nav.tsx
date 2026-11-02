@@ -4,7 +4,8 @@ import { Fragment, useEffect, useState } from "react";
 
 /**
  * Top menu, with a rule between items and after the last, running the full height of the header.
- * Each item has 24px either side, so the gaps between rules (and from the left rail) are even. An accent underline sweeps in under the item
+ * Every item has 20px either side, so the gap between each label and the rules beside it (and
+ * the left rail) is the same. An accent underline sweeps in under the item
  * whose section is currently in the middle of the screen. It sits below the label, so
  * labels never shift.
  */
@@ -52,7 +53,7 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
             // Rooted, so the menu also works from the project pages.
             href={`/${n.href}`}
             aria-current={isActive ? "location" : undefined}
-            className="flex items-center px-6 text-[16px] font-medium transition hover:text-muted"
+            className="flex items-center px-5 text-[16px] font-medium transition hover:text-muted"
           >
             <span className="relative">
               <i
