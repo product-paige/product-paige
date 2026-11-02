@@ -103,6 +103,11 @@ export default function Home() {
                     <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{m.tag}</p>
                     <h3 className={cardTitle}>{m.title}</h3>
                     <p>{m.body}</p>
+                    {/* Who it suits, from Who I work with */}
+                    <div className={`border-l-2 pl-4 ${m.featured ? "border-white/30" : "border-accent"}`}>
+                      <p className={`mono text-[12px] ${m.featured ? "text-white/60" : "text-muted"}`}>Best for · {m.bestFor.who}</p>
+                      <p className="mt-1.5 text-[15px]">{m.bestFor.note}</p>
+                    </div>
                     <div className="mt-auto pt-8 lg:pt-12">
                       <p className={`text-sm label ${m.featured ? "text-white/60" : "text-muted"}`}>Starting at</p>
                       <p className="mt-1 flex items-baseline gap-1.5">

@@ -161,6 +161,8 @@ export const models = {
     {
       tag: "Strategy",
       title: "Advice and reviews",
+      // Who it suits: the audience from Who I work with, and where they usually are.
+      bestFor: { who: "Already selling", note: "The site isn't keeping up with your customers." },
       body: "Find out what’s wrong and what to fix first.",
       price: "$300",
       per: "/ session",
@@ -169,6 +171,7 @@ export const models = {
     {
       tag: "Projects",
       title: "One focused project",
+      bestFor: { who: "Building for Shopify", note: "Your app works. The listing and site need to sell it." },
       body: "One part of your store, done properly and live before your deadline.",
       price: "$1,500",
       per: "/ project",
@@ -177,6 +180,7 @@ export const models = {
     {
       tag: "Websites",
       title: "Full store build",
+      bestFor: { who: "Starting out", note: "You've got the product. The store isn't built yet." },
       body: "Your store designed, written and built from scratch.",
       price: "$8,500",
       per: "/ project",
