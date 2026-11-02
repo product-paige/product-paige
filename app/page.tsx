@@ -26,7 +26,7 @@ const toolSpots = [
   "top-[14%] right-[7%] rotate-[14deg]",
 ];
 
-/** Why founders work with me: a short list with scribble bullets (the About panel's card). */
+/** Why founders work with me: a short list with scribble bullets, under the About copy. */
 function ProofList() {
   return (
     <>
@@ -52,9 +52,9 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: two columns. Left, "Hi, I’m Paige" as an eyebrow, the lead as the heading, one line on how I work and the booking
-            button. Right, a blue cutting mat running out to the
-            page's edge, with the photo as a tilted print, the basket sticker, and why founders work with me on a pinned card. */}
+        {/* About: two columns. Left, "Hi, I’m Paige" as an eyebrow, the lead as the heading, one line
+            on how I work, why founders work with me and the booking button. Right, a blue cutting mat
+            running out to the page's edge, with the photo as a tilted print, tool tiles and the basket. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -67,6 +67,9 @@ export default function Home() {
                 <h2 className="serif mt-6 text-[clamp(30px,3.4vw,46px)] leading-[1.05] tracking-[-0.04em] text-balance lg:mt-8">{about.paragraphs[0]}</h2>
               </Reveal>
               {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
+              <Reveal delay={100} className="mt-8 lg:mt-10">
+                <ProofList />
+              </Reveal>
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
               </Reveal>
@@ -93,14 +96,6 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                {/* Why founders work with me, on a card pinned to the panel (desktop) */}
-                <div className="absolute right-[4%] bottom-[9%] hidden w-max rotate-2 bg-white p-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] lg:block">
-                  <ProofList />
-                </div>
-              </div>
-              {/* Phones and tablets: the same list under the panel */}
-              <div className="mt-6 lg:hidden">
-                <ProofList />
               </div>
             </Reveal>
           </Container>
