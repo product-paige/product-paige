@@ -87,8 +87,8 @@ export const approach = {
 export const about = {
   heading: "Hey, I’m Paige",
   paragraphs: [
-    "My whole career has been in Shopify and ecommerce, across funded startups and bootstrapped teams. I’ve been the first marketing hire twice, and I’ve run two ecommerce brands of my own, one with a cofounder, handling everything from sourcing a manufacturer to go-to-market.",
-    "Now I do strategy, design and the build itself: Shopify themes and modern site builders, with Claude Code and MCP wired into Figma and Shopify, so design, copy and working code happen in one pass instead of three handoffs. I’m not a developer, and I’ll say so before you pay me anything.",
+    "I’ve spent my whole career in Shopify. First marketing hire twice, founder twice, and usually the one who knows where the inventory spreadsheet lives.",
+    "These days I do the strategy, the design and the build, with AI wired into Figma and Shopify so nothing gets lost between handoffs. I’m not a developer, and I’ll tell you that before you pay me a cent.",
   ],
   // The tilted pills above the text: what one person covers.
   pills: ["Strategy", "Design", "Copy", "The build itself"],
