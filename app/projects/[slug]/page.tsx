@@ -60,7 +60,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 <Chip>{p.role}</Chip>
               </div>
               <h1 className={`${sideHeading} mt-4`}>{p.client}</h1>
-              <p className="mt-2 text-muted">{p.tagline}</p>
+              <p className="mt-2">{p.tagline}</p>
 
               <div className="mt-6">
                 <Faq items={story} />

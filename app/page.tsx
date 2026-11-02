@@ -98,7 +98,7 @@ export default function Home() {
                   >
                     <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
                     <h3 className={cardTitle}>{m.title}</h3>
-                    <p className={m.featured ? "text-white/60" : "text-muted"}>{m.body}</p>
+                    <p>{m.body}</p>
                     <div className="mt-auto pt-8 lg:pt-12">
                       <p className={`text-sm label ${m.featured ? "text-white/60" : "text-muted"}`}>Starting at</p>
                       <p className="mt-1 flex items-baseline gap-1.5">
@@ -142,7 +142,7 @@ export default function Home() {
                     <span className="text-muted">{String(i + 1).padStart(2, "0")}</span>
                     {p.title}
                   </h3>
-                  <p className="mt-3 max-w-[40ch] text-muted">{p.body}</p>
+                  <p className="mt-3 max-w-[40ch]">{p.body}</p>
                 </Reveal>
               ))}
             </ol>

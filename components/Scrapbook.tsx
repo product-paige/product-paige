@@ -29,7 +29,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
                   <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
                 </span>
                 <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
-                <p className="mt-2 text-muted">{p.excerpt}</p>
+                <p className="mt-2">{p.excerpt}</p>
               </a>
             </Reveal>
           ))}

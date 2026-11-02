@@ -11,7 +11,7 @@
   --color-paper: #fcfbf7;   /* the page sheet */
   --color-surface: #ffffff; /* cards */
   --color-ink: #383838;     /* text and dark buttons */
-  --color-muted: #6b6b6b;
+  --color-muted: #6b6b6b; /* small labels and details only (dates, prices' units, row labels); body text is ink */
   /* Lines. Grid (below) is the page frame only, a step stronger than line. Line is every rule inside content,
      translucent so it reads the same on white, paper and coloured cards; line-dark is its
      twin on dark blocks. Ink is for interaction (hover, open) only. */

@@ -17,7 +17,7 @@ function SpecSheet({ p }: { p: Project }) {
         <span className="font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.client}</span>
         <span className="btn shrink-0" aria-hidden><span className="btn-tab size-8"><ArrowUpRight turn className="size-4" /></span></span>
       </span>
-      <span className="mt-1 block text-[15px] text-muted">{p.excerpt}</span>
+      <span className="mt-1 block text-[15px]">{p.excerpt}</span>
       {/* The spec rows, kept short: the role, and the first two parts of the scope */}
       <span className="mt-4 block border-t border-line text-[13px]">
         <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">

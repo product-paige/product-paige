@@ -16,7 +16,7 @@ export function Phases({ caseStudies = false, topBorder = false }: { caseStudies
           <p className="serif text-[clamp(28px,2.8vw,38px)] leading-none text-accent">{String(i + 1).padStart(2, "0")}</p>
           <div>
             <h3 className="serif text-[clamp(28px,3vw,42px)] leading-[1.05] tracking-[-0.04em]">{ph.title}</h3>
-            <p className="mt-4 max-w-lg text-muted">{ph.body}</p>
+            <p className="mt-4 max-w-lg">{ph.body}</p>
           </div>
           <div className="space-y-6">
             <div>
