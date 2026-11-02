@@ -7,16 +7,6 @@ import { useEffect, useState } from "react";
 const palettes = [
   { id: "", label: "Current", swatch: "#2c5ce0" },
   { id: "paper", label: "Paper", swatch: "#2450e0" },
-  { id: "teal", label: "Teal", swatch: "#306170" },
-  { id: "oxblood", label: "Oxblood", swatch: "#650814" },
-  { id: "coral", label: "Coral", swatch: "#e0746c" },
-  { id: "navy", label: "Navy", swatch: "#1a303c" },
-  { id: "tomato", label: "Tomato", swatch: "#c4102c" },
-  { id: "ultramarine", label: "Ultramarine", swatch: "#2b30d6" },
-  { id: "midnight", label: "Midnight", swatch: "#0f1b45" },
-  { id: "petrol", label: "Petrol", swatch: "#0a5c63" },
-  { id: "emerald", label: "Emerald", swatch: "#0b6b49" },
-  { id: "aubergine", label: "Aubergine", swatch: "#4a1a6b" },
 ];
 
 function read(key: string) {
@@ -31,7 +21,9 @@ export function PaletteSwitcher() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    setPalette(read("palette"));
+    // Ignore a saved palette that has since been removed.
+    const saved = read("palette");
+    setPalette(palettes.some((p) => p.id === saved) ? saved : "");
     setDark(read("mode") === "dark");
   }, []);
 
