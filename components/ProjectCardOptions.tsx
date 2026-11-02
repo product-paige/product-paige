@@ -14,17 +14,6 @@ function Arrow() {
   return <span className="btn shrink-0" aria-hidden><span className="btn-tab size-8"><ArrowUpRight turn className="size-4" /></span></span>;
 }
 
-// A. Plain: the cover, then the name and a line on it. Nothing else.
-function Plain({ p }: { p: Project }) {
-  return (
-    <span className="block bg-paper p-3">
-      <Cover p={p} className="aspect-[4/3] w-full" />
-      <span className={`${name} mt-4 block px-1`}>{p.client}</span>
-      <span className="mt-1 mb-1 block px-1 text-[15px]">{p.excerpt}</span>
-    </span>
-  );
-}
-
 // B. Print and caption: the cover in a thin white frame, the name and role as a caption under it.
 function Caption({ p }: { p: Project }) {
   return (
@@ -166,7 +155,6 @@ function Launches() {
 export function ProjectCardOptions() {
   return (
     <>
-      <Option label="Option A · Plain" card={(p) => <Plain p={p} />} />
       <Option label="Option B · Print and caption" card={(p) => <Caption p={p} />} />
       <Option label="Option C · One line" card={(p) => <OneLine p={p} />} />
       <Option label="Option D · Text first" card={(p) => <TextFirst p={p} />} />
