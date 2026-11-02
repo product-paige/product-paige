@@ -58,7 +58,7 @@ export function EditorialHero() {
           <figure className="relative h-[220px] shrink-0 overflow-hidden rounded-[6px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_12px_28px_rgb(26_26_26/0.08)] lg:h-auto lg:w-full" style={{ aspectRatio: `${cartRatio}` }}>
             <CartMockup className="size-full" />
             <figcaption className="absolute bottom-3 left-3">
-              <Chip className="text-white [--color-chip:var(--color-ink)]" icon={<TagIcon name="sparkle" />}>CRO optimization</Chip>
+              <Chip className="text-white [--color-chip:var(--color-ink)]" icon={<TagIcon name="sparkle" />}>Conversion</Chip>
             </figcaption>
           </figure>
         </div>
