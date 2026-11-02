@@ -2,7 +2,7 @@ import { about, art, site } from "@/content";
 import type { ReactNode } from "react";
 import { Illo } from "./ui";
 
-// The selection blue, as on a desktop: the folder, its highlighted name and the selection box.
+// The selection blue, as on a desktop: the folder's highlighted name and the selection box.
 const select = "#4a8fe7";
 
 // Where each tool's file sits on the page.
@@ -30,20 +30,14 @@ function Handles() {
 }
 
 /**
- * The About board laid out like a desktop, straight on the page: a label at the top, the photo
- * and the tools as files with their names under them, a folder that opens the projects, the
+ * The About board laid out like a desktop, straight on the page: the photo and the tools as files with their names under them, a folder that opens the projects, the
  * basket selected, and a cursor. Fills its square parent.
  */
 export function AboutNotebook() {
   return (
     <div className="relative aspect-square">
-      {/* The label at the top */}
-      <p aria-hidden className="absolute top-[6%] left-[14%] flex items-center gap-3 rounded-[6px] bg-sheet px-4 py-1.5 serif text-[clamp(18px,2.2vw,30px)] lg:gap-5 lg:px-6">
-        <span style={{ color: select }}>–</span>@productpaige<span style={{ color: select }}>–</span>
-      </p>
-
       {/* The photo, as an image file */}
-      <File name={about.photoFile} className="top-[19%] left-[26%] w-[50%]">
+      <File name={about.photoFile} className="top-[9%] left-[26%] w-[50%]">
         <span className="block w-full bg-white p-1.5 shadow-[0_1px_0_rgb(0_0_0/0.08),0_6px_16px_rgb(26_26_26/0.1)]">
           <span className="photo-grain block aspect-[4/5]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
