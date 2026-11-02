@@ -47,7 +47,7 @@ export function PricingTable() {
       ),
     ],
   ];
-  // The picked option: its tab and its whole column take the same grey (the site's grey paper); other tabs are white. Starts on the featured one.
+  // The picked option: its tab and its whole column take the same grey (the site's grey paper); other tabs are transparent. Starts on the featured one.
   const [picked, setPicked] = useState(Math.max(0, models.items.findIndex((m) => m.featured)));
   const pickedBg = "bg-scrap";
   const tint = (i: number) => (picked === i ? pickedBg : "");
@@ -56,7 +56,7 @@ export function PricingTable() {
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex w-40 cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? pickedBg : "bg-white hover:bg-sheet"}`}
+      className={`mono -mb-px inline-flex w-40 cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? pickedBg : "bg-transparent hover:bg-sheet"}`}
     >
       <i aria-hidden className="size-2.5 rounded-full bg-accent" />{m.tag}
     </button>
