@@ -5,10 +5,13 @@ import { useEffect, useState } from "react";
 // Temporary: a floating control for trying the colour palettes (see the end of globals.css)
 // in light and dark. Remembers the choice in this browser. Remove once one is picked.
 const palettes = [
-  { id: "", label: "Current", swatch: "#e01321" },
-  { id: "cobalt", label: "Cobalt", swatch: "#1f3c9c" },
-  { id: "tomato", label: "Tomato", swatch: "#e01321" },
-  { id: "forest", label: "Forest", swatch: "#1d4636" },
+  { id: "", label: "Current", swatch: "#2c5ce0" },
+  { id: "tomato", label: "Tomato", swatch: "#c4102c" },
+  { id: "ultramarine", label: "Ultramarine", swatch: "#2b30d6" },
+  { id: "midnight", label: "Midnight", swatch: "#0f1b45" },
+  { id: "petrol", label: "Petrol", swatch: "#0a5c63" },
+  { id: "emerald", label: "Emerald", swatch: "#0b6b49" },
+  { id: "aubergine", label: "Aubergine", swatch: "#4a1a6b" },
 ];
 
 function read(key: string) {
@@ -45,7 +48,7 @@ export function PaletteSwitcher() {
           onClick={() => setPalette(p.id)}
           className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 ${palette === p.id ? "bg-white text-[#1a1a1a]" : "hover:bg-white/10"}`}
         >
-          <i className="size-2.5 rounded-full" style={{ background: p.swatch }} />
+          <i className="size-2.5 rounded-full ring-1 ring-white/40" style={{ background: p.swatch }} />
           {p.label}
         </button>
       ))}

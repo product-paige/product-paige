@@ -463,12 +463,23 @@
   --color-dark: color-mix(in srgb, var(--color-paper) 70%, #000);
   color-scheme: dark;
 }
-/* Cobalt: blue ink on cream, or cream on deep blue */
-:root[data-palette="cobalt"] { --color-ground-bg: #2346b8; --color-paper: #f5f2e9; --color-ink: #1f3c9c; --color-accent: #1f3c9c; --color-dark: #1f3c9c; }
-:root[data-palette="cobalt"][data-mode="dark"] { --color-ground-bg: #0a1440; --color-paper: #13235f; --color-ink: #f1ecdf; --color-accent: #6f8cff; }
-/* Tomato: deep brown-red text on a warm blush, the red as the accent */
-:root[data-palette="tomato"] { --color-ground-bg: #e01321; --color-paper: #fbf2ea; --color-ink: #401812; --color-accent: #e01321; --color-dark: #401812; }
-:root[data-palette="tomato"][data-mode="dark"] { --color-ground-bg: #8c0c14; --color-paper: #2c100c; --color-ink: #fbe7da; --color-accent: #ff4b3b; }
-/* Forest: bottle green on oat */
-:root[data-palette="forest"] { --color-ground-bg: #1d4636; --color-paper: #f2f0e4; --color-ink: #1d4636; --color-accent: #2f7353; --color-dark: #1d4636; }
-:root[data-palette="forest"][data-mode="dark"] { --color-ground-bg: #08170f; --color-paper: #11281e; --color-ink: #ebe6d2; --color-accent: #7fcf9c; }
+/* Each: the ground colour, the page paper, the ink (text) and the accent (buttons, links).
+   Dark swaps paper and ink and deepens the ground. */
+/* Tomato: crimson ground, cream paper, oxblood ink */
+:root[data-palette="tomato"] { --color-ground-bg: #c4102c; --color-paper: #fbf4ee; --color-ink: #3a0d12; --color-accent: #d0102a; --color-dark: #3a0d12; }
+:root[data-palette="tomato"][data-mode="dark"] { --color-ground-bg: #5c0612; --color-paper: #230a0d; --color-ink: #fbe8e2; --color-accent: #ff4d5c; }
+/* Ultramarine: an electric violet-blue on cool white */
+:root[data-palette="ultramarine"] { --color-ground-bg: #2b30d6; --color-paper: #f3f3f6; --color-ink: #191c66; --color-accent: #2b30d6; --color-dark: #191c66; }
+:root[data-palette="ultramarine"][data-mode="dark"] { --color-ground-bg: #0d0f4a; --color-paper: #12143f; --color-ink: #e9eaf7; --color-accent: #7c80ff; }
+/* Midnight: deep navy with a bright cobalt accent */
+:root[data-palette="midnight"] { --color-ground-bg: #0f1b45; --color-paper: #f1f3f7; --color-ink: #0f1b45; --color-accent: #2f62f5; --color-dark: #0f1b45; }
+:root[data-palette="midnight"][data-mode="dark"] { --color-ground-bg: #060b1f; --color-paper: #0d1633; --color-ink: #e6ebf7; --color-accent: #5c86ff; }
+/* Petrol: dark teal on a pale mint-grey */
+:root[data-palette="petrol"] { --color-ground-bg: #0a5c63; --color-paper: #eff4f3; --color-ink: #0b363b; --color-accent: #0a7f88; --color-dark: #0b363b; }
+:root[data-palette="petrol"][data-mode="dark"] { --color-ground-bg: #032a2e; --color-paper: #0b2629; --color-ink: #e3efed; --color-accent: #3fc4c9; }
+/* Emerald: jewel green on a cool off-white */
+:root[data-palette="emerald"] { --color-ground-bg: #0b6b49; --color-paper: #eff4f0; --color-ink: #0b3a29; --color-accent: #0d8a5d; --color-dark: #0b3a29; }
+:root[data-palette="emerald"][data-mode="dark"] { --color-ground-bg: #032b1d; --color-paper: #0b2519; --color-ink: #e4f0e8; --color-accent: #42cf8f; }
+/* Aubergine: deep plum with a violet accent */
+:root[data-palette="aubergine"] { --color-ground-bg: #4a1a6b; --color-paper: #f5f1f5; --color-ink: #2d1240; --color-accent: #7a2ec2; --color-dark: #2d1240; }
+:root[data-palette="aubergine"][data-mode="dark"] { --color-ground-bg: #1f0730; --color-paper: #1d0b2a; --color-ink: #f0e6f3; --color-accent: #b37bff; }
