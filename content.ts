@@ -94,6 +94,7 @@ export const about = {
     "Up to speed fast, without hand-holding",
     "13+ years across Shopify themes, apps and the platform",
     "Always learning the newest tools, AI included",
+    "2x bootstrapped brand founder, so I get it",
   ],
   // Tool logos stuck to the photo panel.
   tools: [
