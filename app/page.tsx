@@ -164,7 +164,6 @@ export default function Home() {
         <section id="approach" className={section}>
           <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
-              <Illo art={approach.art} className="mb-6 h-28 w-auto lg:mb-8 lg:h-40" />
               <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
               <p className="lede mt-5 max-w-xl">{approach.body}</p>
             </Reveal>
@@ -236,7 +235,7 @@ export default function Home() {
           <i aria-hidden className="rails-inner" />
           <Container className="grid gap-8 lg:grid-cols-2 lg:gap-16">
             <Reveal>
-              <Illo art={contact.art} className="mb-6 h-28 w-auto lg:mb-8 lg:h-36" />
+              <Illo art={contact.art} className="mb-6 h-36 w-auto -rotate-[8deg] lg:mb-8 lg:h-48" />
               <h2 className={`${sectionHeading} mb-5`}><Rich text={contact.heading} /></h2>
               <p className="lede max-w-md text-white">{contact.body}</p>
               <p className="mt-6 text-white/60">

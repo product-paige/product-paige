@@ -71,7 +71,6 @@ export const hero = {
 
 export const approach = {
   heading: "My process",
-  art: art.lightbulb,
   body:
     "A fixed price in writing before any work starts, then async work with as few calls as possible.",
   steps: [
