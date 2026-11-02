@@ -249,12 +249,6 @@ export default function Home() {
               <Illo art={contact.art} className="mb-6 h-36 w-auto -rotate-[8deg] lg:mb-8 lg:h-48" />
               <h2 className={`${sectionHeading} mb-5`}><Rich text={contact.heading} /></h2>
               <p className="lede max-w-md text-white">{contact.body}</p>
-              <p className="mt-6 text-white/60">
-                {contact.emailNote}{" "}
-                <a href={`mailto:${site.email}`} className="link text-white">
-                  {site.email}
-                </a>
-              </p>
             </Reveal>
             <Reveal delay={120}>
               <ContactForm endpoint={site.formEndpoint} email={site.email} deadlines={contact.deadlines} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />
