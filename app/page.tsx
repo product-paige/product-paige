@@ -34,7 +34,7 @@ export default function Home() {
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <h2 className="sr-only">About</h2>
-              <Reveal as="p" className="serif text-[clamp(24px,2vw,30px)] leading-[1.2] tracking-[-0.03em]">{about.paragraphs[0]}</Reveal>
+              <Reveal as="p" className="serif text-[clamp(28px,2.8vw,42px)] leading-[1.12] tracking-[-0.035em]">{about.paragraphs[0]}</Reveal>
               {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
