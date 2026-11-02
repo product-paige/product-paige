@@ -136,11 +136,7 @@ export default function Home() {
                   <div
                     className={`flex h-full flex-col gap-5 border p-6 ${lift} lg:p-8 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
                   >
-                    {/* The tag, with the card's illustration across from it */}
-                    <div className="flex items-start justify-between gap-4">
-                      <Chip className={m.featured ? "bg-white/10" : ""}>{m.tag}</Chip>
-                      <Illo art={m.art} className="-mt-2 h-20 w-auto lg:h-24" />
-                    </div>
+                    <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
                     <h3 className={cardTitle}>{m.title}</h3>
                     <p className={m.featured ? "text-white/60" : "text-muted"}>{m.body}</p>
                     <div className="mt-auto pt-8 lg:pt-12">
@@ -167,9 +163,9 @@ export default function Home() {
         <section id="approach" className={section}>
           <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
+              <Illo art={approach.art} className="mb-6 h-28 w-auto lg:mb-8 lg:h-40" />
               <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
               <p className="lede mt-5 max-w-xl">{approach.body}</p>
-              <Illo art={approach.art} className="mt-10 hidden h-48 w-auto lg:block" />
             </Reveal>
             {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
                 (grey and small until the line reaches it, then accent red). */}

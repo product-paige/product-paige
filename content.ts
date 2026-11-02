@@ -164,7 +164,6 @@ export const models = {
     {
       tag: "Strategy",
       title: "Advice and reviews",
-      art: art.telephone,
       body: "Find out what’s wrong and what to fix first.",
       price: "$300",
       per: "/ session",
@@ -173,7 +172,6 @@ export const models = {
     {
       tag: "Projects",
       title: "One focused project",
-      art: art.parcel,
       body: "One part of your store, done properly and live before your deadline.",
       price: "$1,500",
       per: "/ project",
@@ -182,7 +180,6 @@ export const models = {
     {
       tag: "Websites",
       title: "Full store build",
-      art: art.building,
       body: "Your store designed, written and built from scratch.",
       price: "$8,500",
       per: "/ project",

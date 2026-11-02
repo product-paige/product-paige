@@ -1,6 +1,6 @@
-import { hero, site } from "@/content";
+import { art, hero, site } from "@/content";
 import { CartMockup } from "./Mockups";
-import { Chip, Container } from "./ui";
+import { Chip, Container, Illo } from "./ui";
 
 /** A six-armed asterisk, as on printed ephemera. */
 function Asterisk({ className = "" }: { className?: string }) {
@@ -20,7 +20,10 @@ const cartRatio = 0.9;
 export function EditorialHero() {
   return (
     <section className="relative">
-      <Container className="pt-14 pb-14 lg:pt-20 lg:pb-20">
+      <Container className="relative pt-14 pb-14 lg:pt-20 lg:pb-20">
+        {/* A sticker on the right (desktop): the beauty box, tilted, its top just above the headline
+            and drawn behind it (the headline sits above, z-1). */}
+        <Illo art={art.parcel} className="pointer-events-none absolute top-[112px] right-[4%] hidden w-[clamp(160px,14vw,210px)] rotate-[8deg] drop-shadow-[0_10px_18px_rgb(26_26_26/0.15)] lg:block" />
         {/* Booking line, above the headline */}
         <p className="mb-6 flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:mb-8 lg:text-[20px]">
           <Asterisk className="live-star size-5" />
@@ -29,7 +32,7 @@ export function EditorialHero() {
         {/* Desktop: sized to the content width (the window less the gutter, frame and padding,
             212px) so
             the longer line, about 12.5em, always fits on one line; capped at 88px. */}
-        <h1 className="serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(88px,calc((100vw-212px)/12.8))]">
+        <h1 className="relative z-1 serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(88px,calc((100vw-212px)/12.8))]">
           {hero.heading.map((l) => <span key={l} className="block">{l}</span>)}
         </h1>
 
@@ -40,7 +43,7 @@ export function EditorialHero() {
             whose columns are as wide as each screen's shape (width / height), so all four come out
             the same height and the row fills the content width exactly. Phones scroll it sideways. */}
         <div
-          className="-mx-4 mt-10 flex gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 lg:mt-14 lg:grid lg:gap-5 lg:overflow-visible lg:pb-0"
+          className="relative z-1 -mx-4 mt-10 flex gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 lg:mt-14 lg:grid lg:gap-5 lg:overflow-visible lg:pb-0"
           style={{ gridTemplateColumns: [...hero.shots.map((x) => x.width / x.height), cartRatio].map((r) => `${r.toFixed(3)}fr`).join(" ") }}
         >
           {hero.shots.map((shot) => (
