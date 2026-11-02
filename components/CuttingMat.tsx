@@ -1,6 +1,7 @@
 /**
- * A grey-beige cutting mat to lay things on: ruler ticks and numbers in the margin around a framed
- * grid. Fills its (relative, overflow-hidden) parent; anything placed after it sits on top.
+ * A cutting mat to lay things on (colours from the --color-mat tokens): ruler ticks and numbers
+ * in the margin around a framed grid. Fills its (relative, overflow-hidden) parent; anything
+ * placed after it sits on top.
  */
 export function CuttingMat() {
   const marks = Array.from({ length: 12 }, (_, i) => i * 5);

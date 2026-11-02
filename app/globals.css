@@ -27,7 +27,11 @@
   --color-grid: rgb(56 56 56 / 0.22); /* page frame: rails, side grid, section lines (a step above --color-line) */
   --color-ground-bg: #2c5ce0; /* the ground around the sheet: a bold colour */
   --color-ground: rgb(255 255 255 / 0.18); /* its grid lines */
-  --color-mat-text: rgb(56 52 44 / 0.45); /* ruler numbers on the cutting mat */
+  /* The cutting mat under Recent projects: its colour, grid lines and ruler numbers */
+  --color-mat: color-mix(in srgb, var(--color-scrap) 88%, var(--color-ink));
+  --color-mat-line: color-mix(in srgb, var(--color-ink) 10%, transparent);
+  --color-mat-major: color-mix(in srgb, var(--color-ink) 22%, transparent);
+  --color-mat-text: color-mix(in srgb, var(--color-ink) 45%, transparent);
 
   /* Card colours */
   --color-sage: #dce2d4;
@@ -349,14 +353,14 @@
   }
 }
 
-/* The About board: a grey-beige cutting mat. A margin (--m) with ruler ticks every cell (--c) and
+/* The Recent projects board: a cutting mat (grey-beige; bright blue in the Paper palette). A margin (--m) with ruler ticks every cell (--c) and
    a longer tick every five, around a framed grid with a heavier line every five cells. */
 .cutting-mat {
   --m: 26px;
   --c: 20px;
-  --mat-line: color-mix(in srgb, var(--color-ink) 10%, transparent);
-  --mat-major: color-mix(in srgb, var(--color-ink) 22%, transparent);
-  background-color: color-mix(in srgb, var(--color-scrap) 88%, var(--color-ink));
+  --mat-line: var(--color-mat-line);
+  --mat-major: var(--color-mat-major);
+  background-color: var(--color-mat);
 }
 .mat-grid {
   inset: var(--m);
@@ -469,7 +473,6 @@
   --color-line: color-mix(in srgb, var(--color-ink) 15%, transparent);
   --color-grid: color-mix(in srgb, var(--color-ink) 24%, transparent);
   --color-chip: color-mix(in srgb, var(--color-ink) 7%, transparent);
-  --color-mat-text: color-mix(in srgb, var(--color-ink) 45%, transparent);
   --color-sheet: color-mix(in srgb, var(--color-paper) 94%, var(--color-ink));
   --color-scrap: color-mix(in srgb, var(--color-paper) 90%, var(--color-ink));
   --color-surface: color-mix(in srgb, var(--color-paper) 60%, #fff);
@@ -484,5 +487,5 @@
 }
 /* Paper: a neutral ground, paper-white page, off-black text and dark blocks, one blue for
    buttons and links. The card tints are all neutrals. */
-:root[data-palette="paper"] { --color-ground-bg: #d8d4cb; --color-ground: rgb(255 255 255 / 0.4); --color-paper: #fbfaf6; --color-ink: #1d1d1b; --color-accent: #2450e0; --color-dark: #1d1d1b; --color-sky: #ebe8e1; --color-sage: #e4e1d8; --color-butter: #efece5; }
+:root[data-palette="paper"] { --color-mat: #2450e0; --color-mat-line: rgb(170 205 255 / 0.32); --color-mat-major: rgb(190 220 255 / 0.62); --color-mat-text: rgb(200 225 255 / 0.85); --color-ground-bg: #d8d4cb; --color-ground: rgb(255 255 255 / 0.4); --color-paper: #fbfaf6; --color-ink: #1d1d1b; --color-accent: #2450e0; --color-dark: #1d1d1b; --color-sky: #ebe8e1; --color-sage: #e4e1d8; --color-butter: #efece5; }
 :root[data-palette="paper"][data-mode="dark"] { --color-ground-bg: #0e0e0d; --color-ground: rgb(255 255 255 / 0.08); --color-paper: #1a1a18; --color-ink: #f3f1eb; --color-accent: #5c84ff; --color-sky: #262623; --color-sage: #22221f; --color-butter: #2a2926; }

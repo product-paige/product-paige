@@ -67,7 +67,7 @@ export function AboutNotebook() {
       ))}
 
       {/* The parcel sticker, selected and tilted, low on the left */}
-      <span className="absolute bottom-[10%] left-0 block w-[30%] -rotate-[9deg]">
+      <span className="absolute bottom-[20%] left-0 block w-[30%] -rotate-[9deg]">
         <Handles />
         <Illo art={art.parcel} className="w-full" />
       </span>
