@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
+import { ProjectCardOptions } from "@/components/ProjectCardOptions";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
@@ -70,6 +71,9 @@ export default function Home() {
 
         {/* Recent projects */}
         <RecentProjects className={section} />
+
+        {/* Four more project card designs, to compare (temporary) */}
+        <ProjectCardOptions />
 
 
         {/* Audiences (shared with /approach) */}
