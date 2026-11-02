@@ -17,6 +17,23 @@ const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
 
+/** Why founders work with me: a short list with scribble bullets (the About panel's card). */
+function ProofList() {
+  return (
+    <>
+      <p className="font-medium">{about.proofHeading}</p>
+      <ul className="mt-3 space-y-2 text-[15px]">
+        {about.proof.map((f, i) => (
+          <li key={f.strong} className="flex items-start gap-2.5">
+            <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
+            <span><span className="font-medium">{f.strong}</span> <span className="text-muted">{f.text}</span></span>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -26,11 +43,9 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: two columns, like an editorial spread. Left, the first paragraph as a large serif
-            lead, the second, the booking button and a short list of why founders work
-            with me. Right, a grey punched panel running out to the page's edge, with the photo
-            collaged on it: tilted, a starburst behind, a shopping basket sticker and the tagline on a
-            small card. */}
+        {/* About: two columns. Left, the lead in the serif, one line on how I work and the booking
+            button. Right, a grey panel running out to the page's edge, with the photo as a tilted
+            print, the basket sticker, and why founders work with me on a pinned card. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -40,39 +55,27 @@ export default function Home() {
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
               </Reveal>
-              <Reveal className="mt-10 lg:mt-14">
-                <p className="font-medium">{about.proofHeading}</p>
-                <ul className="mt-3 space-y-2">
-                  {about.proof.map((f, i) => (
-                    <li key={f.strong} className="flex items-start gap-2.5">
-                      <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
-                      <span><span className="font-medium">{f.strong}</span> <span className="text-muted">{f.text}</span></span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
             </div>
 
             {/* The panel: from the column's left edge out past the inner rail to the page sheet's
                 edge (lg:-mr-20 cancels the Container's padding), square on that side. */}
             <Reveal className="relative lg:-mr-20">
               <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] bg-scrap lg:aspect-auto lg:h-[620px] lg:rounded-r-none">
-                {/* Punched holes along the top */}
-                <div aria-hidden className="absolute inset-x-8 top-6 flex justify-between">
-                  {Array.from({ length: 7 }).map((_, i) => <i key={i} className="size-5 rounded-full bg-paper" />)}
-                </div>
-                <Illo art={art.starburstBlue} className="absolute top-[7%] right-[4%] w-[40%] rotate-12" />
-                <figure className="absolute top-[18%] left-[16%] w-[58%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
+                <figure className="absolute top-[12%] left-[7%] w-[54%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
                   </span>
                 </figure>
                 <Illo art={art.basket} className="absolute bottom-[5%] left-[3%] w-[30%] -rotate-[10deg]" />
-                <p className="absolute right-[10%] bottom-[12%] rotate-3 bg-white px-5 py-4 text-[15px] leading-snug shadow-[0_1px_0_rgb(0_0_0/0.06),0_10px_24px_rgb(26_26_26/0.12)]">
-                  <span className="block font-medium">{site.name}</span>
-                  <span className="text-muted">{site.role}</span>
-                </p>
+                {/* Why founders work with me, on a card pinned to the panel (desktop) */}
+                <div className="absolute right-[5%] bottom-[9%] hidden w-[50%] rotate-2 bg-white p-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] lg:block">
+                  <ProofList />
+                </div>
+              </div>
+              {/* Phones and tablets: the same list under the panel */}
+              <div className="mt-6 lg:hidden">
+                <ProofList />
               </div>
             </Reveal>
           </Container>

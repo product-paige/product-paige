@@ -89,14 +89,14 @@ export const about = {
   heading: "Hey, I’m Paige",
   paragraphs: [
     "Hi, I’m Paige. A decade-plus of building on Shopify for brands and apps. Happiest when designing, online or off.",
-    "These days I do the strategy, the design and the build, with AI wired into Figma and Shopify so nothing gets lost between handoffs. I’m not a developer, and I’ll tell you that before you pay me a cent.",
+    "These days I do the strategy, the design and the build in one pass, with AI wired into Figma and Shopify.",
   ],
-  // The short list under the button.
+  // The short list on a card on the photo panel.
   proofHeading: "Why founders work with me",
   proof: [
-    { strong: "13+ years on Shopify.", text: "Funded startups and bootstrapped teams." },
-    { strong: "2x brand founder.", text: "From sourcing a manufacturer to go-to-market." },
-    { strong: "Based in Kitchener, Ontario.", text: "Working with teams anywhere." },
+    { strong: "13+ years on Shopify.", text: "Startups and bootstrapped teams." },
+    { strong: "2x brand founder.", text: "Sourcing to go-to-market." },
+    { strong: "Kitchener, Ontario.", text: "Working with teams anywhere." },
   ],
 };
 
