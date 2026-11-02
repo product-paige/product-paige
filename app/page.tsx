@@ -76,14 +76,15 @@ export default function Home() {
             <div className="grid gap-3 md:grid-cols-2">
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
-                  <div className={`${a.tone} folded flex h-full flex-col p-6 ${lift} lg:p-10`}>
+                  <div className={`${a.tone} folded flex h-full flex-col px-6 pt-6 ${lift} lg:px-8 lg:pt-8`}>
                     {/* The card's illustration, above the title */}
-                    <Illo art={a.art} className="mb-5 h-24 w-auto lg:mb-6 lg:h-32" />
-                    <h3 className={`${cardTitle} mb-8 lg:mb-16`}>{a.title}</h3>
-                    {/* Rules run edge to edge across the card; the items keep their inset. */}
-                    <ul className="mt-auto -mx-6 divide-y divide-line border-y border-line lg:-mx-10">
+                    <Illo art={a.art} className="mb-5 h-24 w-auto self-start lg:h-28" />
+                    <h3 className={`${cardTitle} mb-8 lg:mb-12`}>{a.title}</h3>
+                    {/* Rules run edge to edge across the card; the items keep their inset. The list runs
+                        to the card's bottom edge, so there's no rule under the last item. */}
+                    <ul className="mt-auto -mx-6 divide-y divide-line border-t border-line lg:-mx-8">
                       {a.points.map((p) => (
-                        <li key={p} className="flex items-start gap-3 px-6 py-3 lg:px-10 lg:py-4">
+                        <li key={p} className="flex items-start gap-3 px-6 py-3 last:pb-6 lg:px-8 lg:py-4 lg:last:pb-8">
                           <Check className="mt-0.5 text-muted" />
                           {p}
                         </li>

@@ -174,7 +174,7 @@ export function Chip({
 export function Illo({ art, className = "" }: { art: Art; className?: string }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={art.src} alt="" width={art.width} height={art.height} loading="lazy" decoding="async" className={`select-none ${className}`} />
+    <img src={art.src} alt="" width={art.width} height={art.height} loading="lazy" decoding="async" className={`object-contain select-none ${className}`} />
   );
 }
 
