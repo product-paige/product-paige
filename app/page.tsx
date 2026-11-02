@@ -114,7 +114,7 @@ export default function Home() {
                     <Illo art={s.art} className="h-24 w-auto max-w-full object-contain lg:h-28" />
                   </div>
                   <div>
-                    <h3 className={listTitle}>{s.title}</h3>
+                    <h3 className="serif text-[clamp(26px,2.8vw,38px)] leading-[1.05] tracking-[-0.04em]">{s.title}</h3>
                     <div className="mt-3.5 flex flex-wrap gap-2">
                       {s.tags.map((t) => <Chip key={t}>{t}</Chip>)}
                     </div>
