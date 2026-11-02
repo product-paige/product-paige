@@ -1,10 +1,12 @@
 import { blog } from "@/content";
 import type { CSSProperties } from "react";
+import { CuttingMat } from "./CuttingMat";
 import { Chip, Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
 
 /**
  * Blog teaser: three posts as loose-leaf notebook pages (punch holes, a margin
- * rule and a folded corner; see .scrap, .loose-leaf and .folded in globals.css). Each card links to the post.
+ * rule and a folded corner; see .scrap, .loose-leaf and .folded in globals.css), laid out on the
+ * bright blue cutting mat. Each card links to the post.
  */
 export function Scrapbook({ className = "" }: { className?: string }) {
   return (
@@ -16,23 +18,27 @@ export function Scrapbook({ className = "" }: { className?: string }) {
             {blog.linkLabel}
           </a>
         </Reveal>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {blog.posts.map((p, i) => (
-            <Reveal key={p.href} delay={i * 120}>
-              <a href={p.href} className="scrap loose-leaf folded tilt group">
-                <div className="mb-5 flex items-center justify-between gap-3">
-                  <time className="text-[14px] font-medium text-muted">{p.date}</time>
-                  <Chip className="text-white" style={{ "--color-chip": "var(--color-ink)" } as CSSProperties}>{p.tag}</Chip>
-                </div>
-                <span className="photo-grain block">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
-                </span>
-                <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
-                <p className="mt-2">{p.excerpt}</p>
-              </a>
-            </Reveal>
-          ))}
+        {/* The posts laid out on the bright blue cutting mat */}
+        <div className="relative overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:px-14 lg:py-16">
+          <CuttingMat />
+          <div className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {blog.posts.map((p, i) => (
+              <Reveal key={p.href} delay={i * 120}>
+                <a href={p.href} className="scrap loose-leaf folded tilt group">
+                  <div className="mb-5 flex items-center justify-between gap-3">
+                    <time className="text-[14px] font-medium text-muted">{p.date}</time>
+                    <Chip className="text-white" style={{ "--color-chip": "var(--color-ink)" } as CSSProperties}>{p.tag}</Chip>
+                  </div>
+                  <span className="photo-grain block">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
+                  </span>
+                  <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
+                  <p className="mt-2">{p.excerpt}</p>
+                </a>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </Container>
     </section>
