@@ -4,9 +4,8 @@ import { CuttingMat } from "./CuttingMat";
 import { Cover } from "./Folder";
 import { Container, Reveal } from "./ui";
 
-// Four simpler card designs for Recent projects, each shown straight on the mat to compare.
-// Temporary: once one is picked it goes into RecentProjects and this file goes.
-
+// More card designs for Recent projects, to compare. Temporary: once one is picked it goes into
+// RecentProjects and this file goes.
 
 // B. Print and caption: the cover in a thin white frame, the name and role as a caption under it.
 function Caption({ p }: { p: Project }) {
