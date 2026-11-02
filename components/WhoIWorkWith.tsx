@@ -2,6 +2,9 @@ import { audiences } from "@/content";
 import { CuttingMat } from "./CuttingMat";
 import { Container, Reveal, SectionHead, section } from "./ui";
 
+// Each card's tilt on the mat, in turn.
+const tilts = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1"];
+
 /** Line icons for the three audiences: a seedling (starting out), a bag with a rising line
  * (already selling), and a puzzle piece (building for Shopify). */
 function AudienceIcon({ i }: { i: number }) {
@@ -35,13 +38,17 @@ export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: s
             {audiences.items.map((a, i) => (
               <Reveal key={a.title} delay={i * 120} className="h-full">
                 {/* An icon, the title, the statement, then a few lines on how I'd help */}
-                <div className="flex h-full flex-col bg-paper p-6 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(0_0_0/0.18)] lg:p-8">
+                {/* Tilted, with the bottom-right corner folded over (.folded). The shadow sits on the
+                    wrapper as a drop-shadow, since the fold's clip-path would cut a box-shadow off. */}
+                <div className={`h-full drop-shadow-[0_14px_22px_rgb(0_0_0/0.2)] transition-transform duration-300 hover:rotate-0 ${tilts[i % tilts.length]}`}>
+                <div className="folded flex h-full flex-col bg-paper p-6 pb-12 lg:p-8 lg:pb-14">
                   <span aria-hidden className="grid size-11 place-items-center rounded-ui border border-line bg-sheet text-accent">
                     <AudienceIcon i={i} />
                   </span>
                   <h3 className="serif mt-6 text-[clamp(24px,2.2vw,30px)] leading-[1.1] tracking-[-0.03em]">{a.title}</h3>
                   <p className="mt-3 text-[17px] font-medium leading-snug lg:text-[18px]">{a.body}</p>
                   <p className="mt-3 text-[15px]">{a.detail}</p>
+                </div>
                 </div>
               </Reveal>
             ))}
