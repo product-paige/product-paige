@@ -59,7 +59,7 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
             // (/approach) go as they are, and show as current on their own page.
             href={n.href.startsWith("/") ? n.href : `/${n.href}`}
             aria-current={isActive ? "location" : undefined}
-            className="group flex items-center px-5 text-[16px] font-medium transition-colors duration-300 hover:bg-sheet"
+            className="group flex items-center px-5 text-[16px] font-medium transition-colors duration-300"
           >
             <span className="relative">
               <i

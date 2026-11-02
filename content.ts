@@ -56,7 +56,6 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Services", href: "#pricing" },
-  { label: "Approach", href: "/approach" },
   { label: "Scrapbook", href: "#blog" },
 ];
 
@@ -95,6 +94,12 @@ export const about = {
   // The short list on a card on the photo panel.
   proofHeading: "Why founders work with me",
   proof: ["13+ years on Shopify", "2x brand founder", "Based in Kitchener, Ontario"],
+  // Tool logos stuck to the photo panel.
+  tools: [
+    { name: "Shopify", logo: "/logos/shopify-glyph.svg" },
+    { name: "Figma", logo: "/logos/figma.svg" },
+    { name: "Claude", logo: "/logos/claude.svg" },
+  ],
 };
 
 // The rows under this heading are the approach phases (approachPage.phases).

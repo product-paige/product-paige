@@ -18,6 +18,12 @@ import {
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
+// Where each tool tile sits on the About board, scattered around the photo.
+const toolSpots = [
+  "top-[17%] left-[9%] -rotate-12",
+  "top-[44%] left-[15%] rotate-6",
+  "top-[14%] right-[7%] rotate-[14deg]",
+];
 
 /** Why founders work with me: a short list with scribble bullets (the About panel's card). */
 function ProofList() {
@@ -46,7 +52,7 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, "Hi, I’m Paige" as an eyebrow, the lead as the heading, one line on how I work and the booking
-            button. Right, a notebook spread (graph and ruled pages, punched holes) running out to the
+            button. Right, a sheet of graph paper with punched holes running out to the
             page's edge, with the photo as a tilted print, the basket sticker, and why founders work with me on a pinned card. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -69,10 +75,8 @@ export default function Home() {
                 edge (lg:-mr-20 cancels the Container's padding), square on that side. */}
             <Reveal className="relative lg:-mr-20">
               <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_18px_40px_rgb(26_26_26/0.08)] lg:aspect-auto lg:h-[620px] lg:rounded-r-none lg:border-r-0">
-                {/* Notebook pages: graph paper on the left, ruled paper on the right (torn where it
-                    meets the left), with punched holes along the top */}
-                <div aria-hidden className="page-graph absolute inset-y-0 left-0 w-[58%]" />
-                <div aria-hidden className="page-ruled absolute inset-y-0 right-0 w-[46%]" />
+                {/* One sheet of graph paper, with punched holes along the top */}
+                <div aria-hidden className="page-graph absolute inset-0" />
                 <div aria-hidden className="absolute inset-x-8 top-5 flex justify-between">
                   {Array.from({ length: 9 }).map((_, i) => <i key={i} className="size-4 rounded-full bg-paper shadow-[inset_0_1px_2px_rgb(26_26_26/0.18)] lg:size-5" />)}
                 </div>
@@ -83,6 +87,15 @@ export default function Home() {
                   </span>
                 </figure>
                 <Illo art={art.basket} className="absolute bottom-[5%] left-[3%] w-[30%] -rotate-[10deg]" />
+                {/* The tools, as little tiles stuck down at odd angles around the board */}
+                <ul aria-label="Tools I use">
+                  {about.tools.map((t, i) => (
+                    <li key={t.name} className={`absolute grid size-12 place-items-center rounded-[10px] bg-white shadow-[0_1px_0_rgb(0_0_0/0.06),0_8px_18px_rgb(26_26_26/0.12)] lg:size-16 ${toolSpots[i % toolSpots.length]}`}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={t.logo} alt={t.name} width={32} height={32} loading="lazy" className="size-6 lg:size-8" />
+                    </li>
+                  ))}
+                </ul>
                 {/* Why founders work with me, on a card pinned to the panel (desktop) */}
                 <div className="absolute right-[6%] bottom-[10%] hidden w-max rotate-2 bg-white p-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] lg:block">
                   <ProofList />
