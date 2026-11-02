@@ -34,7 +34,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 className="group/q flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-[18px] text-left text-base font-medium lg:px-6 lg:py-5 lg:text-lg"
               >
                 {f.q}
-                {/* Thin plus that turns a quarter-turn-and-a-half into a cross when open: the same lines
+                {/* Thin plus that rotates 45° into a cross when open: the same lines
                     at the same size, just rotated. The stroke stays 1px. */}
                 <svg
                   aria-hidden
