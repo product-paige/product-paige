@@ -12,7 +12,7 @@ export function SiteHeader() {
     <>
       <header className="rails sticky top-0 z-10 border-b border-grid bg-paper">
         <i aria-hidden className="rails-inner" />
-        <Container tight className="grid h-[60px] grid-cols-[auto_1fr] items-center lg:h-[68px] xl:grid-cols-[1fr_auto_1fr]">
+        <Container tight className="grid h-[52px] grid-cols-[auto_1fr] items-center lg:h-[56px] xl:grid-cols-[1fr_auto_1fr]">
           <Nav items={nav} />
           <a href="/" className="serif text-[20px] leading-none whitespace-nowrap lg:text-[24px] xl:text-center">
             {site.logo}

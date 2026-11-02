@@ -65,10 +65,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Jump links land flush under the sticky header (60px phones, 68px desktop).
+    /* Jump links land flush under the sticky header (52px phones, 56px desktop).
        Sections that open straight into a heading add their own scroll-margin. */
-    scroll-padding-top: 60px;
-    @media (width >= 64rem) { scroll-padding-top: 68px; }
+    scroll-padding-top: 52px;
+    @media (width >= 64rem) { scroll-padding-top: 56px; }
     -webkit-text-size-adjust: 100%;
   }
   ::selection { background: var(--color-accent); color: #fff; }
