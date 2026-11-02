@@ -31,8 +31,8 @@ export function EditorialHero() {
         </p>
         {/* Desktop: sized to the content width (the window less the gutter, frame and padding,
             212px) so
-            the longer line, about 12.5em, always fits on one line; capped at 97px, the most that fits inside the 1440px frame. */}
-        <h1 className="relative z-1 serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(97px,calc((100vw-212px)/12.6))]">
+            the longer line, about 12.5em, always fits on one line; capped at 90px. */}
+        <h1 className="relative z-1 serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(90px,calc((100vw-212px)/13.5))]">
           {hero.heading.map((l) => <span key={l} className="block">{l}</span>)}
         </h1>
 
