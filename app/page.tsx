@@ -20,9 +20,9 @@ const lift = "transition hover:-translate-y-1";
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
 // Where each tool tile sits beside the About photo, scattered around it.
 const toolSpots = [
-  "top-[12%] left-[5%] -rotate-12",
-  "top-[48%] left-[6%] rotate-6",
-  "top-[30%] right-[5%] rotate-[14deg]",
+  "top-[10%] left-[1%] -rotate-12",
+  "top-[46%] left-[2%] rotate-6",
+  "top-[28%] right-[1%] rotate-[14deg]",
 ];
 
 export default function Home() {
@@ -52,7 +52,7 @@ export default function Home() {
             {/* The photo, tool tiles and basket, laid out in a square that fills the column. */}
             <Reveal className="relative">
               <div className="relative aspect-square">
-                <figure className="absolute top-[10%] left-1/2 w-[58%] -translate-x-1/2 -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
+                <figure className="absolute top-[4%] left-1/2 w-[68%] -translate-x-1/2 -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-[4/5]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={site.photo} alt={site.photoAlt} width={540} height={675} loading="lazy" decoding="async" className="size-full object-cover" />

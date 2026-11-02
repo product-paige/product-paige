@@ -37,13 +37,13 @@ export function PaletteSwitcher() {
   }, [palette, dark]);
 
   return (
-    <div className="fixed right-4 bottom-4 z-50 flex items-center gap-1 rounded-full bg-[#1a1a1a] p-1 text-[13px] font-medium text-white shadow-lg">
+    <div className="fixed right-4 bottom-4 z-50 flex max-w-[calc(100vw-2rem)] items-center gap-1 overflow-x-auto rounded-full bg-[#1a1a1a] p-1 text-[13px] font-medium text-white shadow-lg">
       {palettes.map((p) => (
         <button
           key={p.label}
           type="button"
           onClick={() => setPalette(p.id)}
-          className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 ${palette === p.id ? "bg-white text-[#1a1a1a]" : "hover:bg-white/10"}`}
+          className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 ${palette === p.id ? "bg-white text-[#1a1a1a]" : "hover:bg-white/10"}`}
         >
           <i className="size-2.5 rounded-full" style={{ background: p.swatch }} />
           {p.label}
@@ -53,7 +53,7 @@ export function PaletteSwitcher() {
         type="button"
         onClick={() => setDark((d) => !d)}
         disabled={!palette}
-        className="ml-1 rounded-full border border-white/25 px-3 py-1.5 disabled:opacity-40"
+        className="ml-1 shrink-0 rounded-full border border-white/25 px-3 py-1.5 disabled:opacity-40"
       >
         {dark && palette ? "Dark" : "Light"}
       </button>
