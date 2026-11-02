@@ -48,8 +48,7 @@ export default function Home() {
         {/* About: two columns. Left, the heading, one paragraph in Manrope on who I am
             and how I work, and why founders work with me. Right, the photo and tools laid
             out like a desktop (see AboutNotebook). */}
-        {/* Tighter than the other sections: the board brings its own space. */}
-        <section id="about" className="overflow-x-clip border-t border-grid py-6 lg:py-10">
+        <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="lg:pt-10">
               <Reveal>

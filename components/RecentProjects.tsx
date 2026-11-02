@@ -76,7 +76,8 @@ export function RecentProjects({ className = "" }: { className?: string }) {
           <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
           <p className="lede max-w-xl">{projects.body}</p>
         </Reveal>
-        <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
+        {/* Bottom padding: the row scrolls sideways, which clips anything below its edge (descenders) */}
+        <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
           {projects.items.map((p) => (
             <li key={p.slug} className="w-[88%] shrink-0 snap-start md:w-[calc(50%-12px)]">
               <a href={`/projects/${p.slug}`} className="group block">
@@ -85,8 +86,8 @@ export function RecentProjects({ className = "" }: { className?: string }) {
                   <Chip className="absolute top-3 right-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
                   <PhoneMockup p={p} />
                 </span>
-                <span className="mt-4 flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
-                  <span className="serif text-[clamp(20px,1.6vw,24px)] leading-none tracking-[-0.03em]">{p.client}</span>
+                <span className="mt-4 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
+                  <span className="serif text-[clamp(20px,1.6vw,24px)] leading-[1.2] tracking-[-0.03em]">{p.client}</span>
                   <span className="max-w-[32ch] text-[15px] md:text-right">{p.excerpt}</span>
                 </span>
               </a>
@@ -94,7 +95,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
           ))}
         </ul>
         {/* Dots: one per project */}
-        <div className="mt-8 flex justify-end gap-2.5 lg:mt-10">
+        <div className="mt-6 flex justify-end gap-2.5 lg:mt-8">
           {projects.items.map((p, i) => (
             <button
               key={p.slug}

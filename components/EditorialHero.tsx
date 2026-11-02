@@ -20,7 +20,7 @@ const cartRatio = 0.9;
 export function EditorialHero() {
   return (
     <section className="relative">
-      <Container className="relative pt-10 pb-10 lg:pt-12 lg:pb-12">
+      <Container className="relative py-8 lg:py-14">
         {/* Booking line, above the headline */}
         <p className="mono mb-6 flex items-center gap-3 lg:mb-8">
           <Asterisk className="live-star size-4" />

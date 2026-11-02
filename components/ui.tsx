@@ -4,9 +4,9 @@ import { Reveal } from "./Reveal";
 
 export { Reveal };
 
-// Every section: the same padding top and bottom (32px phones, 80px desktop), so sections sit
-// 64px / 160px apart, with a full-width grid line on the boundary.
-export const section = "border-t border-grid py-8 lg:py-20";
+// Every section, the hero included: the same padding top and bottom (32px phones, 56px desktop),
+// so sections sit 64px / 112px apart, with a full-width grid line on the boundary.
+export const section = "border-t border-grid py-8 lg:py-14";
 
 // Type scale. Serif: the hero headline sized to its grid (about 106px), 56px section headings
 // (About and the FAQ included), 38px headings in a side column (the case study title), 28px card and list titles, 20px facts and prices. Sans: 18px intros (.lede), 16px body, 14px small labels.
