@@ -90,10 +90,13 @@ export const about = {
   body: "A decade-plus of building on Shopify for brands and apps, and happiest when designing, online or off. These days I do the strategy, the design and the build in one pass, with AI wired into Figma and Shopify.",
   // Tool logos stuck to the photo panel.
   tools: [
-    { name: "Shopify", logo: "/logos/shopify-glyph.svg" },
-    { name: "Figma", logo: "/logos/figma.svg" },
-    { name: "Claude", logo: "/logos/claude.svg" },
+    { name: "Shopify", logo: "/logos/shopify-glyph.svg", file: "shopify.app" },
+    { name: "Figma", logo: "/logos/figma.svg", file: "design.fig" },
+    { name: "Claude", logo: "/logos/claude.svg", file: "claude.md" },
   ],
+  // The About board: the photo's file name and the folder that opens the projects.
+  photoFile: "paige.jpg",
+  folder: "case studies",
 };
 
 // The rows under this heading are the approach phases (approachPage.phases).

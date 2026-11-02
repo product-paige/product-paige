@@ -1,6 +1,7 @@
 import {
-  about, approach, art, contact, models, services, site, testimonials,
+  about, approach, contact, models, services, site, testimonials,
 } from "@/content";
+import { AboutNotebook } from "@/components/AboutNotebook";
 import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
@@ -18,13 +19,6 @@ import {
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
-// Where each tool tile sits beside the About photo, scattered around it.
-const toolSpots = [
-  "top-[10%] left-[1%] -rotate-12",
-  "top-[46%] left-[2%] rotate-6",
-  "top-[28%] right-[1%] rotate-[14deg]",
-];
-
 export default function Home() {
   return (
     <>
@@ -35,8 +29,8 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, the heading, one paragraph in Manrope on who I am
-            and how I work, and the booking button. Right, the photo as a tilted
-            print with tool tiles and the basket around it. */}
+            and how I work, and the booking button. Right, the photo and tools laid
+            out like a desktop (see AboutNotebook). */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -49,26 +43,9 @@ export default function Home() {
               </Reveal>
             </div>
 
-            {/* The photo, tool tiles and basket, laid out in a square that fills the column. */}
-            <Reveal className="relative">
-              <div className="relative aspect-square">
-                <figure className="absolute top-[4%] left-1/2 w-[68%] -translate-x-1/2 -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
-                  <span className="photo-grain block aspect-[4/5]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={site.photo} alt={site.photoAlt} width={540} height={675} loading="lazy" decoding="async" className="size-full object-cover" />
-                  </span>
-                </figure>
-                <Illo art={art.basket} className="absolute bottom-[2%] left-[2%] w-[30%] -rotate-[10deg]" />
-                {/* The tools, as little tiles stuck down at odd angles around the board */}
-                <ul aria-label="Tools I use">
-                  {about.tools.map((t, i) => (
-                    <li key={t.name} className={`absolute grid size-12 place-items-center rounded-[10px] bg-white shadow-[0_1px_0_rgb(0_0_0/0.06),0_8px_18px_rgb(26_26_26/0.12)] lg:size-16 ${toolSpots[i % toolSpots.length]}`}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={t.logo} alt={t.name} width={32} height={32} loading="lazy" className="size-6 lg:size-8" />
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Laid out like a desktop: the photo, tools and a folder as files */}
+            <Reveal>
+              <AboutNotebook />
             </Reveal>
           </Container>
         </section>
