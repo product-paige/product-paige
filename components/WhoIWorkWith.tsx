@@ -19,11 +19,10 @@ export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: s
           <div className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {audiences.items.map((a, i) => (
               <Reveal key={a.title} delay={i * 120} className="h-full">
-                {/* A "Sound familiar?" checklist: who it's for, the title and line, then the points
+                {/* A "Sound familiar?" checklist: the title and line, then the points
                     as real checkboxes a founder can tick. */}
                 <div className="h-full bg-paper p-6 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(0_0_0/0.18)] lg:p-8">
-                  <p className="mono text-[12px] text-muted">For founders who are</p>
-                  <h3 className="serif mt-2 text-[clamp(24px,2.2vw,30px)] leading-[1.1] tracking-[-0.03em]">{a.title}</h3>
+                  <h3 className="serif text-[clamp(24px,2.2vw,30px)] leading-[1.1] tracking-[-0.03em]">{a.title}</h3>
                   <p className="mt-2">{a.body}</p>
                   <p className="mono mt-6 text-[12px] text-muted">Sound familiar?</p>
                   <ul className="mt-3 space-y-3">
