@@ -2,7 +2,6 @@ import {
   about, approach, art, contact, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
-import { CuttingMat } from "@/components/CuttingMat";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
@@ -19,7 +18,7 @@ import {
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
-// Where each tool tile sits on the About board, scattered around the photo.
+// Where each tool tile sits beside the About photo, scattered around it.
 const toolSpots = [
   "top-[12%] left-[5%] -rotate-12",
   "top-[48%] left-[6%] rotate-6",
@@ -36,8 +35,8 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, the heading, one paragraph in the serif on who I am
-            and how I work, and the booking button. Right, a square grey-beige
-            cutting mat with the photo as a tilted print, tool tiles and the basket. */}
+            and how I work, and the booking button. Right, the photo as a tilted
+            print with tool tiles and the basket around it. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -50,10 +49,9 @@ export default function Home() {
               </Reveal>
             </div>
 
-            {/* The board: a square grey-beige cutting mat, filling its column. */}
+            {/* The photo, tool tiles and basket, laid out in a square that fills the column. */}
             <Reveal className="relative">
-              <div className="relative aspect-square overflow-hidden rounded-[20px]">
-                <CuttingMat />
+              <div className="relative aspect-square">
                 <figure className="absolute top-[10%] left-1/2 w-[58%] -translate-x-1/2 -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-[4/5]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
