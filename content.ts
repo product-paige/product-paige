@@ -90,8 +90,6 @@ export const about = {
     "I’ve spent my whole career in Shopify. First marketing hire twice, founder twice, and usually the one who knows where the inventory spreadsheet lives.",
     "These days I do the strategy, the design and the build, with AI wired into Figma and Shopify so nothing gets lost between handoffs. I’m not a developer, and I’ll tell you that before you pay me a cent.",
   ],
-  // The tilted pills above the text: what one person covers.
-  pills: ["Strategy", "Design", "Copy", "The build itself"],
   // The short list under the button.
   proofHeading: "Why founders work with me",
   proof: [

@@ -26,19 +26,14 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: two columns, like an editorial spread. Left, tilted pills, the first paragraph as
-            a large serif lead, the second, the booking button and a short list of why founders work
+        {/* About: two columns, like an editorial spread. Left, the first paragraph as a large serif
+            lead, the second, the booking button and a short list of why founders work
             with me. Right, a grey punched panel running out to the page's edge, with the photo
             collaged on it: tilted, a starburst behind, the tagline on a small card. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <h2 className="sr-only">About</h2>
-              <Reveal className="mb-8 flex flex-wrap items-center gap-2 lg:mb-10">
-                {about.pills.map((p, i) => (
-                  <Chip key={p} className="px-4! py-2.5! text-[15px]!" style={{ rotate: `${[-6, 3, 9, -3][i % 4]}deg`, translate: `0 ${[2, -2, 4, 0][i % 4]}px` }}>{p}</Chip>
-                ))}
-              </Reveal>
               <Reveal as="p" className="serif text-[clamp(24px,2vw,30px)] leading-[1.2] tracking-[-0.03em]">{about.paragraphs[0]}</Reveal>
               {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
               <Reveal className="mt-8 lg:mt-10">
