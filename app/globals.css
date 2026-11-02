@@ -387,7 +387,7 @@
   0% { rotate: 8deg; }
   50% { rotate: -4deg; }
 }
-.sticker-sway { rotate: 8deg; animation: sticker-sway 1.6s steps(1, end) infinite; }
+.sticker-sway { rotate: 8deg; animation: sticker-sway 2.4s steps(1, end) infinite; }
 
 /* Scroll reveal. Only hides content once JS has marked the page ready,
    so the page still reads fine without JS. */
