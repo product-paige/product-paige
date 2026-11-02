@@ -502,3 +502,19 @@
 /* Aubergine: deep plum with a violet accent */
 :root[data-palette="aubergine"] { --color-ground-bg: #4a1a6b; --color-paper: #f5f1f5; --color-ink: #2d1240; --color-accent: #7a2ec2; --color-dark: #2d1240; }
 :root[data-palette="aubergine"][data-mode="dark"] { --color-ground-bg: #1f0730; --color-paper: #1d0b2a; --color-ink: #f0e6f3; --color-accent: #b37bff; }
+
+/* From Paige's reference set: ivory #fdfdf3, blush #fbede4, sand #f0dcc0, coral #e0746c,
+   mint #d9ece1, sage #d2dbbc, oxblood #650814, teal #306170, navy #1a303c. The card tints
+   (sky, sage, butter) use the set's pale colours in light mode. */
+/* Teal: teal ground, ivory paper, navy ink, coral accent */
+:root[data-palette="teal"] { --color-ground-bg: #306170; --color-paper: #fdfdf3; --color-ink: #1a303c; --color-accent: #d65e56; --color-dark: #1a303c; --color-sky: #d9ece1; --color-sage: #d2dbbc; --color-butter: #fbede4; }
+:root[data-palette="teal"][data-mode="dark"] { --color-ground-bg: #306170; --color-paper: #1a303c; --color-ink: #fdfdf3; --color-accent: #e0746c; }
+/* Oxblood: oxblood ground and ink on blush, coral accent */
+:root[data-palette="oxblood"] { --color-ground-bg: #650814; --color-paper: #fbede4; --color-ink: #650814; --color-accent: #c9473f; --color-dark: #650814; --color-sky: #f0dcc0; --color-sage: #d2dbbc; --color-butter: #f0dcc0; }
+:root[data-palette="oxblood"][data-mode="dark"] { --color-ground-bg: #3d040b; --color-paper: #650814; --color-ink: #fbede4; --color-accent: #e0746c; }
+/* Coral: coral ground, ivory paper, oxblood ink and accent */
+:root[data-palette="coral"] { --color-ground-bg: #e0746c; --color-paper: #fdfdf3; --color-ink: #650814; --color-accent: #650814; --color-dark: #650814; --color-sky: #fbede4; --color-sage: #d9ece1; --color-butter: #f0dcc0; }
+:root[data-palette="coral"][data-mode="dark"] { --color-ground-bg: #e0746c; --color-paper: #650814; --color-ink: #fbede4; --color-accent: #e0746c; }
+/* Navy: navy ground and ink on ivory, teal accent */
+:root[data-palette="navy"] { --color-ground-bg: #1a303c; --color-paper: #fdfdf3; --color-ink: #1a303c; --color-accent: #306170; --color-dark: #1a303c; --color-sky: #d9ece1; --color-sage: #d2dbbc; --color-butter: #fbede4; }
+:root[data-palette="navy"][data-mode="dark"] { --color-ground-bg: #306170; --color-paper: #1a303c; --color-ink: #d9ece1; --color-accent: #e0746c; }
