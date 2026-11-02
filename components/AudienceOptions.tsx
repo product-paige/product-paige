@@ -63,7 +63,6 @@ function Sentence() {
               ))}
               .
             </p>
-            <p className="mt-6 max-w-xl text-[17px]">Pick the one that sounds like you and I'll point you to where to start.</p>
           </div>
           {/* About you: how they like to work, so the right people recognise themselves */}
           <div className="border-t border-line pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
