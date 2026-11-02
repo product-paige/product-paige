@@ -31,13 +31,14 @@ export default function Home() {
         {/* About: two columns. Left, the heading, one paragraph in Manrope on who I am
             and how I work, and the booking button. Right, the photo and tools laid
             out like a desktop (see AboutNotebook). */}
-        <section id="about" className={`${section} overflow-x-clip`}>
+        {/* Tighter than the other sections: the board brings its own space. */}
+        <section id="about" className="overflow-x-clip border-t border-grid py-6 lg:py-10">
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Reveal>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
-              <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[19px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[24px]">{about.body}</Reveal>
+              <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
               </Reveal>
