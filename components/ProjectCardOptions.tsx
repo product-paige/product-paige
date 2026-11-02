@@ -1,8 +1,8 @@
 import { projects, type Project } from "@/content";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { CuttingMat } from "./CuttingMat";
 import { Cover } from "./Folder";
-import { Container, Reveal } from "./ui";
+import { Chip, Container, Reveal } from "./ui";
 
 // More card designs for Recent projects, to compare. Temporary: once one is picked it goes into
 // RecentProjects and this file goes.
@@ -73,33 +73,52 @@ function PhoneMockup({ p }: { p: Project }) {
   );
 }
 
+// The cutting mat in bright blue whatever the palette, so the white text on it always reads.
+const blueMat = {
+  "--color-mat": "#2450e0",
+  "--color-mat-line": "rgb(170 205 255 / 0.32)",
+  "--color-mat-major": "rgb(190 220 255 / 0.62)",
+  "--color-mat-text": "rgb(200 225 255 / 0.85)",
+} as CSSProperties;
+
 // E. Launches: big covers two to a row, straight on the page (no mat), with the name in the serif
 // and its one-line description beside it. Hovering a cover brings up a phone mockup of the project.
-function Launches() {
+function Launches({ onMat = false }: { onMat?: boolean }) {
+  const list = (
+    <ul className={`relative grid gap-x-6 gap-y-12 md:grid-cols-2 ${onMat ? "text-white" : ""}`}>
+      {projects.items.map((p) => (
+        <li key={p.slug}>
+          <a href={`/projects/${p.slug}`} className="group block">
+            {/* Hover: a phone showing the project rises over the cover. The role sits on the
+                cover in a red pill, like the hero's screens. */}
+            <span className="relative block overflow-hidden">
+              <Cover p={p} className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+              <Chip className="absolute bottom-3 left-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
+              <PhoneMockup p={p} />
+            </span>
+            <span className="mt-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+              <span className="serif text-[clamp(24px,2vw,30px)] leading-none tracking-[-0.03em]">{p.client}</span>
+              <span className="max-w-[32ch] text-[15px] md:text-right">{p.excerpt}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
   return (
     <section className="border-t border-grid py-8 lg:py-16">
       <Container>
-        <p className="mono mb-6 inline-block rounded-full bg-ink px-3 py-1.5 text-[12px] text-white">Option E · Launches</p>
+        <p className="mono mb-6 inline-block rounded-full bg-ink px-3 py-1.5 text-[12px] text-white">{onMat ? "Option E2 · Launches on the mat" : "Option E · Launches"}</p>
         <p className="mono mb-5 flex items-center gap-3 text-[14px]">
           <i aria-hidden className="size-3 rounded-full bg-accent" />Recent launches
         </p>
-        <ul className="grid gap-x-6 gap-y-12 md:grid-cols-2">
-          {projects.items.map((p) => (
-            <li key={p.slug}>
-              <a href={`/projects/${p.slug}`} className="group block">
-                {/* Hover: a phone showing the project rises over the cover */}
-                <span className="relative block overflow-hidden">
-                  <Cover p={p} className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.02]" />
-                  <PhoneMockup p={p} />
-                </span>
-                <span className="mt-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
-                  <span className="serif text-[clamp(24px,2vw,30px)] leading-none tracking-[-0.03em]">{p.client}</span>
-                  <span className="max-w-[32ch] text-[15px] md:text-right">{p.excerpt}</span>
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        {onMat ? (
+          // On the cutting mat: covers kept straight, the names and lines in white.
+          <div className="relative overflow-hidden rounded-[20px] px-6 py-10 lg:px-14 lg:py-16" style={blueMat}>
+            <CuttingMat />
+            {list}
+          </div>
+        ) : list}
       </Container>
     </section>
   );
@@ -110,6 +129,7 @@ export function ProjectCardOptions() {
     <>
       <Option label="Option B · Print and caption" card={(p) => <Caption p={p} />} />
       <Launches />
+      <Launches onMat />
     </>
   );
 }
