@@ -336,13 +336,40 @@
   }
 }
 
-/* The About board: pale blue graph paper. */
-.page-graph {
-  background-color: var(--color-sky);
+/* The About board: a blue cutting mat. A margin (--m) with ruler ticks every cell (--c) and
+   a longer tick every five, around a framed grid with a heavier line every five cells. */
+.cutting-mat {
+  --m: 26px;
+  --c: 20px;
+  --mat-line: rgb(150 205 255 / 0.32);
+  --mat-major: rgb(170 220 255 / 0.62);
+  background-color: #1f5ee6;
+}
+.mat-grid {
+  inset: var(--m);
+  border: 1px solid var(--mat-major);
   background-image:
-    linear-gradient(rgb(40 70 100 / 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(40 70 100 / 0.1) 1px, transparent 1px);
-  background-size: 18px 18px;
+    linear-gradient(var(--mat-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mat-major) 1px, transparent 1px),
+    linear-gradient(var(--mat-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mat-line) 1px, transparent 1px);
+  background-size: calc(var(--c) * 5) calc(var(--c) * 5), calc(var(--c) * 5) calc(var(--c) * 5), var(--c) var(--c), var(--c) var(--c);
+  background-position: -1px -1px;
+}
+/* Ruler strips in the margin: short ticks every cell, long ones every five. */
+.mat-ticks-x, .mat-ticks-y { background-repeat: repeat-x; }
+.mat-ticks-x {
+  background-image:
+    repeating-linear-gradient(90deg, var(--mat-major) 0 1px, transparent 1px calc(var(--c) * 5)),
+    repeating-linear-gradient(90deg, var(--mat-line) 0 1px, transparent 1px var(--c));
+  background-size: 100% 11px, 100% 6px;
+}
+.mat-ticks-y {
+  background-repeat: repeat-y;
+  background-image:
+    repeating-linear-gradient(var(--mat-major) 0 1px, transparent 1px calc(var(--c) * 5)),
+    repeating-linear-gradient(var(--mat-line) 0 1px, transparent 1px var(--c));
+  background-size: 11px 100%, 6px 100%;
 }
 /* Folded top-right corner (the About block): the corner is cut away and a flap in
    --fold-color sits in its place, as if the page were turned down. */

@@ -2,6 +2,7 @@ import {
   about, approach, art, contact, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
+import { CuttingMat } from "@/components/CuttingMat";
 import { Asterisk, EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
@@ -52,7 +53,7 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, "Hi, I’m Paige" as an eyebrow, the lead as the heading, one line on how I work and the booking
-            button. Right, a sheet of graph paper with punched holes running out to the
+            button. Right, a blue cutting mat running out to the
             page's edge, with the photo as a tilted print, the basket sticker, and why founders work with me on a pinned card. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -63,7 +64,7 @@ export default function Home() {
                   <Asterisk className="live-star size-5" />
                   {about.heading}
                 </p>
-                <h2 className={`${sectionHeading} mt-6 lg:mt-8`}>{about.paragraphs[0]}</h2>
+                <h2 className="serif mt-6 text-[clamp(30px,3.4vw,46px)] leading-[1.05] tracking-[-0.04em] text-balance lg:mt-8">{about.paragraphs[0]}</h2>
               </Reveal>
               {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
               <Reveal className="mt-8 lg:mt-10">
@@ -71,14 +72,10 @@ export default function Home() {
               </Reveal>
             </div>
 
-            {/* The board: a rounded sheet of blue graph paper, filling its column. */}
+            {/* The board: a rounded blue cutting mat, filling its column. */}
             <Reveal className="relative">
               <div className="relative aspect-[5/4] overflow-hidden rounded-[20px] lg:aspect-auto lg:h-[620px]">
-                {/* One sheet of graph paper, with punched holes along the top */}
-                <div aria-hidden className="page-graph absolute inset-0" />
-                <div aria-hidden className="absolute inset-x-8 top-5 flex justify-between">
-                  {Array.from({ length: 9 }).map((_, i) => <i key={i} className="size-4 rounded-full bg-paper shadow-[inset_0_1px_2px_rgb(26_26_26/0.18)] lg:size-5" />)}
-                </div>
+                <CuttingMat />
                 <figure className="absolute top-[12%] left-[26%] w-[54%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
