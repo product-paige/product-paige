@@ -24,9 +24,9 @@ function ProofList() {
       <p className="font-medium">{about.proofHeading}</p>
       <ul className="mt-3 space-y-2 text-[15px]">
         {about.proof.map((f, i) => (
-          <li key={f.strong} className="flex items-start gap-2.5">
+          <li key={f} className="flex items-start gap-2.5">
             <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
-            <span><span className="font-medium">{f.strong}</span> <span className="text-muted">{f.text}</span></span>
+            {f}
           </li>
         ))}
       </ul>
@@ -43,14 +43,16 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: two columns. Left, the lead in the serif, one line on how I work and the booking
+        {/* About: two columns. Left, the heading, the lead in the serif a step smaller, one line on how I work and the booking
             button. Right, a grey panel running out to the page's edge, with the photo as a tilted
             print, the basket sticker, and why founders work with me on a pinned card. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
-              <h2 className="sr-only">About</h2>
-              <Reveal as="p" className="serif text-[clamp(28px,2.8vw,42px)] leading-[1.12] tracking-[-0.035em]">{about.paragraphs[0]}</Reveal>
+              <Reveal>
+                <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
+              </Reveal>
+              <Reveal as="p" delay={60} className="serif mt-4 text-[clamp(24px,2.2vw,32px)] leading-[1.15] tracking-[-0.03em] lg:mt-5">{about.paragraphs[0]}</Reveal>
               {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
@@ -69,7 +71,7 @@ export default function Home() {
                 </figure>
                 <Illo art={art.basket} className="absolute bottom-[5%] left-[3%] w-[30%] -rotate-[10deg]" />
                 {/* Why founders work with me, on a card pinned to the panel (desktop) */}
-                <div className="absolute right-[5%] bottom-[9%] hidden w-[50%] rotate-2 bg-white p-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] lg:block">
+                <div className="absolute right-[6%] bottom-[10%] hidden w-max rotate-2 bg-white p-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] lg:block">
                   <ProofList />
                 </div>
               </div>
