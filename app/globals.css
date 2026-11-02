@@ -352,11 +352,9 @@
   @media (width >= 64rem) { --fold: 64px; }
 }
 
-/* Polaroid: a white print with a deep bottom margin and tape across the top. */
+/* Photo with tape across the top: the print itself, no white border, with a soft shadow. */
 .polaroid {
   position: relative;
-  padding: 12px 12px 20px;
-  background: #fff;
   box-shadow: 0 1px 0 rgb(0 0 0 / 0.06), 0 12px 28px rgb(26 26 26 / 0.12);
 }
 /* Tape: a strip of blue masking tape (public/tape.webp, from productpaige.com) across the top. */
