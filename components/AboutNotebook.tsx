@@ -6,7 +6,7 @@ import { Illo } from "./ui";
 const select = "#4a8fe7";
 
 // Where each tool's file sits on the page.
-const toolSpots = ["top-[26%] left-[12%]", "top-[58%] right-[12%]", "top-[47%] left-[12%]"];
+const toolSpots = ["top-[26%] left-0 sm:left-[8%]", "top-[56%] right-0 sm:right-[7%]", "top-[46%] left-0 sm:left-[8%]"];
 
 /** An item on the page with a file name under it, like an icon on a desktop. */
 function File({ name, className = "", children }: { name: string; className?: string; children: ReactNode }) {
@@ -38,12 +38,12 @@ export function AboutNotebook() {
   return (
     <div className="relative aspect-square">
       {/* The label at the top */}
-      <p aria-hidden className="absolute top-[8%] left-[22%] flex items-center gap-3 rounded-[6px] bg-sheet px-4 py-1.5 serif text-[clamp(18px,2.2vw,30px)] lg:gap-5 lg:px-6">
+      <p aria-hidden className="absolute top-[6%] left-[14%] flex items-center gap-3 rounded-[6px] bg-sheet px-4 py-1.5 serif text-[clamp(18px,2.2vw,30px)] lg:gap-5 lg:px-6">
         <span style={{ color: select }}>–</span>@productpaige<span style={{ color: select }}>–</span>
       </p>
 
       {/* The photo, as an image file */}
-      <File name={about.photoFile} className="top-[21%] left-[31%] w-[40%]">
+      <File name={about.photoFile} className="top-[19%] left-[26%] w-[50%]">
         <span className="block w-full bg-white p-1.5 shadow-[0_1px_0_rgb(0_0_0/0.08),0_6px_16px_rgb(26_26_26/0.1)]">
           <span className="photo-grain block aspect-[4/5]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -53,7 +53,7 @@ export function AboutNotebook() {
       </File>
 
       {/* A folder that goes to the projects */}
-      <a href="#projects" className="group absolute top-[20%] right-[13%] flex w-[17%] flex-col items-center gap-1.5">
+      <a href="#projects" className="group absolute top-[3%] right-[6%] flex w-[15%] flex-col items-center gap-1.5">
         <svg viewBox="0 0 64 50" className="w-full transition-transform duration-300 group-hover:-translate-y-0.5" aria-hidden>
           <path d="M3 8a4 4 0 0 1 4-4h16l5 5h29a4 4 0 0 1 4 4v3H3z" fill="#5fa8ec" />
           <rect x="3" y="12" width="58" height="35" rx="4" fill="#8ec8f7" />
@@ -72,13 +72,13 @@ export function AboutNotebook() {
       ))}
 
       {/* The basket, selected */}
-      <span className="absolute bottom-[6%] left-[13%] block w-[22%]">
+      <span className="absolute bottom-[4%] left-[6%] block w-[22%]">
         <Handles />
         <Illo art={art.basket} className="w-full" />
       </span>
 
       {/* The cursor, just off the photo's corner */}
-      <svg aria-hidden viewBox="0 0 24 24" className="absolute top-[60%] left-[69%] w-[5%] min-w-5 drop-shadow-[0_2px_2px_rgb(0_0_0/0.2)]">
+      <svg aria-hidden viewBox="0 0 24 24" className="absolute top-[64%] left-[74%] w-[5%] min-w-5 drop-shadow-[0_2px_2px_rgb(0_0_0/0.2)]">
         <path d="M4 2l15 10.5-6.6 1.2 3.8 7.3-2.9 1.5-3.8-7.3L4 20z" fill="#fff" stroke="#111" strokeWidth="1.4" strokeLinejoin="round" />
       </svg>
     </div>
