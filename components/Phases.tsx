@@ -4,7 +4,7 @@ import { Chip, Reveal } from "./ui";
 /**
  * The four phases as numbered rows: the number, the title and a line on it, then what it can
  * include and, optionally, the case studies that show it. With topBorder every row has a rule
- * above it (for use under a heading). Used on /approach and the homepage.
+ * above it (for use under a heading). The last row has no bottom padding, so the section's own sets the gap. Used on /approach and the homepage.
  * Dividers run out to the sheet's edges; the rows keep the usual inset.
  */
 export function Phases({ caseStudies = false, topBorder = false }: { caseStudies?: boolean; topBorder?: boolean }) {
@@ -12,7 +12,7 @@ export function Phases({ caseStudies = false, topBorder = false }: { caseStudies
   return (
     <div className="-mx-4 sm:-mx-6 md:-mx-12 lg:-mx-20">
       {approachPage.phases.map((ph, i) => (
-        <Reveal as="article" key={ph.title} className={`grid gap-6 border-grid py-10 ${topBorder ? "border-t" : "not-first:border-t"} md:grid-cols-[auto_1.1fr_1fr] px-4 sm:px-6 md:gap-8 md:px-12 lg:gap-12 lg:px-20 lg:py-16`}>
+        <Reveal as="article" key={ph.title} className={`grid gap-6 border-grid py-10 ${topBorder ? "border-t" : "not-first:border-t"} md:grid-cols-[auto_1.1fr_1fr] px-4 sm:px-6 md:gap-8 md:px-12 lg:gap-12 lg:px-20 lg:py-16 last:pb-0`}>
           <p className="serif text-[clamp(28px,2.8vw,38px)] leading-none text-accent">{String(i + 1).padStart(2, "0")}</p>
           <div>
             <h3 className="serif text-[clamp(28px,3vw,42px)] leading-[1.05] tracking-[-0.04em]">{ph.title}</h3>

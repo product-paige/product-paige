@@ -34,7 +34,7 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: two columns. Left, the heading, one paragraph in the serif on who I am
+        {/* About: two columns. Left, the heading, one paragraph in Manrope on who I am
             and how I work, and the booking button. Right, the photo as a tilted
             print with tool tiles and the basket around it. */}
         <section id="about" className={`${section} overflow-x-clip`}>
@@ -43,7 +43,7 @@ export default function Home() {
               <Reveal>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
-              <Reveal as="p" delay={60} className="serif mt-5 max-w-xl text-[clamp(22px,2vw,28px)] leading-[1.2] tracking-[-0.03em] lg:mt-6">{about.body}</Reveal>
+              <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[19px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[24px]">{about.body}</Reveal>
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
               </Reveal>
@@ -81,8 +81,7 @@ export default function Home() {
         <WhoIWorkWith link />
 
         {/* Services */}
-        {/* No bottom padding: the last row's rule meets the next section's. */}
-        <section id="services" className="border-t border-grid pt-8 lg:pt-20">
+        <section id="services" className={section}>
           <Container>
             <Reveal className="mb-8 lg:mb-12">
               <h2 className={sectionHeading}><Rich text={services.heading} /></h2>
