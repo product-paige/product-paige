@@ -4,7 +4,6 @@ import {
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { AudienceOptions } from "@/components/AudienceOptions";
 import { ContactForm } from "@/components/ContactForm";
-import { CuttingMat } from "@/components/CuttingMat";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
@@ -94,13 +93,10 @@ export default function Home() {
         {/* Ways to work together, as a table */}
         <PricingTable />
 
-        {/* Approach: the timeline on a paper sheet laid on the bright blue cutting mat */}
+        {/* Approach */}
         <section id="approach" className={section}>
-          <Container>
-          <div className="relative overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:px-14 lg:py-16">
-          <CuttingMat />
-          <div className="relative grid gap-8 bg-paper p-6 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(0_0_0/0.18)] lg:grid-cols-[1fr_1.2fr] lg:gap-24 lg:p-12">
-            <Reveal className="lg:self-start">
+          <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
+            <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
               <p className="lede mt-5 max-w-xl">{approach.body}</p>
             </Reveal>
@@ -124,8 +120,6 @@ export default function Home() {
                 </Reveal>
               ))}
             </ol>
-          </div>
-          </div>
           </Container>
         </section>
 
