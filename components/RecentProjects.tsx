@@ -1,125 +1,66 @@
-"use client";
+import { projects, type Project } from "@/content";
+import { CuttingMat } from "./CuttingMat";
+import { Cover } from "./Folder";
+import { ArrowUpRight, Chip, Container, Reveal, Rich, sectionHeading } from "./ui";
 
-import { projects } from "@/content";
-import { useEffect, useRef } from "react";
-import { Folder } from "./Folder";
-import { Container, Reveal, Rich, sectionHeading } from "./ui";
+// Each sheet's tilt and offset on the mat (desktop); phones stack them with a slight tilt.
+const fan = ["lg:-rotate-[4deg] lg:translate-y-6", "lg:rotate-[1.5deg] lg:-translate-y-1", "lg:rotate-[5deg] lg:translate-y-8"];
+const fanPhone = ["-rotate-1", "rotate-1", "-rotate-[0.5deg]"];
 
-function Head() {
+/** A project as a spec sheet: the cover inset at the top, the name and a line on it, then the role and scope in ruled rows. */
+function SpecSheet({ p, i }: { p: Project; i: number }) {
   return (
-    <Reveal className="mb-12 grid gap-5 lg:mb-16 lg:grid-cols-2 lg:items-end lg:gap-16">
-      <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
-      <p className="lede max-w-xl">{projects.body}</p>
-    </Reveal>
+    <span className="flex h-full flex-col bg-paper p-4 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] transition-shadow duration-300 group-hover:shadow-[0_1px_0_rgb(0_0_0/0.06),0_20px_40px_rgb(26_26_26/0.16)] lg:p-5">
+      <span className="relative block">
+        <Cover p={p} className="aspect-[16/10] w-full" />
+        <span className="absolute top-2.5 left-2.5 bg-paper px-2 py-0.5 text-[12px] font-medium">{String(i + 1).padStart(2, "0")}</span>
+      </span>
+      <span className="mt-4 block font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.client}</span>
+      <span className="mt-1 block text-[15px] text-muted">{p.excerpt}</span>
+      <span className="mt-4 block border-t border-line text-[13px]">
+        <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">
+          <span className="text-muted">Role</span>
+          <span>{p.role}</span>
+        </span>
+        <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">
+          <span className="text-muted">Scope</span>
+          <span>{p.capabilities.slice(0, 3).join(", ")}</span>
+        </span>
+      </span>
+      <span className="mt-auto flex items-center justify-between gap-3 pt-4">
+        <Chip>Case study</Chip>
+        {/* The buttons' arrow tab; it turns on hover */}
+        <span className="btn" aria-hidden><span className="btn-tab size-8"><ArrowUpRight turn className="size-4" /></span></span>
+      </span>
+    </span>
   );
 }
 
 /**
- * Recent projects as a filing drawer: the section pins while you scroll, and the folders
- * slide sideways past; they can also be dragged with the mouse. On phones it's a
- * swipeable row instead.
+ * Recent projects: spec sheets laid out on the grey-beige cutting mat, slightly overlapping and
+ * tilted. Hovering one brings it to the front and lifts it a little.
  */
 export function RecentProjects({ className = "" }: { className?: string }) {
-  const outer = useRef<HTMLDivElement>(null);
-  const track = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const wrap = outer.current;
-    const row = track.current;
-    if (!wrap || !row) return;
-    const desktop = window.matchMedia("(min-width: 64rem)");
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      if (!desktop.matches) {
-        row.style.transform = "";
-        wrap.style.height = "";
-        return;
-      }
-      const distance = row.scrollWidth - row.clientWidth;
-      // The pinned stretch lasts as long as the sideways travel.
-      wrap.style.height = `${window.innerHeight + distance}px`;
-      const progress = Math.min(Math.max(-wrap.getBoundingClientRect().top / distance, 0), 1);
-      row.style.transform = `translateX(${-progress * distance}px)`;
-    };
-    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
-
-    // Mouse drag. Pinned (desktop), the row's position follows the page scroll one to
-    // one, so dragging scrolls the page; otherwise it scrolls the row itself. Touch
-    // keeps its native swipe. A drag of more than a few pixels doesn't open the link.
-    let drag: { x: number; scrollY: number; scrollLeft: number; moved: boolean } | null = null;
-    const onDown = (e: PointerEvent) => {
-      if (e.pointerType !== "mouse" || e.button !== 0) return;
-      drag = { x: e.clientX, scrollY: window.scrollY, scrollLeft: row.scrollLeft, moved: false };
-    };
-    const onMove = (e: PointerEvent) => {
-      if (!drag) return;
-      const dx = e.clientX - drag.x;
-      if (!drag.moved && Math.abs(dx) < 5) return;
-      if (!drag.moved) {
-        drag.moved = true;
-        try { row.setPointerCapture(e.pointerId); } catch {}
-        row.dataset.dragging = "";
-      }
-      if (desktop.matches) window.scrollTo({ top: drag.scrollY - dx, behavior: "instant" });
-      else row.scrollLeft = drag.scrollLeft - dx;
-    };
-    const onUp = () => {
-      if (!drag) return;
-      const moved = drag.moved;
-      drag = null;
-      delete row.dataset.dragging;
-      // Swallow the click that ends a drag, so it doesn't follow the folder's link.
-      if (moved) row.addEventListener("click", (e) => e.preventDefault(), { capture: true, once: true });
-    };
-    const noNativeDrag = (e: DragEvent) => e.preventDefault();
-
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    row.addEventListener("pointerdown", onDown);
-    row.addEventListener("pointermove", onMove);
-    row.addEventListener("pointerup", onUp);
-    row.addEventListener("pointercancel", onUp);
-    row.addEventListener("dragstart", noNativeDrag);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      row.removeEventListener("pointerdown", onDown);
-      row.removeEventListener("pointermove", onMove);
-      row.removeEventListener("pointerup", onUp);
-      row.removeEventListener("pointercancel", onUp);
-      row.removeEventListener("dragstart", noNativeDrag);
-    };
-  }, []);
-
   return (
     <section id="projects" className={className}>
-      <div ref={outer} className="relative">
-        <div className="lg:sticky lg:top-[68px] lg:flex lg:h-[calc(100svh-68px)] lg:flex-col lg:justify-center lg:overflow-x-clip">
-          <Container>
-            <Head />
-            {/* On desktop the row slides inside a frame that runs from inner rail to inner rail
-                (40px either side of the content), so cards enter and leave at the rails. */}
-            <div className="lg:-mx-10 lg:overflow-x-clip lg:px-10">
-              <div
-                ref={track}
-                className="-mx-4 flex cursor-grab snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 select-none data-dragging:cursor-grabbing data-dragging:snap-none sm:-mx-6 sm:px-6 lg:mx-0 lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0"
-              >
-                {projects.items.map((p, i) => (
-                  <div
-                    key={p.slug}
-                    className="w-[86%] shrink-0 snap-start sm:w-[64%] lg:w-[min(560px,42vw)]"
-                  >
-                    <Folder p={p} i={i} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </div>
-      </div>
+      <Container>
+        <Reveal className="mb-10 grid gap-5 lg:mb-14 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
+          <p className="lede max-w-xl">{projects.body}</p>
+        </Reveal>
+        <Reveal className="relative overflow-hidden rounded-[20px] px-6 py-12 lg:px-14 lg:py-20">
+          <CuttingMat />
+          <ul className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-center">
+            {projects.items.map((p, i) => (
+              <li key={p.slug} className={`lg:-mx-2 lg:w-[32%] lg:hover:z-10 ${fanPhone[i % 3]} ${fan[i % 3]}`}>
+                <a href={`/projects/${p.slug}`} className="group block h-full transition-transform duration-300 hover:-translate-y-1.5">
+                  <SpecSheet p={p} i={i} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </Container>
     </section>
   );
 }

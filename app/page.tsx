@@ -6,7 +6,6 @@ import { CuttingMat } from "@/components/CuttingMat";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
-import { ProjectOptions } from "@/components/ProjectOptions";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
@@ -77,10 +76,7 @@ export default function Home() {
         </section>
 
         {/* Recent projects */}
-        <RecentProjects className="border-t border-grid py-8 lg:py-0" />
-
-        {/* Three other layouts for the projects, to compare (temporary) */}
-        <ProjectOptions />
+        <RecentProjects className={section} />
 
 
         {/* Audiences (shared with /approach) */}
