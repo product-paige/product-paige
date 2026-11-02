@@ -107,7 +107,6 @@ export const audiences = {
   items: [
     {
       tone: "bg-scrap",
-      art: art.seedling,
       title: "Starting out",
       body: "Your first Shopify store is on the way.",
       points: [
@@ -118,7 +117,6 @@ export const audiences = {
     },
     {
       tone: "bg-scrap",
-      art: art.cashRegister,
       title: "Already selling",
       body: "You’ve got customers. You want more.",
       points: [
@@ -129,7 +127,6 @@ export const audiences = {
     },
     {
       tone: "bg-scrap",
-      art: art.laptop,
       title: "Building for Shopify",
       body: "Apps and tools for Shopify merchants.",
       points: [

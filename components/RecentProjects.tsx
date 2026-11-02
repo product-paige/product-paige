@@ -13,7 +13,7 @@ function SpecSheet({ p, i }: { p: Project; i: number }) {
     <span className="flex h-full flex-col bg-paper p-4 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] transition-shadow duration-300 group-hover:shadow-[0_1px_0_rgb(0_0_0/0.06),0_20px_40px_rgb(26_26_26/0.16)] lg:p-5">
       <span className="relative block">
         <Cover p={p} className="aspect-[16/10] w-full" />
-        <span className="absolute top-2.5 left-2.5 bg-paper px-2 py-0.5 text-[12px] font-medium">{String(i + 1).padStart(2, "0")}</span>
+        <span className="absolute top-2.5 left-2.5 mono bg-paper px-2 py-0.5 text-[12px]">{String(i + 1).padStart(2, "0")}</span>
       </span>
       <span className="mt-4 block font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.client}</span>
       <span className="mt-1 block text-[15px] text-muted">{p.excerpt}</span>

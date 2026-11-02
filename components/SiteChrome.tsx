@@ -22,7 +22,8 @@ export function SiteHeader() {
           <div className="flex items-center justify-end self-stretch">
             <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
             <div className="xl:px-5">
-              <Button href={site.bookingUrl} accent>Book an intro call</Button>
+              {/* Shorter on phones, where the mono label would crowd the logo */}
+              <Button href={site.bookingUrl} accent><span className="sm:hidden">Book a call</span><span className="hidden sm:inline">Book an intro call</span></Button>
             </div>
           </div>
         </Container>
