@@ -8,13 +8,10 @@ const fan = ["lg:-rotate-[4deg] lg:translate-y-6", "lg:rotate-[1.5deg] lg:-trans
 const fanPhone = ["-rotate-1", "rotate-1", "-rotate-[0.5deg]"];
 
 /** A project as a spec sheet: the cover inset at the top, the name and a line on it, then the role and scope in ruled rows. */
-function SpecSheet({ p, i }: { p: Project; i: number }) {
+function SpecSheet({ p }: { p: Project }) {
   return (
     <span className="flex h-full flex-col bg-paper p-4 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] transition-shadow duration-300 group-hover:shadow-[0_1px_0_rgb(0_0_0/0.06),0_20px_40px_rgb(26_26_26/0.16)] lg:p-5">
-      <span className="relative block">
-        <Cover p={p} className="aspect-[16/10] w-full" />
-        <span className="absolute top-2.5 left-2.5 mono bg-paper px-2 py-0.5 text-[12px]">{String(i + 1).padStart(2, "0")}</span>
-      </span>
+      <Cover p={p} className="aspect-[16/10] w-full" />
       <span className="mt-4 block font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.client}</span>
       <span className="mt-1 block text-[15px] text-muted">{p.excerpt}</span>
       <span className="mt-4 block border-t border-line text-[13px]">
@@ -54,7 +51,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
             {projects.items.map((p, i) => (
               <li key={p.slug} className={`lg:-mx-2 lg:w-[32%] lg:hover:z-10 ${fanPhone[i % 3]} ${fan[i % 3]}`}>
                 <a href={`/projects/${p.slug}`} className="group block h-full transition-transform duration-300 hover:-translate-y-1.5">
-                  <SpecSheet p={p} i={i} />
+                  <SpecSheet p={p} />
                 </a>
               </li>
             ))}
