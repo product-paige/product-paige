@@ -1,6 +1,18 @@
 import { hero, site } from "@/content";
 import { CartMockup } from "./Mockups";
-import { Chip, Container } from "./ui";
+import { Chip, Container, SelectionHandles } from "./ui";
+
+/** A headline line with any {word} drawn selected: a selection box with handles around it. */
+function selected(line: string) {
+  return line.split(/(\{[^}]+\})/g).map((part, i) =>
+    part.startsWith("{") ? (
+      <span key={i} className="relative inline-block">
+        {part.slice(1, -1)}
+        <SelectionHandles className="-inset-x-[0.08em] -top-[0.02em] -bottom-[0.1em]" />
+      </span>
+    ) : part,
+  );
+}
 
 /** A six-armed asterisk, as on printed ephemera. Thick strokes, so it holds up small. */
 function Asterisk({ className = "" }: { className?: string }) {
@@ -30,7 +42,7 @@ export function EditorialHero() {
             212px) so
             the longer line, about 12.5em, always fits on one line; capped at 90px. */}
         <h1 className="relative z-1 serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(90px,calc((100vw-212px)/13.5))]">
-          {hero.heading.map((l) => <span key={l} className="block">{l}</span>)}
+          {hero.heading.map((l) => <span key={l} className="block">{selected(l)}</span>)}
         </h1>
 
         {/* Intro, in Manrope regular, 19px on desktop */}

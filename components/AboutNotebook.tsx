@@ -1,9 +1,6 @@
 import { about, art, site } from "@/content";
 import type { ReactNode } from "react";
-import { Illo } from "./ui";
-
-// The selection blue, as on a desktop: the folder's highlighted name and the selection box.
-const select = "#4a8fe7";
+import { Illo, SelectionHandles } from "./ui";
 
 // Where each tool's file sits on the page.
 const toolSpots = ["top-[8%] left-0 sm:left-[4%]", "top-[34%] right-0 sm:right-[3%]", "top-[30%] left-0 sm:left-[4%]"];
@@ -14,17 +11,6 @@ function File({ name, className = "", children }: { name: string; className?: st
     <span className={`absolute flex flex-col items-center gap-1.5 ${className}`}>
       {children}
       <span className="text-[11px] leading-tight lg:text-[13px]">{name}</span>
-    </span>
-  );
-}
-
-/** Four handles on a box's corners, as when an image is selected. */
-function Handles() {
-  return (
-    <span aria-hidden className="pointer-events-none absolute -inset-1.5" style={{ border: `1.5px solid ${select}` }}>
-      {["-top-1.5 -left-1.5", "-top-1.5 -right-1.5", "-bottom-1.5 -left-1.5", "-bottom-1.5 -right-1.5"].map((c) => (
-        <i key={c} className={`absolute size-2.5 rounded-full bg-white ${c}`} style={{ border: `1.5px solid ${select}` }} />
-      ))}
     </span>
   );
 }
@@ -70,7 +56,7 @@ export function AboutNotebook() {
 
       {/* The parcel sticker, selected and tilted, low on the left */}
       <span className="absolute bottom-[20%] left-0 block w-[30%] -rotate-[9deg]">
-        <Handles />
+        <SelectionHandles />
         <Illo art={art.parcel} className="w-full" />
       </span>
 
