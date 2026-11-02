@@ -52,7 +52,7 @@ export function EditorialHero() {
               <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" className="size-full object-cover" />
               {/* Bottom left: the badge if the screen has one, otherwise its label */}
               <figcaption className="absolute bottom-3 left-3">
-                <Chip className="text-white [--color-chip:var(--color-ink)]">{shot.tag ?? shot.label}</Chip>
+                <Chip className="text-white [--color-chip:var(--color-accent)]">{shot.tag ?? shot.label}</Chip>
               </figcaption>
             </figure>
           ))}
@@ -60,7 +60,7 @@ export function EditorialHero() {
           <figure className="shot relative h-[220px] shrink-0 overflow-hidden rounded-[6px] border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${cartRatio}` }}>
             <CartMockup className="size-full" />
             <figcaption className="absolute bottom-3 left-3">
-              <Chip className="text-white [--color-chip:var(--color-ink)]">Conversion</Chip>
+              <Chip className="text-white [--color-chip:var(--color-accent)]">Conversion</Chip>
             </figcaption>
           </figure>
         </div>

@@ -90,11 +90,14 @@ export const about = {
     "My whole career has been in Shopify and ecommerce, across funded startups and bootstrapped teams. I’ve been the first marketing hire twice, and I’ve run two ecommerce brands of my own, one with a cofounder, handling everything from sourcing a manufacturer to go-to-market.",
     "Now I do strategy, design and the build itself: Shopify themes and modern site builders, with Claude Code and MCP wired into Figma and Shopify, so design, copy and working code happen in one pass instead of three handoffs. I’m not a developer, and I’ll say so before you pay me anything.",
   ],
-  // The stats line under the About text.
-  facts: [
-    { label: "Based in", value: "Kitchener, Ontario" },
-    { label: "Experience", value: "13+ years on Shopify" },
-    { label: "Founder", value: "2x brand founder" },
+  // The tilted pills above the text: what one person covers.
+  pills: ["Strategy", "Design", "Copy", "The build itself"],
+  // The short list under the button.
+  proofHeading: "Why founders work with me",
+  proof: [
+    { strong: "13+ years on Shopify.", text: "Funded startups and bootstrapped teams." },
+    { strong: "2x brand founder.", text: "From sourcing a manufacturer to go-to-market." },
+    { strong: "Based in Kitchener, Ontario.", text: "Working with teams anywhere." },
   ],
 };
 

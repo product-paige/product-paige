@@ -26,47 +26,59 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: a soft tinted panel with a folded top-right corner, laid out like a magazine page: the photo on the left, the heading and text beside it. From md up the block sits between the
-            inner rails. */}
-        <section id="about" className="relative z-1">
-          {/* Padded so the panel's edges sit on the inner rails (24px md, 40px lg in from the
-              sheet's edge); inside, the content has its own padding, balanced with the top and bottom. */}
-          <div className="md:px-6 lg:px-10">
-          <div className="folded-top relative bg-sheet px-5 py-8 [--fold-color:var(--color-scrap)] sm:px-6 md:px-8 lg:px-12 lg:py-16 xl:px-16">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-6">
-              {/* The photo, square, with a starburst behind it */}
-              <Reveal className="relative mx-auto w-full max-w-[340px] lg:col-span-5 lg:mx-0 lg:max-w-none">
-                <Illo art={art.starburstBlue} className="absolute -top-10 -left-12 w-[60%] -rotate-12" />
-                <span className="photo-grain relative block aspect-square overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
-                </span>
-                {/* Tagline under the photo */}
-                <p className="relative mt-4 text-center text-[15px] font-medium tracking-[-0.01em] text-muted lg:text-[16px]">{site.name}{"\u00a0"}· {site.role}</p>
+        {/* About: two columns, like an editorial spread. Left, tilted pills, the first paragraph as
+            a large serif lead, the second, the booking button and a short list of why founders work
+            with me. Right, a grey punched panel running out to the page's edge, with the photo
+            collaged on it: tilted, a starburst behind, the tagline on a small card. */}
+        <section id="about" className={`${section} overflow-x-clip`}>
+          <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <h2 className="sr-only">About</h2>
+              <Reveal className="mb-8 flex flex-wrap items-center gap-2 lg:mb-10">
+                {about.pills.map((p, i) => (
+                  <Chip key={p} className="px-4! py-2.5! text-[15px]!" style={{ rotate: `${[-6, 3, 9, -3][i % 4]}deg`, translate: `0 ${[2, -2, 4, 0][i % 4]}px` }}>{p}</Chip>
+                ))}
               </Reveal>
-              <div className="lg:col-span-7 lg:col-start-6 lg:pl-8">
-                {/* No visible heading: the first paragraph leads, set large in the serif. The heading
-                    stays for screen readers. */}
-                <h2 className="sr-only">About</h2>
-                <div className="space-y-5">
-                  {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80} className={i === 0 ? "serif text-[clamp(24px,2.3vw,34px)] leading-[1.2] tracking-[-0.03em]" : "text-muted"}>{p}</Reveal>)}
-                </div>
-                {/* Stats as tiles */}
-                <Reveal className="mt-10 grid gap-3 sm:grid-cols-3">
-                  {about.facts.map((f) => (
-                    <div key={f.label} className="border border-line bg-paper px-5 py-5">
-                      <p className="serif text-[clamp(20px,1.8vw,26px)] leading-[1.1] tracking-[-0.03em]">{f.value}</p>
-                      <p className="mt-2 text-[14px] label text-muted">{f.label}</p>
-                    </div>
+              <Reveal as="p" className="serif text-[clamp(24px,2vw,30px)] leading-[1.2] tracking-[-0.03em]">{about.paragraphs[0]}</Reveal>
+              {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
+              <Reveal className="mt-8 lg:mt-10">
+                <Button href={site.bookingUrl} accent>Book an intro call</Button>
+              </Reveal>
+              <Reveal className="mt-10 lg:mt-14">
+                <p className="font-medium">{about.proofHeading}</p>
+                <ul className="mt-3 space-y-2">
+                  {about.proof.map((f) => (
+                    <li key={f.strong} className="flex items-start gap-2.5">
+                      <Check className="mt-0.5 text-accent" />
+                      <span><span className="font-medium">{f.strong}</span> <span className="text-muted">{f.text}</span></span>
+                    </li>
                   ))}
-                </Reveal>
-                <Reveal className="mt-10">
-                  <Button href={site.bookingUrl} accent>Book an intro call</Button>
-                </Reveal>
-              </div>
+                </ul>
+              </Reveal>
             </div>
-          </div>
-          </div>
+
+            {/* The panel: from the column's left edge out past the inner rail to the page sheet's
+                edge (lg:-mr-20 cancels the Container's padding), square on that side. */}
+            <Reveal className="relative lg:-mr-20">
+              <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] bg-scrap lg:aspect-auto lg:h-[620px] lg:rounded-r-none">
+                {/* Punched holes along the top */}
+                <div aria-hidden className="absolute inset-x-8 top-6 flex justify-between">
+                  {Array.from({ length: 7 }).map((_, i) => <i key={i} className="size-5 rounded-full bg-paper" />)}
+                </div>
+                <Illo art={art.starburstBlue} className="absolute top-[14%] left-[8%] w-[42%] -rotate-12" />
+                <figure className="absolute top-[18%] left-[16%] w-[58%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
+                  <span className="photo-grain block aspect-square">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
+                  </span>
+                </figure>
+                <p className="absolute right-[10%] bottom-[12%] rotate-3 bg-white px-5 py-4 text-[15px] leading-snug shadow-[0_1px_0_rgb(0_0_0/0.06),0_10px_24px_rgb(26_26_26/0.12)]">
+                  <span className="block font-medium">{site.name}</span>
+                  <span className="text-muted">{site.role}</span>
+                </p>
+              </div>
+            </Reveal>
+          </Container>
         </section>
 
         {/* Recent projects */}
