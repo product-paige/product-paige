@@ -113,7 +113,8 @@ function Sentence() {
 }
 
 // C. A table: three columns, one per audience, and three rows (where you are, what helps,
-// where to start), so it reads as a quick comparison rather than three cards.
+// where to start), so it reads as a quick comparison rather than three cards. Every cell has a
+// fine border, and the column headings are folder tabs on top of the grid.
 function Table() {
   const rows: [string, (w: (typeof who)[number]) => React.ReactNode][] = [
     ["Where you are", (w) => <span className="serif text-[22px] leading-[1.2] tracking-[-0.02em]">{w.you}</span>],
@@ -126,22 +127,27 @@ function Table() {
         <OptionLabel>Option C · At a glance</OptionLabel>
         <h2 className={sectionHeading}>Who I work with</h2>
         <div className="mt-8 overflow-x-auto lg:mt-10">
-          <table className="w-full min-w-[720px] border-collapse text-left">
+          {/* A full grid of fine borders; the column headings sit on top as folder tabs */}
+          <table className="w-full min-w-[720px] border-separate border-spacing-0 text-left">
             <thead>
               <tr>
                 <th className="w-[16%]" />
                 {who.map((w) => (
-                  <th key={w.title} className="border-b border-ink pb-3 align-bottom">
-                    <span className="mono flex items-center gap-3 text-[13px] font-normal"><i aria-hidden className="size-2.5 rounded-full bg-accent" />{w.title}</span>
+                  <th key={w.title} className="pl-0 align-bottom">
+                    <span className="mono -mb-px inline-flex items-center gap-2.5 rounded-t-ui border border-b-0 border-line bg-sheet px-4 pt-2.5 pb-2 text-[13px] font-normal">
+                      <i aria-hidden className="size-2.5 rounded-full bg-accent" />{w.title}
+                    </span>
                   </th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {rows.map(([label, cell]) => (
-                <tr key={label} className="border-b border-line align-top">
-                  <th className="mono py-5 pr-6 text-[12px] font-normal text-muted">{label}</th>
-                  {who.map((w) => <td key={w.title} className="py-5 pr-8 text-[16px]">{cell(w)}</td>)}
+              {rows.map(([label, cell], r) => (
+                <tr key={label} className="align-top">
+                  <th className={`mono border-b border-l border-line px-4 py-5 text-[12px] font-normal text-muted ${r === 0 ? "border-t" : ""}`}>{label}</th>
+                  {who.map((w) => (
+                    <td key={w.title} className={`border-r border-b border-l-0 border-line px-5 py-5 text-[16px] ${r === 0 ? "border-t" : ""} first-of-type:border-l`}>{cell(w)}</td>
+                  ))}
                 </tr>
               ))}
             </tbody>
