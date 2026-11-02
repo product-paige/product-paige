@@ -76,7 +76,7 @@ export default function Home() {
                 <div aria-hidden className="absolute inset-x-8 top-5 flex justify-between">
                   {Array.from({ length: 9 }).map((_, i) => <i key={i} className="size-4 rounded-full bg-paper shadow-[inset_0_1px_2px_rgb(26_26_26/0.18)] lg:size-5" />)}
                 </div>
-                <figure className="absolute top-[12%] left-[7%] w-[54%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
+                <figure className="absolute top-[12%] left-[26%] w-[54%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
