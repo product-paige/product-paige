@@ -43,8 +43,8 @@ export const site = {
   // Leave empty to hide the LinkedIn link in the footer.
   linkedin: "",
   // About photo in public/, and its description for screen readers.
-  photo: "/about.jpg",
-  photoAlt: "Someone in a red jumper and jeans lying upside down on a pink sofa, a book over their face",
+  photo: "/headshot.jpg",
+  photoAlt: "Paige Eaton smiling, in a black turtleneck, against a grey backdrop",
   // Shown in the dark announcement bar at the top. Leave empty to hide the bar.
   availability: "Booking for November ’26",
   metaDescription:
