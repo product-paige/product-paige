@@ -53,8 +53,8 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, "Hi, I’m Paige" as an eyebrow, the lead as the heading, one line
-            on how I work, why founders work with me and the booking button. Right, a blue cutting mat
-            running out to the page's edge, with the photo as a tilted print, tool tiles and the basket. */}
+            on how I work, why founders work with me and the booking button. Right, a square grey-beige
+            cutting mat with the photo as a tilted print, tool tiles and the basket. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -75,12 +75,11 @@ export default function Home() {
               </Reveal>
             </div>
 
-            {/* The board: a landscape blue cutting mat, running off the right edge of the page sheet
-                (the negative margins cancel the Container's padding), square on that side. */}
-            <Reveal className="relative -mr-4 sm:-mr-6 md:-mr-12 lg:-mr-20">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-l-[20px]">
+            {/* The board: a square grey-beige cutting mat, filling its column. */}
+            <Reveal className="relative">
+              <div className="relative aspect-square overflow-hidden rounded-[20px]">
                 <CuttingMat />
-                <figure className="absolute top-[7%] left-[25%] w-[40%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
+                <figure className="absolute top-[12%] left-[28%] w-[48%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-[4/5]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={site.photo} alt={site.photoAlt} width={540} height={675} loading="lazy" decoding="async" className="size-full object-cover" />

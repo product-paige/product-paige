@@ -336,14 +336,14 @@
   }
 }
 
-/* The About board: a blue cutting mat. A margin (--m) with ruler ticks every cell (--c) and
+/* The About board: a grey-beige cutting mat. A margin (--m) with ruler ticks every cell (--c) and
    a longer tick every five, around a framed grid with a heavier line every five cells. */
 .cutting-mat {
   --m: 26px;
   --c: 20px;
-  --mat-line: rgb(150 205 255 / 0.32);
-  --mat-major: rgb(170 220 255 / 0.62);
-  background-color: #1f5ee6;
+  --mat-line: rgb(56 52 44 / 0.1);
+  --mat-major: rgb(56 52 44 / 0.22);
+  background-color: #e4e0d6;
 }
 .mat-grid {
   inset: var(--m);
