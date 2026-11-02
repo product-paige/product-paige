@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 /**
- * Top menu. An accent underline sweeps in under the item whose section is currently
- * in the middle of the screen. It sits below the label, so labels never shift.
+ * Top menu, with a short rule between items. An accent underline sweeps in under the item
+ * whose section is currently in the middle of the screen. It sits below the label, so
+ * labels never shift.
  */
 export function Nav({ items }: { items: { label: string; href: string }[] }) {
   const [active, setActive] = useState<string | null>(null);
@@ -40,12 +41,13 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
   }, [items]);
 
   return (
-    <nav aria-label="Sections" className="hidden gap-5 xl:flex">
-      {items.map((n) => {
+    <nav aria-label="Sections" className="hidden items-center gap-4 xl:flex">
+      {items.map((n, i) => {
         const isActive = active === n.href;
         return (
+          <Fragment key={n.href}>
+          {i > 0 && <span aria-hidden className="h-4 w-px bg-grid" />}
           <a
-            key={n.href}
             // Rooted, so the menu also works from the project pages.
             href={`/${n.href}`}
             aria-current={isActive ? "location" : undefined}
@@ -57,6 +59,7 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
             />
             {n.label}
           </a>
+          </Fragment>
         );
       })}
     </nav>
