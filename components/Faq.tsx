@@ -15,15 +15,15 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
   }
 
   return (
-    // A ruled card: one border around the list and a rule between questions; the open one
+    // Each question is its own bordered card, with a small gap between them; the open one
     // takes the paper tint.
-    <div className="border border-line">
+    <div className="space-y-2 lg:space-y-3">
       {items.map((f, i) => {
         const isOpen = open === i;
         const buttonId = `${id}-q${i}`;
         const panelId = `${id}-a${i}`;
         return (
-          <div key={f.q} className={`border-line transition-colors duration-500 not-first:border-t ${isOpen ? "bg-sheet" : ""}`}>
+          <div key={f.q} className={`border border-line transition-colors duration-500 ${isOpen ? "bg-sheet" : ""}`}>
             <h3>
               <button
                 id={buttonId}
