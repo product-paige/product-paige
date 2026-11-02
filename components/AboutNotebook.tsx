@@ -36,7 +36,9 @@ function Handles() {
  */
 export function AboutNotebook() {
   return (
-    <div className="relative aspect-square">
+    // The negative bottom margin takes back the empty strip under the photo, so the section ends
+    // close to it rather than at the bottom of the square.
+    <div className="relative -mb-[14%] aspect-square">
       {/* The photo, as an image file */}
       <File name={about.photoFile} className="top-[5%] left-[21%] w-[58%]">
         <span className="block w-full bg-white p-1.5 shadow-[0_1px_0_rgb(0_0_0/0.08),0_6px_16px_rgb(26_26_26/0.1)]">
