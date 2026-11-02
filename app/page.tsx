@@ -34,20 +34,22 @@ export default function Home() {
           <div className="md:px-6 lg:px-10">
           <div className="folded-top relative bg-sheet px-5 py-8 [--fold-color:var(--color-scrap)] sm:px-6 md:px-8 lg:px-12 lg:py-16 xl:px-16">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-6">
-              {/* The photo in an arched frame, with a starburst behind it */}
-              <Reveal className="relative mx-auto w-full max-w-[340px] lg:col-span-5 lg:mx-0 lg:max-w-[400px]">
+              {/* The photo, square, with a starburst behind it */}
+              <Reveal className="relative mx-auto w-full max-w-[340px] lg:col-span-5 lg:mx-0 lg:max-w-none">
                 <Illo art={art.starburstBlue} className="absolute -top-10 -left-12 w-[60%] -rotate-12" />
-                <span className="photo-grain relative block aspect-[4/5] overflow-hidden rounded-t-full">
+                <span className="photo-grain relative block aspect-square overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
                 </span>
+                {/* Tagline under the photo */}
+                <p className="relative mt-4 text-center text-[15px] font-medium tracking-[-0.01em] text-muted lg:text-[16px]">{site.name}{"\u00a0"}· {site.role}</p>
               </Reveal>
-              <div className="lg:col-span-6 lg:col-start-7">
-                <Reveal>
-                  <h2 className={`${sectionHeading} mb-6 lg:mb-8`}><Rich text={about.heading} /></h2>
-                </Reveal>
-                <div className="space-y-4">
-                  {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80} className={i === 0 ? "lede" : "text-muted"}>{p}</Reveal>)}
+              <div className="lg:col-span-7 lg:col-start-6 lg:pl-8">
+                {/* No visible heading: the first paragraph leads, set large in the serif. The heading
+                    stays for screen readers. */}
+                <h2 className="sr-only">About</h2>
+                <div className="space-y-5">
+                  {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80} className={i === 0 ? "serif text-[clamp(24px,2.3vw,34px)] leading-[1.2] tracking-[-0.03em]" : "text-muted"}>{p}</Reveal>)}
                 </div>
                 {/* Stats as tiles */}
                 <Reveal className="mt-10 grid gap-3 sm:grid-cols-3">
