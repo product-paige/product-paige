@@ -1,32 +1,34 @@
+"use client";
+
 import { projects, type Project } from "@/content";
-import { CuttingMat } from "./CuttingMat";
+import { useEffect, useRef, useState } from "react";
 import { Cover } from "./Folder";
-import { ArrowUpRight, Container, Reveal, Rich, sectionHeading } from "./ui";
+import { Chip, Container, Reveal, Rich, sectionHeading } from "./ui";
 
-// Each sheet's tilt and offset on the mat (desktop); phones stack them with a slight tilt.
-const fan = ["lg:-rotate-[4deg] lg:translate-y-6", "lg:rotate-[1.5deg] lg:-translate-y-1", "lg:rotate-[5deg] lg:translate-y-8"];
-const fanPhone = ["-rotate-1", "rotate-1", "-rotate-[0.5deg]"];
-
-/** A project as a spec sheet: the cover inset at the top, the name (with an arrow) and a line on it, then the role and scope in ruled rows. */
-function SpecSheet({ p }: { p: Project }) {
+/**
+ * A phone showing the project as a small storefront, drawn in HTML from its own name, line and
+ * cover. It rises over the cover on hover. Placeholder until each project has a real UX screenshot.
+ */
+function PhoneMockup({ p }: { p: Project }) {
   return (
-    <span className="flex h-full flex-col bg-paper p-4 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] transition-shadow duration-300 group-hover:shadow-[0_1px_0_rgb(0_0_0/0.06),0_20px_40px_rgb(26_26_26/0.16)] lg:p-5">
-      <Cover p={p} className="aspect-[16/10] w-full" />
-      {/* The name, with the buttons' arrow tab beside it; it turns on hover */}
-      <span className="mt-4 flex items-center justify-between gap-3">
-        <span className="font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.client}</span>
-        <span className="btn shrink-0" aria-hidden><span className="btn-tab size-8"><ArrowUpRight turn className="size-4" /></span></span>
-      </span>
-      <span className="mt-1 block text-[15px]">{p.excerpt}</span>
-      {/* The spec rows, kept short: the role, and the first two parts of the scope */}
-      <span className="mt-4 block border-t border-line text-[13px]">
-        <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">
-          <span className="text-muted">Role</span>
-          <span>{p.role}</span>
+    <span aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/20 opacity-0 transition duration-500 group-hover:opacity-100">
+      <span className="flex aspect-[9/17] h-[86%] translate-y-6 flex-col overflow-hidden rounded-[22px] border-[5px] border-[#1a1a1a] bg-paper shadow-[0_20px_50px_rgb(0_0_0/0.35)] transition duration-500 group-hover:translate-y-0">
+        {/* Status bar and the store's header */}
+        <span className="flex items-center justify-between px-3 pt-2 text-[8px] font-medium"><span>9:41</span><span>●●●</span></span>
+        <span className="flex items-center justify-between border-b border-line px-3 py-2">
+          <span className="text-[10px] leading-none">☰</span>
+          <span className="serif truncate px-2 text-[11px] leading-none">{p.client}</span>
+          <span className="text-[10px] leading-none">⌕</span>
         </span>
-        <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">
-          <span className="text-muted">Scope</span>
-          <span>{p.capabilities.slice(0, 2).join(", ")}</span>
+        {/* Hero: the cover, then the line and a button */}
+        <Cover p={p} className="aspect-[4/5] w-full" />
+        <span className="px-3 pt-2.5">
+          <span className="serif block text-[11px] leading-tight">{p.excerpt}</span>
+          <span className="mono mt-2 inline-block bg-ink px-2.5 py-1 text-[7px] text-white">Shop now</span>
+        </span>
+        {/* Product tiles */}
+        <span className="mt-2.5 grid grid-cols-2 gap-1.5 px-3">
+          {[0, 1].map((n) => <i key={n} className="block aspect-square bg-scrap" />)}
         </span>
       </span>
     </span>
@@ -34,10 +36,39 @@ function SpecSheet({ p }: { p: Project }) {
 }
 
 /**
- * Recent projects: spec sheets laid out on the grey-beige cutting mat, slightly overlapping and
- * tilted. Hovering one brings it to the front and lifts it a little.
+ * Recent projects as a carousel in one row: big covers, two in view on desktop and one on phones,
+ * snapping as you swipe or scroll sideways. Each has its role in a red pill, the name in the serif
+ * and its one-line description; hovering a cover brings up a phone mockup. The dots below show
+ * where you are and jump to a project.
  */
 export function RecentProjects({ className = "" }: { className?: string }) {
+  const track = useRef<HTMLUListElement>(null);
+  const [active, setActive] = useState(0);
+
+  // The current project is the one whose left edge is nearest the track's.
+  useEffect(() => {
+    const row = track.current;
+    if (!row) return;
+    const onScroll = () => {
+      const items = [...row.children] as HTMLElement[];
+      const left = row.getBoundingClientRect().left;
+      let best = 0;
+      items.forEach((el, i) => {
+        if (Math.abs(el.getBoundingClientRect().left - left) < Math.abs(items[best].getBoundingClientRect().left - left)) best = i;
+      });
+      // At the end of the row, the last dot.
+      setActive(row.scrollLeft + row.clientWidth >= row.scrollWidth - 4 ? items.length - 1 : best);
+    };
+    row.addEventListener("scroll", onScroll, { passive: true });
+    return () => row.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const go = (i: number) => {
+    const row = track.current;
+    const el = row?.children[i] as HTMLElement | undefined;
+    if (row && el) row.scrollTo({ left: el.offsetLeft - row.offsetLeft, behavior: "smooth" });
+  };
+
   return (
     <section id="projects" className={className}>
       <Container>
@@ -45,18 +76,36 @@ export function RecentProjects({ className = "" }: { className?: string }) {
           <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
           <p className="lede max-w-xl">{projects.body}</p>
         </Reveal>
-        <Reveal className="relative overflow-hidden rounded-[20px] px-6 py-12 lg:px-14 lg:py-20">
-          <CuttingMat />
-          <ul className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-center">
-            {projects.items.map((p, i) => (
-              <li key={p.slug} className={`lg:-mx-2 lg:w-[32%] lg:hover:z-10 ${fanPhone[i % 3]} ${fan[i % 3]}`}>
-                <a href={`/projects/${p.slug}`} className="group block h-full transition-transform duration-300 hover:-translate-y-1.5">
-                  <SpecSheet p={p} />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
+          {projects.items.map((p) => (
+            <li key={p.slug} className="w-[88%] shrink-0 snap-start md:w-[calc(50%-12px)]">
+              <a href={`/projects/${p.slug}`} className="group block">
+                <span className="relative block overflow-hidden">
+                  <Cover p={p} className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.02]" />
+                  <Chip className="absolute bottom-3 left-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
+                  <PhoneMockup p={p} />
+                </span>
+                <span className="mt-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
+                  <span className="serif text-[clamp(24px,2vw,30px)] leading-none tracking-[-0.03em]">{p.client}</span>
+                  <span className="max-w-[32ch] text-[15px] md:text-right">{p.excerpt}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        {/* Dots: one per project */}
+        <div className="mt-8 flex justify-center gap-2.5 lg:mt-10">
+          {projects.items.map((p, i) => (
+            <button
+              key={p.slug}
+              type="button"
+              aria-label={`Show ${p.client}`}
+              aria-current={active === i ? "true" : undefined}
+              onClick={() => go(i)}
+              className={`h-2.5 rounded-full transition-all duration-300 ${active === i ? "w-7 bg-ink" : "w-2.5 bg-ink/25 hover:bg-ink/50"}`}
+            />
+          ))}
+        </div>
       </Container>
     </section>
   );
