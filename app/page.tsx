@@ -26,9 +26,6 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* Recent projects */}
-        <RecentProjects className="border-t border-grid py-8 lg:py-0" />
-
         {/* About: a dark block with a folded top-right corner, laid out like a magazine page: the photo on the left, the heading and text beside it. From md up the block sits between the
             inner rails. */}
         <section id="about" className="relative z-1">
@@ -68,6 +65,10 @@ export default function Home() {
           </div>
           </div>
         </section>
+
+        {/* Recent projects */}
+        <RecentProjects className="border-t border-grid py-8 lg:py-0" />
+
 
         {/* Audiences */}
         <section className={section}>
