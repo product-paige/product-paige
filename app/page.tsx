@@ -21,8 +21,8 @@ const lift = "transition hover:-translate-y-1";
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
 // Where each tool tile sits on the About board, scattered around the photo.
 const toolSpots = [
-  "top-[17%] left-[9%] -rotate-12",
-  "top-[44%] left-[15%] rotate-6",
+  "top-[15%] left-[9%] -rotate-12",
+  "top-[40%] left-[15%] rotate-6",
   "top-[14%] right-[7%] rotate-[14deg]",
 ];
 
@@ -72,17 +72,18 @@ export default function Home() {
               </Reveal>
             </div>
 
-            {/* The board: a rounded blue cutting mat, filling its column. */}
-            <Reveal className="relative">
-              <div className="relative aspect-[5/4] overflow-hidden rounded-[20px] lg:aspect-auto lg:h-[620px]">
+            {/* The board: a landscape blue cutting mat, running off the right edge of the page sheet
+                (the negative margins cancel the Container's padding), square on that side. */}
+            <Reveal className="relative -mr-4 sm:-mr-6 md:-mr-12 lg:-mr-20">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-l-[20px]">
                 <CuttingMat />
-                <figure className="absolute top-[12%] left-[26%] w-[54%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
-                  <span className="photo-grain block aspect-square">
+                <figure className="absolute top-[12%] left-[27%] w-[33%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
+                  <span className="photo-grain block aspect-[4/5]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
+                    <img src={site.photo} alt={site.photoAlt} width={540} height={675} loading="lazy" decoding="async" className="size-full object-cover" />
                   </span>
                 </figure>
-                <Illo art={art.basket} className="absolute bottom-[5%] left-[3%] w-[30%] -rotate-[10deg]" />
+                <Illo art={art.basket} className="absolute bottom-[4%] left-[4%] w-[21%] -rotate-[10deg]" />
                 {/* The tools, as little tiles stuck down at odd angles around the board */}
                 <ul aria-label="Tools I use">
                   {about.tools.map((t, i) => (
@@ -93,7 +94,7 @@ export default function Home() {
                   ))}
                 </ul>
                 {/* Why founders work with me, on a card pinned to the panel (desktop) */}
-                <div className="absolute right-[6%] bottom-[10%] hidden w-max rotate-2 bg-white p-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] lg:block">
+                <div className="absolute right-[4%] bottom-[9%] hidden w-max rotate-2 bg-white p-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] lg:block">
                   <ProofList />
                 </div>
               </div>
