@@ -3,16 +3,17 @@ import {
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
 import { CuttingMat } from "@/components/CuttingMat";
-import { Asterisk, EditorialHero } from "@/components/EditorialHero";
+import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
+import { ProjectOptions } from "@/components/ProjectOptions";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Button, Chip, Container, Illo, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
+  Button, Chip, Container, Illo, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -26,23 +27,6 @@ const toolSpots = [
   "top-[30%] right-[5%] rotate-[14deg]",
 ];
 
-/** Why founders work with me: a short list with scribble bullets, under the About copy. */
-function ProofList() {
-  return (
-    <>
-      <p className="font-medium">{about.proofHeading}</p>
-      <ul className="mt-3 space-y-2 text-[15px]">
-        {about.proof.map((f, i) => (
-          <li key={f} className="flex items-start gap-2.5">
-            <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
-            {f}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-}
-
 export default function Home() {
   return (
     <>
@@ -52,24 +36,16 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: two columns. Left, "Hi, I’m Paige" as an eyebrow, the lead as the heading, one line
-            on how I work, why founders work with me and the booking button. Right, a square grey-beige
+        {/* About: two columns. Left, the heading, one paragraph in the serif on who I am
+            and how I work, and the booking button. Right, a square grey-beige
             cutting mat with the photo as a tilted print, tool tiles and the basket. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Reveal>
-                {/* Eyebrow, styled like the hero's booking line */}
-                <p className="flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:text-[20px]">
-                  <Asterisk className="live-star size-5" />
-                  {about.heading}
-                </p>
-                <h2 className="serif mt-6 text-[clamp(30px,3.4vw,46px)] leading-[1.05] tracking-[-0.04em] text-balance lg:mt-8">{about.paragraphs[0]}</h2>
+                <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
-              {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
-              <Reveal delay={100} className="mt-8 lg:mt-10">
-                <ProofList />
-              </Reveal>
+              <Reveal as="p" delay={60} className="serif mt-5 max-w-xl text-[clamp(22px,2vw,28px)] leading-[1.2] tracking-[-0.03em] lg:mt-6">{about.body}</Reveal>
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
               </Reveal>
@@ -102,6 +78,9 @@ export default function Home() {
 
         {/* Recent projects */}
         <RecentProjects className="border-t border-grid py-8 lg:py-0" />
+
+        {/* Three other layouts for the projects, to compare (temporary) */}
+        <ProjectOptions />
 
 
         {/* Audiences (shared with /approach) */}

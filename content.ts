@@ -87,13 +87,7 @@ export const approach = {
 
 export const about = {
   heading: "Hi, I’m Paige",
-  paragraphs: [
-    "A decade-plus of building on Shopify for brands and apps. Happiest when designing, online or off.",
-    "These days I do the strategy, the design and the build in one pass, with AI wired into Figma and Shopify.",
-  ],
-  // The short list under the About copy.
-  proofHeading: "Why founders work with me",
-  proof: ["13+ years on Shopify", "2x brand founder", "Strategy, design and build in one"],
+  body: "A decade-plus of building on Shopify for brands and apps, and happiest when designing, online or off. These days I do the strategy, the design and the build in one pass, with AI wired into Figma and Shopify.",
   // Tool logos stuck to the photo panel.
   tools: [
     { name: "Shopify", logo: "/logos/shopify-glyph.svg" },
