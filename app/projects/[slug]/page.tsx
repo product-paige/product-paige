@@ -115,7 +115,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
               <h2 className={sectionHeading}>Next project</h2>
               <p className="lede mt-5 max-w-md">Or, if you’ve seen enough, tell me about your store.</p>
               <div className="mt-8">
-                <Button href={site.bookingUrl}>Book an intro call</Button>
+                <Button href={site.bookingUrl} accent>Book an intro call</Button>
               </div>
             </Reveal>
             <Reveal delay={120} className="lg:max-w-[520px]">

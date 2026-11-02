@@ -147,7 +147,7 @@ export default function Home() {
               ))}
             </div>
             <Reveal className="mt-8 flex justify-center lg:mt-12">
-              <Button href={site.bookingUrl}>Book an intro call</Button>
+              <Button href={site.bookingUrl} accent>Book an intro call</Button>
             </Reveal>
           </Container>
         </section>

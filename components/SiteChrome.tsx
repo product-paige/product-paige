@@ -18,7 +18,7 @@ export function SiteHeader() {
             {site.logo}
           </a>
           <div className="flex items-center justify-end">
-            <Button href={site.bookingUrl}>Book an intro call</Button>
+            <Button href={site.bookingUrl} accent>Book an intro call</Button>
           </div>
         </Container>
       </header>

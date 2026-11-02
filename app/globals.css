@@ -118,6 +118,11 @@
     --btn-bg: #fff;
     --btn-fg: var(--color-ink);
   }
+  /* The main call to action (Book an intro call): the accent red. */
+  .btn-accent {
+    --btn-bg: var(--color-accent);
+    --btn-fg: #fff;
+  }
   .btn-text,
   .btn-tab {
     display: inline-flex;

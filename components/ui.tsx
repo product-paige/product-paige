@@ -58,6 +58,7 @@ export function Container({ className = "", tight = false, children }: { classNa
 export function Button({
   href,
   light = false,
+  accent = false,
   arrow = "up-right",
   type = "button",
   disabled,
@@ -65,13 +66,15 @@ export function Button({
 }: {
   href?: string;
   light?: boolean;
+  /** The main call to action, in the accent red. */
+  accent?: boolean;
   /** "down" for links that scroll further down the page. */
   arrow?: "up-right" | "down";
   type?: "button" | "submit";
   disabled?: boolean;
   children: ReactNode;
 }) {
-  const className = `group btn ${light ? "btn-light" : ""}`;
+  const className = `group btn ${light ? "btn-light" : ""} ${accent ? "btn-accent" : ""}`;
   const inner = (
     <>
       <span className="btn-text">{children}</span>
