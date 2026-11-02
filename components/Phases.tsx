@@ -15,7 +15,7 @@ export function Phases({ caseStudies = false, topBorder = false }: { caseStudies
         <Reveal as="article" key={ph.title} className={`grid gap-6 border-grid py-10 ${topBorder ? "border-t" : "not-first:border-t"} md:grid-cols-[auto_1.1fr_1fr] px-4 sm:px-6 md:gap-8 md:px-12 lg:gap-12 lg:px-20 lg:py-16 last:pb-0`}>
           <p className="serif text-[clamp(28px,2.8vw,38px)] leading-none text-accent">{String(i + 1).padStart(2, "0")}</p>
           <div>
-            <h3 className="serif text-[clamp(28px,3vw,42px)] leading-[1.05] tracking-[-0.04em]">{ph.title}</h3>
+            <h3 className="serif text-[clamp(24px,2.4vw,34px)] leading-[1.08] tracking-[-0.04em]">{ph.title}</h3>
             <p className="mt-4 max-w-lg">{ph.body}</p>
           </div>
           <div className="space-y-6">

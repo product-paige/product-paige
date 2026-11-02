@@ -28,8 +28,8 @@ export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: s
               <Reveal key={a.title} delay={i * 120} className="h-full">
                 {/* Who it's for, the statement, then a few lines on how I'd help */}
                 {/* Tilted, with the bottom-right corner folded over (.folded). The shadow sits on the
-                    wrapper as a drop-shadow, since the fold's clip-path would cut a box-shadow off. */}
-                <div className={`h-full drop-shadow-[0_14px_22px_rgb(0_0_0/0.2)] transition-transform duration-300 hover:rotate-0 ${tilts[i % tilts.length]}`}>
+                    unclipped wrapper; a drop-shadow filter would blur the text. */}
+                <div className={`h-full shadow-[0_14px_28px_rgb(0_0_0/0.2)] transition-transform duration-300 hover:rotate-0 ${tilts[i % tilts.length]}`}>
                 <div className="folded flex h-full flex-col bg-paper p-6 pb-12 lg:p-8 lg:pb-14">
                   {/* Who it's for as a mono eyebrow with a red dot, then the statement as the title
                       (the Scrapbook cards' title style) */}
