@@ -63,7 +63,7 @@ export const hero = {
   // The headline, one phrase per line.
   heading: ["Product marketing, design", "& AI builds for Shopify teams"],
   lede:
-    "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
+    "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs. One person from brief to launch, so nothing gets lost along the way.",
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
   // `tag` (optional) replaces the label at the bottom left.
   shots: [
