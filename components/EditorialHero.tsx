@@ -2,6 +2,15 @@ import { hero, site } from "@/content";
 import { CartMockup } from "./Mockups";
 import { Chip, Container } from "./ui";
 
+/** A six-armed asterisk, as on printed ephemera. Thick strokes, so it holds up small. */
+function Asterisk({ className = "" }: { className?: string }) {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" className={`shrink-0 ${className}`} fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round">
+      <path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9" />
+    </svg>
+  );
+}
+
 /**
  * The hero: the booking line, the headline, the intro, then a row of storefront screens.
  */
@@ -14,7 +23,7 @@ export function EditorialHero() {
       <Container className="relative pt-10 pb-10 lg:pt-12 lg:pb-12">
         {/* Booking line, above the headline */}
         <p className="mono mb-6 flex items-center gap-3 lg:mb-8">
-          <i aria-hidden className="live-dot size-3 rounded-full bg-accent" />
+          <Asterisk className="live-star size-4" />
           {site.availability}
         </p>
         {/* Desktop: sized to the content width (the window less the gutter, frame and padding,

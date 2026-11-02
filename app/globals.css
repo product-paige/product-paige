@@ -433,12 +433,14 @@
   background-repeat: no-repeat;
 }
 
-/* The dot beside the booking line in the hero: the accent red, with a glow that spreads and fades */
-@keyframes dot-pulse {
-  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 50%, transparent); }
-  70%, 100% { box-shadow: 0 0 0 7px transparent; }
+/* The asterisk beside the booking line in the hero: the accent red, turning
+   slowly, with a glow that spreads and fades */
+@keyframes star-pulse {
+  0% { filter: drop-shadow(0 0 0 color-mix(in srgb, var(--color-accent) 60%, transparent)); }
+  70%, 100% { filter: drop-shadow(0 0 7px transparent); }
 }
-.live-dot { animation: dot-pulse 2.4s infinite; }
+@keyframes star-spin { to { rotate: 360deg; } }
+.live-star { color: var(--color-accent); animation: star-pulse 2.4s infinite, star-spin 8s linear infinite; }
 
 /* The hero sticker: stop-motion, holding at one tilt and then snapping to the other, back
    and forth, with no smooth swing between. */
@@ -460,7 +462,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .live-dot, .sticker-sway { animation: none; }
+  .live-star, .sticker-sway { animation: none; }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
 
