@@ -136,19 +136,21 @@ export const audiences = {
     {
       tone: "bg-scrap",
       title: "New brands",
+      body: "Launching your first Shopify store.",
       art: art.seedling,
       points: [
         "You’ve got the product, just not the store",
-        "Your brand guidelines are three screenshots and a vibe",
-        "Launch day is booked. The website is not",
+        "Your brand guide is three screenshots",
+        "Launch day is booked. The site isn’t",
       ],
     },
     {
       tone: "bg-scrap",
       title: "Existing brands",
+      body: "Already selling, ready to sell more.",
       art: art.cashRegister,
       points: [
-        "Your traffic window-shops, then leaves",
+        "Traffic browses, then bounces",
         "It still looks like the theme’s demo store",
         "You’ve outgrown the site you built at 2am",
       ],
@@ -156,11 +158,12 @@ export const audiences = {
     {
       tone: "bg-scrap",
       title: "Ecommerce SaaS",
+      body: "Apps and tools for Shopify merchants.",
       art: art.laptop,
       points: [
         "Your app works. Your listing doesn’t sell it",
-        "Merchants install, look around, then uninstall",
-        "The demo only makes sense to you and your cofounder",
+        "Merchants install, poke around, uninstall",
+        "Only your cofounder gets the demo",
       ],
     },
   ],

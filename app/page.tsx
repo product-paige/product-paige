@@ -9,7 +9,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import {
-  Button, Chip, Container, Illo, Reveal, Rich, ScribbleCheck, SectionHead, cardTitle, listTitle, section, sectionHeading,
+  Button, Chip, Container, Illo, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -44,7 +44,7 @@ export default function Home() {
                 <ul className="mt-3 space-y-2">
                   {about.proof.map((f, i) => (
                     <li key={f.strong} className="flex items-start gap-2.5">
-                      <ScribbleCheck variant={i} className="mt-0.5 text-accent" />
+                      <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
                       <span><span className="font-medium">{f.strong}</span> <span className="text-muted">{f.text}</span></span>
                     </li>
                   ))}
@@ -87,16 +87,17 @@ export default function Home() {
             <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
-                  <div className={`${a.tone} folded flex h-full flex-col px-6 pt-6 ${lift} lg:px-8 lg:pt-8`}>
+                  <div className={`${a.tone} folded flex h-full flex-col px-6 pt-6 pb-12 ${lift} lg:px-8 lg:pt-8 lg:pb-14`}>
                     {/* The card's illustration, above the title */}
-                    <Illo art={a.art} className="mb-5 h-24 w-auto self-start lg:h-28" />
-                    <h3 className={`${cardTitle} mb-8 lg:mb-12`}>{a.title}</h3>
-                    {/* Rules run edge to edge across the card; the items keep their inset. The list runs
-                        to the card's bottom edge, so there's no rule under the last item. */}
-                    <ul className="mt-auto -mx-6 divide-y divide-line border-t border-line lg:-mx-8">
+                    <Illo art={a.art} className="mb-8 h-24 w-auto self-start lg:mb-10 lg:h-28" />
+                    <h3 className={cardTitle}>{a.title}</h3>
+                    <p className="mt-2 text-muted">{a.body}</p>
+                    {/* Rules run edge to edge across the card; the items keep their inset. The list follows
+                        straight on from the text, and the card's bottom padding leaves room for the fold. */}
+                    <ul className="mt-6 -mx-6 divide-y divide-line border-y border-line lg:mt-8 lg:-mx-8">
                       {a.points.map((p, pi) => (
-                        <li key={p} className="flex items-start gap-3 px-6 py-3 last:pb-6 lg:px-8 lg:py-4 lg:last:pb-8">
-                          <ScribbleCheck variant={pi} className="mt-0.5 text-accent" />
+                        <li key={p} className="flex items-start gap-3 px-6 py-3 text-[15px] lg:px-8 lg:py-3.5">
+                          <ScribbleBullet variant={pi} className="mt-0.5 text-accent" />
                           {p}
                         </li>
                       ))}

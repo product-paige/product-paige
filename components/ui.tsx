@@ -130,21 +130,21 @@ export function Check({ className = "" }: { className?: string }) {
 }
 
 /**
- * A hand-drawn tick: a scribbly pen stroke with a little loop or hook to start, an overshoot at
- * the end, and a fainter second pass slightly off the first, as if gone over twice. Three shapes
- * (`variant`), so a list of them doesn't look stamped.
+ * A hand-drawn bullet: a quick pen circle that doesn't quite close, overshooting into a second
+ * loop, with a little scribbled fill. Three shapes (`variant`), so a list of them doesn't look
+ * stamped.
  */
 const scribbles = [
-  "M2.2 11.2c1.3-1.4 2.9-.5 3.7.9.9 1.5 1.5 3.3 2.3 4.8.3.6 1 .6 1.3 0C11.9 11 16 5.6 22.4 2",
-  "M4.1 9.6c-1.3.6-1 2.2.3 2.1 1.4-.1 2.2 2.5 3.1 4.7.3.8 1 .8 1.4 0 2.3-4.9 6.1-9.8 13.1-13.8",
-  "M2.4 13.1c2-1.5 3.6.3 4.8 3.6.3.8 1.1.9 1.5.1 2.4-5.5 6.5-10.2 13-14-1 .1-1.9.6-2.8 1.3",
+  { ring: "M12.6 4.2c-4.3-.6-8.1 2.3-8.4 6.2-.3 3.7 2.8 6.9 6.9 7 4.2.1 7.4-2.8 7.4-6.6 0-3.4-2.6-6-6.3-6.4-2.6-.2-4.8.9-5.9 2.6", fill: "M8.4 9.6l5.6-2.2M7.8 12.4l7.4-3.1M9 14.6l5.8-2.6" },
+  { ring: "M11 4.6c-3.9.3-6.9 3.2-6.6 6.9.3 3.5 3.5 6 7.3 5.7 3.9-.3 6.6-3.3 6.3-6.8-.3-3.2-3.1-5.6-6.6-5.4-2.1.1-3.9 1.2-4.8 2.8", fill: "M8.6 10.8l6.4-3M8.2 13.6l7.2-3.4M10.4 15.4l4.2-2" },
+  { ring: "M13.4 4.8c-4.6-1.1-8.9 1.6-9.3 5.6-.4 3.8 2.6 7 6.9 7.2 4.4.2 7.6-2.6 7.6-6.4.1-3.6-2.9-6.3-6.8-6.4-2.4 0-4.4 1.1-5.4 2.9", fill: "M8 10.4l6.2-2.6M8.6 13.2l6.6-2.9M9.8 15.2l4.6-2.1" },
 ];
-export function ScribbleCheck({ variant = 0, className = "" }: { variant?: number; className?: string }) {
-  const d = scribbles[variant % scribbles.length];
+export function ScribbleBullet({ variant = 0, className = "" }: { variant?: number; className?: string }) {
+  const { ring, fill } = scribbles[variant % scribbles.length];
   return (
-    <svg aria-hidden viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className={`h-[18px] w-[22px] shrink-0 overflow-visible ${className}`}>
-      <path d={d} strokeWidth={2.1} />
-      <path d={d} strokeWidth={1.2} opacity={0.5} transform="translate(0.9 0.7) rotate(-2 12 10)" />
+    <svg aria-hidden viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className={`size-[18px] shrink-0 overflow-visible ${className}`}>
+      <path d={ring} strokeWidth={1.8} />
+      <path d={fill} strokeWidth={1.3} opacity={0.7} />
     </svg>
   );
 }
