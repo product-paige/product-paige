@@ -22,7 +22,7 @@ export const art = {
   laptop: illo("laptop-telephone", 1200, 1223),
   starburstCream: illo("starburst-cream", 1200, 865),
   starburstBlue: illo("starburst-blue", 1200, 1204),
-  heartCart: illo("heart-in-cart", 1200, 885),
+  basket: illo("shopping-basket", 1200, 989),
 };
 export type Art = (typeof art)[keyof typeof art];
 
