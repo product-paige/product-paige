@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useState } from "react";
 
 /**
- * Top menu, with a short rule between items. An accent underline sweeps in under the item
+ * Top menu, with a rule between items and after the last, running the full height of the header. An accent underline sweeps in under the item
  * whose section is currently in the middle of the screen. It sits below the label, so
  * labels never shift.
  */
@@ -41,27 +41,30 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
   }, [items]);
 
   return (
-    <nav aria-label="Sections" className="hidden items-center gap-4 xl:flex">
+    <nav aria-label="Sections" className="hidden gap-4 self-stretch xl:flex">
       {items.map((n, i) => {
         const isActive = active === n.href;
         return (
           <Fragment key={n.href}>
-          {i > 0 && <span aria-hidden className="h-4 w-px bg-grid" />}
+          {i > 0 && <span aria-hidden className="w-px bg-grid" />}
           <a
             // Rooted, so the menu also works from the project pages.
             href={`/${n.href}`}
             aria-current={isActive ? "location" : undefined}
-            className="relative text-[16px] font-medium transition hover:text-muted"
+            className="flex items-center text-[16px] font-medium transition hover:text-muted"
           >
-            <i
-              aria-hidden
-              className={`absolute inset-x-0 -bottom-0.5 h-px origin-left bg-accent transition-transform duration-500 ${isActive ? "scale-x-100" : "scale-x-0"}`}
-            />
-            {n.label}
+            <span className="relative">
+              <i
+                aria-hidden
+                className={`absolute inset-x-0 -bottom-0.5 h-px origin-left bg-accent transition-transform duration-500 ${isActive ? "scale-x-100" : "scale-x-0"}`}
+              />
+              {n.label}
+            </span>
           </a>
           </Fragment>
         );
       })}
+      <span aria-hidden className="w-px bg-grid" />
     </nav>
   );
 }

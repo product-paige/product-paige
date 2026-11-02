@@ -17,7 +17,9 @@ export function SiteHeader() {
           <a href="/" className="serif text-[20px] leading-none whitespace-nowrap lg:text-[24px] xl:text-center">
             {site.logo}
           </a>
-          <div className="flex items-center justify-end">
+          {/* The button, with a full-height rule on its left (from xl, where the menu shows) */}
+          <div className="flex items-center justify-end gap-5 self-stretch">
+            <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
             <Button href={site.bookingUrl} accent>Book an intro call</Button>
           </div>
         </Container>
