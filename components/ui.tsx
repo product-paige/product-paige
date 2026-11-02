@@ -1,4 +1,5 @@
 import { Fragment, type CSSProperties, type ReactNode } from "react";
+import type { Art } from "@/content";
 import { Reveal } from "./Reveal";
 
 export { Reveal };
@@ -166,6 +167,14 @@ export function Chip({
       {icon}
       {children}
     </span>
+  );
+}
+
+/** A collage illustration (see `art` in content.ts): decorative, so no alt text. Size it with className. */
+export function Illo({ art, className = "" }: { art: Art; className?: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={art.src} alt="" width={art.width} height={art.height} loading="lazy" decoding="async" className={`select-none ${className}`} />
   );
 }
 

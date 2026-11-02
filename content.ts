@@ -5,6 +5,23 @@
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
 // availability line, photo, testimonials, the prices ($300, $1,500, $4,000 and $8,500).
 
+// Collage illustrations (public/illustrations/mm), with each file's own width and height.
+const illo = (name: string, width: number, height: number) => ({ src: `/illustrations/mm/${name}.webp`, width, height });
+export const art = {
+  computer: illo("computer", 1200, 1583),
+  eye: illo("eye-magnifier", 1200, 719),
+  megaphone: illo("megaphone", 1200, 970),
+  mailbox: illo("mailbox", 1200, 932),
+  seedling: illo("seedling-in-hand", 1200, 1107),
+  cashRegister: illo("cash-register", 1200, 1180),
+  telephone: illo("telephone-lips", 1200, 2252),
+  parcel: illo("parcel", 1200, 1022),
+  building: illo("building", 1200, 1454),
+  lightbulb: illo("lightbulb", 1200, 1285),
+  phone: illo("phone-in-hand", 1200, 1204),
+};
+export type Art = (typeof art)[keyof typeof art];
+
 export const site = {
   name: "Paige Eaton",
   // Header logo, on one line.
@@ -54,6 +71,7 @@ export const hero = {
 
 export const approach = {
   heading: "My process",
+  art: art.lightbulb,
   body:
     "A fixed price in writing before any work starts, then async work with as few calls as possible.",
   steps: [
@@ -83,21 +101,25 @@ export const services = {
   items: [
     {
       title: "Web and product design",
+      art: art.computer,
       tags: ["Shopify themes", "Typography and color", "Product data"],
       body: "Shopify storefronts and marketing sites. A refresh of what you already have, or designed and built from scratch in your theme.",
     },
     {
       title: "UX and conversion",
+      art: art.eye,
       tags: ["UX review", "Conversion", "Scoped plan"],
       body: "A positioning and UX review, with a written list of what to fix first. I’ll tell you if you don’t need me.",
     },
     {
       title: "Positioning and messaging",
+      art: art.megaphone,
       tags: ["Positioning", "Copywriting", "Product strategy"],
       body: "Naming, positioning and copy across the whole site. Your product will make sense to someone outside the building.",
     },
     {
       title: "Content and campaigns",
+      art: art.mailbox,
       tags: ["Landing pages", "Email design", "Campaign copy"],
       body: "Landing pages, emails or a whole campaign, made with AI tools. Scoped, built and handed over before your launch date.",
     },
@@ -111,6 +133,7 @@ export const audiences = {
     {
       tone: "bg-scrap",
       title: "You’re starting from scratch",
+      art: art.seedling,
       points: [
         "You’ve got the product, just not the store",
         "Your brand guidelines are three screenshots and a vibe",
@@ -120,6 +143,7 @@ export const audiences = {
     {
       tone: "bg-scrap",
       title: "You’re already selling on Shopify",
+      art: art.cashRegister,
       points: [
         "Your traffic window-shops, then leaves",
         "It still looks like the theme’s demo store",
@@ -140,6 +164,7 @@ export const models = {
     {
       tag: "Strategy",
       title: "Advice and reviews",
+      art: art.telephone,
       body: "Find out what’s wrong and what to fix first.",
       price: "$300",
       per: "/ session",
@@ -148,6 +173,7 @@ export const models = {
     {
       tag: "Projects",
       title: "One focused project",
+      art: art.parcel,
       body: "One part of your store, done properly and live before your deadline.",
       price: "$1,500",
       per: "/ project",
@@ -156,6 +182,7 @@ export const models = {
     {
       tag: "Websites",
       title: "Full store build",
+      art: art.building,
       body: "Your store designed, written and built from scratch.",
       price: "$8,500",
       per: "/ project",
@@ -412,6 +439,7 @@ export const closing = {
 
 export const contact = {
   heading: "Let’s talk about your store",
+  art: art.phone,
   body: "Tell me where your store is and what’s on your plate. I’ll reply by email, and if it sounds like a fit, we’ll set up a short intro call.",
   emailNote: "Prefer email?",
   messageLabel: "What would you like help with?",

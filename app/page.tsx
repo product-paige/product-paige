@@ -9,7 +9,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import {
-  Button, Check, Chip, Container, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading,
+  Button, Check, Chip, Container, Illo, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -77,9 +77,8 @@ export default function Home() {
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
                   <div className={`${a.tone} folded flex h-full flex-col p-6 ${lift} lg:p-10`}>
-                    {/* The shopping basket illustration, above the title */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/illustrations/shopping-basket.webp" alt="" width={1200} height={989} loading="lazy" decoding="async" className="mb-5 w-24 lg:mb-6 lg:w-[132px]" />
+                    {/* The card's illustration, above the title */}
+                    <Illo art={a.art} className="mb-5 h-24 w-auto lg:mb-6 lg:h-32" />
                     <h3 className={`${cardTitle} mb-8 lg:mb-16`}>{a.title}</h3>
                     {/* Rules run edge to edge across the card; the items keep their inset. */}
                     <ul className="mt-auto -mx-6 divide-y divide-line border-y border-line lg:-mx-10">
@@ -107,7 +106,12 @@ export default function Home() {
             {/* Dividers run out to the page rails; the rows keep the usual inset. */}
             <div className="md:-mx-12 lg:-mx-20">
               {services.items.map((s) => (
-                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-grid py-6 md:grid-cols-[1.1fr_1fr] md:gap-6 md:px-12 md:py-10 lg:px-20">
+                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-grid py-6 md:grid-cols-[auto_1.1fr_1fr] md:items-center md:gap-6 md:px-12 md:py-10 lg:gap-10 lg:px-20">
+                  {/* The row's illustration, left of the heading (from md); a fixed-width slot so the
+                      headings line up whatever each image's shape. */}
+                  <div className="hidden w-28 justify-center md:flex lg:w-32">
+                    <Illo art={s.art} className="h-24 w-auto max-w-full object-contain lg:h-28" />
+                  </div>
                   <div>
                     <h3 className={listTitle}>{s.title}</h3>
                     <div className="mt-3.5 flex flex-wrap gap-2">
@@ -132,7 +136,11 @@ export default function Home() {
                   <div
                     className={`flex h-full flex-col gap-5 border p-6 ${lift} lg:p-8 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
                   >
-                    <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
+                    {/* The tag, with the card's illustration across from it */}
+                    <div className="flex items-start justify-between gap-4">
+                      <Chip className={m.featured ? "bg-white/10" : ""}>{m.tag}</Chip>
+                      <Illo art={m.art} className="-mt-2 h-20 w-auto lg:h-24" />
+                    </div>
                     <h3 className={cardTitle}>{m.title}</h3>
                     <p className={m.featured ? "text-white/60" : "text-muted"}>{m.body}</p>
                     <div className="mt-auto pt-8 lg:pt-12">
@@ -161,6 +169,7 @@ export default function Home() {
             <Reveal className="lg:sticky lg:top-28 lg:self-start">
               <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
               <p className="lede mt-5 max-w-xl">{approach.body}</p>
+              <Illo art={approach.art} className="mt-10 hidden h-48 w-auto lg:block" />
             </Reveal>
             {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
                 (grey and small until the line reaches it, then accent red). */}
@@ -238,6 +247,7 @@ export default function Home() {
                   {site.email}
                 </a>
               </p>
+              <Illo art={contact.art} className="mt-10 hidden h-44 w-auto lg:block" />
             </Reveal>
             <Reveal delay={120}>
               <ContactForm endpoint={site.formEndpoint} email={site.email} deadlines={contact.deadlines} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />
