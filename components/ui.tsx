@@ -130,18 +130,21 @@ export function Check({ className = "" }: { className?: string }) {
 }
 
 /**
- * A hand-drawn tick: a loose, wobbly pen stroke. Three shapes (`variant`), so a list of them
- * doesn't look stamped.
+ * A hand-drawn tick: a scribbly pen stroke with a little loop or hook to start, an overshoot at
+ * the end, and a fainter second pass slightly off the first, as if gone over twice. Three shapes
+ * (`variant`), so a list of them doesn't look stamped.
  */
 const scribbles = [
-  "M2.5 12.8c1.6-.4 3.1 1.6 4.4 4.2.3.6.9.6 1.2 0C10.6 11.4 14.4 6.2 21 3.2",
-  "M3.2 11.6c1.3.2 2.4 1.9 3.6 4.6.4.9 1 .8 1.4.1 2.1-4.2 5.7-8.9 12.6-12.6",
-  "M2.8 13.6c2-.9 3.4 1 4.5 3.5.3.7 1 .7 1.3 0 2.4-5.2 6.4-9.8 12.2-13.3-1 .2-1.6.6-2.2 1",
+  "M2.2 11.2c1.3-1.4 2.9-.5 3.7.9.9 1.5 1.5 3.3 2.3 4.8.3.6 1 .6 1.3 0C11.9 11 16 5.6 22.4 2",
+  "M4.1 9.6c-1.3.6-1 2.2.3 2.1 1.4-.1 2.2 2.5 3.1 4.7.3.8 1 .8 1.4 0 2.3-4.9 6.1-9.8 13.1-13.8",
+  "M2.4 13.1c2-1.5 3.6.3 4.8 3.6.3.8 1.1.9 1.5.1 2.4-5.5 6.5-10.2 13-14-1 .1-1.9.6-2.8 1.3",
 ];
 export function ScribbleCheck({ variant = 0, className = "" }: { variant?: number; className?: string }) {
+  const d = scribbles[variant % scribbles.length];
   return (
-    <svg aria-hidden viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className={`h-[18px] w-[22px] shrink-0 ${className}`}>
-      <path d={scribbles[variant % scribbles.length]} />
+    <svg aria-hidden viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className={`h-[18px] w-[22px] shrink-0 overflow-visible ${className}`}>
+      <path d={d} strokeWidth={2.1} />
+      <path d={d} strokeWidth={1.2} opacity={0.5} transform="translate(0.9 0.7) rotate(-2 12 10)" />
     </svg>
   );
 }

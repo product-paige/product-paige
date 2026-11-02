@@ -9,7 +9,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import {
-  Button, Check, Chip, Container, Illo, Reveal, Rich, ScribbleCheck, SectionHead, cardTitle, listTitle, section, sectionHeading,
+  Button, Chip, Container, Illo, Reveal, Rich, ScribbleCheck, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -94,9 +94,9 @@ export default function Home() {
                     {/* Rules run edge to edge across the card; the items keep their inset. The list runs
                         to the card's bottom edge, so there's no rule under the last item. */}
                     <ul className="mt-auto -mx-6 divide-y divide-line border-t border-line lg:-mx-8">
-                      {a.points.map((p) => (
+                      {a.points.map((p, pi) => (
                         <li key={p} className="flex items-start gap-3 px-6 py-3 last:pb-6 lg:px-8 lg:py-4 lg:last:pb-8">
-                          <Check className="mt-0.5 text-muted" />
+                          <ScribbleCheck variant={pi} className="mt-0.5 text-accent" />
                           {p}
                         </li>
                       ))}
