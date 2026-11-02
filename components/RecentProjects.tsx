@@ -76,16 +76,14 @@ export function RecentProjects({ className = "" }: { className?: string }) {
             <i aria-hidden className="size-3 rounded-full bg-accent" />
             {projects.heading}
           </h2>
-          <div className="flex gap-1.5">
+          <div className="-mr-2 flex">
             {([["Previous project", -1], ["Next project", 1]] as const).map(([label, dir]) => {
               const off = dir < 0 ? edge.start : edge.end;
               return (
-                <button key={label} type="button" aria-label={label} disabled={off} onClick={() => step(dir)} className="btn disabled:cursor-default disabled:opacity-35">
-                  <span className="btn-tab size-10">
-                    <svg viewBox="0 0 20 20" className={`size-5 ${dir < 0 ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                      <path d="M4 10h12M11 5l5 5-5 5" />
-                    </svg>
-                  </span>
+                <button key={label} type="button" aria-label={label} disabled={off} onClick={() => step(dir)} className="grid size-10 cursor-pointer place-items-center transition-colors hover:text-accent disabled:cursor-default disabled:opacity-30 disabled:hover:text-ink">
+                  <svg viewBox="0 0 20 20" className={`size-6 ${dir < 0 ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M4 10h12M11 5l5 5-5 5" />
+                  </svg>
                 </button>
               );
             })}
