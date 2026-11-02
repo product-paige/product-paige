@@ -46,7 +46,7 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, the heading, one paragraph in Manrope on who I am
-            and how I work, why founders work with me, and the booking button. Right, the photo and tools laid
+            and how I work, and why founders work with me. Right, the photo and tools laid
             out like a desktop (see AboutNotebook). */}
         {/* Tighter than the other sections: the board brings its own space. */}
         <section id="about" className="overflow-x-clip border-t border-grid py-6 lg:py-10">
@@ -58,9 +58,6 @@ export default function Home() {
               <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>
               <Reveal delay={100} className="mt-10 lg:mt-16">
                 <ProofList />
-              </Reveal>
-              <Reveal className="mt-8 lg:mt-10">
-                <Button href={site.bookingUrl} accent>Book an intro call</Button>
               </Reveal>
             </div>
 
