@@ -443,7 +443,6 @@ export const closing = {
 
 export const contact = {
   heading: "Let’s talk about your store",
-  art: art.phone,
   body: "Tell me where your store is and what’s on your plate. I’ll reply by email, and if it sounds like a fit, we’ll set up a short intro call.",
   messageLabel: "What would you like help with?",
   messagePlaceholder: "A few lines is plenty, e.g. our product pages get traffic but hardly anyone adds to cart.",
