@@ -2,7 +2,7 @@ import {
   about, approach, art, contact, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
-import { EditorialHero } from "@/components/EditorialHero";
+import { Asterisk, EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
@@ -52,8 +52,12 @@ export default function Home() {
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Reveal>
-                <p className="text-[15px] font-medium text-muted lg:text-[16px]">{about.heading}</p>
-                <h2 className={`${sectionHeading} mt-4`}>{about.paragraphs[0]}</h2>
+                {/* Eyebrow, styled like the hero's booking line */}
+                <p className="flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:text-[20px]">
+                  <Asterisk className="live-star size-5" />
+                  {about.heading}
+                </p>
+                <h2 className={`${sectionHeading} mt-6 lg:mt-8`}>{about.paragraphs[0]}</h2>
               </Reveal>
               {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
               <Reveal className="mt-8 lg:mt-10">
