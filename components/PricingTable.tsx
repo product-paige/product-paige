@@ -36,7 +36,7 @@ export function PricingTable() {
     [
       "Includes",
       (m) => (
-        <ul className="space-y-2">
+        <ul className="space-y-3">
           {m.points.map((p, i) => (
             <li key={p} className="flex items-start gap-2.5 text-[15px]">
               <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
@@ -74,7 +74,7 @@ export function PricingTable() {
               <Tab m={m} i={i} />
               <div className={`divide-y divide-line border border-line transition-colors ${tint(i)}`}>
                 {rows.map(([label, cell]) => (
-                  <div key={label} className="px-5 py-4">
+                  <div key={label} className="px-5 py-6">
                     <p className="mono mb-2 text-muted">{label}</p>
                     {cell(m)}
                   </div>
@@ -100,9 +100,9 @@ export function PricingTable() {
             <tbody>
               {rows.map(([label, cell], r) => (
                 <tr key={label} className="align-top">
-                  <th className={`mono border-b border-l border-line bg-paper px-4 py-5 font-normal text-muted ${r === 0 ? "border-t" : ""}`}>{label}</th>
+                  <th className={`mono border-b border-l border-line bg-paper px-4 py-7 font-normal lg:py-9 text-muted ${r === 0 ? "border-t" : ""}`}>{label}</th>
                   {models.items.map((m, i) => (
-                    <td key={m.tag} className={`border-r border-b border-line px-5 py-5 text-[16px] transition-colors first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
+                    <td key={m.tag} className={`border-r border-b border-line px-5 py-7 text-[16px] lg:px-6 lg:py-9 transition-colors first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
                   ))}
                 </tr>
               ))}
