@@ -21,9 +21,9 @@ export function EditorialHero() {
   return (
     <section className="relative">
       <Container className="relative pt-14 pb-14 lg:pt-20 lg:pb-20">
-        {/* A sticker on the right (desktop): the beauty box, tilted, in the top corner beside the
-            booking line, just overlapping the headline, which is drawn above it (z-1). */}
-        <Illo art={art.parcel} className="pointer-events-none absolute top-[28px] right-[2%] hidden w-[clamp(170px,14vw,215px)] rotate-[8deg] lg:block" />
+        {/* A sticker on the right (desktop): the beauty box, tilted, overlapping the end of the
+            headline's first line, which is drawn above it (z-1). */}
+        <Illo art={art.parcel} className="pointer-events-none absolute top-[72px] right-[2%] hidden w-[clamp(185px,15.5vw,235px)] rotate-[8deg] lg:block" />
         {/* Booking line, above the headline */}
         <p className="mb-6 flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:mb-8 lg:text-[20px]">
           <Asterisk className="live-star size-5" />
