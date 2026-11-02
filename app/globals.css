@@ -24,6 +24,8 @@
   --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
   --color-accent: #e01321;  /* active-menu underline, link hover, timeline fill, selection, focus */
   --color-grid: rgb(56 56 56 / 0.22); /* page frame: rails, side grid, section lines (a step above --color-line) */
+  --color-ground: rgb(52 112 206 / 0.26); /* the grid lines on the ground around the sheet */
+  --color-mat-text: rgb(56 52 44 / 0.45); /* ruler numbers on the cutting mat */
 
   /* Card colours */
   --color-sage: #dce2d4;
@@ -70,8 +72,8 @@
     @apply bg-paper font-sans text-[15px] text-ink antialiased lg:text-base;
     /* The ground around the page sheet: a fine square grid, fixed to the window. */
     background-image:
-      linear-gradient(var(--color-grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+      linear-gradient(var(--color-ground) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-ground) 1px, transparent 1px);
     background-size: 16px 16px;
     background-attachment: fixed;
   }
@@ -341,9 +343,9 @@
 .cutting-mat {
   --m: 26px;
   --c: 20px;
-  --mat-line: rgb(56 52 44 / 0.1);
-  --mat-major: rgb(56 52 44 / 0.22);
-  background-color: #e4e0d6;
+  --mat-line: color-mix(in srgb, var(--color-ink) 10%, transparent);
+  --mat-major: color-mix(in srgb, var(--color-ink) 22%, transparent);
+  background-color: color-mix(in srgb, var(--color-scrap) 88%, var(--color-ink));
 }
 .mat-grid {
   inset: var(--m);
@@ -439,3 +441,34 @@
   .live-star, .sticker-sway { animation: none; }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
+
+/* Palettes to try (temporary; see components/PaletteSwitcher.tsx). Each is one colour on a
+   tinted paper, with a dark mode that swaps them. Set on <html> as data-palette and data-mode. */
+:root[data-palette] {
+  --color-muted: color-mix(in srgb, var(--color-ink) 68%, var(--color-paper));
+  --color-line: color-mix(in srgb, var(--color-ink) 15%, transparent);
+  --color-grid: color-mix(in srgb, var(--color-ink) 24%, transparent);
+  --color-ground: color-mix(in srgb, var(--color-ink) 20%, transparent);
+  --color-chip: color-mix(in srgb, var(--color-ink) 7%, transparent);
+  --color-mat-text: color-mix(in srgb, var(--color-ink) 45%, transparent);
+  --color-sheet: color-mix(in srgb, var(--color-paper) 94%, var(--color-ink));
+  --color-scrap: color-mix(in srgb, var(--color-paper) 90%, var(--color-ink));
+  --color-surface: color-mix(in srgb, var(--color-paper) 60%, #fff);
+  --color-sky: color-mix(in srgb, var(--color-paper) 84%, var(--color-ink));
+  --color-sage: color-mix(in srgb, var(--color-paper) 88%, var(--color-ink));
+  --color-butter: color-mix(in srgb, var(--color-paper) 80%, var(--color-accent));
+}
+:root[data-mode="dark"] {
+  --color-surface: color-mix(in srgb, var(--color-paper) 88%, var(--color-ink));
+  --color-dark: color-mix(in srgb, var(--color-paper) 70%, #000);
+  color-scheme: dark;
+}
+/* Cobalt: blue ink on cream, or cream on deep blue */
+:root[data-palette="cobalt"] { --color-paper: #f5f2e9; --color-ink: #1f3c9c; --color-accent: #1f3c9c; --color-dark: #1f3c9c; }
+:root[data-palette="cobalt"][data-mode="dark"] { --color-paper: #13235f; --color-ink: #f1ecdf; --color-accent: #6f8cff; }
+/* Tomato: deep brown-red text on a warm blush, the red as the accent */
+:root[data-palette="tomato"] { --color-paper: #fbf2ea; --color-ink: #401812; --color-accent: #e01321; --color-dark: #401812; }
+:root[data-palette="tomato"][data-mode="dark"] { --color-paper: #2c100c; --color-ink: #fbe7da; --color-accent: #ff4b3b; }
+/* Forest: bottle green on oat */
+:root[data-palette="forest"] { --color-paper: #f2f0e4; --color-ink: #1d4636; --color-accent: #2f7353; --color-dark: #1d4636; }
+:root[data-palette="forest"][data-mode="dark"] { --color-paper: #11281e; --color-ink: #ebe6d2; --color-accent: #7fcf9c; }

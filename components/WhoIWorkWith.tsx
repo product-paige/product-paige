@@ -1,5 +1,5 @@
 import { audiences } from "@/content";
-import { Container, Reveal, ScribbleBullet, SectionHead, cardTitle, section } from "./ui";
+import { Container, Illo, Reveal, ScribbleBullet, SectionHead, cardTitle, section } from "./ui";
 
 /**
  * Who I work with: the persona cards. Shared by the homepage and /approach, so editing the copy in
@@ -15,6 +15,7 @@ export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: s
           {audiences.items.map((a, i) => (
             <Reveal key={a.title} delay={i * 120}>
               <div className={`${a.tone} folded flex h-full flex-col px-6 pt-10 pb-12 transition hover:-translate-y-1 lg:px-8 lg:pt-14 lg:pb-14`}>
+                <Illo art={a.art} className="mb-8 h-24 w-auto self-start lg:mb-10 lg:h-28" />
                 <h3 className={cardTitle}>{a.title}</h3>
                 <p className="mt-2 text-muted">{a.body}</p>
                 {/* The list follows straight on from the text; the card's bottom padding leaves room for the fold. */}

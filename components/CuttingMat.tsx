@@ -5,7 +5,7 @@
 export function CuttingMat() {
   const marks = Array.from({ length: 12 }, (_, i) => i * 5);
   return (
-    <div aria-hidden className="cutting-mat absolute inset-0 font-sans text-[10px] font-medium text-[rgb(56_52_44/0.45)]">
+    <div aria-hidden className="cutting-mat absolute inset-0 font-sans text-[10px] font-medium text-mat-text">
       {/* Ticks: top and bottom point in from the edge, left and right too */}
       <div className="mat-ticks-x absolute inset-x-[var(--m)] top-0 h-[var(--m)] [background-position:0_100%]" />
       <div className="mat-ticks-x absolute inset-x-[var(--m)] bottom-0 h-[var(--m)] [background-position:0_0]" />

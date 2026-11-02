@@ -58,7 +58,7 @@ export default function Home() {
                     <img src={site.photo} alt={site.photoAlt} width={540} height={675} loading="lazy" decoding="async" className="size-full object-cover" />
                   </span>
                 </figure>
-                <Illo art={art.basket} className="absolute bottom-[4%] left-[4%] w-[21%] -rotate-[10deg]" />
+                <Illo art={art.basket} className="absolute bottom-[2%] left-[2%] w-[30%] -rotate-[10deg]" />
                 {/* The tools, as little tiles stuck down at odd angles around the board */}
                 <ul aria-label="Tools I use">
                   {about.tools.map((t, i) => (

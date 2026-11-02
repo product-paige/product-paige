@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import { site } from "@/content";
 import "./globals.css";
+import { PaletteSwitcher } from "@/components/PaletteSwitcher";
 
 // Tiempos Text (Klim), licensed by Paige.
 const serif = localFont({
@@ -47,6 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="mx-auto max-w-[1440px] p-3 md:p-6">
           <div className="page-frame">{children}</div>
         </div>
+        {/* Temporary: try the colour palettes */}
+        <PaletteSwitcher />
       </body>
     </html>
   );
