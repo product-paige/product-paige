@@ -56,7 +56,7 @@ export function PricingTable() {
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 text-[13px] font-normal transition-colors ${picked === i ? pickedBg : "bg-white hover:bg-sheet"}`}
+      className={`mono -mb-px inline-flex w-40 cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? pickedBg : "bg-white hover:bg-sheet"}`}
     >
       <i aria-hidden className="size-2.5 rounded-full bg-accent" />{m.tag}
     </button>
@@ -75,7 +75,7 @@ export function PricingTable() {
               <div className={`divide-y divide-line border border-line transition-colors ${tint(i)}`}>
                 {rows.map(([label, cell]) => (
                   <div key={label} className="px-5 py-4">
-                    <p className="mono mb-2 text-[12px] text-muted">{label}</p>
+                    <p className="mono mb-2 text-muted">{label}</p>
                     {cell(m)}
                   </div>
                 ))}
@@ -86,7 +86,7 @@ export function PricingTable() {
 
         {/* Tablet and up: the full table */}
         <div className="mt-8 hidden md:block lg:mt-10">
-          <table className="w-full border-separate border-spacing-0 text-left">
+          <table className="w-full table-fixed border-separate border-spacing-0 text-left">
             <thead>
               <tr>
                 <th className="w-[14%]" />
@@ -100,7 +100,7 @@ export function PricingTable() {
             <tbody>
               {rows.map(([label, cell], r) => (
                 <tr key={label} className="align-top">
-                  <th className={`mono border-b border-l border-line px-4 py-5 text-[12px] font-normal text-muted ${r === 0 ? "border-t" : ""}`}>{label}</th>
+                  <th className={`mono border-b border-l border-line px-4 py-5 font-normal text-muted ${r === 0 ? "border-t" : ""}`}>{label}</th>
                   {models.items.map((m, i) => (
                     <td key={m.tag} className={`border-r border-b border-line px-5 py-5 text-[16px] transition-colors first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
                   ))}
