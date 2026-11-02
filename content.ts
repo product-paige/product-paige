@@ -88,7 +88,7 @@ export const approach = {
 export const about = {
   heading: "Hey, I’m Paige",
   paragraphs: [
-    "Hi, I’m Paige. I’ve been building on Shopify for over a decade, and I’m happiest designing things, online and off.",
+    "Hi, I’m Paige. A decade-plus of building on Shopify for brands and apps. Happiest when designing, online or off.",
     "These days I do the strategy, the design and the build, with AI wired into Figma and Shopify so nothing gets lost between handoffs. I’m not a developer, and I’ll tell you that before you pay me a cent.",
   ],
   // The short list under the button.
