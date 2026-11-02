@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="reveal-ready" strategy="beforeInteractive">
           {"document.documentElement.classList.add('reveal-ready')"}
         </Script>
-        {/* The site is a sheet of paper on a blue ground (see .page-frame). */}
+        {/* The site is a sheet of paper on a gridded ground (see .page-frame). */}
         <div className="mx-auto max-w-[1440px] p-3 md:p-6">
           <div className="page-frame">{children}</div>
         </div>
