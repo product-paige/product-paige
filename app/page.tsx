@@ -29,7 +29,8 @@ export default function Home() {
         {/* About: two columns, like an editorial spread. Left, the first paragraph as a large serif
             lead, the second, the booking button and a short list of why founders work
             with me. Right, a grey punched panel running out to the page's edge, with the photo
-            collaged on it: tilted, a starburst behind, the tagline on a small card. */}
+            collaged on it: tilted, a starburst behind, a heart-in-a-cart sticker and the tagline on a
+            small card. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -67,6 +68,7 @@ export default function Home() {
                     <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
                   </span>
                 </figure>
+                <Illo art={art.heartCart} className="absolute bottom-[5%] left-[3%] w-[30%] -rotate-[10deg]" />
                 <p className="absolute right-[10%] bottom-[12%] rotate-3 bg-white px-5 py-4 text-[15px] leading-snug shadow-[0_1px_0_rgb(0_0_0/0.06),0_10px_24px_rgb(26_26_26/0.12)]">
                   <span className="block font-medium">{site.name}</span>
                   <span className="text-muted">{site.role}</span>
