@@ -94,8 +94,8 @@ function Sentence() {
       <Container>
         <OptionLabel>Option B · One sentence</OptionLabel>
         <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />Who I work with</p>
-        <p className="serif mt-6 max-w-[22ch] text-[clamp(32px,4.4vw,60px)] leading-[1.12] tracking-[-0.04em]">
-          Founders{" "}
+        <p className="serif mt-6 max-w-[26ch] text-[clamp(32px,4.4vw,60px)] leading-[1.12] tracking-[-0.04em]">
+          I typically work with founders{" "}
           {who.map((w, n) => (
             <span key={w.title}>
               <a href="#pricing" className="underline decoration-accent decoration-[0.06em] underline-offset-[0.16em] transition-colors hover:text-accent">
