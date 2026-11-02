@@ -2,17 +2,11 @@ import { projects, type Project } from "@/content";
 import type { ReactNode } from "react";
 import { CuttingMat } from "./CuttingMat";
 import { Cover } from "./Folder";
-import { ArrowUpRight, Container, Reveal } from "./ui";
+import { Container, Reveal } from "./ui";
 
 // Four simpler card designs for Recent projects, each shown straight on the mat to compare.
 // Temporary: once one is picked it goes into RecentProjects and this file goes.
 
-const name = "font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]";
-
-/** The buttons' arrow tab; it turns when the card is hovered. */
-function Arrow() {
-  return <span className="btn shrink-0" aria-hidden><span className="btn-tab size-8"><ArrowUpRight turn className="size-4" /></span></span>;
-}
 
 // B. Print and caption: the cover in a thin white frame, the name and role as a caption under it.
 function Caption({ p }: { p: Project }) {
@@ -23,22 +17,6 @@ function Caption({ p }: { p: Project }) {
         <span className="font-medium">{p.client}</span>
         <span className="text-muted">{p.role}</span>
       </span>
-    </span>
-  );
-}
-
-// D. Text first: the name and a line on it on top, a hairline, then the cover.
-function TextFirst({ p }: { p: Project }) {
-  return (
-    <span className="block bg-paper p-5">
-      <span className="flex items-start justify-between gap-3">
-        <span>
-          <span className={`${name} block`}>{p.client}</span>
-          <span className="mt-1 block text-[15px]">{p.excerpt}</span>
-        </span>
-        <Arrow />
-      </span>
-      <Cover p={p} className="mt-5 aspect-[4/3] w-full" />
     </span>
   );
 }
@@ -140,7 +118,6 @@ export function ProjectCardOptions() {
   return (
     <>
       <Option label="Option B · Print and caption" card={(p) => <Caption p={p} />} />
-      <Option label="Option D · Text first" card={(p) => <TextFirst p={p} />} />
       <Launches />
     </>
   );
