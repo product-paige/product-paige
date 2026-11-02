@@ -94,7 +94,7 @@ function Launches() {
                   <PhoneMockup p={p} />
                 </span>
                 <span className="mt-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
-                  <span className="serif text-[clamp(28px,2.8vw,42px)] leading-none tracking-[-0.04em]">{p.client}</span>
+                  <span className="serif text-[clamp(24px,2vw,30px)] leading-none tracking-[-0.03em]">{p.client}</span>
                   <span className="flex gap-6">
                     {p.highlights.slice(0, 2).map((h) => (
                       <span key={h.label} className="max-w-[16ch]">
