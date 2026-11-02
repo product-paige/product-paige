@@ -168,12 +168,9 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 7px 10px;
+    padding: 7px 11px;
     border-radius: var(--radius-ui);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 14px;
     line-height: 1;
     white-space: nowrap;
     box-shadow:
@@ -413,8 +410,8 @@
   background: #fff;
   box-shadow: 0 1px 0 rgb(0 0 0 / 0.06), 0 12px 28px rgb(26 26 26 / 0.12);
 }
-/* Labels in Azeret Mono: 14px, regular, uppercase, tracked 0.06em. Nav links, the booking line
-   and small labels; buttons and chips use the same style at their own sizes. */
+/* Labels in Azeret Mono: 14px, regular, uppercase, tracked 0.06em. Nav links and small
+   labels; buttons use the same style. Pills (chips) stay in Manrope. */
 @utility mono {
   font-family: var(--font-mono);
   font-size: 14px;
