@@ -2,6 +2,7 @@
 
 import { models, site } from "@/content";
 import { useState, type ReactNode } from "react";
+import { CuttingMat } from "./CuttingMat";
 import { Button, Container, ScribbleBullet, section, sectionHeading } from "./ui";
 
 type Model = (typeof models.items)[number];
@@ -50,13 +51,14 @@ export function PricingTable() {
   // The picked option: its tab and its whole column take the same grey (the site's grey paper); other tabs are transparent. Starts on the featured one.
   const [picked, setPicked] = useState(Math.max(0, models.items.findIndex((m) => m.featured)));
   const pickedBg = "bg-scrap";
-  const tint = (i: number) => (picked === i ? pickedBg : "");
+  // On the mat every cell is paper, so the table reads as a sheet laid on it.
+  const tint = (i: number) => (picked === i ? pickedBg : "bg-paper");
   const Tab = ({ m, i }: { m: Model; i: number }) => (
     <button
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex w-40 cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? pickedBg : "bg-transparent hover:bg-sheet"}`}
+      className={`mono -mb-px inline-flex w-40 cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? `${pickedBg} text-ink` : "bg-transparent text-white hover:bg-white/10"}`}
     >
       <i aria-hidden className="size-2.5 rounded-full bg-accent" />{m.tag}
     </button>
@@ -67,8 +69,11 @@ export function PricingTable() {
       <Container>
         <h2 className={sectionHeading}>{models.heading}</h2>
 
+        {/* Laid on the bright blue cutting mat */}
+        <div className="relative mt-8 overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:mt-10 lg:px-14 lg:py-16">
+          <CuttingMat />
         {/* Phones: each option as its own block, stacked, so all three are visible */}
-        <div className="mt-8 space-y-8 md:hidden">
+        <div className="relative space-y-8 md:hidden">
           {models.items.map((m, i) => (
             <div key={m.tag}>
               <Tab m={m} i={i} />
@@ -85,7 +90,7 @@ export function PricingTable() {
         </div>
 
         {/* Tablet and up: the full table */}
-        <div className="mt-8 hidden md:block lg:mt-10">
+        <div className="relative hidden md:block">
           <table className="w-full table-fixed border-separate border-spacing-0 text-left">
             <thead>
               <tr>
@@ -100,7 +105,7 @@ export function PricingTable() {
             <tbody>
               {rows.map(([label, cell], r) => (
                 <tr key={label} className="align-top">
-                  <th className={`mono border-b border-l border-line px-4 py-5 font-normal text-muted ${r === 0 ? "border-t" : ""}`}>{label}</th>
+                  <th className={`mono border-b border-l border-line bg-paper px-4 py-5 font-normal text-muted ${r === 0 ? "border-t" : ""}`}>{label}</th>
                   {models.items.map((m, i) => (
                     <td key={m.tag} className={`border-r border-b border-line px-5 py-5 text-[16px] transition-colors first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
                   ))}
@@ -108,6 +113,7 @@ export function PricingTable() {
               ))}
             </tbody>
           </table>
+        </div>
         </div>
         <div className="mt-8 flex justify-center lg:mt-10">
           <Button href={site.bookingUrl} accent>Start a project</Button>
