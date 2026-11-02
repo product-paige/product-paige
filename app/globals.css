@@ -190,12 +190,11 @@
 
 /* Page frame: the whole site is a sheet of paper on a gridded ground. The wrapper in the
    layout leaves a 12px (24px from md) gutter of grid around it, and the sheet's edge is a
-   1px semi-transparent black rule, so it darkens what's behind it rather than sitting
-   on it as flat ink. */
+   1px rule in the same light grey as every other line. */
 .page-frame {
   position: relative;
   background: var(--color-paper);
-  border: 1px solid rgb(0 0 0 / 0.4);
+  border: 1px solid var(--color-grid);
 }
 
 /* Inner rails, from md up: two lines inset from the sheet's edge (24px md, 40px lg), on
