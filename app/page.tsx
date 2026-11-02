@@ -9,7 +9,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import {
-  Button, Check, Chip, Container, Illo, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading,
+  Button, Check, Chip, Container, Illo, Reveal, Rich, ScribbleCheck, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -42,9 +42,9 @@ export default function Home() {
               <Reveal className="mt-10 lg:mt-14">
                 <p className="font-medium">{about.proofHeading}</p>
                 <ul className="mt-3 space-y-2">
-                  {about.proof.map((f) => (
+                  {about.proof.map((f, i) => (
                     <li key={f.strong} className="flex items-start gap-2.5">
-                      <Check className="mt-0.5 text-accent" />
+                      <ScribbleCheck variant={i} className="mt-0.5 text-accent" />
                       <span><span className="font-medium">{f.strong}</span> <span className="text-muted">{f.text}</span></span>
                     </li>
                   ))}

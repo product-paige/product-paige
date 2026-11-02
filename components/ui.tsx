@@ -129,6 +129,23 @@ export function Check({ className = "" }: { className?: string }) {
   );
 }
 
+/**
+ * A hand-drawn tick: a loose, wobbly pen stroke. Three shapes (`variant`), so a list of them
+ * doesn't look stamped.
+ */
+const scribbles = [
+  "M2.5 12.8c1.6-.4 3.1 1.6 4.4 4.2.3.6.9.6 1.2 0C10.6 11.4 14.4 6.2 21 3.2",
+  "M3.2 11.6c1.3.2 2.4 1.9 3.6 4.6.4.9 1 .8 1.4.1 2.1-4.2 5.7-8.9 12.6-12.6",
+  "M2.8 13.6c2-.9 3.4 1 4.5 3.5.3.7 1 .7 1.3 0 2.4-5.2 6.4-9.8 12.2-13.3-1 .2-1.6.6-2.2 1",
+];
+export function ScribbleCheck({ variant = 0, className = "" }: { variant?: number; className?: string }) {
+  return (
+    <svg aria-hidden viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className={`h-[18px] w-[22px] shrink-0 ${className}`}>
+      <path d={scribbles[variant % scribbles.length]} />
+    </svg>
+  );
+}
+
 /** Thin down arrow. Nudges down when its parent `group` is hovered. */
 export function ArrowDown({ className = "" }: { className?: string }) {
   return (
