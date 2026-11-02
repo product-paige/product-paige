@@ -1,8 +1,7 @@
 import {
-  about, approach, audiences, contact, faq, models, services, site, testimonials,
+  about, approach, art, audiences, contact, faq, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
-import { AboutOptionB, AboutOptionC } from "@/components/AboutAlternatives";
 import { EditorialHero } from "@/components/EditorialHero";
 import { Faq } from "@/components/Faq";
 import { RecentProjects } from "@/components/RecentProjects";
@@ -27,48 +26,46 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: a dark block with a folded top-right corner, laid out like a magazine page: the photo on the left, the heading and text beside it. From md up the block sits between the
+        {/* About: a soft tinted panel with a folded top-right corner, laid out like a magazine page: the photo on the left, the heading and text beside it. From md up the block sits between the
             inner rails. */}
         <section id="about" className="relative z-1">
-          {/* Padded so the dark block's edges sit on the inner rails (24px md, 40px lg in from the
+          {/* Padded so the panel's edges sit on the inner rails (24px md, 40px lg in from the
               sheet's edge); inside, the content has its own padding, balanced with the top and bottom. */}
           <div className="md:px-6 lg:px-10">
-          <div className="folded-top relative bg-dark px-5 py-8 text-white sm:px-6 md:px-8 lg:px-12 lg:py-16 xl:px-16">
-            <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-6">
-              {/* The photo as a print, in a white border */}
-              <Reveal className="mx-auto w-full max-w-[460px] lg:col-span-6 lg:mx-0 lg:max-w-none lg:pr-16">
-                <figure className="polaroid">
-                  <span className="photo-grain block aspect-square">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
-                  </span>
-                </figure>
+          <div className="folded-top relative bg-sheet px-5 py-8 [--fold-color:var(--color-scrap)] sm:px-6 md:px-8 lg:px-12 lg:py-16 xl:px-16">
+            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-6">
+              {/* The photo in an arched frame, with a starburst behind it */}
+              <Reveal className="relative mx-auto w-full max-w-[340px] lg:col-span-5 lg:mx-0 lg:max-w-[400px]">
+                <Illo art={art.starburstBlue} className="absolute -top-10 -left-12 w-[60%] -rotate-12" />
+                <span className="photo-grain relative block aspect-[4/5] overflow-hidden rounded-t-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
+                </span>
               </Reveal>
               <div className="lg:col-span-6 lg:col-start-7">
                 <Reveal>
-                  <h2 className="serif mb-6 text-[clamp(32px,3.8vw,48px)] leading-[1] tracking-[-0.04em] lg:mb-8"><Rich text={about.heading} /></h2>
+                  <h2 className={`${sectionHeading} mb-6 lg:mb-8`}><Rich text={about.heading} /></h2>
                 </Reveal>
-                <div className="lede space-y-5">
-                  {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80}>{p}</Reveal>)}
+                <div className="space-y-4">
+                  {about.paragraphs.map((p, i) => <Reveal as="p" key={i} delay={i * 80} className={i === 0 ? "lede" : "text-muted"}>{p}</Reveal>)}
                 </div>
-                {/* Stats line */}
-                <Reveal className="mt-10 grid border-t border-line-dark sm:grid-cols-3 lg:mt-14">
+                {/* Stats as tiles */}
+                <Reveal className="mt-10 grid gap-3 sm:grid-cols-3">
                   {about.facts.map((f) => (
-                    <div key={f.label} className="border-b border-line-dark py-5 pr-4">
-                      <p className="mb-1 text-[14px] label text-white/60">{f.label}</p>
-                      <p className="serif text-[18px] leading-snug lg:text-[20px]">{f.value}</p>
+                    <div key={f.label} className="border border-line bg-paper px-5 py-5">
+                      <p className="serif text-[clamp(20px,1.8vw,26px)] leading-[1.1] tracking-[-0.03em]">{f.value}</p>
+                      <p className="mt-2 text-[14px] label text-muted">{f.label}</p>
                     </div>
                   ))}
+                </Reveal>
+                <Reveal className="mt-10">
+                  <Button href={site.bookingUrl} accent>Book an intro call</Button>
                 </Reveal>
               </div>
             </div>
           </div>
           </div>
         </section>
-
-        {/* Alternatives to the About section above, to choose from */}
-        <AboutOptionB />
-        <AboutOptionC />
 
         {/* Recent projects */}
         <RecentProjects className="border-t border-grid py-8 lg:py-0" />
