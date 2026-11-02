@@ -36,8 +36,8 @@ export function EditorialHero() {
           {hero.heading.map((l) => <span key={l} className="block">{l}</span>)}
         </h1>
 
-        {/* Intro, in Manrope medium, 22px on desktop */}
-        <p className="mt-6 max-w-xl font-sans text-[18px] leading-snug font-medium tracking-[-0.03em] lg:mt-8 lg:text-[22px]">{hero.lede}</p>
+        {/* Intro, in Manrope regular, 22px on desktop */}
+        <p className="mt-6 max-w-xl font-sans text-[18px] leading-snug tracking-[-0.02em] lg:mt-8 lg:text-[22px]">{hero.lede}</p>
 
         {/* Storefront screens: a row of framed shots, each with a dark label. On desktop it's a grid
             whose columns are as wide as each screen's shape (width / height), so all four come out
