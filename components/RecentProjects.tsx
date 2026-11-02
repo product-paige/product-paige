@@ -1,23 +1,33 @@
 import { projects, type Project } from "@/content";
 import { CuttingMat } from "./CuttingMat";
 import { Cover } from "./Folder";
-import { ArrowUpRight, Chip, Container, Reveal, Rich, sectionHeading } from "./ui";
+import { ArrowUpRight, Container, Reveal, Rich, sectionHeading } from "./ui";
 
 // Each sheet's tilt and offset on the mat (desktop); phones stack them with a slight tilt.
 const fan = ["lg:-rotate-[4deg] lg:translate-y-6", "lg:rotate-[1.5deg] lg:-translate-y-1", "lg:rotate-[5deg] lg:translate-y-8"];
 const fanPhone = ["-rotate-1", "rotate-1", "-rotate-[0.5deg]"];
 
-/** A project as a sheet: the cover inset at the top, the name and a line on it, then its role and an arrow. */
+/** A project as a spec sheet: the cover inset at the top, the name (with an arrow) and a line on it, then the role and scope in ruled rows. */
 function SpecSheet({ p }: { p: Project }) {
   return (
     <span className="flex h-full flex-col bg-paper p-4 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(26_26_26/0.12)] transition-shadow duration-300 group-hover:shadow-[0_1px_0_rgb(0_0_0/0.06),0_20px_40px_rgb(26_26_26/0.16)] lg:p-5">
       <Cover p={p} className="aspect-[16/10] w-full" />
-      <span className="mt-4 block font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.client}</span>
+      {/* The name, with the buttons' arrow tab beside it; it turns on hover */}
+      <span className="mt-4 flex items-center justify-between gap-3">
+        <span className="font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.client}</span>
+        <span className="btn shrink-0" aria-hidden><span className="btn-tab size-8"><ArrowUpRight turn className="size-4" /></span></span>
+      </span>
       <span className="mt-1 block text-[15px] text-muted">{p.excerpt}</span>
-      <span className="mt-auto flex items-center justify-between gap-3 pt-5">
-        <Chip>{p.role}</Chip>
-        {/* The buttons' arrow tab; it turns on hover */}
-        <span className="btn" aria-hidden><span className="btn-tab size-8"><ArrowUpRight turn className="size-4" /></span></span>
+      {/* The spec rows, kept short: the role, and the first two parts of the scope */}
+      <span className="mt-4 block border-t border-line text-[13px]">
+        <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">
+          <span className="text-muted">Role</span>
+          <span>{p.role}</span>
+        </span>
+        <span className="grid grid-cols-[56px_1fr] gap-3 border-b border-line py-2.5">
+          <span className="text-muted">Scope</span>
+          <span>{p.capabilities.slice(0, 2).join(", ")}</span>
+        </span>
       </span>
     </span>
   );
