@@ -367,13 +367,13 @@
   background-repeat: no-repeat;
 }
 
-/* The asterisk beside the booking line in the hero: the availability green, with a glow
+/* The asterisk beside the booking line in the hero: the accent red, with a glow
    that spreads and fades */
 @keyframes star-pulse {
-  0% { filter: drop-shadow(0 0 0 color-mix(in srgb, var(--color-live) 60%, transparent)); }
+  0% { filter: drop-shadow(0 0 0 color-mix(in srgb, var(--color-accent) 60%, transparent)); }
   70%, 100% { filter: drop-shadow(0 0 7px transparent); }
 }
-.live-star { color: var(--color-live); animation: star-pulse 2.4s infinite; }
+.live-star { color: var(--color-accent); animation: star-pulse 2.4s infinite; }
 
 /* Scroll reveal. Only hides content once JS has marked the page ready,
    so the page still reads fine without JS. */
