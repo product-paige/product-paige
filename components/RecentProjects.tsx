@@ -38,8 +38,8 @@ function PhoneMockup({ p }: { p: Project }) {
 /**
  * Recent projects as a carousel in one row: big covers, two in view on desktop and one on phones,
  * snapping as you swipe or scroll sideways. Each has its role in a red pill (top right), the name in the serif
- * and its one-line description; hovering a cover brings up a phone mockup. The dots below show
- * where you are and jump to a project; they sit on the right. Each cover has a thin border, like the hero's screens.
+ * and its one-line description; hovering a cover brings up a phone mockup. Previous and next
+ * buttons sit on the right of the heading. Each cover has a thin border, like the hero's screens.
  */
 export function RecentProjects({ className = "" }: { className?: string }) {
   const track = useRef<HTMLUListElement>(null);
@@ -72,12 +72,26 @@ export function RecentProjects({ className = "" }: { className?: string }) {
   return (
     <section id="projects" className={className}>
       <Container>
-        {/* The heading as a small mono label with a red dot */}
-        <Reveal className="mb-6 lg:mb-8">
+        {/* The heading as a small mono label with a red dot; previous and next on the right */}
+        <Reveal className="mb-6 flex items-center justify-between gap-4 lg:mb-8">
           <h2 className="mono flex items-center gap-3">
             <i aria-hidden className="size-3 rounded-full bg-accent" />
             {projects.heading}
           </h2>
+          <div className="flex gap-1.5">
+            {([["Previous project", -1], ["Next project", 1]] as const).map(([label, step]) => {
+              const off = step < 0 ? active === 0 : active === projects.items.length - 1;
+              return (
+                <button key={label} type="button" aria-label={label} disabled={off} onClick={() => go(active + step)} className="btn disabled:cursor-default disabled:opacity-35">
+                  <span className="btn-tab size-10">
+                    <svg viewBox="0 0 20 20" className={`size-5 ${step < 0 ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <path d="M4 10h12M11 5l5 5-5 5" />
+                    </svg>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </Reveal>
         {/* Bottom padding: the row scrolls sideways, which clips anything below its edge (descenders) */}
         <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
@@ -97,19 +111,6 @@ export function RecentProjects({ className = "" }: { className?: string }) {
             </li>
           ))}
         </ul>
-        {/* Dots: one per project */}
-        <div className="mt-6 flex justify-end gap-2.5 lg:mt-8">
-          {projects.items.map((p, i) => (
-            <button
-              key={p.slug}
-              type="button"
-              aria-label={`Show ${p.client}`}
-              aria-current={active === i ? "true" : undefined}
-              onClick={() => go(i)}
-              className={`h-2.5 rounded-full transition-all duration-300 ${active === i ? "w-7 bg-ink" : "w-2.5 bg-ink/25 hover:bg-ink/50"}`}
-            />
-          ))}
-        </div>
       </Container>
     </section>
   );
