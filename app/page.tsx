@@ -33,9 +33,9 @@ export default function Home() {
             magazine page: the photo on the left, the heading and text beside it. From md up the block sits between the
             inner rails. */}
         <section id="about" className="relative z-1">
-          {/* Same outer box as Container, padded so the dark block's edges sit on the inner rails
-              (24px md, 40px lg in from the outer ones); inside, the content has its own padding, balanced with the top and bottom. */}
-          <div className="mx-auto w-full max-w-[1360px] md:w-[calc(100%-24px)] md:px-6 lg:px-10">
+          {/* Padded so the dark block's edges sit on the inner rails (24px md, 40px lg in from the
+              sheet's edge); inside, the content has its own padding, balanced with the top and bottom. */}
+          <div className="md:px-6 lg:px-10">
           <div className="folded-top relative bg-dark px-6 py-10 text-white sm:px-8 md:px-10 lg:px-16 lg:py-24 xl:px-24">
             <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-6">
               {/* A taped photo */}

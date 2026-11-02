@@ -44,11 +44,11 @@ export function Rich({ text }: { text: string }) {
 }
 
 export function Container({ className = "", tight = false, children }: { className?: string; tight?: boolean; children: ReactNode }) {
-  // From md up the outer edge sits 12px in from the window, exactly on the page rails, and the
-  // content sits a further gap inside the inner rails (24px + 24px md, 40px + 40px lg; see .page-rails).
+  // Fills the page sheet; from md up the content sits a gap inside the inner rails
+  // (24px + 24px md, 40px + 40px lg; see .page-rails).
   // `tight` (the header) sits just 16px inside the inner rails instead.
   const pad = tight ? "md:px-10 lg:px-14" : "md:px-12 lg:px-20";
-  return <div className={`mx-auto w-full max-w-[1360px] px-4 sm:px-6 md:w-[calc(100%-24px)] ${pad} ${className}`}>{children}</div>;
+  return <div className={`w-full px-4 sm:px-6 ${pad} ${className}`}>{children}</div>;
 }
 
 /**

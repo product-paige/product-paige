@@ -7,7 +7,8 @@
   --font-hand: var(--font-caveat), cursive;
 
   /* White */
-  --color-paper: #fcfbf7;   /* page background */
+  --color-paper: #fcfbf7;   /* the page sheet */
+  --color-gutter: #a9c1ee;  /* the blue ground around the sheet */
   --color-surface: #ffffff; /* cards */
   --color-ink: #383838;     /* text and dark buttons */
   --color-muted: #6b6b6b;
@@ -67,7 +68,7 @@
   :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
   body {
     /* 15px body text on phones, 16px from desktop up. */
-    @apply bg-paper font-sans text-[15px] text-ink antialiased lg:text-base;
+    @apply bg-gutter font-sans text-[15px] text-ink antialiased lg:text-base;
   }
   /* Every heading, serif or sans, is set a touch tight. */
   h1, h2, h3, h4, h5, h6 { letter-spacing: var(--tracking-display); }
@@ -177,49 +178,29 @@
   .btn-text, .btn-tab, .link, .tilt { transition: none; }
 }
 
-/* Page grid, from md up. Outer rails sit on Container's outer edge, with gridded
-   margins outside them; inner rails (.rails-inner) sit on its padding edge.
-   .page-rails is fixed behind the content, so the About panel (z-1) slides over and
-   hides it; .rails draws the same frame on the sticky header, which sits above. */
+/* Page frame: the whole site is a sheet of paper on a blue ground. The wrapper in the
+   layout leaves a 12px (24px from md) gutter of blue around it, and the sheet's edge is a
+   1px semi-transparent black rule, so it darkens the blue behind it rather than sitting
+   on it as flat ink. */
+.page-frame {
+  position: relative;
+  background: var(--color-paper);
+  border: 1px solid rgb(0 0 0 / 0.4);
+}
+
+/* Inner rails, from md up: two lines inset from the sheet's edge (24px md, 40px lg), on
+   Container's padding edge. .page-rails draws them behind the whole page, so the About
+   panel (z-1) slides over and hides them; .rails draws the same lines on the sticky
+   header and the dark blocks, which sit above. */
 .page-rails {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
 }
 .page-rails, .rails {
-  --rail: max(12px, calc(50% - 680px));
   --pad: 24px;
   @media (width >= 64rem) { --pad: 40px; }
-  @media (width >= 48rem) {
-    &::before, &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: var(--rail);
-      /* A fine square grid, fixed to the window so the squares line up across the header,
-         the page and the dark blocks, which each draw their own strips. Over it, a soft
-         shadow cast from the content column's edge, darkest at the rail, so the column
-         reads as a raised sheet. */
-      --squares: linear-gradient(var(--color-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
-      --shade: rgb(26 26 26 / 0.12), rgb(26 26 26 / 0.04) 10px, transparent 32px;
-      background-size: 100% 100%, 16px 16px, 16px 16px;
-      background-attachment: scroll, fixed, fixed;
-      pointer-events: none;
-    }
-    &::before {
-      left: 0;
-      border-right: 1px solid var(--color-grid);
-      background-image: linear-gradient(to left, var(--shade)), var(--squares);
-    }
-    &::after {
-      right: 0;
-      border-left: 1px solid var(--color-grid);
-      background-image: linear-gradient(to right, var(--shade)), var(--squares);
-    }
-  }
 }
 /* Dark blocks (contact, footer) draw their own .rails with the grid in light ink, since the
    page grid's dark tint disappears on them. */
@@ -231,8 +212,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: calc(var(--rail) + var(--pad));
-    right: calc(var(--rail) + var(--pad));
+    left: var(--pad);
+    right: var(--pad);
     border-inline: 1px solid var(--color-grid);
     pointer-events: none;
   }
