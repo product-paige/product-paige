@@ -215,8 +215,7 @@ export const blog = {
 
 // Case studies, from productpaige.com/projects. Each gets a page at /projects/<slug>.
 // Only Backspace Body has a cover image so far; the others show their name on a plain sheet.
-// To confirm: Product Prompt is hidden on productpaige.com right now, and the 92%
-// Canadian figure for Organic Moderne is the only hard number on the site.
+// To confirm: the 92% Canadian figure for Organic Moderne is the only hard number on the site.
 export type Project = {
   slug: string;
   client: string;
@@ -319,30 +318,6 @@ export const projects = {
         "Structure first rather than pages: six stages, pillar guides inside each, flat URLs, nothing nested. Content is written in Notion and mapped to the site schema.",
       outcome:
         "Library, playbooks, questions, glossary, stack and tutorials, every page prerendered for search. Write in Notion and it ships with the schema already attached.",
-    },
-    {
-      slug: "product-prompt",
-      client: "Product Prompt",
-      excerpt: "A paid content platform for AI builders",
-      role: "Websites",
-      liveUrl: "https://www.productprompt.io/",
-      tagline: "The marketing playbook for people who can suddenly build anything, and sell none of it",
-      summary:
-        "Product Prompt is a paid content platform (guides, workflows and a newsletter) for people building apps with AI. It teaches the less glamorous half of shipping: positioning, launch, activation, pricing and growth. The parts the AI tools don’t hand you.",
-      capabilities: ["Positioning", "Brand and identity", "Product design", "Full-stack build", "Payments and paywall"],
-      specs: [
-        { label: "Platform", value: "Next.js, Supabase, Stripe" },
-        { label: "CMS", value: "Sanity" },
-      ],
-      highlights: [
-        { label: "Guide library", value: "10 guides, 75 chapters" },
-        { label: "Access model", value: "One-time, not subscription" },
-        { label: "Status", value: "Newly live" },
-      ],
-      problem: "AI collapsed the cost of building an app. It didn’t touch anything that happens after that.",
-      approach:
-        "Positioning first: building got easy, the marketing part didn’t, and every other decision followed from that.",
-      outcome: "A live paid content platform, with the library architected and ready to write into.",
     },
   ] as Project[],
 };
