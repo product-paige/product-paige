@@ -21,9 +21,9 @@ export function EditorialHero() {
   return (
     <section className="relative">
       <Container className="relative pt-14 pb-14 lg:pt-20 lg:pb-20">
-        {/* A sticker on the right (desktop): the beauty box, tilted, its top just above the headline
-            and drawn behind it (the headline sits above, z-1). */}
-        <Illo art={art.parcel} className="pointer-events-none absolute top-[96px] right-[3%] hidden w-[clamp(220px,19vw,290px)] rotate-[8deg] lg:block" />
+        {/* A sticker on the right (desktop): the beauty box, tilted, in the top corner beside the
+            booking line, just overlapping the headline, which is drawn above it (z-1). */}
+        <Illo art={art.parcel} className="pointer-events-none absolute top-[28px] right-[2%] hidden w-[clamp(170px,14vw,215px)] rotate-[8deg] lg:block" />
         {/* Booking line, above the headline */}
         <p className="mb-6 flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:mb-8 lg:text-[20px]">
           <Asterisk className="live-star size-5" />
@@ -31,8 +31,8 @@ export function EditorialHero() {
         </p>
         {/* Desktop: sized to the content width (the window less the gutter, frame and padding,
             212px) so
-            the longer line, about 12.5em, always fits on one line; capped at 88px. */}
-        <h1 className="relative z-1 serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(88px,calc((100vw-212px)/12.8))]">
+            the longer line, about 12.5em, always fits on one line; capped at 97px, the most that fits inside the 1440px frame. */}
+        <h1 className="relative z-1 serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(97px,calc((100vw-212px)/12.6))]">
           {hero.heading.map((l) => <span key={l} className="block">{l}</span>)}
         </h1>
 
