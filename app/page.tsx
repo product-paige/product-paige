@@ -1,5 +1,5 @@
 import {
-  about, approach, contact, models, services, site, testimonials,
+  about, approach, contact, services, site, testimonials,
 } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { AudienceOptions } from "@/components/AudienceOptions";
@@ -14,7 +14,7 @@ import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Button, Container, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
+  Container, Reveal, Rich, ScribbleBullet, SectionHead, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -89,42 +89,8 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* Engagement models */}
-        <section id="pricing" className={section}>
-          <Container>
-            <SectionHead heading={models.heading} />
-            <div className="grid gap-3 lg:grid-cols-3">
-              {models.items.map((m, i) => (
-                <Reveal key={m.tag} delay={i * 120}>
-                  {/* Hover lives on this inner layer so it doesn't fight the reveal's transition. */}
-                  <div
-                    className={`flex h-full flex-col gap-5 border p-6 ${lift} lg:p-8 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
-                  >
-                    {/* The tag as a mono eyebrow with a red dot */}
-                    <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{m.tag}</p>
-                    <h3 className={cardTitle}>{m.title}</h3>
-                    <p>{m.body}</p>
-                    <div className="mt-auto pt-8 lg:pt-12">
-                      <p className={`text-sm label ${m.featured ? "text-white/60" : "text-muted"}`}>Starting at</p>
-                      <p className="mt-1 flex items-baseline gap-1.5">
-                        <span className={`serif text-[28px] leading-none ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
-                        <span className={m.featured ? "text-white/60" : "text-muted"}>{models.currency} {m.per}</span>
-                      </p>
-                    </div>
-                    <ul className={`divide-y border-t ${m.featured ? "divide-line-dark border-line-dark" : "divide-line border-line"}`}>
-                      {m.points.map((p) => <li key={p} className="py-2.5">{p}</li>)}
-                    </ul>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal className="mt-8 flex justify-center lg:mt-12">
-              <Button href={site.bookingUrl} accent>Start a project</Button>
-            </Reveal>
-          </Container>
-        </section>
 
-        {/* Ways to work together as a table, to compare (temporary) */}
+        {/* Ways to work together, as a table */}
         <PricingTable />
 
         {/* Approach */}
