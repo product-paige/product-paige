@@ -6,7 +6,8 @@ import { Fragment, useEffect, useState } from "react";
  * Top menu, with a rule between items and after the last, running the full height of the header.
  * Every item has 20px either side, so the gap between each label and the rules beside it (and
  * the left rail) is the same. An accent underline sweeps in under the item
- * whose section is currently in the middle of the screen. It sits below the label, so
+ * whose section is currently in the middle of the screen, and under any item on hover, when its
+ * cell also fills with the paper tint between its rules. It sits below the label, so
  * labels never shift.
  */
 export function Nav({ items }: { items: { label: string; href: string }[] }) {
@@ -53,12 +54,12 @@ export function Nav({ items }: { items: { label: string; href: string }[] }) {
             // Rooted, so the menu also works from the project pages.
             href={`/${n.href}`}
             aria-current={isActive ? "location" : undefined}
-            className="flex items-center px-5 text-[16px] font-medium transition hover:text-muted"
+            className="group flex items-center px-5 text-[16px] font-medium transition-colors duration-300 hover:bg-sheet"
           >
             <span className="relative">
               <i
                 aria-hidden
-                className={`absolute inset-x-0 -bottom-0.5 h-px origin-left bg-accent transition-transform duration-500 ${isActive ? "scale-x-100" : "scale-x-0"}`}
+                className={`absolute inset-x-0 -bottom-0.5 h-px origin-left bg-accent transition-transform duration-500 group-hover:scale-x-100 ${isActive ? "scale-x-100" : "scale-x-0"}`}
               />
               {n.label}
             </span>
