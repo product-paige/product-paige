@@ -53,37 +53,26 @@ export default function Home() {
               </Reveal>
             </div>
 
-            {/* The panel, an open notebook: graph paper on the left page with the photo clipped to it,
-                ruled paper on the right (torn where it meets the left) with a handwritten note, a
-                taped booking line and the stickers. It runs from the column's left edge out to the
-                page sheet's edge (lg:-mr-20 cancels the Container's padding), square on that side. */}
+            {/* The panel: from the column's left edge out past the inner rail to the page sheet's
+                edge (lg:-mr-20 cancels the Container's padding), square on that side. */}
             <Reveal className="relative lg:-mr-20">
-              <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_18px_40px_rgb(26_26_26/0.08)] lg:aspect-auto lg:h-[620px] lg:rounded-r-none lg:border-r-0">
-                <div aria-hidden className="page-graph absolute inset-y-0 left-0 w-[58%]" />
-                <div aria-hidden className="page-ruled absolute inset-y-0 right-0 w-[46%]" />
-
-                {/* The photo, clipped to the graph page */}
-                <figure className="absolute top-[12%] left-[7%] w-[44%] -rotate-3 bg-white p-2.5 pb-4 shadow-[0_1px_0_rgb(0_0_0/0.06),0_12px_28px_rgb(26_26_26/0.14)]">
+              <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] bg-scrap lg:aspect-auto lg:h-[620px] lg:rounded-r-none">
+                {/* Punched holes along the top */}
+                <div aria-hidden className="absolute inset-x-8 top-6 flex justify-between">
+                  {Array.from({ length: 7 }).map((_, i) => <i key={i} className="size-5 rounded-full bg-paper" />)}
+                </div>
+                <Illo art={art.starburstBlue} className="absolute top-[7%] right-[4%] w-[40%] rotate-12" />
+                <figure className="absolute top-[18%] left-[16%] w-[58%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
                   </span>
-                  {/* Paperclip over the top edge */}
-                  <svg aria-hidden viewBox="0 0 24 64" fill="none" stroke="#9a9a9a" strokeWidth={2.2} strokeLinecap="round" className="absolute -top-6 left-[18%] h-16 w-6 rotate-[8deg]">
-                    <path d="M8 40V10a6 6 0 0 1 12 0v38a9 9 0 0 1-18 0V16" />
-                  </svg>
                 </figure>
-                <Illo art={art.basket} className="absolute bottom-[6%] left-[6%] w-[30%] -rotate-[10deg]" />
-
-                {/* The note on the ruled page, handwritten */}
-                <div className="font-hand absolute top-[11%] right-[6%] w-[36%] text-[clamp(20px,1.7vw,26px)] leading-[34px] text-ink">
-                  <p>Hi! I’m Paige.</p>
-                  <p>Product marketer &amp; designer, Shopify nerd.</p>
-                  <p className="mt-[34px]">Say hi, I don’t bite x</p>
-                </div>
-                {/* A taped strip with the booking line */}
-                <p className="font-hand absolute top-[58%] right-[8%] -rotate-3 bg-[rgb(56_56_56/0.08)] px-4 py-1.5 text-[clamp(18px,1.5vw,22px)] text-ink">{site.availability}</p>
-                <Illo art={art.starburstBlue} className="absolute right-[10%] bottom-[7%] w-[22%] rotate-12" />
+                <Illo art={art.basket} className="absolute bottom-[5%] left-[3%] w-[30%] -rotate-[10deg]" />
+                <p className="absolute right-[10%] bottom-[12%] rotate-3 bg-white px-5 py-4 text-[15px] leading-snug shadow-[0_1px_0_rgb(0_0_0/0.06),0_10px_24px_rgb(26_26_26/0.12)]">
+                  <span className="block font-medium">{site.name}</span>
+                  <span className="text-muted">{site.role}</span>
+                </p>
               </div>
             </Reveal>
           </Container>
