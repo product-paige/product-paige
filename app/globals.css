@@ -355,24 +355,12 @@
   @media (width >= 64rem) { --fold: 64px; }
 }
 
-/* Photo with tape across the top: the print itself, no white border, with a soft shadow. */
+/* Print: a photo in a white border with a deep bottom margin, and a soft shadow. */
 .polaroid {
   position: relative;
+  padding: 12px 12px 20px;
+  background: #fff;
   box-shadow: 0 1px 0 rgb(0 0 0 / 0.06), 0 12px 28px rgb(26 26 26 / 0.12);
-}
-/* Tape: a strip of blue masking tape (public/tape.webp, from productpaige.com) across the top. */
-.tape {
-  position: absolute;
-  top: -22px;
-  left: 50%;
-  z-index: 2;
-  width: 150px;
-  aspect-ratio: 560 / 192;
-  translate: -50% 0;
-  rotate: -4deg;
-  background: url("/tape.webp") center / contain no-repeat;
-  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.12));
-  pointer-events: none;
 }
 /* Native select with a thin chevron, so it looks the same in every browser */
 @utility select {

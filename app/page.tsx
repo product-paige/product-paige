@@ -34,10 +34,9 @@ export default function Home() {
           <div className="md:px-6 lg:px-10">
           <div className="folded-top relative bg-dark px-5 py-8 text-white sm:px-6 md:px-8 lg:px-12 lg:py-16 xl:px-16">
             <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-6">
-              {/* A taped photo */}
+              {/* The photo as a print, in a white border */}
               <Reveal className="mx-auto w-full max-w-[460px] lg:col-span-6 lg:mx-0 lg:max-w-none lg:pr-16">
                 <figure className="polaroid">
-                  <i aria-hidden className="tape" />
                   <span className="photo-grain block aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={site.photo} alt={site.photoAlt} width={540} height={540} loading="lazy" decoding="async" className="size-full object-cover" />
