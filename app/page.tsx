@@ -44,8 +44,8 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, the heading, the lead in the serif a step smaller, one line on how I work and the booking
-            button. Right, a grey panel running out to the page's edge, with the photo as a tilted
-            print, the basket sticker, and why founders work with me on a pinned card. */}
+            button. Right, a notebook spread (graph and ruled pages, punched holes) running out to the
+            page's edge, with the photo as a tilted print, the basket sticker, and why founders work with me on a pinned card. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -62,7 +62,14 @@ export default function Home() {
             {/* The panel: from the column's left edge out past the inner rail to the page sheet's
                 edge (lg:-mr-20 cancels the Container's padding), square on that side. */}
             <Reveal className="relative lg:-mr-20">
-              <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] bg-scrap lg:aspect-auto lg:h-[620px] lg:rounded-r-none">
+              <div className="relative aspect-[5/4] overflow-hidden rounded-[24px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_18px_40px_rgb(26_26_26/0.08)] lg:aspect-auto lg:h-[620px] lg:rounded-r-none lg:border-r-0">
+                {/* Notebook pages: graph paper on the left, ruled paper on the right (torn where it
+                    meets the left), with punched holes along the top */}
+                <div aria-hidden className="page-graph absolute inset-y-0 left-0 w-[58%]" />
+                <div aria-hidden className="page-ruled absolute inset-y-0 right-0 w-[46%]" />
+                <div aria-hidden className="absolute inset-x-8 top-5 flex justify-between">
+                  {Array.from({ length: 9 }).map((_, i) => <i key={i} className="size-4 rounded-full bg-paper shadow-[inset_0_1px_2px_rgb(26_26_26/0.18)] lg:size-5" />)}
+                </div>
                 <figure className="absolute top-[12%] left-[7%] w-[54%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
