@@ -12,7 +12,7 @@ import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Button, Chip, Container, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
+  Button, Container, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -95,7 +95,8 @@ export default function Home() {
                   <div
                     className={`flex h-full flex-col gap-5 border p-6 ${lift} lg:p-8 ${m.featured ? "border-dark bg-dark text-white" : "border-line bg-surface"}`}
                   >
-                    <Chip className={`self-start ${m.featured ? "bg-white/10" : ""}`}>{m.tag}</Chip>
+                    {/* The tag as a mono eyebrow with a red dot */}
+                    <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{m.tag}</p>
                     <h3 className={cardTitle}>{m.title}</h3>
                     <p>{m.body}</p>
                     <div className="mt-auto pt-8 lg:pt-12">
