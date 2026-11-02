@@ -61,7 +61,7 @@ export default function Home() {
                 <div aria-hidden className="absolute inset-x-8 top-6 flex justify-between">
                   {Array.from({ length: 7 }).map((_, i) => <i key={i} className="size-5 rounded-full bg-paper" />)}
                 </div>
-                <Illo art={art.starburstBlue} className="absolute top-[14%] left-[8%] w-[42%] -rotate-12" />
+                <Illo art={art.starburstBlue} className="absolute top-[7%] right-[4%] w-[40%] rotate-12" />
                 <figure className="absolute top-[18%] left-[16%] w-[58%] -rotate-3 bg-white p-3 pb-5 shadow-[0_1px_0_rgb(0_0_0/0.06),0_16px_36px_rgb(26_26_26/0.14)]">
                   <span className="photo-grain block aspect-square">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
