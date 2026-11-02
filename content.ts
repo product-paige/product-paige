@@ -135,8 +135,8 @@ export const audiences = {
   items: [
     {
       tone: "bg-scrap",
-      title: "New brands",
-      body: "Launching your first Shopify store.",
+      title: "Starting out",
+      body: "Your first Shopify store is on the way.",
       art: art.seedling,
       points: [
         "You’ve got the product, just not the store",
@@ -146,8 +146,8 @@ export const audiences = {
     },
     {
       tone: "bg-scrap",
-      title: "Existing brands",
-      body: "Already selling, ready to sell more.",
+      title: "Already selling",
+      body: "You’ve got customers. You want more.",
       art: art.cashRegister,
       points: [
         "Traffic browses, then bounces",
@@ -157,7 +157,7 @@ export const audiences = {
     },
     {
       tone: "bg-scrap",
-      title: "Ecommerce SaaS",
+      title: "Building for Shopify",
       body: "Apps and tools for Shopify merchants.",
       art: art.laptop,
       points: [
