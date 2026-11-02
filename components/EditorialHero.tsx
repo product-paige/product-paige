@@ -13,12 +13,11 @@ function Asterisk({ className = "" }: { className?: string }) {
 
 /**
  * The hero: the headline in three stacked lines, the intro, then a rule with the hero pills on
- * the left and the booking line on the right. On desktop it stays pinned under the header while
- * the dark About panel slides up over it.
+ * the left and the booking line on the right.
  */
 export function EditorialHero() {
   return (
-    <section className="relative lg:sticky lg:top-[68px]">
+    <section className="relative">
       <Container className="pt-8 pb-10 lg:pt-10 lg:pb-14">
         {/* Desktop: sized to the content width (the window less the rails and padding, 184px) so
             the longer line, about 12.5em, always fits on one line; capped at 88px. */}

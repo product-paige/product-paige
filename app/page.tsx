@@ -24,13 +24,12 @@ export default function Home() {
       <SiteHeader />
 
       <main id="top">
-        {/* Hero and About share a wrapper: on desktop the hero stays pinned while the dark About panel
-            slides up over it, then both scroll away together. */}
-        <div className="relative">
         <EditorialHero />
 
-        {/* About: a dark block with a folded top-right corner, that slides up over the hero, laid out like a
-            magazine page: the photo on the left, the heading and text beside it. From md up the block sits between the
+        {/* Recent projects */}
+        <RecentProjects className="border-t border-grid py-8 lg:py-0" />
+
+        {/* About: a dark block with a folded top-right corner, laid out like a magazine page: the photo on the left, the heading and text beside it. From md up the block sits between the
             inner rails. */}
         <section id="about" className="relative z-1">
           {/* Padded so the dark block's edges sit on the inner rails (24px md, 40px lg in from the
@@ -69,11 +68,6 @@ export default function Home() {
           </div>
           </div>
         </section>
-
-        </div>
-
-        {/* Recent projects */}
-        <RecentProjects className="border-t border-grid py-8 lg:py-0" />
 
         {/* Audiences */}
         <section className={section}>
