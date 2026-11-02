@@ -23,8 +23,8 @@ const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
 function ProofList() {
   return (
     <>
-      <p className="font-medium">{about.proofHeading}</p>
-      <ul className="mt-3 space-y-2 text-[15px]">
+      <p className="text-base font-medium">{about.proofHeading}</p>
+      <ul className="mt-3 space-y-2 text-base">
         {about.proof.map((f, i) => (
           <li key={f} className="flex items-start gap-2.5">
             <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
