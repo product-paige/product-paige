@@ -348,7 +348,7 @@
   }
 }
 
-/* The Scrapbook board: a bright blue cutting mat. A margin (--m) with ruler ticks every cell (--c)
+/* The Who I work with board: a bright blue cutting mat. A margin (--m) with ruler ticks every cell (--c)
    and a longer tick every five, around a framed grid with a heavier line every five cells. */
 .cutting-mat {
   --m: 26px;

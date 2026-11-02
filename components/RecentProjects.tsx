@@ -72,13 +72,12 @@ export function RecentProjects({ className = "" }: { className?: string }) {
   return (
     <section id="projects" className={className}>
       <Container>
-        {/* The heading as a small mono label with a red dot, the line about the work on the right */}
-        <Reveal className="mb-6 flex flex-col gap-3 lg:mb-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+        {/* The heading as a small mono label with a red dot */}
+        <Reveal className="mb-6 lg:mb-8">
           <h2 className="mono flex items-center gap-3">
             <i aria-hidden className="size-3 rounded-full bg-accent" />
             {projects.heading}
           </h2>
-          <p className="max-w-xl text-[15px] lg:text-right">{projects.body}</p>
         </Reveal>
         {/* Bottom padding: the row scrolls sideways, which clips anything below its edge (descenders) */}
         <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
