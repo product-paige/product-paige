@@ -4,6 +4,7 @@ import {
 import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
+import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
@@ -44,16 +45,16 @@ export default function Home() {
       <main id="top">
         <EditorialHero />
 
-        {/* About: two columns. Left, the heading, the lead in the serif a step smaller, one line on how I work and the booking
+        {/* About: two columns. Left, "Hi, I’m Paige" as an eyebrow, the lead as the heading, one line on how I work and the booking
             button. Right, a notebook spread (graph and ruled pages, punched holes) running out to the
             page's edge, with the photo as a tilted print, the basket sticker, and why founders work with me on a pinned card. */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Reveal>
-                <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
+                <p className="text-[15px] font-medium text-muted lg:text-[16px]">{about.heading}</p>
+                <h2 className={`${sectionHeading} mt-4`}>{about.paragraphs[0]}</h2>
               </Reveal>
-              <Reveal as="p" delay={60} className="serif mt-4 text-[clamp(24px,2.2vw,32px)] leading-[1.15] tracking-[-0.03em] lg:mt-5">{about.paragraphs[0]}</Reveal>
               {about.paragraphs.slice(1).map((p) => <Reveal as="p" key={p} delay={80} className="lede mt-6 max-w-xl">{p}</Reveal>)}
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
@@ -99,27 +100,13 @@ export default function Home() {
         <WhoIWorkWith link />
 
         {/* Services */}
-        <section id="services" className={section}>
+        {/* No bottom padding: the last row's rule meets the next section's. */}
+        <section id="services" className="border-t border-grid pt-8 lg:pt-20">
           <Container>
-            {/* The heading, with a single sticker beside it */}
-            <Reveal className="mb-8 flex items-center gap-4 lg:mb-16 lg:gap-6">
+            <Reveal className="mb-8 lg:mb-12">
               <h2 className={sectionHeading}><Rich text={services.heading} /></h2>
-              <Illo art={art.megaphone} className="h-16 w-auto -rotate-6 lg:h-24" />
             </Reveal>
-            {/* Dividers run out to the page rails; the rows keep the usual inset. */}
-            <div className="md:-mx-12 lg:-mx-20">
-              {services.items.map((s) => (
-                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-grid py-6 md:grid-cols-[1.1fr_1fr] md:items-center md:gap-6 md:px-12 md:py-10 lg:px-20">
-                  <div>
-                    <h3 className="serif text-[clamp(26px,2.8vw,38px)] leading-[1.05] tracking-[-0.04em]">{s.title}</h3>
-                    <div className="mt-3.5 flex flex-wrap gap-2">
-                      {s.tags.map((t) => <Chip key={t}>{t}</Chip>)}
-                    </div>
-                  </div>
-                  <p className="max-w-lg">{s.body}</p>
-                </Reveal>
-              ))}
-            </div>
+            <Phases topBorder />
           </Container>
         </section>
 

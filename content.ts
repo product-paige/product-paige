@@ -97,30 +97,9 @@ export const about = {
   proof: ["13+ years on Shopify", "2x brand founder", "Based in Kitchener, Ontario"],
 };
 
+// The rows under this heading are the approach phases (approachPage.phases).
 export const services = {
   heading: "How I can help",
-  items: [
-    {
-      title: "Web and product design",
-      tags: ["Shopify themes", "Typography and color", "Product data"],
-      body: "Shopify storefronts and marketing sites. A refresh of what you already have, or designed and built from scratch in your theme.",
-    },
-    {
-      title: "UX and conversion",
-      tags: ["UX review", "Conversion", "Scoped plan"],
-      body: "A positioning and UX review, with a written list of what to fix first. I’ll tell you if you don’t need me.",
-    },
-    {
-      title: "Positioning and messaging",
-      tags: ["Positioning", "Copywriting", "Product strategy"],
-      body: "Naming, positioning and copy across the whole site. Your product will make sense to someone outside the building.",
-    },
-    {
-      title: "Content and campaigns",
-      tags: ["Landing pages", "Email design", "Campaign copy"],
-      body: "Landing pages, emails or a whole campaign, made with AI tools. Scoped, built and handed over before your launch date.",
-    },
-  ],
 };
 
 export const audiences = {

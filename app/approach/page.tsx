@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { approachPage, projects, site } from "@/content";
+import { approachPage, site } from "@/content";
 import { FaqSection } from "@/components/FaqSection";
+import { Phases } from "@/components/Phases";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
-import { Button, Chip, Container, Reveal, Rich, section, sectionHeading } from "@/components/ui";
+import { Button, Container, Reveal, Rich, section, sectionHeading } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: `${approachPage.heading} · ${site.name}`,
@@ -16,7 +17,6 @@ export const metadata: Metadata = {
  * and the FAQs (also shared).
  */
 export default function ApproachPage() {
-  const project = (slug: string) => projects.items.find((p) => p.slug === slug);
   return (
     <>
       <PageRails />
@@ -35,37 +35,10 @@ export default function ApproachPage() {
 
         <WhoIWorkWith body={approachPage.audiencesBody} />
 
-        {/* The four phases. Dividers run out to the sheet's edges; the rows keep the usual inset. */}
+        {/* The four phases */}
         <section className="border-t border-grid">
           <Container>
-            <div className="md:-mx-12 lg:-mx-20">
-              {approachPage.phases.map((ph, i) => (
-                <Reveal as="article" key={ph.title} className="grid gap-6 border-grid py-10 not-first:border-t md:grid-cols-[auto_1.1fr_1fr] md:gap-8 md:px-12 lg:gap-12 lg:px-20 lg:py-16">
-                  <p className="serif text-[clamp(28px,2.8vw,38px)] leading-none text-accent">{String(i + 1).padStart(2, "0")}</p>
-                  <div>
-                    <h2 className="serif text-[clamp(28px,3vw,42px)] leading-[1.05] tracking-[-0.04em]">{ph.title}</h2>
-                    <p className="mt-4 max-w-lg text-muted">{ph.body}</p>
-                  </div>
-                  <div className="space-y-6">
-                    <div>
-                      <p className="text-[14px] font-medium">Can include</p>
-                      <ul className="mt-3 flex flex-wrap gap-2">
-                        {ph.includes.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-[14px] font-medium">Case studies</p>
-                      <p className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
-                        {ph.caseStudies.map((slug) => {
-                          const p = project(slug);
-                          return p && <a key={slug} href={`/projects/${slug}`} className="link">{p.client}</a>;
-                        })}
-                      </p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <Phases caseStudies />
           </Container>
         </section>
 
