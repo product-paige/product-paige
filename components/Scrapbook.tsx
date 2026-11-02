@@ -16,7 +16,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
             {blog.linkLabel}
           </a>
         </Reveal>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blog.posts.map((p, i) => (
             <Reveal key={p.href} delay={i * 120}>
               <a href={p.href} className="scrap loose-leaf folded tilt group">
