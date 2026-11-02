@@ -37,9 +37,9 @@ function PhoneMockup({ p }: { p: Project }) {
 
 /**
  * Recent projects as a carousel in one row: big covers, two in view on desktop and one on phones,
- * snapping as you swipe or scroll sideways. Each has its role in a red pill, the name in the serif
+ * snapping as you swipe or scroll sideways. Each has its role in a red pill (top right), the name in the serif
  * and its one-line description; hovering a cover brings up a phone mockup. The dots below show
- * where you are and jump to a project.
+ * where you are and jump to a project; they sit on the right. Each cover has a thin border, like the hero's screens.
  */
 export function RecentProjects({ className = "" }: { className?: string }) {
   const track = useRef<HTMLUListElement>(null);
@@ -76,17 +76,17 @@ export function RecentProjects({ className = "" }: { className?: string }) {
           <h2 className={sectionHeading}><Rich text={projects.heading} /></h2>
           <p className="lede max-w-xl">{projects.body}</p>
         </Reveal>
-        <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
+        <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto md:gap-10 lg:gap-14 scroll-px-4 px-4 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
           {projects.items.map((p) => (
-            <li key={p.slug} className="w-[88%] shrink-0 snap-start md:w-[calc(50%-12px)]">
+            <li key={p.slug} className="w-[88%] shrink-0 snap-start md:w-[calc(50%-20px)] lg:w-[calc(50%-28px)]">
               <a href={`/projects/${p.slug}`} className="group block">
-                <span className="relative block overflow-hidden">
+                <span className="relative block overflow-hidden border border-line">
                   <Cover p={p} className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.02]" />
-                  <Chip className="absolute bottom-3 left-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
+                  <Chip className="absolute top-3 right-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
                   <PhoneMockup p={p} />
                 </span>
-                <span className="mt-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
-                  <span className="serif text-[clamp(24px,2vw,30px)] leading-none tracking-[-0.03em]">{p.client}</span>
+                <span className="mt-4 flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
+                  <span className="serif text-[clamp(20px,1.6vw,24px)] leading-none tracking-[-0.03em]">{p.client}</span>
                   <span className="max-w-[32ch] text-[15px] md:text-right">{p.excerpt}</span>
                 </span>
               </a>
@@ -94,7 +94,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
           ))}
         </ul>
         {/* Dots: one per project */}
-        <div className="mt-8 flex justify-center gap-2.5 lg:mt-10">
+        <div className="mt-8 flex justify-end gap-2.5 lg:mt-10">
           {projects.items.map((p, i) => (
             <button
               key={p.slug}
