@@ -3,16 +3,16 @@ import {
 } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { ContactForm } from "@/components/ContactForm";
-import { CuttingMat } from "@/components/CuttingMat";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
+import { TimelineProgress } from "@/components/TimelineProgress";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Button, Container, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, section, sectionHeading,
+  Button, Container, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -119,24 +119,33 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* Approach: the steps as cards on the blue cutting mat */}
+        {/* Approach */}
         <section id="approach" className={section}>
-          <Container>
-            <SectionHead heading={approach.heading} body={approach.body} />
-            <div className="relative overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:px-14 lg:py-16">
-              <CuttingMat />
-              <ol className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-                {approach.steps.map((p, i) => (
-                  <Reveal as="li" key={p.title} delay={i * 120} className="h-full">
-                    <div className="h-full bg-paper p-6 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(0_0_0/0.18)] lg:p-7">
-                      <p className="mono flex items-center gap-3 text-[12px]"><i aria-hidden className="size-2.5 rounded-full bg-accent" />Step {String(i + 1).padStart(2, "0")}</p>
-                      <h3 className="mt-5 font-sans text-[20px] font-semibold leading-tight tracking-[-0.03em]">{p.title}</h3>
-                      <p className="mt-2 text-[15px]">{p.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </ol>
-            </div>
+          <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
+            <Reveal className="lg:sticky lg:top-28 lg:self-start">
+              <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
+              <p className="lede mt-5 max-w-xl">{approach.body}</p>
+            </Reveal>
+            {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
+                (grey and small until the line reaches it, then accent red). */}
+            <ol className="relative grid gap-12 lg:gap-16 before:absolute before:top-2 before:bottom-2 before:left-[9px] before:w-px before:bg-line before:content-['']">
+              <TimelineProgress />
+              {approach.steps.map((p, i) => (
+                <Reveal as="li" key={p.title} delay={i * 120} className="group pl-12">
+                  {/* Number and title share one line; the dot sits on the first line, out on the timeline. */}
+                  <h3 className={`${listTitle} relative flex items-baseline gap-4`}>
+                    <span
+                      data-dot
+                      aria-hidden
+                      className="absolute top-[0.52em] -left-[46px] size-[15px] -translate-y-1/2 rounded-full bg-accent ring-[6px] ring-paper transition duration-500 group-data-pending:scale-[0.6] group-data-pending:bg-muted"
+                    />
+                    <span className="text-muted">{String(i + 1).padStart(2, "0")}</span>
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 max-w-[40ch]">{p.body}</p>
+                </Reveal>
+              ))}
+            </ol>
           </Container>
         </section>
 
