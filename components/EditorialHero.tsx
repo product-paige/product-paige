@@ -1,6 +1,5 @@
 import { hero, site } from "@/content";
 import { CartMockup } from "./Mockups";
-import { TagIcon } from "./TagIcon";
 import { Chip, Container } from "./ui";
 
 /** A six-armed asterisk, as on printed ephemera. */
@@ -13,8 +12,7 @@ function Asterisk({ className = "" }: { className?: string }) {
 }
 
 /**
- * The hero: the booking line, the headline, the intro, a row of storefront screens, then a rule
- * with the hero pills.
+ * The hero: the booking line, the headline, the intro, then a row of storefront screens.
  */
 // The cart mockup's shape (width / height); it's drawn in HTML, so this is ours to pick.
 const cartRatio = 0.9;
@@ -22,7 +20,7 @@ const cartRatio = 0.9;
 export function EditorialHero() {
   return (
     <section className="relative">
-      <Container className="pt-14 lg:pt-20">
+      <Container className="pt-14 pb-14 lg:pt-20 lg:pb-20">
         {/* Booking line, above the headline */}
         <p className="mb-6 flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:mb-8 lg:text-[20px]">
           <Asterisk className="live-star size-5" />
@@ -48,9 +46,9 @@ export function EditorialHero() {
             <figure key={shot.src} className="relative h-[220px] shrink-0 overflow-hidden rounded-[6px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_12px_28px_rgb(26_26_26/0.08)] lg:h-auto lg:w-full" style={{ aspectRatio: `${shot.width} / ${shot.height}` }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" className="size-full object-cover" />
-              {/* Bottom left: the badge if the screen has one (with its icon), otherwise its label */}
+              {/* Bottom left: the badge if the screen has one, otherwise its label */}
               <figcaption className="absolute bottom-3 left-3">
-                <Chip className="text-white [--color-chip:var(--color-ink)]" icon={shot.tagIcon && <TagIcon name={shot.tagIcon} />}>{shot.tag ?? shot.label}</Chip>
+                <Chip className="text-white [--color-chip:var(--color-ink)]">{shot.tag ?? shot.label}</Chip>
               </figcaption>
             </figure>
           ))}
@@ -58,20 +56,9 @@ export function EditorialHero() {
           <figure className="relative h-[220px] shrink-0 overflow-hidden rounded-[6px] border border-line shadow-[0_1px_0_rgb(0_0_0/0.04),0_12px_28px_rgb(26_26_26/0.08)] lg:h-auto lg:w-full" style={{ aspectRatio: `${cartRatio}` }}>
             <CartMockup className="size-full" />
             <figcaption className="absolute bottom-3 left-3">
-              <Chip className="text-white [--color-chip:var(--color-ink)]" icon={<TagIcon name="sparkle" />}>Conversion</Chip>
+              <Chip className="text-white [--color-chip:var(--color-ink)]">Conversion</Chip>
             </figcaption>
           </figure>
-        </div>
-
-        {/* Under the rule: the hero pills. The rule runs the full width of the page sheet, like the
-            section lines, and the row sits centred between it and the next section's line, with the
-            usual inset. */}
-        <div className="-mx-4 mt-12 flex flex-col gap-5 border-t border-grid px-4 py-6 sm:-mx-6 sm:px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:mt-16 lg:flex-row lg:items-center lg:justify-between lg:px-20 lg:py-8">
-          <div className="flex flex-wrap gap-2 text-white [--color-chip:var(--color-ink)]">
-            {hero.tags.map((t) => (
-              <Chip key={t.label} icon={<TagIcon name={t.icon} />}>{t.label}</Chip>
-            ))}
-          </div>
         </div>
       </Container>
     </section>

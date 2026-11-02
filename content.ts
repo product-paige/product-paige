@@ -5,8 +5,6 @@
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
 // availability line, photo, testimonials, the prices ($300, $1,500, $4,000 and $8,500).
 
-import type { TagIconName } from "./components/TagIcon";
-
 export const site = {
   name: "Paige Eaton",
   // Header logo, on one line.
@@ -45,20 +43,13 @@ export const hero = {
   heading: ["Product marketing, design", "& AI builds for Shopify teams"],
   lede:
     "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs.",
-  // Each pill has a line icon (see components/TagIcon.tsx for the names).
-  tags: [
-    { label: "Store launches", icon: "bag" },
-    { label: "Redesigns", icon: "window" },
-    { label: "Conversion", icon: "sparkle" },
-    { label: "Shopify themes", icon: "apps" },
-  ] as { label: string; icon: TagIconName }[],
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
-  // `tag` and `tagIcon` (optional) replace the label at the bottom left with a badge.
+  // `tag` (optional) replaces the label at the bottom left.
   shots: [
-    { src: "/hero/homepage.jpg", label: "Homepage", tag: "Shopify themes", tagIcon: "apps", alt: "A children's clothing homepage: a serif headline over two photos, with category links between them", width: 701, height: 493 },
-    { src: "/hero/product-card.jpg", label: "Product card", tag: "Product pages", tagIcon: "bag", alt: "A product card for a green coat dress on a cream background, with a Staff pick badge, star rating and price", width: 349, height: 554 },
+    { src: "/hero/homepage.jpg", label: "Homepage", tag: "Shopify themes", alt: "A children's clothing homepage: a serif headline over two photos, with category links between them", width: 701, height: 493 },
+    { src: "/hero/product-card.jpg", label: "Product card", tag: "Product pages", alt: "A product card for a green coat dress on a cream background, with a Staff pick badge, star rating and price", width: 349, height: 554 },
     { src: "/hero/collection-banner.jpg", label: "Collection banner", alt: "A jewelry banner: gold and pearl earrings on stone, with a serif headline and a Shop now button", width: 720, height: 745 },
-  ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; tagIcon?: TagIconName }[],
+  ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string }[],
 };
 
 export const approach = {
