@@ -26,14 +26,15 @@ export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: s
           <div className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {audiences.items.map((a, i) => (
               <Reveal key={a.title} delay={i * 120} className="h-full">
-                {/* The title, the statement, then a few lines on how I'd help */}
+                {/* Who it's for, the statement, then a few lines on how I'd help */}
                 {/* Tilted, with the bottom-right corner folded over (.folded). The shadow sits on the
                     wrapper as a drop-shadow, since the fold's clip-path would cut a box-shadow off. */}
                 <div className={`h-full drop-shadow-[0_14px_22px_rgb(0_0_0/0.2)] transition-transform duration-300 hover:rotate-0 ${tilts[i % tilts.length]}`}>
                 <div className="folded flex h-full flex-col bg-paper p-6 pb-12 lg:p-8 lg:pb-14">
-                  {/* Same title style as the Scrapbook cards */}
-                  <h3 className={sansTitle}>{a.title}</h3>
-                  <p className="mt-3 text-[17px] font-medium leading-snug lg:text-[18px]">{a.body}</p>
+                  {/* Who it's for as a mono eyebrow with a red dot, then the statement as the title
+                      (the Scrapbook cards' title style) */}
+                  <p className="mono flex items-center gap-3"><i aria-hidden className="size-2.5 rounded-full bg-accent" />{a.title}</p>
+                  <h3 className={`${sansTitle} mt-4`}>{a.body}</h3>
                   <p className="mt-3 text-[15px]">{a.detail}</p>
                 </div>
                 </div>
