@@ -381,6 +381,13 @@
 @keyframes star-spin { to { rotate: 360deg; } }
 .live-star { color: var(--color-accent); animation: star-pulse 2.4s infinite, star-spin 8s linear infinite; }
 
+/* The hero sticker: rocks gently from side to side, as if hanging from a pin. */
+@keyframes sticker-sway {
+  0%, 100% { rotate: 9deg; }
+  50% { rotate: -5deg; }
+}
+.sticker-sway { rotate: 8deg; transform-origin: 50% 10%; animation: sticker-sway 5s ease-in-out infinite; }
+
 /* Scroll reveal. Only hides content once JS has marked the page ready,
    so the page still reads fine without JS. */
 .reveal-ready [data-reveal] {
@@ -393,6 +400,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .live-star { animation: none; }
+  .live-star, .sticker-sway { animation: none; }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
