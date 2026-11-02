@@ -105,25 +105,21 @@ export const services = {
   items: [
     {
       title: "Web and product design",
-      art: art.computer,
       tags: ["Shopify themes", "Typography and color", "Product data"],
       body: "Shopify storefronts and marketing sites. A refresh of what you already have, or designed and built from scratch in your theme.",
     },
     {
       title: "UX and conversion",
-      art: art.eye,
       tags: ["UX review", "Conversion", "Scoped plan"],
       body: "A positioning and UX review, with a written list of what to fix first. I’ll tell you if you don’t need me.",
     },
     {
       title: "Positioning and messaging",
-      art: art.megaphone,
       tags: ["Positioning", "Copywriting", "Product strategy"],
       body: "Naming, positioning and copy across the whole site. Your product will make sense to someone outside the building.",
     },
     {
       title: "Content and campaigns",
-      art: art.mailbox,
       tags: ["Landing pages", "Email design", "Campaign copy"],
       body: "Landing pages, emails or a whole campaign, made with AI tools. Scoped, built and handed over before your launch date.",
     },

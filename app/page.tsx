@@ -115,16 +115,15 @@ export default function Home() {
         {/* Services */}
         <section id="services" className={section}>
           <Container>
-            <SectionHead heading={services.heading} />
+            {/* The heading, with a single sticker beside it */}
+            <Reveal className="mb-8 flex items-center gap-4 lg:mb-16 lg:gap-6">
+              <h2 className={sectionHeading}><Rich text={services.heading} /></h2>
+              <Illo art={art.megaphone} className="h-16 w-auto -rotate-6 lg:h-24" />
+            </Reveal>
             {/* Dividers run out to the page rails; the rows keep the usual inset. */}
             <div className="md:-mx-12 lg:-mx-20">
               {services.items.map((s) => (
-                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-grid py-6 md:grid-cols-[auto_1.1fr_1fr] md:items-center md:gap-6 md:px-12 md:py-10 lg:gap-10 lg:px-20">
-                  {/* The row's illustration, left of the heading (from md); a fixed-width slot so the
-                      headings line up whatever each image's shape. */}
-                  <div className="hidden w-28 justify-center md:flex lg:w-32">
-                    <Illo art={s.art} className="h-24 w-auto max-w-full object-contain lg:h-28" />
-                  </div>
+                <Reveal as="article" key={s.title} className="grid gap-3 border-t border-grid py-6 md:grid-cols-[1.1fr_1fr] md:items-center md:gap-6 md:px-12 md:py-10 lg:px-20">
                   <div>
                     <h3 className="serif text-[clamp(26px,2.8vw,38px)] leading-[1.05] tracking-[-0.04em]">{s.title}</h3>
                     <div className="mt-3.5 flex flex-wrap gap-2">
