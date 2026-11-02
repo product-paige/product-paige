@@ -6,7 +6,7 @@ import { Illo } from "./ui";
 const select = "#4a8fe7";
 
 // Where each tool's file sits on the page.
-const toolSpots = ["top-[24%] left-0 sm:left-[4%]", "top-[48%] right-0 sm:right-[3%]", "top-[46%] left-0 sm:left-[4%]"];
+const toolSpots = ["top-[8%] left-0 sm:left-[4%]", "top-[34%] right-0 sm:right-[3%]", "top-[30%] left-0 sm:left-[4%]"];
 
 /** An item on the page with a file name under it, like an icon on a desktop. */
 function File({ name, className = "", children }: { name: string; className?: string; children: ReactNode }) {
@@ -31,8 +31,8 @@ function Handles() {
 
 /**
  * The About board laid out like a desktop, straight on the page: the photo and the tools as
- * files with their names under them, a folder that opens the projects, the basket selected
- * (tilted), the parcel sticker, and a cursor. Fills its square parent.
+ * files with their names under them, a folder that opens the projects, the parcel sticker
+ * selected (tilted), and a cursor. Fills its square parent.
  */
 export function AboutNotebook() {
   return (
@@ -66,14 +66,11 @@ export function AboutNotebook() {
         </File>
       ))}
 
-      {/* The basket, selected */}
-      <span className="absolute bottom-[3%] left-[3%] block w-[22%] -rotate-[9deg]">
+      {/* The parcel sticker, selected and tilted, low on the left */}
+      <span className="absolute bottom-[10%] left-0 block w-[30%] -rotate-[9deg]">
         <Handles />
-        <Illo art={art.basket} className="w-full" />
+        <Illo art={art.parcel} className="w-full" />
       </span>
-
-      {/* The parcel sticker, tilted, in the bottom right corner */}
-      <Illo art={art.parcel} className="absolute right-[1%] bottom-[2%] w-[22%] rotate-[10deg]" />
 
       {/* The cursor, just off the photo's corner */}
       <svg aria-hidden viewBox="0 0 24 24" className="absolute top-[66%] left-[78%] w-[5%] min-w-5 drop-shadow-[0_2px_2px_rgb(0_0_0/0.2)]">

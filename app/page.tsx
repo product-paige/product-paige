@@ -12,13 +12,30 @@ import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Button, Chip, Container, Illo, Reveal, Rich, SectionHead, cardTitle, listTitle, section, sectionHeading,
+  Button, Chip, Container, Illo, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
+/** Why founders work with me: a short list with scribble bullets, under the About copy. */
+function ProofList() {
+  return (
+    <>
+      <p className="font-medium">{about.proofHeading}</p>
+      <ul className="mt-3 space-y-2 text-[15px]">
+        {about.proof.map((f, i) => (
+          <li key={f} className="flex items-start gap-2.5">
+            <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
+            {f}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -29,16 +46,19 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, the heading, one paragraph in Manrope on who I am
-            and how I work, and the booking button. Right, the photo and tools laid
+            and how I work, why founders work with me, and the booking button. Right, the photo and tools laid
             out like a desktop (see AboutNotebook). */}
         {/* Tighter than the other sections: the board brings its own space. */}
         <section id="about" className="overflow-x-clip border-t border-grid py-6 lg:py-10">
-          <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div>
+          <Container className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="lg:pt-10">
               <Reveal>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
               <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>
+              <Reveal delay={100} className="mt-10 lg:mt-16">
+                <ProofList />
+              </Reveal>
               <Reveal className="mt-8 lg:mt-10">
                 <Button href={site.bookingUrl} accent>Book an intro call</Button>
               </Reveal>
