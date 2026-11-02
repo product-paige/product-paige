@@ -323,6 +323,19 @@
   background: var(--color-scrap) var(--grain);
 }
 
+/* Storefront screens in the hero: a soft lift on hover, the card rising and its shadow
+   deepening while the screen inside eases in a touch. */
+.shot {
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.04), 0 12px 28px rgb(26 26 26 / 0.08);
+  transition: translate 500ms var(--ease-soft), box-shadow 500ms var(--ease-soft);
+  & > :first-child { transition: scale 700ms var(--ease-soft); }
+  &:hover {
+    translate: 0 -4px;
+    box-shadow: 0 1px 0 rgb(0 0 0 / 0.04), 0 20px 40px rgb(26 26 26 / 0.14);
+    & > :first-child { scale: 1.03; }
+  }
+}
+
 /* Folded top-right corner (the About block): the corner is cut away and a flap in
    --fold-color sits in its place, as if the page were turned down. */
 .folded-top {
