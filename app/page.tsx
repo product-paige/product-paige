@@ -11,6 +11,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { TimelineProgress } from "@/components/TimelineProgress";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
+import { WhoIWorkWithOptions } from "@/components/WhoIWorkWithOptions";
 import {
   Button, Chip, Container, Reveal, Rich, ScribbleBullet, SectionHead, cardTitle, listTitle, section, sectionHeading,
 } from "@/components/ui";
@@ -73,6 +74,9 @@ export default function Home() {
 
         {/* Audiences (shared with /approach) */}
         <WhoIWorkWith link />
+
+        {/* Three card designs for Who I work with, to compare (temporary) */}
+        <WhoIWorkWithOptions />
 
         {/* Services */}
         <section id="services" className={section}>
