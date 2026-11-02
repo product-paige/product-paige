@@ -1,8 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { CuttingMat } from "./CuttingMat";
-import { ArrowUpRight, Container, sectionHeading } from "./ui";
+import { ArrowUpRight, Container, ScribbleBullet, sectionHeading } from "./ui";
 
 // Three other ways to do Who I work with: each helps a founder see themselves and then sends
 // them to the right place. Temporary, to compare; the winner replaces WhoIWorkWith.
@@ -33,6 +29,14 @@ const who = [
   },
 ];
 
+// How the right clients like to work (draft copy for Paige to edit).
+const aboutYou = [
+  "You like to prototype fast, with AI in the loop",
+  "You're fine if the process isn't linear",
+  "You'd rather ship and learn than polish forever",
+  "You want one person who owns it end to end",
+];
+
 function OptionLabel({ children }: { children: string }) {
   return <p className="mono mb-6 inline-block rounded-full bg-ink px-3 py-1.5 text-[12px] text-white">{children}</p>;
 }
@@ -47,45 +51,6 @@ function StartLink({ label }: { label: string }) {
   );
 }
 
-// A. "Which one are you?": a three-way switch. Picking one shows what you usually need and
-// where to start, on the blue mat.
-function Picker() {
-  const [i, setI] = useState(0);
-  const w = who[i];
-  return (
-    <section className="border-t border-grid py-8 lg:py-14">
-      <Container>
-        <OptionLabel>Option A · Which one are you?</OptionLabel>
-        <h2 className={sectionHeading}>Which one are you?</h2>
-        <div role="tablist" aria-label="Where you are" className="mt-8 inline-flex flex-wrap gap-1 rounded-ui border border-line bg-sheet p-1">
-          {who.map((x, n) => (
-            <button
-              key={x.title}
-              role="tab"
-              aria-selected={i === n}
-              onClick={() => setI(n)}
-              className={`mono rounded-ui px-4 py-2.5 text-[13px] transition-colors ${i === n ? "bg-ink text-white" : "hover:bg-paper"}`}
-            >
-              {x.title}
-            </button>
-          ))}
-        </div>
-        <div className="relative mt-6 overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:px-14 lg:py-16">
-          <CuttingMat />
-          <div role="tabpanel" className="relative grid gap-6 bg-paper p-6 shadow-[0_1px_0_rgb(0_0_0/0.06),0_14px_30px_rgb(0_0_0/0.18)] md:grid-cols-2 lg:gap-12 lg:p-10">
-            <p className="serif text-[clamp(26px,2.8vw,40px)] leading-[1.1] tracking-[-0.03em]">{w.you}</p>
-            <div className="md:pt-2">
-              <p className="mono text-[12px] text-muted">What usually helps</p>
-              <p className="mt-2 text-[17px] lg:text-[18px]">{w.need}</p>
-              <div className="mt-6"><StartLink label={w.start} /></div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
 // B. One sentence: the three audiences inline in a single big line, each a link down to where
 // to start. No cards at all.
 function Sentence() {
@@ -94,19 +59,35 @@ function Sentence() {
       <Container>
         <OptionLabel>Option B · One sentence</OptionLabel>
         <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />Who I work with</p>
-        <p className="serif mt-6 max-w-[26ch] text-[clamp(32px,4.4vw,60px)] leading-[1.12] tracking-[-0.04em]">
-          I typically work with founders{" "}
-          {who.map((w, n) => (
-            <span key={w.title}>
-              <a href="#pricing" className="underline decoration-accent decoration-[0.06em] underline-offset-[0.16em] transition-colors hover:text-accent">
-                {w.phrase}
-              </a>
-              {n === 0 ? ", " : n === 1 ? " and teams " : ""}
-            </span>
-          ))}
-          .
-        </p>
-        <p className="mt-6 max-w-xl text-[17px]">Pick the one that sounds like you and I'll point you to where to start.</p>
+        <div className="mt-6 grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-end lg:gap-16">
+          <div>
+            <p className="serif max-w-[26ch] text-[clamp(32px,4vw,56px)] leading-[1.12] tracking-[-0.04em]">
+              I typically work with founders{" "}
+              {who.map((w, n) => (
+                <span key={w.title}>
+                  <a href="#pricing" className="underline decoration-accent decoration-[0.06em] underline-offset-[0.16em] transition-colors hover:text-accent">
+                    {w.phrase}
+                  </a>
+                  {n === 0 ? ", " : n === 1 ? " and teams " : ""}
+                </span>
+              ))}
+              .
+            </p>
+            <p className="mt-6 max-w-xl text-[17px]">Pick the one that sounds like you and I'll point you to where to start.</p>
+          </div>
+          {/* About you: how they like to work, so the right people recognise themselves */}
+          <div className="border-t border-line pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
+            <p className="text-base font-medium">About you</p>
+            <ul className="mt-3 space-y-2.5">
+              {aboutYou.map((t, i) => (
+                <li key={t} className="flex items-start gap-2.5">
+                  <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </Container>
     </section>
   );
@@ -161,7 +142,6 @@ function Table() {
 export function AudienceOptions() {
   return (
     <>
-      <Picker />
       <Sentence />
       <Table />
     </>
