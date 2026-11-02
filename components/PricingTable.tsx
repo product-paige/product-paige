@@ -9,8 +9,8 @@ type Model = (typeof models.items)[number];
 /**
  * Ways to work together as a table, like the Who I work with table: one column per way of working
  * with its tag as a folder tab on top, and rows for what it is, the price and what's included,
- * in a full grid of fine borders. Clicking a tab picks that option: its tab goes dark and its
- * column is tinted (the featured one to start). On phones each option becomes its own stacked
+ * in a full grid of fine borders. Clicking a tab picks that option: its tab and column take the
+ * same pale red tint (the featured one to start). On phones each option becomes its own stacked
  * block with the same rows.
  */
 export function PricingTable() {
@@ -47,15 +47,16 @@ export function PricingTable() {
       ),
     ],
   ];
-  // The picked option: its tab goes dark and its whole column is tinted. Starts on the featured one.
+  // The picked option: its tab and its whole column take the same pale red tint. Starts on the featured one.
   const [picked, setPicked] = useState(Math.max(0, models.items.findIndex((m) => m.featured)));
-  const tint = (i: number) => (picked === i ? "bg-[color-mix(in_srgb,var(--color-accent)_7%,var(--color-paper))]" : "");
+  const pickedBg = "bg-[color-mix(in_srgb,var(--color-accent)_7%,var(--color-paper))]";
+  const tint = (i: number) => (picked === i ? pickedBg : "");
   const Tab = ({ m, i }: { m: Model; i: number }) => (
     <button
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 text-[13px] font-normal transition-colors ${picked === i ? "bg-ink text-white" : "bg-sheet hover:bg-paper"}`}
+      className={`mono -mb-px inline-flex cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 text-[13px] font-normal transition-colors ${picked === i ? pickedBg : "bg-sheet hover:bg-paper"}`}
     >
       <i aria-hidden className="size-2.5 rounded-full bg-accent" />{m.tag}
     </button>
