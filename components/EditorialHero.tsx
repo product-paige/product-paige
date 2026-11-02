@@ -28,8 +28,9 @@ export function EditorialHero() {
         {/* Intro, in Manrope medium, 22px on desktop */}
         <p className="mt-6 max-w-xl font-sans text-[18px] leading-snug font-medium tracking-[-0.03em] lg:mt-8 lg:text-[22px]">{hero.lede}</p>
 
-        {/* Under the rule: the hero pills on the left, the booking line on the right */}
-        <div className="mt-8 flex flex-col gap-5 border-t border-line pt-6 lg:flex-row lg:items-center lg:justify-between lg:pt-8">
+        {/* Under the rule: the hero pills on the left, the booking line on the right. The rule runs
+            the full width of the page sheet, like the section lines; the row keeps the usual inset. */}
+        <div className="-mx-4 mt-8 flex flex-col gap-5 border-t border-grid px-4 pt-6 sm:-mx-6 sm:px-6 md:-mx-12 md:px-12 lg:-mx-20 lg:flex-row lg:items-center lg:justify-between lg:px-20 lg:pt-8">
           <div className="flex flex-wrap gap-2 text-white [--color-chip:var(--color-ink)]">
             {hero.tags.map((t) => (
               <Chip key={t.label} icon={<TagIcon name={t.icon} />}>{t.label}</Chip>
