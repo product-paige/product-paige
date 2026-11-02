@@ -20,7 +20,9 @@ export function EditorialHero() {
   return (
     <section className="relative lg:sticky lg:top-[68px]">
       <Container className="pt-8 pb-10 lg:pt-10 lg:pb-14">
-        <h1 className="serif text-[clamp(44px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em]">
+        {/* Desktop: sized to the content width (the window less the rails and padding, 184px) so
+            the longer line, about 12.5em, always fits on one line; capped at 88px. */}
+        <h1 className="serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(88px,calc((100vw-184px)/12.8))]">
           {hero.heading.map((l) => <span key={l} className="block">{l}</span>)}
         </h1>
 

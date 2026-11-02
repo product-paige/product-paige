@@ -100,18 +100,22 @@ export function RecentProjects({ className = "" }: { className?: string }) {
         <div className="lg:sticky lg:top-[68px] lg:flex lg:h-[calc(100svh-68px)] lg:flex-col lg:justify-center lg:overflow-x-clip">
           <Container>
             <Head />
-            <div
-              ref={track}
-              className="-mx-4 flex cursor-grab snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 select-none data-dragging:cursor-grabbing data-dragging:snap-none sm:-mx-6 sm:px-6 lg:mx-0 lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0"
-            >
-              {projects.items.map((p, i) => (
-                <div
-                  key={p.slug}
-                  className="w-[86%] shrink-0 snap-start sm:w-[64%] lg:w-[min(560px,42vw)]"
-                >
-                  <Folder p={p} i={i} />
-                </div>
-              ))}
+            {/* On desktop the row slides inside a frame that runs from inner rail to inner rail
+                (40px either side of the content), so cards enter and leave at the rails. */}
+            <div className="lg:-mx-10 lg:overflow-x-clip lg:px-10">
+              <div
+                ref={track}
+                className="-mx-4 flex cursor-grab snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 select-none data-dragging:cursor-grabbing data-dragging:snap-none sm:-mx-6 sm:px-6 lg:mx-0 lg:snap-none lg:overflow-visible lg:px-0 lg:pb-0"
+              >
+                {projects.items.map((p, i) => (
+                  <div
+                    key={p.slug}
+                    className="w-[86%] shrink-0 snap-start sm:w-[64%] lg:w-[min(560px,42vw)]"
+                  >
+                    <Folder p={p} i={i} />
+                  </div>
+                ))}
+              </div>
             </div>
           </Container>
         </div>
