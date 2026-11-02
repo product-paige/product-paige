@@ -19,6 +19,9 @@ export const art = {
   building: illo("building", 1200, 1454),
   lightbulb: illo("lightbulb", 1200, 1285),
   phone: illo("phone-in-hand", 1200, 1204),
+  laptop: illo("laptop-telephone", 1200, 1223),
+  starburstCream: illo("starburst-cream", 1200, 865),
+  starburstBlue: illo("starburst-blue", 1200, 1204),
 };
 export type Art = (typeof art)[keyof typeof art];
 
@@ -131,7 +134,7 @@ export const audiences = {
   items: [
     {
       tone: "bg-scrap",
-      title: "You’re starting from scratch",
+      title: "New brands",
       art: art.seedling,
       points: [
         "You’ve got the product, just not the store",
@@ -141,12 +144,22 @@ export const audiences = {
     },
     {
       tone: "bg-scrap",
-      title: "You’re already selling on Shopify",
+      title: "Existing brands",
       art: art.cashRegister,
       points: [
         "Your traffic window-shops, then leaves",
         "It still looks like the theme’s demo store",
         "You’ve outgrown the site you built at 2am",
+      ],
+    },
+    {
+      tone: "bg-scrap",
+      title: "Ecommerce SaaS",
+      art: art.laptop,
+      points: [
+        "Your app works. Your listing doesn’t sell it",
+        "Merchants install, look around, then uninstall",
+        "The demo only makes sense to you and your cofounder",
       ],
     },
   ],

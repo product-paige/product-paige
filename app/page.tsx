@@ -2,6 +2,7 @@ import {
   about, approach, audiences, contact, faq, models, services, site, testimonials,
 } from "@/content";
 import { ContactForm } from "@/components/ContactForm";
+import { AboutOptionB, AboutOptionC } from "@/components/AboutAlternatives";
 import { EditorialHero } from "@/components/EditorialHero";
 import { Faq } from "@/components/Faq";
 import { RecentProjects } from "@/components/RecentProjects";
@@ -65,6 +66,10 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Alternatives to the About section above, to choose from */}
+        <AboutOptionB />
+        <AboutOptionC />
+
         {/* Recent projects */}
         <RecentProjects className="border-t border-grid py-8 lg:py-0" />
 
@@ -73,7 +78,7 @@ export default function Home() {
         <section className={section}>
           <Container>
             <SectionHead heading={audiences.heading} body={audiences.body} />
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
                   <div className={`${a.tone} folded flex h-full flex-col px-6 pt-6 ${lift} lg:px-8 lg:pt-8`}>
