@@ -74,8 +74,7 @@ function PhoneMockup({ p }: { p: Project }) {
 }
 
 // E. Launches: big covers two to a row, straight on the page (no mat), with the name in the serif
-// and two of the project's highlights beside it, each value on a soft highlighter glow. Hovering a
-// cover brings up a phone mockup of the project.
+// and its one-line description beside it. Hovering a cover brings up a phone mockup of the project.
 function Launches() {
   return (
     <section className="border-t border-grid py-8 lg:py-16">
@@ -95,14 +94,7 @@ function Launches() {
                 </span>
                 <span className="mt-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
                   <span className="serif text-[clamp(24px,2vw,30px)] leading-none tracking-[-0.03em]">{p.client}</span>
-                  <span className="flex gap-6">
-                    {p.highlights.slice(0, 2).map((h) => (
-                      <span key={h.label} className="max-w-[16ch]">
-                        <span className="serif block rounded-full bg-[radial-gradient(closest-side,rgb(240_250_120/0.7),transparent)] text-[18px] leading-tight">{h.value}</span>
-                        <span className="mono mt-1 block text-[12px] text-muted">{h.label}</span>
-                      </span>
-                    ))}
-                  </span>
+                  <span className="max-w-[32ch] text-[15px] md:text-right">{p.excerpt}</span>
                 </span>
               </a>
             </li>
