@@ -36,7 +36,7 @@ export default function Home() {
           {/* Padded so the dark block's edges sit on the inner rails (24px md, 40px lg in from the
               sheet's edge); inside, the content has its own padding, balanced with the top and bottom. */}
           <div className="md:px-6 lg:px-10">
-          <div className="folded-top relative bg-dark px-6 py-10 text-white sm:px-8 md:px-10 lg:px-16 lg:py-24 xl:px-24">
+          <div className="folded-top relative bg-dark px-5 py-8 text-white sm:px-6 md:px-8 lg:px-12 lg:py-16 xl:px-16">
             <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-6">
               {/* A taped photo */}
               <Reveal className="mx-auto w-full max-w-[460px] lg:col-span-6 lg:mx-0 lg:max-w-none lg:pr-16">
