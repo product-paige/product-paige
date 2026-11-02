@@ -46,8 +46,9 @@ export function Rich({ text }: { text: string }) {
 export function Container({ className = "", tight = false, children }: { className?: string; tight?: boolean; children: ReactNode }) {
   // Fills the page sheet; from md up the content sits a gap inside the inner rails
   // (24px + 24px md, 40px + 40px lg; see .page-rails).
-  // `tight` (the header) sits just 16px inside the inner rails instead.
-  const pad = tight ? "md:px-10 lg:px-14" : "md:px-12 lg:px-20";
+  // `tight` (the header) sits just 16px inside the inner rails instead, and from xl (where the
+  // menu shows) right on them, so the rails frame the menu and button.
+  const pad = tight ? "md:px-10 lg:px-14 xl:px-10" : "md:px-12 lg:px-20";
   return <div className={`w-full px-4 sm:px-6 ${pad} ${className}`}>{children}</div>;
 }
 

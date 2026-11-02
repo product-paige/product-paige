@@ -26,9 +26,10 @@ export function EditorialHero() {
           <Asterisk className="live-star size-5" />
           {site.availability}
         </p>
-        {/* Desktop: sized to the content width (the window less the rails and padding, 184px) so
+        {/* Desktop: sized to the content width (the window less the gutter, frame and padding,
+            212px) so
             the longer line, about 12.5em, always fits on one line; capped at 88px. */}
-        <h1 className="serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(88px,calc((100vw-184px)/12.8))]">
+        <h1 className="serif text-[clamp(40px,6.6vw,88px)] leading-[1.02] tracking-[-0.04em] lg:text-[min(88px,calc((100vw-212px)/12.8))]">
           {hero.heading.map((l) => <span key={l} className="block">{l}</span>)}
         </h1>
 

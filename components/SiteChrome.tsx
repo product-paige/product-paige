@@ -17,10 +17,13 @@ export function SiteHeader() {
           <a href="/" className="serif text-[20px] leading-none whitespace-nowrap lg:text-[24px] xl:text-center">
             {site.logo}
           </a>
-          {/* The button, with a full-height rule on its left (from xl, where the menu shows) */}
-          <div className="flex items-center justify-end gap-5 self-stretch">
+          {/* The button, with a full-height rule on its left (from xl, where the menu shows) and
+              the same 24px either side of it as the menu items have. */}
+          <div className="flex items-center justify-end self-stretch">
             <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
-            <Button href={site.bookingUrl} accent>Book an intro call</Button>
+            <div className="xl:px-6">
+              <Button href={site.bookingUrl} accent>Book an intro call</Button>
+            </div>
           </div>
         </Container>
       </header>
