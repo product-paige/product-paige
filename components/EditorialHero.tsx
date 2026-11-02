@@ -1,6 +1,6 @@
-import { art, hero, site } from "@/content";
+import { hero, site } from "@/content";
 import { CartMockup } from "./Mockups";
-import { Chip, Container, Illo } from "./ui";
+import { Chip, Container } from "./ui";
 
 /** A six-armed asterisk, as on printed ephemera. */
 export function Asterisk({ className = "" }: { className?: string }) {
@@ -21,9 +21,6 @@ export function EditorialHero() {
   return (
     <section className="relative">
       <Container className="relative pt-14 pb-14 lg:pt-20 lg:pb-20">
-        {/* A sticker on the right (desktop): the beauty box, tilted, overlapping the end of the
-            headline's first line, which is drawn above it (z-1). */}
-        <Illo art={art.parcel} className="pointer-events-none absolute top-[72px] right-[5%] hidden w-[clamp(185px,15.5vw,235px)] sticker-sway lg:block" />
         {/* Booking line, above the headline */}
         <p className="mb-6 flex items-center gap-3 font-sans text-[17px] font-medium tracking-[-0.03em] lg:mb-8 lg:text-[20px]">
           <Asterisk className="live-star size-5" />
