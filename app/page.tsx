@@ -77,7 +77,12 @@ export default function Home() {
               {audiences.items.map((a, i) => (
                 <Reveal key={a.title} delay={i * 120}>
                   <div className={`${a.tone} folded flex h-full flex-col p-6 ${lift} lg:p-10`}>
-                    <h3 className={`${cardTitle} mb-8 lg:mb-16`}>{a.title}</h3>
+                    {/* Title, with the shopping basket illustration beside it */}
+                    <div className="mb-8 flex items-start justify-between gap-4 lg:mb-16">
+                      <h3 className={cardTitle}>{a.title}</h3>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/illustrations/shopping-basket.webp" alt="" width={1200} height={989} loading="lazy" decoding="async" className="-mt-2 w-24 shrink-0 lg:-mt-4 lg:w-[150px]" />
+                    </div>
                     {/* Rules run edge to edge across the card; the items keep their inset. */}
                     <ul className="mt-auto -mx-6 divide-y divide-line border-y border-line lg:-mx-10">
                       {a.points.map((p) => (
