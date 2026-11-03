@@ -15,15 +15,14 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
   }
 
   return (
-    // Each question is its own bordered card, with a small gap between them; the open one
-    // takes the paper tint.
-    <div className="space-y-2 lg:space-y-3">
+    // Open rows, no borders: each question an eyebrow, the open one with the red dot.
+    <div className="space-y-1">
       {items.map((f, i) => {
         const isOpen = open === i;
         const buttonId = `${id}-q${i}`;
         const panelId = `${id}-a${i}`;
         return (
-          <div key={f.q} className={`border border-line transition-colors duration-500 ${isOpen ? "bg-sheet" : ""}`}>
+          <div key={f.q}>
             <h3>
               <button
                 id={buttonId}
@@ -31,9 +30,13 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className="group/q mono flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-3.5 text-left lg:px-5 lg:py-4"
+                className="group/q mono flex w-full cursor-pointer items-center justify-between gap-4 py-3 text-left"
               >
-                {f.q}
+                {/* The red dot shows only on the open row: it grows in and pushes the label over */}
+                <span className="flex items-center gap-3">
+                  <i aria-hidden className={`h-3 shrink-0 rounded-full bg-accent transition-[width,margin,opacity] duration-500 ${isOpen ? "w-3 opacity-100" : "-mr-3 w-0 opacity-0"}`} />
+                  {f.q}
+                </span>
                 {/* Thin plus that rotates 45° into a cross when open: the same lines
                     at the same size, just rotated. The stroke stays 1px. */}
                 <svg
@@ -57,7 +60,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
             >
               <div className="overflow-hidden" inert={!isOpen}>
                 <p
-                  className={`max-w-xl pr-12 pb-5 pl-4 text-[15px] leading-[1.5] transition-[opacity,translate] duration-500 lg:pl-5 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+                  className={`max-w-xl pr-10 pb-4 text-[15px] leading-[1.5] transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
                 </p>
