@@ -50,10 +50,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="reveal-ready" strategy="beforeInteractive">
           {"document.documentElement.classList.add('reveal-ready')"}
         </Script>
-        {/* The site is a sheet of paper on a gridded ground (see .page-frame). */}
-        <div className="mx-auto max-w-[1440px] p-3 md:p-6">
-          <div className="page-frame">{children}</div>
-        </div>
+        {/* The site is a sheet of paper on a gridded ground, with the dark footer as its own
+            sheet below it (see .page-frame and SiteFooter). */}
+        <div className="mx-auto max-w-[1440px] p-3 md:p-6">{children}</div>
         {/* Temporary: try the colour palettes */}
         <PaletteSwitcher />
       </body>

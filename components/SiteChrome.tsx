@@ -1,4 +1,5 @@
 import { closing, legal, nav, site } from "@/content";
+import type { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { ArrowUpRight, Button, Container } from "./ui";
 
@@ -10,7 +11,8 @@ export function PageRails() {
 export function SiteHeader() {
   return (
     <>
-      <header className="rails sticky top-0 z-10 border-b border-grid bg-paper">
+      {/* Outside .page-frame so it stays stuck over the footer sheet too; draws the sheet's top and sides itself */}
+      <header className="rails sticky top-0 z-10 border border-grid bg-paper">
         <i aria-hidden className="rails-inner" />
         <Container tight className="grid h-[52px] grid-cols-[auto_1fr] items-center lg:h-[56px] xl:grid-cols-[1fr_auto_1fr]">
           <Nav items={nav} />
@@ -31,9 +33,15 @@ export function SiteHeader() {
   );
 }
 
-export function SiteFooter() {
+/**
+ * The dark footer as its own sheet, 24px below the page on the ground, with a cut bottom-right
+ * corner. Anything passed in (the home page's contact form) sits in the same sheet above it.
+ */
+export function SiteFooter({ children }: { children?: ReactNode }) {
   return (
-    <footer className="rails on-dark relative border-t border-grid bg-dark text-white">
+    <div className="folded mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
+      {children}
+    <footer className={`rails on-dark relative text-white ${children ? "border-t border-grid" : ""}`}>
       <i aria-hidden className="rails-inner" />
       <Container className="flex flex-col items-start gap-4 py-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
         {site.linkedin && (
@@ -50,5 +58,6 @@ export function SiteFooter() {
         </span>
       </Container>
     </footer>
+    </div>
   );
 }

@@ -8,8 +8,9 @@ type Doc = (typeof legal)[keyof typeof legal];
 export function LegalPage({ doc }: { doc: Doc }) {
   return (
     <>
-      <PageRails />
       <SiteHeader />
+      <div className="page-frame">
+      <PageRails />
       <main>
         <section className={section}>
           <Container>
@@ -40,6 +41,7 @@ export function LegalPage({ doc }: { doc: Doc }) {
           </Container>
         </section>
       </main>
+      </div>
       <SiteFooter />
     </>
   );

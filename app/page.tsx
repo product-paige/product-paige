@@ -40,8 +40,9 @@ function ProofList() {
 export default function Home() {
   return (
     <>
-      <PageRails />
       <SiteHeader />
+      <div className="page-frame">
+      <PageRails />
 
       <main id="top">
         <EditorialHero />
@@ -149,7 +150,11 @@ export default function Home() {
         </section>
         )}
 
-        {/* Contact and footer share one dark block. */}
+      </main>
+      </div>
+
+      {/* Contact and footer share one dark sheet. */}
+      <SiteFooter>
         <section id="contact" className={`rails on-dark relative bg-dark text-white ${section}`}>
           <i aria-hidden className="rails-inner" />
           <Container className="grid gap-8 lg:grid-cols-2 lg:gap-16">
@@ -162,9 +167,7 @@ export default function Home() {
             </Reveal>
           </Container>
         </section>
-      </main>
-
-      <SiteFooter />
+      </SiteFooter>
     </>
   );
 }
