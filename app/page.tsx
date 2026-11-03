@@ -1,10 +1,11 @@
 import {
-  about, approach, contact, site, testimonials,
+  about, approach, contact, services, site, testimonials,
 } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
+import { Phases } from "@/components/Phases";
 import { ServicesSplit } from "@/components/ServicesSplit";
 import { PricingTable } from "@/components/PricingTable";
 import { RecentProjects } from "@/components/RecentProjects";
@@ -75,7 +76,17 @@ export default function Home() {
         {/* Audiences (shared with /approach) */}
         <WhoIWorkWith />
 
-        {/* Services: heading left, the services as an accordion on the right */}
+        {/* Services */}
+        <section id="services" className={section}>
+          <Container>
+            <Reveal className="mb-8 lg:mb-12">
+              <h2 className={sectionHeading}><Rich text={services.heading} /></h2>
+            </Reveal>
+            <Phases topBorder />
+          </Container>
+        </section>
+
+        {/* Services, option B: heading left, the services as an accordion on the right */}
         <ServicesSplit />
 
 
