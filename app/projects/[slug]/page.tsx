@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects, site, type Project } from "@/content";
 import { Faq } from "@/components/Faq";
-import { Cover, Folder } from "@/components/Folder";
+import { Folder } from "@/components/Folder";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { Button, Chip, Container, Reveal, section, sectionHeading, sideHeading } from "@/components/ui";
+import { Breadcrumbs, Button, Chip, Container, Reveal, section, sectionHeading, sideHeading } from "@/components/ui";
 
 type Params = { slug: string };
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 /**
  * A case study laid out like a studio project page: on desktop a narrow column on the left stays
- * pinned (cover, name, the brief as an accordion, key facts and scope) while large image panels
+ * pinned (name, the brief as an accordion, key facts and scope) while large image panels
  * scroll past on the right. Then the next project to read.
  */
 export default async function CaseStudyPage({ params }: { params: Promise<Params> }) {
@@ -54,11 +54,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
           <Container className="grid gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-12">
             {/* Pinned column */}
             <Reveal className="lg:sticky lg:top-[92px] lg:self-start">
-              <a href="/#projects" className="link">All projects</a>
-              <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-ui bg-scrap">
-                <Cover p={p} className="absolute inset-0 size-full" />
-              </div>
-              <div className="mt-5">
+              <Breadcrumbs parent={projects.crumb} href="/#projects" current={p.client} />
+              <div className="mt-6">
                 <Chip>{p.role}</Chip>
               </div>
               <h1 className={`${sideHeading} mt-4`}>{p.client}</h1>

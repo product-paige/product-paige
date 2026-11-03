@@ -4,7 +4,7 @@ import { blog, samplePostBody, site, type PostBlock } from "@/content";
 import { PostToc } from "@/components/PostToc";
 import { ScrapCard } from "@/components/Scrapbook";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { Button, Container, Reveal, ScribbleBullet, section, sectionHeading } from "@/components/ui";
+import { Breadcrumbs, Button, Container, Reveal, ScribbleBullet, section, sectionHeading } from "@/components/ui";
 
 type Params = { slug: string };
 
@@ -97,7 +97,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
               edge, split by a full-height divider. No top rule: the sticky header draws one. */}
           <header className="lg:grid lg:grid-cols-2">
             <Reveal className="flex flex-col justify-center px-4 py-10 sm:px-6 md:px-12 lg:py-20 lg:pr-16 lg:pl-20">
-              <a href="/#blog" className="link self-start">{blog.backLabel}</a>
+              <Breadcrumbs parent={blog.crumb} href="/#blog" current={p.title} />
               <p className="mono mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 lg:mt-10">
                 <i aria-hidden className="size-3 rounded-full bg-accent" />
                 {p.tag}
