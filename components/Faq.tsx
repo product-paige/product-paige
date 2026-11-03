@@ -30,7 +30,7 @@ export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className="group/q mono flex w-full cursor-pointer items-center justify-between gap-4 py-3 text-left"
+                className="group/q mono flex w-full cursor-pointer items-center justify-between gap-4 py-2.5 text-left leading-[1.2]"
               >
                 {/* The red dot shows only on the open row: it grows in and pushes the label over */}
                 <span className="flex items-center gap-3">
@@ -46,7 +46,7 @@ export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
                   stroke="currentColor"
                   strokeWidth={1}
                   strokeLinecap="round"
-                  className={`size-5 shrink-0 transition-[rotate] duration-500 lg:size-6 ${isOpen ? "rotate-45" : ""}`}
+                  className={`-my-1 size-5 shrink-0 transition-[rotate] duration-500 lg:size-6 ${isOpen ? "rotate-45" : ""}`}
                 >
                   <path d="M12 4v16M4 12h16" vectorEffect="non-scaling-stroke" />
                 </svg>
