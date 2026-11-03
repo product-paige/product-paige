@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects, site, type Project } from "@/content";
 import { Faq } from "@/components/Faq";
-import { Folder } from "@/components/Folder";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { Breadcrumbs, Button, Chip, Container, Reveal, section, sectionHeading, sideHeading } from "@/components/ui";
+import { ArrowUpRight, Breadcrumbs, Button, Chip, Container, Reveal, section, sectionHeading, sideHeading } from "@/components/ui";
 
 type Params = { slug: string };
 
@@ -114,8 +113,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 <Button href={site.bookingUrl} accent>Let’s talk</Button>
               </div>
             </Reveal>
-            <Reveal delay={120} className="lg:max-w-[520px]">
-              <Folder p={next} i={nextIndex} />
+            {/* The next project as text: its role as an eyebrow, the name large, and its one line */}
+            <Reveal delay={120}>
+              <a href={`/projects/${next.slug}`} className="group block border-t border-grid pt-6 lg:pt-8">
+                <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{next.role}</p>
+                <p className="serif mt-6 flex items-center gap-4 text-[clamp(32px,4vw,52px)] leading-[1.05] tracking-[-0.04em] transition-colors group-hover:text-accent">
+                  {next.client}
+                  <ArrowUpRight className="size-8 shrink-0 lg:size-10" />
+                </p>
+                <p className="mt-3 max-w-md">{next.excerpt}</p>
+              </a>
             </Reveal>
           </Container>
         </section>
