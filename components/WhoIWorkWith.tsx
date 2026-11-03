@@ -8,10 +8,9 @@ const tilts = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1"];
 /**
  * Who I work with: the persona cards, each just a title and a statement, on the bright blue
  * cutting mat. Shared by the homepage and /approach, so editing the copy in
- * content.ts (audiences) changes both. `body` overrides the intro line; `link` shows the link to
- * the services below (homepage only).
+ * content.ts (audiences) changes both. `body` overrides the intro line.
  */
-export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: string; link?: boolean }) {
+export function WhoIWorkWith({ body = audiences.body }: { body?: string }) {
   return (
     <section className={section}>
       <Container>
@@ -42,11 +41,6 @@ export function WhoIWorkWith({ body = audiences.body, link = false }: { body?: s
             ))}
           </div>
         </div>
-        {link && (
-          <Reveal className="mt-8 flex justify-center lg:mt-12">
-            <a href="#services" className="link">How I can help</a>
-          </Reveal>
-        )}
       </Container>
     </section>
   );

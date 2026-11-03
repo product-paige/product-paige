@@ -73,7 +73,7 @@ export default function Home() {
 
 
         {/* Audiences (shared with /approach) */}
-        <WhoIWorkWith link />
+        <WhoIWorkWith />
 
         {/* Services */}
         <section id="services" className={section}>
