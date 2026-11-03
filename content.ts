@@ -168,11 +168,11 @@ export const models = {
   // Smallest to biggest, left to right; each card has one starting price.
   items: [
     {
-      tag: "Strategy",
+      tag: "Store audit",
       title: "Advice and reviews",
       body: "Find out what’s wrong and what to fix first.",
       price: "$300",
-      per: "/ session",
+      per: "/ audit",
       points: ["Two focused hours, booked within days", "A written list of what to fix first", "Or a full review and plan, quoted up front"],
     },
     {

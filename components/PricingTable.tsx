@@ -57,7 +57,7 @@ export function PricingTable() {
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex w-40 cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? `${pickedBg} text-ink` : "bg-paper text-ink hover:bg-sheet"}`}
+      className={`mono -mb-px inline-flex w-44 cursor-pointer whitespace-nowrap items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? `${pickedBg} text-ink` : "bg-paper text-ink hover:bg-sheet"}`}
     >
       <i aria-hidden className="size-2.5 rounded-full bg-accent" />{m.tag}
     </button>
