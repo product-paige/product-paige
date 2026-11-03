@@ -7,8 +7,8 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 // Styled for the paper contact drawer. Fields are 16px so iOS doesn't zoom in on focus.
 const field =
-  "w-full rounded-ui border border-line bg-white px-4 py-3 text-base text-ink outline-none transition placeholder:text-muted focus:border-ink";
-const label = "mb-2 block text-sm label text-muted";
+  "w-full rounded-ui border border-line bg-white px-4 py-2.5 text-base text-ink outline-none transition placeholder:text-muted focus:border-ink";
+const label = "mb-1.5 block text-sm label text-muted";
 
 /**
  * Posts to `endpoint` (a form service such as Formspree) when one is set.
@@ -74,7 +74,7 @@ export function ContactForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={onSubmit} className="grid gap-x-4 gap-y-3 sm:grid-cols-2">
       <div>
         <label htmlFor="cf-name" className={label}>Name</label>
         <input id="cf-name" name="name" required autoComplete="name" className={field} />
@@ -103,9 +103,9 @@ export function ContactForm({
       </div>
       <div className="sm:col-span-2">
         <label htmlFor="cf-message" className={label}>{messageLabel}</label>
-        <textarea id="cf-message" name="message" required rows={5} placeholder={messagePlaceholder} className={`${field} resize-y`} />
+        <textarea id="cf-message" name="message" required rows={4} placeholder={messagePlaceholder} className={`${field} resize-y`} />
       </div>
-      <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
+      <div className="mt-2 flex flex-wrap items-center gap-4 sm:col-span-2">
         <Button type="submit" accent disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
         </Button>

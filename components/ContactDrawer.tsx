@@ -60,7 +60,7 @@ export function ContactDrawer() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="contact-heading"
-        className={`absolute inset-y-0 right-0 flex w-full max-w-[600px] flex-col overflow-y-auto border-l border-grid bg-paper shadow-[-20px_0_60px_rgb(0_0_0/0.2)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${open ? "translate-x-0" : "translate-x-full"}`}
+        className={`absolute inset-y-0 right-0 flex w-full max-w-[760px] flex-col overflow-y-auto border-l border-grid bg-paper shadow-[-20px_0_60px_rgb(0_0_0/0.2)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="px-6 pt-6 pb-10 sm:px-10 sm:pt-8 lg:px-14">
           <div className="flex items-center justify-between gap-4">
@@ -76,7 +76,7 @@ export function ContactDrawer() {
           </div>
           <h2 id="contact-heading" className="serif mt-6 text-[clamp(34px,4vw,48px)] leading-[1.05] tracking-[-0.04em] text-balance">{contact.heading}</h2>
           <p className="mt-4 max-w-md">{contact.body}</p>
-          <div className="mt-8">
+          <div className="mt-6">
             <ContactForm endpoint={site.formEndpoint} email={site.email} deadlines={contact.deadlines} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />
           </div>
         </div>
