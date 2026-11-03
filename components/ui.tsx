@@ -13,9 +13,6 @@ export const section = "border-t border-grid py-8 lg:py-14";
 export const sectionHeading = "serif text-[clamp(32px,4.4vw,56px)] leading-[1] tracking-[-0.04em] text-balance";
 // Headings in a side column beside longer content (the case study title): a step down.
 export const sideHeading = "serif text-[clamp(28px,2.8vw,38px)] leading-[1.1] text-balance";
-export const cardTitle = "serif text-[clamp(22px,2vw,28px)] leading-[1.1]";
-// Titles in the open lists (How I can help rows, the process steps).
-export const listTitle = cardTitle;
 // Manrope medium: small card headings that sit with body text (blog cards, project folders).
 export const sansTitle = "font-sans text-[17px] font-medium leading-snug tracking-[-0.03em] lg:text-[20px]";
 
@@ -107,24 +104,6 @@ export function ArrowUpRight({ className = "", turn = false }: { className?: str
       className={`size-4 shrink-0 transition-transform duration-200 ${turn ? "group-hover:rotate-45" : "group-hover:-translate-y-0.5 group-hover:translate-x-0.5"} ${className}`}
     >
       <path d="M4.5 11.5l7-7M5.5 4.5h6v6" />
-    </svg>
-  );
-}
-
-/** Thin checkmark, a touch larger and lighter than the arrows. */
-export function Check({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden
-      viewBox="0 0 16 16"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={`size-5 shrink-0 ${className}`}
-    >
-      <path d="M3 8.5l3.25 3.25L13 5" />
     </svg>
   );
 }

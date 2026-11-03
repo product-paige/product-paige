@@ -1,8 +1,7 @@
-import {
-  about, services, testimonials,
-} from "@/content";
+import { about, approachPage, services, site, testimonials } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { EditorialHero } from "@/components/EditorialHero";
+import { JsonLd } from "@/components/JsonLd";
 import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
@@ -36,6 +35,21 @@ function ProofList() {
 export default function Home() {
   return (
     <>
+      {/* Who this is, for search engines and AI assistants: Paige, and the services she offers */}
+      <JsonLd
+        data={{
+          "@type": "ProfessionalService",
+          name: site.logo,
+          url: site.url,
+          description: site.metaDescription,
+          email: site.email,
+          areaServed: "Worldwide",
+          address: { "@type": "PostalAddress", addressLocality: "Kitchener", addressRegion: "ON", addressCountry: "CA" },
+          founder: { "@type": "Person", name: site.name, jobTitle: site.role, image: `${site.url}${site.photo}` },
+          knowsAbout: ["Shopify", "Product marketing", "Ecommerce design", "Shopify theme development", "Conversion rate optimization", "Copywriting"],
+          hasOfferCatalog: { "@type": "OfferCatalog", name: services.heading, itemListElement: approachPage.phases.map((ph) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: ph.title, description: ph.body } })) },
+        }}
+      />
       <SiteHeader />
       <div className="page-frame">
       <PageRails />

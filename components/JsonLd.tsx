@@ -1,0 +1,4 @@
+/** Structured data for search engines and AI assistants: one schema.org object as JSON-LD. */
+export function JsonLd({ data }: { data: Record<string, unknown> }) {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...data }) }} />;
+}

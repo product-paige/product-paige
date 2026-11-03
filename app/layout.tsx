@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Azeret_Mono, Caveat, Manrope } from "next/font/google";
+import { Azeret_Mono, Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { site } from "@/content";
@@ -10,17 +10,10 @@ import { PaletteSwitcher } from "@/components/PaletteSwitcher";
 
 // Tiempos Text (Klim), licensed by Paige.
 const serif = localFont({
-  src: [
-    { path: "./fonts/TiemposText-Regular.otf", weight: "400", style: "normal" },
-    { path: "./fonts/TiemposText-RegularItalic.otf", weight: "400", style: "italic" },
-  ],
+  // Subset to Latin and common punctuation as woff2 (41KB, from the 300KB .otf). No italic: the
+  // site sets none, so it isn't preloaded on every page.
+  src: [{ path: "./fonts/TiemposText-Regular.woff2", weight: "400", style: "normal" }],
   variable: "--font-tiempos",
-});
-
-// Handwriting, for the note on the About photo.
-const hand = Caveat({
-  subsets: ["latin"],
-  variable: "--font-caveat",
 });
 
 const sans = Manrope({
@@ -40,13 +33,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title,
   description: site.metaDescription,
-  openGraph: { title, description: site.metaDescription, type: "website" },
+  alternates: { canonical: "/" },
+  openGraph: { title, description: site.metaDescription, type: "website", siteName: site.logo, locale: "en_CA" },
+  twitter: { card: "summary_large_image", title, description: site.metaDescription },
   robots: site.hideFromSearch ? { index: false, follow: false } : undefined,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} ${hand.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
       <body>
         {/* Set before hydration so scroll-reveal content doesn't flash. Without JS, nothing is hidden. */}
         <Script id="reveal-ready" strategy="beforeInteractive">

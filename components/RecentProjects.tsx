@@ -2,7 +2,7 @@
 
 import { projects, type Project } from "@/content";
 import { useEffect, useRef, useState } from "react";
-import { Cover } from "./Folder";
+import { Cover } from "./Cover";
 import { Chip, Container, Reveal } from "./ui";
 
 /**

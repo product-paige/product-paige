@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blog, samplePostBody, site, type PostBlock } from "@/content";
+import { JsonLd } from "@/components/JsonLd";
 import { PostToc } from "@/components/PostToc";
 import { ScrapCard } from "@/components/Scrapbook";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
@@ -16,7 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const p = blog.posts.find((x) => x.slug === slug);
   if (!p) return {};
-  return { title: `${p.title} · ${site.name}`, description: p.excerpt };
+  const description = p.standfirst ?? p.excerpt;
+  return {
+    title: `${p.title} · ${site.name}`,
+    description,
+    alternates: { canonical: `/blog/${p.slug}` },
+    openGraph: { type: "article", title: p.title, description, publishedTime: new Date(p.date).toISOString(), authors: [site.name], images: [p.image] },
+  };
 }
 
 // A section heading's anchor, from its text ("What to do next" → "what-to-do-next").
@@ -77,6 +84,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
 
   return (
     <>
+      <JsonLd data={{ "@type": "BlogPosting", headline: p.title, description: p.standfirst ?? p.excerpt, image: `${site.url}${p.image}`, datePublished: new Date(p.date).toISOString(), author: { "@type": "Person", name: site.name, url: site.url }, mainEntityOfPage: `${site.url}/blog/${p.slug}`, articleSection: p.tag }} />
       <SiteHeader />
       <div className="page-frame">
       <PageRails />

@@ -47,7 +47,7 @@ export const site = {
   // Leave empty to hide the LinkedIn link in the footer.
   linkedin: "",
   // About photo in public/, and its description for screen readers.
-  photo: "/headshot.jpg",
+  photo: "/headshot.webp",
   photoAlt: "Paige Eaton smiling, in a black turtleneck, against a grey backdrop",
   // Shown in the dark announcement bar at the top. Leave empty to hide the bar.
   availability: "Booking for November ’26",
@@ -72,9 +72,9 @@ export const hero = {
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
   // `tag` (optional) replaces the label at the bottom left.
   shots: [
-    { src: "/hero/homepage.jpg", label: "Homepage", tag: "Shopify themes", alt: "A children's clothing homepage: a serif headline over two photos, with category links between them", width: 701, height: 493 },
-    { src: "/hero/product-card.jpg", label: "Product card", tag: "Product pages", alt: "A product card for a green coat dress on a cream background, with a Staff pick badge, star rating and price", width: 349, height: 554 },
-    { src: "/hero/collection-banner.jpg", label: "Collection banner", alt: "A jewelry banner: gold and pearl earrings on stone, with a serif headline and a Shop now button", width: 720, height: 745 },
+    { src: "/hero/homepage.webp", label: "Homepage", tag: "Shopify themes", alt: "A children's clothing homepage: a serif headline over two photos, with category links between them", width: 701, height: 493 },
+    { src: "/hero/product-card.webp", label: "Product card", tag: "Product pages", alt: "A product card for a green coat dress on a cream background, with a Staff pick badge, star rating and price", width: 349, height: 554 },
+    { src: "/hero/collection-banner.webp", label: "Collection banner", alt: "A jewelry banner: gold and pearl earrings on stone, with a serif headline and a Shop now button", width: 720, height: 745 },
   ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string }[],
 };
 
@@ -248,7 +248,7 @@ export const blog = {
       date: "Sep 3, 2026",
       readTime: "5 min read",
       tag: "AI",
-      image: "/blog/agent-blueprint.jpg",
+      image: "/blog/agent-blueprint.webp",
     },
     {
       slug: "the-eight-second-test",
@@ -258,7 +258,7 @@ export const blog = {
       date: "Aug 14, 2026",
       readTime: "4 min read",
       tag: "Positioning",
-      image: "/blog/eight-second-test.jpg",
+      image: "/blog/eight-second-test.webp",
     },
     {
       slug: "onboarding-is-a-promise",
@@ -313,7 +313,7 @@ export const projects = {
       client: "Backspace Body",
       excerpt: "A concept body care brand on Shopify",
       role: "Brand and build",
-      image: "/projects/backspace-body.jpg",
+      image: "/projects/backspace-body.webp",
       tagline: "A body care brand that doesn’t exist, built like it does",
       summary:
         "Backspace Body is a concept brand for family body care: unisex, fragrance-free, refill-first, one range covering body, hair, face and hands. Not a set of mockups, but a working Shopify storefront with 21 products, real copy, ingredient data and SEO behind all of it.",

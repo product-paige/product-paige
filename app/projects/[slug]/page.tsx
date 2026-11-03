@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects, site, type Project } from "@/content";
 import { Faq } from "@/components/Faq";
+import { JsonLd } from "@/components/JsonLd";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Button, Chip, Container, Reveal, sectionHeading, sideHeading } from "@/components/ui";
 
@@ -18,7 +19,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const p = projects.items.find((x) => x.slug === slug);
   if (!p) return {};
-  return { title: `${p.client} · ${site.name}`, description: p.summary };
+  return {
+    title: `${p.client} · ${site.name}`,
+    description: p.summary,
+    alternates: { canonical: `/projects/${p.slug}` },
+    openGraph: { title: p.client, description: p.summary, ...(p.image && { images: [p.image] }) },
+  };
 }
 
 /**
@@ -62,6 +68,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
 
   return (
     <>
+      <JsonLd data={{ "@type": "CreativeWork", name: p.client, description: p.summary, genre: p.role, creator: { "@type": "Person", name: site.name, url: site.url }, url: `${site.url}/projects/${p.slug}`, keywords: p.capabilities.join(", "), ...(p.image && { image: `${site.url}${p.image}` }) }} />
       <SiteHeader />
       <div className="page-frame">
       <PageRails />
