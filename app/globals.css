@@ -125,7 +125,7 @@
     --btn-bg: #fff;
     --btn-fg: var(--color-ink);
   }
-  /* The main call to action (Start a project): the accent red. */
+  /* The main call to action (Let’s talk): the accent red. */
   .btn-accent {
     --btn-bg: var(--color-accent);
     --btn-fg: #fff;

@@ -114,7 +114,7 @@ export function PricingTable() {
         {/* What the prices mean, beside the button */}
         <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between lg:mt-10">
           <p className="max-w-lg text-[15px] text-muted">{models.note}</p>
-          <Button href={site.bookingUrl} accent>Start a project</Button>
+          <Button href={site.bookingUrl} accent>Let’s talk</Button>
         </div>
       </Container>
     </section>

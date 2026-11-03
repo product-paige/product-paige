@@ -7,7 +7,7 @@ import { Asterisk } from "./EditorialHero";
 
 /**
  * The contact form in a paper drawer that slides in from the right over a dimmed page.
- * Any link to #contact opens it (every "Start a project" button), and so does arriving on
+ * Any link to #contact opens it (every "Let’s talk" button), and so does arriving on
  * /#contact. Closes on the cross, a click on the dimmed page or Escape, and hands focus back.
  */
 export function ContactDrawer() {

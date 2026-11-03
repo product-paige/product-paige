@@ -24,7 +24,7 @@ export function SiteHeader() {
           <div className="flex items-center justify-end self-stretch">
             <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
             <div className="xl:px-5">
-              <Button href={site.bookingUrl} accent>Start a project</Button>
+              <Button href={site.bookingUrl} accent>Let’s talk</Button>
             </div>
           </div>
         </Container>

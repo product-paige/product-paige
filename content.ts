@@ -235,7 +235,7 @@ export const blog = {
   // On a post page
   backLabel: "All posts",
   moreHeading: "More from the scrapbook",
-  cta: { heading: "Want a hand with your store?", body: "Tell me what you’re working on and I’ll reply by email.", label: "Start a project" },
+  cta: { heading: "Want a hand with your store?", body: "Tell me what you’re working on and I’ll reply by email.", label: "Let’s talk" },
   posts: [
     {
       slug: "shopifys-agent-blueprint",
