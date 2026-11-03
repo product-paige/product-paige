@@ -3,7 +3,6 @@ import {
 } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { EditorialHero } from "@/components/EditorialHero";
-import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
 import { PricingTable } from "@/components/PricingTable";
 import { RecentProjects } from "@/components/RecentProjects";
@@ -117,9 +116,6 @@ export default function Home() {
             </ol>
           </Container>
         </section>
-
-        {/* FAQ */}
-        <FaqSection />
 
         {/* Blog */}
         <Scrapbook className={section} />
