@@ -6,7 +6,6 @@ import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
-import { ServicesSplit } from "@/components/ServicesSplit";
 import { PricingTable } from "@/components/PricingTable";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
@@ -87,8 +86,6 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* Services, option B: heading left, the services as an accordion on the right */}
-        <ServicesSplit />
 
 
         {/* Ways to work together, as a table */}

@@ -111,9 +111,7 @@ export const about = {
 
 // The rows under this heading are the approach phases (approachPage.phases).
 export const services = {
-  eyebrow: "Services",
   heading: "How I can help",
-  body: "Four areas of work. Most projects need two or three of them, and I’ll tell you which before you pay anything.",
 };
 
 export const audiences = {
