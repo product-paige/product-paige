@@ -1,6 +1,5 @@
 import { blog, closing, legal, nav, site } from "@/content";
 import { Nav } from "./Nav";
-import { NewsletterForm } from "./NewsletterForm";
 import { Button, Container } from "./ui";
 
 /** The fixed page grid behind every page (see .page-rails). */
@@ -35,7 +34,7 @@ export function SiteHeader() {
 
 /**
  * The dark footer as its own sheet, 24px below the page on the ground, with a cut bottom-right
- * corner and the page's inner side lines: the name, tagline and newsletter sign-up beside
+ * corner and the page's inner side lines: the name and tagline beside
  * columns of mono links, split by a full-height divider, then a bottom bar with the copyright
  * and a row of link cells.
  */
@@ -55,14 +54,11 @@ export function SiteFooter() {
     <footer className="folded rails on-dark relative mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
       {/* The inner side lines, as on the page */}
       <i aria-hidden className="rails-inner" />
-      {/* Name and newsletter, then the link columns */}
+      {/* Name and tagline, then the link columns */}
       <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="border-b border-grid px-4 py-10 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:py-14 lg:pr-12 lg:pl-20">
           <p className="serif text-[36px] leading-none tracking-[-0.04em]">{site.logo}</p>
           <p className="mt-3 max-w-xs text-white/70">{closing.tagline}</p>
-          <p className="serif mt-10 text-[22px] leading-[1.1]">{closing.newsletter.heading}</p>
-          <p className="mt-2 mb-4 text-[15px] text-white/70">{closing.newsletter.body}</p>
-          <NewsletterForm endpoint={site.newsletterEndpoint} email={site.email} label={closing.newsletter.label} success={closing.newsletter.success} />
         </div>
         <div className="grid gap-10 px-4 py-10 sm:grid-cols-3 sm:px-6 md:px-12 lg:py-14 lg:pr-20 lg:pl-12">
           {columns.map((c) => (
