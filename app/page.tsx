@@ -93,9 +93,10 @@ export default function Home() {
         {/* Approach: the steps side by side, each a centred sticker, title and line */}
         <section id="approach" className={section}>
           <Container>
-            <Reveal className="mb-10 grid gap-5 lg:mb-14 lg:grid-cols-2 lg:items-end lg:gap-16">
-              <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
-              <p className="lede max-w-xl">{approach.body}</p>
+            {/* The heading as a small mono label with a red dot, then the intro line */}
+            <Reveal className="mb-10 lg:mb-14">
+              <h2 className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{approach.heading}</h2>
+              <p className="lede mt-6 max-w-xl">{approach.body}</p>
             </Reveal>
             <ol className="relative grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
               {/* Desktop: a line in the selection blue through the stickers' middles, from the first
