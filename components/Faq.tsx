@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 
 /**
- * Accordion that slides each answer open and closed. One answer at a time: opening a
+ * Accordion that slides each answer open and closed; the questions are mono eyebrows. One answer at a time: opening a
  * question closes the one before it. The first starts open.
  */
 export function Faq({ items }: { items: { q: string; a: string }[] }) {
@@ -31,7 +31,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className="group/q flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-3.5 text-left text-base font-medium lg:px-5 lg:py-4 lg:text-lg"
+                className="group/q mono flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-3.5 text-left lg:px-5 lg:py-4"
               >
                 {f.q}
                 {/* Thin plus that rotates 45° into a cross when open: the same lines
@@ -57,7 +57,7 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
             >
               <div className="overflow-hidden" inert={!isOpen}>
                 <p
-                  className={`max-w-xl pr-12 pb-5 pl-4 transition-[opacity,translate] duration-500 lg:pl-5 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+                  className={`max-w-xl pr-12 pb-5 pl-4 text-[15px] leading-[1.5] transition-[opacity,translate] duration-500 lg:pl-5 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
                 </p>

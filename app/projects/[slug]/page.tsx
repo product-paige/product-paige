@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects, site, type Project } from "@/content";
 import { Faq } from "@/components/Faq";
-import { Cover, Folder } from "@/components/Folder";
+import { Folder } from "@/components/Folder";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Breadcrumbs, Button, Chip, Container, Reveal, section, sectionHeading, sideHeading } from "@/components/ui";
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 /**
  * A case study laid out like a studio project page: on desktop a narrow column on the left stays
- * pinned (the cover with the name on it, the brief as an accordion, key facts and scope) while large image panels
+ * pinned (the name and description, the problem, approach and outcome as an accordion, key facts and scope) while large image panels
  * scroll past on the right. Then the next project to read.
  */
 export default async function CaseStudyPage({ params }: { params: Promise<Params> }) {
@@ -36,7 +36,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
   const next = projects.items[nextIndex];
   const facts = [...p.highlights, ...p.specs];
   const story = [
-    { q: "Brief", a: p.summary },
     { q: "Problem", a: p.problem },
     { q: "Approach", a: p.approach },
     { q: "Outcome", a: p.outcome },
@@ -55,15 +54,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             {/* Pinned column */}
             <Reveal className="lg:sticky lg:top-[92px] lg:self-start">
               <Breadcrumbs parent={projects.crumb} href="/#projects" current={p.client} />
-              {/* The cover with the project's name set on it, over a soft shade so it reads, and its
-                  role in the red pill (as on the homepage cards) */}
-              <div className="relative mt-6 aspect-[4/3] overflow-hidden border border-line bg-scrap">
-                <Cover p={p} className="absolute inset-0 size-full" />
-                <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                <Chip className="absolute top-3 right-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
-                <h1 className={`${sideHeading} absolute inset-x-5 bottom-4 text-white`}>{p.client}</h1>
-              </div>
-              <p className="mt-4">{p.tagline}</p>
+              {/* The name and the longer description */}
+              <h1 className={`${sideHeading} mt-6`}>{p.client}</h1>
+              <p className="mt-3 leading-[1.5]">{p.summary}</p>
 
               <div className="mt-6">
                 <Faq items={story} />
