@@ -209,6 +209,8 @@ export type Post = {
   slug: string;
   title: string;
   excerpt: string;
+  /** The longer line under the title on the post's page (the card uses `excerpt`). */
+  standfirst?: string;
   date: string;
   readTime: string;
   tag: string;
@@ -236,12 +238,15 @@ export const blog = {
   // The breadcrumb back to the posts, on a post page
   crumb: "Scrapbook",
   tocLabel: "Contents",
+  // The credits under a post's title
+  meta: { published: "Date", readTime: "Length", author: "By" },
   moreHeading: "More from the scrapbook",
   posts: [
     {
       slug: "shopifys-agent-blueprint",
       title: "Shopify’s agent blueprint",
       excerpt: "Shopify open-sourced a shopping agent. The useful part isn’t the code.",
+      standfirst: "Shopify open-sourced a shopping agent. The useful part isn’t the code, it’s what it shows about how AI assistants will read your store, and what to fix before they do.",
       date: "Sep 3, 2026",
       readTime: "5 min read",
       tag: "AI",
@@ -251,6 +256,7 @@ export const blog = {
       slug: "the-eight-second-test",
       title: "The eight-second test",
       excerpt: "How to tell if your homepage works, before you rebuild it again.",
+      standfirst: "How to tell if your homepage works, before you rebuild it again. A quick test you can run this week, and how to read the answers so you know what to change first.",
       date: "Aug 14, 2026",
       readTime: "4 min read",
       tag: "Positioning",
@@ -260,6 +266,7 @@ export const blog = {
       slug: "onboarding-is-a-promise",
       title: "Onboarding is a promise",
       excerpt: "Every onboarding step promises something. Break it, lose the merchant.",
+      standfirst: "Every onboarding step promises something. Break it, lose the merchant. How to spot the promises your app makes on day one, and keep each of them.",
       date: "Jul 30, 2026",
       readTime: "6 min read",
       tag: "UX",

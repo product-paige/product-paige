@@ -4,7 +4,7 @@ import { blog, samplePostBody, site, type PostBlock } from "@/content";
 import { PostToc } from "@/components/PostToc";
 import { ScrapCard } from "@/components/Scrapbook";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { Breadcrumbs, Container, Reveal, ScribbleBullet, section, sectionHeading } from "@/components/ui";
+import { Breadcrumbs, Container, Reveal, Rich, ScribbleBullet, section, sectionHeading } from "@/components/ui";
 
 type Params = { slug: string };
 
@@ -85,23 +85,35 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           {/* Hero: the text on the left with its own padding, the cover filling the right edge to
               edge, split by a full-height divider. No top rule: the sticky header draws one. */}
           <header className="lg:grid lg:grid-cols-2">
-            <Reveal className="flex flex-col justify-center px-4 py-10 sm:px-6 md:px-12 lg:py-20 lg:pr-16 lg:pl-20">
-              <Breadcrumbs parent={blog.crumb} href="/#blog" current={p.title} />
-              <p className="mono mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 lg:mt-10">
-                <i aria-hidden className="size-3 rounded-full bg-accent" />
-                {p.tag}
-                <span aria-hidden className="text-muted">/</span>
-                <time className="text-muted">{p.date}</time>
-                <span aria-hidden className="text-muted">/</span>
-                <span className="text-muted">{p.readTime}</span>
-              </p>
-              <h1 className={`${sectionHeading} mt-6`}>{p.title}</h1>
-              <p className="lede mt-5 max-w-xl">{p.excerpt}</p>
+            {/* Editorial column: the breadcrumb at the top, the topic, a big title and the standfirst
+                in the middle, and the credits along the bottom in cells split by fine rules */}
+            <Reveal className="flex flex-col lg:min-h-full">
+              <div className="px-4 pt-8 sm:px-6 md:px-12 lg:pt-10 lg:pr-16 lg:pl-20">
+                <Breadcrumbs parent={blog.crumb} href="/#blog" current={p.title} />
+              </div>
+              <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 md:px-12 lg:py-16 lg:pr-16 lg:pl-20">
+                <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{p.tag}</p>
+                <h1 className="serif mt-6 text-[clamp(40px,5vw,76px)] leading-[0.98] tracking-[-0.045em] text-balance"><Rich text={p.title} /></h1>
+                <p className="lede mt-6 max-w-lg">{p.standfirst ?? p.excerpt}</p>
+              </div>
+              <dl className="grid grid-cols-3 border-t border-grid">
+                {[
+                  [blog.meta.published, <time key="d">{p.date}</time>],
+                  [blog.meta.readTime, p.readTime],
+                  [blog.meta.author, site.name],
+                ].map(([label, value], i) => (
+                  <div key={String(label)} className={`py-5 pr-4 ${i === 0 ? "pl-4 sm:pl-6 md:pl-12 lg:pl-20" : "border-l border-grid pl-4 lg:pl-6"}`}>
+                    <dt className="mono text-muted">{label}</dt>
+                    <dd className="mt-2 text-[15px]">{value}</dd>
+                  </div>
+                ))}
+              </dl>
             </Reveal>
-            {/* The cover, landscape, with the full-height divider on its left */}
-            <span className="photo-grain block border-t border-grid lg:border-t-0 lg:border-l">
+            {/* The cover, with the full-height divider on its left: landscape on phones, filling the
+                hero's height beside the text on desktop */}
+            <span className="photo-grain relative block border-t border-grid lg:border-t-0 lg:border-l">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={p.image} alt="" decoding="async" className="aspect-[4/3] w-full object-cover" />
+              <img src={p.image} alt="" decoding="async" className="aspect-[4/3] w-full object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:size-full" />
             </span>
           </header>
 
