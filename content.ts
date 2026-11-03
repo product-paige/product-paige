@@ -190,37 +190,76 @@ export const models = {
   ],
 };
 
-// Latest three posts from productpaige.com/blog. Images are the covers used there.
+// Blog posts. Each gets a page at /blog/<slug> (app/blog/[slug]); the homepage Scrapbook shows
+// the latest three. A post's body is a list of blocks, in order. Until a post has its own,
+// it shows samplePostBody: placeholder copy to show the template, to replace with the real post.
+export type PostBlock =
+  | { type: "p"; text: string }
+  | { type: "h2"; text: string }
+  | { type: "quote"; text: string }
+  | { type: "list"; items: string[] }
+  | { type: "image"; src?: string; caption: string };
+
+export type Post = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  tag: string;
+  image: string;
+  body?: PostBlock[];
+};
+
+export const samplePostBody: PostBlock[] = [
+  { type: "p", text: "Placeholder copy: this is where the post starts. Open with the point in one or two sentences, so someone skimming knows what they’ll get from reading on." },
+  { type: "p", text: "Then the context. What prompted it, who it’s for and why it matters to a founder running a Shopify store right now." },
+  { type: "h2", text: "A section heading" },
+  { type: "p", text: "Each section makes one point. Keep paragraphs short, three or four lines at most, and let the headings carry the argument so the post still makes sense at a glance." },
+  { type: "list", items: ["A list for steps or examples", "Each item a short phrase or one sentence", "Three to five items reads best"] },
+  { type: "quote", text: "A pull quote for the one line worth remembering." },
+  { type: "image", caption: "An image or screenshot, with a short caption" },
+  { type: "h2", text: "What to do next" },
+  { type: "p", text: "Close with something the reader can act on this week, and a line on how I can help if they’d rather not do it alone." },
+];
+
 export const blog = {
   heading: "From the scrapbook",
   linkLabel: "Read the scrapbook",
   href: "https://productpaige.com/blog",
+  // On a post page
+  backLabel: "All posts",
+  moreHeading: "More from the scrapbook",
+  cta: { heading: "Want a hand with your store?", body: "Tell me what you’re working on and I’ll reply by email.", label: "Start a project" },
   posts: [
     {
+      slug: "shopifys-agent-blueprint",
       title: "Shopify’s agent blueprint",
       excerpt: "Shopify open-sourced a shopping agent. The useful part isn’t the code.",
       date: "Sep 3, 2026",
+      readTime: "5 min read",
       tag: "AI",
       image: "/blog/agent-blueprint.jpg",
-      href: "https://productpaige.com/blog/shopifys-agent-blueprint",
     },
     {
+      slug: "the-eight-second-test",
       title: "The eight-second test",
       excerpt: "How to tell if your homepage works, before you rebuild it again.",
       date: "Aug 14, 2026",
+      readTime: "4 min read",
       tag: "Positioning",
       image: "/blog/eight-second-test.jpg",
-      href: "https://productpaige.com/blog/the-eight-second-test",
     },
     {
+      slug: "onboarding-is-a-promise",
       title: "Onboarding is a promise",
       excerpt: "Every onboarding step promises something. Break it, lose the merchant.",
       date: "Jul 30, 2026",
+      readTime: "6 min read",
       tag: "UX",
       image: "/blog/onboarding-promise.jpg",
-      href: "https://productpaige.com/blog/onboarding-is-a-promise",
     },
-  ],
+  ] satisfies Post[] as Post[],
 };
 
 // Case studies, from productpaige.com/projects. Each gets a page at /projects/<slug>.

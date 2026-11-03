@@ -1,11 +1,30 @@
-import { blog } from "@/content";
+import { blog, type Post } from "@/content";
 import type { CSSProperties } from "react";
 import { Chip, Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
 
 /**
- * Blog teaser: three posts as loose-leaf notebook pages (punch holes, a margin
- * rule and a folded corner; see .scrap, .loose-leaf and .folded in globals.css). Each card links to the post.
+ * A post as a loose-leaf notebook page (punch holes, a margin rule and a folded corner; see
+ * .scrap, .loose-leaf and .folded in globals.css), linking to the post. Used on the homepage
+ * and under each post.
  */
+export function ScrapCard({ p }: { p: Post }) {
+  return (
+    <a href={`/blog/${p.slug}`} className="scrap loose-leaf folded tilt group">
+      <div className="mb-5 flex items-center justify-between gap-3">
+        <time className="text-[14px] font-medium text-muted">{p.date}</time>
+        <Chip className="text-white" style={{ "--color-chip": "var(--color-ink)" } as CSSProperties}>{p.tag}</Chip>
+      </div>
+      <span className="photo-grain block">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
+      </span>
+      <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
+      <p className="mt-2">{p.excerpt}</p>
+    </a>
+  );
+}
+
+/** Blog teaser: the latest three posts as loose-leaf cards. */
 export function Scrapbook({ className = "" }: { className?: string }) {
   return (
     <section id="blog" className={className}>
@@ -17,20 +36,9 @@ export function Scrapbook({ className = "" }: { className?: string }) {
           </a>
         </Reveal>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {blog.posts.map((p, i) => (
-            <Reveal key={p.href} delay={i * 120}>
-              <a href={p.href} className="scrap loose-leaf folded tilt group">
-                <div className="mb-5 flex items-center justify-between gap-3">
-                  <time className="text-[14px] font-medium text-muted">{p.date}</time>
-                  <Chip className="text-white" style={{ "--color-chip": "var(--color-ink)" } as CSSProperties}>{p.tag}</Chip>
-                </div>
-                <span className="photo-grain block">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
-                </span>
-                <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
-                <p className="mt-2">{p.excerpt}</p>
-              </a>
+          {blog.posts.slice(0, 3).map((p, i) => (
+            <Reveal key={p.slug} delay={i * 120}>
+              <ScrapCard p={p} />
             </Reveal>
           ))}
         </div>
