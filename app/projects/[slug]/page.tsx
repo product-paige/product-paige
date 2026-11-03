@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { projects, site, type Project } from "@/content";
 import { Faq } from "@/components/Faq";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { ArrowUpRight, Breadcrumbs, Button, Chip, Container, Reveal, section, sectionHeading, sideHeading } from "@/components/ui";
+import { ArrowUpRight, Button, Chip, Container, Reveal, section, sectionHeading, sideHeading } from "@/components/ui";
 
 type Params = { slug: string };
 
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 /**
  * A case study laid out like a studio project page: on desktop a narrow column on the left stays
- * pinned (the name and description, the problem, approach and outcome as an accordion, key facts and scope) while large image panels
+ * pinned (the name and description, then the problem, approach, outcome and scope as an accordion) while large image panels
  * scroll past on the right. Then the next project to read.
  */
 export default async function CaseStudyPage({ params }: { params: Promise<Params> }) {
@@ -38,6 +38,25 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
     { q: "Problem", a: p.problem },
     { q: "Approach", a: p.approach },
     { q: "Outcome", a: p.outcome },
+    {
+      q: "Scope",
+      // The key facts in a small two-column grid, then what the work covered as pills
+      a: (
+        <>
+          <dl className="grid grid-cols-2 gap-x-4 gap-y-3">
+            {facts.map((f) => (
+              <div key={f.label}>
+                <dt className="text-[13px] text-muted">{f.label}</dt>
+                <dd className="mt-0.5 text-[14px] leading-snug">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {p.capabilities.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
+          </ul>
+        </>
+      ),
+    },
   ];
   const gallery = p.gallery ?? placeholderGallery;
 
@@ -52,27 +71,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
           <Container className="grid gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-12">
             {/* Pinned column */}
             <Reveal className="lg:sticky lg:top-[92px] lg:self-start">
-              <Breadcrumbs parent={projects.crumb} href="/#projects" current={p.client} />
               {/* The name and the longer description */}
-              <h1 className={`${sideHeading} mt-6`}>{p.client}</h1>
+              <h1 className={sideHeading}>{p.client}</h1>
               <p className="mt-3 leading-[1.5]">{p.summary}</p>
 
               <div className="mt-6">
                 <Faq items={story} />
               </div>
 
-              <dl className="mt-6 grid grid-cols-2 border-t border-line">
-                {facts.map((f) => (
-                  <div key={f.label} className="border-b border-line py-3 pr-3">
-                    <dt className="text-[14px] text-muted">{f.label}</dt>
-                    <dd className="serif mt-0.5 text-[18px] leading-snug">{f.value}</dd>
-                  </div>
-                ))}
-              </dl>
-
-              <ul className="mt-6 flex flex-wrap gap-2" aria-label="Scope">
-                {p.capabilities.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
-              </ul>
               {p.liveUrl && (
                 <div className="mt-6">
                   <Button href={p.liveUrl}>View the live site</Button>

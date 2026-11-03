@@ -235,8 +235,6 @@ export const blog = {
   linkLabel: "Read the scrapbook",
   href: "https://productpaige.com/blog",
   // On a post page
-  // The breadcrumb back to the posts, on a post page
-  crumb: "Scrapbook",
   tocLabel: "Contents",
   // The credits under a post's title
   meta: { published: "Posted", readTime: "Read time", author: "Author" },
@@ -301,8 +299,6 @@ export type Project = {
 
 export const projects = {
   heading: "Recent projects",
-  // The breadcrumb back to the projects, on a project page
-  crumb: "Projects",
   items: [
     {
       slug: "backspace-body",

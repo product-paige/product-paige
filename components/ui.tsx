@@ -190,19 +190,6 @@ export function Chip({
   );
 }
 
-/** Where a page sits: its section as a link, a slash, then the page's own name. */
-export function Breadcrumbs({ parent, href, current, className = "" }: { parent: string; href: string; current: string; className?: string }) {
-  return (
-    <nav aria-label="Breadcrumb" className={`text-[14px] ${className}`}>
-      <ol className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-        <li><a href={href} className="link">{parent}</a></li>
-        <li aria-hidden className="text-muted">/</li>
-        <li aria-current="page" className="text-muted">{current}</li>
-      </ol>
-    </nav>
-  );
-}
-
 /** A collage illustration (see `art` in content.ts): decorative, so no alt text. Size it with className. */
 export function Illo({ art, className = "" }: { art: Art; className?: string }) {
   return (

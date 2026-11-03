@@ -1,12 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, type ReactNode } from "react";
 
 /**
  * Accordion that slides each answer open and closed; the questions are mono eyebrows. One answer at a time: opening a
  * question closes the one before it. The first starts open.
  */
-export function Faq({ items }: { items: { q: string; a: string }[] }) {
+export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
   const [open, setOpen] = useState<number | null>(0);
   const id = useId();
 
@@ -59,11 +59,11 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
               className={`grid transition-[grid-template-rows] duration-500 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
             >
               <div className="overflow-hidden" inert={!isOpen}>
-                <p
+                <div
                   className={`max-w-xl pr-10 pb-4 text-[15px] leading-[1.5] transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
-                </p>
+                </div>
               </div>
             </div>
           </div>

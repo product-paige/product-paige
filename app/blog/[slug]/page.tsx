@@ -4,7 +4,7 @@ import { blog, samplePostBody, site, type PostBlock } from "@/content";
 import { PostToc } from "@/components/PostToc";
 import { ScrapCard } from "@/components/Scrapbook";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { Breadcrumbs, Container, Reveal, Rich, ScribbleBullet, section, sectionHeading } from "@/components/ui";
+import { Container, Reveal, Rich, ScribbleBullet, section, sectionHeading } from "@/components/ui";
 
 type Params = { slug: string };
 
@@ -85,12 +85,9 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           {/* Hero: the text on the left with its own padding, the cover filling the right edge to
               edge, split by a full-height divider. No top rule: the sticky header draws one. */}
           <header className="lg:grid lg:grid-cols-2">
-            {/* Editorial column: the breadcrumb at the top, the topic, a big title and the standfirst
-                in the middle, and the credits along the bottom in cells split by fine rules */}
+            {/* Editorial column: the topic, a big title and the standfirst, centred, with the credits
+                along the bottom in cells split by fine rules */}
             <Reveal className="flex flex-col lg:min-h-full">
-              <div className="px-4 pt-8 sm:px-6 md:px-12 lg:pt-10 lg:pr-16 lg:pl-20">
-                <Breadcrumbs parent={blog.crumb} href="/#blog" current={p.title} />
-              </div>
               <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 md:px-12 lg:py-16 lg:pr-16 lg:pl-20">
                 <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{p.tag}</p>
                 <h1 className="serif mt-6 text-[clamp(40px,5vw,76px)] leading-[0.98] tracking-[-0.045em] text-balance"><Rich text={p.title} /></h1>
