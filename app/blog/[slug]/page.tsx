@@ -82,29 +82,27 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
       <PageRails />
       <main>
         <article>
-          {/* No top rule: the sticky header above already draws one */}
-          <header className={`${section} border-t-0`}>
-            <Container className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
-              <Reveal>
-                <a href="/#blog" className="link">{blog.backLabel}</a>
-                <p className="mono mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 lg:mt-10">
-                  <i aria-hidden className="size-3 rounded-full bg-accent" />
-                  {p.tag}
-                  <span aria-hidden className="text-muted">/</span>
-                  <time className="text-muted">{p.date}</time>
-                  <span aria-hidden className="text-muted">/</span>
-                  <span className="text-muted">{p.readTime}</span>
-                </p>
-                <h1 className={`${sectionHeading} mt-6`}>{p.title}</h1>
-                <p className="lede mt-5 max-w-2xl">{p.excerpt}</p>
-              </Reveal>
-              <Reveal delay={120}>
-                <span className="photo-grain block border border-line">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.image} alt="" decoding="async" className="aspect-[4/3] w-full object-cover" />
-                </span>
-              </Reveal>
-            </Container>
+          {/* Hero: the text on the left with its own padding, the cover filling the right edge to
+              edge, split by a full-height divider. No top rule: the sticky header draws one. */}
+          <header className="lg:grid lg:grid-cols-2">
+            <Reveal className="flex flex-col justify-center px-4 py-10 sm:px-6 md:px-12 lg:py-20 lg:pr-16 lg:pl-20">
+              <a href="/#blog" className="link self-start">{blog.backLabel}</a>
+              <p className="mono mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 lg:mt-10">
+                <i aria-hidden className="size-3 rounded-full bg-accent" />
+                {p.tag}
+                <span aria-hidden className="text-muted">/</span>
+                <time className="text-muted">{p.date}</time>
+                <span aria-hidden className="text-muted">/</span>
+                <span className="text-muted">{p.readTime}</span>
+              </p>
+              <h1 className={`${sectionHeading} mt-6`}>{p.title}</h1>
+              <p className="lede mt-5 max-w-xl">{p.excerpt}</p>
+            </Reveal>
+            {/* The cover, landscape, with the full-height divider on its left */}
+            <span className="photo-grain block border-t border-grid lg:border-t-0 lg:border-l">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={p.image} alt="" decoding="async" className="aspect-[4/3] w-full object-cover" />
+            </span>
           </header>
 
           {/* Contents on the left, the body on the right, with a full-height divider between */}
