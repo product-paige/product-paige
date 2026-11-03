@@ -61,11 +61,22 @@ function Block({ b, i }: { b: PostBlock; i: number }) {
   }
 }
 
+/** A short way to get in touch: a heading, a line and the button that opens the contact drawer. */
+function Cta() {
+  return (
+    <div>
+      <p className="serif text-[22px] leading-[1.15]">{blog.cta.heading}</p>
+      <p className="mt-2 mb-5 text-[15px]">{blog.cta.body}</p>
+      <Button href={site.bookingUrl} accent>{blog.cta.label}</Button>
+    </div>
+  );
+}
+
 /**
  * A blog post: a two-column hero (the tag, date and read time as a mono eyebrow, the title and
  * standfirst on the left, the cover on the right), then the body with its contents pinned in a
- * column on the left, split off by a full-height divider. Under it, a way to get in touch and
- * the other posts as Scrapbook cards.
+ * column on the left (with a way to get in touch under them), split off by a full-height
+ * divider. Under it, the other posts as Scrapbook cards.
  */
 export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
@@ -108,30 +119,25 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           {/* Contents on the left, the body on the right, with a full-height divider between */}
           <section className="border-t border-grid lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
             <div className="border-b border-grid px-4 py-8 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:py-14 lg:pr-10 lg:pl-20">
+              {/* The contents, and under them the way to get in touch (desktop; phones get it after the post) */}
               <div className="lg:sticky lg:top-28">
                 <PostToc label={blog.tocLabel} items={toc} />
+                <div className="mt-10 hidden border-t border-grid pt-8 lg:block">
+                  <Cta />
+                </div>
               </div>
             </div>
             <div className="px-4 py-8 sm:px-6 md:px-12 lg:py-14 lg:pr-20 lg:pl-16">
               <div className="max-w-[680px] space-y-6 text-[17px] leading-[1.65] lg:text-[18px]">
                 {body.map((b, i) => <Block key={i} b={b} i={i} />)}
               </div>
+              <div className="mt-12 border-t border-grid pt-8 lg:hidden">
+                <Cta />
+              </div>
             </div>
           </section>
         </article>
 
-        {/* Get in touch */}
-        <section className={section}>
-          <Container>
-            <Reveal className="mx-auto flex max-w-[680px] flex-col items-start gap-5 border border-line bg-sheet p-6 sm:flex-row sm:items-center sm:justify-between lg:p-8">
-              <div>
-                <h2 className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{blog.cta.heading}</h2>
-                <p className="mt-2">{blog.cta.body}</p>
-              </div>
-              <Button href={site.bookingUrl} accent>{blog.cta.label}</Button>
-            </Reveal>
-          </Container>
-        </section>
 
         {/* The other posts */}
         {more.length > 0 && (
