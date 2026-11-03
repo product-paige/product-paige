@@ -15,8 +15,8 @@ export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
   }
 
   return (
-    // Open rows, no borders: each question an eyebrow, the open one with the red dot.
-    <div className="space-y-1">
+    // Rows split by fine rules: each question an eyebrow, the open one with the red dot.
+    <div className="divide-y divide-line border-y border-line">
       {items.map((f, i) => {
         const isOpen = open === i;
         const buttonId = `${id}-q${i}`;
@@ -30,7 +30,7 @@ export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className="group/q mono flex w-full cursor-pointer items-center justify-between gap-4 py-2.5 text-left leading-[1.2]"
+                className="group/q mono flex w-full cursor-pointer items-center justify-between gap-4 py-3 text-left leading-[1.2]"
               >
                 {/* The red dot shows only on the open row: it grows in and pushes the label over */}
                 <span className="flex items-center gap-3">
