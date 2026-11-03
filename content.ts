@@ -506,7 +506,7 @@ export const contact = {
   messageLabel: "What would you like help with?",
   messagePlaceholder: "A few lines is plenty, e.g. our product pages get traffic but hardly anyone adds to cart.",
   deadlines: ["No fixed date", "Within a month", "1–3 months", "It’s urgent"],
-  // The offers from "Ways to work together", in more detail, plus a catch-all.
-  interests: ["Ask Paige", "Get a full review", "Store refresh", "New build", "Ship a one-off", "Launch a campaign", "Not sure yet"],
+  // The three ways to work together, in the client's voice (as in models.items), plus a catch-all.
+  interests: ["Review my store", "Refresh my store", "Build my new store", "Not sure yet"],
   success: "Thanks, your message is on its way. I’ll reply by email soon, usually to suggest a time for a short intro call.",
 };
