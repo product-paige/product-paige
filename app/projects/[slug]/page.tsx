@@ -81,17 +81,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 <Faq items={story} />
               </div>
 
-              {p.liveUrl && (
-                <div className="mt-6">
-                  <Button href={p.liveUrl}>View the live site</Button>
-                </div>
-              )}
-
-              {/* A small way to get in touch, under the dropdowns */}
-              <div className="mt-8 border-t border-grid pt-6">
-                <p className="serif text-[20px] leading-[1.2]">{projects.cta.heading}</p>
-                <p className="mt-1.5 mb-4 text-[14px] text-muted">{projects.cta.body}</p>
+              {/* Under the dropdowns: start a project (opens the contact drawer) and the live site */}
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Button href={site.bookingUrl} accent>{projects.cta.label}</Button>
+                {p.liveUrl && <Button href={p.liveUrl}>View the live site</Button>}
               </div>
             </Reveal>
 

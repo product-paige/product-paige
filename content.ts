@@ -305,8 +305,8 @@ export const projects = {
   nextLabel: "Next project",
   // Shown in place of a project's proof point until it has one
   proofPlaceholder: { quote: "A client quote or one hard result goes here, e.g. “92% of visitors now come from Canada.”", name: "Client name, role (placeholder)" },
-  // The call to action before the next project; the button opens the contact drawer
-  cta: { heading: "Want something like this for your store?", body: "Tell me what you’re working on and I’ll reply by email, usually within a day.", label: "Let’s talk" },
+  // The button under a project's dropdowns; it opens the contact drawer
+  cta: { label: "Start a project" },
   items: [
     {
       slug: "backspace-body",
