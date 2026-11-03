@@ -177,7 +177,7 @@ export const models = {
     },
     {
       tag: "Projects",
-      title: "Update my store",
+      title: "Refresh my store",
       body: "One part of your store done properly, and live before your deadline.",
       price: "$1,500",
       per: "/ project",
