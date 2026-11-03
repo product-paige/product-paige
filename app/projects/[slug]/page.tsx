@@ -86,6 +86,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                   <Button href={p.liveUrl}>View the live site</Button>
                 </div>
               )}
+
+              {/* A small way to get in touch, under the dropdowns */}
+              <div className="mt-8 border-t border-grid pt-6">
+                <p className="serif text-[20px] leading-[1.2]">{projects.cta.heading}</p>
+                <p className="mt-1.5 mb-4 text-[14px] text-muted">{projects.cta.body}</p>
+                <Button href={site.bookingUrl} accent>{projects.cta.label}</Button>
+              </div>
             </Reveal>
 
             {/* Large panels */}
@@ -108,17 +115,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 </Reveal>
               ))}
             </div>
-          </Container>
-        </section>
-
-        {/* A way to get in touch, before the next project */}
-        <section className="border-t border-grid">
-          <Container className="flex flex-col items-start gap-6 py-10 sm:flex-row sm:items-center sm:justify-between lg:py-14">
-            <div>
-              <h2 className="serif text-[clamp(26px,2.8vw,38px)] leading-[1.1] tracking-[-0.03em]">{projects.cta.heading}</h2>
-              <p className="mt-3 max-w-lg">{projects.cta.body}</p>
-            </div>
-            <Button href={site.bookingUrl} accent>{projects.cta.label}</Button>
           </Container>
         </section>
 
