@@ -76,7 +76,7 @@ export function PricingTable() {
               <div className={`divide-y divide-line border border-line transition-colors ${tint(i)}`}>
                 {rows.map(([label, cell]) => (
                   <div key={label} className="px-5 py-6">
-                    <p className="mono mb-3 text-muted">{label}</p>
+                    <p className="mono mb-3">{label}</p>
                     {cell(m)}
                   </div>
                 ))}
@@ -101,7 +101,7 @@ export function PricingTable() {
             <tbody>
               {rows.map(([label, cell], r) => (
                 <tr key={label} className="align-top">
-                  <th className={`mono border-b border-l border-line bg-paper px-5 py-7 font-normal text-muted lg:py-8 ${r === 0 ? "border-t" : ""}`}>{label}</th>
+                  <th className={`mono border-b border-l border-line bg-paper px-5 py-7 font-normal text-ink lg:py-8 ${r === 0 ? "border-t" : ""}`}>{label}</th>
                   {models.items.map((m, i) => (
                     <td key={m.tag} className={`border-r border-b border-line px-6 py-7 text-[16px] transition-colors lg:px-8 lg:py-8 first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
                   ))}
