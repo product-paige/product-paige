@@ -79,8 +79,9 @@ export default function Home() {
         {/* Services */}
         <section id="services" className={section}>
           <Container>
-            <Reveal className="mb-8 lg:mb-12">
-              <h2 className={sectionHeading}><Rich text={services.heading} /></h2>
+            {/* The heading as a small mono label with a red dot, like Recent projects */}
+            <Reveal className="mb-6 lg:mb-8">
+              <h2 className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{services.heading}</h2>
             </Reveal>
             <Phases topBorder />
           </Container>
