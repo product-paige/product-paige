@@ -78,7 +78,8 @@ export default function Home() {
         <section id="services" className={section}>
           <Container>
             {/* The heading as a small mono label with a red dot, like Recent projects */}
-            <Reveal className="mb-6">
+            {/* The same space under the eyebrow as the rows have inside, and the section's own above it */}
+            <Reveal className="mb-10 lg:mb-14">
               <h2 className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{services.heading}</h2>
             </Reveal>
             <Phases topBorder />

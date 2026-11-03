@@ -18,7 +18,7 @@ export function Phases({ caseStudies = false, topBorder = false }: { caseStudies
   return (
     <ScrollFocus className="-mx-4 sm:-mx-6 md:-mx-12 lg:-mx-20">
       {approachPage.phases.map((ph, i) => (
-        <Reveal as="article" key={ph.title} className={`grid gap-6 border-grid py-8 ${topBorder ? "border-t" : "not-first:border-t"} md:grid-cols-[auto_1.1fr_1fr] px-4 sm:px-6 md:gap-8 md:px-12 lg:gap-12 lg:px-20 lg:py-10 last:pb-0 ${focus}`}>
+        <Reveal as="article" key={ph.title} className={`grid gap-6 border-grid py-10 ${topBorder ? "border-t" : "not-first:border-t"} md:grid-cols-[auto_1.1fr_1fr] px-4 sm:px-6 md:gap-8 md:px-12 lg:gap-12 lg:px-20 lg:py-14 last:pb-0 ${focus}`}>
           <p className="serif text-[clamp(28px,2.8vw,38px)] leading-none text-accent">{String(i + 1).padStart(2, "0")}</p>
           <div>
             <h3 className="serif text-[clamp(24px,2.4vw,34px)] leading-[1.08] tracking-[-0.04em]">{ph.title}</h3>
