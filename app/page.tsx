@@ -93,16 +93,16 @@ export default function Home() {
         {/* Ways to work together, as a table */}
         <PricingTable />
 
-        {/* Approach: the steps side by side, each a centred sticker, title and line */}
+        {/* Approach: the steps side by side, each a sticker, title and line */}
         <section id="approach" className={section}>
           <Container>
             <Reveal className="mb-10 grid gap-5 lg:mb-14 lg:grid-cols-2 lg:items-end lg:gap-16">
               <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
-              <p className="lede max-w-xl lg:justify-self-end lg:text-right">{approach.body}</p>
+              <p className="lede max-w-xl">{approach.body}</p>
             </Reveal>
             <ol className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
               {approach.steps.map((p, i) => (
-                <Reveal as="li" key={p.title} delay={i * 120} className="flex flex-col items-center text-center">
+                <Reveal as="li" key={p.title} delay={i * 120} className="flex flex-col items-start">
                   <Illo art={p.art} className="h-28 w-auto lg:h-32" />
                   <h3 className="serif mt-5 text-[clamp(20px,1.6vw,24px)] leading-[1.2]">{p.title}</h3>
                   <p className="mt-2 max-w-[32ch] text-[15px]">{p.body}</p>
