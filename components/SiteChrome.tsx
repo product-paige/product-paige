@@ -35,8 +35,7 @@ export function SiteHeader() {
 
 /**
  * The dark footer as its own sheet, 24px below the page on the ground, with a cut bottom-right
- * corner: the name and a tagline in the serif beside a newsletter sign-up, a bordered box with
- * the call to action (its button opens the contact drawer), the menu as mono links, then a bottom bar with the small print.
+ * corner: the name and a tagline in the serif beside a newsletter sign-up, the menu as mono links, then a bottom bar with the small print.
  */
 export function SiteFooter() {
   return (
@@ -54,10 +53,6 @@ export function SiteFooter() {
             <p className="mt-2 mb-5 text-white/70">{closing.newsletter.body}</p>
             <NewsletterForm endpoint={site.newsletterEndpoint} email={site.email} label={closing.newsletter.label} success={closing.newsletter.success} />
           </div>
-        </div>
-        <div className="mt-10 flex flex-col items-start gap-6 rounded-ui border border-white/30 p-6 sm:flex-row sm:items-center sm:justify-between lg:mt-14 lg:px-10 lg:py-8">
-          <p className="serif text-[clamp(26px,2.8vw,38px)] leading-[1.1] tracking-[-0.03em] text-balance">{closing.cta.heading}</p>
-          <Button href={site.bookingUrl} light>{closing.cta.label}</Button>
         </div>
         <nav aria-label="Footer" className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-4 lg:mt-14">
           {[...nav, ...(site.linkedin ? [{ label: "LinkedIn", href: site.linkedin }] : []), { label: "Contact", href: site.bookingUrl }].map((n) => (

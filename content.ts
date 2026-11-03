@@ -485,8 +485,6 @@ export const legal = {
 
 export const closing = {
   footer: "Based in Kitchener, Ontario, working remotely",
-  // The call to action at the top of the footer; the button opens the contact drawer.
-  cta: { heading: "Let’s talk about your project", label: "Start a project" },
   tagline: "Product marketing, design and AI builds for Shopify.",
   newsletter: {
     heading: "New posts by email",
