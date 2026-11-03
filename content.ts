@@ -23,6 +23,7 @@ export const art = {
   starburstCream: illo("starburst-cream", 1200, 865),
   starburstBlue: illo("starburst-blue", 1200, 1204),
   basket: illo("shopping-basket", 1200, 989),
+  receipt: illo("receipt", 1200, 1273),
 };
 export type Art = (typeof art)[keyof typeof art];
 
@@ -79,10 +80,10 @@ export const approach = {
   body:
     "A fixed price in writing before any work starts, then async work with as few calls as possible.",
   steps: [
-    { title: "You send it over", body: "A link to your site and a screenshot of what’s bothering you. Whatever you have is enough to start." },
-    { title: "I come back with a price", body: "A fixed price, what’s included and how long it takes, in writing. A short call only if needed." },
-    { title: "The work", body: "Async by default, with one live session. Calls only when they’d be faster than writing it down." },
-    { title: "Handover", body: "Design files, copy, code and your theme, all handed over so you can keep going without me." },
+    { art: art.mailbox, title: "You send it over", body: "A link to your site and a screenshot of what’s bothering you. Whatever you have is enough to start." },
+    { art: art.receipt, title: "I come back with a price", body: "A fixed price, what’s included and how long it takes, in writing. A short call only if needed." },
+    { art: art.laptop, title: "The work", body: "Async by default, with one live session. Calls only when they’d be faster than writing it down." },
+    { art: art.parcel, title: "Handover", body: "Design files, copy, code and your theme, all handed over so you can keep going without me." },
   ],
 };
 

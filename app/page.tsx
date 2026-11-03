@@ -10,10 +10,9 @@ import { PricingTable } from "@/components/PricingTable";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
-import { TimelineProgress } from "@/components/TimelineProgress";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Container, Reveal, Rich, ScribbleBullet, SectionHead, listTitle, section, sectionHeading,
+  Container, Illo, Reveal, Rich, ScribbleBullet, SectionHead, sansTitle, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -90,30 +89,19 @@ export default function Home() {
         {/* Ways to work together, as a table */}
         <PricingTable />
 
-        {/* Approach */}
+        {/* Approach: the steps side by side, each a centred sticker, title and line */}
         <section id="approach" className={section}>
-          <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-32">
-            <Reveal className="lg:sticky lg:top-28 lg:self-start">
+          <Container>
+            <Reveal className="mb-10 grid gap-5 lg:mb-14 lg:grid-cols-2 lg:items-end lg:gap-16">
               <h2 className={sectionHeading}><Rich text={approach.heading} /></h2>
-              <p className="lede mt-5 max-w-xl">{approach.body}</p>
+              <p className="lede max-w-xl">{approach.body}</p>
             </Reveal>
-            {/* Vertical timeline: a grey track down the left that fills in as you scroll, with a dot per step
-                (grey and small until the line reaches it, then accent red). */}
-            <ol className="relative grid gap-12 lg:gap-16 before:absolute before:top-2 before:bottom-2 before:left-[9px] before:w-px before:bg-line before:content-['']">
-              <TimelineProgress />
+            <ol className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
               {approach.steps.map((p, i) => (
-                <Reveal as="li" key={p.title} delay={i * 120} className="group pl-12">
-                  {/* Number and title share one line; the dot sits on the first line, out on the timeline. */}
-                  <h3 className={`${listTitle} relative flex items-baseline gap-4`}>
-                    <span
-                      data-dot
-                      aria-hidden
-                      className="absolute top-[0.52em] -left-[46px] size-[15px] -translate-y-1/2 rounded-full bg-accent ring-[6px] ring-paper transition duration-500 group-data-pending:scale-[0.6] group-data-pending:bg-muted"
-                    />
-                    <span className="text-muted">{String(i + 1).padStart(2, "0")}</span>
-                    {p.title}
-                  </h3>
-                  <p className="mt-3 max-w-[40ch]">{p.body}</p>
+                <Reveal as="li" key={p.title} delay={i * 120} className="flex flex-col items-center text-center">
+                  <Illo art={p.art} className="h-28 w-auto lg:h-32" />
+                  <h3 className={`${sansTitle} mt-5`}>{p.title}</h3>
+                  <p className="mt-2 max-w-[32ch] text-[15px]">{p.body}</p>
                 </Reveal>
               ))}
             </ol>

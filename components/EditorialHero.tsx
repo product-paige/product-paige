@@ -46,7 +46,7 @@ export function EditorialHero() {
         </h1>
 
         {/* Intro, in Manrope regular, 19px on desktop */}
-        <p className="mt-6 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-8 lg:text-[19px]">{hero.lede}</p>
+        <p className="mt-6 max-w-3xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-8 lg:text-[19px]">{hero.lede}</p>
 
         {/* Storefront screens: a row of framed shots, each with a dark label. On desktop it's a grid
             whose columns are as wide as each screen's shape (width / height), so all four come out
