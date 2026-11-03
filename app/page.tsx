@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
+import { ServicesSplit } from "@/components/ServicesSplit";
 import { PricingTable } from "@/components/PricingTable";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
@@ -84,6 +85,9 @@ export default function Home() {
             <Phases topBorder />
           </Container>
         </section>
+
+        {/* Services, option B: heading left, rows right, full dividers */}
+        <ServicesSplit />
 
 
         {/* Ways to work together, as a table */}
