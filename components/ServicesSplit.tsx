@@ -5,7 +5,7 @@ import { useId, useState } from "react";
 import { Chip, Reveal, Rich, sectionHeading } from "./ui";
 
 /**
- * How I can help, split 50/50: the heading on the left (sticky on desktop) with a full-height
+ * How I can help, split 40/60: the heading on the left (sticky on desktop) with a full-height
  * divider on its right, and the phases on the right as an accordion, with full-width dividers
  * between them. Each row shows its number and title; opening it slides out the line and what
  * it can include. One open at a time, the first to start (same behaviour as the FAQ).
@@ -17,10 +17,12 @@ export function ServicesSplit() {
   const id = useId();
 
   return (
-    <section id="services" className="border-t border-grid lg:grid lg:grid-cols-2">
+    <section id="services" className="border-t border-grid lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
       <div className="border-b border-grid px-4 py-8 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:py-14 lg:pr-10 lg:pl-20">
         <Reveal className="lg:sticky lg:top-28">
+          <p className="mono mb-5 flex items-center gap-3 lg:mb-6"><i aria-hidden className="size-3 rounded-full bg-accent" />{services.eyebrow}</p>
           <h2 className={sectionHeading}><Rich text={services.heading} /></h2>
+          <p className="lede mt-5 max-w-md">{services.body}</p>
         </Reveal>
       </div>
       <div>
