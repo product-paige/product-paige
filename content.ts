@@ -169,7 +169,7 @@ export const models = {
   items: [
     {
       tag: "Store audit",
-      title: "Audit and action plan",
+      title: "Review my store",
       body: "A close look at your store, and a written list of what to fix first.",
       price: "$300",
       per: "/ audit",
