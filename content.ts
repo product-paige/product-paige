@@ -295,12 +295,18 @@ export type Project = {
   problem: string;
   approach: string;
   outcome: string;
+  /** The one proof point under the description: a client quote, or a result as `quote` with `name` as its source. Until it's set, a placeholder shows. */
+  proof?: { quote: string; name: string };
 };
 
 export const projects = {
   heading: "Recent projects",
   // The link to the next one, at the bottom of a project page
   nextLabel: "Next project",
+  // Shown in place of a project's proof point until it has one
+  proofPlaceholder: { quote: "A client quote or one hard result goes here, e.g. “92% of visitors now come from Canada.”", name: "Client name, role (placeholder)" },
+  // The call to action before the next project; the button opens the contact drawer
+  cta: { heading: "Want something like this for your store?", body: "Tell me what you’re working on and I’ll reply by email, usually within a day.", label: "Let’s talk" },
   items: [
     {
       slug: "backspace-body",
