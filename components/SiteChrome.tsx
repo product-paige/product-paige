@@ -1,7 +1,7 @@
-import { closing, legal, nav, site } from "@/content";
+import { blog, closing, legal, nav, site } from "@/content";
 import { Nav } from "./Nav";
 import { NewsletterForm } from "./NewsletterForm";
-import { Button, Container } from "./ui";
+import { Button, Container, sectionHeading } from "./ui";
 
 /** The fixed page grid behind every page (see .page-rails). */
 export function PageRails() {
@@ -35,39 +35,66 @@ export function SiteHeader() {
 
 /**
  * The dark footer as its own sheet, 24px below the page on the ground, with a cut bottom-right
- * corner: the name and a tagline in the serif beside a newsletter sign-up, the menu as mono links, then a bottom bar with the small print.
+ * corner. Three bands with full-width dividers: the call to action (its button opens the contact
+ * drawer); the name, tagline and newsletter sign-up beside columns of mono links, split by a
+ * full-height divider; and a bottom bar with the copyright and a row of link cells.
  */
 export function SiteFooter() {
+  const elsewhere = [
+    { label: "Email", href: `mailto:${site.email}` },
+    ...(site.linkedin ? [{ label: "LinkedIn", href: site.linkedin }] : []),
+  ];
+  const columns = [
+    { heading: closing.pagesHeading, links: [...nav, { label: "Contact", href: site.bookingUrl }] },
+    { heading: closing.postsHeading, links: blog.posts.slice(0, 3).map((p) => ({ label: p.title, href: `/blog/${p.slug}` })) },
+    { heading: closing.elsewhereHeading, links: elsewhere },
+  ];
+  const external = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
+
   return (
-    <footer className="folded rails on-dark relative mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
-      <i aria-hidden className="rails-inner" />
-      <Container className="pt-10 lg:pt-16">
-        {/* The name and tagline on the left, the newsletter sign-up on the right */}
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:items-end lg:gap-16">
-          <div>
-            <p aria-hidden className="serif text-[clamp(48px,7.4vw,104px)] leading-[0.95] tracking-[-0.05em] whitespace-nowrap">{site.logo}</p>
-            <p className="lede mt-4 max-w-md text-white/80">{closing.tagline}</p>
-          </div>
-          <div>
-            <p className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{closing.newsletter.heading}</p>
-            <p className="mt-2 mb-5 text-white/70">{closing.newsletter.body}</p>
-            <NewsletterForm endpoint={site.newsletterEndpoint} email={site.email} label={closing.newsletter.label} success={closing.newsletter.success} />
-          </div>
+    <footer className="folded on-dark relative mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
+      {/* Call to action */}
+      <Container className="flex flex-col items-start gap-8 py-12 lg:flex-row lg:items-end lg:justify-between lg:py-20">
+        <div>
+          <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{closing.eyebrow}</p>
+          <h2 className={`${sectionHeading} mt-6 max-w-3xl`}>{closing.heading}</h2>
         </div>
-        <nav aria-label="Footer" className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-4 lg:mt-14">
-          {[...nav, ...(site.linkedin ? [{ label: "LinkedIn", href: site.linkedin }] : []), { label: "Contact", href: site.bookingUrl }].map((n) => (
-            <a key={n.label} href={n.href} className="mono transition-colors hover:text-white/60" {...(n.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}>{n.label}</a>
-          ))}
-        </nav>
+        <Button href={site.bookingUrl} light>{closing.button}</Button>
       </Container>
-      <div className="mt-10 border-t border-grid lg:mt-14">
-        <Container className="flex flex-col gap-3 py-5 text-[14px] text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} {site.name} · {closing.footer}</span>
-          <span className="flex gap-5">
-            <a href="/privacy" className="link">{legal.privacy.label}</a>
-            <a href="/terms" className="link">{legal.terms.label}</a>
-          </span>
-        </Container>
+
+      {/* Name and newsletter, then the link columns */}
+      <div className="grid border-t border-grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+        <div className="border-b border-grid px-4 py-10 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:py-14 lg:pr-12 lg:pl-20">
+          <p className="serif text-[36px] leading-none tracking-[-0.04em]">{site.logo}</p>
+          <p className="mt-3 max-w-xs text-white/70">{closing.tagline}</p>
+          <p className="serif mt-10 text-[22px] leading-[1.1]">{closing.newsletter.heading}</p>
+          <p className="mt-2 mb-4 text-[15px] text-white/70">{closing.newsletter.body}</p>
+          <NewsletterForm endpoint={site.newsletterEndpoint} email={site.email} label={closing.newsletter.label} success={closing.newsletter.success} />
+        </div>
+        <div className="grid gap-10 px-4 py-10 sm:grid-cols-3 sm:px-6 md:px-12 lg:py-14 lg:pr-20 lg:pl-12">
+          {columns.map((c) => (
+            <nav key={c.heading} aria-label={c.heading}>
+              <p className="mono text-white/50">{c.heading}</p>
+              <ul className="mt-6 space-y-4">
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    <a href={l.href} className="mono leading-snug transition-colors hover:text-white/60" {...external(l.href)}>{l.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom bar: the copyright, then link cells split by dividers */}
+      <div className="flex flex-col border-t border-grid sm:flex-row sm:items-stretch sm:justify-between">
+        <p className="px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name} · {closing.footer}</p>
+        <div className="flex border-t border-grid sm:border-t-0">
+          {[{ label: legal.privacy.label, href: "/privacy" }, { label: legal.terms.label, href: "/terms" }].map((l) => (
+            <a key={l.label} href={l.href} className="mono grid flex-1 place-items-center border-grid px-8 py-5 transition-colors not-first:border-l hover:bg-white/5 sm:border-l lg:px-10">{l.label}</a>
+          ))}
+        </div>
       </div>
     </footer>
   );
