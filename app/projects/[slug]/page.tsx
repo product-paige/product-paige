@@ -83,7 +83,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
 
               {/* Under the dropdowns: start a project (opens the contact drawer) and the live site */}
               <div className="mt-16 flex flex-wrap gap-3">
-                <Button href={site.bookingUrl} accent>{projects.cta.label}</Button>
+                <Button href={site.bookingUrl}>{projects.cta.label}</Button>
                 {p.liveUrl && <Button href={p.liveUrl}>View the live site</Button>}
               </div>
             </Reveal>
