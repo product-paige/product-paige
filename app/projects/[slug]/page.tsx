@@ -76,11 +76,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
               <h1 className={`${sideHeading} mt-4`}>{p.client}</h1>
               <p className="mt-3 leading-[1.5]">{p.summary}</p>
 
-              {/* The proof point: a quote or one result, with its source. Dashed until it's real. */}
-              <figure className={`mt-6 border-l-2 pl-5 ${p.proof ? "border-accent" : "border-dashed border-muted text-muted"}`}>
-                <blockquote className="serif text-[20px] leading-[1.3] tracking-[-0.02em]">{(p.proof ?? projects.proofPlaceholder).quote}</blockquote>
-                <figcaption className="mono mt-3 text-muted">{(p.proof ?? projects.proofPlaceholder).name}</figcaption>
-              </figure>
 
               <div className="mt-6">
                 <Faq items={story} />
