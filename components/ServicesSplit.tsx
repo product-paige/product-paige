@@ -41,7 +41,7 @@ export function ServicesSplit() {
                   onClick={() => setOpen((prev) => (prev === i ? null : i))}
                   className="flex w-full cursor-pointer items-center gap-5 px-4 py-6 text-left sm:px-6 md:gap-8 md:px-12 lg:py-8 lg:pr-20 lg:pl-10"
                 >
-                  <span className="serif flex-1 text-[clamp(22px,2vw,28px)] leading-[1.1] tracking-[-0.03em]">{ph.title}</span>
+                  <span className="serif flex-1 text-[clamp(24px,2.4vw,34px)] leading-[1.08] tracking-[-0.04em]">{ph.title}</span>
                   {/* The FAQ's thin plus, rotating into a cross when open */}
                   <svg
                     aria-hidden
