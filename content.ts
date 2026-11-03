@@ -176,9 +176,9 @@ export const models = {
       points: ["Two focused hours, booked within days", "A written list of what to fix first", "Or a full review and plan, quoted up front"],
     },
     {
-      tag: "Projects",
+      tag: "One-off",
       title: "Refresh my store",
-      body: "One part of your store done properly, and live before your deadline.",
+      body: "A one-time project: one part of your store done properly, and live before your deadline.",
       price: "$1,500",
       per: "/ project",
       points: ["A theme refresh, a landing page or an email set", "Or a whole campaign, from $4,000", "Done in two to three weeks"],
