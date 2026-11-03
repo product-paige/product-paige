@@ -2,6 +2,16 @@ import { blog, closing, legal, nav, site } from "@/content";
 import { Nav } from "./Nav";
 import { Button, Container } from "./ui";
 
+/** The logo as an icon: a serif P on an ink square, with the eyebrows' red dot in its corner. */
+function LogoMark() {
+  return (
+    <span aria-hidden className="relative grid size-9 place-items-center rounded-ui bg-ink text-paper">
+      <span className="serif translate-y-px text-[24px] leading-none">P</span>
+      <i className="absolute -right-1 -bottom-1 size-3 rounded-full bg-accent ring-2 ring-paper" />
+    </span>
+  );
+}
+
 /** The fixed page grid behind every page (see .page-rails). */
 export function PageRails() {
   return <div aria-hidden className="page-rails"><i className="rails-inner" /></div>;
@@ -13,11 +23,15 @@ export function SiteHeader() {
       {/* Outside .page-frame so it stays stuck over the footer sheet too; draws the sheet's top and sides itself */}
       <header className="rails sticky top-0 z-10 border border-grid bg-paper">
         <i aria-hidden className="rails-inner" />
-        <Container tight className="grid h-[52px] grid-cols-[auto_1fr] items-center lg:h-[56px] xl:grid-cols-[1fr_auto_1fr]">
-          <Nav items={nav} />
-          <a href="/" className="serif text-[20px] leading-none whitespace-nowrap lg:text-[24px] xl:text-center">
-            {site.logo}
-          </a>
+        <Container tight className="grid h-[52px] grid-cols-[auto_1fr] items-center lg:h-[56px]">
+          {/* The logo mark on the left, then the menu (from xl) after a full-height rule */}
+          <div className="flex items-center self-stretch">
+            <a href="/" aria-label={site.logo} className="flex items-center xl:pr-5">
+              <LogoMark />
+            </a>
+            <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
+            <Nav items={nav} />
+          </div>
           {/* The button, with a full-height rule on its left (from xl, where the menu shows) and
               the same 20px either side of it as the menu items have. */}
           <div className="flex items-center justify-end self-stretch">
