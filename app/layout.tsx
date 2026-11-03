@@ -5,6 +5,7 @@ import Script from "next/script";
 import { site } from "@/content";
 import "./globals.css";
 import { ContactDrawer } from "@/components/ContactDrawer";
+import { SubscribePopup } from "@/components/SubscribePopup";
 import { PaletteSwitcher } from "@/components/PaletteSwitcher";
 
 // Tiempos Text (Klim), licensed by Paige.
@@ -56,6 +57,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="mx-auto max-w-[1440px] p-3 md:p-6">{children}</div>
         {/* The contact form, opened by any #contact link */}
         <ContactDrawer />
+        {/* The newsletter sign-up, opened by any #subscribe link */}
+        <SubscribePopup />
         {/* Temporary: try the colour palettes */}
         <PaletteSwitcher />
       </body>

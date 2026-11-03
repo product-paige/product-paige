@@ -40,7 +40,8 @@ export function SiteHeader() {
  */
 export function SiteFooter() {
   const elsewhere = [
-    { label: "Email", href: `mailto:${site.email}` },
+    // Opens the subscribe pop-up (see SubscribePopup)
+    { label: closing.newsletter.label, href: "#subscribe" },
     ...(site.linkedin ? [{ label: "LinkedIn", href: site.linkedin }] : []),
   ];
   const columns = [
@@ -56,11 +57,11 @@ export function SiteFooter() {
       <i aria-hidden className="rails-inner" />
       {/* Name and tagline, then the link columns */}
       <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-        <div className="border-b border-grid px-4 py-10 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:py-14 lg:pr-12 lg:pl-20">
+        <div className="border-b border-grid px-4 py-10 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:pt-14 lg:pb-10 lg:pr-12 lg:pl-20">
           <p className="serif text-[36px] leading-none tracking-[-0.04em]">{site.logo}</p>
           <p className="mt-3 max-w-xs text-white/70">{closing.tagline}</p>
         </div>
-        <div className="grid gap-10 px-4 py-10 sm:grid-cols-3 sm:px-6 md:px-12 lg:py-14 lg:pr-20 lg:pl-12">
+        <div className="grid gap-10 px-4 py-10 sm:grid-cols-3 sm:px-6 md:px-12 lg:pt-14 lg:pb-10 lg:pr-20 lg:pl-12">
           {columns.map((c) => (
             <nav key={c.heading} aria-label={c.heading}>
               <p className="mono text-white/50">{c.heading}</p>
@@ -78,7 +79,7 @@ export function SiteFooter() {
 
       {/* Bottom bar: the copyright, then link cells split by dividers */}
       <div className="flex flex-col border-t border-grid sm:flex-row sm:items-stretch sm:justify-between">
-        <p className="px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name} · {closing.footer}</p>
+        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name}<i aria-hidden className="size-1.5 rounded-full bg-white/50" />{closing.footer}</p>
         <div className="flex border-t border-grid sm:border-t-0">
           {[{ label: legal.privacy.label, href: "/privacy" }, { label: legal.terms.label, href: "/terms" }].map((l) => (
             <a key={l.label} href={l.href} className="mono grid flex-1 place-items-center border-grid px-8 py-5 transition-colors not-first:border-l hover:bg-white/5 sm:border-l lg:px-10">{l.label}</a>
