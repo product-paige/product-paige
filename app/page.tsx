@@ -4,7 +4,6 @@ import {
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { EditorialHero } from "@/components/EditorialHero";
 import { Phases } from "@/components/Phases";
-import { PricingTable } from "@/components/PricingTable";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
@@ -87,8 +86,7 @@ export default function Home() {
 
 
 
-        {/* Ways to work together, as a table */}
-        <PricingTable />
+        {/* Ways to work together (components/PricingTable) is off the page for now */}
 
         {/* Approach: the steps side by side, each a centred sticker, title and line */}
         <section id="approach" className={section}>
