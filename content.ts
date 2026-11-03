@@ -390,16 +390,16 @@ export const approachPage = {
   audiencesBody: "Founders and small teams in ecommerce and consumer apps, usually at the startup or scale-up stage.",
   phases: [
     {
-      title: "Positioning and messaging",
-      body: "Naming, positioning and copy across the whole site, including the definitional pages AI assistants cite. Your product will make sense to someone outside the building.",
-      includes: ["Positioning", "Naming and identity", "Brand and identity", "Copywriting", "AI content design", "Content structure"],
-      caseStudies: ["backspace-body", "brand-playbook"],
-    },
-    {
       title: "Web and product design",
       body: "Storefronts, marketing sites and product surfaces — built with Claude Code and MCP wired into Figma and Shopify. A refresh of what exists, or the whole thing from scratch.",
       includes: ["Shopify theme build", "Design system", "Typography and color", "Claude Code + MCP", "Front-end build", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
+    },
+    {
+      title: "Positioning and messaging",
+      body: "Naming, positioning and copy across the whole site, including the definitional pages AI assistants cite. Your product will make sense to someone outside the building.",
+      includes: ["Positioning", "Naming and identity", "Brand and identity", "Copywriting", "AI content design", "Content structure"],
+      caseStudies: ["backspace-body", "brand-playbook"],
     },
     {
       title: "UX and conversion",
