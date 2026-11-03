@@ -1,7 +1,7 @@
 import { blog, closing, legal, nav, site } from "@/content";
 import { Nav } from "./Nav";
 import { NewsletterForm } from "./NewsletterForm";
-import { Button, Container, sectionHeading } from "./ui";
+import { Button, Container } from "./ui";
 
 /** The fixed page grid behind every page (see .page-rails). */
 export function PageRails() {
@@ -35,9 +35,9 @@ export function SiteHeader() {
 
 /**
  * The dark footer as its own sheet, 24px below the page on the ground, with a cut bottom-right
- * corner. Three bands with full-width dividers: the call to action (its button opens the contact
- * drawer); the name, tagline and newsletter sign-up beside columns of mono links, split by a
- * full-height divider; and a bottom bar with the copyright and a row of link cells.
+ * corner and the page's inner side lines: the name, tagline and newsletter sign-up beside
+ * columns of mono links, split by a full-height divider, then a bottom bar with the copyright
+ * and a row of link cells.
  */
 export function SiteFooter() {
   const elsewhere = [
@@ -52,18 +52,11 @@ export function SiteFooter() {
   const external = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
   return (
-    <footer className="folded on-dark relative mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
-      {/* Call to action */}
-      <Container className="flex flex-col items-start gap-8 py-12 lg:flex-row lg:items-end lg:justify-between lg:py-20">
-        <div>
-          <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{closing.eyebrow}</p>
-          <h2 className={`${sectionHeading} mt-6 max-w-3xl`}>{closing.heading}</h2>
-        </div>
-        <Button href={site.bookingUrl} light>{closing.button}</Button>
-      </Container>
-
+    <footer className="folded rails on-dark relative mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
+      {/* The inner side lines, as on the page */}
+      <i aria-hidden className="rails-inner" />
       {/* Name and newsletter, then the link columns */}
-      <div className="grid border-t border-grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+      <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="border-b border-grid px-4 py-10 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:py-14 lg:pr-12 lg:pl-20">
           <p className="serif text-[36px] leading-none tracking-[-0.04em]">{site.logo}</p>
           <p className="mt-3 max-w-xs text-white/70">{closing.tagline}</p>

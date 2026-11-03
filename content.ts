@@ -487,10 +487,6 @@ export const legal = {
 
 export const closing = {
   footer: "Based in Kitchener, Ontario, working remotely",
-  // The top of the footer; the button opens the contact drawer.
-  eyebrow: "Contact",
-  heading: "Let’s talk about your project",
-  button: "Start a project",
   // The footer's link columns' headings.
   pagesHeading: "Pages",
   postsHeading: "Latest posts",
