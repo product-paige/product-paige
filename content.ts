@@ -41,6 +41,9 @@ export const site = {
   // Form service URL (e.g. Formspree). Until it's set, the form opens the
   // visitor's email app with their message filled in.
   formEndpoint: "",
+  // Newsletter service URL for the footer sign-up (e.g. beehiiv or Buttondown). Until it's set,
+  // signing up opens the visitor's email app with a sign-up request to you.
+  newsletterEndpoint: "",
   // Leave empty to hide the LinkedIn link in the footer.
   linkedin: "",
   // About photo in public/, and its description for screen readers.
@@ -484,6 +487,13 @@ export const closing = {
   footer: "Based in Kitchener, Ontario, working remotely",
   // The call to action at the top of the footer; the button opens the contact drawer.
   cta: { heading: "Let’s talk about your project", label: "Start a project" },
+  tagline: "Product marketing, design and AI builds for Shopify.",
+  newsletter: {
+    heading: "New posts by email",
+    body: "Notes from the scrapbook, about once a month. No spam.",
+    label: "Subscribe",
+    success: "You’re on the list. Thanks for signing up.",
+  },
 };
 
 export const contact = {

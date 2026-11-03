@@ -1,5 +1,6 @@
 import { closing, legal, nav, site } from "@/content";
 import { Nav } from "./Nav";
+import { NewsletterForm } from "./NewsletterForm";
 import { Button, Container } from "./ui";
 
 /** The fixed page grid behind every page (see .page-rails). */
@@ -34,16 +35,27 @@ export function SiteHeader() {
 
 /**
  * The dark footer as its own sheet, 24px below the page on the ground, with a cut bottom-right
- * corner: the name set huge in the serif, a bordered box with the call to action (its button
- * opens the contact drawer), the menu as mono links, then a bottom bar with the small print.
+ * corner: the name and a tagline in the serif beside a newsletter sign-up, a bordered box with
+ * the call to action (its button opens the contact drawer), the menu as mono links, then a bottom bar with the small print.
  */
 export function SiteFooter() {
   return (
     <footer className="folded rails on-dark relative mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
       <i aria-hidden className="rails-inner" />
       <Container className="pt-10 lg:pt-16">
-        <p aria-hidden className="serif text-[clamp(56px,13.6vw,192px)] leading-[0.9] tracking-[-0.05em] whitespace-nowrap">{site.logo}</p>
-        <div className="mt-8 flex flex-col items-start gap-6 rounded-ui border border-white/30 p-6 sm:flex-row sm:items-center sm:justify-between lg:mt-12 lg:px-10 lg:py-8">
+        {/* The name and tagline on the left, the newsletter sign-up on the right */}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:items-end lg:gap-16">
+          <div>
+            <p aria-hidden className="serif text-[clamp(48px,7.4vw,104px)] leading-[0.95] tracking-[-0.05em] whitespace-nowrap">{site.logo}</p>
+            <p className="lede mt-4 max-w-md text-white/80">{closing.tagline}</p>
+          </div>
+          <div>
+            <p className="serif text-[clamp(22px,2vw,28px)] leading-[1.1]">{closing.newsletter.heading}</p>
+            <p className="mt-2 mb-5 text-white/70">{closing.newsletter.body}</p>
+            <NewsletterForm endpoint={site.newsletterEndpoint} email={site.email} label={closing.newsletter.label} success={closing.newsletter.success} />
+          </div>
+        </div>
+        <div className="mt-10 flex flex-col items-start gap-6 rounded-ui border border-white/30 p-6 sm:flex-row sm:items-center sm:justify-between lg:mt-14 lg:px-10 lg:py-8">
           <p className="serif text-[clamp(26px,2.8vw,38px)] leading-[1.1] tracking-[-0.03em] text-balance">{closing.cta.heading}</p>
           <Button href={site.bookingUrl} light>{closing.cta.label}</Button>
         </div>
