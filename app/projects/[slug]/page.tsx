@@ -71,8 +71,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
           <Container className="grid gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-12">
             {/* Pinned column */}
             <Reveal className="lg:sticky lg:top-[92px] lg:self-start">
-              {/* The name and the longer description */}
-              <h1 className={sideHeading}>{p.client}</h1>
+              {/* The role as a pill, then the name and the longer description */}
+              <Chip>{p.role}</Chip>
+              <h1 className={`${sideHeading} mt-4`}>{p.client}</h1>
               <p className="mt-3 leading-[1.5]">{p.summary}</p>
 
               <div className="mt-6">
