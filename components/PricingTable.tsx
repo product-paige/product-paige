@@ -19,27 +19,28 @@ export function PricingTable() {
       "What it is",
       (m) => (
         <>
-          <span className="serif block text-[clamp(20px,1.6vw,24px)] leading-[1.15] tracking-[-0.03em]">{m.title}</span>
-          <span className="mt-2 block">{m.body}</span>
+          <span className="serif block text-[clamp(22px,2vw,28px)] leading-[1.1] tracking-[-0.03em]">{m.title}</span>
+          <span className="mt-3 block max-w-[34ch]">{m.body}</span>
         </>
       ),
     ],
     [
       "Starting at",
       (m) => (
-        <span className="flex items-baseline gap-1.5">
-          <span className={`font-sans text-[20px] font-semibold leading-none tracking-[-0.02em] ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
-          <span className="text-muted">{models.currency} {m.per}</span>
-        </span>
+        // The price large in the serif, the currency and unit small under it
+        <>
+          <span className={`serif block text-[clamp(32px,3vw,44px)] leading-none tracking-[-0.04em] ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
+          <span className="mt-2 block text-[14px] text-muted">{models.currency} {m.per}</span>
+        </>
       ),
     ],
     [
       "Includes",
       (m) => (
-        <ul className="space-y-2.5">
+        <ul className="space-y-3">
           {m.points.map((p, i) => (
-            <li key={p} className="flex items-start gap-2.5 text-[15px]">
-              <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
+            <li key={p} className="flex items-start gap-3 text-[15px] leading-snug">
+              <ScribbleBullet variant={i} className="mt-px text-accent" />
               {p}
             </li>
           ))}
@@ -51,12 +52,14 @@ export function PricingTable() {
   const [picked, setPicked] = useState(Math.max(0, models.items.findIndex((m) => m.featured)));
   const pickedBg = "bg-scrap";
   const tint = (i: number) => (picked === i ? pickedBg : "bg-paper");
+  // On tablet and up the tabs join into a header row, each spanning its column, with the
+  // borders shared like the cells below (so only the first draws a left edge).
   const Tab = ({ m, i }: { m: Model; i: number }) => (
     <button
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex w-40 cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? `${pickedBg} text-ink` : "bg-paper text-ink hover:bg-sheet"}`}
+      className={`mono -mb-px inline-flex cursor-pointer md:w-full items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-3 pb-2.5 font-normal md:rounded-none lg:px-5 ${i > 0 ? "md:border-l-0" : ""} transition-colors ${picked === i ? `${pickedBg} text-ink` : "bg-paper text-ink hover:bg-sheet"}`}
     >
       <i aria-hidden className="size-2.5 rounded-full bg-accent" />{m.tag}
     </button>
@@ -74,8 +77,8 @@ export function PricingTable() {
               <Tab m={m} i={i} />
               <div className={`divide-y divide-line border border-line transition-colors ${tint(i)}`}>
                 {rows.map(([label, cell]) => (
-                  <div key={label} className="px-5 py-5">
-                    <p className="mono mb-2 text-muted">{label}</p>
+                  <div key={label} className="px-5 py-6">
+                    <p className="mono mb-3 text-muted">{label}</p>
                     {cell(m)}
                   </div>
                 ))}
@@ -89,9 +92,9 @@ export function PricingTable() {
           <table className="w-full table-fixed border-separate border-spacing-0 text-left">
             <thead>
               <tr>
-                <th className="w-[14%]" />
+                <th className="w-[16%]" />
                 {models.items.map((m, i) => (
-                  <th key={m.tag} className="pl-0 align-bottom">
+                  <th key={m.tag} className="p-0 align-bottom">
                     <Tab m={m} i={i} />
                   </th>
                 ))}
@@ -100,9 +103,9 @@ export function PricingTable() {
             <tbody>
               {rows.map(([label, cell], r) => (
                 <tr key={label} className="align-top">
-                  <th className={`mono border-b border-l border-line bg-paper px-4 py-5 font-normal lg:py-6 text-muted ${r === 0 ? "border-t" : ""}`}>{label}</th>
+                  <th className={`mono border-b border-l border-line bg-paper px-5 py-7 font-normal text-muted lg:py-8 ${r === 0 ? "border-t" : ""}`}>{label}</th>
                   {models.items.map((m, i) => (
-                    <td key={m.tag} className={`border-r border-b border-line px-5 py-5 text-[16px] lg:px-6 lg:py-6 transition-colors first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
+                    <td key={m.tag} className={`border-r border-b border-line px-6 py-7 text-[16px] transition-colors lg:px-8 lg:py-8 first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
                   ))}
                 </tr>
               ))}
@@ -110,7 +113,9 @@ export function PricingTable() {
           </table>
         </div>
         </div>
-        <div className="mt-8 flex justify-center lg:mt-10">
+        {/* What the prices mean, beside the button */}
+        <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between lg:mt-10">
+          <p className="max-w-lg text-[15px] text-muted">{models.note}</p>
           <Button href={site.bookingUrl} accent>Start a project</Button>
         </div>
       </Container>

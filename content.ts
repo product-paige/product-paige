@@ -163,6 +163,8 @@ export const models = {
   // Set pricePlaceholder to true to fade the prices.
   pricePlaceholder: false,
   currency: "USD",
+  // Under the table, beside the button.
+  note: "Starting prices. You’ll get a fixed quote in writing before any work starts.",
   // Smallest to biggest, left to right; each card has one starting price.
   items: [
     {
