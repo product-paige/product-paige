@@ -237,7 +237,6 @@ export const blog = {
   crumb: "Scrapbook",
   tocLabel: "Contents",
   moreHeading: "More from the scrapbook",
-  cta: { heading: "Want a hand with your store?", body: "Tell me what you’re working on and I’ll reply by email.", label: "Let’s talk" },
   posts: [
     {
       slug: "shopifys-agent-blueprint",
