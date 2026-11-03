@@ -118,7 +118,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
                 <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{projects.nextLabel}</p>
                 <p className={`${sectionHeading} mt-6 transition-colors group-hover:text-accent`}>{next.client}</p>
               </div>
-              <svg aria-hidden viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="size-10 shrink-0 transition-transform duration-300 group-hover:translate-x-1 lg:size-12">
+              <svg aria-hidden viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round" className="size-10 shrink-0 text-muted transition duration-300 group-hover:translate-x-1 group-hover:text-accent lg:size-12">
                 <path d="M4 10h12M11 5l5 5-5 5" />
               </svg>
             </Container>

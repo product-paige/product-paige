@@ -1,5 +1,6 @@
 import { blog, closing, legal, nav, site } from "@/content";
 import { Nav } from "./Nav";
+import { SlideHeader } from "./SlideHeader";
 import { Button, Container } from "./ui";
 
 /** The logo as an icon: a serif P on an ink square, with the eyebrows' red dot in its corner. */
@@ -20,8 +21,9 @@ export function PageRails() {
 export function SiteHeader() {
   return (
     <>
-      {/* Outside .page-frame so it stays stuck over the footer sheet too; draws the sheet's top and sides itself */}
-      <header className="rails sticky top-0 z-10 border border-grid bg-paper">
+      {/* Outside .page-frame so it stays stuck over the footer sheet too; draws the sheet's top and sides
+          itself. Slides up out of view while scrolling down (see SlideHeader). */}
+      <SlideHeader className="rails sticky top-0 z-10 border border-grid bg-paper">
         <i aria-hidden className="rails-inner" />
         <Container tight className="grid h-[52px] grid-cols-[auto_1fr] items-center lg:h-[56px]">
           {/* The logo mark on the left, then the menu (from xl) after a full-height rule */}
@@ -41,7 +43,7 @@ export function SiteHeader() {
             </div>
           </div>
         </Container>
-      </header>
+      </SlideHeader>
     </>
   );
 }
