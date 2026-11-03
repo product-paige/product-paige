@@ -239,7 +239,7 @@ export const blog = {
   crumb: "Scrapbook",
   tocLabel: "Contents",
   // The credits under a post's title
-  meta: { published: "Date", readTime: "Length", author: "By" },
+  meta: { published: "Posted", readTime: "Read time", author: "Written by" },
   moreHeading: "More from the scrapbook",
   posts: [
     {
