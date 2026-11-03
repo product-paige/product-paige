@@ -478,5 +478,5 @@
 }
 /* Paper: a neutral ground, paper-white page, off-black text and dark blocks, one blue for
    buttons and links. The card tints are all neutrals. */
-:root[data-palette="paper"] { --color-ground-bg: #d8d4cb; --color-ground: rgb(255 255 255 / 0.4); --color-paper: #fbfaf6; --color-ink: #1d1d1b; --color-accent: #2450e0; --color-dark: #1d1d1b; --color-sky: #ebe8e1; --color-sage: #e4e1d8; --color-butter: #efece5; }
+:root[data-palette="paper"] { --color-ground-bg: #d8d4cb; --color-ground: rgb(255 255 255 / 0.4); --color-paper: #fbfaf6; --color-ink: #1d1d1b; --color-accent: #2450e0; --color-sky: #ebe8e1; --color-sage: #e4e1d8; --color-butter: #efece5; }
 :root[data-palette="paper"][data-mode="dark"] { --color-ground-bg: #0e0e0d; --color-ground: rgb(255 255 255 / 0.08); --color-paper: #1a1a18; --color-ink: #f3f1eb; --color-accent: #5c84ff; --color-sky: #262623; --color-sage: #22221f; --color-butter: #2a2926; }

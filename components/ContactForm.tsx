@@ -5,10 +5,10 @@ import { Button } from "@/components/ui";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-// Styled for the dark contact section. Fields are 16px so iOS doesn't zoom in on focus.
+// Styled for the paper contact drawer. Fields are 16px so iOS doesn't zoom in on focus.
 const field =
-  "w-full rounded-ui border border-line-dark bg-white/5 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/60 focus:border-white/60 [&>option]:text-ink";
-const label = "mb-2 block text-sm label text-white/60";
+  "w-full rounded-ui border border-line bg-white px-4 py-3 text-base text-ink outline-none transition placeholder:text-muted focus:border-ink";
+const label = "mb-2 block text-sm label text-muted";
 
 /**
  * Posts to `endpoint` (a form service such as Formspree) when one is set.
@@ -106,10 +106,10 @@ export function ContactForm({
         <textarea id="cf-message" name="message" required rows={5} placeholder={messagePlaceholder} className={`${field} resize-y`} />
       </div>
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
-        <Button type="submit" light disabled={status === "sending"}>
+        <Button type="submit" accent disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
         </Button>
-        <p aria-live="polite" className="text-[14px] text-white/60">
+        <p aria-live="polite" className="text-[14px] text-muted">
           {status === "error" ? `That didn’t send. Please email ${email} instead.` : ""}
         </p>
       </div>

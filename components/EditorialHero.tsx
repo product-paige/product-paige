@@ -15,7 +15,7 @@ function selected(line: string) {
 }
 
 /** A six-armed asterisk, as on printed ephemera. Thick strokes, so it holds up small. */
-function Asterisk({ className = "" }: { className?: string }) {
+export function Asterisk({ className = "" }: { className?: string }) {
   return (
     <svg aria-hidden viewBox="0 0 24 24" className={`shrink-0 ${className}`} fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round">
       <path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9" />

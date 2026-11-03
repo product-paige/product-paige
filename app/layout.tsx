@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import { site } from "@/content";
 import "./globals.css";
+import { ContactDrawer } from "@/components/ContactDrawer";
 import { PaletteSwitcher } from "@/components/PaletteSwitcher";
 
 // Tiempos Text (Klim), licensed by Paige.
@@ -53,6 +54,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* The site is a sheet of paper on a gridded ground, with the dark footer as its own
             sheet below it (see .page-frame and SiteFooter). */}
         <div className="mx-auto max-w-[1440px] p-3 md:p-6">{children}</div>
+        {/* The contact form, opened by any #contact link */}
+        <ContactDrawer />
         {/* Temporary: try the colour palettes */}
         <PaletteSwitcher />
       </body>

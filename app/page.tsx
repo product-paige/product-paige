@@ -1,8 +1,7 @@
 import {
-  about, approach, contact, services, site, testimonials,
+  about, approach, services, testimonials,
 } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
-import { ContactForm } from "@/components/ContactForm";
 import { EditorialHero } from "@/components/EditorialHero";
 import { FaqSection } from "@/components/FaqSection";
 import { Phases } from "@/components/Phases";
@@ -143,21 +142,7 @@ export default function Home() {
       </main>
       </div>
 
-      {/* Contact and footer share one dark sheet. */}
-      <SiteFooter>
-        <section id="contact" className={`rails on-dark relative bg-dark text-white ${section}`}>
-          <i aria-hidden className="rails-inner" />
-          <Container className="grid gap-8 lg:grid-cols-2 lg:gap-16">
-            <Reveal>
-              <h2 className={`${sectionHeading} mb-5`}><Rich text={contact.heading} /></h2>
-              <p className="lede max-w-md text-white">{contact.body}</p>
-            </Reveal>
-            <Reveal delay={120}>
-              <ContactForm endpoint={site.formEndpoint} email={site.email} deadlines={contact.deadlines} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />
-            </Reveal>
-          </Container>
-        </section>
-      </SiteFooter>
+      <SiteFooter />
     </>
   );
 }
