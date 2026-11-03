@@ -169,7 +169,7 @@ export const models = {
   items: [
     {
       tag: "Store audit",
-      title: "Find what to fix",
+      title: "Audit and action plan",
       body: "A close look at your store, and a written list of what to fix first.",
       price: "$300",
       per: "/ audit",
@@ -177,7 +177,7 @@ export const models = {
     },
     {
       tag: "Projects",
-      title: "Fix one part",
+      title: "One-off project",
       body: "One part of your store done properly, and live before your deadline.",
       price: "$1,500",
       per: "/ project",
@@ -185,7 +185,7 @@ export const models = {
     },
     {
       tag: "Websites",
-      title: "Build the whole store",
+      title: "New store build",
       body: "Your store designed, written and built from scratch, ready to launch.",
       price: "$8,500",
       per: "/ project",
