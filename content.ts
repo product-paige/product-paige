@@ -3,7 +3,7 @@
 // Headings carry no periods. (Optional: wrap a word in *asterisks* to italicise it.)
 //
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
-// availability line, photo, testimonials, the prices ($300, $1,500, $4,000 and $8,500).
+// availability line, photo, testimonials, the prices ($300, $1,500, $4,000 and $3,500).
 
 // Collage illustrations (public/illustrations/mm), with each file's own width and height.
 const illo = (name: string, width: number, height: number) => ({ src: `/illustrations/mm/${name}.webp`, width, height });
@@ -187,7 +187,7 @@ export const models = {
       tag: "Websites",
       title: "Build my new store",
       body: "Your store designed, written and built from scratch, ready to launch.",
-      price: "$8,500",
+      price: "$3,500",
       per: "/ project",
       points: ["Strategy, design and copy", "Built in Shopify, tested and launched", "Handed over so your team can run it"],
       featured: true,
