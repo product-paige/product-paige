@@ -27,11 +27,11 @@ export function PricingTable() {
     [
       "Starting at",
       (m) => (
-        // The price large in the serif, the currency and unit small under it
-        <>
-          <span className={`serif block text-[clamp(32px,3vw,44px)] leading-none tracking-[-0.04em] ${models.pricePlaceholder ? "opacity-40" : ""}`}>{m.price}</span>
-          <span className="mt-2 block text-[14px] text-muted">{models.currency} {m.per}</span>
-        </>
+        // Small and quiet, in the mono: the price, then the currency and unit in grey
+        <span className={`mono flex flex-wrap items-baseline gap-x-2 ${models.pricePlaceholder ? "opacity-40" : ""}`}>
+          {m.price}
+          <span className="text-muted">{models.currency} {m.per}</span>
+        </span>
       ),
     ],
     [
@@ -52,14 +52,12 @@ export function PricingTable() {
   const [picked, setPicked] = useState(Math.max(0, models.items.findIndex((m) => m.featured)));
   const pickedBg = "bg-scrap";
   const tint = (i: number) => (picked === i ? pickedBg : "bg-paper");
-  // On tablet and up the tabs join into a header row, each spanning its column, with the
-  // borders shared like the cells below (so only the first draws a left edge).
   const Tab = ({ m, i }: { m: Model; i: number }) => (
     <button
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex cursor-pointer md:w-full items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-3 pb-2.5 font-normal md:rounded-none lg:px-5 ${i > 0 ? "md:border-l-0" : ""} transition-colors ${picked === i ? `${pickedBg} text-ink` : "bg-paper text-ink hover:bg-sheet"}`}
+      className={`mono -mb-px inline-flex w-40 cursor-pointer items-center gap-2.5 rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? `${pickedBg} text-ink` : "bg-paper text-ink hover:bg-sheet"}`}
     >
       <i aria-hidden className="size-2.5 rounded-full bg-accent" />{m.tag}
     </button>
@@ -94,7 +92,7 @@ export function PricingTable() {
               <tr>
                 <th className="w-[16%]" />
                 {models.items.map((m, i) => (
-                  <th key={m.tag} className="p-0 align-bottom">
+                  <th key={m.tag} className="pl-0 align-bottom">
                     <Tab m={m} i={i} />
                   </th>
                 ))}
