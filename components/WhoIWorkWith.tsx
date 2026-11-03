@@ -33,7 +33,7 @@ export function WhoIWorkWith({ body = audiences.body }: { body?: string }) {
                   {/* Who it's for as a mono eyebrow with a red dot, then the statement as the title
                       (the Scrapbook cards' title style) */}
                   <p className="mono flex items-center gap-3 tracking-[0.01em]"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{a.title}</p>
-                  <h3 className={`${sansTitle} mt-4`}>{a.body}</h3>
+                  <h3 className={`${sansTitle} mt-6`}>{a.body}</h3>
                   <p className="mt-3 text-[15px]">{a.detail}</p>
                 </div>
                 </div>

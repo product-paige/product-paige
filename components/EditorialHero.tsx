@@ -34,7 +34,7 @@ export function EditorialHero() {
     <section className="relative">
       <Container className="relative py-8 lg:py-14">
         {/* Booking line, above the headline */}
-        <p className="mono mb-6 flex items-center gap-3 lg:mb-8">
+        <p className="mono mb-6 flex items-center gap-3">
           <Asterisk className="live-star size-4" />
           {site.availability}
         </p>

@@ -71,12 +71,12 @@ export function RecentProjects({ className = "" }: { className?: string }) {
     <section id="projects" className={className}>
       <Container>
         {/* The heading as a small mono label with a red dot; previous and next on the right */}
-        <Reveal className="mb-6 flex items-center justify-between gap-4 lg:mb-8">
+        <Reveal className="mb-6 flex items-center justify-between gap-4">
           <h2 className="mono flex items-center gap-3">
             <i aria-hidden className="size-3 rounded-full bg-accent" />
             {projects.heading}
           </h2>
-          <div className="-mr-2 flex">
+          <div className="-my-4 -mr-2 flex">
             {([["Previous project", -1], ["Next project", 1]] as const).map(([label, dir]) => {
               const off = dir < 0 ? edge.start : edge.end;
               return (

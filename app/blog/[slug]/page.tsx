@@ -88,7 +88,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                   <span aria-hidden className="text-muted">/</span>
                   <span className="text-muted">{p.readTime}</span>
                 </p>
-                <h1 className={`${sectionHeading} mt-5`}>{p.title}</h1>
+                <h1 className={`${sectionHeading} mt-6`}>{p.title}</h1>
                 <p className="lede mt-5 max-w-2xl">{p.excerpt}</p>
               </Reveal>
               <Reveal delay={120} className="mx-auto mt-10 max-w-5xl lg:mt-14">

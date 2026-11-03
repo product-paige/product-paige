@@ -68,7 +68,7 @@ export function ContactDrawer() {
               <Asterisk className="live-star size-4 text-accent" />
               Say hello
             </p>
-            <button ref={closeRef} type="button" onClick={close} aria-label="Close" className="-mr-2 grid size-12 cursor-pointer place-items-center transition-colors hover:text-accent">
+            <button ref={closeRef} type="button" onClick={close} aria-label="Close" className="-my-4 -mr-2 grid size-12 cursor-pointer place-items-center transition-colors hover:text-accent">
               <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} strokeLinecap="round" className="size-8">
                 <path d="M5 5l14 14M19 5L5 19" vectorEffect="non-scaling-stroke" />
               </svg>
