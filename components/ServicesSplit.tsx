@@ -51,7 +51,7 @@ export function ServicesSplit() {
                     stroke="currentColor"
                     strokeWidth={1}
                     strokeLinecap="round"
-                    className={`size-5 shrink-0 transition-[rotate] duration-500 lg:size-6 ${isOpen ? "rotate-45" : ""}`}
+                    className={`size-7 shrink-0 transition-[rotate] duration-500 lg:size-9 ${isOpen ? "rotate-45" : ""}`}
                   >
                     <path d="M12 4v16M4 12h16" vectorEffect="non-scaling-stroke" />
                   </svg>
