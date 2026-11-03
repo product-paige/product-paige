@@ -3,7 +3,7 @@
 // Headings carry no periods. (Optional: wrap a word in *asterisks* to italicise it.)
 //
 // To confirm before launch: site URL, booking link, form endpoint, LinkedIn,
-// availability line, photo, testimonials, the prices ($300, $1,500, $4,000 and $3,500).
+// availability line, photo, testimonials, the prices ($300, $1,500 and $3,500).
 
 // Collage illustrations (public/illustrations/mm), with each file's own width and height.
 const illo = (name: string, width: number, height: number) => ({ src: `/illustrations/mm/${name}.webp`, width, height });
@@ -181,10 +181,10 @@ export const models = {
       body: "A one-time project: one part of your store done properly, and live before your deadline.",
       price: "$1,500",
       per: "/ project",
-      points: ["A theme refresh, a landing page or an email set", "Or a whole campaign, from $4,000", "Done in two to three weeks"],
+      points: ["A theme refresh, a landing page or an email set", "Or a whole campaign, quoted up front", "Done in two to three weeks"],
     },
     {
-      tag: "Websites",
+      tag: "New build",
       title: "Build my new store",
       body: "Your store designed, written and built from scratch, ready to launch.",
       price: "$3,500",
