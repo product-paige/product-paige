@@ -234,6 +234,7 @@ export const blog = {
   href: "https://productpaige.com/blog",
   // On a post page
   backLabel: "All posts",
+  tocLabel: "Contents",
   moreHeading: "More from the scrapbook",
   cta: { heading: "Want a hand with your store?", body: "Tell me what you’re working on and I’ll reply by email.", label: "Let’s talk" },
   posts: [

@@ -49,7 +49,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
       <div className="page-frame">
       <PageRails />
       <main>
-        <section className="border-t border-grid py-8 lg:py-12">
+        {/* No top rule: the sticky header above already draws one */}
+        <section className="py-8 lg:py-12">
           <Container className="grid gap-10 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-12">
             {/* Pinned column */}
             <Reveal className="lg:sticky lg:top-[92px] lg:self-start">

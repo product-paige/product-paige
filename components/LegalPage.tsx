@@ -12,7 +12,8 @@ export function LegalPage({ doc }: { doc: Doc }) {
       <div className="page-frame">
       <PageRails />
       <main>
-        <section className={section}>
+        {/* No top rule: the sticky header above already draws one */}
+        <section className={`${section} border-t-0`}>
           <Container>
             <Reveal className="max-w-2xl">
               <p className="text-[14px] label text-muted">{doc.label}</p>
