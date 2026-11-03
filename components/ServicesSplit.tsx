@@ -17,7 +17,7 @@ export function ServicesSplit() {
   const id = useId();
 
   return (
-    <section className="border-t border-grid lg:grid lg:grid-cols-2">
+    <section id="services" className="border-t border-grid lg:grid lg:grid-cols-2">
       <div className="border-b border-grid px-4 py-8 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:py-14 lg:pr-10 lg:pl-20">
         <Reveal className="lg:sticky lg:top-28">
           <h2 className={sectionHeading}><Rich text={services.heading} /></h2>
