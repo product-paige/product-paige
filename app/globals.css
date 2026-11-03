@@ -118,7 +118,8 @@
     text-transform: uppercase;
     line-height: 1;
     white-space: nowrap;
-    --btn-bg: var(--color-ink);
+    /* Dark buttons share the footer's colour (--color-dark) in every palette */
+    --btn-bg: var(--color-dark);
     --btn-fg: #fff;
   }
   .btn-light {
