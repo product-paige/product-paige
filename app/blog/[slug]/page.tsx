@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                   [blog.meta.author, site.name],
                 ].map(([label, value], i) => (
                   <div key={String(label)} className={`py-5 pr-4 ${i === 0 ? "pl-4 sm:pl-6 md:pl-12 lg:pl-20" : "border-l border-grid pl-4 lg:pl-6"}`}>
-                    <dt className="mono text-muted">{label}</dt>
+                    <dt className="mono">{label}</dt>
                     <dd className="mt-2 text-[15px]">{value}</dd>
                   </div>
                 ))}
