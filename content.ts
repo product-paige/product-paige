@@ -299,6 +299,8 @@ export type Project = {
 
 export const projects = {
   heading: "Recent projects",
+  // The link to the next one, at the bottom of a project page
+  nextLabel: "Next project",
   items: [
     {
       slug: "backspace-body",
