@@ -3,13 +3,12 @@ import { Nav } from "./Nav";
 import { SlideHeader } from "./SlideHeader";
 import { Button, Container } from "./ui";
 
-/** The logo as an icon: a serif P on an ink square, with the eyebrows' red dot in its corner. */
+/** The logo as an icon: a blocky, cut-corner P in the accent red on a dark square (app/icon.svg is the same). */
 function LogoMark() {
   return (
-    <span aria-hidden className="relative grid size-9 place-items-center rounded-ui bg-ink text-paper">
-      <span className="serif translate-y-px text-[24px] leading-none">P</span>
-      <i className="absolute -right-1 -bottom-1 size-3 rounded-full bg-accent ring-2 ring-paper" />
-    </span>
+    <svg aria-hidden viewBox="0 0 32 32" className="size-9 shrink-0 rounded-ui bg-dark text-accent">
+      <path fill="currentColor" d="M7 6h13v4h-7v16H7zM20 10h5v8l-3 3h-7l2.5-4H20z" />
+    </svg>
   );
 }
 
