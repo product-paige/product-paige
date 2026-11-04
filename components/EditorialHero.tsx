@@ -71,7 +71,7 @@ export function EditorialHero() {
               {/* Bottom left, or top left where the screen's own text sits at the bottom (tagTop):
                   the badge if the screen has one, otherwise its label */}
               <figcaption className={`absolute left-3 ${shot.tagTop ? "top-3" : "bottom-3"}`}>
-                <Chip className="text-[12px] text-white [--color-chip:var(--color-accent)]">{shot.tag ?? shot.label}</Chip>
+                <Chip className="text-[13px] text-white [--color-chip:var(--color-accent)]">{shot.tag ?? shot.label}</Chip>
               </figcaption>
             </figure>
           ))}
@@ -79,7 +79,7 @@ export function EditorialHero() {
           <figure className="shot relative h-[220px] shrink-0 overflow-hidden border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${cartRatio}` }}>
             <CartMockup className="size-full" />
             <figcaption className="absolute bottom-3 left-3">
-              <Chip className="text-[12px] text-white [--color-chip:var(--color-accent)]">Conversion</Chip>
+              <Chip className="text-[13px] text-white [--color-chip:var(--color-accent)]">Conversion</Chip>
             </figcaption>
           </figure>
         </div>
