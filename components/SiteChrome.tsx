@@ -3,12 +3,12 @@ import { Nav } from "./Nav";
 import { SlideHeader } from "./SlideHeader";
 import { Button, Container } from "./ui";
 
-/** The logo as an icon: a blocky, cut-corner P in the accent colour, cropped tight to its shape
-    so it sits centred in the header (app/icon.svg is the same). */
+/** The logo as an icon: the 3D block P in the accent blue (darker blue on its sides), cropped tight to its shape so it sits centred in the
+    header (app/icon.svg is the same). */
 function LogoMark() {
   return (
-    <svg aria-hidden viewBox="6 5 20 22" className="h-7 w-auto shrink-0 text-accent">
-      <path fill="currentColor" d="M7 6h13v4h-7v16H7zM20 10h5v8l-3 3h-7l2.5-4H20z" />
+    <svg aria-hidden viewBox="49 0 202 300" className="h-9 w-auto shrink-0 lg:h-10">
+      <path d="M49.5303 61.9189L178.237 1.50586L224.203 27.7724V59.4866L250.47 47.5134V136.32L224.203 150V178.989L136.21 221.016V278.618L95.2762 300L49.5308 274.678L49.5303 61.9189Z" fill="#2450e0"/><path d="M49.5303 60.6055L178.893 0L224.203 27.7723L95.1878 89.683V299.815L49.5303 274.862V60.6055Z" fill="#142e8a"/><path d="M224.203 32.6357L250.469 47.4727L224.203 59.5081L224.203 32.6357Z" fill="#142e8a"/><path d="M206.466 73.8267V147.373L136.867 180.294L136.867 106.66L206.466 73.8267Z" fill="#142e8a"/><path d="M136.867 106.776L161.82 94.9557V120.618L136.868 132.464L136.867 106.776Z" fill="#fff"/>
     </svg>
   );
 }
@@ -28,8 +28,9 @@ export function SiteHeader() {
         <Container tight className="grid h-[52px] grid-cols-[auto_1fr] items-center lg:h-[56px]">
           {/* The logo mark on the left, then the menu (from xl) after a full-height rule */}
           <div className="flex items-center self-stretch">
-            {/* A cell of its own, the full height of the header, with the P centred in it */}
-            <a href="/" aria-label={site.logo} className="flex items-center self-stretch pr-5">
+            {/* A cell of its own, the full height of the header: from xl, where the rails and the rule
+                show, the same 20px either side as the menu items, so the P sits centred between them */}
+            <a href="/" aria-label={site.logo} className="flex items-center self-stretch xl:px-5">
               <LogoMark />
             </a>
             <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
