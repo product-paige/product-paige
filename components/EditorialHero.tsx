@@ -61,7 +61,7 @@ export function EditorialHero() {
             whose columns are as wide as each screen's shape (width / height), so all four come out
             the same height and the row fills the content width exactly. Phones scroll it sideways. */}
         <div
-          className="relative z-1 -mx-4 mt-10 flex gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 lg:mt-14 lg:grid lg:gap-5 lg:overflow-visible lg:pb-0"
+          className="relative z-1 -mx-4 mt-10 flex gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 lg:mt-14 lg:grid lg:gap-4 lg:overflow-visible lg:pb-0"
           style={{ gridTemplateColumns: [...hero.shots.map((x) => x.width / x.height), cartRatio].map((r) => `${r.toFixed(3)}fr`).join(" ") }}
         >
           {hero.shots.map((shot) => (
