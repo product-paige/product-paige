@@ -72,7 +72,7 @@ export const hero = {
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
   // `tag` (optional) replaces the label at the bottom left.
   shots: [
-    { src: "/hero/homepage.webp", label: "Homepage", tag: "Shopify themes", alt: "A children's clothing homepage: a serif headline over two photos, with category links between them", width: 701, height: 493 },
+    { src: "/hero/swim-homepage.webp", label: "Homepage", tag: "Shopify themes", alt: "A swimwear homepage: the blue serif headline Cut for the sea, made for the season, over two beach photos with category links between them", width: 1364, height: 960 },
     { src: "/hero/product-card.webp", label: "Product card", tag: "Product pages", alt: "A product card for a green coat dress on a cream background, with a Staff pick badge, star rating and price", width: 349, height: 554 },
     { src: "/hero/collection-banner.webp", label: "Collection banner", alt: "A jewelry banner: gold and pearl earrings on stone, with a serif headline and a Shop now button", width: 720, height: 745 },
   ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string }[],
