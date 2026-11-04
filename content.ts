@@ -70,12 +70,12 @@ export const hero = {
   lede:
     "I launch and fix Shopify stores: the strategy, the design and the build itself, without three handoffs. One person from brief to launch, so nothing gets lost along the way.",
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
-  // `tag` (optional) replaces the label at the bottom left; `tagTop` moves it to the top left.
+  // `tag` (optional) replaces the label at the bottom left; `tagTop` moves it to the top, `tagRight` to the right.
   shots: [
     { src: "/hero/swim-homepage.webp", label: "Homepage", tag: "Theme design", alt: "A swimwear homepage: the blue serif headline Cut for the sea, made for the season, over two beach photos with category links between them", width: 1364, height: 960 },
-    { src: "/hero/spf-product-card.webp", label: "Product card", tag: "Product pages", tagTop: true, alt: "A product card for The Daily SPF 50, a yellow sunscreen bottle on a grey background, with a star rating, a short description and an Add button with the price", width: 876, height: 980 },
+    { src: "/hero/spf-product-card.webp", label: "Product card", tag: "Product pages", tagTop: true, tagRight: true, alt: "A product card for The Daily SPF 50, a yellow sunscreen bottle on a grey background, with a star rating, a short description and an Add button with the price", width: 876, height: 1040 },
     { src: "/hero/collection-banner.webp", label: "Collection banner", tagTop: true, alt: "A jewelry banner: gold and pearl earrings on stone, with a serif headline and a Shop now button", width: 720, height: 745 },
-  ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; tagTop?: boolean }[],
+  ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; tagTop?: boolean; tagRight?: boolean }[],
 };
 
 export const approach = {
