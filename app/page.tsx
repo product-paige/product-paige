@@ -1,5 +1,6 @@
-import { about, approachPage, services, site, testimonials } from "@/content";
+import { about, approachPage, services, site, testimonials, workingStyle } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
+import { Asterisk } from "@/components/EditorialHero";
 import { EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
 import { Phases } from "@/components/Phases";
@@ -8,7 +9,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Container, Eyebrow, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading,
+  Container, Eyebrow, Illo, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -99,6 +100,36 @@ export default function Home() {
         </section>
 
 
+
+        {/* Working style: a picture on the left; the heading, intro and three principles on the right,
+            the principles pushed to the bottom so they line up with the picture's foot */}
+        <section id="working-style" className={section}>
+          <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <Reveal className="grid aspect-square place-items-center bg-sky p-10 lg:p-16">
+              <Illo art={workingStyle.art} className="max-h-full w-3/4" />
+            </Reveal>
+            <div className="flex flex-col">
+              <Reveal>
+                <Eyebrow>{workingStyle.eyebrow}</Eyebrow>
+                <h2 className={sectionHeading}>{workingStyle.heading}</h2>
+                <p className="lede mt-5 max-w-xl">{workingStyle.body}</p>
+              </Reveal>
+              <ul className="mt-10 divide-y divide-line border-y border-line lg:mt-auto">
+                {workingStyle.items.map((it, i) => (
+                  <Reveal as="li" key={it.title} delay={i * 80} className="flex items-start gap-5 py-5">
+                    <span aria-hidden className="grid size-14 shrink-0 place-items-center rounded-ui bg-dark text-paper">
+                      <Asterisk className="size-5" />
+                    </span>
+                    <div>
+                      <h3 className="serif text-[24px] leading-[1.15] tracking-[-0.02em]">{it.title}</h3>
+                      <p className="mt-1 max-w-md text-[15px] leading-[1.5] text-muted">{it.body}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
+          </Container>
+        </section>
 
         {/* Ways to work together (components/PricingTable) is off the page for now */}
 

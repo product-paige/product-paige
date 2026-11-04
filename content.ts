@@ -120,6 +120,19 @@ export const services = {
   heading: "From first sketch to live store",
 };
 
+// The Working style section on the homepage: a picture on the left, three principles on the right.
+export const workingStyle = {
+  eyebrow: "Working style",
+  heading: "Move fast and keep it simple",
+  body: "Fast prototypes and clear decisions, without making it harder than it needs to be.",
+  art: art.lightbulb,
+  items: [
+    { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust based on what’s real." },
+    { title: "Make it clear before pretty", body: "Nail the structure and flow first. Polish comes after." },
+    { title: "Use tools to reduce friction", body: "Remove blockers, speed up decisions, keep momentum." },
+  ],
+};
+
 export const audiences = {
   eyebrow: "Who I work with",
   heading: "Founders building on Shopify",
