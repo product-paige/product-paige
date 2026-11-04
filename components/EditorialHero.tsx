@@ -43,7 +43,7 @@ const cartRatio = 0.9;
 function Shot({ ratio, label, children }: { ratio: number; label: string; children: ReactNode }) {
   return (
     <figure className="flex shrink-0 flex-col items-start gap-3 lg:w-full">
-      <div className="shot relative h-[220px] overflow-hidden border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${ratio}` }}>
+      <div className="shot group relative h-[220px] overflow-hidden border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${ratio}` }}>
         {children}
       </div>
       <figcaption>
@@ -81,8 +81,15 @@ export function EditorialHero() {
         >
           {hero.shots.map((shot) => (
             <Shot key={shot.src} ratio={shot.width / shot.height} label={shot.tag ?? shot.label}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" className="size-full object-cover" />
+              <div className="relative size-full">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" className="size-full object-cover" />
+                {/* A second image that fades in on hover, as a product card swaps to a lifestyle shot */}
+                {shot.hover && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={shot.hover} alt="" width={shot.width} height={shot.height} decoding="async" loading="lazy" className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                )}
+              </div>
             </Shot>
           ))}
           {/* A fourth screen drawn in HTML: a cart on a phone */}
