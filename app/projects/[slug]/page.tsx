@@ -79,7 +79,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             {/* Pinned column */}
             <Reveal className="lg:sticky lg:top-[92px] lg:self-start">
               {/* The role as a pill in the ground's blue, then the name and the longer description */}
-              <Chip className="text-white [--color-chip:#2c5ce0]">{p.role}</Chip>
+              <Chip className="text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
               <h1 className={`${sideHeading} mt-4`}>{p.client}</h1>
               <p className="mt-3 leading-[1.5]">{p.summary}</p>
 

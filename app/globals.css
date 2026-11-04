@@ -6,39 +6,32 @@
   --font-sans: var(--font-manrope), system-ui, sans-serif;
   --font-mono: var(--font-azeret), ui-monospace, monospace;
 
-  /* White */
-  --color-paper: #fcfbf7;   /* the page sheet */
-  --color-surface: #ffffff; /* cards */
-  --color-ink: #383838;     /* text and dark buttons */
-  --color-muted: #6b6b6b; /* small labels and details only (dates, prices' units, row labels); body text is ink */
+  /* The Paper palette: paper-white page, off-black text, one blue, neutral card tints */
+  --color-paper: #fbfaf6;   /* the page sheet */
+  --color-surface: #fdfcfa; /* cards */
+  --color-ink: #1d1d1b;     /* text: an off-black */
+  --color-muted: #646461; /* small labels and details only (dates, prices' units, row labels); body text is ink */
   /* Lines. Grid (below) is the page frame only, a step stronger than line. Line is every rule inside content,
      translucent so it reads the same on white, paper and coloured cards; line-dark is its
      twin on dark blocks. Ink is for interaction (hover, open) only. */
-  --color-line: rgb(56 56 56 / 0.14);
+  --color-line: rgb(29 29 27 / 0.15);
   --color-line-dark: rgb(255 255 255 / 0.15);
-  --color-chip: rgb(56 56 56 / 0.05); /* pills: a translucent ink, so they show on any light surface */
-  --color-dark: #383838;    /* contact, footer, featured card (same as ink) */
-  --color-scrap: #ebe9e4;   /* grey paper: blog cards and the hero */
-  --color-sheet: #f4f2ec;   /* the open FAQ row: a step below the page */
+  --color-chip: rgb(29 29 27 / 0.07); /* pills: a translucent ink, so they show on any light surface */
+  --color-dark: #383838;    /* dark buttons, contact, footer */
+  --color-scrap: #e5e4e0;   /* grey paper: blog cards and the hero */
+  --color-sheet: #eeede9;   /* the open FAQ row: a step below the page */
   --color-live: #2fa84f;    /* availability dot */
   --color-live-text: #23803d; /* availability text: the dot's green, dark enough to read at 13px */
-  --color-accent: #e01321;  /* active-menu underline, link hover, timeline fill, selection, focus */
-  --color-grid: rgb(56 56 56 / 0.22); /* page frame: rails, side grid, section lines (a step above --color-line) */
-  --color-ground-bg: #2c5ce0; /* the ground around the sheet: a bold colour */
-  --color-ground: rgb(255 255 255 / 0.18); /* its grid lines */
+  --color-accent: #2450e0;  /* the one blue: logo, accent buttons, dots, link hover, selection, focus */
+  --color-grid: rgb(29 29 27 / 0.24); /* page frame: rails, side grid, section lines (a step above --color-line) */
+  --color-ground-bg: #d8d4cb; /* the ground around the sheet: a warm grey */
+  --color-ground: rgb(255 255 255 / 0.4); /* its grid lines */
 
   /* Card colours */
-  --color-sage: #dce2d4;
-  --color-sky: #d8e4ee;
-  --color-butter: #efe7c8;
+  --color-sage: #e4e1d8;
+  --color-sky: #ebe8e1;
+  --color-butter: #efece5;
 
-  /* Saved alternatives, swap in to try them:
-     Cool earthy: paper #f0efea, surface #f8f8f5, ink #262724, muted #6b6c66,
-       line #deddd6, chip #e6e5df, dark #343a35, sage #d5ddd3, sky #d2dbda,
-       butter #e8e2cf
-     Muted butter: paper #f6f1df, surface #fbf8ec, ink #2b2a22, muted #6e6a57,
-       line #e5ddc3, chip #eee6cd, dark #3b3a2c, sage #dde0c8, sky #d9ddce,
-       butter #f0e2ae */
 
   /* Corners. Paper (cards, photos) is square, cards with a folded corner (.folded).
      Controls (buttons, pills, tags, fields) and folders round off at 4px. */
@@ -399,27 +392,3 @@
   .live-star { animation: none; }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
-
-/* Palettes to try (temporary; see components/PaletteSwitcher.tsx). Each is one colour on a
-   tinted paper, with a dark mode that swaps them. Set on <html> as data-palette and data-mode. */
-:root[data-palette] {
-  --color-muted: color-mix(in srgb, var(--color-ink) 68%, var(--color-paper));
-  --color-line: color-mix(in srgb, var(--color-ink) 15%, transparent);
-  --color-grid: color-mix(in srgb, var(--color-ink) 24%, transparent);
-  --color-chip: color-mix(in srgb, var(--color-ink) 7%, transparent);
-  --color-sheet: color-mix(in srgb, var(--color-paper) 94%, var(--color-ink));
-  --color-scrap: color-mix(in srgb, var(--color-paper) 90%, var(--color-ink));
-  --color-surface: color-mix(in srgb, var(--color-paper) 60%, #fff);
-  --color-sky: color-mix(in srgb, var(--color-paper) 84%, var(--color-ink));
-  --color-sage: color-mix(in srgb, var(--color-paper) 88%, var(--color-ink));
-  --color-butter: color-mix(in srgb, var(--color-paper) 80%, var(--color-accent));
-}
-:root[data-mode="dark"] {
-  --color-surface: color-mix(in srgb, var(--color-paper) 88%, var(--color-ink));
-  --color-dark: color-mix(in srgb, var(--color-paper) 70%, #000);
-  color-scheme: dark;
-}
-/* Paper: a neutral ground, paper-white page, off-black text and dark blocks, one blue for
-   buttons and links. The card tints are all neutrals. */
-:root[data-palette="paper"] { --color-ground-bg: #d8d4cb; --color-ground: rgb(255 255 255 / 0.4); --color-paper: #fbfaf6; --color-ink: #1d1d1b; --color-accent: #2450e0; --color-sky: #ebe8e1; --color-sage: #e4e1d8; --color-butter: #efece5; }
-:root[data-palette="paper"][data-mode="dark"] { --color-ground-bg: #0e0e0d; --color-ground: rgb(255 255 255 / 0.08); --color-paper: #1a1a18; --color-ink: #f3f1eb; --color-accent: #5c84ff; --color-sky: #262623; --color-sage: #22221f; --color-butter: #2a2926; }

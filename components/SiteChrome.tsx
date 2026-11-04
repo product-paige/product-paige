@@ -3,10 +3,11 @@ import { Nav } from "./Nav";
 import { SlideHeader } from "./SlideHeader";
 import { Button, Container } from "./ui";
 
-/** The logo as an icon: a blocky, cut-corner P in the accent red, no background (app/icon.svg is the same). */
+/** The logo as an icon: a blocky, cut-corner P in the accent colour, cropped tight to its shape
+    so it sits centred in the header (app/icon.svg is the same). */
 function LogoMark() {
   return (
-    <svg aria-hidden viewBox="0 0 32 32" className="size-9 shrink-0 text-accent">
+    <svg aria-hidden viewBox="6 5 20 22" className="h-7 w-auto shrink-0 text-accent">
       <path fill="currentColor" d="M7 6h13v4h-7v16H7zM20 10h5v8l-3 3h-7l2.5-4H20z" />
     </svg>
   );
@@ -27,7 +28,8 @@ export function SiteHeader() {
         <Container tight className="grid h-[52px] grid-cols-[auto_1fr] items-center lg:h-[56px]">
           {/* The logo mark on the left, then the menu (from xl) after a full-height rule */}
           <div className="flex items-center self-stretch">
-            <a href="/" aria-label={site.logo} className="flex items-center xl:pr-5">
+            {/* A cell of its own, the full height of the header, with the P centred in it */}
+            <a href="/" aria-label={site.logo} className="flex items-center self-stretch pr-5">
               <LogoMark />
             </a>
             <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />

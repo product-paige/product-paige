@@ -6,7 +6,6 @@ import { site } from "@/content";
 import "./globals.css";
 import { ContactDrawer } from "@/components/ContactDrawer";
 import { SubscribePopup } from "@/components/SubscribePopup";
-import { PaletteSwitcher } from "@/components/PaletteSwitcher";
 
 // Tiempos Text (Klim), licensed by Paige.
 const serif = localFont({
@@ -55,7 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* The newsletter sign-up, opened by any #subscribe link */}
         <SubscribePopup />
         {/* Temporary: try the colour palettes */}
-        <PaletteSwitcher />
       </body>
     </html>
   );
