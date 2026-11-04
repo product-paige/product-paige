@@ -1,14 +1,23 @@
 import { hero, site } from "@/content";
 import { CartMockup } from "./Mockups";
-import { Chip, Container, SelectionHandles } from "./ui";
+import { Chip, Container, SelectionHandles, selectionBlue } from "./ui";
 
-/** A headline line with any {word} drawn selected: a selection box with handles around it. */
+/**
+ * A headline line with any {word} drawn selected, as in a design tool. On load a cursor drags a
+ * marquee across the word, then lets go and the selection box and handles appear (the .drag-*
+ * animations in globals.css; with reduced motion, just the box).
+ */
 function selected(line: string) {
+  const inset = "-inset-x-[0.08em] -top-[0.02em] -bottom-[0.1em]";
   return line.split(/(\{[^}]+\})/g).map((part, i) =>
     part.startsWith("{") ? (
       <span key={i} className="relative inline-block">
         {part.slice(1, -1)}
-        <SelectionHandles className="-inset-x-[0.08em] -top-[0.02em] -bottom-[0.1em]" />
+        <span aria-hidden className={`drag-marquee pointer-events-none absolute ${inset}`} style={{ border: `1px solid ${selectionBlue}`, background: `color-mix(in srgb, ${selectionBlue} 12%, transparent)` }} />
+        <SelectionHandles className={`drag-box ${inset}`} handleClassName="drag-handle" />
+        <svg aria-hidden viewBox="0 0 16 20" className="drag-cursor pointer-events-none absolute size-[22px]">
+          <path d="M1 1v15.5l4.2-4.1 2.7 6.2 2.6-1.1-2.7-6.1H14z" fill="#1d1d1b" stroke="#fff" strokeWidth="1.3" strokeLinejoin="round" />
+        </svg>
       </span>
     ) : part,
   );

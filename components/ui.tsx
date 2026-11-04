@@ -201,11 +201,11 @@ export const selectionBlue = "#4a8fe7";
  * A selection box with a handle on each corner, as when something is selected in a design tool.
  * Put it inside a relative element; `className` sets how far it sits outside it.
  */
-export function SelectionHandles({ className = "-inset-1.5" }: { className?: string }) {
+export function SelectionHandles({ className = "-inset-1.5", handleClassName = "" }: { className?: string; handleClassName?: string }) {
   return (
     <span aria-hidden className={`pointer-events-none absolute ${className}`} style={{ border: `1.5px solid ${selectionBlue}` }}>
       {["-top-1.5 -left-1.5", "-top-1.5 -right-1.5", "-bottom-1.5 -left-1.5", "-bottom-1.5 -right-1.5"].map((c) => (
-        <i key={c} className={`absolute size-2.5 rounded-full bg-white ${c}`} style={{ border: `1.5px solid ${selectionBlue}` }} />
+        <i key={c} className={`absolute size-2.5 rounded-full bg-white ${c} ${handleClassName}`} style={{ border: `1.5px solid ${selectionBlue}` }} />
       ))}
     </span>
   );
