@@ -8,7 +8,7 @@ import { Chip, Container, SelectionHandles, selectionBlue } from "./ui";
  * animations in globals.css; with reduced motion, just the box).
  */
 function selected(line: string) {
-  const inset = "-inset-x-[0.08em] -top-[0.02em] -bottom-[0.1em]";
+  const inset = "-inset-x-[0.14em] -top-[0.02em] -bottom-[0.1em]";
   return line.split(/(\{[^}]+\})/g).map((part, i) =>
     part.startsWith("{") ? (
       <span key={i} className="relative inline-block">
