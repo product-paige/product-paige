@@ -91,6 +91,8 @@ export const approach = {
 };
 
 export const about = {
+  // Every homepage section has a small mono eyebrow (its name) over a big serif heading
+  eyebrow: "About",
   heading: "Hi, I’m Paige",
   body: "A decade-plus of building on Shopify for brands and apps, and happiest when designing, online or off. These days I do the strategy, the design and the build in one pass, with AI wired into Figma and Shopify.",
   // The short list under the About copy.
@@ -114,11 +116,13 @@ export const about = {
 
 // The rows under this heading are the approach phases (approachPage.phases).
 export const services = {
-  heading: "How I can help",
+  eyebrow: "How I can help",
+  heading: "From first sketch to live store",
 };
 
 export const audiences = {
-  heading: "Who I work with",
+  eyebrow: "Who I work with",
+  heading: "Founders building on Shopify",
   body: "I work closely with founders and small teams building on Shopify, typically at the startup or scale-up stage.",
   items: [
     {
@@ -231,7 +235,8 @@ export const samplePostBody: PostBlock[] = [
 ];
 
 export const blog = {
-  heading: "From the scrapbook",
+  eyebrow: "From the scrapbook",
+  heading: "Notes on building better stores",
   linkLabel: "Read the scrapbook",
   href: "https://productpaige.com/blog",
   // On a post page
@@ -300,7 +305,8 @@ export type Project = {
 };
 
 export const projects = {
-  heading: "Recent projects",
+  eyebrow: "Recent projects",
+  heading: "Stores I’ve helped shape",
   // The link to the next one, at the bottom of a project page
   nextLabel: "Next project",
   // Shown in place of a project's proof point until it has one

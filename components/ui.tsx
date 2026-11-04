@@ -177,6 +177,11 @@ export function Illo({ art, className = "" }: { art: Art; className?: string }) 
   );
 }
 
+/** A section's name as a small mono label with a red dot, 24px above its big heading. */
+export function Eyebrow({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return <p className={`mono mb-6 flex items-center gap-3 ${className}`}><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{children}</p>;
+}
+
 /** Section title: wide heading, with an optional short note underneath. */
 export function SectionHead({ heading, body }: { heading: string; body?: string }) {
   return (

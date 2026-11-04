@@ -8,7 +8,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Container, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading,
+  Container, Eyebrow, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -64,6 +64,7 @@ export default function Home() {
           <Container className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="lg:pt-10">
               <Reveal>
+                <Eyebrow>{about.eyebrow}</Eyebrow>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
               <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>
@@ -89,10 +90,9 @@ export default function Home() {
         {/* Services */}
         <section id="services" className={section}>
           <Container>
-            {/* The heading as a small mono label with a red dot, like Recent projects */}
-            {/* The same space under the eyebrow as the rows have inside, and the section's own above it */}
-            <Reveal className="mb-10 lg:mb-14">
-              <h2 className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{services.heading}</h2>
+            <Reveal className="mb-8 lg:mb-12">
+              <Eyebrow>{services.eyebrow}</Eyebrow>
+              <h2 className={sectionHeading}>{services.heading}</h2>
             </Reveal>
             <Phases topBorder />
           </Container>

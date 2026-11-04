@@ -1,6 +1,6 @@
 import { blog, type Post } from "@/content";
 import type { CSSProperties } from "react";
-import { Chip, Container, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
+import { Chip, Container, Eyebrow, Reveal, Rich, sansTitle, sectionHeading } from "./ui";
 
 /**
  * A post as a loose-leaf notebook page (punch holes, a margin rule and a folded corner; see
@@ -30,7 +30,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
     <section id="blog" className={className}>
       <Container>
         <Reveal className="mb-8 flex flex-wrap items-end justify-between gap-4 lg:mb-16">
-          <h2 className={sectionHeading}><Rich text={blog.heading} /></h2>
+          <div><Eyebrow>{blog.eyebrow}</Eyebrow><h2 className={sectionHeading}><Rich text={blog.heading} /></h2></div>
           <a href={blog.href} className="link">
             {blog.linkLabel}
           </a>
