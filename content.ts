@@ -70,7 +70,7 @@ export const hero = {
   lede:
     "I’ve spent 13 years building on Shopify. Now I design, write and build stores for founders who want one person on it, not an agency.",
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
-  // `tag` (optional) replaces the label at the top right.
+  // `tag` (optional) replaces the label in the caption under the screen.
   shots: [
     { src: "/hero/swim-homepage.webp", label: "Homepage", tag: "Theme design", alt: "A swimwear homepage: the blue serif headline Cut for the sea, made for the season, over two beach photos with category links between them", width: 1364, height: 960 },
     { src: "/hero/spf-product-card.webp", label: "Product card", tag: "Product pages", alt: "A product card for The Daily SPF 50, a yellow sunscreen bottle on a grey background, with a star rating, a short description and an Add button with the price", width: 876, height: 1040 },

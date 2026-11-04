@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { hero, site } from "@/content";
 import { CartMockup } from "./Mockups";
 import { Chip, Container, SelectionHandles, selectionBlue } from "./ui";
@@ -38,6 +39,20 @@ export function Asterisk({ className = "" }: { className?: string }) {
 // The cart mockup's shape (width / height); it's drawn in HTML, so this is ours to pick.
 const cartRatio = 0.9;
 
+/** One storefront screen in its frame, with its label as a caption underneath, clear of the screen. */
+function Shot({ ratio, label, children }: { ratio: number; label: string; children: ReactNode }) {
+  return (
+    <figure className="flex shrink-0 flex-col items-start gap-3 lg:w-full">
+      <div className="shot relative h-[220px] overflow-hidden border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${ratio}` }}>
+        {children}
+      </div>
+      <figcaption>
+        <Chip className="text-[13px] text-white [--color-chip:var(--color-accent)]">{label}</Chip>
+      </figcaption>
+    </figure>
+  );
+}
+
 export function EditorialHero() {
   return (
     <section className="relative">
@@ -65,23 +80,15 @@ export function EditorialHero() {
           style={{ gridTemplateColumns: [...hero.shots.map((x) => x.width / x.height), cartRatio].map((r) => `${r.toFixed(3)}fr`).join(" ") }}
         >
           {hero.shots.map((shot) => (
-            <figure key={shot.src} className="shot relative h-[220px] shrink-0 overflow-hidden border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${shot.width} / ${shot.height}` }}>
+            <Shot key={shot.src} ratio={shot.width / shot.height} label={shot.tag ?? shot.label}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" className="size-full object-cover" />
-              {/* Bottom left by default; tagTop and tagRight move it clear of the screen's own text.
-                  The badge if the screen has one, otherwise its label. */}
-              <figcaption className={`absolute ${shot.tagTop ? "top-3" : "bottom-3"} ${shot.tagRight ? "right-3" : "left-3"}`}>
-                <Chip className="text-[13px] text-white [--color-chip:var(--color-accent)]">{shot.tag ?? shot.label}</Chip>
-              </figcaption>
-            </figure>
+            </Shot>
           ))}
           {/* A fourth screen drawn in HTML: a cart on a phone */}
-          <figure className="shot relative h-[220px] shrink-0 overflow-hidden border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${cartRatio}` }}>
+          <Shot ratio={cartRatio} label="Conversion">
             <CartMockup className="size-full" />
-            <figcaption className="absolute bottom-3 left-3">
-              <Chip className="text-[13px] text-white [--color-chip:var(--color-accent)]">Conversion</Chip>
-            </figcaption>
-          </figure>
+          </Shot>
         </div>
       </Container>
     </section>
