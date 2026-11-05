@@ -148,42 +148,42 @@ export const audiences = {
 
 export const models = {
   eyebrow: "Ways to work together",
-  heading: "Pick where to start",
+  heading: "Choose a starting point",
   // Set pricePlaceholder to true to fade the prices.
   pricePlaceholder: false,
   currency: "USD",
   // Under the cards, beside the button.
   note: "Starting prices. You’ll get a fixed quote in writing before any work starts.",
-  // Smallest to biggest, left to right. Each card: tag, what it is in the client's words, one
-  // line, what's included (short), its starting price and how long it takes.
+  // Smallest to biggest, left to right. Each card: its category, its name, one line, what's
+  // included (short), its starting price and how long it takes.
   // To confirm: the refresh and one-off prices and timelines are placeholders.
   items: [
     {
-      tag: "Ask Paige",
-      title: "Tell me what to fix",
-      body: "Two focused hours on your store or app, and a written list of what to fix first.",
-      points: ["Homepage and key pages", "SEO and AI search check", "Fixes in priority order"],
+      tag: "Review",
+      title: "Ask Paige",
+      body: "A focused review of your store or app, with a written list of priorities.",
+      points: ["Homepage and key pages", "SEO and AI search review", "Prioritized recommendations"],
       price: "$300",
       per: "/ session",
       timeline: "Booked within a few days",
     },
     {
-      tag: "One-off project",
-      title: "Just one thing",
-      body: "One focused piece, done properly and handed over before your deadline.",
+      tag: "Project",
+      title: "Scoped project",
+      body: "A single, well-defined piece of work, delivered on an agreed timeline.",
       points: ["Email flows", "Landing pages", "Content and copy"],
       price: "$750",
       per: "/ project",
-      timeline: "Done in 1 to 2 weeks",
+      timeline: "Delivered in 1 to 2 weeks",
     },
     {
-      tag: "Store refresh",
-      title: "Refresh my store",
-      body: "Your theme and key pages redesigned and rewritten, without starting over.",
-      points: ["Theme and page templates", "Copy that sells", "SEO and AEO clean-up"],
+      tag: "Refresh",
+      title: "Store refresh",
+      body: "Your theme and key pages redesigned and rewritten, building on what already works.",
+      points: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements"],
       price: "$2,500",
       per: "/ project",
-      timeline: "Done in 3 to 4 weeks",
+      timeline: "Delivered in 3 to 4 weeks",
       // The table version opens on this one
       featured: true,
     },
@@ -516,6 +516,6 @@ export const contact = {
   messagePlaceholder: "A few lines is plenty, e.g. our product pages get traffic but hardly anyone adds to cart.",
   deadlines: ["No fixed date", "Within a month", "1–3 months", "It’s urgent"],
   // The three ways to work together, in the client's voice (as in models.items), plus a catch-all.
-  interests: ["Ask Paige", "A one-off project", "Refresh my store", "Not sure yet"],
+  interests: ["Ask Paige", "A scoped project", "A store refresh", "Not sure yet"],
   success: "Thanks, your message is on its way. I’ll reply by email soon, usually to suggest a time for a short intro call.",
 };
