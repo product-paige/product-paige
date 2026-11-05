@@ -148,42 +148,42 @@ export const audiences = {
 
 export const models = {
   eyebrow: "Ways to work together",
-  heading: "Start small or start from scratch",
+  heading: "Pick where to start",
   // Set pricePlaceholder to true to fade the prices.
   pricePlaceholder: false,
   currency: "USD",
   // Under the cards, beside the button.
   note: "Starting prices. You’ll get a fixed quote in writing before any work starts.",
-  // Smallest to biggest, left to right; each card has one starting price.
+  // Smallest to biggest, left to right. Each card: tag, what it is in the client's words, one
+  // line, what's included (short), its starting price and how long it takes.
+  // To confirm: the refresh and one-off prices and timelines are placeholders.
   items: [
     {
-      tag: "Store audit",
-      title: "Review my store",
-      body: "A close look at your store, and a written list of what to fix first.",
+      tag: "Ask Paige",
+      title: "Tell me what to fix",
+      body: "Two focused hours on your store or app, and a written list of what to fix first.",
+      points: ["Homepage and key pages", "SEO and AI search check", "Fixes in priority order"],
       price: "$300",
-      per: "/ audit",
-      // How long it takes, shown on the card under the price
+      per: "/ session",
       timeline: "Booked within a few days",
-      points: ["Two focused hours, booked within days", "A written list of what to fix first", "Or a full review and plan, quoted up front"],
     },
     {
-      tag: "One-off",
+      tag: "One-off project",
+      title: "Just one thing",
+      body: "One focused piece, done properly and handed over before your deadline.",
+      points: ["Email flows", "Landing pages", "Content and copy"],
+      price: "$750",
+      per: "/ project",
+      timeline: "Done in 1 to 2 weeks",
+    },
+    {
+      tag: "Store refresh",
       title: "Refresh my store",
-      body: "One part of your store done properly, and live before your deadline.",
-      price: "$1,500",
+      body: "Your theme and key pages redesigned and rewritten, without starting over.",
+      points: ["Theme and page templates", "Copy that sells", "SEO and AEO clean-up"],
+      price: "$2,500",
       per: "/ project",
-      timeline: "Done in 2 to 3 weeks",
-      points: ["A theme refresh, a landing page or an email set", "Or a whole campaign, quoted up front", "Done in two to three weeks"],
-    },
-    {
-      tag: "New build",
-      title: "Build my new store",
-      body: "Your store designed, written and built from scratch, ready to launch.",
-      price: "$3,500",
-      per: "/ project",
-      timeline: "Launched in 4 to 6 weeks",
-      points: ["Strategy, design and copy", "Built in Shopify, tested and launched", "Handed over so your team can run it"],
-      featured: true,
+      timeline: "Done in 3 to 4 weeks",
     },
   ],
 };
@@ -397,7 +397,7 @@ export const approachPage = {
   phases: [
     {
       title: "Web and product design",
-      body: "Storefronts, marketing sites and product surfaces — built with Claude Code and MCP wired into Figma and Shopify. A refresh of what exists, or the whole thing from scratch.",
+      body: "Storefronts, marketing sites and product surfaces — built with Claude Code and MCP wired into Figma and Shopify. A refresh of what you have, done properly.",
       includes: ["Shopify theme build", "Design system", "Front-end build", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
     },
@@ -514,6 +514,6 @@ export const contact = {
   messagePlaceholder: "A few lines is plenty, e.g. our product pages get traffic but hardly anyone adds to cart.",
   deadlines: ["No fixed date", "Within a month", "1–3 months", "It’s urgent"],
   // The three ways to work together, in the client's voice (as in models.items), plus a catch-all.
-  interests: ["Review my store", "Refresh my store", "Build my new store", "Not sure yet"],
+  interests: ["Ask Paige", "A one-off project", "Refresh my store", "Not sure yet"],
   success: "Thanks, your message is on its way. I’ll reply by email soon, usually to suggest a time for a short intro call.",
 };

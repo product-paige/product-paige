@@ -16,6 +16,7 @@ export function WaysToWork() {
         label: m.tag,
         title: m.title,
         body: m.body,
+        points: m.points,
         meta: (
           <>
           <p className="mono text-muted">Starting at</p>
