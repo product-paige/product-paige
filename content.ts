@@ -124,7 +124,7 @@ export const workingStyle = {
   items: [
     { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust based on what’s real.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
     { title: "Make it clear before pretty", body: "Nail the structure and flow first. Polish comes after.", image: { src: "/hero/collection-banner.webp", width: 720, height: 745, frame: "card" } },
-    { title: "Let Claude do the heavy lifting", body: "Claude Code, connected to Figma and Shopify, sets up themes, product data and builds. I review every line.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "card" } },
+    { title: "Let AI do the heavy lifting", body: "Claude Code, connected to Figma and Shopify, and Shopify Sidekick set up themes, product data and builds. I review every line.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "card" } },
   ] as { title: string; body: string; image: { src: string; width: number; height: number; frame: "browser" | "card"; url?: string } }[],
 };
 
