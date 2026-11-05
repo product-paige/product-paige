@@ -3,7 +3,7 @@
 import { workingStyle } from "@/content";
 import { useEffect, useState } from "react";
 import { Asterisk } from "./EditorialHero";
-import { Container, Eyebrow, Reveal, section, sectionHeading } from "./ui";
+import { Eyebrow, Reveal, sectionHeading } from "./ui";
 
 type Shot = (typeof workingStyle.items)[number]["image"];
 
@@ -71,7 +71,7 @@ function ClaudeWindow() {
 }
 
 /**
- * Working style: the clouds photo with a picture for each principle on the left, and the eyebrow,
+ * Working style: the clouds photo with a picture for each principle filling the left half, and the eyebrow,
  * heading, intro and principles on the right. The picture shows the active principle: they take
  * turns every few seconds, and hovering or focusing one shows its picture (and pauses the turns).
  */
@@ -87,9 +87,11 @@ export function WorkingStyle() {
   }, [paused, count]);
 
   return (
-    <section id="working-style" className={section}>
-      <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-        <Reveal className="@container relative aspect-square overflow-hidden bg-sky">
+    // The picture fills the left half between the inner rails, split from the text by a
+    // full-height divider. The section's top rule still runs the full width.
+    <section id="working-style" className="border-t border-grid">
+      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
+        <Reveal className="@container relative z-1 aspect-square overflow-hidden border-grid bg-sky md:border-x lg:aspect-auto lg:min-h-[36rem] lg:border-l lg:border-r">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={workingStyle.background} alt="" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
           {/* Every picture stacked; the active one fades in over the others */}
@@ -99,7 +101,7 @@ export function WorkingStyle() {
             </div>
           ))}
         </Reveal>
-        <div className="flex flex-col">
+        <div className="flex flex-col border-t border-grid px-4 py-12 sm:px-6 lg:border-t-0 lg:py-16 lg:pr-10 lg:pl-16">
           <Reveal>
             <Eyebrow>{workingStyle.eyebrow}</Eyebrow>
             <h2 className={sectionHeading}>{workingStyle.heading}</h2>
@@ -133,7 +135,7 @@ export function WorkingStyle() {
             })}
           </ul>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
