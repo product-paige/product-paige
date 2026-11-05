@@ -1,4 +1,4 @@
-import { about, approachPage, services, site, testimonials } from "@/content";
+import { about, approach, approachPage, services, site, testimonials } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
@@ -8,7 +8,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Container, Eyebrow, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading,
+  Container, Eyebrow, Illo, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading, selectionBlue,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -102,7 +102,32 @@ export default function Home() {
 
         {/* Ways to work together (components/PricingTable) is off the page for now */}
 
-        {/* My process (approach in content.ts) is off the page for now */}
+        {/* My process: a list section, so the mono label is its heading, with the intro line under it.
+            The steps side by side, each a centred sticker, title and line. */}
+        <section id="approach" className={section}>
+          <Container>
+            <Reveal className="mb-10 lg:mb-14">
+              <Eyebrow as="h2">{approach.heading}</Eyebrow>
+              <p className="lede mt-6 max-w-xl">{approach.body}</p>
+            </Reveal>
+            <ol className="relative grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+              {/* Desktop: a line in the selection blue through the stickers' middles, from the first
+                  step's centre to the last's, with a handle at each end (see SelectionHandles) */}
+              <span aria-hidden className="pointer-events-none absolute top-16 right-[calc(12.5%-7.5px)] left-[calc(12.5%-7.5px)] hidden h-[1.5px] lg:block" style={{ background: selectionBlue }}>
+                {["-left-1", "-right-1"].map((c) => (
+                  <i key={c} className={`absolute top-1/2 size-2.5 -translate-y-1/2 rounded-full bg-white ${c}`} style={{ border: `1.5px solid ${selectionBlue}` }} />
+                ))}
+              </span>
+              {approach.steps.map((p, i) => (
+                <Reveal as="li" key={p.title} delay={i * 120} className="relative flex flex-col items-center text-center">
+                  <Illo art={p.art} className="h-28 w-auto lg:h-32" />
+                  <h3 className="serif mt-5 text-[clamp(20px,1.6vw,24px)] leading-[1.2]">{p.title}</h3>
+                  <p className="mt-2 max-w-[32ch] text-[15px]">{p.body}</p>
+                </Reveal>
+              ))}
+            </ol>
+          </Container>
+        </section>
 
         {/* Blog */}
         <Scrapbook className={section} />
