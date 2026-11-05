@@ -3,7 +3,7 @@
 import { projects, type Project } from "@/content";
 import { useEffect, useRef, useState } from "react";
 import { Cover } from "./Cover";
-import { Chip, Container, Eyebrow, Reveal, sectionHeading } from "./ui";
+import { Chip, Container, Eyebrow, Reveal } from "./ui";
 
 /**
  * A phone showing the project as a small storefront, drawn in HTML from its own name, line and
@@ -70,12 +70,9 @@ export function RecentProjects({ className = "" }: { className?: string }) {
   return (
     <section id="projects" className={className}>
       <Container>
-        {/* The eyebrow and heading; previous and next on the right, level with the heading */}
-        <Reveal className="mb-8 flex items-end justify-between gap-4 lg:mb-12">
-          <div>
-            <Eyebrow>{projects.eyebrow}</Eyebrow>
-            <h2 className={sectionHeading}>{projects.heading}</h2>
-          </div>
+        {/* A list section: the mono label is the heading; previous and next on the right */}
+        <Reveal className="mb-6 flex items-center justify-between gap-4">
+          <Eyebrow as="h2" className="mb-0">{projects.eyebrow}</Eyebrow>
           <div className="-my-4 -mr-2 flex">
             {([["Previous project", -1], ["Next project", 1]] as const).map(([label, dir]) => {
               const off = dir < 0 ? edge.start : edge.end;
