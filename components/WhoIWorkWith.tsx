@@ -6,18 +6,15 @@ import { Container, Reveal, Rich, section, sectionHeading } from "./ui";
 const tilts = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1"];
 
 /**
- * Who I work with: the persona cards, each just a title and a statement, on the bright blue
- * cutting mat. Shared by the homepage and /approach, so editing the copy in
- * content.ts (audiences) changes both. `body` overrides the intro line.
+ * Who I work with: the persona cards, each just who it's for and one statement, on the
+ * bright blue cutting mat (audiences in content.ts).
  */
-export function WhoIWorkWith({ body = audiences.body }: { body?: string }) {
+export function WhoIWorkWith() {
   return (
     <section className={section}>
       <Container>
-        {/* The heading on the left, the intro line on the right, level with it */}
-        <Reveal className="mb-8 grid gap-4 lg:mb-12 lg:grid-cols-2 lg:items-end lg:gap-16">
+        <Reveal className="mb-8 lg:mb-12">
           <h2 className={sectionHeading}><Rich text={audiences.heading} /></h2>
-          <p className="lede max-w-xl lg:justify-self-end">{body}</p>
         </Reveal>
         {/* The cards laid out on the bright blue cutting mat */}
         <div className="relative overflow-hidden rounded-[20px] px-4 py-10 sm:px-6 lg:px-14 lg:py-16">
@@ -25,8 +22,7 @@ export function WhoIWorkWith({ body = audiences.body }: { body?: string }) {
           <div className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {audiences.items.map((a, i) => (
               <Reveal key={a.title} delay={i * 120} className="h-full">
-                {/* Who it's for, the statement, then a few lines on how I'd help */}
-                {/* Tilted, with the bottom-right corner folded over (.folded). The shadow sits on the
+                                {/* Tilted, with the bottom-right corner folded over (.folded). The shadow sits on the
                     unclipped wrapper; a drop-shadow filter would blur the text. */}
                 <div className={`h-full shadow-[0_14px_28px_rgb(0_0_0/0.2)] transition-transform duration-300 hover:rotate-0 ${tilts[i % tilts.length]}`}>
                 <div className="folded flex h-full flex-col bg-paper p-6 pb-12 lg:p-8 lg:pb-14">
@@ -34,7 +30,6 @@ export function WhoIWorkWith({ body = audiences.body }: { body?: string }) {
                       (the Scrapbook cards' title style) */}
                   <p className="mono flex items-center gap-3 tracking-[0.01em]"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{a.title}</p>
                   <h3 className="serif mt-6 text-[clamp(22px,2vw,28px)] leading-[1.15] text-balance">{a.body}</h3>
-                  <p className="mt-3 text-[15px]">{a.detail}</p>
                 </div>
                 </div>
               </Reveal>

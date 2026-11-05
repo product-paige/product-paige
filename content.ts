@@ -93,14 +93,13 @@ export const approach = {
 
 export const about = {
   heading: "Hi, I’m Paige",
-  body: "A decade-plus of building on Shopify for brands and apps, and happiest when designing, online or off. These days I do the strategy, the design and the build in one pass, with AI wired into Figma and Shopify.",
-  // The short list under the About copy.
-  proofHeading: "Why founders work with me",
+  body: "I’ve bootstrapped two brands of my own, so I know your side of it. I still design whenever I can, online or off, and these days I work with AI wired straight into Figma and Shopify.",
+  // The short list under the About copy: how I work.
+  proofHeading: "How I work",
   proof: [
-    "Up to speed fast, without hand-holding",
-    "13+ years across Shopify themes, apps and the platform",
-    "Always upskilling tools and processes",
-    "2x bootstrapped brand founder, so I get it",
+    "Get a simple version live, then adjust to what’s real",
+    "Make it clear before making it pretty",
+    "Use tools to clear blockers and keep things moving",
   ],
   // Tool logos stuck to the photo panel.
   tools: [
@@ -120,54 +119,23 @@ export const services = {
   heading: "From first sketch to live store",
 };
 
-// The Working style section on the homepage: a picture on the left, three principles on the right.
-export const workingStyle = {
-  heading: "Move fast and keep it simple",
-  body: "Fast prototypes and clear decisions, without making it harder than it needs to be.",
-  art: art.lightbulb,
-  items: [
-    { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust based on what’s real." },
-    { title: "Make it clear before pretty", body: "Nail the structure and flow first. Polish comes after." },
-    { title: "Use tools to reduce friction", body: "Remove blockers, speed up decisions, keep momentum." },
-  ],
-};
-
 export const audiences = {
   heading: "Founders building on Shopify",
-  body: "I work closely with founders and small teams building on Shopify, typically at the startup or scale-up stage.",
   items: [
     {
       tone: "bg-scrap",
       title: "Starting out",
       body: "Your first Shopify store is on the way.",
-      detail: "You’ve got the product and a launch date. I’ll shape the brand, write the copy and build a store that looks established from day one.",
-      points: [
-        "You’ve got the product, just not the store",
-        "Your brand guide is three screenshots",
-        "Launch day is booked. The site isn’t",
-      ],
     },
     {
       tone: "bg-scrap",
       title: "Already selling",
       body: "You’ve got customers. You want more.",
-      detail: "The store works, but traffic browses and bounces. I’ll find what’s costing you sales and fix it, starting with what moves the numbers.",
-      points: [
-        "Traffic browses, then bounces",
-        "It still looks like the theme’s demo store",
-        "You’ve outgrown the site you built at 2am",
-      ],
     },
     {
       tone: "bg-scrap",
       title: "Building for Shopify",
       body: "Apps and tools for Shopify merchants.",
-      detail: "Your product works. I’ll help merchants see why, with clear positioning, an app listing that converts and a site that sells it.",
-      points: [
-        "Your app works. Your listing doesn’t sell it",
-        "Merchants install, poke around, uninstall",
-        "Only your cofounder gets the demo",
-      ],
     },
   ],
 };
@@ -331,7 +299,7 @@ export const projects = {
       image: "/projects/backspace-body.webp",
       tagline: "A body care brand that doesn’t exist, built like it does",
       summary:
-        "Backspace Body is a concept brand for family body care: unisex, fragrance-free, refill-first, one range covering body, hair, face and hands. Not a set of mockups, but a working Shopify storefront with 21 products, real copy, ingredient data and SEO behind all of it.",
+        "Backspace Body is a concept brand for family body care. It’s unisex, fragrance-free and refill-first, with one range for body, hair, face and hands.",
       capabilities: ["Naming and identity", "Copywriting", "Product data", "Shopify theme build", "SEO"],
       specs: [
         { label: "Platform", value: "Shopify (Horizon)" },
@@ -347,7 +315,7 @@ export const projects = {
       approach:
         "Designed in Paper, built on Shopify Horizon. Ingredient data lives in metaobjects read from one source, so the glossary, product pages and filters can’t disagree.",
       outcome:
-        "The storefront runs: mega nav, blog, help center, footprint page, and a refill flow that works end to end rather than being described. Every claim traces to a source.",
+        "A working Shopify storefront rather than a set of mockups, with a mega nav, blog, help center, footprint page and a refill flow that works end to end. Every claim traces to a source.",
     },
     {
       slug: "organic-moderne",
@@ -357,7 +325,7 @@ export const projects = {
       liveUrl: "https://organicmoderne.com/",
       tagline: "A Canadian shopping guide for a look that mostly ships from the States",
       summary:
-        "Organic Moderne is an editorial and affiliate site for warm-minimal interiors, built for Canadian shoppers specifically. Long-form guides, a directory of Canadian stores, a design glossary and a filterable shop, all written in Notion and published without touching code.",
+        "Organic Moderne is an editorial and affiliate site for warm-minimal interiors, written for Canadian shoppers.",
       capabilities: ["Content architecture", "SEO", "Affiliate integration", "UI design", "Front-end build"],
       specs: [
         { label: "Platform", value: "React, Vite, Supabase" },
@@ -383,7 +351,7 @@ export const projects = {
       liveUrl: "https://brandplaybook.shop/",
       tagline: "The Shopify guide I wanted when I was figuring it out alone",
       summary:
-        "Brand Playbook is a resource hub for solo founders building a Shopify store without an agency behind them: playbooks, answers, a glossary and a vetted tool stack. It’s structured around the order decisions actually come up in: start, validate, build, launch, grow, operate.",
+        "Brand Playbook is a resource hub for solo founders building a Shopify store without an agency behind them.",
       capabilities: ["Positioning", "Information architecture", "Design system", "Content structure", "Front-end build"],
       specs: [
         { label: "Platform", value: "Web" },
@@ -397,7 +365,7 @@ export const projects = {
       problem:
         "Advice for new Shopify merchants is either a 90-second reel or a $5k agency retainer. What sits between is written to rank, not to be used: the same six tips, no sequencing.",
       approach:
-        "Structure first rather than pages: six stages, pillar guides inside each, flat URLs, nothing nested. Content is written in Notion and mapped to the site schema.",
+        "Structure first rather than pages, in the order decisions come up: start, validate, build, launch, grow, operate. Flat URLs, nothing nested, and content written in Notion and mapped to the site schema.",
       outcome:
         "Library, playbooks, questions, glossary, stack and tutorials, every page prerendered for search. Write in Notion and it ships with the schema already attached.",
     },
@@ -416,30 +384,29 @@ export const approachPage = {
   eyebrow: "How the work runs",
   heading: "My approach",
   lede: "Four phases. Most projects use two or three of them, not all four — and I’ll say which ones you actually need before you’ve paid me anything.",
-  audiencesBody: "Founders and small teams in ecommerce and consumer apps, usually at the startup or scale-up stage.",
   phases: [
     {
       title: "Web and product design",
       body: "Storefronts, marketing sites and product surfaces — built with Claude Code and MCP wired into Figma and Shopify. A refresh of what exists, or the whole thing from scratch.",
-      includes: ["Shopify theme build", "Design system", "Typography and color", "Claude Code + MCP", "Front-end build", "QA and launch"],
+      includes: ["Shopify theme build", "Design system", "Front-end build", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
     },
     {
       title: "Positioning and messaging",
       body: "Naming, positioning and copy across the whole site, including the definitional pages AI assistants cite. Your product will make sense to someone outside the building.",
-      includes: ["Positioning", "Naming and identity", "Brand and identity", "Copywriting", "AI content design", "Content structure"],
+      includes: ["Positioning", "Naming and identity", "Copywriting", "AI search content"],
       caseStudies: ["backspace-body", "brand-playbook"],
     },
     {
       title: "UX and conversion",
       body: "A positioning and UX review, with a written list of what to fix first. I’ll tell you if you don’t need me.",
-      includes: ["UX review", "Conversion", "Scoped plan", "Information architecture", "Product design", "UI design"],
+      includes: ["UX review", "Conversion", "Information architecture", "UI design"],
       caseStudies: ["organic-moderne", "brand-playbook"],
     },
     {
       title: "Content and campaigns",
       body: "Landing pages, emails, an AI-coded tool or a whole campaign. Scoped, built and handed over before your launch date.",
-      includes: ["Landing pages", "Email design", "Campaign copy", "Content architecture", "SEO"],
+      includes: ["Landing pages", "Email design", "Campaign copy", "SEO"],
       caseStudies: ["backspace-body", "organic-moderne"],
     },
   ],
@@ -531,7 +498,7 @@ export const closing = {
 
 export const contact = {
   heading: "Let’s talk about your store",
-  body: "Tell me where your store is and what’s on your plate. I’ll reply by email, and if it sounds like a fit, we’ll set up a short intro call.",
+  body: "Tell me where your store is and what’s on your plate, and I’ll reply by email.",
   messageLabel: "What would you like help with?",
   messagePlaceholder: "A few lines is plenty, e.g. our product pages get traffic but hardly anyone adds to cart.",
   deadlines: ["No fixed date", "Within a month", "1–3 months", "It’s urgent"],
