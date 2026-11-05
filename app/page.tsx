@@ -8,29 +8,29 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WaysToWork } from "@/components/WaysToWork";
 import {
-  Container, Eyebrow, Illo, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading,
+  Container, Eyebrow, Illo, Reveal, Rich, SectionHead, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
-/** Who I work with: a short list with scribble bullets under the About copy, each who it's for and one line. */
+/**
+ * Who I work with, under the About copy: a small mono label, then a ruled list like a spec
+ * sheet, who it's for on the left and one line on the right.
+ */
 function AudienceList() {
   return (
     <>
-      <p className="text-base font-medium">{audiences.heading}</p>
-      <ul className="mt-4 space-y-4">
-        {audiences.items.map((a, i) => (
-          <li key={a.title} className="flex items-start gap-2.5">
-            <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
-            <span>
-              <span className="block text-base font-medium">{a.title}</span>
-              <span className="block text-[15px] text-muted">{a.body}</span>
-            </span>
-          </li>
+      <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{audiences.heading}</p>
+      <dl className="mt-5 max-w-xl border-b border-line">
+        {audiences.items.map((a) => (
+          <div key={a.title} className="grid gap-1 border-t border-line py-3.5 sm:grid-cols-[10rem_1fr] sm:gap-6">
+            <dt className="text-[15px] font-medium">{a.title}</dt>
+            <dd className="text-[15px] text-muted">{a.body}</dd>
+          </div>
         ))}
-      </ul>
+      </dl>
     </>
   );
 }
