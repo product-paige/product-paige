@@ -108,7 +108,7 @@ export function WorkingStyle() {
             <h2 className={sectionHeading}>{workingStyle.heading}</h2>
             <p className="lede mt-5 max-w-xl">{workingStyle.body}</p>
           </Reveal>
-          <ul className="mt-10 divide-y divide-line border-y border-line lg:mt-auto" onMouseLeave={() => setPaused(false)}>
+          <ul className="mt-10 divide-y divide-line lg:mt-auto" onMouseLeave={() => setPaused(false)}>
             {workingStyle.items.map((it, i) => {
               const on = i === active;
               return (
