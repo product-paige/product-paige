@@ -13,6 +13,15 @@ function LogoMark() {
   );
 }
 
+/** A small maple leaf, beside where I'm based in the footer, in the text colour. */
+function MapleLeaf({ className = "" }: { className?: string }) {
+  return (
+    <svg aria-hidden viewBox="10 4 80 76" className={`shrink-0 ${className}`}>
+      <polygon points="50,4 56,16 63,12 60,34 72,22 74,29 87,26 83,39 90,43 71,57 74,65 53,61 52,62 52,80 48,80 48,62 47,61 26,65 29,57 10,43 17,39 13,26 26,29 28,22 40,34 37,12 44,16" fill="currentColor" />
+    </svg>
+  );
+}
+
 /** The fixed page grid behind every page (see .page-rails). */
 export function PageRails() {
   return <div aria-hidden className="page-rails"><i className="rails-inner" /></div>;
@@ -99,7 +108,7 @@ export function SiteFooter() {
 
       {/* Bottom bar: the copyright, then link cells split by dividers */}
       <div className="flex flex-col border-t border-grid sm:flex-row sm:items-stretch sm:justify-between">
-        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name}<i aria-hidden className="size-1.5 rounded-full bg-white/50" />{closing.footer}</p>
+        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name}<i aria-hidden className="size-1.5 rounded-full bg-white/50" /><span className="inline-flex items-center gap-2"><MapleLeaf className="size-3.5 text-white/80" />{closing.footer}</span></p>
         {/* Right padding the size of the folded corner, so the last link sits clear of the cut */}
         <div className="flex border-t border-grid pr-[var(--fold)] sm:border-t-0">
           {infoPages.map((l) => (

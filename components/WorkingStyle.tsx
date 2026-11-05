@@ -119,9 +119,9 @@ export function WorkingStyle() {
                     onClick={() => setActive(i)}
                     className="flex w-full cursor-pointer items-start gap-5 py-5 text-left"
                   >
-                    {/* The active principle's square is the solid blue; the others are a soft tint */}
-                    <span aria-hidden className={`grid size-14 shrink-0 place-items-center rounded-ui transition-colors duration-700 ease-in-out ${on ? "bg-accent text-white" : "bg-accent/10 text-accent"}`}>
-                      <Asterisk className="size-8" weight={2} />
+                    {/* The active principle's square is the solid blue; the others a quiet grey */}
+                    <span aria-hidden className={`grid size-14 shrink-0 place-items-center rounded-ui transition-colors duration-700 ease-in-out ${on ? "bg-accent text-white" : "bg-ink/[0.06] text-ink/40"}`}>
+                      <Asterisk className="size-6" weight={2} />
                     </span>
                     <span>
                       <span className="serif block text-[24px] leading-[1.15] tracking-[-0.02em]">{it.title}</span>
