@@ -4,7 +4,7 @@ import { Button, Reveal } from "./ui";
 
 /**
  * Ways to work together: the three starting points on the cutting mat, each its tag, what it is
- * in the client's words and its starting price, then the note and a button to get in touch.
+ * in the client's words and its starting price ("Starting at"), then the note and a button to get in touch.
  */
 export function WaysToWork() {
   return (
@@ -16,10 +16,13 @@ export function WaysToWork() {
         label: m.tag,
         title: m.title,
         meta: (
-          <p className="flex items-baseline gap-2">
+          <>
+          <p className="mono text-muted">Starting at</p>
+          <p className="mt-2 flex items-baseline gap-2">
             <span className="serif text-[clamp(28px,2.4vw,36px)] leading-none tracking-[-0.03em]">{m.price}</span>
             <span className="mono text-muted">{m.per.replace("/ ", "per ")}</span>
           </p>
+          </>
         ),
       }))}
       footer={
