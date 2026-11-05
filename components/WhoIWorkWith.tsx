@@ -30,7 +30,7 @@ export function WhoIWorkWith() {
                   {/* Who it's for as a mono eyebrow with a red dot, then the statement as the title
                       (the Scrapbook cards' title style) */}
                   <p className="mono flex items-center gap-3 tracking-[0.01em]"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{a.title}</p>
-                  <h3 className="serif mt-6 text-[clamp(22px,2vw,28px)] leading-[1.15] text-balance">{a.body}</h3>
+                  <h3 className="serif mt-6 text-[clamp(22px,2vw,28px)] leading-[1.15] text-balance"><Rich text={a.body} /></h3>
                 </div>
                 </div>
               </Reveal>

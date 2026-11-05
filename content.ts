@@ -127,17 +127,17 @@ export const audiences = {
     {
       tone: "bg-scrap",
       title: "Starting out",
-      body: "Your first Shopify store is on the way.",
+      body: "Your first Shopify store is on the way",
     },
     {
       tone: "bg-scrap",
       title: "Already selling",
-      body: "You’ve got customers. You want more.",
+      body: "You’ve got customers\nYou want more",
     },
     {
       tone: "bg-scrap",
       title: "Building for Shopify",
-      body: "Apps and tools for Shopify merchants.",
+      body: "Apps and tools for Shopify merchants",
     },
   ],
 };
