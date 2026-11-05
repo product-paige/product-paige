@@ -1,5 +1,4 @@
 import { blog, type Post } from "@/content";
-import type { CSSProperties } from "react";
 import { Chip, Container, Eyebrow, Reveal, sansTitle } from "./ui";
 
 /**
@@ -12,7 +11,7 @@ export function ScrapCard({ p }: { p: Post }) {
     <a href={`/blog/${p.slug}`} className="scrap loose-leaf folded tilt group">
       <div className="mb-5 flex items-center justify-between gap-3">
         <time className="text-[14px] font-medium text-muted">{p.date}</time>
-        <Chip className="text-white" style={{ "--color-chip": "var(--color-ink)" } as CSSProperties}>{p.tag}</Chip>
+        <Chip className="text-[13px] text-white [--color-chip:var(--color-accent)]">{p.tag}</Chip>
       </div>
       <span className="photo-grain block">
         {/* eslint-disable-next-line @next/next/no-img-element */}
