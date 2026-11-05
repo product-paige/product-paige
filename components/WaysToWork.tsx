@@ -20,7 +20,7 @@ export function WaysToWork() {
           <>
           <p className="mono text-muted">Starting at</p>
           <p className="mt-2 flex items-baseline gap-2">
-            <span className="serif text-[clamp(28px,2.4vw,36px)] leading-none tracking-[-0.03em]">{m.price}</span>
+            <span className="serif text-[clamp(22px,1.8vw,28px)] leading-none tracking-[-0.03em]">{m.price}</span>
             <span className="mono text-muted">{m.per.replace("/ ", "per ")}</span>
           </p>
           <p className="mt-4 border-t border-line pt-3 text-[14px]">{m.timeline}</p>

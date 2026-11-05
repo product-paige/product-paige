@@ -30,7 +30,7 @@ export function CardMat({ id, eyebrow, heading, items, footer }: { id?: string; 
                     unclipped wrapper; a drop-shadow filter would blur the text. */}
                 <div className={`h-full shadow-[0_14px_28px_rgb(0_0_0/0.2)] transition-transform duration-300 hover:rotate-0 ${tilts[i % tilts.length]}`}>
                   <div className="folded flex h-full flex-col bg-paper p-6 pb-12 lg:p-8 lg:pb-14">
-                    <p className="mono flex items-center gap-3 tracking-[0.01em]"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{a.label}</p>
+                    <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{a.label}</p>
                     <h3 className="serif mt-6 text-[clamp(22px,2vw,28px)] leading-[1.15] text-balance"><Rich text={a.title} /></h3>
                     {a.body && <p className="mt-3 text-[15px] leading-[1.5] text-muted">{a.body}</p>}
                     {a.meta && <div className="mt-auto pt-8">{a.meta}</div>}
