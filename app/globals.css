@@ -427,3 +427,13 @@
   .drag-marquee, .drag-cursor { display: none; }
   .drag-box, .drag-handle { animation-name: none; }
 }
+
+/* The About board's movable items: a grab cursor, no text selection or touch scrolling while
+   moving one, and a slight lift while it's held. */
+[data-drag] {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: scale 200ms var(--ease-soft), filter 200ms var(--ease-soft);
+  &[data-dragging] { cursor: grabbing; scale: 1.04; filter: drop-shadow(0 12px 18px rgb(0 0 0 / 0.25)); }
+}

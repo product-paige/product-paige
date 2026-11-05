@@ -103,6 +103,8 @@ export const about = {
   ],
   // The About board: the photo's file name and the folder that opens the projects.
   photoFile: "paige.jpg",
+  // On the mat, bottom right: the files on it can be dragged around
+  dragHint: "Move things around",
   folder: "case studies",
 };
 

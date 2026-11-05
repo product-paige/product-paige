@@ -87,6 +87,8 @@ export default function Home() {
               <div className="relative w-full lg:flex-1">
                 <AboutNotebook onMat />
               </div>
+              {/* A hint that the files can be moved */}
+              <p aria-hidden className="mono pointer-events-none absolute right-8 bottom-8 text-white/70 lg:right-12 lg:bottom-9">{about.dragHint}</p>
             </Reveal>
           </div>
         </section>
