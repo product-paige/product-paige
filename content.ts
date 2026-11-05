@@ -179,7 +179,7 @@ export const models = {
     {
       tag: "Refresh",
       title: "Store refresh",
-      body: "Your theme and key pages redesigned and rewritten, building on what already works.",
+      body: "Your theme and key pages, redesigned and rewritten.",
       points: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements"],
       price: "$2,500",
       per: "/ project",
