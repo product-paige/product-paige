@@ -92,6 +92,8 @@ export const approach = {
 };
 
 export const about = {
+  // Every homepage section is named by a mono eyebrow; the big serif heading goes under it
+  eyebrow: "About",
   heading: "Hi, I’m Paige",
   body: "I’ve bootstrapped two brands of my own, so I know your side of it. I still design whenever I can, online or off, and these days I work with AI wired straight into Figma and Shopify.",
   // The short list under the About copy: how I work.
@@ -114,12 +116,12 @@ export const about = {
 
 // The rows under this heading are the approach phases (approachPage.phases).
 export const services = {
-  // The section name, for search and AI assistants (llms.txt); the page shows only the heading
   eyebrow: "How I can help",
   heading: "From first sketch to live store",
 };
 
 export const audiences = {
+  eyebrow: "Who I work with",
   heading: "Founders building on Shopify",
   items: [
     {
