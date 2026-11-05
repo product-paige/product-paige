@@ -37,7 +37,7 @@ export function Asterisk({ className = "" }: { className?: string }) {
  * The hero: the booking line, the headline, the intro, then a row of storefront screens.
  */
 // The cart mockup's shape (width / height); it's drawn in HTML, so this is ours to pick.
-const cartRatio = 0.9;
+const cartRatio = 0.875;
 
 /** One storefront screen in its frame, with its label as a caption underneath, clear of the screen. */
 function Shot({ ratio, label, children }: { ratio: number; label: string; children: ReactNode }) {
