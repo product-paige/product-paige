@@ -1,6 +1,6 @@
-import { about, approach, approachPage, services, site, testimonials } from "@/content";
+import { about, approachPage, services, site, testimonials, workingStyle } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
-import { EditorialHero } from "@/components/EditorialHero";
+import { Asterisk, EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
 import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
@@ -8,30 +8,13 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Container, Eyebrow, Illo, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading, selectionBlue,
+  Container, Eyebrow, Illo, Reveal, Rich, SectionHead, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
-/** How I work: a short list with scribble bullets, under the About copy. */
-function ProofList() {
-  return (
-    <>
-      <p className="text-base font-medium">{about.proofHeading}</p>
-      <ul className="mt-3 space-y-2 text-base">
-        {about.proof.map((f, i) => (
-          <li key={f} className="flex items-start gap-2.5">
-            <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
-            {f}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-}
-
 export default function Home() {
   return (
     <>
@@ -58,7 +41,7 @@ export default function Home() {
         <EditorialHero />
 
         {/* About: two columns. Left, the heading, one paragraph in Manrope on who I am
-            and how I work, then a short list on how I work. Right, the photo and tools laid
+            and how I work. Right, the photo and tools laid
             out like a desktop (see AboutNotebook). */}
         <section id="about" className={`${section} overflow-x-clip`}>
           <Container className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
@@ -68,9 +51,6 @@ export default function Home() {
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
               <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>
-              <Reveal delay={100} className="mt-10 lg:mt-16">
-                <ProofList />
-              </Reveal>
             </div>
 
             {/* Laid out like a desktop: the photo, tools and a folder as files */}
@@ -100,34 +80,39 @@ export default function Home() {
 
 
 
-        {/* Ways to work together (components/PricingTable) is off the page for now */}
-
-        {/* My process: a list section, so the mono label is its heading, with the intro line under it.
-            The steps side by side, each a centred sticker, title and line. */}
-        <section id="approach" className={section}>
-          <Container>
-            <Reveal className="mb-10 lg:mb-14">
-              <Eyebrow as="h2">{approach.heading}</Eyebrow>
-              <p className="lede mt-6 max-w-xl">{approach.body}</p>
+        {/* Working style: a picture on the left; the eyebrow, heading, intro and three principles on
+            the right, the principles pushed to the bottom so they line up with the picture's foot */}
+        <section id="working-style" className={section}>
+          <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <Reveal className="grid aspect-square place-items-center bg-sky p-10 lg:p-16">
+              <Illo art={workingStyle.art} className="max-h-full w-3/4" />
             </Reveal>
-            <ol className="relative grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
-              {/* Desktop: a line in the selection blue through the stickers' middles, from the first
-                  step's centre to the last's, with a handle at each end (see SelectionHandles) */}
-              <span aria-hidden className="pointer-events-none absolute top-16 right-[calc(12.5%-7.5px)] left-[calc(12.5%-7.5px)] hidden h-[1.5px] lg:block" style={{ background: selectionBlue }}>
-                {["-left-1", "-right-1"].map((c) => (
-                  <i key={c} className={`absolute top-1/2 size-2.5 -translate-y-1/2 rounded-full bg-white ${c}`} style={{ border: `1.5px solid ${selectionBlue}` }} />
+            <div className="flex flex-col">
+              <Reveal>
+                <Eyebrow>{workingStyle.eyebrow}</Eyebrow>
+                <h2 className={sectionHeading}>{workingStyle.heading}</h2>
+                <p className="lede mt-5 max-w-xl">{workingStyle.body}</p>
+              </Reveal>
+              <ul className="mt-10 divide-y divide-line border-y border-line lg:mt-auto">
+                {workingStyle.items.map((it, i) => (
+                  <Reveal as="li" key={it.title} delay={i * 80} className="flex items-start gap-5 py-5">
+                    <span aria-hidden className="grid size-14 shrink-0 place-items-center rounded-ui bg-dark text-paper">
+                      <Asterisk className="size-5" />
+                    </span>
+                    <div>
+                      <h3 className="serif text-[24px] leading-[1.15] tracking-[-0.02em]">{it.title}</h3>
+                      <p className="mt-1 max-w-md text-[15px] leading-[1.5] text-muted">{it.body}</p>
+                    </div>
+                  </Reveal>
                 ))}
-              </span>
-              {approach.steps.map((p, i) => (
-                <Reveal as="li" key={p.title} delay={i * 120} className="relative flex flex-col items-center text-center">
-                  <Illo art={p.art} className="h-28 w-auto lg:h-32" />
-                  <h3 className="serif mt-5 text-[clamp(20px,1.6vw,24px)] leading-[1.2]">{p.title}</h3>
-                  <p className="mt-2 max-w-[32ch] text-[15px]">{p.body}</p>
-                </Reveal>
-              ))}
-            </ol>
+              </ul>
+            </div>
           </Container>
         </section>
+
+        {/* Ways to work together (components/PricingTable) is off the page for now */}
+
+        {/* My process (approach in content.ts) is off the page for now */}
 
         {/* Blog */}
         <Scrapbook className={section} />

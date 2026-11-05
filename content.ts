@@ -96,13 +96,6 @@ export const about = {
   eyebrow: "About",
   heading: "Hi, I’m Paige",
   body: "I’ve bootstrapped two brands of my own, so I know your side of it. I still design whenever I can, online or off, and these days I work with AI wired straight into Figma and Shopify.",
-  // The short list under the About copy: how I work.
-  proofHeading: "How I work",
-  proof: [
-    "Get a simple version live, then adjust to what’s real",
-    "Make it clear before making it pretty",
-    "Use tools to clear blockers and keep things moving",
-  ],
   // Tool logos stuck to the photo panel.
   tools: [
     { name: "Shopify", logo: "/logos/shopify-glyph.svg", file: "shopify.app" },
@@ -118,6 +111,19 @@ export const about = {
 export const services = {
   eyebrow: "How I can help",
   heading: "From first sketch to live store",
+};
+
+// The Working style section on the homepage: a picture on the left, three principles on the right.
+export const workingStyle = {
+  eyebrow: "Working style",
+  heading: "Move fast and keep it simple",
+  body: "Fast prototypes and clear decisions, without making it harder than it needs to be.",
+  art: art.lightbulb,
+  items: [
+    { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust based on what’s real." },
+    { title: "Make it clear before pretty", body: "Nail the structure and flow first. Polish comes after." },
+    { title: "Use tools to reduce friction", body: "Remove blockers, speed up decisions, keep momentum." },
+  ],
 };
 
 export const audiences = {
