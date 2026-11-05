@@ -117,12 +117,12 @@ export const services = {
 export const workingStyle = {
   eyebrow: "Working style",
   heading: "Move fast and keep it simple",
-  body: "Fast prototypes and clear decisions, without making it harder than it needs to be.",
+  body: "Fast prototypes and clear decisions. Claude does the repetitive work, so my time goes on the parts that need a person.",
   art: art.lightbulb,
   items: [
     { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust based on what’s real." },
     { title: "Make it clear before pretty", body: "Nail the structure and flow first. Polish comes after." },
-    { title: "Use tools to reduce friction", body: "Remove blockers, speed up decisions, keep momentum." },
+    { title: "Let Claude do the heavy lifting", body: "Claude Code, connected to Figma and Shopify, sets up themes, product data and builds. I review every line." },
   ],
 };
 
