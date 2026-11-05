@@ -8,7 +8,6 @@ import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { PricingTable } from "@/components/PricingTable";
-import { WaysToWork } from "@/components/WaysToWork";
 import {
   Container, Eyebrow, Illo, Reveal, Rich, SectionHead, section, sectionHeading,
 } from "@/components/ui";
@@ -136,14 +135,13 @@ export default function Home() {
 
         {/* My process (approach in content.ts) is off the page for now */}
 
+
+        {/* Ways to work together: the starting points and prices as a tabbed table, beside the button to get
+            in touch */}
+        <PricingTable />
+
         {/* Blog */}
         <Scrapbook className={section} />
-
-        {/* Ways to work together: the starting points and prices, last, beside the button to get in touch */}
-        <WaysToWork />
-
-        {/* For comparing: the same offers as the earlier tabbed table (components/PricingTable) */}
-        <PricingTable />
 
         {/* Testimonials: hidden until there are real quotes */}
         {testimonials.items.length > 0 && (

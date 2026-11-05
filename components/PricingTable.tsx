@@ -7,7 +7,7 @@ import { Button, Container, Eyebrow, ScribbleBullet, section, sectionHeading } f
 type Model = (typeof models.items)[number];
 
 /**
- * Ways to work together as a table (the alternative to WaysToWork's cards): one column per way of working
+ * Ways to work together as a table: one column per way of working
  * with its tag as a folder tab on top, and rows for what it is, the price and what's included,
  * in a full grid of fine borders. Clicking a tab picks that option: its tab and column take the
  * same grey (the featured one to start). On phones each option becomes its own stacked
@@ -65,7 +65,7 @@ export function PricingTable() {
   );
 
   return (
-    <section id="pricing-table" className={section}>
+    <section id="pricing" className={section}>
       <Container>
         <div className="mb-12 lg:mb-16">
           <Eyebrow>{models.eyebrow}</Eyebrow>

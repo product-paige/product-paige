@@ -57,7 +57,7 @@ export function AboutNotebook({ onMat = false }: { onMat?: boolean }) {
 
       {/* The parcel sticker, selected and tilted, low on the left */}
       <span className="absolute bottom-[20%] left-0 block w-[30%] -rotate-[9deg]">
-        <SelectionHandles />
+        <SelectionHandles color={onMat ? "#ffffff" : undefined} />
         <Illo art={art.parcel} className="w-full" />
       </span>
 
