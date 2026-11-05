@@ -75,7 +75,7 @@ export default function Home() {
               <Reveal>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
-              <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>
+              <Reveal as="p" delay={60} className="lede mt-5 max-w-xl">{about.body}</Reveal>
               <Reveal delay={100} className="mt-14 lg:mt-auto lg:pt-16">
                 <AudienceList />
               </Reveal>
