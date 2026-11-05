@@ -65,13 +65,15 @@ export default function Home() {
             and how I work. Right, the photo and tools laid
             out like a desktop (see AboutNotebook). */}
         <section id="about" className={`${section} overflow-x-clip`}>
-          <Container className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="lg:pt-10">
+          <Container className="grid items-start gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-16">
+            {/* Left: the heading and copy at the top, Who I work with pushed to the bottom, level
+                with the foot of the mat */}
+            <div className="flex flex-col lg:pt-10">
               <Reveal>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
               <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>
-              <Reveal delay={100} className="mt-10 lg:mt-16">
+              <Reveal delay={100} className="mt-14 lg:mt-auto lg:pt-16">
                 <AudienceList />
               </Reveal>
             </div>
