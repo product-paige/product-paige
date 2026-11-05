@@ -31,7 +31,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
       <Container>
         {/* A list section: the mono label is the heading, the link to the rest on the right */}
         <Reveal className="mb-6 flex flex-wrap items-center justify-between gap-4">
-          <Eyebrow as="h2" className="mb-0">{blog.eyebrow}</Eyebrow>
+          <Eyebrow as="h2">{blog.eyebrow}</Eyebrow>
           <a href={blog.href} className="link">
             {blog.linkLabel}
           </a>

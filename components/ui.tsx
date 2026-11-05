@@ -179,7 +179,8 @@ export function Illo({ art, className = "" }: { art: Art; className?: string }) 
 
 /** A section's name as a small mono label with a dot: over a heading, or on its own as the heading (as="h2"). */
 export function Eyebrow({ as: Tag = "p", children, className = "" }: { as?: "p" | "h2"; children: ReactNode; className?: string }) {
-  return <Tag className={`mono mb-6 flex items-center gap-3 ${className}`}><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{children}</Tag>;
+  // 24px above the heading it names; none when it is the heading itself, so it centres in a row
+  return <Tag className={`mono flex items-center gap-3 ${Tag === "p" ? "mb-6" : ""} ${className}`}><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{children}</Tag>;
 }
 
 /** Section title: wide heading, with an optional short note underneath. */

@@ -72,7 +72,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
       <Container>
         {/* A list section: the mono label is the heading; previous and next on the right */}
         <Reveal className="mb-6 flex items-center justify-between gap-4">
-          <Eyebrow as="h2" className="mb-0">{projects.eyebrow}</Eyebrow>
+          <Eyebrow as="h2">{projects.eyebrow}</Eyebrow>
           <div className="-my-4 -mr-2 flex">
             {([["Previous project", -1], ["Next project", 1]] as const).map(([label, dir]) => {
               const off = dir < 0 ? edge.start : edge.end;
