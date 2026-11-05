@@ -17,10 +17,11 @@ type Model = (typeof models.items)[number];
 function RowLabel({ label }: { label: string }) {
   const tipId = useId();
   if (label !== models.deliverables.label) return <>{label}</>;
+  // Inline, so the (i) sits right after the last word even when the label wraps
   return (
-    <span className="group relative inline-flex items-center gap-2">
+    <span className="group relative">
       {label}
-      <button type="button" aria-label="About deliverables" aria-describedby={tipId} className="grid size-5 shrink-0 cursor-help place-items-center rounded-full border border-current text-[11px] leading-none opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100">
+      <button type="button" aria-label="About deliverables" aria-describedby={tipId} className="ml-1.5 inline-grid size-4 cursor-help place-items-center rounded-full border border-current align-[-2px] text-[9px] leading-none opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100">
         i
       </button>
       <span id={tipId} role="tooltip" className="pointer-events-none absolute bottom-full left-0 z-10 mb-2 w-60 rounded-ui bg-dark px-3 py-2.5 font-sans text-[13px] leading-snug tracking-normal normal-case text-white opacity-0 shadow-[0_8px_20px_rgb(0_0_0/0.18)] transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
