@@ -122,7 +122,7 @@ export const services = {
 
 export const audiences = {
   eyebrow: "Who I work with",
-  heading: "Founders building on Shopify",
+  heading: "Small teams building on Shopify",
   items: [
     {
       tone: "bg-scrap",
