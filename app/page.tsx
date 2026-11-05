@@ -1,4 +1,4 @@
-import { about, approachPage, services, site, testimonials, workingStyle } from "@/content";
+import { about, approachPage, audiences, services, site, testimonials, workingStyle } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { Asterisk, EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
@@ -7,15 +7,34 @@ import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WaysToWork } from "@/components/WaysToWork";
-import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
-  Container, Eyebrow, Illo, Reveal, Rich, SectionHead, section, sectionHeading,
+  Container, Eyebrow, Illo, Reveal, Rich, ScribbleBullet, SectionHead, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
 const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
+/** Who I work with: a short list with scribble bullets under the About copy, each who it's for and one line. */
+function AudienceList() {
+  return (
+    <>
+      <p className="text-base font-medium">{audiences.heading}</p>
+      <ul className="mt-4 space-y-4">
+        {audiences.items.map((a, i) => (
+          <li key={a.title} className="flex items-start gap-2.5">
+            <ScribbleBullet variant={i} className="mt-0.5 text-accent" />
+            <span>
+              <span className="block text-base font-medium">{a.title}</span>
+              <span className="block text-[15px] text-muted">{a.body}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -52,6 +71,9 @@ export default function Home() {
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
               <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>
+              <Reveal delay={100} className="mt-10 lg:mt-16">
+                <AudienceList />
+              </Reveal>
             </div>
 
             {/* Laid out like a desktop: the photo, tools and a folder as files */}
@@ -63,10 +85,6 @@ export default function Home() {
 
         {/* Recent projects */}
         <RecentProjects className={section} />
-
-
-        {/* Audiences (shared with /approach) */}
-        <WhoIWorkWith />
 
         {/* Services */}
         <section id="services" className={section}>

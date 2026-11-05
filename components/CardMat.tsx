@@ -10,7 +10,7 @@ export type MatCard = { label: string; title: string; meta?: ReactNode };
 /**
  * A section of paper cards on the bright blue cutting mat: the eyebrow and heading, then each
  * card tilted with its corner folded, a mono label and a serif title (plus `meta` at its foot).
- * `footer` sits under the mat. Who I work with and Ways to work together both use it.
+ * `footer` sits under the mat. Ways to work together uses it.
  */
 export function CardMat({ id, eyebrow, heading, items, footer }: { id?: string; eyebrow: string; heading: string; items: MatCard[]; footer?: ReactNode }) {
   return (

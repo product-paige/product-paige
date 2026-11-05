@@ -126,22 +126,19 @@ export const workingStyle = {
   ],
 };
 
+// Who I work with: a short list under the About copy, who it's for and one line on each.
 export const audiences = {
-  eyebrow: "Who I work with",
-  heading: "Small teams building on Shopify",
+  heading: "Who I work with",
   items: [
     {
-      tone: "bg-scrap",
       title: "Starting out",
       body: "Your first Shopify store is on the way",
     },
     {
-      tone: "bg-scrap",
       title: "Already selling",
-      body: "You’ve got customers\nYou want more",
+      body: "You’ve got customers and want more",
     },
     {
-      tone: "bg-scrap",
       title: "Building for Shopify",
       body: "Apps and tools for Shopify merchants",
     },
