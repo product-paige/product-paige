@@ -68,7 +68,6 @@ export default function Home() {
           <Container className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="lg:pt-10">
               <Reveal>
-                <Eyebrow>{about.eyebrow}</Eyebrow>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
               <Reveal as="p" delay={60} className="mt-5 max-w-xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-6 lg:text-[20px]">{about.body}</Reveal>

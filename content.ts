@@ -92,8 +92,6 @@ export const approach = {
 };
 
 export const about = {
-  // Every homepage section is named by a mono eyebrow; the big serif heading goes under it
-  eyebrow: "About",
   heading: "Hi, I’m Paige",
   body: "I’ve bootstrapped two brands of my own, so I know your side of it. I still design whenever I can, online or off, and these days I work with AI wired straight into Figma and Shopify.",
   // Tool logos stuck to the photo panel.
