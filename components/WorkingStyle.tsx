@@ -24,7 +24,50 @@ function Mockup({ image }: { image: Shot }) {
       </div>
     );
   }
+  if (image.frame === "claude") {
+    return (
+      <div className="relative h-full w-full">
+        {/* The product card, to the left */}
+        <div className="absolute top-1/2 left-[9%] w-[44%] -translate-y-1/2 overflow-hidden rounded-[14px] shadow-[0_24px_60px_rgb(26_26_26/0.28)]">{img}</div>
+        <ClaudeWindow />
+      </div>
+    );
+  }
   return <div className="w-[52%] overflow-hidden rounded-[14px] shadow-[0_24px_60px_rgb(26_26_26/0.28)]">{img}</div>;
+}
+
+/**
+ * A small Claude chat window overlapping the card on the right: a request, Claude's reply and
+ * the Shopify step it took, then the reply box. Drawn in HTML, sized in cqw of the picture.
+ */
+function ClaudeWindow() {
+  return (
+    <div className="absolute top-1/2 right-[6%] flex w-[52%] -translate-y-[38%] flex-col gap-[2.2cqw] rounded-[2.2cqw] border border-[#e6e2d6] bg-[#faf9f5] p-[2.6cqw] font-sans text-[#1d1d1b] shadow-[0_24px_60px_rgb(26_26_26/0.3)]">
+      {/* Title bar */}
+      <div className="flex items-center gap-[1.4cqw] border-b border-[#ebe7dc] pb-[2cqw]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logos/claude.svg" alt="" className="size-[3.2cqw]" />
+        <span className="text-[2.5cqw] font-medium">Claude</span>
+      </div>
+      {/* The request */}
+      <p className="ml-auto max-w-[85%] rounded-[1.6cqw] bg-[#f0eee6] px-[2.2cqw] py-[1.6cqw] text-[2.2cqw] leading-[1.35]">
+        Add The Daily SPF 50 to the Sun collection and write its description
+      </p>
+      {/* The reply, with the Shopify step it took */}
+      <div className="flex gap-[1.6cqw]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logos/claude.svg" alt="" className="mt-[0.3cqw] size-[2.8cqw] shrink-0" />
+        <div className="flex flex-col gap-[1.4cqw]">
+          <span className="flex w-max items-center gap-[1cqw] rounded-full border border-[#e6e2d6] bg-white px-[1.6cqw] py-[0.6cqw] font-mono text-[1.7cqw] uppercase tracking-[0.04em]">
+            <i className="size-[1.2cqw] rounded-full bg-[#28c840]" />Shopify · product updated
+          </span>
+          <p className="text-[2.2cqw] leading-[1.4]">Done. It’s in Sun, with a 3-line description and an SEO title. Want me to draft the launch email next?</p>
+        </div>
+      </div>
+      {/* The reply box */}
+      <div className="rounded-[1.6cqw] border border-[#e6e2d6] bg-white px-[2.2cqw] py-[1.8cqw] text-[2.1cqw] text-[#9a968c]">Reply to Claude…</div>
+    </div>
+  );
 }
 
 /**
@@ -46,7 +89,7 @@ export function WorkingStyle() {
   return (
     <section id="working-style" className={section}>
       <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-        <Reveal className="relative aspect-square overflow-hidden bg-sky">
+        <Reveal className="@container relative aspect-square overflow-hidden bg-sky">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={workingStyle.background} alt="" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
           {/* Every picture stacked; the active one fades in over the others */}

@@ -120,12 +120,13 @@ export const workingStyle = {
   // Behind every picture
   background: "/blog/agent-blueprint.webp",
   // Each principle has its own picture, which shows while it's the active one: a storefront
-  // screen, framed as a browser window ("browser") or a floating card ("card").
+  // screen, framed as a browser window ("browser"), a floating card ("card"), or a card with a
+  // Claude chat window working on it ("claude").
   items: [
-    { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust based on what’s real.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
-    { title: "Make it clear before pretty", body: "Nail the structure and flow first. Polish comes after.", image: { src: "/hero/collection-banner.webp", width: 720, height: 745, frame: "card" } },
-    { title: "Let AI do the heavy lifting", body: "Claude Code, connected to Figma and Shopify, and Shopify Sidekick set up themes, product data and builds. I review every line.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "card" } },
-  ] as { title: string; body: string; image: { src: string; width: number; height: number; frame: "browser" | "card"; url?: string } }[],
+    { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust to what’s real.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
+    { title: "Make it clear before pretty", body: "Nail the structure and flow first, then polish what matters.", image: { src: "/hero/collection-banner.webp", width: 720, height: 745, frame: "card" } },
+    { title: "Let AI do the heavy lifting", body: "Claude Code and Shopify Sidekick handle the setup. I review every line.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "claude" } },
+  ] as { title: string; body: string; image: { src: string; width: number; height: number; frame: "browser" | "card" | "claude"; url?: string } }[],
 };
 
 // Who I work with: a short list under the About copy, who it's for and one line on each.
