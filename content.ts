@@ -93,7 +93,7 @@ export const approach = {
 };
 
 export const about = {
-  heading: "Hi, I’m Paige",
+  heading: "Hi, I’m Paige, a founder turned Shopify designer",
   body: "I’ve bootstrapped two brands of my own, so I know your side of it, including how far a small budget has to stretch. I care about the details most people skip, like product data and the copy on a checkout button. And I still design whenever I can, online or off.",
   // Tool logos stuck to the photo panel.
   tools: [
