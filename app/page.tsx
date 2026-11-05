@@ -6,6 +6,7 @@ import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
+import { PricingTable } from "@/components/PricingTable";
 import { WaysToWork } from "@/components/WaysToWork";
 import {
   Container, Eyebrow, Illo, Reveal, Rich, SectionHead, section, sectionHeading,
@@ -136,6 +137,9 @@ export default function Home() {
 
         {/* Ways to work together: the starting points and prices, last, beside the button to get in touch */}
         <WaysToWork />
+
+        {/* For comparing: the same offers as the earlier tabbed table (components/PricingTable) */}
+        <PricingTable />
 
         {/* Testimonials: hidden until there are real quotes */}
         {testimonials.items.length > 0 && (

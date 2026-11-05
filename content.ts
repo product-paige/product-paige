@@ -184,6 +184,8 @@ export const models = {
       price: "$2,500",
       per: "/ project",
       timeline: "Done in 3 to 4 weeks",
+      // The table version opens on this one
+      featured: true,
     },
   ],
 };
