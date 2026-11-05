@@ -2,7 +2,7 @@
 
 import { models, site } from "@/content";
 import { useId, useState, type ReactNode } from "react";
-import { Button, Container, Eyebrow, ScribbleBullet, section, sectionHeading } from "./ui";
+import { Button, Container, ScribbleBullet, section, sectionHeading } from "./ui";
 
 type Model = (typeof models.items)[number];
 
@@ -13,10 +13,11 @@ type Model = (typeof models.items)[number];
  * bright blue (the featured one to start). On phones each option becomes its own stacked
  * block with the same rows.
  */
-/** A row's label; the deliverables row gets an (i) whose tip says they're examples, on hover or focus. */
+/** A row's label, with an (i) beside its last word when the row has a tip, which shows on hover or focus. */
 function RowLabel({ label }: { label: string }) {
   const tipId = useId();
-  if (label !== models.deliverables.label) return <>{label}</>;
+  const tip = Object.values(models.rows).find((r) => r.label === label && "tip" in r)?.tip;
+  if (!tip) return <>{label}</>;
   const words = label.split(" ");
   const last = words.pop();
   const first = words.join(" ");
@@ -27,12 +28,12 @@ function RowLabel({ label }: { label: string }) {
       {/* The last word and the (i) kept together, centred on each other */}
       <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
         {last}
-        <button type="button" aria-label="About deliverables" aria-describedby={tipId} className="grid size-4 -translate-y-px cursor-help place-items-center rounded-full border border-current text-[9px] leading-none opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100">
+        <button type="button" aria-label={`About ${label.toLowerCase()}`} aria-describedby={tipId} className="grid size-4 -translate-y-px cursor-help place-items-center rounded-full border border-current text-[9px] leading-none opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100">
           i
         </button>
       </span>
       <span id={tipId} role="tooltip" className="pointer-events-none absolute bottom-full left-0 z-10 mb-2 w-60 rounded-ui bg-dark px-3 py-2.5 font-sans text-[13px] leading-snug tracking-normal normal-case text-white opacity-0 shadow-[0_8px_20px_rgb(0_0_0/0.18)] transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
-        {models.deliverables.tip}
+        {tip}
       </span>
     </span>
   );
@@ -50,7 +51,7 @@ export function PricingTable() {
       ),
     ],
     [
-      "Starting at",
+      models.rows.startingAt.label,
       (m) => (
         // Small and quiet, in the mono: the price, then the currency and unit in grey
         <span className={`mono flex flex-wrap items-baseline gap-x-2 ${models.pricePlaceholder ? "opacity-40" : ""}`}>
@@ -61,7 +62,7 @@ export function PricingTable() {
     ],
     ["Timeline", (m) => <span className="text-[15px]">{m.timeline}</span>],
     [
-      models.deliverables.label,
+      models.rows.deliverables.label,
       (m) => (
         <ul className="space-y-3">
           {m.points.map((p, i) => (
@@ -83,19 +84,16 @@ export function PricingTable() {
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex cursor-pointer items-center gap-2.5 whitespace-nowrap rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? "border-accent bg-accent text-white" : "bg-paper text-ink hover:bg-sheet"}`}
+      className={`group/tab mono -mb-px inline-flex cursor-pointer items-center gap-2.5 whitespace-nowrap rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? "border-accent bg-accent text-white" : "bg-paper text-ink hover:border-accent hover:bg-accent hover:text-white"}`}
     >
-      <i aria-hidden className={`size-2.5 shrink-0 rounded-full ${picked === i ? "bg-white" : "bg-accent"}`} />{m.tag}
+      <i aria-hidden className={`size-2.5 shrink-0 rounded-full ${picked === i ? "bg-white" : "bg-accent group-hover/tab:bg-white"}`} />{m.tag}
     </button>
   );
 
   return (
     <section id="pricing" className={section}>
       <Container>
-        <div className="mb-12 lg:mb-16">
-          <Eyebrow>{models.eyebrow}</Eyebrow>
-          <h2 className={sectionHeading}>{models.heading}</h2>
-        </div>
+        <h2 className={`${sectionHeading} mb-12 lg:mb-16`}>{models.heading}</h2>
         <div>
         {/* Phones: each option as its own block, stacked, so all three are visible */}
         <div className="relative space-y-8 md:hidden">
@@ -140,9 +138,9 @@ export function PricingTable() {
           </table>
         </div>
         </div>
-        {/* What the prices mean, beside the button */}
-        <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between lg:mt-10">
-          <p className="max-w-lg text-[15px] text-muted">{models.note}</p>
+        {/* The button to get in touch, under the table on the right (what the prices mean is the
+            Starting at tip) */}
+        <div className="mt-8 flex justify-end lg:mt-10">
           <Button href={site.bookingUrl} accent>Let’s talk</Button>
         </div>
       </Container>

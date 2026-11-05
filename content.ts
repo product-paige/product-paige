@@ -146,18 +146,15 @@ export const audiences = {
 
 
 export const models = {
-  eyebrow: "Ways to work together",
-  heading: "Choose a starting point",
+  heading: "Ways to work together",
   // Set pricePlaceholder to true to fade the prices.
   pricePlaceholder: false,
   currency: "USD",
-  // The table's deliverables row: its label, and the tip on its (i)
-  deliverables: {
-    label: "Example deliverables",
-    tip: "Every project is scoped to your needs, so your deliverables may differ from these examples.",
+  // The table's row labels; a row with a tip gets an (i) beside its last word that shows it
+  rows: {
+    startingAt: { label: "Starting at", tip: "A guide for typical scope. You’ll get a fixed quote in writing before any work starts." },
+    deliverables: { label: "Example deliverables", tip: "Every project is scoped to your needs, so your deliverables may differ from these examples." },
   },
-  // Under the table, beside the button.
-  note: "Starting prices. You’ll get a fixed quote in writing before any work starts.",
   // Smallest to biggest, left to right. Each card: its category, its name, one line, what's
   // included (short), its starting price and how long it takes.
   // To confirm: the refresh and one-off prices and timelines are placeholders.
