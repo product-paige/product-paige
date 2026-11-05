@@ -17,7 +17,7 @@
   --color-line: rgb(29 29 27 / 0.15);
   --color-line-dark: rgb(255 255 255 / 0.15);
   --color-chip: rgb(29 29 27 / 0.07); /* pills: a translucent ink, so they show on any light surface */
-  --color-dark: #383838;    /* dark buttons, contact, footer */
+  --color-dark: #1d1d1b;    /* dark buttons, contact, footer: the off-black of the text */
   --color-scrap: #e5e4e0;   /* grey paper: blog cards and the hero */
   --color-sheet: #eeede9;   /* the open FAQ row: a step below the page */
   --color-live: #2fa84f;    /* availability dot */
