@@ -24,10 +24,10 @@ function selected(line: string) {
   );
 }
 
-/** A six-armed asterisk, as on printed ephemera. Thick strokes, so it holds up small. */
-export function Asterisk({ className = "" }: { className?: string }) {
+/** A six-armed asterisk, as on printed ephemera. Thick strokes by default, so it holds up small; `weight` thins them for bigger uses. */
+export function Asterisk({ className = "", weight = 4 }: { className?: string; weight?: number }) {
   return (
-    <svg aria-hidden viewBox="0 0 24 24" className={`shrink-0 ${className}`} fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round">
+    <svg aria-hidden viewBox="0 0 24 24" className={`shrink-0 ${className}`} fill="none" stroke="currentColor" strokeWidth={weight} strokeLinecap="round">
       <path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9" />
     </svg>
   );

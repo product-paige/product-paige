@@ -121,7 +121,7 @@ export default function Home() {
                 {workingStyle.items.map((it, i) => (
                   <Reveal as="li" key={it.title} delay={i * 80} className="flex items-start gap-5 py-5">
                     <span aria-hidden className="grid size-14 shrink-0 place-items-center rounded-ui bg-accent text-white">
-                      <Asterisk className="size-5" />
+                      <Asterisk className="size-8" weight={2} />
                     </span>
                     <div>
                       <h3 className="serif text-[24px] leading-[1.15] tracking-[-0.02em]">{it.title}</h3>
