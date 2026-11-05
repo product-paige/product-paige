@@ -1,12 +1,13 @@
-import { about, approachPage, audiences, services, site, testimonials, workingStyle } from "@/content";
+import { about, approachPage, audiences, services, site, testimonials } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { CuttingMat } from "@/components/CuttingMat";
-import { Asterisk, EditorialHero } from "@/components/EditorialHero";
+import { EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
 import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
+import { WorkingStyle } from "@/components/WorkingStyle";
 import { PricingTable } from "@/components/PricingTable";
 import {
   Container, Eyebrow, Reveal, Rich, SectionHead, section, sectionHeading,
@@ -104,47 +105,8 @@ export default function Home() {
 
 
 
-        {/* Working style: a picture on the left; the eyebrow, heading, intro and three principles on
-            the right, the principles pushed to the bottom so they line up with the picture's foot */}
-        <section id="working-style" className={section}>
-          <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            {/* The clouds photo filling the square, with a storefront in a browser window floating on it */}
-            <Reveal className="relative grid aspect-square place-items-center overflow-hidden bg-sky">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={workingStyle.image.background} alt="" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
-              <div aria-hidden className="relative w-[80%] overflow-hidden rounded-[10px] bg-white shadow-[0_24px_60px_rgb(26_26_26/0.28)]">
-                {/* The window's top bar: three dots and the address */}
-                <div className="flex items-center gap-3 border-b border-line bg-sheet px-3 py-2">
-                  <span className="flex gap-1.5">{["#ff5f57", "#febc2e", "#28c840"].map((c) => <i key={c} className="size-2.5 rounded-full" style={{ background: c }} />)}</span>
-                  <span className="mx-auto w-1/2 truncate rounded-full bg-white px-3 py-0.5 text-center text-[11px] text-muted">{workingStyle.image.url}</span>
-                  <span className="w-[42px]" />
-                </div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={workingStyle.image.mockup} alt="" width={workingStyle.image.mockupWidth} height={workingStyle.image.mockupHeight} loading="lazy" decoding="async" className="block w-full" />
-              </div>
-            </Reveal>
-            <div className="flex flex-col">
-              <Reveal>
-                <Eyebrow>{workingStyle.eyebrow}</Eyebrow>
-                <h2 className={sectionHeading}>{workingStyle.heading}</h2>
-                <p className="lede mt-5 max-w-xl">{workingStyle.body}</p>
-              </Reveal>
-              <ul className="mt-10 divide-y divide-line border-y border-line lg:mt-auto">
-                {workingStyle.items.map((it, i) => (
-                  <Reveal as="li" key={it.title} delay={i * 80} className="flex items-start gap-5 py-5">
-                    <span aria-hidden className="grid size-14 shrink-0 place-items-center rounded-ui bg-accent text-white">
-                      <Asterisk className="size-8" weight={2} />
-                    </span>
-                    <div>
-                      <h3 className="serif text-[24px] leading-[1.15] tracking-[-0.02em]">{it.title}</h3>
-                      <p className="mt-1 max-w-md text-[15px] leading-[1.5] text-muted">{it.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </ul>
-            </div>
-          </Container>
-        </section>
+        {/* Working style: a picture per principle on the left, the principles on the right */}
+        <WorkingStyle />
 
         {/* My process (approach in content.ts) is off the page for now */}
 
