@@ -58,9 +58,9 @@ export const site = {
 // An accent underline marks the menu item whose section is on screen.
 export const nav = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Projects", href: "#projects" },
+  // Services goes to Ways to work together (the offers and prices), not How I can help
+  { label: "Services", href: "#pricing" },
   { label: "Scrapbook", href: "#blog" },
 ];
 
