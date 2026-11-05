@@ -117,8 +117,8 @@ export const workingStyle = {
   eyebrow: "Working style",
   heading: "Keep it simple",
   body: "Fast prototypes and clear decisions. Claude does the repetitive work, so my time goes on the parts that need a person.",
-  // The picture: the clouds photo, with a storefront screen laid on top of it
-  image: { background: "/blog/agent-blueprint.webp", mockup: "/hero/spf-product-card.webp", mockupWidth: 876, mockupHeight: 1040 },
+  // The picture: the clouds photo, with a storefront open in a browser window on top of it
+  image: { background: "/blog/agent-blueprint.webp", mockup: "/hero/swim-homepage.webp", mockupWidth: 1364, mockupHeight: 960, url: "yourstore.com" },
   items: [
     { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust based on what’s real." },
     { title: "Make it clear before pretty", body: "Nail the structure and flow first. Polish comes after." },

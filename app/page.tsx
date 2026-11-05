@@ -108,12 +108,20 @@ export default function Home() {
             the right, the principles pushed to the bottom so they line up with the picture's foot */}
         <section id="working-style" className={section}>
           <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            {/* The clouds photo filling the square, with a storefront screen floating on it */}
+            {/* The clouds photo filling the square, with a storefront in a browser window floating on it */}
             <Reveal className="relative grid aspect-square place-items-center overflow-hidden bg-sky">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={workingStyle.image.background} alt="" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={workingStyle.image.mockup} alt="" width={workingStyle.image.mockupWidth} height={workingStyle.image.mockupHeight} loading="lazy" decoding="async" className="relative w-[52%] rounded-[14px] shadow-[0_24px_60px_rgb(26_26_26/0.28)]" />
+              <div aria-hidden className="relative w-[80%] overflow-hidden rounded-[10px] bg-white shadow-[0_24px_60px_rgb(26_26_26/0.28)]">
+                {/* The window's top bar: three dots and the address */}
+                <div className="flex items-center gap-3 border-b border-line bg-sheet px-3 py-2">
+                  <span className="flex gap-1.5">{["#ff5f57", "#febc2e", "#28c840"].map((c) => <i key={c} className="size-2.5 rounded-full" style={{ background: c }} />)}</span>
+                  <span className="mx-auto w-1/2 truncate rounded-full bg-white px-3 py-0.5 text-center text-[11px] text-muted">{workingStyle.image.url}</span>
+                  <span className="w-[42px]" />
+                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={workingStyle.image.mockup} alt="" width={workingStyle.image.mockupWidth} height={workingStyle.image.mockupHeight} loading="lazy" decoding="async" className="block w-full" />
+              </div>
             </Reveal>
             <div className="flex flex-col">
               <Reveal>
