@@ -28,7 +28,7 @@ function AudienceList() {
       <dl className="mt-4 max-w-xl border-b border-line leading-snug">
         {audiences.items.map((a) => (
           <div key={a.title} className="grid gap-0.5 border-t border-line py-2.5 sm:grid-cols-[10rem_1fr] sm:gap-6">
-            <dt className="text-[15px] font-medium">{a.title}</dt>
+            <dt className="text-[15px] font-medium text-accent">{a.title}</dt>
             <dd className="text-[15px] text-muted">{a.body}</dd>
           </div>
         ))}

@@ -18,7 +18,7 @@ function File({ name, className = "", light = false, children }: { name: string;
 /**
  * The About board laid out like a desktop, straight on the page: the photo and the tools as
  * files with their names under them, a folder that opens the projects, the parcel sticker
- * selected (tilted), and a cursor. Fills its square parent. `onMat` (laid on the blue cutting
+ * selected (tilted), a Canadian flag sticker, and a cursor. Fills its square parent. `onMat` (laid on the blue cutting
  * mat) turns the file names white so they read on it.
  */
 export function AboutNotebook({ onMat = false }: { onMat?: boolean }) {
@@ -59,6 +59,12 @@ export function AboutNotebook({ onMat = false }: { onMat?: boolean }) {
       <span className="absolute bottom-[20%] left-0 block w-[30%] -rotate-[9deg]">
         <SelectionHandles color={onMat ? "#ffffff" : undefined} />
         <Illo art={art.parcel} className="w-full" />
+      </span>
+
+      {/* A Canadian flag sticker, tilted, low on the right */}
+      <span className="absolute right-0 bottom-[17%] block w-[17%] rotate-[8deg] bg-white p-[3px] shadow-[0_1px_0_rgb(0_0_0/0.08),0_6px_14px_rgb(26_26_26/0.16)]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/canada-flag.svg" alt="Canadian flag" width={200} height={100} loading="lazy" className="block w-full" />
       </span>
 
       {/* The cursor, just off the photo's corner */}
