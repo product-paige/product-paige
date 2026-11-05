@@ -9,7 +9,7 @@ type Model = (typeof models.items)[number];
 /**
  * Ways to work together as a table: one column per way of working
  * with its tag as a folder tab on top, and rows for what it is, the price and what's included,
- * in a full grid of fine borders, the row labels on the bright blue. Clicking a tab picks that option: its tab and column take the
+ * in a full grid of fine borders. The picked option's tab is the bright blue. Clicking a tab picks that option: its tab and column take the
  * same grey (the featured one to start). On phones each option becomes its own stacked
  * block with the same rows.
  */
@@ -76,9 +76,9 @@ export function PricingTable() {
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`mono -mb-px inline-flex cursor-pointer items-center gap-2.5 whitespace-nowrap rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? `${pickedBg} text-ink` : "bg-paper text-ink hover:bg-sheet"}`}
+      className={`mono -mb-px inline-flex cursor-pointer items-center gap-2.5 whitespace-nowrap rounded-t-ui border border-b-0 border-line px-4 pt-2.5 pb-2 font-normal transition-colors ${picked === i ? "border-accent bg-accent text-white" : "bg-paper text-ink hover:bg-sheet"}`}
     >
-      <i aria-hidden className="size-2.5 shrink-0 rounded-full bg-accent" />{m.tag}
+      <i aria-hidden className={`size-2.5 shrink-0 rounded-full ${picked === i ? "bg-white" : "bg-accent"}`} />{m.tag}
     </button>
   );
 
@@ -123,7 +123,7 @@ export function PricingTable() {
             <tbody>
               {rows.map(([label, cell], r) => (
                 <tr key={label} className="align-top">
-                  <th className={`mono border-b border-l border-white/20 bg-accent px-5 py-5 font-normal text-white lg:py-6 ${r === 0 ? "border-t border-t-accent" : ""}`}><RowLabel label={label} /></th>
+                  <th className={`mono border-b border-l border-line bg-paper px-5 py-5 font-normal text-ink lg:py-6 ${r === 0 ? "border-t" : ""}`}><RowLabel label={label} /></th>
                   {models.items.map((m, i) => (
                     <td key={m.tag} className={`border-r border-b border-line px-5 py-5 text-[16px] transition-colors lg:px-6 lg:py-6 first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
                   ))}
