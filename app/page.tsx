@@ -9,7 +9,7 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { PricingTable } from "@/components/PricingTable";
 import {
-  Container, Eyebrow, Illo, Reveal, Rich, SectionHead, section, sectionHeading,
+  Container, Eyebrow, Reveal, Rich, SectionHead, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -108,8 +108,12 @@ export default function Home() {
             the right, the principles pushed to the bottom so they line up with the picture's foot */}
         <section id="working-style" className={section}>
           <Container className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <Reveal className="grid aspect-square place-items-center bg-sky p-10 lg:p-16">
-              <Illo art={workingStyle.art} className="max-h-full w-3/4" />
+            {/* The clouds photo filling the square, with a storefront screen floating on it */}
+            <Reveal className="relative grid aspect-square place-items-center overflow-hidden bg-sky">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={workingStyle.image.background} alt="" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={workingStyle.image.mockup} alt="" width={workingStyle.image.mockupWidth} height={workingStyle.image.mockupHeight} loading="lazy" decoding="async" className="relative w-[52%] rounded-[14px] shadow-[0_24px_60px_rgb(26_26_26/0.28)]" />
             </Reveal>
             <div className="flex flex-col">
               <Reveal>
