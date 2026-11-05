@@ -495,7 +495,8 @@ export const closing = {
   pagesHeading: "Pages",
   postsHeading: "Latest posts",
   elsewhereHeading: "Elsewhere",
-  tagline: "Product marketing, design and AI builds for Shopify.",
+  // The big line in the footer, under the name
+  tagline: "Building better on Shopify",
   newsletter: {
     heading: "New posts by email",
     body: "Notes from the scrapbook, about once a month. No spam.",

@@ -76,8 +76,9 @@ export function SiteFooter() {
       {/* Name and tagline, then the link columns */}
       <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="border-b border-grid px-4 py-10 sm:px-6 md:px-12 lg:border-r lg:border-b-0 lg:pt-14 lg:pb-10 lg:pr-12 lg:pl-20">
-          <p className="serif text-[36px] leading-none tracking-[-0.04em]">{site.logo}</p>
-          <p className="mt-3 max-w-xs text-white/70">{closing.tagline}</p>
+          {/* The name as a small mono label, then the tagline as the big line */}
+          <p className="mono flex items-center gap-3 text-white/70"><i aria-hidden className="size-3 rounded-full bg-accent" />{site.logo}</p>
+          <p className="serif mt-5 max-w-sm text-[clamp(32px,3.2vw,44px)] leading-[1.05] tracking-[-0.04em] text-balance">{closing.tagline}</p>
         </div>
         <div className="grid gap-10 px-4 py-10 sm:grid-cols-3 sm:px-6 md:px-12 lg:pt-14 lg:pb-10 lg:pr-20 lg:pl-12">
           {columns.map((c) => (
