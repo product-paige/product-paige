@@ -120,7 +120,7 @@ export function WorkingStyle() {
                     onFocus={() => { setActive(i); setPaused(true); }}
                     onBlur={() => setPaused(false)}
                     onClick={() => setActive(i)}
-                    className="flex w-full cursor-pointer items-start gap-5 py-5 text-left"
+                    className={`flex w-full cursor-pointer items-start gap-5 text-left ${i === count - 1 ? "pt-5" : "py-5"}`}
                   >
                     {/* The active principle's square is the solid blue; the others a quiet grey */}
                     <span aria-hidden className={`grid size-14 shrink-0 place-items-center rounded-ui transition-colors duration-700 ease-in-out ${on ? "bg-accent text-white" : "bg-ink/[0.06] text-ink/40"}`}>
