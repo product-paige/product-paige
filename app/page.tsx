@@ -1,5 +1,6 @@
 import { about, approachPage, audiences, services, site, testimonials, workingStyle } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
+import { CuttingMat } from "@/components/CuttingMat";
 import { Asterisk, EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
 import { Phases } from "@/components/Phases";
@@ -77,9 +78,12 @@ export default function Home() {
               </Reveal>
             </div>
 
-            {/* Laid out like a desktop: the photo, tools and a folder as files */}
-            <Reveal>
-              <AboutNotebook />
+            {/* Laid out like a desktop on the blue cutting mat: the photo, tools and a folder as files */}
+            <Reveal className="relative overflow-hidden rounded-[20px] p-6 sm:p-8 lg:p-10">
+              <CuttingMat />
+              <div className="relative">
+                <AboutNotebook onMat />
+              </div>
             </Reveal>
           </Container>
         </section>

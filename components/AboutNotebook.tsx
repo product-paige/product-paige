@@ -6,11 +6,11 @@ import { Illo, SelectionHandles } from "./ui";
 const toolSpots = ["top-[8%] left-0 sm:left-[4%]", "top-[34%] right-0 sm:right-[3%]", "top-[30%] left-0 sm:left-[4%]"];
 
 /** An item on the page with a file name under it, like an icon on a desktop. */
-function File({ name, className = "", children }: { name: string; className?: string; children: ReactNode }) {
+function File({ name, className = "", light = false, children }: { name: string; className?: string; light?: boolean; children: ReactNode }) {
   return (
     <span className={`absolute flex flex-col items-center gap-1.5 ${className}`}>
       {children}
-      <span className="text-[11px] leading-tight lg:text-[13px]">{name}</span>
+      <span className={`text-[11px] leading-tight lg:text-[13px] ${light ? "text-white" : ""}`}>{name}</span>
     </span>
   );
 }
@@ -18,15 +18,16 @@ function File({ name, className = "", children }: { name: string; className?: st
 /**
  * The About board laid out like a desktop, straight on the page: the photo and the tools as
  * files with their names under them, a folder that opens the projects, the parcel sticker
- * selected (tilted), and a cursor. Fills its square parent.
+ * selected (tilted), and a cursor. Fills its square parent. `onMat` (laid on the blue cutting
+ * mat) turns the file names white so they read on it.
  */
-export function AboutNotebook() {
+export function AboutNotebook({ onMat = false }: { onMat?: boolean }) {
   return (
     // The negative bottom margin takes back the empty strip under the photo, so the section ends
     // close to it rather than at the bottom of the square.
     <div className="relative -mb-[14%] aspect-square">
       {/* The photo, as an image file */}
-      <File name={about.photoFile} className="top-[5%] left-[21%] w-[58%]">
+      <File name={about.photoFile} light={onMat} className="top-[5%] left-[21%] w-[58%]">
         <span className="block w-full bg-white p-1.5 shadow-[0_1px_0_rgb(0_0_0/0.08),0_6px_16px_rgb(26_26_26/0.1)]">
           <span className="photo-grain block aspect-[4/5]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -46,7 +47,7 @@ export function AboutNotebook() {
 
       {/* The tools, as app files */}
       {about.tools.map((t, i) => (
-        <File key={t.name} name={t.file} className={toolSpots[i % toolSpots.length]}>
+        <File key={t.name} name={t.file} light={onMat} className={toolSpots[i % toolSpots.length]}>
           <span className="grid size-12 place-items-center rounded-[10px] bg-white shadow-[0_1px_0_rgb(0_0_0/0.06),0_6px_14px_rgb(26_26_26/0.1)] lg:size-16">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={t.logo} alt={t.name} width={32} height={32} loading="lazy" className="size-6 lg:size-8" />
