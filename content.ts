@@ -50,7 +50,7 @@ export const site = {
   photo: "/headshot.webp",
   photoAlt: "Paige Eaton smiling, in a black turtleneck, against a grey backdrop",
   // Shown in the dark announcement bar at the top. Leave empty to hide the bar.
-  availability: "Booking for November ’26",
+  availability: "Booking for December ’26",
   metaDescription:
     "Paige Eaton is a product marketer and designer in Kitchener, Ontario. Strategy, design and the build itself for Shopify and ecommerce teams.",
 };
@@ -58,8 +58,9 @@ export const site = {
 // An accent underline marks the menu item whose section is on screen.
 export const nav = [
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#services" },
+  { label: "Work", href: "#projects" },
+  { label: "Services", href: "#services" },
+  { label: "Pricing", href: "#pricing" },
   { label: "Scrapbook", href: "#blog" },
 ];
 
@@ -93,7 +94,7 @@ export const approach = {
 
 export const about = {
   heading: "Hi, I’m Paige",
-  body: "I’ve bootstrapped two brands of my own, so I know your side of it. I still design whenever I can, online or off, and these days I work with AI wired straight into Figma and Shopify.",
+  body: "I’ve bootstrapped two brands of my own, so I know your side of it, and I still design whenever I can, online or off.",
   // Tool logos stuck to the photo panel.
   tools: [
     { name: "Shopify", logo: "/logos/shopify-glyph.svg", file: "shopify.app" },
@@ -114,7 +115,7 @@ export const services = {
 // The Working style section on the homepage: a picture on the left, three principles on the right.
 export const workingStyle = {
   eyebrow: "Working style",
-  heading: "Move fast and keep it simple",
+  heading: "Keep it simple",
   body: "Fast prototypes and clear decisions. Claude does the repetitive work, so my time goes on the parts that need a person.",
   art: art.lightbulb,
   items: [
@@ -150,7 +151,12 @@ export const models = {
   // Set pricePlaceholder to true to fade the prices.
   pricePlaceholder: false,
   currency: "USD",
-  // Under the cards, beside the button.
+  // The table's deliverables row: its label, and the tip on its (i)
+  deliverables: {
+    label: "Example deliverables",
+    tip: "Every project is scoped to your needs, so your deliverables may differ from these examples.",
+  },
+  // Under the table, beside the button.
   note: "Starting prices. You’ll get a fixed quote in writing before any work starts.",
   // Smallest to biggest, left to right. Each card: its category, its name, one line, what's
   // included (short), its starting price and how long it takes.
@@ -299,7 +305,7 @@ export const projects = {
   // Shown in place of a project's proof point until it has one
   proofPlaceholder: { quote: "A client quote or one hard result goes here, e.g. “92% of visitors now come from Canada.”", name: "Client name, role (placeholder)" },
   // The button under a project's dropdowns; it opens the contact drawer
-  cta: { label: "Start a project" },
+  cta: { label: "Let’s talk" },
   items: [
     {
       slug: "backspace-body",
@@ -397,7 +403,7 @@ export const approachPage = {
   phases: [
     {
       title: "Web and product design",
-      body: "Storefronts, marketing sites and product surfaces — built with Claude Code and MCP wired into Figma and Shopify. A refresh of what you have, done properly.",
+      body: "Storefronts, marketing sites and product surfaces. A refresh of what you have, done properly.",
       includes: ["Shopify theme build", "Design system", "Front-end build", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
     },
@@ -454,9 +460,9 @@ export const faq = {
   ],
 };
 
-// Privacy and terms, ported unchanged from productpaige.com/privacy and /terms.
-// To confirm before launch: the terms name British Columbia law (the site says Ontario),
-// and the privacy policy mentions Vercel Analytics, which this site doesn't use yet.
+// Privacy and terms, from productpaige.com/privacy and /terms, updated to match this site:
+// Ontario law, no retainers, and no analytics (add it back here if analytics is turned on).
+// Worth a review by a lawyer before launch.
 export const legal = {
   privacy: {
     label: "Privacy",
@@ -465,9 +471,9 @@ export const legal = {
     effective: "June 26, 2026",
     sections: [
       { label: "Scope", title: "What this covers", body: "This policy applies to productpaige.com and any direct correspondence with Product Paige (Paige Eaton, sole practitioner). It does not cover third-party sites linked from here." },
-      { label: "Collection", title: "What gets collected", body: "Just the basics needed to run a small consulting site: anonymized analytics (page views, referrer, country), the email address you send messages from, and any information you choose to share in those messages. No tracking pixels, no fingerprinting, no third-party ad networks." },
-      { label: "Usage", title: "How it's used", body: "Analytics inform what content is working and where the site can be improved. Email correspondence is used only to reply to your message and, if a project starts, to deliver the work. Information is never sold, rented, or shared with marketing partners." },
-      { label: "Storage", title: "Where it lives", body: "Analytics: Vercel Analytics (no cookies, no personal identifiers). Email: stored in a personal inbox provider (Google Workspace). Project work: stored in personal tools (Notion, Figma, Linear) under standard provider security." },
+      { label: "Collection", title: "What gets collected", body: "Just the basics needed to run a small consulting site: the email address you send messages from, and any information you choose to share in those messages. No analytics, no tracking pixels, no fingerprinting, no third-party ad networks." },
+      { label: "Usage", title: "How it's used", body: "Email correspondence is used only to reply to your message and, if a project starts, to deliver the work. Information is never sold, rented, or shared with marketing partners." },
+      { label: "Storage", title: "Where it lives", body: "Email: stored in a personal inbox provider (Google Workspace). Project work: stored in personal tools (Notion, Figma, Linear) under standard provider security." },
       { label: "Cookies", title: "Cookies", body: "The site uses essential cookies only — those required for the site to function. No analytics cookies, no marketing cookies, no consent banner needed." },
       { label: "Rights", title: "Your rights", body: "You can request to see, correct, or delete any information held about you at any time. Email hello@productpaige.com and you'll get a response within 30 days." },
       { label: "Updates", title: "Changes to this policy", body: "If this policy changes, the updated version will be posted on this page with a new effective date. For substantive changes, returning clients will be notified by email." },
@@ -479,14 +485,14 @@ export const legal = {
     lede: "Short, written, mutual — no surprises. These are the standard terms for any work with Product Paige. A signed scope of work takes precedence over anything below.",
     effective: "June 26, 2026",
     sections: [
-      { label: "Scope", title: "What's covered", body: "These terms apply to consulting work performed by Product Paige (Paige Eaton, sole practitioner) — including Ask Paige sessions, retainers, and project engagements — and to use of productpaige.com." },
+      { label: "Scope", title: "What's covered", body: "These terms apply to consulting work performed by Product Paige (Paige Eaton, sole practitioner), including Ask Paige sessions and project engagements, and to use of productpaige.com." },
       { label: "Engagement", title: "How work is scoped", body: "Every engagement starts with a written scope: what's included, what's not, the expected timeline, and the price. Anything outside that scope is a new engagement with its own scope and price. No surprise invoices." },
-      { label: "Payment", title: "Payment terms", body: "Ask Paige sessions: paid in full before the session. Retainers and project work: 50% on signature, 50% on delivery, unless otherwise written into the scope. Invoices are payable within 14 days via Wise, Stripe, or bank transfer. Currency is USD unless otherwise agreed." },
+      { label: "Payment", title: "Payment terms", body: "Ask Paige sessions: paid in full before the session. Project work: 50% on signature, 50% on delivery, unless otherwise written into the scope. Invoices are payable within 14 days via Wise, Stripe, or bank transfer. Currency is USD unless otherwise agreed." },
       { label: "Deliverables", title: "Ownership of deliverables", body: "On final payment, ownership of all written deliverables, design files, and code transfers to the client. The right to reference the engagement in case studies and portfolio work is retained — sensitive details can be anonymized on request before any public reference." },
       { label: "Confidentiality", title: "Confidentiality", body: "Anything shared in the course of an engagement is treated as confidential and is not discussed with third parties without permission. A mutual NDA can be signed before any sensitive material is reviewed." },
       { label: "Cancellation", title: "Cancellation + refunds", body: "Ask Paige sessions: full refund if canceled 48+ hours before the scheduled time, no refund within 48 hours (one reschedule allowed). Project work: 50% deposit is non-refundable after work begins; remaining balance is owed for work completed up to the cancellation date." },
       { label: "Liability", title: "Limitations", body: "Product Paige provides product strategy, marketing, and design advice — not legal, financial, accounting, or regulatory advice. Total liability for any engagement is limited to fees paid for that engagement. Work is delivered as-is with no implied warranty of merchantability or fitness for a particular purpose." },
-      { label: "Jurisdiction", title: "Governing law", body: "These terms are governed by the laws of British Columbia, Canada. Any disputes will be resolved in the courts of British Columbia unless both parties agree to binding arbitration." },
+      { label: "Jurisdiction", title: "Governing law", body: "These terms are governed by the laws of Ontario, Canada. Any disputes will be resolved in the courts of Ontario unless both parties agree to binding arbitration." },
     ],
   },
 };

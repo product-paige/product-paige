@@ -3,7 +3,7 @@ import { legal, site } from "@/content";
 import { LegalPage } from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: `${legal.privacy.label} · ${site.name}`,
+  title: `${legal.privacy.label} · ${site.logo}`,
   description: legal.privacy.lede,
   alternates: { canonical: "/privacy" },
 };

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const p = projects.items.find((x) => x.slug === slug);
   if (!p) return {};
   return {
-    title: `${p.client} · ${site.name}`,
+    title: `${p.client} · ${site.logo}`,
     description: p.summary,
     alternates: { canonical: `/projects/${p.slug}` },
     openGraph: { title: p.client, description: p.summary, ...(p.image && { images: [p.image] }) },

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!p) return {};
   const description = p.standfirst ?? p.excerpt;
   return {
-    title: `${p.title} · ${site.name}`,
+    title: `${p.title} · ${site.logo}`,
     description,
     alternates: { canonical: `/blog/${p.slug}` },
     openGraph: { type: "article", title: p.title, description, publishedTime: new Date(p.date).toISOString(), authors: [site.name], images: [p.image] },

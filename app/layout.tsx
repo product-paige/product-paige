@@ -26,7 +26,8 @@ const mono = Azeret_Mono({
   variable: "--font-azeret",
 });
 
-const title = `${site.name} — ${site.role}`;
+// The business name first, then who runs it, so the tab and search results lead with Product Paige
+const title = `${site.logo} — ${site.name}, ${site.role.toLowerCase()}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

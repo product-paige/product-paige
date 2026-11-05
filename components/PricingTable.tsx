@@ -1,7 +1,7 @@
 "use client";
 
 import { models, site } from "@/content";
-import { useState, type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { Button, Container, Eyebrow, ScribbleBullet, section, sectionHeading } from "./ui";
 
 type Model = (typeof models.items)[number];
@@ -13,6 +13,23 @@ type Model = (typeof models.items)[number];
  * same grey (the featured one to start). On phones each option becomes its own stacked
  * block with the same rows.
  */
+/** A row's label; the deliverables row gets an (i) whose tip says they're examples, on hover or focus. */
+function RowLabel({ label }: { label: string }) {
+  const tipId = useId();
+  if (label !== models.deliverables.label) return <>{label}</>;
+  return (
+    <span className="group relative inline-flex items-center gap-2">
+      {label}
+      <button type="button" aria-label="About deliverables" aria-describedby={tipId} className="grid size-5 shrink-0 cursor-help place-items-center rounded-full border border-line text-[11px] leading-none text-muted transition-colors hover:border-ink hover:text-ink focus-visible:border-ink">
+        i
+      </button>
+      <span id={tipId} role="tooltip" className="pointer-events-none absolute bottom-full left-0 z-10 mb-2 w-60 rounded-ui bg-dark px-3 py-2.5 font-sans text-[13px] leading-snug tracking-normal normal-case text-white opacity-0 shadow-[0_8px_20px_rgb(0_0_0/0.18)] transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
+        {models.deliverables.tip}
+      </span>
+    </span>
+  );
+}
+
 export function PricingTable() {
   const rows: [string, (m: Model) => ReactNode][] = [
     [
@@ -36,7 +53,7 @@ export function PricingTable() {
     ],
     ["Timeline", (m) => <span className="text-[15px]">{m.timeline}</span>],
     [
-      "Includes",
+      models.deliverables.label,
       (m) => (
         <ul className="space-y-3">
           {m.points.map((p, i) => (
@@ -80,7 +97,7 @@ export function PricingTable() {
               <div className={`divide-y divide-line border border-line transition-colors ${tint(i)}`}>
                 {rows.map(([label, cell]) => (
                   <div key={label} className="px-5 py-5">
-                    <p className="mono mb-3">{label}</p>
+                    <p className="mono mb-3"><RowLabel label={label} /></p>
                     {cell(m)}
                   </div>
                 ))}
@@ -105,7 +122,7 @@ export function PricingTable() {
             <tbody>
               {rows.map(([label, cell], r) => (
                 <tr key={label} className="align-top">
-                  <th className={`mono border-b border-l border-line bg-paper px-5 py-5 font-normal text-ink lg:py-6 ${r === 0 ? "border-t" : ""}`}>{label}</th>
+                  <th className={`mono border-b border-l border-line bg-paper px-5 py-5 font-normal text-ink lg:py-6 ${r === 0 ? "border-t" : ""}`}><RowLabel label={label} /></th>
                   {models.items.map((m, i) => (
                     <td key={m.tag} className={`border-r border-b border-line px-5 py-5 text-[16px] transition-colors lg:px-6 lg:py-6 first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{cell(m)}</td>
                   ))}

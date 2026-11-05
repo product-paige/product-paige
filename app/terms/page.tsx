@@ -3,7 +3,7 @@ import { legal, site } from "@/content";
 import { LegalPage } from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: `${legal.terms.label} · ${site.name}`,
+  title: `${legal.terms.label} · ${site.logo}`,
   description: legal.terms.lede,
   alternates: { canonical: "/terms" },
 };

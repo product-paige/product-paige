@@ -32,6 +32,7 @@ export function SiteHeader() {
                 show, the same 20px either side as the menu items, so the P sits centred between them */}
             <a href="/" aria-label={site.logo} className="flex items-center self-stretch xl:px-5">
               <LogoMark />
+              <span className="serif ml-3 text-[22px] leading-none tracking-[-0.03em] whitespace-nowrap">{site.logo}</span>
             </a>
             <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
             <Nav items={nav} />
