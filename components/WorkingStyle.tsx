@@ -102,7 +102,8 @@ export function WorkingStyle() {
           ))}
         </Reveal>
         <div className="flex flex-col border-t border-grid px-4 py-12 sm:px-6 lg:border-t-0 lg:py-16 lg:pr-10 lg:pl-16">
-          <Reveal>
+          {/* At least 48px under the intro before the list, which sits at the foot of the column */}
+          <Reveal className="lg:mb-12">
             <Eyebrow>{workingStyle.eyebrow}</Eyebrow>
             <h2 className={sectionHeading}>{workingStyle.heading}</h2>
             <p className="lede mt-5 max-w-xl">{workingStyle.body}</p>
