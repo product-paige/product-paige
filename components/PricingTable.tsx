@@ -93,7 +93,11 @@ export function PricingTable() {
   return (
     <section id="pricing" className={section}>
       <Container>
-        <h2 className={`${sectionHeading} mb-12 lg:mb-16`}>{models.heading}</h2>
+        {/* The heading, with the button to get in touch on the far right, level with it */}
+        <div className="mb-12 flex flex-wrap items-center justify-between gap-6 lg:mb-16">
+          <h2 className={sectionHeading}>{models.heading}</h2>
+          <Button href={site.bookingUrl} accent>Let’s talk</Button>
+        </div>
         <div>
         {/* Phones: each option as its own block, stacked, so all three are visible */}
         <div className="relative space-y-8 md:hidden">
@@ -137,11 +141,6 @@ export function PricingTable() {
             </tbody>
           </table>
         </div>
-        </div>
-        {/* The button to get in touch, under the table on the right (what the prices mean is the
-            Starting at tip) */}
-        <div className="mt-8 flex justify-end lg:mt-10">
-          <Button href={site.bookingUrl} accent>Let’s talk</Button>
         </div>
       </Container>
     </section>
