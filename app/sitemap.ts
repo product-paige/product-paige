@@ -10,5 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blog.posts.map((p) => page(`/blog/${p.slug}`, p.date)),
     page("/privacy"),
     page("/terms"),
+    page("/faq"),
   ];
 }

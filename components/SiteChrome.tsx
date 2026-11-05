@@ -1,4 +1,4 @@
-import { blog, closing, legal, nav, site } from "@/content";
+import { blog, closing, infoPages, nav, site } from "@/content";
 import { Nav } from "./Nav";
 import { SlideHeader } from "./SlideHeader";
 import { Button, Container } from "./ui";
@@ -101,7 +101,7 @@ export function SiteFooter() {
       <div className="flex flex-col border-t border-grid sm:flex-row sm:items-stretch sm:justify-between">
         <p className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name}<i aria-hidden className="size-1.5 rounded-full bg-white/50" />{closing.footer}</p>
         <div className="flex border-t border-grid sm:border-t-0">
-          {[{ label: legal.privacy.label, href: "/privacy" }, { label: legal.terms.label, href: "/terms" }].map((l) => (
+          {infoPages.map((l) => (
             <a key={l.label} href={l.href} className="mono grid flex-1 place-items-center border-grid px-8 py-5 transition-colors not-first:border-l hover:bg-white/5 sm:border-l lg:px-10">{l.label}</a>
           ))}
         </div>

@@ -94,7 +94,7 @@ export const approach = {
 
 export const about = {
   heading: "Hi, I’m Paige",
-  body: "I’ve bootstrapped two brands of my own, so I know your side of it, and I still design whenever I can, online or off.",
+  body: "I’ve bootstrapped two brands of my own, so I know your side of it, including how far a small budget has to stretch. I care about the details most people skip, like product data and the copy on a checkout button. And I still design whenever I can, online or off.",
   // Tool logos stuck to the photo panel.
   tools: [
     { name: "Shopify", logo: "/logos/shopify-glyph.svg", file: "shopify.app" },
@@ -430,8 +430,10 @@ export const approachPage = {
 };
 
 export const faq = {
-  heading: "FAQs",
-  body: "Everything you might still be wondering.",
+  // The /faq page: the label is its eyebrow and its name in the left rail and footer
+  label: "FAQs",
+  heading: "Questions, answered",
+  body: "Short answers on how I work, what I take on and what happens if plans change.",
   items: [
     {
       q: "Do you work with teams that already have a designer?",
@@ -523,3 +525,11 @@ export const contact = {
   interests: ["Ask Paige", "A scoped project", "A store refresh", "Not sure yet"],
   success: "Thanks, your message is on its way. I’ll reply by email soon, usually to suggest a time for a short intro call.",
 };
+
+// Privacy, Terms and FAQs: the pages the left rail on each links between, in order (also the
+// footer's bottom links).
+export const infoPages = [
+  { key: "privacy", label: legal.privacy.label, href: "/privacy" },
+  { key: "terms", label: legal.terms.label, href: "/terms" },
+  { key: "faq", label: faq.label, href: "/faq" },
+] as const;
