@@ -25,9 +25,9 @@ function AudienceList() {
   return (
     <>
       <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{audiences.heading}</p>
-      <dl className="mt-5 max-w-xl border-b border-line">
+      <dl className="mt-4 max-w-xl border-b border-line leading-snug">
         {audiences.items.map((a) => (
-          <div key={a.title} className="grid gap-1 border-t border-line py-3.5 sm:grid-cols-[10rem_1fr] sm:gap-6">
+          <div key={a.title} className="grid gap-0.5 border-t border-line py-2.5 sm:grid-cols-[10rem_1fr] sm:gap-6">
             <dt className="text-[15px] font-medium">{a.title}</dt>
             <dd className="text-[15px] text-muted">{a.body}</dd>
           </div>
