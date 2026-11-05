@@ -4,7 +4,7 @@ import { Button, Reveal } from "./ui";
 
 /**
  * Ways to work together: the three starting points on the cutting mat, each its tag, what it is
- * in the client's words and its starting price ("Starting at"), then the note and a button to get in touch.
+ * in the client's words, one line on it, its starting price ("Starting at") and how long it takes, then the note and a button to get in touch.
  */
 export function WaysToWork() {
   return (
@@ -15,6 +15,7 @@ export function WaysToWork() {
       items={models.items.map((m) => ({
         label: m.tag,
         title: m.title,
+        body: m.body,
         meta: (
           <>
           <p className="mono text-muted">Starting at</p>
@@ -22,6 +23,7 @@ export function WaysToWork() {
             <span className="serif text-[clamp(28px,2.4vw,36px)] leading-none tracking-[-0.03em]">{m.price}</span>
             <span className="mono text-muted">{m.per.replace("/ ", "per ")}</span>
           </p>
+          <p className="mt-4 border-t border-line pt-3 text-[14px]">{m.timeline}</p>
           </>
         ),
       }))}

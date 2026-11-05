@@ -162,14 +162,17 @@ export const models = {
       body: "A close look at your store, and a written list of what to fix first.",
       price: "$300",
       per: "/ audit",
+      // How long it takes, shown on the card under the price
+      timeline: "Booked within a few days",
       points: ["Two focused hours, booked within days", "A written list of what to fix first", "Or a full review and plan, quoted up front"],
     },
     {
       tag: "One-off",
       title: "Refresh my store",
-      body: "A one-time project: one part of your store done properly, and live before your deadline.",
+      body: "One part of your store done properly, and live before your deadline.",
       price: "$1,500",
       per: "/ project",
+      timeline: "Done in 2 to 3 weeks",
       points: ["A theme refresh, a landing page or an email set", "Or a whole campaign, quoted up front", "Done in two to three weeks"],
     },
     {
@@ -178,6 +181,7 @@ export const models = {
       body: "Your store designed, written and built from scratch, ready to launch.",
       price: "$3,500",
       per: "/ project",
+      timeline: "Launched in 4 to 6 weeks",
       points: ["Strategy, design and copy", "Built in Shopify, tested and launched", "Handed over so your team can run it"],
       featured: true,
     },

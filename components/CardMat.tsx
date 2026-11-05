@@ -5,11 +5,12 @@ import { Container, Eyebrow, Reveal, Rich, section, sectionHeading } from "./ui"
 // Each card's tilt on the mat, in turn.
 const tilts = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1"];
 
-export type MatCard = { label: string; title: string; meta?: ReactNode };
+export type MatCard = { label: string; title: string; body?: string; meta?: ReactNode };
 
 /**
  * A section of paper cards on the bright blue cutting mat: the eyebrow and heading, then each
- * card tilted with its corner folded, a mono label and a serif title (plus `meta` at its foot).
+ * card tilted with its corner folded, a mono label, a serif title and an optional line under it
+ * (plus `meta` at its foot).
  * `footer` sits under the mat. Ways to work together uses it.
  */
 export function CardMat({ id, eyebrow, heading, items, footer }: { id?: string; eyebrow: string; heading: string; items: MatCard[]; footer?: ReactNode }) {
@@ -31,6 +32,7 @@ export function CardMat({ id, eyebrow, heading, items, footer }: { id?: string; 
                   <div className="folded flex h-full flex-col bg-paper p-6 pb-12 lg:p-8 lg:pb-14">
                     <p className="mono flex items-center gap-3 tracking-[0.01em]"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{a.label}</p>
                     <h3 className="serif mt-6 text-[clamp(22px,2vw,28px)] leading-[1.15] text-balance"><Rich text={a.title} /></h3>
+                    {a.body && <p className="mt-3 text-[15px] leading-[1.5] text-muted">{a.body}</p>}
                     {a.meta && <div className="mt-auto pt-8">{a.meta}</div>}
                   </div>
                 </div>
