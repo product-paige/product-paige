@@ -68,7 +68,7 @@ export const hero = {
   // A word in {braces} is drawn selected, with a selection box and handles.
   heading: ["Product marketing, {design}", "& AI builds for Shopify"],
   lede:
-    "I’ve spent 13 years building on Shopify. Now I design, write and build stores for founders who want one person on it, not an agency.",
+    "I’ve spent 13 years building on Shopify. Now I fix and refresh stores for founders who want one person on it, not an agency.",
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
   // `tag` (optional) replaces the label in the caption under the screen; `hover` (optional)
   // is a second image, the same size, that fades in on hover, as on a real product card.
@@ -110,7 +110,7 @@ export const about = {
 // The rows under this heading are the approach phases (approachPage.phases).
 export const services = {
   eyebrow: "How I can help",
-  heading: "From first sketch to live store",
+  heading: "From quick fixes to full refreshes",
 };
 
 // The Working style section on the homepage: a picture on the left, three principles on the right.
@@ -131,8 +131,8 @@ export const audiences = {
   heading: "Who I work with",
   items: [
     {
-      title: "Starting out",
-      body: "Your first Shopify store is on the way",
+      title: "Just launched",
+      body: "Your store is live, but it isn’t selling yet",
     },
     {
       title: "Already selling",
