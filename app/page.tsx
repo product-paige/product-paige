@@ -18,21 +18,21 @@ const lift = "transition hover:-translate-y-1";
 // Testimonial card colours, in turn.
 const quoteTones = ["bg-sky", "bg-butter", "bg-sage"];
 /**
- * Who I work with, under the About copy: a small mono label, then a ruled list like a spec
- * sheet, who it's for on the left and one line on the right.
+ * Who I work with, under the About copy: a small mono label, then three tiles side by side, each
+ * who it's for in blue and one line on it, on a soft tint.
  */
 function AudienceList() {
   return (
     <>
       <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 shrink-0 rounded-full bg-accent" />{audiences.heading}</p>
-      <dl className="mt-4 max-w-xl border-b border-line leading-snug">
+      <ul className="mt-4 grid gap-2 sm:grid-cols-3">
         {audiences.items.map((a) => (
-          <div key={a.title} className="grid gap-0.5 border-t border-line py-2.5 sm:grid-cols-[10rem_1fr] sm:gap-6">
-            <dt className="text-[15px] font-medium text-accent">{a.title}</dt>
-            <dd className="text-[15px] text-muted">{a.body}</dd>
-          </div>
+          <li key={a.title} className="rounded-ui bg-sheet px-4 py-3.5">
+            <p className="text-[15px] leading-snug font-medium text-accent">{a.title}</p>
+            <p className="mt-1 text-[14px] leading-snug text-muted">{a.body}</p>
+          </li>
         ))}
-      </dl>
+      </ul>
     </>
   );
 }
