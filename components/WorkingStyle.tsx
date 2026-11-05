@@ -39,7 +39,7 @@ export function WorkingStyle() {
 
   useEffect(() => {
     if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => setActive((i) => (i + 1) % count), 4000);
+    const t = setInterval(() => setActive((i) => (i + 1) % count), 5000);
     return () => clearInterval(t);
   }, [paused, count]);
 
@@ -51,7 +51,7 @@ export function WorkingStyle() {
           <img src={workingStyle.background} alt="" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
           {/* Every picture stacked; the active one fades in over the others */}
           {workingStyle.items.map((it, i) => (
-            <div key={it.title} aria-hidden={i !== active} className={`absolute inset-0 grid place-items-center transition-[opacity,translate] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${i === active ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>
+            <div key={it.title} aria-hidden={i !== active} className={`absolute inset-0 grid place-items-center transition-[opacity,scale] duration-[1200ms] ease-in-out ${i === active ? "scale-100 opacity-100" : "scale-[0.97] opacity-0"}`}>
               <Mockup image={it.image} />
             </div>
           ))}
@@ -77,7 +77,7 @@ export function WorkingStyle() {
                     className="flex w-full cursor-pointer items-start gap-5 py-5 text-left"
                   >
                     {/* The active principle's square is the solid blue; the others are a soft tint */}
-                    <span aria-hidden className={`grid size-14 shrink-0 place-items-center rounded-ui transition-colors duration-300 ${on ? "bg-accent text-white" : "bg-accent/10 text-accent"}`}>
+                    <span aria-hidden className={`grid size-14 shrink-0 place-items-center rounded-ui transition-colors duration-700 ease-in-out ${on ? "bg-accent text-white" : "bg-accent/10 text-accent"}`}>
                       <Asterisk className="size-8" weight={2} />
                     </span>
                     <span>
