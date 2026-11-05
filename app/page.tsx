@@ -6,6 +6,7 @@ import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
+import { WaysToWork } from "@/components/WaysToWork";
 import { WhoIWorkWith } from "@/components/WhoIWorkWith";
 import {
   Container, Eyebrow, Illo, Reveal, Rich, SectionHead, section, sectionHeading,
@@ -110,12 +111,13 @@ export default function Home() {
           </Container>
         </section>
 
-        {/* Ways to work together (components/PricingTable) is off the page for now */}
-
         {/* My process (approach in content.ts) is off the page for now */}
 
         {/* Blog */}
         <Scrapbook className={section} />
+
+        {/* Ways to work together: the starting points and prices, last, beside the button to get in touch */}
+        <WaysToWork />
 
         {/* Testimonials: hidden until there are real quotes */}
         {testimonials.items.length > 0 && (
