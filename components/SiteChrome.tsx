@@ -64,7 +64,7 @@ export function SiteFooter() {
     ...(site.linkedin ? [{ label: "LinkedIn", href: site.linkedin }] : []),
   ];
   const columns = [
-    { heading: closing.pagesHeading, links: [...nav, { label: "Contact", href: site.bookingUrl }] },
+    { heading: closing.pagesHeading, links: [...nav.map((n) => ({ ...n, href: `/${n.href}` })), { label: "Contact", href: site.bookingUrl }] },
     { heading: closing.postsHeading, links: blog.posts.slice(0, 3).map((p) => ({ label: p.title, href: `/blog/${p.slug}` })) },
     { heading: closing.elsewhereHeading, links: elsewhere },
   ];
