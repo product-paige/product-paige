@@ -9,21 +9,28 @@ type Model = (typeof models.items)[number];
 /**
  * Ways to work together as a table: one column per way of working
  * with its tag as a folder tab on top, and rows for what it is, the price and what's included,
- * in a full grid of fine borders. The picked option's tab is the bright blue. Clicking a tab picks that option: its tab and column take the
- * same grey (the featured one to start). On phones each option becomes its own stacked
+ * in a full grid of fine borders. The picked option's tab is the bright blue. Clicking a tab picks that option: its tab and column turn the
+ * bright blue (the featured one to start). On phones each option becomes its own stacked
  * block with the same rows.
  */
 /** A row's label; the deliverables row gets an (i) whose tip says they're examples, on hover or focus. */
 function RowLabel({ label }: { label: string }) {
   const tipId = useId();
   if (label !== models.deliverables.label) return <>{label}</>;
+  const words = label.split(" ");
+  const last = words.pop();
+  const first = words.join(" ");
   // Inline, so the (i) sits right after the last word even when the label wraps
   return (
     <span className="group relative">
-      {label}
-      <button type="button" aria-label="About deliverables" aria-describedby={tipId} className="ml-1.5 inline-grid size-4 cursor-help place-items-center rounded-full border border-current align-[-2px] text-[9px] leading-none opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100">
-        i
-      </button>
+      {first}{" "}
+      {/* The last word and the (i) kept together, centred on each other */}
+      <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+        {last}
+        <button type="button" aria-label="About deliverables" aria-describedby={tipId} className="grid size-4 -translate-y-px cursor-help place-items-center rounded-full border border-current text-[9px] leading-none opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100">
+          i
+        </button>
+      </span>
       <span id={tipId} role="tooltip" className="pointer-events-none absolute bottom-full left-0 z-10 mb-2 w-60 rounded-ui bg-dark px-3 py-2.5 font-sans text-[13px] leading-snug tracking-normal normal-case text-white opacity-0 shadow-[0_8px_20px_rgb(0_0_0/0.18)] transition-opacity group-focus-within:opacity-100 group-hover:opacity-100">
         {models.deliverables.tip}
       </span>
@@ -69,8 +76,8 @@ export function PricingTable() {
   ];
   // The picked option: its tab and its whole column take the same grey (the site's grey paper); other tabs are paper. Starts on the featured one.
   const [picked, setPicked] = useState(Math.max(0, models.items.findIndex((m) => "featured" in m)));
-  const pickedBg = "bg-scrap";
-  const tint = (i: number) => (picked === i ? pickedBg : "bg-paper");
+  // The picked column turns the bright blue, its text white, and its grey and blue details white too
+  const tint = (i: number) => (picked === i ? "border-white/20 bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/70" : "bg-paper");
   const Tab = ({ m, i }: { m: Model; i: number }) => (
     <button
       type="button"

@@ -179,6 +179,8 @@ export const models = {
       price: "$750",
       per: "/ project",
       timeline: "Delivered in 1 to 2 weeks",
+      // The table opens with this one highlighted
+      featured: true,
     },
     {
       tag: "Refresh",
@@ -188,8 +190,6 @@ export const models = {
       price: "$2,500",
       per: "/ project",
       timeline: "Delivered in 3 to 4 weeks",
-      // The table version opens on this one
-      featured: true,
     },
   ],
 };
