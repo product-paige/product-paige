@@ -65,11 +65,13 @@ export default function Home() {
         {/* About: two columns. Left, the heading, one paragraph in Manrope on who I am
             and how I work. Right, the photo and tools laid
             out like a desktop (see AboutNotebook). */}
-        <section id="about" className={`${section} overflow-x-clip`}>
-          <Container className="grid items-start gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-16">
-            {/* Left: the heading and copy at the top, Who I work with pushed to the bottom, level
-                with the foot of the mat */}
-            <div className="flex flex-col lg:pt-10">
+        {/* About: the text on the left with its own padding, the blue cutting mat filling the right
+            half between the inner rails, split by a full-height divider (as in Working style). The
+            section's top rule runs the full width. */}
+        <section id="about" className="overflow-x-clip border-t border-grid">
+          <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
+            {/* Left: the heading and copy at the top, Who I work with pushed to the bottom */}
+            <div className="flex flex-col px-4 py-12 sm:px-6 lg:py-16 lg:pr-16 lg:pl-10">
               <Reveal>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
@@ -80,13 +82,13 @@ export default function Home() {
             </div>
 
             {/* Laid out like a desktop on the blue cutting mat: the photo, tools and a folder as files */}
-            <Reveal className="relative overflow-hidden rounded-[20px] p-6 sm:p-8 lg:p-10">
+            <Reveal className="relative z-1 overflow-hidden border-t border-grid px-6 py-10 sm:px-10 md:border-x lg:border-t-0 lg:border-r lg:border-l lg:px-12 lg:py-14">
               <CuttingMat />
-              <div className="relative">
+              <div className="relative mx-auto max-w-xl">
                 <AboutNotebook onMat />
               </div>
             </Reveal>
-          </Container>
+          </div>
         </section>
 
         {/* Recent projects */}
