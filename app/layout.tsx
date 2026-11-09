@@ -42,7 +42,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
-      <body>
+      {/* Browser extensions (Grammarly and the like) add attributes to <body> before React loads;
+          ignore them rather than report a hydration mismatch */}
+      <body suppressHydrationWarning>
         {/* Set before hydration so scroll-reveal content doesn't flash. Without JS, nothing is hidden. */}
         <Script id="reveal-ready" strategy="beforeInteractive">
           {"document.documentElement.classList.add('reveal-ready')"}
