@@ -316,6 +316,11 @@ export const projects = {
       excerpt: "A concept body care brand on Shopify",
       role: "Brand and build",
       image: "/projects/backspace-body.webp",
+      gallery: [
+        { src: "/projects/backspace-body/conditioner.webp", caption: "Conditioner" },
+        { src: "/projects/backspace-body/body-lotion.webp", caption: "Body lotion" },
+        { src: "/projects/backspace-body/shampoo.webp", caption: "Shampoo" },
+      ],
       tagline: "A body care brand that doesn’t exist, built like it does",
       summary:
         "Backspace Body is a concept brand for family body care. It’s unisex, fragrance-free and refill-first, with one range for body, hair, face and hands.",

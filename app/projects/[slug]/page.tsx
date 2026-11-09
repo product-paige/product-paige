@@ -99,10 +99,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             <div className="grid gap-4 lg:gap-6">
               {gallery.map((g, i) => (
                 <Reveal key={g.caption} delay={i === 0 ? 120 : 0}>
-                  <figure className="relative aspect-[4/3] overflow-hidden rounded-ui bg-scrap lg:aspect-[16/11]">
+                  {/* A photo shows at its own shape, uncropped; an empty panel keeps the wide placeholder shape */}
+                  <figure className={`relative overflow-hidden rounded-ui bg-scrap ${g.src ? "" : "aspect-[4/3] lg:aspect-[16/11]"}`}>
                     {g.src ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={g.src} alt={`${p.client}: ${g.caption}`} loading={i === 0 ? "eager" : "lazy"} decoding="async" className="size-full object-cover" />
+                      <img src={g.src} alt={`${p.client}: ${g.caption}`} loading={i === 0 ? "eager" : "lazy"} decoding="async" className="block h-auto w-full" />
                     ) : (
                       <span className="grid size-full place-items-center serif text-[28px] text-muted">{g.caption}</span>
                     )}
