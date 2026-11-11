@@ -11,7 +11,7 @@ const field =
 const label = "mb-1.5 block text-sm label text-muted";
 
 /**
- * Posts to `endpoint` (a form service such as Formspree) when one is set.
+ * Posts to `endpoint` (the site's /api/contact, which emails it through Resend) when one is set.
  * Without one, it opens the visitor's email app with the message filled in.
  */
 export function ContactForm({
@@ -75,6 +75,11 @@ export function ContactForm({
 
   return (
     <form onSubmit={onSubmit} className="grid gap-x-4 gap-y-3 sm:grid-cols-2">
+      {/* A trap for spam bots: hidden from people and screen readers, so only bots fill it in */}
+      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="cf-company">Company</label>
+        <input id="cf-company" name="company" tabIndex={-1} autoComplete="off" />
+      </div>
       <div>
         <label htmlFor="cf-name" className={label}>Name</label>
         <input id="cf-name" name="name" required autoComplete="name" className={field} />

@@ -38,9 +38,9 @@ export const site = {
   hideFromSearch: true,
   bookingUrl: "/#contact",
   email: "hello@productpaige.com",
-  // Form service URL (e.g. Formspree). Until it's set, the form opens the
-  // visitor's email app with their message filled in.
-  formEndpoint: "",
+  // Where the contact form posts: app/api/contact, which emails it through Resend (needs
+  // RESEND_API_KEY; see .env.example). Set to "" to have the form open the visitor's email app.
+  formEndpoint: "/api/contact",
   // Newsletter service URL for the footer sign-up (e.g. beehiiv or Buttondown). Until it's set,
   // signing up opens the visitor's email app with a sign-up request to you.
   newsletterEndpoint: "",
