@@ -14,7 +14,7 @@ import { Chip, Reveal } from "./ui";
 const focus = "[&>:not(i)]:transition-opacity [&>:not(i)]:duration-500 in-data-focus:[&:not([data-active])>:not(i)]:opacity-30";
 
 export function Phases({ caseStudies = false, topBorder = false }: { caseStudies?: boolean; topBorder?: boolean }) {
-  const project = (slug: string) => projects.items.find((p) => p.slug === slug);
+  const project = (slug: string) => projects.items.find((p) => p.slug === slug && !p.comingSoon);
   return (
     <ScrollFocus className="-mx-4 sm:-mx-6 md:-mx-12 lg:-mx-20">
       {approachPage.phases.map((ph, i) => (

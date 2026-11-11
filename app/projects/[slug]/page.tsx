@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { projects, site, type Project } from "@/content";
+import { liveProjects, projects, site, type Project } from "@/content";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
@@ -11,13 +11,16 @@ type Params = { slug: string };
 // Panels shown until a project has its own screenshots.
 const placeholderGallery: NonNullable<Project["gallery"]> = [{ caption: "Homepage" }, { caption: "Product page" }, { caption: "Mobile" }];
 
+// Only the projects listed above have pages; any other slug (a coming-soon project) is a 404
+export const dynamicParams = false;
+
 export function generateStaticParams(): Params[] {
-  return projects.items.map((p) => ({ slug: p.slug }));
+  return liveProjects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
-  const p = projects.items.find((x) => x.slug === slug);
+  const p = liveProjects.find((x) => x.slug === slug);
   if (!p) return {};
   return {
     title: `${p.client} · ${site.logo}`,
@@ -34,11 +37,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
  */
 export default async function CaseStudyPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const index = projects.items.findIndex((x) => x.slug === slug);
+  const index = liveProjects.findIndex((x) => x.slug === slug);
   if (index === -1) notFound();
-  const p = projects.items[index];
-  const nextIndex = (index + 1) % projects.items.length;
-  const next = projects.items[nextIndex];
+  const p = liveProjects[index];
+  const nextIndex = (index + 1) % liveProjects.length;
+  const next = liveProjects[nextIndex];
   const facts = [...p.highlights, ...p.specs];
   const story = [
     { q: "Problem", a: p.problem },

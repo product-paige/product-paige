@@ -1,7 +1,7 @@
 "use client";
 
 import { projects, type Project } from "@/content";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Cover } from "./Cover";
 import { Chip, Container, Eyebrow, Reveal } from "./ui";
 
@@ -33,6 +33,12 @@ function PhoneMockup({ p }: { p: Project }) {
       </span>
     </span>
   );
+}
+
+/** A project card's wrapper: a link to its case study, or (coming soon) a plain block with no hover. */
+function Card({ p, children }: { p: Project; children: ReactNode }) {
+  if (p.comingSoon) return <div className="block">{children}</div>;
+  return <a href={`/projects/${p.slug}`} className="group block">{children}</a>;
 }
 
 /**
@@ -90,17 +96,17 @@ export function RecentProjects({ className = "" }: { className?: string }) {
         <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
           {projects.items.map((p) => (
             <li key={p.slug} className="w-[88%] shrink-0 snap-start md:w-[calc(50%-12px)]">
-              <a href={`/projects/${p.slug}`} className="group block">
+              <Card p={p}>
                 <span className="relative block overflow-hidden border border-line">
                   <Cover p={p} className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.02]" />
                   <Chip className="absolute top-3 right-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
-                  <PhoneMockup p={p} />
+                  {p.comingSoon ? <Chip className="absolute top-3 left-3 bg-paper text-ink">{projects.comingSoonLabel}</Chip> : <PhoneMockup p={p} />}
                 </span>
                 <span className="mt-4 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
                   <span className="serif text-[clamp(20px,1.6vw,24px)] leading-[1.2] tracking-[-0.03em]">{p.client}</span>
                   <span className="max-w-[32ch] text-[15px] md:text-right">{p.excerpt}</span>
                 </span>
-              </a>
+              </Card>
             </li>
           ))}
         </ul>

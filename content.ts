@@ -299,6 +299,8 @@ export type Project = {
   outcome: string;
   /** The one proof point under the description: a client quote, or a result as `quote` with `name` as its source. Until it's set, a placeholder shows. */
   proof?: { quote: string; name: string };
+  /** Not ready yet: its card shows a Coming soon badge and doesn't link, and it has no page. */
+  comingSoon?: boolean;
 };
 
 export const projects = {
@@ -309,6 +311,8 @@ export const projects = {
   proofPlaceholder: { quote: "A client quote or one hard result goes here, e.g. “92% of visitors now come from Canada.”", name: "Client name, role (placeholder)" },
   // The button under a project's dropdowns; it opens the contact drawer
   cta: { label: "Let’s talk" },
+  // On a project card that isn't ready yet
+  comingSoonLabel: "Coming soon",
   items: [
     {
       slug: "backspace-body",
@@ -369,6 +373,7 @@ export const projects = {
     },
     {
       slug: "brand-playbook",
+      comingSoon: true,
       client: "Brand Playbook",
       excerpt: "A resource hub for solo Shopify founders",
       role: "Websites",
@@ -541,3 +546,6 @@ export const infoPages = [
   { key: "terms", label: legal.terms.label, href: "/terms" },
   { key: "faq", label: faq.label, href: "/faq" },
 ] as const;
+
+// The projects that have a page: everything not marked comingSoon.
+export const liveProjects = projects.items.filter((p) => !p.comingSoon);
