@@ -76,7 +76,7 @@ export const hero = {
   shots: [
     { src: "/hero/swim-homepage.webp", label: "Homepage", tag: "Theme design", alt: "A swimwear homepage: the blue serif headline Cut for the sea, made for the season, over two beach photos with category links between them", width: 1364, height: 960 },
     { src: "/hero/spf-product-card.webp", hover: "/hero/spf-product-card-pool.webp", label: "Product card", tag: "Product pages", alt: "A product card for The Daily SPF 50, a yellow sunscreen bottle on a grey background, with a star rating, a short description and an Add button with the price. On hover it switches to the bottle floating in a pool", width: 876, height: 1040 },
-    { src: "/hero/collection-banner.webp", label: "Collection banner", alt: "A jewelry banner: gold and pearl earrings on stone, with a serif headline and a Shop now button", width: 720, height: 745 },
+    { src: "/hero/jewellery-banner.webp", label: "Collection banner", alt: "A jewellery banner: gold hoops on the edge of a glass against black, with the headline Heavy metal with a light touch and a Shop now button", width: 1359, height: 1406 },
   ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; hover?: string }[],
 };
 
@@ -127,7 +127,7 @@ export const workingStyle = {
   items: [
     { title: "Let AI do the heavy lifting", body: "Claude Code and Shopify Sidekick handle the setup. I review every line.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "claude" } },
     { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust to what’s real.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
-    { title: "Make it clear before pretty", body: "Nail the structure and flow first, then polish what matters.", image: { src: "/hero/collection-banner.webp", width: 720, height: 745, frame: "card" } },
+    { title: "Make it clear before pretty", body: "Nail the structure and flow first, then polish what matters.", image: { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" } },
   ] as { title: string; body: string; image: { src: string; width: number; height: number; frame: "browser" | "card" | "claude"; url?: string } }[],
 };
 
