@@ -72,12 +72,13 @@ export const hero = {
     "I’ve spent 13 years building on Shopify. Now I fix and refresh stores for founders who want one person on it, not an agency.",
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
   // `tag` (optional) replaces the label in the caption under the screen; `hover` (optional)
-  // is a second image, the same size, that fades in on hover, as on a real product card.
+  // is a second image, the same size, that fades in on hover, as on a real product card. `last`
+  // puts it after the cart (which is drawn in code), at the far right.
   shots: [
     { src: "/hero/swim-homepage.webp", label: "Homepage", tag: "Theme design", alt: "A swimwear homepage: the blue serif headline Cut for the sea, made for the season, over two beach photos with category links between them", width: 1364, height: 960 },
     { src: "/hero/jewellery-banner.webp", label: "Collection banner", alt: "A jewellery banner: gold hoops on the edge of a glass against black, with the headline Gold on the rocks and a Shop now button", width: 1359, height: 1406 },
-    { src: "/hero/spf-product-card.webp", hover: "/hero/spf-product-card-pool.webp", label: "Product card", tag: "Product pages", alt: "A product card for The Daily SPF 50, a yellow sunscreen bottle on a grey background, with a star rating, a short description and an Add button with the price. On hover it switches to the bottle floating in a pool", width: 876, height: 1040 },
-  ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; hover?: string }[],
+    { src: "/hero/spf-product-card.webp", last: true, hover: "/hero/spf-product-card-pool.webp", label: "Product card", tag: "Product pages", alt: "A product card for The Daily SPF 50, a yellow sunscreen bottle on a grey background, with a star rating, a short description and an Add button with the price. On hover it switches to the bottle floating in a pool", width: 876, height: 1040 },
+  ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; hover?: string; last?: boolean }[],
 };
 
 export const approach = {

@@ -54,6 +54,8 @@ function Shot({ ratio, label, children }: { ratio: number; label: string; childr
 }
 
 export function EditorialHero() {
+  // The screens in order: the images, the cart, then any image marked `last`
+  const row = [...hero.shots.filter((x) => !x.last), "cart" as const, ...hero.shots.filter((x) => x.last)];
   return (
     <section className="relative">
       <Container className="relative py-8 lg:py-14">
@@ -77,25 +79,28 @@ export function EditorialHero() {
             the same height and the row fills the content width exactly. Phones scroll it sideways. */}
         <div
           className="relative z-1 -mx-4 mt-10 flex gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 lg:mt-14 lg:grid lg:gap-4 lg:overflow-visible lg:pb-0"
-          style={{ gridTemplateColumns: [...hero.shots.map((x) => x.width / x.height), cartRatio].map((r) => `${r.toFixed(3)}fr`).join(" ") }}
+          style={{ gridTemplateColumns: row.map((r) => `${(r === "cart" ? cartRatio : r.width / r.height).toFixed(3)}fr`).join(" ") }}
         >
-          {hero.shots.map((shot) => (
-            <Shot key={shot.src} ratio={shot.width / shot.height} label={shot.tag ?? shot.label}>
-              <div className="relative size-full">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" className="size-full object-cover" />
-                {/* A second image that fades in on hover, as a product card swaps to a lifestyle shot */}
-                {shot.hover && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={shot.hover} alt="" width={shot.width} height={shot.height} decoding="async" loading="lazy" className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                )}
-              </div>
-            </Shot>
-          ))}
-          {/* A fourth screen drawn in HTML: a cart on a phone */}
-          <Shot ratio={cartRatio} label="Conversion">
-            <CartMockup className="size-full" />
-          </Shot>
+          {row.map((shot) =>
+            shot === "cart" ? (
+              // A screen drawn in HTML: a cart on a phone
+              <Shot key="cart" ratio={cartRatio} label="Conversion">
+                <CartMockup className="size-full" />
+              </Shot>
+            ) : (
+              <Shot key={shot.src} ratio={shot.width / shot.height} label={shot.tag ?? shot.label}>
+                <div className="relative size-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} decoding="async" className="size-full object-cover" />
+                  {/* A second image that fades in on hover, as a product card swaps to a lifestyle shot */}
+                  {shot.hover && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={shot.hover} alt="" width={shot.width} height={shot.height} decoding="async" loading="lazy" className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  )}
+                </div>
+              </Shot>
+            ),
+          )}
         </div>
       </Container>
     </section>
