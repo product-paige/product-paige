@@ -54,8 +54,8 @@ function Shot({ ratio, label, children }: { ratio: number; label: string; childr
 }
 
 export function EditorialHero() {
-  // The screens in order: the images, the cart, then any image marked `last`
-  const row = [...hero.shots.filter((x) => !x.last), "cart" as const, ...hero.shots.filter((x) => x.last)];
+  // The screens in order: the images, the cart, then any image marked `afterCart`
+  const row = [...hero.shots.filter((x) => !x.afterCart), "cart" as const, ...hero.shots.filter((x) => x.afterCart)];
   return (
     <section className="relative">
       <Container className="relative py-8 lg:py-14">
