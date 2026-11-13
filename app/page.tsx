@@ -70,19 +70,17 @@ export default function Home() {
             section's top rule runs the full width. */}
         <section id="about" className="overflow-x-clip border-t border-grid">
           <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
-            {/* Left: the heading and copy at the top, Who I work with pushed to the bottom */}
-            <div className="flex flex-col px-4 py-12 sm:px-6 lg:py-16 lg:pr-12 lg:pl-10">
+            {/* Left: the heading and copy, centred against the mat */}
+            <div className="flex flex-col px-4 py-12 sm:px-6 lg:justify-center lg:py-16 lg:pr-12 lg:pl-10">
               <Reveal>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
               <Reveal as="p" delay={60} className="lede mt-5 max-w-2xl">{about.body}</Reveal>
-              <Reveal delay={100} className="mt-14 lg:mt-auto lg:pt-16">
-                <AudienceList />
-              </Reveal>
+              {/* Who I work with (AudienceList) is off the page for now */}
             </div>
 
             {/* Laid out like a desktop on the blue cutting mat: the photo, tools and a folder as files */}
-            <Reveal className="relative z-1 overflow-hidden border-t border-grid px-6 py-10 sm:px-10 md:border-x lg:flex lg:flex-col lg:border-t-0 lg:border-r lg:border-l lg:px-10 lg:py-12">
+            <Reveal className="relative z-1 overflow-hidden border-t border-grid px-6 py-10 sm:px-10 md:border-x lg:flex lg:min-h-[40rem] lg:flex-col lg:border-t-0 lg:border-r lg:border-l lg:px-10 lg:py-12">
               <CuttingMat />
               <div className="relative w-full lg:flex-1">
                 <AboutNotebook onMat />
