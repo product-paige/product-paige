@@ -34,8 +34,8 @@ export const site = {
   role: "Product marketer & designer",
   location: "Kitchener, Ontario",
   url: "https://productpaige.com",
-  // Keeps search engines from listing the site. Set to false at launch.
-  hideFromSearch: true,
+  // Keeps search engines from listing the site. Off since launch.
+  hideFromSearch: false,
   bookingUrl: "/#contact",
   email: "hello@productpaige.com",
   // Where the contact form posts: app/api/contact, which emails it through Resend (needs
