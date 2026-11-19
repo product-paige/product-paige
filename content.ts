@@ -236,7 +236,9 @@ export const samplePostBody: PostBlock[] = [
 export const blog = {
   eyebrow: "From the scrapbook",
   linkLabel: "Read the scrapbook",
-  href: "https://www.productpaige.com/blog",
+  // The "Read the scrapbook" link to a page of all posts. Empty hides it: there's no /blog page yet,
+  // and the section already shows all three posts.
+  href: "" as string,
   // On a post page
   tocLabel: "Contents",
   // The credits under a post's title
