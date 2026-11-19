@@ -33,7 +33,7 @@ export const site = {
   logo: "Product Paige",
   role: "Product marketer & designer",
   location: "Kitchener, Ontario",
-  url: "https://productpaige.com",
+  url: "https://www.productpaige.com",
   // Keeps search engines from listing the site. Off since launch.
   hideFromSearch: false,
   bookingUrl: "/#contact",
@@ -236,7 +236,7 @@ export const samplePostBody: PostBlock[] = [
 export const blog = {
   eyebrow: "From the scrapbook",
   linkLabel: "Read the scrapbook",
-  href: "https://productpaige.com/blog",
+  href: "https://www.productpaige.com/blog",
   // On a post page
   tocLabel: "Contents",
   // The credits under a post's title
