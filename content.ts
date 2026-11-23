@@ -291,6 +291,8 @@ export type Project = {
 
 export const projects = {
   eyebrow: "Recent projects",
+  // The statement beside the label in the staggered grid version (ProjectsGrid)
+  intro: "Stores, sites and brands, designed and built from the first idea to launch.",
   // The link to the next one, at the bottom of a project page
   nextLabel: "Next project",
   // Shown in place of a project's proof point until it has one
