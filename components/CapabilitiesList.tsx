@@ -17,38 +17,34 @@ function statement(text: string) {
 }
 
 /**
- * How I can help, split like About and Working style: the label on the left (sticky), a full-height divider, then a statement (with one word selected, as in the hero) and the
- * four services in two columns, each a title, its line and what it can include as pills.
+ * How I can help, split like About and Working style: the label and the statement (with one word
+ * selected, as in the hero) on the left, staying in view as you scroll, a full-height divider, then
+ * the four services as a grid of cells with full dividers, each a title, its line and pills.
  */
 export function CapabilitiesList() {
   const rows = approachPage.phases;
   return (
     <section id="capabilities" className="border-t border-grid">
-      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
-        {/* Left: the label, which stays in view while the services scroll past */}
-        <div className="border-grid px-4 pt-8 pb-6 sm:px-6 lg:border-r lg:py-14 lg:pr-8 lg:pl-10">
+      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+        {/* Left: the label and the statement, which stay in view while the services scroll past */}
+        <div className="border-grid px-4 pt-8 pb-10 sm:px-6 lg:border-r lg:py-14 lg:pr-10 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">
             <Eyebrow as="h2">{services.eyebrow}</Eyebrow>
+            <p className="serif mt-6 max-w-[22ch] text-[clamp(26px,2.3vw,34px)] leading-[1.14] tracking-[-0.035em] text-balance">{statement(services.statement)}</p>
           </Reveal>
         </div>
-        {/* Right: the statement, then the services as a grid of cells with full dividers that run to
-            the section's edges (under the statement, between the columns and between the rows) */}
-        <div>
-          <Reveal className="px-4 pb-10 sm:px-6 lg:pt-14 lg:pr-10 lg:pb-12 lg:pl-12">
-            <p className="serif max-w-[30ch] text-[clamp(26px,2.6vw,38px)] leading-[1.12] tracking-[-0.035em] text-balance">{statement(services.statement)}</p>
-          </Reveal>
-          <ul className="grid border-t border-grid sm:grid-cols-2">
-            {rows.map((ph, i) => (
-              <Reveal as="li" key={ph.title} delay={(i % 2) * 120} className="border-grid px-4 py-8 not-last:border-b sm:px-6 sm:not-last:border-b-0 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b lg:px-12 lg:py-10">
-                <h3 className="text-[20px] font-semibold tracking-[-0.02em]">{ph.title}</h3>
-                <p className="mt-2.5 max-w-[46ch] text-[15px] leading-relaxed text-muted">{ph.body}</p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {ph.includes.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
-                </ul>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
+        {/* Right: the services as a grid of cells, with full dividers between the columns and rows */}
+        <ul className="grid border-t border-grid sm:grid-cols-2 lg:border-t-0">
+          {rows.map((ph, i) => (
+            <Reveal as="li" key={ph.title} delay={(i % 2) * 120} className="border-grid px-4 py-8 not-last:border-b sm:px-6 sm:not-last:border-b-0 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b lg:px-10 lg:py-12">
+              <h3 className="text-[20px] font-semibold tracking-[-0.02em]">{ph.title}</h3>
+              <p className="mt-2.5 max-w-[46ch] text-[15px] leading-relaxed text-muted">{ph.body}</p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {ph.includes.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
+              </ul>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   );
