@@ -107,17 +107,18 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Bottom bar: the copyright and where I'm based as cells with full-height dividers after each,
-          then the link cells. Stacked on phones; one row from xl. */}
-      <div className="flex flex-col border-t border-grid xl:flex-row xl:items-stretch xl:justify-between">
-        <div className="flex flex-col text-[14px] text-white/60 sm:flex-row sm:items-stretch">
-          <p className="flex items-center border-grid px-4 py-5 sm:border-r sm:px-6 sm:pr-8 md:pl-12 lg:pl-20">© {new Date().getFullYear()} {site.name}</p>
-          <p className="flex items-center gap-2 border-t border-grid px-4 py-5 sm:border-t-0 sm:border-r sm:px-8"><MapleLeaf className="size-3.5 text-white/80" />{closing.footer}</p>
+      {/* Bottom bar, on the same two columns as above (from lg) so its divider is the column line: the
+          copyright and where I'm based on the left, split by a full-height divider (stacked at lg, side
+          by side from 1440px, where both fit before the column line), and the link cells on the right. Stacked on phones. */}
+      <div className="grid border-t border-grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+        <div className="flex flex-col text-[14px] text-white/60 sm:flex-row lg:flex-col lg:border-r lg:border-grid min-[90rem]:flex-row min-[90rem]:text-[13px]">
+          <p className="flex items-center border-grid px-4 py-5 whitespace-nowrap sm:border-r sm:px-6 md:pl-12 lg:border-r-0 lg:pl-20 min-[90rem]:border-r">© {new Date().getFullYear()} {site.name}</p>
+          <p className="flex flex-1 items-center gap-2 border-t border-grid px-4 py-5 sm:border-t-0 sm:border-r sm:px-6 lg:border-t lg:border-r-0 lg:pl-20 min-[90rem]:border-t-0 min-[90rem]:pl-6"><MapleLeaf className="size-3.5 shrink-0 text-white/80" />{closing.footer}</p>
         </div>
         {/* Right padding the size of the folded corner, so the last link sits clear of the cut */}
-        <div className="flex border-t border-grid pr-[var(--fold)] xl:border-t-0">
+        <div className="flex border-t border-grid pr-[var(--fold)] lg:justify-end lg:border-t-0">
           {infoPages.map((l) => (
-            <a key={l.label} href={l.href} className="mono grid flex-1 place-items-center border-grid px-4 py-5 transition-colors sm:px-8 not-first:border-l last:border-r hover:bg-white/5 xl:border-l lg:px-10">{l.label}</a>
+            <a key={l.label} href={l.href} className="mono grid flex-1 place-items-center border-grid px-4 py-5 transition-colors sm:px-8 not-first:border-l last:border-r hover:bg-white/5 lg:flex-none lg:border-l lg:px-10">{l.label}</a>
           ))}
         </div>
       </div>
