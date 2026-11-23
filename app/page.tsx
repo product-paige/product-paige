@@ -3,7 +3,6 @@ import { AboutNotebook } from "@/components/AboutNotebook";
 import { CuttingMat } from "@/components/CuttingMat";
 import { EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
-import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
 import { CapabilitiesList } from "@/components/CapabilitiesList";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
@@ -96,16 +95,6 @@ export default function Home() {
         <RecentProjects className={section} />
 
         {/* Services */}
-        <section id="capabilities" className={section}>
-          <Container>
-            <Reveal className="mb-8 lg:mb-12">
-              <Eyebrow>{services.eyebrow}</Eyebrow>
-              <h2 className={sectionHeading}>{services.heading}</h2>
-            </Reveal>
-            <Phases topBorder />
-          </Container>
-        </section>
-        {/* To compare: How I can help as a two-column list */}
         <CapabilitiesList className={section} />
 
 

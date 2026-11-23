@@ -2,14 +2,14 @@ import { approachPage, services } from "@/content";
 import { Chip, Container, Eyebrow, Reveal } from "./ui";
 
 /**
- * A second take on How I can help, to compare: the label on the left, a statement on the right,
+ * How I can help: the label on the left, a statement on the right,
  * then the four phases under it in two columns, each a short title and its line, split by fine rules,
  * with what it can include as pills underneath.
  */
 export function CapabilitiesList({ className = "" }: { className?: string }) {
   const rows = approachPage.phases;
   return (
-    <section id="capabilities-list" className={className}>
+    <section id="capabilities" className={className}>
       <Container>
         <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] md:gap-10">
           <Reveal>
