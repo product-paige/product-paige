@@ -30,6 +30,8 @@ async function screen(src: string, height: number) {
 
 export default async function OpengraphImage() {
   const serif = await readFile(join(process.cwd(), "app/fonts/TiemposText-Regular.otf"));
+  // Azeret Mono (SIL Open Font License, from Google Fonts), for the booking line, as on the site
+  const mono = await readFile(join(process.cwd(), "app/fonts/AzeretMono-Regular.ttf"));
   const rowHeight = 228;
   const shots = await Promise.all(hero.shots.map((s) => screen(s.src.replace(/^\//, ""), rowHeight)));
 
@@ -61,7 +63,7 @@ export default async function OpengraphImage() {
           <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={logo} width={30} height={44} alt="" />
-            <div style={{ display: "flex", fontSize: 22, letterSpacing: 1.5, color: ink }}>{site.availability.toUpperCase()}</div>
+            <div style={{ display: "flex", fontFamily: "Azeret Mono", fontSize: 21, letterSpacing: 1.3, color: ink }}>{site.availability.toUpperCase()}</div>
           </div>
           {/* The headline */}
           <div style={{ display: "flex", flexDirection: "column", marginTop: 30, fontSize: 64, lineHeight: 1.08, letterSpacing: -2.2 }}>
@@ -79,6 +81,9 @@ export default async function OpengraphImage() {
         </div>
       </div>
     ),
-    { ...size, fonts: [{ name: "Tiempos", data: serif, weight: 400, style: "normal" }] },
+    { ...size, fonts: [
+        { name: "Tiempos", data: serif, weight: 400, style: "normal" },
+        { name: "Azeret Mono", data: mono, weight: 400, style: "normal" },
+      ] },
   );
 }
