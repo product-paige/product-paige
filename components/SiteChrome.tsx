@@ -41,7 +41,8 @@ export function SiteHeader() {
                 show, the same 20px either side as the menu items, so the P sits centred between them */}
             <a href="/" aria-label={site.logo} className="flex items-center self-stretch xl:px-5">
               <LogoMark />
-              <span className="serif ml-3 text-[22px] leading-none tracking-[-0.03em] whitespace-nowrap">{site.logo}</span>
+              {/* A touch smaller on phones, so it clears the Let’s talk button */}
+              <span className="serif ml-2.5 text-[19px] leading-none tracking-[-0.03em] whitespace-nowrap max-[359px]:hidden sm:ml-3 sm:text-[22px]">{site.logo}</span>
             </a>
             <span aria-hidden className="hidden w-px self-stretch bg-grid xl:block" />
             <Nav items={nav} />
@@ -108,7 +109,7 @@ export function SiteFooter() {
 
       {/* Bottom bar: the copyright, then link cells split by dividers */}
       <div className="flex flex-col border-t border-grid sm:flex-row sm:items-stretch sm:justify-between">
-        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name}<i aria-hidden className="size-1.5 rounded-full bg-white/50" /><span className="inline-flex items-center gap-2"><MapleLeaf className="size-3.5 text-white/80" />{closing.footer}</span></p>
+        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name}<i aria-hidden className="hidden size-1.5 rounded-full bg-white/50 sm:block" /><span className="inline-flex items-center gap-2"><MapleLeaf className="size-3.5 text-white/80" />{closing.footer}</span></p>
         {/* Right padding the size of the folded corner, so the last link sits clear of the cut */}
         <div className="flex border-t border-grid pr-[var(--fold)] sm:border-t-0">
           {infoPages.map((l) => (
