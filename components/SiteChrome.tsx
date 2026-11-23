@@ -107,13 +107,17 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Bottom bar: the copyright, then link cells split by dividers */}
-      <div className="flex flex-col border-t border-grid sm:flex-row sm:items-stretch sm:justify-between">
-        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-5 text-[14px] text-white/60 sm:px-6 md:px-12 lg:pl-20">© {new Date().getFullYear()} {site.name}<i aria-hidden className="hidden size-1.5 rounded-full bg-white/50 sm:block" /><span className="inline-flex items-center gap-2"><MapleLeaf className="size-3.5 text-white/80" />{closing.footer}</span></p>
+      {/* Bottom bar: the copyright and where I'm based as cells with full-height dividers after each,
+          then the link cells. Stacked on phones; one row from xl. */}
+      <div className="flex flex-col border-t border-grid xl:flex-row xl:items-stretch xl:justify-between">
+        <div className="flex flex-col text-[14px] text-white/60 sm:flex-row sm:items-stretch">
+          <p className="flex items-center border-grid px-4 py-5 sm:border-r sm:px-6 sm:pr-8 md:pl-12 lg:pl-20">© {new Date().getFullYear()} {site.name}</p>
+          <p className="flex items-center gap-2 border-t border-grid px-4 py-5 sm:border-t-0 sm:border-r sm:px-8"><MapleLeaf className="size-3.5 text-white/80" />{closing.footer}</p>
+        </div>
         {/* Right padding the size of the folded corner, so the last link sits clear of the cut */}
-        <div className="flex border-t border-grid pr-[var(--fold)] sm:border-t-0">
+        <div className="flex border-t border-grid pr-[var(--fold)] xl:border-t-0">
           {infoPages.map((l) => (
-            <a key={l.label} href={l.href} className="mono grid flex-1 place-items-center border-grid px-4 py-5 transition-colors sm:px-8 not-first:border-l last:border-r hover:bg-white/5 sm:border-l lg:px-10">{l.label}</a>
+            <a key={l.label} href={l.href} className="mono grid flex-1 place-items-center border-grid px-4 py-5 transition-colors sm:px-8 not-first:border-l last:border-r hover:bg-white/5 xl:border-l lg:px-10">{l.label}</a>
           ))}
         </div>
       </div>
