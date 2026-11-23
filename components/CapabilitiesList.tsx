@@ -39,10 +39,10 @@ export function CapabilitiesList() {
           </Reveal>
           <ul className="grid border-t border-grid sm:grid-cols-2">
             {rows.map((ph, i) => (
-              <Reveal as="li" key={ph.title} delay={(i % 2) * 120} className="border-grid px-4 py-8 not-last:border-b sm:px-6 sm:not-last:border-b-0 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b lg:px-12 lg:py-10">
+              <Reveal as="li" key={ph.title} delay={(i % 2) * 120} className="border-grid px-4 py-6 not-last:border-b sm:px-6 sm:not-last:border-b-0 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b lg:px-10 lg:py-7">
                 <h3 className="text-[20px] font-semibold tracking-[-0.02em]">{ph.title}</h3>
-                <p className="mt-2.5 max-w-[46ch] text-[15px] leading-relaxed text-muted">{ph.body}</p>
-                <ul className="mt-4 flex flex-wrap gap-2">
+                <p className="mt-2 max-w-[46ch] text-[15px] leading-relaxed text-muted">{ph.body}</p>
+                <ul className="mt-3 flex flex-wrap gap-1.5">
                   {ph.includes.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
                 </ul>
               </Reveal>
