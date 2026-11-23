@@ -1,3 +1,4 @@
+import { posts } from "./blog-posts";
 // All copy for the page lives here. To reuse this site as a base for someone else,
 // replace this file and the photo; the components read everything from it.
 // Headings carry no periods. (Optional: wrap a word in *asterisks* to italicise it.)
@@ -58,8 +59,9 @@ export const site = {
 };
 
 // An accent underline marks the menu item whose section is on screen.
-// The blog switch: false while the posts still have placeholder bodies (see blog.live)
-const blogLive = false as boolean;
+// The blog switch. Off on the live site while the posts are drafts; on in local development so the
+// drafts can be reviewed in the real layout. Set to true to publish.
+const blogLive = process.env.NODE_ENV === "development";
 
 export const nav = [
   { label: "About", href: "#about" },
@@ -239,7 +241,7 @@ export const samplePostBody: PostBlock[] = [
 ];
 
 export const blog = {
-  // Off while the posts still have placeholder bodies: hides the Scrapbook section, the Scrapbook nav
+  // Off on the live site while the posts are drafts: hides the Scrapbook section, the Scrapbook nav
   // link, the footer's Latest posts, the post pages, and the posts in the sitemap and llms.txt.
   live: blogLive,
   eyebrow: "From the scrapbook",
@@ -252,38 +254,8 @@ export const blog = {
   // The credits under a post's title
   meta: { published: "Posted", readTime: "Read time", author: "Author" },
   moreHeading: "More from the scrapbook",
-  posts: [
-    {
-      slug: "shopifys-agent-blueprint",
-      title: "Shopify’s agent blueprint",
-      excerpt: "Shopify open-sourced a shopping agent. The useful part isn’t the code.",
-      standfirst: "Shopify open-sourced a shopping agent. The useful part isn’t the code, it’s what it shows about how AI assistants will read your store, and what to fix before they do.",
-      date: "Sep 3, 2026",
-      readTime: "5 min read",
-      tag: "AI",
-      image: "/blog/agent-blueprint.webp",
-    },
-    {
-      slug: "the-eight-second-test",
-      title: "The eight-second test",
-      excerpt: "How to tell if your homepage works, before you rebuild it again.",
-      standfirst: "How to tell if your homepage works, before you rebuild it again. A quick test you can run this week, and how to read the answers so you know what to change first.",
-      date: "Aug 14, 2026",
-      readTime: "4 min read",
-      tag: "Positioning",
-      image: "/blog/eight-second-test.webp",
-    },
-    {
-      slug: "onboarding-is-a-promise",
-      title: "Onboarding is a promise",
-      excerpt: "Every onboarding step promises something. Break it, lose the merchant.",
-      standfirst: "Every onboarding step promises something. Break it, lose the merchant. How to spot the promises your app makes on day one, and keep each of them.",
-      date: "Jul 30, 2026",
-      readTime: "6 min read",
-      tag: "UX",
-      image: "/blog/onboarding-promise.jpg",
-    },
-  ] satisfies Post[] as Post[],
+  // The posts themselves live in blog-posts.ts
+  posts,
 };
 
 // Case studies, from productpaige.com/projects. Each gets a page at /projects/<slug>.
