@@ -2,25 +2,10 @@
 
 import { useId, useState } from "react";
 import { approachPage, services } from "@/content";
-import { Chip, Eyebrow, Reveal, SelectionHandles, sectionHeading, selectionBlue } from "./ui";
-
-/** The statement, with any {word} drawn selected, as in the hero headline (a static box, no drag). */
-function statement(text: string) {
-  return text.split(/(\{[^}]+\})/g).map((part, i) =>
-    part.startsWith("{") ? (
-      <span key={i} className="relative inline-block">
-        {part.slice(1, -1)}
-        <span aria-hidden className="pointer-events-none absolute -inset-x-[0.14em] -top-[0.02em] -bottom-[0.1em]" style={{ background: `color-mix(in srgb, ${selectionBlue} 12%, transparent)` }} />
-        <SelectionHandles className="-inset-x-[0.14em] -top-[0.02em] -bottom-[0.1em]" />
-      </span>
-    ) : (
-      part
-    ),
-  );
-}
+import { Chip, Eyebrow, Reveal, sectionHeading } from "./ui";
 
 /**
- * How I can help as an accordion: the label and statement on the left
+ * How I can help as an accordion: the label, heading and a line on the left
  * (sticky), a full-height divider, then the four services as numbered rows in the serif with a plus.
  * Opening a row slides its line and pills open (the panel's height animates from 0 to its own, via
  * grid rows) and turns the plus into a cross; opening another closes the first.
@@ -36,8 +21,9 @@ export function CapabilitiesAccordion() {
         <div className="border-grid px-4 pt-8 pb-10 sm:px-6 lg:border-r lg:py-14 lg:pr-10 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">
             <Eyebrow>{services.eyebrow}</Eyebrow>
-            {/* The section heading, at the size of the other section headings */}
-            <h2 className={sectionHeading}>{statement(services.statement)}</h2>
+            {/* The section heading, at the size of the other section headings, and a line under it */}
+            <h2 className={sectionHeading}>{services.title}</h2>
+            <p className="lede mt-5 max-w-[30ch]">{services.description}</p>
           </Reveal>
         </div>
         {/* Right: the services as numbered rows that open, with full dividers */}
@@ -45,14 +31,14 @@ export function CapabilitiesAccordion() {
           {rows.map((ph, i) => {
             const isOpen = open === i;
             return (
-              <Reveal key={ph.title} delay={i * 80} className={`border-grid ${i < rows.length - 1 ? "border-b" : ""}`}>
+              <Reveal key={ph.title} delay={i * 80} className={`border-grid transition-colors duration-500 ${i < rows.length - 1 ? "border-b" : ""} ${isOpen ? "bg-sheet" : ""}`}>
                 <h3>
                   <button
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls={`${id}-${i}`}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="group flex w-full cursor-pointer items-center gap-6 px-4 py-7 text-left transition-colors duration-300 hover:bg-sheet/60 sm:px-6 lg:gap-12 lg:px-10 lg:py-9"
+                    className={`group flex w-full cursor-pointer items-center gap-6 px-4 py-7 text-left transition-colors duration-300 sm:px-6 ${isOpen ? "" : "hover:bg-sheet"} lg:gap-12 lg:px-10 lg:py-9`}
                   >
                     <span className="serif w-10 shrink-0 text-[clamp(22px,2.2vw,32px)] leading-none tracking-[-0.03em] tabular-nums lg:w-14">{String(i + 1).padStart(2, "0")}</span>
                     <span className="serif flex-1 text-[clamp(22px,2.2vw,32px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
