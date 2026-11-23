@@ -38,13 +38,13 @@ export function CapabilitiesAccordion() {
                     aria-expanded={isOpen}
                     aria-controls={`${id}-${i}`}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className={`group flex w-full cursor-pointer items-center gap-6 px-4 py-7 text-left transition-colors duration-300 sm:px-6 ${isOpen ? "" : "hover:bg-sheet"} lg:gap-12 lg:px-10 lg:py-9`}
+                    className={`group flex w-full cursor-pointer items-center gap-6 px-4 pt-7 text-left transition-[background-color,padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 lg:gap-12 lg:px-10 lg:pt-9 ${isOpen ? "pb-3 lg:pb-3" : "pb-7 hover:bg-sheet lg:pb-9"}`}
                   >
                     <span className="serif w-10 shrink-0 text-[clamp(22px,2.2vw,32px)] leading-none tracking-[-0.03em] tabular-nums lg:w-14">{String(i + 1).padStart(2, "0")}</span>
                     <span className="serif flex-1 text-[clamp(22px,2.2vw,32px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
                     {/* A plus that turns into a cross when open */}
-                    <svg aria-hidden viewBox="0 0 24 24" className={`size-6 shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "rotate-45" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round">
-                      <path d="M12 5v14M5 12h14" />
+                    <svg aria-hidden viewBox="0 0 24 24" className={`size-8 shrink-0 transition-transform lg:size-9 duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "rotate-45" : ""}`} fill="none" stroke="currentColor" strokeWidth="0.75" strokeLinecap="round">
+                      <path d="M12 4v16M4 12h16" />
                     </svg>
                   </button>
                 </h3>
