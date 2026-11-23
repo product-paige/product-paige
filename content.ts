@@ -62,9 +62,9 @@ export const site = {
 };
 
 // An accent underline marks the menu item whose section is on screen.
-// The blog switch. Off on the live site while the posts are drafts; on in local development so the
-// drafts can be reviewed in the real layout. Set to true to publish.
-const blogLive = process.env.NODE_ENV === "development";
+// The blog switch: shows the Scrapbook section, its nav link, the footer's Latest posts and the post
+// pages. Posts marked `draft` (in blog-posts.ts) stay in local preview only.
+const blogLive = true as boolean;
 
 export const nav = [
   { label: "About", href: "#about" },
@@ -229,6 +229,8 @@ export type Post = {
   tag: string;
   image: string;
   body?: PostBlock[];
+  /** Not out yet: shows in local preview only. */
+  draft?: boolean;
 };
 
 export const samplePostBody: PostBlock[] = [
@@ -527,7 +529,7 @@ export const contact = {
 };
 
 // The posts that are out: all of them once blog.live is on, none before.
-export const livePosts = blog.live ? blog.posts : [];
+export const livePosts = blog.live ? blog.posts.filter((p) => !p.draft || process.env.NODE_ENV === "development") : [];
 
 // Privacy, Terms and FAQs: the pages the left rail on each links between, in order (also the
 // footer's bottom links).
