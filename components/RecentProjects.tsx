@@ -30,6 +30,36 @@ function BrowserWindow({ p, frame }: { p: Project; frame: string }) {
   );
 }
 
+/**
+ * A phone showing the project as a small storefront, drawn in HTML from its own name, line and
+ * cover. It rises over the cover on hover. Placeholder until each project has a real UX screenshot.
+ */
+function PhoneMockup({ p }: { p: Project }) {
+  return (
+    <span aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center bg-ink/20 opacity-0 transition duration-500 group-hover:opacity-100">
+      <span className="flex aspect-[9/17] h-[86%] translate-y-6 flex-col overflow-hidden rounded-[22px] border-[5px] border-[#1a1a1a] bg-paper shadow-[0_20px_50px_rgb(0_0_0/0.35)] transition duration-500 group-hover:translate-y-0">
+        {/* Status bar and the store's header */}
+        <span className="flex items-center justify-between px-3 pt-2 text-[8px] font-medium"><span>9:41</span><span>●●●</span></span>
+        <span className="flex items-center justify-between border-b border-line px-3 py-2">
+          <span className="text-[10px] leading-none">☰</span>
+          <span className="serif truncate px-2 text-[11px] leading-none">{p.client}</span>
+          <span className="text-[10px] leading-none">⌕</span>
+        </span>
+        {/* Hero: the cover, then the line and a button */}
+        <Cover p={p} className="aspect-[4/5] w-full" />
+        <span className="px-3 pt-2.5">
+          <span className="serif block text-[11px] leading-tight">{p.excerpt}</span>
+          <span className="mono mt-2 inline-block bg-ink px-2.5 py-1 text-[7px] text-white">Shop now</span>
+        </span>
+        {/* Product tiles */}
+        <span className="mt-2.5 grid grid-cols-2 gap-1.5 px-3">
+          {[0, 1].map((n) => <i key={n} className="block aspect-square bg-scrap" />)}
+        </span>
+      </span>
+    </span>
+  );
+}
+
 /** A project card's wrapper: a link to its case study, or (coming soon) a plain block with no hover. */
 function Card({ p, children }: { p: Project; children: ReactNode }) {
   if (p.comingSoon) return <div className="block">{children}</div>;
@@ -39,7 +69,7 @@ function Card({ p, children }: { p: Project; children: ReactNode }) {
 /**
  * Recent projects as a carousel in one row: big covers, two in view on desktop and one on phones,
  * snapping as you swipe or scroll sideways. Each is a colour block with the project in a browser window
- * (which lifts on hover), its role in a blue pill top right, then the name large with a round arrow and
+ * (on hover, a phone showing it as a small storefront rises over it), its role in a blue pill top right, then the name large with a round arrow and
  * its one-line description. Previous and next buttons sit on the right of the heading.
  */
 export function RecentProjects({ className = "" }: { className?: string }) {
@@ -88,14 +118,14 @@ export function RecentProjects({ className = "" }: { className?: string }) {
           </div>
         </Reveal>
         {/* Bottom padding: the row scrolls sideways, which clips anything below its edge (descenders) */}
-        <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
+        <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto md:gap-10 scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
           {projects.items.map((p, i) => (
-            <li key={p.slug} className="w-[88%] shrink-0 snap-start md:w-[calc(50%-12px)]">
+            <li key={p.slug} className="w-[88%] shrink-0 snap-start md:w-[calc(50%-20px)]">
               <Card p={p}>
                 <span className={`relative grid aspect-[4/3] place-items-center overflow-hidden ${grounds[i % grounds.length].tile}`}>
                   <BrowserWindow p={p} frame={grounds[i % grounds.length].frame} />
                   <Chip className="absolute top-3 right-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
-                  {p.comingSoon && <Chip className="absolute top-3 left-3 bg-paper text-ink">{projects.comingSoonLabel}</Chip>}
+                  {p.comingSoon ? <Chip className="absolute top-3 left-3 bg-paper text-ink">{projects.comingSoonLabel}</Chip> : <PhoneMockup p={p} />}
                 </span>
                 <span className="mt-4 flex flex-wrap items-center justify-between gap-x-8 gap-y-1">
                   {/* The name, larger, with a round arrow on projects that have a page */}
@@ -107,7 +137,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
                       </span>
                     )}
                   </span>
-                  <span className="max-w-[32ch] text-[15px] md:text-right">{p.excerpt}</span>
+                  <span className="max-w-[24ch] text-[15px] leading-snug text-balance md:text-right">{p.excerpt}</span>
                 </span>
               </Card>
             </li>
