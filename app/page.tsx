@@ -5,7 +5,6 @@ import { EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
 import { Phases } from "@/components/Phases";
 import { RecentProjects } from "@/components/RecentProjects";
-import { ProjectsGrid } from "@/components/ProjectsGrid";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WorkingStyle } from "@/components/WorkingStyle";
@@ -94,8 +93,6 @@ export default function Home() {
 
         {/* Recent projects */}
         <RecentProjects className={section} />
-        {/* To compare: the same projects as a staggered grid */}
-        <ProjectsGrid className={section} />
 
         {/* Services */}
         <section id="capabilities" className={section}>
