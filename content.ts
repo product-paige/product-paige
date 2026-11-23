@@ -44,7 +44,7 @@ export const site = {
   // Where the contact form posts: app/api/contact, which emails it through Resend (needs
   // RESEND_API_KEY; see .env.example). Set to "" to have the form open the visitor's email app.
   formEndpoint: "/api/contact",
-  // Where the newsletter sign-up posts: app/api/subscribe, which adds the email to Prompt with Paige
+  // Where the newsletter sign-up posts: app/api/subscribe, which adds the email to Product Prompt
   // in beehiiv (needs BEEHIIV_API_KEY and BEEHIIV_PUBLICATION_ID). Until those are set, or if this is
   // "", signing up opens the visitor's email app with a sign-up request to you.
   newsletterEndpoint: "/api/subscribe",
@@ -506,7 +506,7 @@ export const closing = {
   // The big line in the footer, under the name
   tagline: "Building better on Shopify",
   newsletter: {
-    heading: "Prompt with Paige",
+    heading: "Product Prompt",
     body: "Notes on designing and building with AI, about once a month. No spam.",
     label: "Subscribe",
     success: "You’re on the list. Thanks for signing up.",

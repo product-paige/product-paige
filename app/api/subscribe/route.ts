@@ -1,5 +1,5 @@
 /**
- * The newsletter sign-up's endpoint: adds the email to the Prompt with Paige publication in beehiiv
+ * The newsletter sign-up's endpoint: adds the email to the Product Prompt publication in beehiiv
  * (https://developers.beehiiv.com), which sends the welcome email.
  *
  * Set in the environment (Vercel project settings, or .env.local while developing; see .env.example):
