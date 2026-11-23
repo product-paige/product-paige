@@ -407,25 +407,25 @@ export const approachPage = {
   phases: [
     {
       title: "Web and product design",
-      body: "Storefronts, marketing sites and product surfaces. A refresh of what you have, done properly.",
+      body: "Storefronts, marketing sites and product pages. A refresh of what you already have, done properly.",
       includes: ["Shopify theme build", "Design system", "Front-end build", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
     },
     {
       title: "Positioning and messaging",
-      body: "Naming, positioning and copy across the whole site, including the definitional pages AI assistants cite. Your product will make sense to someone outside the building.",
+      body: "Naming and copy across the whole site, so your product makes sense to someone outside the building.",
       includes: ["Positioning", "Naming and identity", "Copywriting", "AI search content"],
       caseStudies: ["backspace-body", "brand-playbook"],
     },
     {
       title: "UX and conversion",
-      body: "A positioning and UX review, with a written list of what to fix first. I’ll tell you if you don’t need me.",
+      body: "A UX review with a written list of what to fix first. I’ll tell you straight if you don’t need me.",
       includes: ["UX review", "Conversion", "Information architecture", "UI design"],
       caseStudies: ["organic-moderne", "brand-playbook"],
     },
     {
       title: "Content and campaigns",
-      body: "Landing pages, emails, an AI-coded tool or a whole campaign. Scoped, built and handed over before your launch date.",
+      body: "Landing pages, emails, an AI-coded tool or a whole campaign, built and handed over before launch.",
       includes: ["Landing pages", "Email design", "Campaign copy", "SEO"],
       caseStudies: ["backspace-body", "organic-moderne"],
     },
