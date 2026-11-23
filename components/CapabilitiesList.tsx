@@ -17,8 +17,7 @@ function statement(text: string) {
 }
 
 /**
- * How I can help, split like About and Working style: the label and a link to the prices on the
- * left, a full-height divider, then a statement (with one word selected, as in the hero) and the
+ * How I can help, split like About and Working style: the label on the left (sticky), a full-height divider, then a statement (with one word selected, as in the hero) and the
  * four services in two columns, each a title, its line and what it can include as pills.
  */
 export function CapabilitiesList() {
@@ -26,14 +25,10 @@ export function CapabilitiesList() {
   return (
     <section id="capabilities" className="border-t border-grid">
       <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
-        {/* Left: the label, and the way on to the prices */}
+        {/* Left: the label, which stays in view while the services scroll past */}
         <div className="border-grid px-4 pt-8 pb-6 sm:px-6 lg:border-r lg:py-14 lg:pr-8 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">
             <Eyebrow as="h2">{services.eyebrow}</Eyebrow>
-            <a href={services.pricesLink.href} className="mono mt-5 hidden items-center gap-2 text-accent transition-colors hover:text-ink lg:inline-flex">
-              {services.pricesLink.label}
-              <svg aria-hidden viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
-            </a>
           </Reveal>
         </div>
         {/* Right: the statement, then the services as a grid of cells with full dividers that run to
@@ -53,13 +48,6 @@ export function CapabilitiesList() {
               </Reveal>
             ))}
           </ul>
-          {/* On phones and tablets the prices link sits under the grid */}
-          <div className="border-t border-grid px-4 py-6 sm:px-6 lg:hidden">
-            <a href={services.pricesLink.href} className="mono inline-flex items-center gap-2 text-accent">
-              {services.pricesLink.label}
-              <svg aria-hidden viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
-            </a>
-          </div>
         </div>
       </div>
     </section>

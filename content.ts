@@ -125,8 +125,6 @@ export const services = {
   heading: "From quick fixes to full refreshes",
   // The statement beside the label; a word in {braces} is drawn selected, as in the hero
   statement: "Design, copy and the build for Shopify stores, from a one-off fix to a full refresh, so the store looks right and {sells}.",
-  // Under the label: on to Ways to work together
-  pricesLink: { label: "See prices", href: "#services" },
 };
 
 // The Working style section on the homepage: a picture on the left, three principles on the right.
