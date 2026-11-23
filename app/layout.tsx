@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Azeret_Mono, Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/content";
 import "./globals.css";
 import { ContactDrawer } from "@/components/ContactDrawer";
@@ -56,6 +57,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ContactDrawer />
         {/* The newsletter sign-up, opened by any #subscribe link */}
         <SubscribePopup />
+        {/* Vercel Web Analytics: cookieless page views, shown in the project's Analytics tab */}
+        <Analytics />
         {/* Google Analytics, on the live site only, so local previews don't count as visits */}
         {site.gaId && process.env.NODE_ENV === "production" && (
           <>
