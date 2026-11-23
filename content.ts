@@ -44,9 +44,10 @@ export const site = {
   // Where the contact form posts: app/api/contact, which emails it through Resend (needs
   // RESEND_API_KEY; see .env.example). Set to "" to have the form open the visitor's email app.
   formEndpoint: "/api/contact",
-  // Newsletter service URL for the footer sign-up (e.g. beehiiv or Buttondown). Until it's set,
-  // signing up opens the visitor's email app with a sign-up request to you.
-  newsletterEndpoint: "",
+  // Where the newsletter sign-up posts: app/api/subscribe, which adds the email to Prompt with Paige
+  // in beehiiv (needs BEEHIIV_API_KEY and BEEHIIV_PUBLICATION_ID). Until those are set, or if this is
+  // "", signing up opens the visitor's email app with a sign-up request to you.
+  newsletterEndpoint: "/api/subscribe",
   // Leave empty to hide the LinkedIn link in the footer.
   linkedin: "https://www.linkedin.com/in/paigeaeaton/",
   // About photo in public/, and its description for screen readers.
@@ -505,8 +506,8 @@ export const closing = {
   // The big line in the footer, under the name
   tagline: "Building better on Shopify",
   newsletter: {
-    heading: "New posts by email",
-    body: "Notes from the scrapbook, about once a month. No spam.",
+    heading: "Prompt with Paige",
+    body: "Notes on designing and building with AI, about once a month. No spam.",
     label: "Subscribe",
     success: "You’re on the list. Thanks for signing up.",
   },

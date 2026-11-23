@@ -6,9 +6,9 @@ import { Button } from "./ui";
 type Status = "idle" | "sending" | "sent" | "error";
 
 /**
- * The email sign-up, for the paper subscribe pop-up (or `dark` for a dark block). Posts the email to `endpoint` (a
- * newsletter service) when one is set; without one, it opens the visitor's email app with a
- * sign-up request addressed to `email`.
+ * The email sign-up, for the paper subscribe pop-up (or `dark` for a dark block). Posts the email to `endpoint`
+ * (app/api/subscribe, which adds it in beehiiv) when one is set; without one, or while that isn't set up
+ * yet, it opens the visitor's email app with a sign-up request addressed to `email`.
  */
 export function NewsletterForm({ endpoint, email, label, success, dark = false }: { endpoint: string; email: string; label: string; success: string; dark?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
@@ -17,14 +17,20 @@ export function NewsletterForm({ endpoint, email, label, success, dark = false }
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    if (!endpoint) {
+    // Without a sign-up service, ask by email instead
+    const askByEmail = () => {
       const from = String(data.get("email") ?? "");
       window.location.href = `mailto:${email}?subject=${encodeURIComponent("Newsletter sign-up")}&body=${encodeURIComponent(`Please add ${from} to the newsletter.`)}`;
-      return;
-    }
+    };
+    if (!endpoint) return askByEmail();
     setStatus("sending");
     try {
       const res = await fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
+      // The endpoint isn't set up yet (no API key): fall back to email
+      if (res.status === 503 && (await res.json().catch(() => ({})))?.fallback === "email") {
+        setStatus("idle");
+        return askByEmail();
+      }
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
       setStatus("sent");
@@ -37,6 +43,11 @@ export function NewsletterForm({ endpoint, email, label, success, dark = false }
 
   return (
     <form onSubmit={onSubmit} className="flex w-full flex-col gap-3">
+      {/* Hidden from people; bots fill it in, and the endpoint ignores those */}
+      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="nl-company">Company</label>
+        <input id="nl-company" name="company" tabIndex={-1} autoComplete="off" />
+      </div>
       <label htmlFor="nl-email" className="sr-only">Email</label>
       {/* 16px so iOS doesn't zoom in on focus */}
       <input
