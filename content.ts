@@ -123,6 +123,8 @@ export const about = {
 export const services = {
   eyebrow: "How I can help",
   heading: "From quick fixes to full refreshes",
+  // The statement beside the label in the list version (CapabilitiesList)
+  statement: "Design, copy and the build for Shopify stores, from a one-off fix to a full refresh, so the store looks right and sells.",
 };
 
 // The Working style section on the homepage: a picture on the left, three principles on the right.
