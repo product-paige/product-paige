@@ -95,7 +95,7 @@ export default function Home() {
         <RecentProjects className={section} />
 
         {/* Services */}
-        <CapabilitiesList className={section} />
+        <CapabilitiesList />
 
 
 
