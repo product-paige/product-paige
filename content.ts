@@ -124,7 +124,7 @@ export const services = {
   eyebrow: "How I can help",
   heading: "From quick fixes to full refreshes",
   // The statement beside the label; a word in {braces} is drawn selected, as in the hero
-  statement: "Design, copy and the build for Shopify stores, from a one-off fix to a full refresh, so the store looks right and {sells}.",
+  statement: "Design, copy and builds for Shopify stores that look right and {sell}.",
 };
 
 // The Working style section on the homepage: a picture on the left, three principles on the right.
