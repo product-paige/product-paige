@@ -330,33 +330,6 @@ export const projects = {
         "A working Shopify storefront rather than a set of mockups, with a mega nav, blog, help center, footprint page and a refill flow that works end to end. Every claim traces to a source.",
     },
     {
-      slug: "organic-moderne",
-      comingSoon: true,
-      client: "Organic Moderne",
-      excerpt: "An editorial and affiliate site for Canadians",
-      role: "Websites",
-      liveUrl: "https://organicmoderne.com/",
-      tagline: "A Canadian shopping guide for a look that mostly ships from the States",
-      summary:
-        "Organic Moderne is an editorial and affiliate site for warm-minimal interiors, written for Canadian shoppers.",
-      capabilities: ["Content architecture", "SEO", "Affiliate integration", "UI design", "Front-end build"],
-      specs: [
-        { label: "Platform", value: "React, Vite, Supabase" },
-        { label: "CMS", value: "Notion" },
-      ],
-      highlights: [
-        { label: "Articles", value: "Around sixty" },
-        { label: "Curated products", value: "A hundred-odd" },
-        { label: "Audience", value: "92% Canadian" },
-      ],
-      problem:
-        "Canadians searching for organic-modern furniture get sent to US retailers: USD pricing, cross-border shipping, duties after checkout. What ranks is written for US shoppers.",
-      approach:
-        "Notion is the source of truth, syncing to Supabase through edge functions, so publishing is a content action rather than a deploy. Every route is prerendered with structured data.",
-      outcome:
-        "Articles, products, a glossary, an FAQ and a directory of Canadian stores, all published without touching code. The store pages outrank the long guides.",
-    },
-    {
       slug: "brand-playbook",
       comingSoon: true,
       client: "Brand Playbook",
@@ -382,6 +355,33 @@ export const projects = {
         "Structure first rather than pages, in the order decisions come up: start, validate, build, launch, grow, operate. Flat URLs, nothing nested, and content written in Notion and mapped to the site schema.",
       outcome:
         "Library, playbooks, questions, glossary, stack and tutorials, every page prerendered for search. Write in Notion and it ships with the schema already attached.",
+    },
+    {
+      slug: "organic-moderne",
+      comingSoon: true,
+      client: "Organic Moderne",
+      excerpt: "An editorial and affiliate site for Canadians",
+      role: "Websites",
+      liveUrl: "https://organicmoderne.com/",
+      tagline: "A Canadian shopping guide for a look that mostly ships from the States",
+      summary:
+        "Organic Moderne is an editorial and affiliate site for warm-minimal interiors, written for Canadian shoppers.",
+      capabilities: ["Content architecture", "SEO", "Affiliate integration", "UI design", "Front-end build"],
+      specs: [
+        { label: "Platform", value: "React, Vite, Supabase" },
+        { label: "CMS", value: "Notion" },
+      ],
+      highlights: [
+        { label: "Articles", value: "Around sixty" },
+        { label: "Curated products", value: "A hundred-odd" },
+        { label: "Audience", value: "92% Canadian" },
+      ],
+      problem:
+        "Canadians searching for organic-modern furniture get sent to US retailers: USD pricing, cross-border shipping, duties after checkout. What ranks is written for US shoppers.",
+      approach:
+        "Notion is the source of truth, syncing to Supabase through edge functions, so publishing is a content action rather than a deploy. Every route is prerendered with structured data.",
+      outcome:
+        "Articles, products, a glossary, an FAQ and a directory of Canadian stores, all published without touching code. The store pages outrank the long guides.",
     },
   ] as Project[],
 };
