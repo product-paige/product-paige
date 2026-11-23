@@ -36,14 +36,15 @@ export function CapabilitiesList() {
             </a>
           </Reveal>
         </div>
-        {/* Right: the statement and the services */}
-        <div className="px-4 pb-8 sm:px-6 lg:py-14 lg:pr-10 lg:pl-12">
-          <Reveal>
+        {/* Right: the statement, then the services as a grid of cells with full dividers that run to
+            the section's edges (under the statement, between the columns and between the rows) */}
+        <div>
+          <Reveal className="px-4 pb-10 sm:px-6 lg:pt-14 lg:pr-10 lg:pb-12 lg:pl-12">
             <p className="serif max-w-[30ch] text-[clamp(26px,2.6vw,38px)] leading-[1.12] tracking-[-0.035em] text-balance">{statement(services.statement)}</p>
           </Reveal>
-          <ul className="mt-10 grid gap-x-12 sm:grid-cols-2 lg:mt-14">
+          <ul className="grid border-t border-grid sm:grid-cols-2">
             {rows.map((ph, i) => (
-              <Reveal as="li" key={ph.title} delay={(i % 2) * 120} className={`border-grid py-7 ${i < rows.length - 2 ? "sm:border-b" : ""} ${i < rows.length - 1 ? "border-b" : ""} sm:[&:nth-last-child(2)]:border-b-0`}>
+              <Reveal as="li" key={ph.title} delay={(i % 2) * 120} className="border-grid px-4 py-8 not-last:border-b sm:px-6 sm:not-last:border-b-0 sm:even:border-l sm:[&:nth-child(-n+2)]:border-b lg:px-12 lg:py-10">
                 <h3 className="text-[20px] font-semibold tracking-[-0.02em]">{ph.title}</h3>
                 <p className="mt-2.5 max-w-[46ch] text-[15px] leading-relaxed text-muted">{ph.body}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
@@ -52,11 +53,13 @@ export function CapabilitiesList() {
               </Reveal>
             ))}
           </ul>
-          {/* On phones and tablets the prices link sits under the list */}
-          <a href={services.pricesLink.href} className="mono mt-8 inline-flex items-center gap-2 text-accent lg:hidden">
-            {services.pricesLink.label}
-            <svg aria-hidden viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
-          </a>
+          {/* On phones and tablets the prices link sits under the grid */}
+          <div className="border-t border-grid px-4 py-6 sm:px-6 lg:hidden">
+            <a href={services.pricesLink.href} className="mono inline-flex items-center gap-2 text-accent">
+              {services.pricesLink.label}
+              <svg aria-hidden viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
