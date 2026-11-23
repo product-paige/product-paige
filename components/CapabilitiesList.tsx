@@ -25,7 +25,7 @@ export function CapabilitiesList() {
   const rows = approachPage.phases;
   return (
     <section id="capabilities" className="border-t border-grid">
-      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
         {/* Left: the label and the statement, which stay in view while the services scroll past */}
         <div className="border-grid px-4 pt-8 pb-10 sm:px-6 lg:border-r lg:py-14 lg:pr-10 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">
