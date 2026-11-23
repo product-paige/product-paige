@@ -58,7 +58,7 @@ export function SubscribePopup() {
           </svg>
         </button>
       </div>
-      <h2 id="subscribe-heading" className="serif mt-6 text-[28px] leading-[1.1] tracking-[-0.03em]">{closing.newsletter.heading}</h2>
+      <h2 id="subscribe-heading" className="serif mt-6 text-[26px] leading-[1.1] tracking-[-0.03em]">{closing.newsletter.heading}</h2>
       <p className="mt-2 mb-5 text-[15px]">{closing.newsletter.body}</p>
       <NewsletterForm endpoint={site.newsletterEndpoint} email={site.email} label={closing.newsletter.label} success={closing.newsletter.success} />
       </div>

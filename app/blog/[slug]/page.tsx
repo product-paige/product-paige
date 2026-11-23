@@ -38,7 +38,7 @@ function Block({ b, i }: { b: PostBlock; i: number }) {
     case "p":
       return <p>{b.text}</p>;
     case "h2":
-      return <h2 id={headingId(b.text)} className="serif scroll-mt-24 pt-4 text-[clamp(24px,2.4vw,34px)] leading-[1.1] tracking-[-0.04em]">{b.text}</h2>;
+      return <h2 id={headingId(b.text)} className="serif scroll-mt-24 pt-4 text-[clamp(22px,2.2vw,31px)] leading-[1.1] tracking-[-0.04em]">{b.text}</h2>;
     case "quote":
       return (
         <blockquote className="serif border-l-2 border-accent py-1 pl-6 text-[clamp(22px,2vw,28px)] leading-[1.25] tracking-[-0.03em]">
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             <Reveal className="flex flex-col lg:min-h-full">
               <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 md:px-12 lg:py-16 lg:pr-16 lg:pl-20">
                 <p className="mono flex items-center gap-3"><i aria-hidden className="size-3 rounded-full bg-accent" />{p.tag}</p>
-                <h1 className="serif mt-6 text-[clamp(40px,5vw,76px)] leading-[0.98] tracking-[-0.045em] text-balance"><Rich text={p.title} /></h1>
+                <h1 className="serif mt-6 text-[clamp(36px,4.6vw,70px)] leading-[0.98] tracking-[-0.045em] text-balance"><Rich text={p.title} /></h1>
                 <p className="lede mt-6 max-w-lg">{p.standfirst ?? p.excerpt}</p>
               </div>
               <dl className="grid grid-cols-3 border-t border-grid">

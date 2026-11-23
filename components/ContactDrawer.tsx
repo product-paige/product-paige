@@ -74,7 +74,7 @@ export function ContactDrawer() {
               </svg>
             </button>
           </div>
-          <h2 id="contact-heading" className="serif mt-6 text-[clamp(34px,4vw,48px)] leading-[1.05] tracking-[-0.04em] text-balance">{contact.heading}</h2>
+          <h2 id="contact-heading" className="serif mt-6 text-[clamp(31px,3.7vw,44px)] leading-[1.05] tracking-[-0.04em] text-balance">{contact.heading}</h2>
           <p className="mt-4 max-w-md">{contact.body}</p>
           <div className="mt-6">
             <ContactForm endpoint={site.formEndpoint} email={site.email} deadlines={contact.deadlines} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />

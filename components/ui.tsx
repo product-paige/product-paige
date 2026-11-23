@@ -10,9 +10,9 @@ export const section = "border-t border-grid py-8 lg:py-14";
 
 // Type scale. Serif: the hero headline sized to its grid (about 106px), 56px section headings
 // (About and the FAQ included), 38px headings in a side column (the case study title), 28px card and list titles, 20px facts and prices. Sans: 18px intros (.lede), 16px body, 14px small labels.
-export const sectionHeading = "serif text-[clamp(32px,4.4vw,56px)] leading-[1] tracking-[-0.04em] text-balance";
+export const sectionHeading = "serif text-[clamp(30px,4vw,52px)] leading-[1] tracking-[-0.04em] text-balance";
 // Headings in a side column beside longer content (the case study title): a step down.
-export const sideHeading = "serif text-[clamp(28px,2.8vw,38px)] leading-[1.1] text-balance";
+export const sideHeading = "serif text-[clamp(26px,2.6vw,35px)] leading-[1.1] text-balance";
 // Manrope medium: small card headings that sit with body text (blog cards, project folders).
 export const sansTitle = "font-sans text-[17px] font-medium leading-snug tracking-[-0.03em] lg:text-[20px]";
 
