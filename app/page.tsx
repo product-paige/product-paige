@@ -95,7 +95,7 @@ export default function Home() {
         <RecentProjects className={section} />
 
         {/* Services */}
-        <section id="services" className={section}>
+        <section id="capabilities" className={section}>
           <Container>
             <Reveal className="mb-8 lg:mb-12">
               <Eyebrow>{services.eyebrow}</Eyebrow>

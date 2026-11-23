@@ -67,8 +67,8 @@ const blogLive = process.env.NODE_ENV === "development";
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  // Services goes to Ways to work together (the offers and prices), not How I can help
-  { label: "Services", href: "#pricing" },
+  // Services goes to Ways to work together (the offers and prices, #services), not How I can help (#capabilities)
+  { label: "Services", href: "#services" },
   { label: "Scrapbook", href: "#blog", blog: true },
 ].filter((n) => !("blog" in n) || blogLive);
 

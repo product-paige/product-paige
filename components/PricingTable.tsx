@@ -91,7 +91,7 @@ export function PricingTable() {
   );
 
   return (
-    <section id="pricing" className={section}>
+    <section id="services" className={section}>
       <Container>
         {/* The heading, with the button to get in touch on the far right, level with it */}
         <div className="mb-12 flex flex-wrap items-center justify-between gap-6 lg:mb-16">
