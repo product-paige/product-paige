@@ -122,7 +122,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
           </Container>
         </section>
 
-        {/* Next project: one full-width row linking on, the name large with an arrow at the far right */}
+        {/* Next project: one full-width row linking on, the name large with an arrow at the far right.
+            Left out while this is the only project with a page, so it doesn't link to itself. */}
+        {next.slug !== p.slug && (
         <section className="border-t border-grid">
           <a href={`/projects/${next.slug}`} className="group block transition-colors hover:bg-sheet">
             <Container className="flex items-center justify-between gap-8 py-10 lg:py-14">
@@ -136,6 +138,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<Params
             </Container>
           </a>
         </section>
+        )}
       </main>
       </div>
       <SiteFooter />

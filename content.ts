@@ -352,6 +352,7 @@ export const projects = {
     },
     {
       slug: "organic-moderne",
+      comingSoon: true,
       client: "Organic Moderne",
       excerpt: "An editorial and affiliate site for Canadians",
       role: "Websites",
