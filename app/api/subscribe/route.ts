@@ -25,7 +25,8 @@ export async function POST(request: Request) {
     return Response.json({ error: "Please enter a valid email." }, { status: 422 });
   }
 
-  const key = process.env.BEEHIIV_API_KEY;
+  // BEEHIV_API_KEY (one I) is how it was first saved in Vercel; either spelling works
+  const key = process.env.BEEHIIV_API_KEY || process.env.BEEHIV_API_KEY;
   const publication = process.env.BEEHIIV_PUBLICATION_ID;
   if (!key || !publication) {
     console.error("Newsletter: BEEHIIV_API_KEY or BEEHIIV_PUBLICATION_ID isn't set, so no one was added.");
