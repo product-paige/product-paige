@@ -4,7 +4,6 @@ import { CuttingMat } from "@/components/CuttingMat";
 import { EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
 import { RecentProjects } from "@/components/RecentProjects";
-import { CapabilitiesList } from "@/components/CapabilitiesList";
 import { CapabilitiesAccordion } from "@/components/CapabilitiesAccordion";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
@@ -96,8 +95,6 @@ export default function Home() {
         <RecentProjects className={section} />
 
         {/* Services */}
-        <CapabilitiesList />
-        {/* To compare: How I can help as an accordion */}
         <CapabilitiesAccordion />
 
 

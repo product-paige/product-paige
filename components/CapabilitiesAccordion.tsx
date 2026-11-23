@@ -1,5 +1,8 @@
+"use client";
+
+import { useId, useState } from "react";
 import { approachPage, services } from "@/content";
-import { Chip, Eyebrow, Reveal, SelectionHandles, selectionBlue } from "./ui";
+import { Chip, Eyebrow, Reveal, SelectionHandles, sectionHeading, selectionBlue } from "./ui";
 
 /** The statement, with any {word} drawn selected, as in the hero headline (a static box, no drag). */
 function statement(text: string) {
@@ -17,46 +20,62 @@ function statement(text: string) {
 }
 
 /**
- * How I can help as an accordion, to compare with the grid: the label and statement on the left
- * (sticky), a full-height divider, then the four services as numbered rows with a plus. Opening a
- * row (it's a native <details>, so it works with the keyboard and without JavaScript) shows its
- * line and what it can include, and the plus turns into a cross.
+ * How I can help as an accordion: the label and statement on the left
+ * (sticky), a full-height divider, then the four services as numbered rows in the serif with a plus.
+ * Opening a row slides its line and pills open (the panel's height animates from 0 to its own, via
+ * grid rows) and turns the plus into a cross; opening another closes the first.
  */
 export function CapabilitiesAccordion() {
   const rows = approachPage.phases;
+  const [open, setOpen] = useState<number | null>(null);
+  const id = useId();
   return (
-    <section id="capabilities-accordion" className="border-t border-grid">
+    <section id="capabilities" className="border-t border-grid">
       <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
         {/* Left: the label and the statement */}
         <div className="border-grid px-4 pt-8 pb-10 sm:px-6 lg:border-r lg:py-14 lg:pr-10 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">
-            <Eyebrow as="h2">{services.eyebrow}</Eyebrow>
-            <p className="serif mt-6 max-w-[22ch] text-[clamp(26px,2.3vw,34px)] leading-[1.14] tracking-[-0.035em] text-balance">{statement(services.statement)}</p>
+            <Eyebrow>{services.eyebrow}</Eyebrow>
+            {/* The section heading, at the size of the other section headings */}
+            <h2 className={sectionHeading}>{statement(services.statement)}</h2>
           </Reveal>
         </div>
         {/* Right: the services as numbered rows that open, with full dividers */}
         <div className="border-t border-grid lg:border-t-0">
-          {rows.map((ph, i) => (
-            <Reveal key={ph.title} delay={i * 80}>
-              <details className={`group border-grid ${i < rows.length - 1 ? "border-b" : ""}`}>
-                <summary className="flex cursor-pointer list-none items-center gap-6 px-4 py-7 transition-colors hover:bg-sheet/60 sm:px-6 lg:gap-12 lg:px-10 lg:py-9 [&::-webkit-details-marker]:hidden">
-                  <span className="w-10 shrink-0 text-[clamp(22px,2.2vw,32px)] leading-none tracking-[-0.03em] tabular-nums lg:w-14">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="flex-1 text-[clamp(22px,2.2vw,32px)] leading-tight tracking-[-0.03em]">{ph.title}</span>
-                  {/* A plus that turns into a cross when open */}
-                  <svg aria-hidden viewBox="0 0 24 24" className="size-6 shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </summary>
-                {/* Lined up with the title, under the number */}
-                <div className="px-4 pb-8 sm:px-6 lg:pr-10 lg:pb-10 lg:pl-[calc(2.5rem+3.5rem+3rem)]">
-                  <p className="max-w-[52ch] text-[16px] leading-relaxed text-muted">{ph.body}</p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {ph.includes.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
-                  </ul>
+          {rows.map((ph, i) => {
+            const isOpen = open === i;
+            return (
+              <Reveal key={ph.title} delay={i * 80} className={`border-grid ${i < rows.length - 1 ? "border-b" : ""}`}>
+                <h3>
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={`${id}-${i}`}
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="group flex w-full cursor-pointer items-center gap-6 px-4 py-7 text-left transition-colors duration-300 hover:bg-sheet/60 sm:px-6 lg:gap-12 lg:px-10 lg:py-9"
+                  >
+                    <span className="serif w-10 shrink-0 text-[clamp(22px,2.2vw,32px)] leading-none tracking-[-0.03em] tabular-nums lg:w-14">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="serif flex-1 text-[clamp(22px,2.2vw,32px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
+                    {/* A plus that turns into a cross when open */}
+                    <svg aria-hidden viewBox="0 0 24 24" className={`size-6 shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "rotate-45" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </h3>
+                {/* The panel: its height animates open and closed (grid rows 0fr to 1fr), the content fading in */}
+                <div id={`${id}-${i}`} role="region" aria-hidden={!isOpen} inert={!isOpen} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                  <div className="overflow-hidden">
+                    <div className={`px-4 pb-8 transition-opacity duration-500 sm:px-6 lg:pr-10 lg:pb-10 lg:pl-[calc(2.5rem+3.5rem+3rem)] ${isOpen ? "opacity-100" : "opacity-0"}`}>
+                      <p className="max-w-[52ch] text-[16px] leading-relaxed text-muted">{ph.body}</p>
+                      <ul className="mt-4 flex flex-wrap gap-2">
+                        {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:var(--color-accent)]">{c}</Chip></li>)}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </details>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
