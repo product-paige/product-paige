@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { blog, samplePostBody, site, type PostBlock } from "@/content";
+import { blog, livePosts, samplePostBody, site, type PostBlock } from "@/content";
 import { JsonLd } from "@/components/JsonLd";
 import { PostToc } from "@/components/PostToc";
 import { ScrapCard } from "@/components/Scrapbook";
@@ -9,13 +9,16 @@ import { Container, Reveal, Rich, ScribbleBullet, section, sectionHeading } from
 
 type Params = { slug: string };
 
+// Only the posts that are out get a page; any other slug is a 404
+export const dynamicParams = false;
+
 export function generateStaticParams(): Params[] {
-  return blog.posts.map((p) => ({ slug: p.slug }));
+  return livePosts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
-  const p = blog.posts.find((x) => x.slug === slug);
+  const p = livePosts.find((x) => x.slug === slug);
   if (!p) return {};
   const description = p.standfirst ?? p.excerpt;
   return {
@@ -76,10 +79,10 @@ function Block({ b, i }: { b: PostBlock; i: number }) {
  */
 export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const p = blog.posts.find((x) => x.slug === slug);
+  const p = livePosts.find((x) => x.slug === slug);
   if (!p) notFound();
   const body = p.body ?? samplePostBody;
-  const more = blog.posts.filter((x) => x.slug !== slug).slice(0, 3);
+  const more = livePosts.filter((x) => x.slug !== slug).slice(0, 3);
   const toc = body.flatMap((b) => (b.type === "h2" ? [{ id: headingId(b.text), text: b.text }] : []));
 
   return (

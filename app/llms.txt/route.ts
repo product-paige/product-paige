@@ -1,4 +1,4 @@
-import { about, approachPage, blog, liveProjects, projects, services, site } from "@/content";
+import { about, approachPage, blog, livePosts, liveProjects, projects, services, site } from "@/content";
 
 // A plain-text summary of the site for AI assistants (the llms.txt convention), built from
 // the same copy as the pages so it never drifts.
@@ -18,8 +18,8 @@ export function GET() {
     `## ${projects.eyebrow}`,
     ...liveProjects.map((p) => `- [${p.client}](${site.url}/projects/${p.slug}): ${p.summary}`),
     "",
-    `## ${blog.eyebrow}`,
-    ...blog.posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.standfirst ?? p.excerpt}`),
+    ...(livePosts.length ? [`## ${blog.eyebrow}`] : []),
+    ...livePosts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.standfirst ?? p.excerpt}`),
     "",
     "## Contact",
     `- Email: ${site.email}`,

@@ -25,6 +25,7 @@ export function ScrapCard({ p }: { p: Post }) {
 
 /** Blog teaser: the latest three posts as loose-leaf cards. */
 export function Scrapbook({ className = "" }: { className?: string }) {
+  if (!blog.live) return null;
   return (
     <section id="blog" className={className}>
       <Container>

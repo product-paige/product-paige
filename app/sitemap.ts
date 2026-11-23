@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { blog, liveProjects, site } from "@/content";
+import { livePosts, liveProjects, site } from "@/content";
 
 /** Every page: the homepage, each project and post, and the legal pages. */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     page("/"),
     ...liveProjects.map((p) => page(`/projects/${p.slug}`)),
-    ...blog.posts.map((p) => page(`/blog/${p.slug}`, p.date)),
+    ...livePosts.map((p) => page(`/blog/${p.slug}`, p.date)),
     page("/privacy"),
     page("/terms"),
     page("/faq"),

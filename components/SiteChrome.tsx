@@ -1,4 +1,4 @@
-import { blog, closing, infoPages, nav, site } from "@/content";
+import { closing, infoPages, livePosts, nav, site } from "@/content";
 import { Nav } from "./Nav";
 import { SlideHeader } from "./SlideHeader";
 import { Button, Container } from "./ui";
@@ -75,7 +75,7 @@ export function SiteFooter() {
   ];
   const columns = [
     { heading: closing.pagesHeading, links: [...nav.map((n) => ({ ...n, href: `/${n.href}` })), { label: "Contact", href: site.bookingUrl }] },
-    { heading: closing.postsHeading, links: blog.posts.slice(0, 3).map((p) => ({ label: p.title, href: `/blog/${p.slug}` })) },
+    ...(livePosts.length ? [{ heading: closing.postsHeading, links: livePosts.slice(0, 3).map((p) => ({ label: p.title, href: `/blog/${p.slug}` })) }] : []),
     { heading: closing.elsewhereHeading, links: elsewhere },
   ];
   const external = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});

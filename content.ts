@@ -58,13 +58,16 @@ export const site = {
 };
 
 // An accent underline marks the menu item whose section is on screen.
+// The blog switch: false while the posts still have placeholder bodies (see blog.live)
+const blogLive = false as boolean;
+
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   // Services goes to Ways to work together (the offers and prices), not How I can help
   { label: "Services", href: "#pricing" },
-  { label: "Scrapbook", href: "#blog" },
-];
+  { label: "Scrapbook", href: "#blog", blog: true },
+].filter((n) => !("blog" in n) || blogLive);
 
 export const hero = {
   // The headline, one phrase per line.
@@ -236,6 +239,9 @@ export const samplePostBody: PostBlock[] = [
 ];
 
 export const blog = {
+  // Off while the posts still have placeholder bodies: hides the Scrapbook section, the Scrapbook nav
+  // link, the footer's Latest posts, the post pages, and the posts in the sitemap and llms.txt.
+  live: blogLive,
   eyebrow: "From the scrapbook",
   linkLabel: "Read the scrapbook",
   // The "Read the scrapbook" link to a page of all posts. Empty hides it: there's no /blog page yet,
@@ -544,6 +550,9 @@ export const contact = {
   interests: ["Ask Paige", "A scoped project", "A store refresh", "Not sure yet"],
   success: "Thanks, your message is on its way. I’ll reply by email soon, usually to suggest a time for a short intro call.",
 };
+
+// The posts that are out: all of them once blog.live is on, none before.
+export const livePosts = blog.live ? blog.posts : [];
 
 // Privacy, Terms and FAQs: the pages the left rail on each links between, in order (also the
 // footer's bottom links).
