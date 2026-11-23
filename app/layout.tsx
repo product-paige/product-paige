@@ -56,7 +56,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ContactDrawer />
         {/* The newsletter sign-up, opened by any #subscribe link */}
         <SubscribePopup />
-        {/* Temporary: try the colour palettes */}
+        {/* Google Analytics, on the live site only, so local previews don't count as visits */}
+        {site.gaId && process.env.NODE_ENV === "production" && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`} strategy="afterInteractive" />
+            <Script id="ga" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${site.gaId}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

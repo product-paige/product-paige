@@ -36,6 +36,8 @@ export const site = {
   url: "https://www.productpaige.com",
   // Keeps search engines from listing the site. Off since launch.
   hideFromSearch: false,
+  // Google Analytics 4 measurement ID; empty turns analytics off. Loads on the live site only.
+  gaId: "G-QXVD5MQDMJ",
   bookingUrl: "/#contact",
   email: "hello@productpaige.com",
   // Where the contact form posts: app/api/contact, which emails it through Resend (needs
@@ -479,20 +481,20 @@ export const faq = {
 };
 
 // Privacy and terms, from productpaige.com/privacy and /terms, updated to match this site:
-// Ontario law, no retainers, and no analytics (add it back here if analytics is turned on).
+// Ontario law, no retainers, and Google Analytics for visit counts (site.gaId).
 // Worth a review by a lawyer before launch.
 export const legal = {
   privacy: {
     label: "Privacy",
     heading: "Plain-language privacy",
     lede: "Product Paige is a one-person practice. The site collects very little, uses what it has only to reply to you, and never sells your data.",
-    effective: "June 26, 2026",
+    effective: "November 23, 2026",
     sections: [
       { label: "Scope", title: "What this covers", body: "This policy applies to productpaige.com and any direct correspondence with Product Paige (Paige Eaton, sole practitioner). It does not cover third-party sites linked from here." },
-      { label: "Collection", title: "What gets collected", body: "Just the basics needed to run a small consulting site: the email address you send messages from, and any information you choose to share in those messages. No analytics, no tracking pixels, no fingerprinting, no third-party ad networks." },
+      { label: "Collection", title: "What gets collected", body: "Just the basics needed to run a small consulting site: the email address you send messages from, and any information you choose to share in those messages. The site also uses Google Analytics to see how many people visit and which pages they read. It records things like pages viewed, the site that sent you, your device and browser, and a rough location, not your name or email. No tracking pixels, no fingerprinting, no third-party ad networks." },
       { label: "Usage", title: "How it's used", body: "Email correspondence is used only to reply to your message and, if a project starts, to deliver the work. Information is never sold, rented, or shared with marketing partners." },
       { label: "Storage", title: "Where it lives", body: "Email: stored in a personal inbox provider (Google Workspace). Project work: stored in personal tools (Notion, Figma, Linear) under standard provider security." },
-      { label: "Cookies", title: "Cookies", body: "The site uses essential cookies only — those required for the site to function. No analytics cookies, no marketing cookies, no consent banner needed." },
+      { label: "Cookies", title: "Cookies", body: "The site uses essential cookies, plus Google Analytics cookies that count visits and tell new visitors from returning ones. No marketing or advertising cookies. You can block analytics with your browser’s settings or Google’s opt-out add-on (tools.google.com/dlpage/gaoptout) and the site will work the same." },
       { label: "Rights", title: "Your rights", body: "You can request to see, correct, or delete any information held about you at any time. Email hello@productpaige.com and you'll get a response within 30 days." },
       { label: "Updates", title: "Changes to this policy", body: "If this policy changes, the updated version will be posted on this page with a new effective date. For substantive changes, returning clients will be notified by email." },
     ],
