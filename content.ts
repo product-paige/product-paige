@@ -48,7 +48,7 @@ export const site = {
   // signing up opens the visitor's email app with a sign-up request to you.
   newsletterEndpoint: "",
   // Leave empty to hide the LinkedIn link in the footer.
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/paigeaeaton/",
   // About photo in public/, and its description for screen readers.
   photo: "/headshot.webp",
   photoAlt: "Paige Eaton smiling, in a black turtleneck, against a grey backdrop",
