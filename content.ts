@@ -55,8 +55,10 @@ export const site = {
   photoAlt: "Paige Eaton smiling, in a black turtleneck, against a grey backdrop",
   // Shown in the dark announcement bar at the top. Leave empty to hide the bar.
   availability: "Booking for December ’26",
+  // The title and description search results and link previews show for the home page
+  seoTitle: "Product Paige — Shopify design and product marketing by Paige Eaton",
   metaDescription:
-    "Paige Eaton is a product marketer and designer in Kitchener, Ontario. Strategy, design and the build itself for Shopify and ecommerce teams.",
+    "I’m Paige Eaton, a Shopify designer with 13 years on the platform. I fix and refresh stores for founders who want one person on it, not an agency.",
 };
 
 // An accent underline marks the menu item whose section is on screen.

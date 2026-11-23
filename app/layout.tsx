@@ -29,7 +29,7 @@ const mono = Azeret_Mono({
 });
 
 // The business name first, then who runs it, so the tab and search results lead with Product Paige
-const title = `${site.logo} — ${site.name}, ${site.role.toLowerCase()}`;
+const title = site.seoTitle;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
