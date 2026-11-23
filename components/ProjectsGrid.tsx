@@ -59,8 +59,6 @@ function Tile({ p, i }: { p: Project; i: number }) {
  * window holding the cover, its tag top left, the name large with an arrow, and its line to the side.
  */
 export function ProjectsGrid({ className = "" }: { className?: string }) {
-  const left = projects.items.filter((_, i) => i % 2 === 0);
-  const right = projects.items.filter((_, i) => i % 2 === 1);
   return (
     <section id="projects-grid" className={className}>
       <Container>
@@ -68,13 +66,14 @@ export function ProjectsGrid({ className = "" }: { className?: string }) {
           <Eyebrow as="h2">{projects.eyebrow}</Eyebrow>
           <p className="max-w-[30ch] text-[clamp(22px,2.2vw,30px)] leading-[1.2] font-medium tracking-[-0.03em]">{projects.intro}</p>
         </Reveal>
-        <div className="grid gap-12 md:grid-cols-2 md:gap-x-10">
-          <div className="flex flex-col gap-12 lg:gap-16">
-            {left.map((p) => <Reveal key={p.slug}><Tile p={p} i={projects.items.indexOf(p)} /></Reveal>)}
-          </div>
-          <div className="flex flex-col gap-12 md:pt-[22%] lg:gap-16">
-            {right.map((p) => <Reveal key={p.slug} delay={120}><Tile p={p} i={projects.items.indexOf(p)} /></Reveal>)}
-          </div>
+        {/* One list in order (so phones show them in order); from md, two columns with every second
+            card shifted down, and room at the bottom for the shift */}
+        <div className="grid items-start gap-12 md:grid-cols-2 md:gap-x-10 md:gap-y-16 md:pb-[14%]">
+          {projects.items.map((p, i) => (
+            <Reveal key={p.slug} delay={i % 2 ? 120 : 0} className={i % 2 ? "md:translate-y-[28%]" : ""}>
+              <Tile p={p} i={i} />
+            </Reveal>
+          ))}
         </div>
       </Container>
     </section>
