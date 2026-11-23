@@ -1,4 +1,4 @@
-import { blog, type Post } from "@/content";
+import { blog, livePosts, type Post } from "@/content";
 import { Chip, Container, Eyebrow, Reveal, sansTitle } from "./ui";
 
 /**
@@ -39,7 +39,7 @@ export function Scrapbook({ className = "" }: { className?: string }) {
           )}
         </Reveal>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {blog.posts.slice(0, 3).map((p, i) => (
+          {livePosts.slice(0, 3).map((p, i) => (
             <Reveal key={p.slug} delay={i * 120}>
               <ScrapCard p={p} />
             </Reveal>

@@ -1,7 +1,7 @@
 import type { Post } from "./content";
 
-// The blog posts, newest first. Drafts for review: anything marked [TK] is a fact or number still to
-// fill in. Dates are planned publish dates from the content calendar, to adjust. Images reuse the
+// The blog posts, newest first. A post marked `draft` shows only in local preview, until its [TK]s
+// (facts or numbers still to fill in) are done and the flag comes off. Draft dates are planned. Images reuse the
 // three existing covers until each post has its own.
 export const posts: Post[] = [
   {
@@ -9,7 +9,7 @@ export const posts: Post[] = [
     title: "How to make your design not look AI-generated",
     excerpt: "The tells that make a site look generated, and how to fix them before customers notice.",
     standfirst: "Fix your website, product, or app’s visual design (before someone notices). The tells that make a design look generated, and what to change first.",
-    date: "Jan 13, 2027",
+    date: "Nov 23, 2026",
     readTime: "5 min read",
     tag: "Design",
     image: "/blog/eight-second-test.webp",
@@ -44,7 +44,7 @@ export const posts: Post[] = [
     title: "How AI-generated design will shape future trends",
     excerpt: "When anyone can make a polished site in an afternoon, polish stops being the point.",
     standfirst: "When anyone can make a polished site in an afternoon, polish stops being the point. What that means for how brands will look over the next few years.",
-    date: "Jan 27, 2027",
+    date: "Nov 23, 2026",
     readTime: "5 min read",
     tag: "AI",
     image: "/blog/agent-blueprint.webp",
@@ -72,6 +72,8 @@ export const posts: Post[] = [
   },
   {
     slug: "pixel-perfect-website-in-claude",
+    // Still has [TK]s to fill in: shows in local preview only
+    draft: true,
     title: "Pixel-perfect website in Claude — fast & cheap (ft. Figma)",
     excerpt: "How I take a design from Figma to a live site with Claude, section by section.",
     standfirst: "How I take a design from Figma to a live site with Claude Code, section by section, and where it still needs a designer’s eye.",
@@ -105,6 +107,8 @@ export const posts: Post[] = [
   },
   {
     slug: "what-it-costs-to-build-a-site-in-claude",
+    // Still has [TK]s to fill in: shows in local preview only
+    draft: true,
     title: "The real numbers: what it actually costs to build a site in Claude from Figma",
     excerpt: "Tools, subscriptions and hours: the full cost of building my site with Claude.",
     standfirst: "Tools, subscriptions and hours: the full cost of building my own site from Figma with Claude, including the parts nobody puts in the tutorial.",
@@ -140,7 +144,7 @@ export const posts: Post[] = [
     title: "Why are all logos now geometric shapes?",
     excerpt: "Circles, blocks and simple marks are everywhere. Here’s why, and how to make one yours.",
     standfirst: "Circles, blocks and simple marks are everywhere. Why so many brands land on geometric logos, and how to make a simple shape feel like yours.",
-    date: "Mar 10, 2027",
+    date: "Nov 23, 2026",
     readTime: "4 min read",
     tag: "Branding",
     image: "/blog/eight-second-test.webp",
@@ -167,6 +171,8 @@ export const posts: Post[] = [
   },
   {
     slug: "how-to-pick-fonts",
+    // Still has [TK]s to fill in: shows in local preview only
+    draft: true,
     title: "How to pick fonts for your store (without overthinking it)",
     excerpt: "Three typefaces, three jobs, and the small rules that make a site feel designed.",
     standfirst: "Three typefaces, three jobs, and the small rules that make a site feel designed. How I picked the fonts for my own site, and how to pick yours.",
@@ -208,7 +214,7 @@ export const posts: Post[] = [
     title: "ProcrAIstination: how to solve AI novelty addiction",
     excerpt: "Trying every new AI tool feels like work. Often it’s the most productive way to avoid it.",
     standfirst: "Trying every new AI tool feels like work. Often it’s the most productive-looking way to avoid it. How I keep exploring without losing the week.",
-    date: "Mar 24, 2027",
+    date: "Nov 23, 2026",
     readTime: "4 min read",
     tag: "AI",
     image: "/blog/agent-blueprint.webp",
