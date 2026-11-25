@@ -7,7 +7,7 @@ import { RecentProjects } from "@/components/RecentProjects";
 import { CapabilitiesShowcase } from "@/components/CapabilitiesShowcase";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
-import { Services } from "@/components/Services";
+import { ServicesTable } from "@/components/ServicesTable";
 import {
   Container, Eyebrow, Reveal, Rich, SectionHead, section, sectionHeading,
 } from "@/components/ui";
@@ -104,7 +104,7 @@ export default function Home() {
         <CapabilitiesShowcase />
 
         {/* Services: the three offers */}
-        <Services />
+        <ServicesTable />
 
 
         {/* Blog */}
