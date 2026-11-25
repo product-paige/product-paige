@@ -436,25 +436,25 @@ export const approachPage = {
   lede: "Four phases. Most projects use two or three of them, not all four — and I’ll say which ones you actually need before you’ve paid me anything.",
   phases: [
     {
-      title: "Web and product design",
+      title: "Web design",
       body: "Shopify themes, sections and design systems, built and launched.",
       includes: ["Shopify theme build", "Design system", "Front-end build", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
     },
     {
-      title: "Positioning and messaging",
+      title: "Messaging",
       body: "What you sell, who it’s for, and how to say it so people get it in five seconds.",
       includes: ["Positioning", "Naming and identity", "Copywriting", "AI search content"],
       caseStudies: ["backspace-body", "brand-playbook"],
     },
     {
-      title: "UX and conversion",
+      title: "Conversion",
       body: "Where shoppers get lost, and the fixes that stop it.",
       includes: ["UX review", "Conversion", "Information architecture", "UI design"],
       caseStudies: ["organic-moderne", "brand-playbook"],
     },
     {
-      title: "Content and campaigns",
+      title: "Campaigns",
       body: "Landing pages, emails, ads and SEO that go live instead of into a doc.",
       includes: ["Landing pages", "Email design", "Campaign copy", "SEO"],
       caseStudies: ["backspace-body", "organic-moderne"],
