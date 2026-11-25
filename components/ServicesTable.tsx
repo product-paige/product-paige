@@ -30,16 +30,25 @@ const rows: { label: string; cell: (o: Offer) => ReactNode }[] = [
 export function ServicesTable() {
   const [picked, setPicked] = useState(1);
   const tint = (i: number) => (picked === i ? "bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/75" : "bg-sheet");
-  const Tab = ({ o, i }: { o: Offer; i: number }) => (
-    <button
-      type="button"
-      aria-pressed={picked === i}
-      onClick={() => setPicked(i)}
-      className={`serif text-[clamp(20px,1.6vw,24px)] tracking-[-0.03em] relative z-1 -mb-px cursor-pointer border border-b-0 px-5 pt-3 pb-2.5 leading-none transition-colors ${picked === i ? "border-accent bg-accent text-white" : "border-line bg-sheet hover:text-accent"}`}
-    >
-      {o.name}
-    </button>
-  );
+  // A folder tab: the name on a block with a top and left edge, then an angled cut on the right (an SVG,
+  // so its edge line follows the slant). It overlaps the table's top line by a pixel so they join.
+  const Tab = ({ o, i }: { o: Offer; i: number }) => {
+    const on = picked === i;
+    return (
+      <button
+        type="button"
+        aria-pressed={on}
+        onClick={() => setPicked(i)}
+        className={`group/tab relative z-1 -mb-px flex cursor-pointer items-stretch transition-colors ${on ? "text-white" : "hover:text-accent"}`}
+      >
+        <span className={`serif border-t border-l px-5 pt-3 pb-2.5 text-[clamp(20px,1.6vw,24px)] leading-none tracking-[-0.03em] transition-colors ${on ? "border-accent bg-accent" : "border-line bg-sheet"}`}>{o.name}</span>
+        <svg aria-hidden viewBox="0 0 20 40" preserveAspectRatio="none" className={`w-5 shrink-0 self-stretch transition-colors ${on ? "fill-accent stroke-accent" : "fill-sheet stroke-line"}`}>
+          <path d="M0 0H2L20 40H0Z" stroke="none" />
+          <path d="M0 0.5H2L20 40" fill="none" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+        </svg>
+      </button>
+    );
+  };
 
   return (
     <section id="services" className={section}>
