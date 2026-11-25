@@ -113,11 +113,11 @@ export default function Home() {
 
 
 
-        {/* Services: who it's for, the fit check, the three offers and the comparison table */}
-        <Services />
-
-        {/* How I work: the steps and principles */}
+        {/* How I work: the four steps */}
         <HowIWork />
+
+        {/* Services: the three offers */}
+        <Services />
 
         {/* Questions I get asked */}
         <HomeFaq />

@@ -3,7 +3,7 @@ import { Container, Eyebrow, Reveal, section, sectionHeading } from "./ui";
 
 /**
  * How I work: the heading with a line on building with Claude beside it, the four steps as cut-out
- * cards with folded corners, then the three principles in a row underneath.
+ * cards with folded corners.
  */
 export function HowIWork() {
   return (
@@ -27,15 +27,6 @@ export function HowIWork() {
             </Reveal>
           ))}
         </ol>
-        {/* The principles */}
-        <div className="mt-10 grid gap-6 border-t border-line pt-8 md:grid-cols-3 lg:mt-12">
-          {approach.principles.map((pr) => (
-            <Reveal key={pr.title}>
-              <p className="mono">{pr.title}</p>
-              <p className="mt-2 text-[15px] leading-relaxed">{pr.body}</p>
-            </Reveal>
-          ))}
-        </div>
       </Container>
     </section>
   );

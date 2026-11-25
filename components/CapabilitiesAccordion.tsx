@@ -74,7 +74,6 @@ export function CapabilitiesAccordion() {
               </Reveal>
             );
           })}
-          <p className="mono border-t border-grid px-4 py-6 text-muted sm:px-6 lg:px-10">{services.footnote}</p>
         </div>
       </div>
     </section>

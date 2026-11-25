@@ -97,17 +97,12 @@ export const hero = {
 export const approach = {
   eyebrow: "How I work",
   heading: "Design, copy and code in the same pass",
-  body: "I build with Claude, so design, copy and code happen in the same pass instead of three handoffs. Fewer people, less waiting, more shipped.",
+  body: "One person on design, copy and code, so there are no handoffs and less waiting.",
   steps: [
     { title: "Tell me what’s going on", body: "Send links, screenshots, a rant. The messier the better." },
     { title: "We scope it", body: "A short call, then a written scope and a fixed price. Nothing starts until you say yes." },
     { title: "I do the work", body: "In a shared Slack channel or an email thread. Calls only when they’re faster than typing." },
     { title: "Handover", body: "Files, copy and templates are yours, so you don’t need me to change a button." },
-  ],
-  principles: [
-    { title: "Async by default", body: "Your team works on its own time. So do I." },
-    { title: "One person, start to finish", body: "The person who scopes it is the person who does it. Nothing gets passed to a junior after you sign." },
-    { title: "You own everything", body: "Figma files, copy, code and templates." },
   ],
 };
 
@@ -115,8 +110,8 @@ export const about = {
   heading: "Hi, I’m Paige, a founder turned Shopify designer",
   // Paragraphs under the heading, then a line for recruiters with the email
   body: [
-    "I’ve spent 13 years building on Shopify, and I’ve bootstrapped two brands of my own, so I know what it’s like to be the founder, the designer and the customer support. I’m also the person who notices your checkout button says “Submit.”",
-    "Now I help small Shopify brands and ecommerce software teams fix the stuff that quietly costs them sales. One person, start to finish. No account managers.",
+    "I’ve bootstrapped two brands of my own, so I know what it’s like to be the founder, the designer and the customer support. I’m also the person who notices your checkout button says “Submit.”",
+    "Now I help small Shopify brands and ecommerce software teams fix the stuff that quietly costs them sales.",
     "Based in Kitchener, Ontario. Working remotely, mostly in Slack.",
   ],
   // A callout under the paragraphs, for recruiters
@@ -141,15 +136,13 @@ export const services = {
   // The section heading beside the list, and a line under it
   title: "Capabilities",
   description: "Design, copy and builds for Shopify stores that look right and sell.",
-  // Under the list
-  footnote: "Any of it can be a Project, or part of a Refresh.",
 };
 
 // The Working style section on the homepage: a picture on the left, three principles on the right.
 export const workingStyle = {
   eyebrow: "How I think",
   heading: "Keep it simple",
-  body: "Fast prototypes and clear decisions. Claude does the repetitive work, so my time goes on the parts that need a person.",
+  body: "Fast prototypes and clear decisions.",
   // Behind every picture
   background: "/blog/agent-blueprint.webp",
   // Each principle has its own picture, which shows while it's the active one: a storefront
@@ -187,7 +180,7 @@ export const offers = {
   eyebrow: "Services",
   button: "Let’s talk",
   offersHeading: "Three ways to work with me",
-  offersIntro: "No retainers. Not sure which? Start with the call.",
+  offersIntro: "Not sure which? Start with the call.",
   // Each card: its name, price (with a tip) and time, one line, three short points,
   // and example deliverables behind a dropdown
   items: [
@@ -219,7 +212,7 @@ export const offers = {
       time: "3 to 4 weeks",
       body: "A full or partial website refresh: your whole site or key pages, redone and live.",
       points: ["Full site or key pages, your call", "New structure, messaging and copy", "Built, launched and handed over"],
-      tip: "Full or partial: refresh everything, or start with the homepage, product and collection pages. For brands that outgrew their theme, and software sites that don’t explain the product yet.",
+      tip: "Refresh everything, or start with the homepage, product and collection pages.",
       deliverables: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements", "Design files and templates"],
       button: "Plan a refresh",
       interest: "Refresh, from $2,500",
@@ -467,14 +460,14 @@ export const faq = {
   // The /faq page and the homepage section: the label is the eyebrow and the page's name in the left rail and footer
   label: "FAQs",
   heading: "Questions I get asked",
-  body: "If yours isn’t here, ask it directly. I’d rather answer it before you commit to anything.",
+  body: "Anything else, just ask.",
   items: [
-    { q: "How much does it cost?", a: "Ask Paige is $300 flat. Projects start at $750 and refreshes at $2,500. You get a fixed price in writing before any work starts, based on the scope and the size of your brand." },
-    { q: "How long does it take?", a: "Ask Paige calls are booked within a few days. Projects take one to two weeks and refreshes three to four. The timeline is in the written scope, so you know the finish date before you say yes." },
-    { q: "What if I don’t need you?", a: "I’ll tell you on the Ask Paige call. If you book a project within 30 days after it, the $300 counts toward it." },
-    { q: "What do I get at the end?", a: "The work, live, plus the Figma files, copy, code and templates. They’re yours, so your team can change a button without me." },
-    { q: "What happens if the scope changes?", a: "Small tweaks are included. Anything new gets a written quote before I start on it, so the final invoice matches what you agreed to." },
-    { q: "Do you do monthly retainers?", a: "No. Every piece of work is a fixed-price project. If you need more afterwards, we scope the next one." },
+    { q: "How much does it cost?", a: "Ask Paige is $300. Projects start at $750 and refreshes at $2,500. You get a fixed price in writing before anything starts." },
+    { q: "How long does it take?", a: "A few days for Ask Paige, one to two weeks for a project, and three to four for a refresh." },
+    { q: "What if I don’t need you?", a: "I’ll tell you on the call. Book a project within 30 days and the $300 counts toward it." },
+    { q: "What do I get at the end?", a: "The work, live, plus the Figma files, copy, code and templates. All yours." },
+    { q: "What happens if the scope changes?", a: "Small tweaks are included. Anything new gets a written quote first." },
+    { q: "Do you do monthly retainers?", a: "No. Every job is a fixed-price project. Need more? We scope the next one." },
   ],
 };
 
