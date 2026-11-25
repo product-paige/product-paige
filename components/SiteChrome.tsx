@@ -30,11 +30,14 @@ export function PageRails() {
 /** A slim dark bar above the header with the hiring line (just the label and email on phones). It scrolls away; the header stays. */
 function AnnouncementBar() {
   return (
-    <div className="rails on-dark relative z-11 bg-dark text-white md:mx-[var(--pad)]">
-      <Container className="flex min-h-9 flex-wrap items-center justify-center gap-x-2 py-2 text-center text-[13px]">
-        <span className="mono text-white">{about.hiring.label}</span>
-        <span className="text-white/80"><span className="hidden sm:inline">{about.hiring.text} </span><a href={`mailto:${site.email}`} className="text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white">{site.email}</a></span>
-      </Container>
+    // The paper sheet's top, with the dark bar between the inner side lines
+    <div className="rails relative z-11 border-x border-t border-grid bg-paper">
+      <div className="on-dark bg-dark text-white md:mx-[var(--pad)]">
+        <Container className="flex min-h-9 flex-wrap items-center justify-center gap-x-2 py-2 text-center text-[13px]">
+          <span className="mono text-white">{about.hiring.label}</span>
+          <span className="text-white/80"><span className="hidden sm:inline">{about.hiring.text} </span><a href={`mailto:${site.email}`} className="text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white">{site.email}</a></span>
+        </Container>
+      </div>
     </div>
   );
 }
