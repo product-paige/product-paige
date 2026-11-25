@@ -126,11 +126,34 @@ export const services = {
   // Laid out like How I work: a picture behind the services, and one per service, in order
   background: "/blog/eight-second-test.webp",
   images: [
+    // UX design: a homepage in a browser window
     { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" },
-    { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" },
-    { src: "/hero/spf-product-card-pool.webp", width: 876, height: 1040, frame: "card" },
-    { src: "/hero/jewellery-banner-minimal.webp", width: 1359, height: 1406, frame: "card" },
-  ] as { src: string; width: number; height: number; frame: "browser" | "card"; url?: string }[],
+    // Messaging: a banner with its headline, before and after
+    { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "copy", before: "Premium handcrafted jewellery for every occasion", after: "Gold on the rocks" },
+    // Conversion: a product card with numbered notes on what to fix
+    { src: "/hero/spf-product-card-pool.webp", width: 876, height: 1040, frame: "notes", notes: [
+      { x: 0, y: 7, text: "Reviews up top, where people look first" },
+      { x: 0, y: 89, text: "Name and the benefit in one line" },
+      { x: 78, y: 100, text: "Price on the button, one tap to cart" },
+    ] },
+    // Campaigns: a launch email
+    { src: "/hero/jewellery-banner-minimal.webp", width: 1359, height: 1406, frame: "email", from: "Your store", subject: "New in: the gold edit", button: "Shop the edit" },
+  ] as Shot[],
+};
+
+// One picture in the Capabilities section, and how it's framed
+export type Shot = {
+  src: string;
+  width: number;
+  height: number;
+  frame: "browser" | "card" | "copy" | "notes" | "email";
+  url?: string;
+  before?: string;
+  after?: string;
+  notes?: { x: number; y: number; text: string }[];
+  from?: string;
+  subject?: string;
+  button?: string;
 };
 
 // Who I work with: a short list under the About copy, who it's for and one line on each.

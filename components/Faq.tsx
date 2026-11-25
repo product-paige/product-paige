@@ -24,7 +24,7 @@ export function Faq({ items, plain = false, rows = false }: { items: { q: string
         const buttonId = `${id}-q${i}`;
         const panelId = `${id}-a${i}`;
         return (
-          <div key={f.q} className={rows ? `transition-colors duration-500 ${isOpen ? "bg-sheet" : ""}` : undefined}>
+          <div key={f.q}>
             <h3>
               <button
                 id={buttonId}
@@ -32,7 +32,7 @@ export function Faq({ items, plain = false, rows = false }: { items: { q: string
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className={`group/q flex w-full cursor-pointer items-center justify-between gap-6 text-left leading-[1.2] ${rows ? `px-4 pt-5 text-[17px] font-medium tracking-[-0.01em] transition-colors duration-500 sm:px-6 lg:px-10 lg:pt-6 ${isOpen ? "pb-2" : "pb-5 hover:bg-sheet lg:pb-6"}` : plain ? "py-4 text-[17px] font-medium tracking-[-0.01em]" : "mono py-3"}`}
+                className={`group/q flex w-full cursor-pointer items-center justify-between gap-6 text-left leading-[1.2] ${rows ? `px-4 pt-6 text-[17px] font-medium tracking-[-0.01em] sm:px-6 lg:px-10 ${isOpen ? "pb-3" : "pb-6"}` : plain ? "py-4 text-[17px] font-medium tracking-[-0.01em]" : "mono py-3"}`}
               >
                 {/* The red dot shows only on the open row: it grows in and pushes the label over */}
                 <span className="flex items-center gap-3">
@@ -46,11 +46,11 @@ export function Faq({ items, plain = false, rows = false }: { items: { q: string
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={1}
+                  strokeWidth={rows ? 0.75 : 1}
                   strokeLinecap="round"
                   className={`-my-1 shrink-0 transition-[rotate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${rows ? "size-6 lg:size-7" : "size-5 lg:size-6"} ${isOpen ? "rotate-45" : ""}`}
                 >
-                  <path d="M12 4v16M4 12h16" vectorEffect="non-scaling-stroke" />
+                  <path d="M12 4v16M4 12h16" vectorEffect={rows ? undefined : "non-scaling-stroke"} />
                 </svg>
               </button>
             </h3>
@@ -62,7 +62,7 @@ export function Faq({ items, plain = false, rows = false }: { items: { q: string
             >
               <div className="overflow-hidden" inert={!isOpen}>
                 <div
-                  className={`${rows ? "px-4 pb-6 text-[16px] text-muted sm:px-6 lg:px-10 lg:pr-24 lg:pb-7" : "max-w-xl pr-10 pb-4 text-[15px] leading-[1.5]"} transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+                  className={`${rows ? "px-4 pb-6 text-[16px] text-muted sm:px-6 lg:px-10 lg:pr-24" : "max-w-xl pr-10 pb-4 text-[15px] leading-[1.5]"} transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
                 </div>

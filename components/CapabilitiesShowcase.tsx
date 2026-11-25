@@ -1,6 +1,6 @@
 "use client";
 
-import { approachPage, services } from "@/content";
+import { approachPage, services, type Shot } from "@/content";
 import { useId, useState } from "react";
 import { Chip, Eyebrow, Reveal } from "./ui";
 
@@ -16,30 +16,96 @@ const icons = [
   icon("M5 13v6h4l10 6V7L9 13H5zM23 12a5 5 0 0 1 0 8M9 19l2 7h3l-2-7"),
 ];
 
-type Shot = (typeof services.images)[number];
+const shadow = "shadow-[0_24px_60px_rgb(26_26_26/0.28)]";
 
-/** One service's picture: a storefront screen in a browser window, or as a floating card. */
+/**
+ * One service's picture, sized in cqw of the picture panel: a homepage in a browser window (UX design),
+ * a banner with its headline before and after (Messaging), a product card with numbered notes
+ * (Conversion), or a launch email (Campaigns).
+ */
 function Mockup({ image }: { image: Shot }) {
   // eslint-disable-next-line @next/next/no-img-element
-  const img = <img src={image.src} alt="" width={image.width} height={image.height} loading="lazy" decoding="async" className="block w-full" />;
+  const img = (className = "block w-full") => <img src={image.src} alt="" width={image.width} height={image.height} loading="lazy" decoding="async" className={className} />;
+
   if (image.frame === "browser") {
     return (
-      <div className="w-[80%] overflow-hidden rounded-[10px] bg-white shadow-[0_24px_60px_rgb(26_26_26/0.28)]">
+      <div className={`w-[80%] overflow-hidden rounded-[10px] bg-white ${shadow}`}>
         {/* The window's top bar: three dots and the address */}
         <div className="flex items-center gap-3 border-b border-line bg-sheet px-3 py-2">
           <span className="flex gap-1.5">{["#ff5f57", "#febc2e", "#28c840"].map((c) => <i key={c} className="size-2.5 rounded-full" style={{ background: c }} />)}</span>
           <span className="mx-auto w-1/2 truncate rounded-full bg-white px-3 py-0.5 text-center text-[11px] text-muted">{image.url}</span>
           <span className="w-[42px]" />
         </div>
-        {img}
+        {img()}
       </div>
     );
   }
-  return <div className="w-[52%] overflow-hidden rounded-[14px] shadow-[0_24px_60px_rgb(26_26_26/0.28)]">{img}</div>;
+
+  if (image.frame === "copy") {
+    return (
+      <div className={`flex w-[58%] flex-col overflow-hidden rounded-[2cqw] bg-white ${shadow}`}>
+        {img("block aspect-[16/9] w-full object-cover")}
+        <div className="flex flex-col gap-[2.4cqw] p-[3.4cqw]">
+          <div>
+            <p className="mono text-[1.7cqw] text-ink/50">Before</p>
+            <p className="mt-[0.8cqw] text-[2.4cqw] leading-[1.35] text-ink/50 line-through decoration-ink/30">{image.before}</p>
+          </div>
+          <div className="border-t border-line pt-[2.4cqw]">
+            <p className="mono text-[1.7cqw] text-accent">After</p>
+            <p className="serif mt-[0.8cqw] text-[4.4cqw] leading-[1.05] tracking-[-0.03em]">{image.after}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (image.frame === "notes") {
+    return (
+      <div className="relative h-full w-full">
+        {/* The product card, to the left, with a numbered pin on the edge beside each thing to fix */}
+        <div className="absolute top-1/2 left-[9%] z-1 w-[44%] -translate-y-1/2">
+          <div className={`overflow-hidden rounded-[14px] ${shadow}`}>{img()}</div>
+          {image.notes?.map((n, i) => (
+            <span key={n.text} className="absolute grid size-[4.2cqw] -translate-1/2 place-items-center rounded-full bg-accent text-[2cqw] font-medium text-white ring-[0.5cqw] ring-white" style={{ left: `${n.x}%`, top: `${n.y}%` }}>{i + 1}</span>
+          ))}
+        </div>
+        {/* The notes, on a sheet overlapping it on the right */}
+        <ol className={`absolute top-1/2 right-[6%] z-2 flex w-[44%] -translate-y-[30%] flex-col gap-[2cqw] rounded-[2cqw] bg-white p-[3cqw] ${shadow}`}>
+          <li className="mono text-[1.7cqw] text-ink/50">UX review</li>
+          {image.notes?.map((n, i) => (
+            <li key={n.text} className="flex gap-[1.6cqw] text-[2.2cqw] leading-[1.35]">
+              <span className="grid size-[3.4cqw] shrink-0 place-items-center rounded-full bg-accent text-[1.7cqw] font-medium text-white">{i + 1}</span>
+              {n.text}
+            </li>
+          ))}
+        </ol>
+      </div>
+    );
+  }
+
+  if (image.frame === "email") {
+    return (
+      <div className={`flex w-[54%] flex-col overflow-hidden rounded-[2cqw] bg-white ${shadow}`}>
+        {/* The inbox header: who it's from and the subject */}
+        <div className="flex flex-col gap-[0.6cqw] border-b border-line px-[3cqw] py-[2.4cqw]">
+          <p className="flex items-center gap-[1.2cqw] text-[2cqw] text-ink/60">
+            <i className="size-[2.6cqw] rounded-full bg-accent" />{image.from}
+          </p>
+          <p className="text-[2.6cqw] font-medium">{image.subject}</p>
+        </div>
+        {img("block aspect-[4/3] w-full object-cover")}
+        <div className="flex justify-center p-[2.6cqw]">
+          <span className="mono rounded-full bg-ink px-[3cqw] py-[1.2cqw] text-[1.7cqw] text-white">{image.button}</span>
+        </div>
+      </div>
+    );
+  }
+
+  return <div className={`w-[52%] overflow-hidden rounded-[14px] ${shadow}`}>{img()}</div>;
 }
 
 /**
- * Capabilities: the eyebrow, heading, line and the four services as an accordion on the left, a picture
+ * Capabilities: the eyebrow and the four services as an accordion on the left, a picture
  * for each service on the right. Opening a service slides its line and pills
  * open and shows its picture; opening another closes the first.
  */
@@ -54,13 +120,13 @@ export function CapabilitiesShowcase() {
   return (
     <section id="capabilities" className="border-t border-grid">
       {/* A set height on desktop, tall enough for any open service, so the picture stays the same size as rows open and close */}
-      <div className="md:mx-6 lg:mx-10 lg:grid lg:min-h-[41rem] lg:grid-cols-2">
+      <div className="md:mx-6 lg:mx-10 lg:grid lg:min-h-[39rem] lg:grid-cols-2">
         <div className="flex flex-col">
           {/* A list section: the mono label is the heading, as on Recent projects */}
-          <Reveal className="px-4 pt-12 pb-10 sm:px-6 lg:pt-16 lg:pr-16 lg:pb-12 lg:pl-10">
+          <Reveal className="px-4 pt-12 pb-8 sm:px-6 lg:pt-12 lg:pr-16 lg:pb-8 lg:pl-10">
             <Eyebrow as="h2">{services.title}</Eyebrow>
           </Reveal>
-          <ul className="divide-y divide-grid border-t border-grid lg:mt-auto">
+          <ul className="divide-y divide-grid border-t border-grid">
             {rows.map((ph, i) => {
               const on = open === i;
               return (
@@ -73,8 +139,8 @@ export function CapabilitiesShowcase() {
                       onClick={() => { setOpen(on ? null : i); setShown(i); }}
                       className={`flex w-full cursor-pointer items-center gap-3 px-4 text-left transition-colors duration-500 sm:px-6 lg:gap-4 lg:pr-10 lg:pl-10 ${on ? "pt-6 pb-3" : "py-6"}`}
                     >
-                      {/* The service's line icon on a tile: the open one solid blue, the others a quiet grey */}
-                      <span aria-hidden className={`grid size-12 shrink-0 place-items-center rounded-ui transition-colors duration-500 lg:size-14 ${on ? "bg-accent text-white" : "bg-ink/[0.06] text-ink/60"}`}>
+                      {/* The service's line icon: on a solid blue tile when open, plain and grey when closed */}
+                      <span aria-hidden className={`grid size-12 shrink-0 place-items-center rounded-ui transition-colors duration-500 lg:size-14 ${on ? "bg-accent text-white" : "text-ink/50"}`}>
                         {icons[i % icons.length]}
                       </span>
                       <span className="serif flex-1 text-[clamp(26px,2.5vw,36px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
