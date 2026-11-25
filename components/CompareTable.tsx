@@ -1,11 +1,40 @@
 "use client";
 
 import { offers } from "@/content";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import { Tip } from "./Tip";
+import { ScribbleBullet } from "./ui";
+
+/** A cell: plain text, or a list with the scribble bullets. */
+function Cell({ value }: { value: string | string[] }): ReactNode {
+  if (typeof value === "string") return value;
+  return (
+    <ul className="space-y-2.5">
+      {value.map((v, i) => (
+        <li key={v} className="flex items-start gap-2.5 text-[15px] leading-snug"><ScribbleBullet variant={i} className="mt-px text-accent" />{v}</li>
+      ))}
+    </ul>
+  );
+}
+
+/** A row label, with its tip when it has one. */
+function Label({ text }: { text: string }) {
+  const tip = offers.tableTips[text];
+  if (!tip) return <>{text}</>;
+  // The last word and the (i) kept together, so the (i) sits right after it even when the label wraps
+  const words = text.split(" ");
+  const last = words.pop();
+  return (
+    <>
+      {words.join(" ")}{" "}
+      <span className="inline-flex items-center gap-1.5 whitespace-nowrap">{last}<Tip text={tip} label={`About ${text.toLowerCase()}`} /></span>
+    </>
+  );
+}
 
 /**
  * The offers side by side, styled like the old Ways to work together table: each offer's name as a
- * folder tab on top, rows for price, timeline, best for and what you get in a full grid of fine
+ * folder tab on top, rows for price, timeline, best for, what you get and example deliverables in a full grid of fine
  * borders, the row labels in the mono. Clicking a tab picks that offer: its tab and column turn the
  * bright blue (Project to start). On phones each offer becomes its own stacked block. It starts closed,
  * under a "Compare services" link that slides it open.
@@ -14,7 +43,8 @@ export function CompareTable() {
   const [picked, setPicked] = useState(offers.featured);
   // Closed to start; the "Compare services" link opens it
   const [open, setOpen] = useState(false);
-  const tint = (i: number) => (picked === i ? "border-white/20 bg-accent text-white" : "bg-paper");
+  // The picked column turns the bright blue, with its bullets white
+  const tint = (i: number) => (picked === i ? "border-white/20 bg-accent text-white [&_.text-accent]:text-white" : "bg-paper");
   const Tab = ({ name, i }: { name: string; i: number }) => (
     <button
       type="button"
@@ -47,8 +77,8 @@ export function CompareTable() {
             <div className={`divide-y divide-line border border-line transition-colors ${tint(i)}`}>
               {offers.table.map(([label, ...cells]) => (
                 <div key={label} className="px-5 py-4">
-                  <p className="mono mb-2">{label}</p>
-                  <p className="text-[15px]">{cells[i]}</p>
+                  <p className="mono mb-2"><Label text={label as string} /></p>
+                  <div className="text-[15px]"><Cell value={cells[i]} /></div>
                 </div>
               ))}
             </div>
@@ -69,9 +99,9 @@ export function CompareTable() {
         <tbody>
           {offers.table.map(([label, ...cells], r) => (
             <tr key={label} className="align-top">
-              <th scope="row" className={`mono border-b border-l border-line bg-paper px-5 py-5 font-normal text-ink lg:py-6 ${r === 0 ? "border-t" : ""}`}>{label}</th>
+              <th scope="row" className={`mono border-b border-l border-line bg-paper px-5 py-5 font-normal text-ink lg:py-6 ${r === 0 ? "border-t" : ""}`}><Label text={label as string} /></th>
               {cells.map((c, i) => (
-                <td key={i} className={`border-r border-b border-line px-5 py-5 text-[16px] transition-colors lg:px-6 lg:py-6 first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}>{c}</td>
+                <td key={i} className={`border-r border-b border-line px-5 py-5 text-[16px] transition-colors lg:px-6 lg:py-6 first-of-type:border-l ${r === 0 ? "border-t" : ""} ${tint(i)}`}><Cell value={c} /></td>
               ))}
             </tr>
           ))}

@@ -1,4 +1,4 @@
-import { faq, site } from "@/content";
+import { faq } from "@/content";
 import { Faq } from "./Faq";
 import { Container, Eyebrow, Reveal, section, sectionHeading } from "./ui";
 
@@ -14,7 +14,6 @@ export function HomeFaq() {
         </Reveal>
         <Reveal delay={100}>
           <Faq plain items={faq.items.map((f) => ({ q: f.q, a: <p className="max-w-[65ch] leading-relaxed">{f.a}</p> }))} />
-          <p className="mt-8 text-muted">Something else? Email <a href={`mailto:${site.email}`} className="link">{site.email}</a></p>
         </Reveal>
       </Container>
     </section>

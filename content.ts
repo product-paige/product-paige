@@ -227,13 +227,16 @@ export const offers = {
   compareLabel: "Compare services",
   // The comparison table opens with this one picked (by index)
   featured: 1,
-  // The comparison table: a row label, then one cell per offer, in the same order
+  // The comparison table: a row label, then one cell per offer, in the same order (a list for several items)
   table: [
     ["Price", "$300 flat", "From $750", "From $2,500"],
     ["Timeline", "Booked within a few days", "1 to 2 weeks", "3 to 4 weeks"],
     ["Best for", "One stuck question", "One defined piece of work", "A whole store or site"],
     ["You get", "A review, a call, written notes", "Design, copy and build, live", "Redesign, rewrite and launch"],
-  ],
+    ["Example deliverables", ["Homepage and key pages review", "SEO and AI search check", "A prioritized fix list"], ["Landing pages", "Email flows", "Shopify sections", "SEO projects"], ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements"]],
+  ] as [string, ...(string | string[])[]][],
+  // Tips on row labels, by label
+  tableTips: { "Example deliverables": "Every project is scoped to what you need, so yours may differ from these examples." } as Record<string, string>,
 };
 
 // Blog posts. Each gets a page at /blog/<slug> (app/blog/[slug]); the homepage Scrapbook shows
