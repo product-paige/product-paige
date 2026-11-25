@@ -24,10 +24,12 @@ export function Services() {
         <div className="mt-10 grid gap-4 md:grid-cols-3 lg:mt-14">
           {offers.items.map((o, i) => (
             <Reveal key={o.name} delay={i * 100} className={`flex flex-col border p-6 lg:p-8 ${i === 1 ? "border-accent bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/75" : "border-line bg-paper"}`}>
-              <p className="serif text-[clamp(26px,2.4vw,34px)] leading-none tracking-[-0.035em]">{o.name}</p>
-              {/* The price, with the detail in a tip, and the time */}
-              <p className="mono mt-4 flex items-center gap-2">{o.price} <Tip text={o.tip} label={`About ${o.name}`} /></p>
-              <p className="mono mt-1 text-muted">{o.time}</p>
+              {/* The name, with the price (and a tip with the detail) top right, then the time */}
+              <div className="flex items-start justify-between gap-4">
+                <p className="serif text-[clamp(22px,2vw,28px)] leading-none tracking-[-0.03em]">{o.name}</p>
+                <p className="mono flex shrink-0 items-center gap-2">{o.price} <Tip text={o.tip} label={`About ${o.name}`} /></p>
+              </div>
+              <p className="mono mt-3 text-muted">{o.time}</p>
               <p className="mt-5">{o.body}</p>
               <ul className="mt-5 space-y-3">
                 {o.points.map((pt, j) => (
