@@ -4,7 +4,7 @@ import { Tip } from "./Tip";
 import { Button, Container, Eyebrow, Reveal, ScribbleBullet, section, sectionHeading } from "./ui";
 
 /**
- * Services (#services): the heading and a line with the button to get in touch, then the three offers
+ * Services (#services): the heading with the button to get in touch, then the three offers
  * as cards: the name with the price top right (a tip with the detail), the time,
  * one line, three points, example deliverables behind a dropdown, and a button that opens the contact
  * form with that offer picked.
@@ -18,7 +18,6 @@ export function Services() {
           <div className="max-w-3xl">
             <Eyebrow>{offers.eyebrow}</Eyebrow>
             <h2 className={sectionHeading}>{offers.offersHeading}</h2>
-            <p className="lede mt-5 max-w-xl">{offers.offersIntro}</p>
           </div>
           <Button href={site.bookingUrl} accent>{offers.button}</Button>
         </Reveal>

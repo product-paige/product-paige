@@ -168,7 +168,6 @@ export const offers = {
   eyebrow: "Services",
   button: "Let’s talk",
   offersHeading: "Ways to work together",
-  offersIntro: "Not sure which? Start with the call.",
   // Each card: its name, price (with a tip) and time, one line, three short points,
   // and example deliverables behind a dropdown
   items: [
