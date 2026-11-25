@@ -7,7 +7,7 @@ import { Chip, Eyebrow, Reveal } from "./ui";
 // A thin line icon for each service, in turn: a browser window (design), a speech bubble
 // (positioning and messaging), a cursor (UX and conversion), a megaphone (content and campaigns)
 const icon = (d: string) => (
-  <svg viewBox="0 0 32 32" className="size-6 lg:size-7" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
+  <svg viewBox="0 0 32 32" className="size-7 lg:size-8" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
 );
 const icons = [
   icon("M4 7h24v18H4zM4 11h24M7 9h.01M9.5 9h.01M12 9h.01"),
@@ -55,10 +55,10 @@ export function CapabilitiesShowcase() {
     <section id="capabilities" className="border-t border-grid">
       <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
         <div className="flex flex-col">
-          <Reveal className="px-4 pt-12 pb-10 sm:px-6 lg:pt-16 lg:pr-16 lg:pb-12 lg:pl-10">
-            {/* A list section: the mono label is the heading, as on Recent projects */}
-            <Eyebrow as="h2">{services.title}</Eyebrow>
-            <p className="lede max-w-xl">{services.description}</p>
+          {/* A list section: the mono label is the heading, as on Recent projects, with the line beside it */}
+          <Reveal className="flex flex-wrap items-baseline gap-x-10 gap-y-3 px-4 pt-12 pb-10 sm:px-6 lg:pt-16 lg:pr-16 lg:pb-12 lg:pl-10">
+            <Eyebrow as="h2" className="shrink-0">{services.title}</Eyebrow>
+            <p className="lede min-w-0 flex-1 basis-64">{services.description}</p>
           </Reveal>
           <ul className="divide-y divide-grid border-t border-grid lg:mt-auto">
             {rows.map((ph, i) => {
@@ -73,8 +73,8 @@ export function CapabilitiesShowcase() {
                       onClick={() => { setOpen(on ? null : i); setShown(i); }}
                       className={`flex w-full cursor-pointer items-center gap-3 px-4 text-left transition-colors duration-500 sm:px-6 lg:gap-4 lg:pr-10 lg:pl-10 ${on ? "pt-6 pb-3" : "py-6"}`}
                     >
-                      {/* The service's line icon: the open one blue, the others a quiet grey */}
-                      <span aria-hidden className={`grid w-9 shrink-0 place-items-start transition-colors duration-500 lg:w-10 ${on ? "text-accent" : "text-ink/50"}`}>
+                      {/* The service's line icon on a tile: the open one solid blue, the others a quiet grey */}
+                      <span aria-hidden className={`grid size-12 shrink-0 place-items-center rounded-ui transition-colors duration-500 lg:size-14 ${on ? "bg-accent text-white" : "bg-ink/[0.06] text-ink/60"}`}>
                         {icons[i % icons.length]}
                       </span>
                       <span className="serif flex-1 text-[clamp(26px,2.5vw,36px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
@@ -87,7 +87,7 @@ export function CapabilitiesShowcase() {
                   {/* The line and pills slide open under the service (grid rows 0fr to 1fr) */}
                   <div id={`${id}-${i}`} role="region" inert={!on} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
-                      <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+2.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
+                      <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+3.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
                         <p className="max-w-xl text-[15px] leading-[1.5] text-muted">{ph.body}</p>
                         <ul className="mt-3 flex flex-wrap gap-2">
                           {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:var(--color-accent)]">{c}</Chip></li>)}
