@@ -7,10 +7,13 @@ import { useState } from "react";
  * The offers side by side, styled like the old Ways to work together table: each offer's name as a
  * folder tab on top, rows for price, timeline, best for and what you get in a full grid of fine
  * borders, the row labels in the mono. Clicking a tab picks that offer: its tab and column turn the
- * bright blue (Project to start). On phones each offer becomes its own stacked block.
+ * bright blue (Project to start). On phones each offer becomes its own stacked block. It starts closed,
+ * under a "Compare services" link that slides it open.
  */
 export function CompareTable() {
   const [picked, setPicked] = useState(offers.featured);
+  // Closed to start; the "Compare services" link opens it
+  const [open, setOpen] = useState(false);
   const tint = (i: number) => (picked === i ? "border-white/20 bg-accent text-white" : "bg-paper");
   const Tab = ({ name, i }: { name: string; i: number }) => (
     <button
@@ -25,6 +28,17 @@ export function CompareTable() {
 
   return (
     <div>
+      {/* The link that opens and closes the table */}
+      <div className="flex justify-center">
+        <button type="button" aria-expanded={open} aria-controls="compare-table" onClick={() => setOpen(!open)} className="link inline-flex cursor-pointer items-center gap-2">
+          {offers.compareLabel}
+          <svg aria-hidden viewBox="0 0 20 20" className={`size-4 transition-transform duration-500 ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg>
+        </button>
+      </div>
+      {/* The table, sliding open and closed (grid rows 0fr to 1fr) */}
+      <div id="compare-table" inert={!open} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+      <div className="overflow-hidden">
+      <div className={`pt-10 transition-opacity duration-500 ${open ? "opacity-100" : "opacity-0"}`}>
       {/* Phones: each offer as its own block, stacked */}
       <div className="space-y-8 md:hidden">
         {offers.items.map((o, i) => (
@@ -63,6 +77,9 @@ export function CompareTable() {
           ))}
         </tbody>
       </table>
+      </div>
+      </div>
+      </div>
     </div>
   );
 }

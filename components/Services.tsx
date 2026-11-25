@@ -42,10 +42,10 @@ export function Services() {
             </Reveal>
           ))}
         </div>
-        <Reveal as="p" className="mt-6 text-muted">{offers.footnote}</Reveal>
+        <Reveal as="p" className="mt-8 text-center text-muted">{offers.footnote}</Reveal>
 
-        {/* Comparison table, in the old Ways to work together style */}
-        <Reveal className="mt-12 lg:mt-16">
+        {/* Comparison table, in the old Ways to work together style, opened by a link under the line */}
+        <Reveal className="mt-4">
           <CompareTable />
         </Reveal>
       </Container>

@@ -223,6 +223,8 @@ export const offers = {
     },
   ] as { name: string; price: string; time: string; body: string; points: string[]; tip: string; button: string; interest: string }[],
   footnote: "Not sure which one? Pick Ask Paige. Worst case, you leave with a plan.",
+  // The link under it that opens the comparison table
+  compareLabel: "Compare services",
   // The comparison table opens with this one picked (by index)
   featured: 1,
   // The comparison table: a row label, then one cell per offer, in the same order
