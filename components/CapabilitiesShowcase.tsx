@@ -67,7 +67,7 @@ export function CapabilitiesShowcase() {
                   <div id={`${id}-${i}`} role="region" inert={!on} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
                       <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+2.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
-                        <p className="max-w-md text-[15px] leading-[1.5] text-muted">{ph.body}</p>
+                        <p className="max-w-xl text-[15px] leading-[1.5] text-muted">{ph.body}</p>
                         <ul className="mt-3 flex flex-wrap gap-2">
                           {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:var(--color-accent)]">{c}</Chip></li>)}
                         </ul>
