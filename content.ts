@@ -473,13 +473,8 @@ export const faq = {
     { q: "How long does it take?", a: "Ask Paige calls are booked within a few days. Projects take one to two weeks and refreshes three to four. The timeline is in the written scope, so you know the finish date before you say yes." },
     { q: "What if I don’t need you?", a: "I’ll tell you on the Ask Paige call. If you book a project within 30 days after it, the $300 counts toward it." },
     { q: "What do I get at the end?", a: "The work, live, plus the Figma files, copy, code and templates. They’re yours, so your team can change a button without me." },
-    { q: "How do we work together day to day?", a: "In a shared Slack channel or an email thread. Calls only when they’re faster than typing." },
-    { q: "What do you need from us to start?", a: "One point of contact, access to Shopify, Figma and any other tools involved, and feedback within a week. After you say yes, I send a short intake form for logins and contacts." },
     { q: "What happens if the scope changes?", a: "Small tweaks are included. Anything new gets a written quote before I start on it, so the final invoice matches what you agreed to." },
     { q: "Do you do monthly retainers?", a: "No. Every piece of work is a fixed-price project. If you need more afterwards, we scope the next one." },
-    { q: "Do you work with teams that already have a designer?", a: "Yes. I can take a launch off their plate, write the copy, or build their designs in Shopify." },
-    { q: "Do you work with companies that aren’t on Shopify?", a: "Yes, if you make software for ecommerce, like apps and tools for merchants. Store builds and refreshes are Shopify only." },
-    { q: "Are you open to a full-time role?", a: "Yes, the right one. Pick “I’m hiring” in the contact form, or email hello@productpaige.com." },
   ],
 };
 
