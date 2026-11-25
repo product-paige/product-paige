@@ -1,12 +1,13 @@
 import { offers, site } from "@/content";
-import { CompareTable } from "./CompareTable";
+import { Deliverables } from "./Deliverables";
 import { Tip } from "./Tip";
 import { Button, Container, Eyebrow, Reveal, ScribbleBullet, section, sectionHeading } from "./ui";
 
 /**
- * Services (#services): the heading and a line with the button to get in touch, the three offers as
- * cards (price with a tip for the detail, a line, three points, and a button that opens the contact
- * form with that offer picked), a line under them, then the comparison table.
+ * Services (#services): the heading and a line with the button to get in touch, then the three offers
+ * as cards: the name with the price top right (a tip with the detail), the time, what it's best for,
+ * one line, three points, example deliverables behind a dropdown, and a button that opens the contact
+ * form with that offer picked. A line under them, centred.
  */
 export function Services() {
   return (
@@ -30,12 +31,14 @@ export function Services() {
                 <p className="mono flex shrink-0 items-center gap-2">{o.price} <Tip text={o.tip} label={`About ${o.name}`} /></p>
               </div>
               <p className="mono mt-3 text-muted">{o.time}</p>
+              <p className="mt-4 text-[14px]"><span className="text-muted">{offers.bestForLabel}:</span> {o.bestFor}</p>
               <p className="mt-5">{o.body}</p>
               <ul className="mt-5 space-y-3">
                 {o.points.map((pt, j) => (
                   <li key={pt} className="flex items-start gap-3 text-[15px] leading-snug"><ScribbleBullet variant={j} className="mt-px text-accent" />{pt}</li>
                 ))}
               </ul>
+              <Deliverables items={o.deliverables} />
               <div className="mt-auto pt-8">
                 <Button href={site.bookingUrl} interest={o.interest} accent={i !== 1} light={i === 1}>{o.button}</Button>
               </div>
@@ -44,10 +47,6 @@ export function Services() {
         </div>
         <Reveal as="p" className="mt-8 text-center text-muted">{offers.footnote}</Reveal>
 
-        {/* Comparison table, in the old Ways to work together style, opened by a link under the line */}
-        <Reveal className="mt-4">
-          <CompareTable />
-        </Reveal>
       </Container>
     </section>
   );

@@ -182,14 +182,14 @@ export const audiences = {
 };
 
 
-// The Services section (#services): the three offers as cards, then a comparison table. Each offer's `interest` is the option its button picks in the contact form.
+// The Services section (#services): the three offers as cards. Each offer's `interest` is the option its button picks in the contact form.
 export const offers = {
   eyebrow: "Services",
   button: "Let’s talk",
   offersHeading: "Three ways to work with me",
   offersIntro: "No retainers. Not sure which? Start with the call.",
-  // Each card: its name, price and time, one line, three short points, and a tip (the (i) by the
-  // price) with the detail
+  // Each card: its name, price (with a tip) and time, what it's best for, one line, three short points,
+  // and example deliverables behind a dropdown
   items: [
     {
       name: "Ask Paige",
@@ -197,7 +197,9 @@ export const offers = {
       time: "Booked within a few days",
       body: "Send me the page or the question. We talk it through, and you get written notes.",
       points: ["A review of what you send", "A live call to work through it", "Notes ranked by what to fix first"],
+      bestFor: "One stuck question",
       tip: "3 hours in total. Book a project within 30 days and the $300 counts toward it.",
+      deliverables: ["Homepage and key pages review", "SEO and AI search check", "A prioritized fix list"],
       button: "Ask Paige",
       interest: "Ask Paige, $300 call",
     },
@@ -207,7 +209,9 @@ export const offers = {
       time: "1 to 2 weeks",
       body: "One piece of work with a fixed price and a finish line.",
       points: ["Written scope and price first", "Design, copy and build, by me", "Live, not a mockup"],
-      tip: "Priced by scope and brand size. Landing pages, email flows, Shopify sections, SEO projects or campaigns.",
+      bestFor: "One defined piece of work",
+      tip: "Priced by scope and brand size.",
+      deliverables: ["Landing pages", "Email flows", "Shopify sections", "SEO projects", "Campaigns"],
       button: "Start a project",
       interest: "Project, from $750",
     },
@@ -217,26 +221,18 @@ export const offers = {
       time: "3 to 4 weeks",
       body: "Your store or site, redesigned, rewritten and taken live.",
       points: ["A review of what’s costing you", "New structure, messaging and copy", "Built, launched and handed over"],
-      tip: "For brands that outgrew their theme, and software sites that don’t explain the product yet. Design files and templates included.",
+      bestFor: "A whole store or site",
+      tip: "For brands that outgrew their theme, and software sites that don’t explain the product yet.",
+      deliverables: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements", "Design files and templates"],
       button: "Plan a refresh",
       interest: "Refresh, from $2,500",
     },
-  ] as { name: string; price: string; time: string; body: string; points: string[]; tip: string; button: string; interest: string }[],
+  ] as { name: string; price: string; time: string; bestFor: string; body: string; points: string[]; tip: string; deliverables: string[]; button: string; interest: string }[],
   footnote: "Not sure which one? Pick Ask Paige. Worst case, you leave with a plan.",
-  // The link under it that opens the comparison table
-  compareLabel: "Compare services",
-  // The comparison table opens with this one picked (by index)
-  featured: 1,
-  // The comparison table: a row label, then one cell per offer, in the same order (a list for several items)
-  table: [
-    ["Price", "$300 flat", "From $750", "From $2,500"],
-    ["Timeline", "Booked within a few days", "1 to 2 weeks", "3 to 4 weeks"],
-    ["Best for", "One stuck question", "One defined piece of work", "A whole store or site"],
-    ["You get", "A review, a call, written notes", "Design, copy and build, live", "Redesign, rewrite and launch"],
-    ["Example deliverables", ["Homepage and key pages review", "SEO and AI search check", "A prioritized fix list"], ["Landing pages", "Email flows", "Shopify sections", "SEO projects"], ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements"]],
-  ] as [string, ...(string | string[])[]][],
-  // Tips on row labels, by label
-  tableTips: { "Example deliverables": "Every project is scoped to what you need, so yours may differ from these examples." } as Record<string, string>,
+  // Labels inside each card
+  bestForLabel: "Best for",
+  deliverablesLabel: "Example deliverables",
+  deliverablesTip: "Every project is scoped to what you need, so yours may differ from these examples.",
 };
 
 // Blog posts. Each gets a page at /blog/<slug> (app/blog/[slug]); the homepage Scrapbook shows
