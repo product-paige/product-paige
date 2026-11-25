@@ -140,7 +140,7 @@ export function CapabilitiesShowcase() {
                       className={`flex w-full cursor-pointer items-center gap-3 px-4 text-left transition-colors duration-500 sm:px-6 lg:gap-4 lg:pr-10 lg:pl-10 ${on ? "pt-6 pb-3" : "py-6"}`}
                     >
                       {/* The service's line icon, in the title's colour: ink when closed, white in the blue open row */}
-                      <span aria-hidden className="grid size-12 shrink-0 place-items-center lg:size-14">
+                      <span aria-hidden className="shrink-0">
                         {icons[i % icons.length]}
                       </span>
                       <span className={`${itemTitle} flex-1 leading-tight`}>{ph.title}</span>
@@ -153,7 +153,7 @@ export function CapabilitiesShowcase() {
                   {/* The line and pills slide open under the service (grid rows 0fr to 1fr) */}
                   <div id={`${id}-${i}`} role="region" inert={!on} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
-                      <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+3.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
+                      <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+2.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
                         <p className="copy max-w-xl text-white/80">{ph.body}</p>
                         {/* One row of pills: any that don’t fit on it wrap below and are cut off */}
                         <ul className="mt-3 flex h-[30px] flex-wrap gap-2 overflow-hidden">
