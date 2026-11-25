@@ -2,7 +2,7 @@
 
 import { approachPage, services, type Shot } from "@/content";
 import { useId, useState } from "react";
-import { Chip, Eyebrow, Reveal } from "./ui";
+import { Chip, Eyebrow, Reveal, itemTitle } from "./ui";
 
 // A thin line icon for each service, in turn: a browser window (design), a speech bubble
 // (positioning and messaging), a cursor (UX and conversion), a megaphone (content and campaigns)
@@ -143,7 +143,7 @@ export function CapabilitiesShowcase() {
                       <span aria-hidden className={`grid size-12 shrink-0 place-items-center rounded-ui transition-colors duration-500 lg:size-14 ${on ? "bg-white/15 text-white" : "text-ink/50"}`}>
                         {icons[i % icons.length]}
                       </span>
-                      <span className="serif flex-1 text-[clamp(26px,2.5vw,36px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
+                      <span className={`${itemTitle} flex-1 leading-tight`}>{ph.title}</span>
                       {/* A plus that turns into a cross when open */}
                       <svg aria-hidden viewBox="0 0 24 24" className={`size-6 shrink-0 lg:size-7 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${on ? "rotate-45" : ""}`} fill="none" stroke="currentColor" strokeWidth="0.75" strokeLinecap="round">
                         <path d="M12 4v16M4 12h16" />

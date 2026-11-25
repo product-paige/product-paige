@@ -1,5 +1,5 @@
 import { offers, site } from "@/content";
-import { Button, Container, Eyebrow, Reveal, ScribbleBullet, section, sectionHeading } from "./ui";
+import { Button, Container, Eyebrow, Reveal, ScribbleBullet, itemTitle, section, sectionHeading } from "./ui";
 
 /**
  * Services (#services): the heading, then the three offers as cards: the name, the price and time
@@ -19,7 +19,7 @@ export function Services() {
           {offers.items.map((o, i) => (
             <Reveal key={o.name} delay={i * 100} className={`flex flex-col border p-6 lg:p-8 ${i === 1 ? "border-accent bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/75" : "border-line bg-paper"}`}>
               {/* The name, then the price and the time on one line */}
-              <p className="serif text-[clamp(22px,2vw,28px)] leading-none tracking-[-0.03em]">{o.name}</p>
+              <p className={`${itemTitle} leading-none`}>{o.name}</p>
               <p className="mono mt-4">{o.price}<span className="text-muted"> · {o.time}</span></p>
               <p className="mt-6">{o.body}</p>
               <ul className="mt-6 space-y-2.5">

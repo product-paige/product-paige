@@ -3,7 +3,7 @@
 import { projects, type Project } from "@/content";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Cover } from "./Cover";
-import { Chip, Container, Eyebrow, Reveal } from "./ui";
+import { Chip, Container, Eyebrow, Reveal, itemTitle } from "./ui";
 
 // A colour block behind each project's browser window, in turn: warm paper, off-black, the blue
 const grounds = [
@@ -129,7 +129,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
                 <span className="mt-4 flex flex-wrap items-center justify-between gap-x-8 gap-y-1">
                   {/* The name, larger, with a round arrow on projects that have a page */}
                   <span className="flex items-center gap-3">
-                    <span className="serif text-[clamp(26px,2.4vw,34px)] leading-[1.1] tracking-[-0.03em]">{p.client}</span>
+                    <span className={`${itemTitle} leading-[1.1]`}>{p.client}</span>
                     {!p.comingSoon && (
                       <span aria-hidden className="grid size-8 shrink-0 place-items-center rounded-full border border-line transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-white">
                         <svg viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
