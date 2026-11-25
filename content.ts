@@ -187,7 +187,7 @@ export const offers = {
       name: "Ask Paige",
       price: "$300 flat",
       time: "3 hours",
-      body: "Send the page or the question. We talk it through, you get written notes.",
+      body: "Pick my brain about your store. You get honest notes, I get to be nosy.",
       points: ["Homepage and key pages review", "SEO and AI search check", "A prioritized fix list"],
       button: "Ask Paige",
       interest: "Ask Paige, $300 call",

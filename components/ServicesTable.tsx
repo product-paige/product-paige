@@ -41,7 +41,7 @@ export function ServicesTable() {
         onClick={() => setPicked(i)}
         className={`group/tab relative z-1 -mb-px flex cursor-pointer items-stretch transition-colors ${on ? "text-white" : "hover:text-accent"}`}
       >
-        <span className={`serif border-t border-l px-5 pt-3 pb-2.5 text-[clamp(20px,1.6vw,24px)] leading-none tracking-[-0.03em] transition-colors ${on ? "border-accent bg-accent" : "border-line bg-sheet"}`}>{o.name}</span>
+        <span className={`serif border-t border-l px-5 pt-3 pb-2.5 text-[clamp(18px,1.4vw,21px)] leading-none tracking-[-0.03em] transition-colors ${on ? "border-accent bg-accent" : "border-line bg-sheet"}`}>{o.name}</span>
         <svg aria-hidden viewBox="0 0 20 40" preserveAspectRatio="none" className={`w-5 shrink-0 self-stretch transition-colors ${on ? "fill-accent stroke-accent" : "fill-sheet stroke-line"}`}>
           <path d="M0 0H2L20 40H0Z" stroke="none" />
           <path d="M0 0.5H2L20 40" fill="none" strokeWidth="1" vectorEffect="non-scaling-stroke" />
