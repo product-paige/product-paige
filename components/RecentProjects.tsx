@@ -69,7 +69,7 @@ function Card({ p, children }: { p: Project; children: ReactNode }) {
 /**
  * Recent projects as a carousel in one row: big covers, two in view on desktop and one on phones,
  * snapping as you swipe or scroll sideways. Each is a colour block with the project in a browser window
- * (on hover, a phone showing it as a small storefront rises over it), its role in a blue pill top right, then the name large with a round arrow and
+ * (on hover, a phone showing it as a small storefront rises over it), a Coming soon label top right on unfinished ones, then the name large with a round arrow and
  * its one-line description. Previous and next buttons sit on the right of the heading.
  */
 export function RecentProjects({ className = "" }: { className?: string }) {
@@ -124,7 +124,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
               <Card p={p}>
                 <span className={`relative grid aspect-[4/3] place-items-center overflow-hidden ${grounds[i % grounds.length].tile}`}>
                   <BrowserWindow p={p} frame={grounds[i % grounds.length].frame} />
-                  {p.comingSoon ? <Chip className="absolute top-3 left-3 bg-paper text-ink">{projects.comingSoonLabel}</Chip> : <PhoneMockup p={p} />}
+                  {p.comingSoon ? <Chip className="absolute top-3 right-3 bg-paper text-ink">{projects.comingSoonLabel}</Chip> : <PhoneMockup p={p} />}
                 </span>
                 <span className="mt-4 flex flex-wrap items-center justify-between gap-x-8 gap-y-1">
                   {/* The name, larger, with a round arrow on projects that have a page */}
@@ -137,7 +137,6 @@ export function RecentProjects({ className = "" }: { className?: string }) {
                     )}
                   </span>
                   <span className="max-w-[24ch] text-[15px] leading-snug text-balance md:text-right">{p.excerpt}</span>
-                  {p.shows && <span className="mono w-full text-muted">{projects.showsLabel}: {p.shows}</span>}
                 </span>
               </Card>
             </li>
