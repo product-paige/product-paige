@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState, type ReactNode } from "react";
+import { sansTitle } from "./ui";
 
 /**
  * Accordion that slides each answer open and closed; the questions are mono eyebrows (or, with `plain`,
@@ -32,7 +33,7 @@ export function Faq({ items, plain = false, rows = false }: { items: { q: string
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className={`group/q flex w-full cursor-pointer items-center justify-between gap-6 text-left leading-[1.2] ${rows ? `px-4 pt-6 text-[17px] font-medium lg:text-[19px] tracking-[-0.01em] sm:px-6 lg:px-10 ${isOpen ? "pb-3" : "pb-6"}` : plain ? "py-4 text-[17px] font-medium tracking-[-0.01em]" : "mono py-3"}`}
+                className={`group/q flex w-full cursor-pointer items-center justify-between gap-6 text-left ${rows ? `${sansTitle} px-4 pt-6 sm:px-6 lg:px-10 ${isOpen ? "pb-3" : "pb-6"}` : plain ? `${sansTitle} py-4` : "mono py-3"}`}
               >
                 {/* The red dot shows only on the open row: it grows in and pushes the label over */}
                 <span className="flex items-center gap-3">
@@ -62,7 +63,7 @@ export function Faq({ items, plain = false, rows = false }: { items: { q: string
             >
               <div className="overflow-hidden" inert={!isOpen}>
                 <div
-                  className={`${rows ? "px-4 pb-6 text-[16px] text-muted sm:px-6 lg:px-10 lg:pr-24" : "max-w-xl pr-10 pb-4 text-[15px] leading-[1.5]"} transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+                  className={`${rows ? "copy px-4 pb-6 text-muted sm:px-6 lg:px-10 lg:pr-24" : "copy max-w-xl pr-10 pb-4"} transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
                 </div>

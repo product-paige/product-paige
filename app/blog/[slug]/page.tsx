@@ -47,7 +47,7 @@ function Block({ b, i }: { b: PostBlock; i: number }) {
         </blockquote>
       );
     case "callout":
-      return <Callout label={b.label} className="max-w-xl text-[16px]">{b.text}</Callout>;
+      return <Callout label={b.label} className="max-w-xl">{b.text}</Callout>;
     case "list":
       return (
         <ul className="space-y-2.5">
@@ -68,7 +68,7 @@ function Block({ b, i }: { b: PostBlock; i: number }) {
           ) : (
             <span className="grid aspect-[16/10] place-items-center border border-line bg-scrap text-muted">Image</span>
           )}
-          <figcaption className="mt-3 text-[14px] text-muted">{b.caption}</figcaption>
+          <figcaption className="small mt-3 text-muted">{b.caption}</figcaption>
         </figure>
       );
   }

@@ -21,10 +21,10 @@ export function Services() {
               {/* The name, then the price and the time on one line */}
               <p className={`${itemTitle} leading-none`}>{o.name}</p>
               <p className="mono mt-4">{o.price}<span className="text-muted"> · {o.time}</span></p>
-              <p className="mt-6">{o.body}</p>
+              <p className="copy mt-6">{o.body}</p>
               <ul className="mt-6 space-y-2.5">
                 {o.points.map((pt, j) => (
-                  <li key={pt} className="flex items-start gap-3 text-[15px] leading-snug"><ScribbleBullet variant={j} className="mt-px text-accent" />{pt}</li>
+                  <li key={pt} className="copy flex items-start gap-3"><ScribbleBullet variant={j} className="mt-px text-accent" />{pt}</li>
                 ))}
               </ul>
               <div className="mt-auto pt-10">

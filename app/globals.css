@@ -88,6 +88,19 @@
   @media (width >= 64rem) { font-size: 18px; }
 }
 
+/* Copy: card text, accordion text and descriptions. 15px on phones, 16px from desktop up. */
+@utility copy {
+  font-size: 15px;
+  line-height: 1.5;
+  @media (width >= 64rem) { font-size: 16px; }
+}
+
+/* Small: meta lines, captions and help text under fields. */
+@utility small {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 /* Label: pills, tags and small labels */
 @utility label {
   font-weight: 500;

@@ -136,7 +136,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
                       </span>
                     )}
                   </span>
-                  <span className="max-w-[24ch] text-[15px] leading-snug text-balance md:text-right">{p.excerpt}</span>
+                  <span className="copy max-w-[26ch] text-balance md:text-right">{p.excerpt}</span>
                 </span>
               </Card>
             </li>

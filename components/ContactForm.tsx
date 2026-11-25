@@ -159,10 +159,10 @@ export function ContactForm({ endpoint, email, presetInterest = "" }: { endpoint
         <Button type="submit" accent disabled={status === "sending" || tooBig}>
           {status === "sending" ? "Sending…" : contact.button}
         </Button>
-        <p className="text-[14px] text-muted">
+        <p className="small text-muted">
           {contact.emailLine} <a href={`mailto:${email}`} className="link">{email}</a>
         </p>
-        <p aria-live="polite" className="w-full text-[14px] text-muted empty:hidden">
+        <p aria-live="polite" className="small w-full text-muted empty:hidden">
           {status === "error" ? `That didn’t send. Please email ${email} instead.` : ""}
         </p>
       </div>

@@ -154,7 +154,7 @@ export function CapabilitiesShowcase() {
                   <div id={`${id}-${i}`} role="region" inert={!on} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
                       <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+3.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
-                        <p className="max-w-xl text-[15px] leading-[1.5] text-white/80">{ph.body}</p>
+                        <p className="copy max-w-xl text-white/80">{ph.body}</p>
                         {/* One row of pills: any that don’t fit on it wrap below and are cut off */}
                         <ul className="mt-3 flex h-[30px] flex-wrap gap-2 overflow-hidden">
                           {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:rgb(255_255_255/0.16)]">{c}</Chip></li>)}

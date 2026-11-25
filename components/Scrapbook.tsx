@@ -10,7 +10,7 @@ export function ScrapCard({ p }: { p: Post }) {
   return (
     <a href={`/blog/${p.slug}`} className="scrap loose-leaf folded tilt group">
       <div className="mb-5 flex items-center justify-between gap-3">
-        <time className="text-[14px] font-medium text-muted">{p.date}</time>
+        <time className="small font-medium text-muted">{p.date}</time>
         <Chip className="text-[13px] text-white [--color-chip:var(--color-accent)]">{p.tag}</Chip>
       </div>
       <span className="photo-grain block">
@@ -18,7 +18,7 @@ export function ScrapCard({ p }: { p: Post }) {
         <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
       </span>
       <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
-      <p className="mt-2 line-clamp-2">{p.excerpt}</p>
+      <p className="copy mt-2 line-clamp-2">{p.excerpt}</p>
     </a>
   );
 }

@@ -94,12 +94,13 @@ export const hero = {
 };
 
 export const about = {
+  // The small mono label above the heading
+  eyebrow: "Based in Kitchener, Ontario · Working remotely",
   heading: "Hi, I’m Paige, a founder turned Shopify designer",
   // Paragraphs under the heading, then a line for recruiters with the email
   body: [
     "I’ve bootstrapped two brands of my own, so I know what it’s like to be the founder, the designer and the customer support. I’m also the person who notices your checkout button says “Submit.”",
     "Now I help small Shopify brands and ecommerce software teams fix the stuff that quietly costs them sales.",
-    "Based in Kitchener, Ontario. Working remotely, mostly in Slack.",
   ],
   // A callout under the paragraphs, for recruiters
   hiring: { label: "Hiring?", text: "I’m open to the right full-time role. Say hi at" },

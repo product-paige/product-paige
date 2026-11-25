@@ -16,7 +16,7 @@ export default function FaqPage() {
       {/* The questions and answers, for search engines and AI assistants */}
       <JsonLd data={{ "@type": "FAQPage", mainEntity: faq.items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }} />
       <InfoPage current="faq" label={faq.label} heading={faq.heading} lede={faq.body}>
-        <Faq plain items={faq.items.map((f) => ({ q: f.q, a: <p className="max-w-[65ch] leading-relaxed">{f.a}</p> }))} />
+        <Faq plain items={faq.items.map((f) => ({ q: f.q, a: <p className="max-w-[65ch]">{f.a}</p> }))} />
       </InfoPage>
     </>
   );

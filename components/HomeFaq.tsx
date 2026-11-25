@@ -17,7 +17,7 @@ export function HomeFaq() {
           </Reveal>
         </div>
         <Reveal delay={100} className="border-t border-grid lg:border-t-0">
-          <Faq rows items={faq.items.map((f) => ({ q: f.q, a: <p className="max-w-[60ch] leading-relaxed">{f.a}</p> }))} />
+          <Faq rows items={faq.items.map((f) => ({ q: f.q, a: <p className="max-w-[60ch]">{f.a}</p> }))} />
         </Reveal>
       </div>
     </section>

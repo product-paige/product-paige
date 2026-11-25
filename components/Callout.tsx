@@ -8,7 +8,7 @@ import { SelectionHandles, selectionBlue } from "./ui";
  */
 export function Callout({ label, children, className = "" }: { label: string; children: ReactNode; className?: string }) {
   return (
-    <p className={`relative flex max-w-md items-start gap-3 px-4 py-3 text-[15px] leading-relaxed ${className}`} style={{ background: `color-mix(in srgb, ${selectionBlue} 8%, transparent)` }}>
+    <p className={`relative flex max-w-md items-start gap-3 px-4 py-3 copy ${className}`} style={{ background: `color-mix(in srgb, ${selectionBlue} 8%, transparent)` }}>
       <SelectionHandles className="inset-0" />
       <Asterisk className="live-star mt-1 size-4 shrink-0 text-accent" />
       <span><span className="mono mr-2 text-accent">{label}</span>{children}</span>

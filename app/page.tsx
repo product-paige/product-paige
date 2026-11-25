@@ -73,6 +73,7 @@ export default function Home() {
             {/* Left: the heading and copy, centred against the mat */}
             <div className="flex flex-col px-4 py-12 sm:px-6 lg:justify-center lg:py-16 lg:pr-12 lg:pl-10">
               <Reveal>
+                <Eyebrow>{about.eyebrow}</Eyebrow>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
               <Reveal delay={60} className="mt-5 max-w-2xl space-y-4">
