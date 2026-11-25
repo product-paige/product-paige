@@ -2,12 +2,12 @@
 
 import { approachPage, services, type Shot } from "@/content";
 import { useId, useState } from "react";
-import { Chip, Eyebrow, Reveal, itemTitle } from "./ui";
+import { Chip, Eyebrow, Reveal } from "./ui";
 
 // A thin line icon for each service, in turn: a browser window (design), a speech bubble
 // (positioning and messaging), a cursor (UX and conversion), a megaphone (content and campaigns)
 const icon = (d: string) => (
-  <svg viewBox="0 0 32 32" className="size-8 lg:size-10" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
+  <svg viewBox="0 0 32 32" className="size-7 lg:size-9" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
 );
 const icons = [
   icon("M4 7h24v18H4zM4 11h24M7 9h.01M9.5 9h.01M12 9h.01"),
@@ -143,7 +143,7 @@ export function CapabilitiesShowcase() {
                       <span aria-hidden className="shrink-0">
                         {icons[i % icons.length]}
                       </span>
-                      <span className={`${itemTitle} flex-1 leading-tight`}>{ph.title}</span>
+                      <span className="serif flex-1 text-[clamp(22px,2vw,28px)] leading-tight tracking-[-0.03em]">{ph.title}</span>
                       {/* A plus that turns into a cross when open */}
                       <svg aria-hidden viewBox="0 0 24 24" className={`size-6 shrink-0 lg:size-7 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${on ? "rotate-45" : ""}`} fill="none" stroke="currentColor" strokeWidth="0.75" strokeLinecap="round">
                         <path d="M12 4v16M4 12h16" />
@@ -153,7 +153,7 @@ export function CapabilitiesShowcase() {
                   {/* The line and pills slide open under the service (grid rows 0fr to 1fr) */}
                   <div id={`${id}-${i}`} role="region" inert={!on} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
-                      <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+2.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
+                      <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+2.25rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
                         <p className="copy max-w-xl text-white/80">{ph.body}</p>
                         {/* One row of pills: any that don’t fit on it wrap below and are cut off */}
                         <ul className="mt-3 flex h-[30px] flex-wrap gap-2 overflow-hidden">
