@@ -24,8 +24,8 @@ const rows: { label: string; cell: (o: Offer) => ReactNode }[] = [
 /**
  * Services (#services): the offers side by side as a table. Each offer's name is a folder tab on top of its column;
  * clicking a tab picks that offer and turns its column the bright blue (Project to start). Rows for
- * price, time, what it is and what you get, in a grid of fine borders, with the row labels in the mono
- * and the buttons along the bottom. On phones each offer becomes its own block.
+ * price, timeline, what it is and what you get, in a grid of fine borders, with the row labels in the mono.
+ * One button to get in touch sits beside the heading. On phones each offer becomes its own block.
  */
 export function ServicesTable() {
   const [picked, setPicked] = useState(1);
@@ -40,16 +40,17 @@ export function ServicesTable() {
       {o.name}
     </button>
   );
-  const ButtonFor = ({ o, i }: { o: Offer; i: number }) => (
-    <Button href={site.bookingUrl} interest={o.interest} accent={picked !== i} light={picked === i}>{o.button}</Button>
-  );
 
   return (
     <section id="services" className={section}>
       <Container>
-        <Reveal className="max-w-3xl">
-          <Eyebrow>{offers.eyebrow}</Eyebrow>
-          <h2 className={sectionHeading}>{offers.offersHeading}</h2>
+        {/* The heading, with the one button to get in touch on the right */}
+        <Reveal className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <Eyebrow>{offers.eyebrow}</Eyebrow>
+            <h2 className={sectionHeading}>{offers.offersHeading}</h2>
+          </div>
+          <Button href={site.bookingUrl} accent>{offers.button}</Button>
         </Reveal>
 
         {/* Phones: each offer as its own block */}
@@ -64,7 +65,6 @@ export function ServicesTable() {
                     {r.cell(o)}
                   </div>
                 ))}
-                <div className="px-5 py-5"><ButtonFor o={o} i={i} /></div>
               </div>
             </div>
           ))}
@@ -78,19 +78,18 @@ export function ServicesTable() {
             {offers.items.map((o, i) => <span key={o.name} className="flex items-end"><Tab o={o} i={i} /></span>)}
           </div>
           <div className="grid grid-cols-[11.5rem_repeat(3,minmax(0,1fr))] overflow-hidden rounded-[10px] border border-line">
-            {rows.map((r) => (
-              <div key={r.label} className="contents">
-                <p className="mono border-b border-line px-5 py-5 text-muted lg:px-6">{r.label}</p>
-                {offers.items.map((o, i) => (
-                  <div key={o.name} className={`border-b border-l border-line px-5 py-5 transition-colors lg:px-6 ${tint(i)}`}>{r.cell(o)}</div>
-                ))}
-              </div>
-            ))}
-            {/* The buttons along the bottom */}
-            <span />
-            {offers.items.map((o, i) => (
-              <div key={o.name} className={`border-l border-line px-5 py-6 transition-colors lg:px-6 ${tint(i)}`}><ButtonFor o={o} i={i} /></div>
-            ))}
+            {rows.map((r, k) => {
+              // A line under every row but the last, which sits on the table's own border
+              const under = k < rows.length - 1 ? "border-b" : "";
+              return (
+                <div key={r.label} className="contents">
+                  <p className={`mono border-line px-5 py-5 text-muted lg:px-6 ${under}`}>{r.label}</p>
+                  {offers.items.map((o, i) => (
+                    <div key={o.name} className={`border-l border-line px-5 py-5 transition-colors lg:px-6 ${under} ${tint(i)}`}>{r.cell(o)}</div>
+                  ))}
+                </div>
+              );
+            })}
           </div>
         </Reveal>
       </Container>
