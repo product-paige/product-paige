@@ -2,7 +2,6 @@
 
 import { workingStyle } from "@/content";
 import { useEffect, useState } from "react";
-import { Asterisk } from "./EditorialHero";
 import { Eyebrow, Reveal, sectionHeading } from "./ui";
 
 type Shot = (typeof workingStyle.items)[number]["image"];
@@ -71,9 +70,9 @@ function ClaudeWindow() {
 }
 
 /**
- * Working style: the clouds photo with a picture for each principle filling the left half, and the eyebrow,
- * heading, intro and principles on the right. The picture shows the active principle: they take
- * turns every few seconds, and hovering or focusing one shows its picture (and pauses the turns).
+ * How I work: the clouds photo with a picture for each step filling the left half, and the eyebrow,
+ * heading, intro and the four numbered steps on the right. The picture shows the active step: they
+ * take turns every few seconds, and hovering or focusing one shows its picture (and pauses the turns).
  */
 export function WorkingStyle() {
   const [active, setActive] = useState(0);
@@ -89,7 +88,7 @@ export function WorkingStyle() {
   return (
     // The picture fills the left half between the inner rails, split from the text by a
     // full-height divider. The section's top rule still runs the full width.
-    <section id="working-style" className="border-t border-grid">
+    <section id="how-i-work" className="border-t border-grid">
       <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
         <Reveal className="@container relative z-1 aspect-square overflow-hidden border-grid bg-sky md:border-x lg:aspect-auto lg:min-h-[36rem] lg:border-l lg:border-r">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -122,9 +121,9 @@ export function WorkingStyle() {
                     onClick={() => setActive(i)}
                     className={`flex w-full cursor-pointer items-start gap-5 text-left ${i === count - 1 ? "pt-5" : "py-5"}`}
                   >
-                    {/* The active principle's square is the solid blue; the others a quiet grey */}
-                    <span aria-hidden className={`grid size-14 shrink-0 place-items-center rounded-ui transition-colors duration-700 ease-in-out ${on ? "bg-accent text-white" : "bg-ink/[0.06] text-ink/40"}`}>
-                      <Asterisk className="size-6" weight={2} />
+                    {/* The step's number in a square: the active step's is the solid blue, the others a quiet grey */}
+                    <span aria-hidden className={`serif grid size-14 shrink-0 place-items-center rounded-ui text-[22px] leading-none transition-colors duration-700 ease-in-out ${on ? "bg-accent text-white" : "bg-ink/[0.06] text-ink/50"}`}>
+                      {String(i + 1).padStart(2, "0")}
                     </span>
                     <span>
                       <span className="serif block text-[24px] leading-[1.15] tracking-[-0.02em]">{it.title}</span>

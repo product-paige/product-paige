@@ -93,19 +93,6 @@ export const hero = {
   ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; hover?: string; afterCart?: boolean }[],
 };
 
-// How I work: a line on building with Claude, the four steps, then three principles
-export const approach = {
-  eyebrow: "How I work",
-  heading: "Design, copy and code in the same pass",
-  body: "One person on design, copy and code, so there are no handoffs and less waiting.",
-  steps: [
-    { title: "Tell me what’s going on", body: "Send links, screenshots, a rant. The messier the better." },
-    { title: "We scope it", body: "A short call, then a written scope and a fixed price. Nothing starts until you say yes." },
-    { title: "I do the work", body: "In a shared Slack channel or an email thread. Calls only when they’re faster than typing." },
-    { title: "Handover", body: "Files, copy and templates are yours, so you don’t need me to change a button." },
-  ],
-};
-
 export const about = {
   heading: "Hi, I’m Paige, a founder turned Shopify designer",
   // Paragraphs under the heading, then a line for recruiters with the email
@@ -138,20 +125,21 @@ export const services = {
   description: "Design, copy and builds for Shopify stores that look right and sell.",
 };
 
-// The Working style section on the homepage: a picture on the left, three principles on the right.
+// How I work on the homepage: a picture on the left, the four steps on the right.
 export const workingStyle = {
-  eyebrow: "How I think",
+  eyebrow: "How I work",
   heading: "Keep it simple",
-  body: "Fast prototypes and clear decisions.",
+  body: "I build with Claude, so the slow parts get fast and you get my time on the decisions. Real pages in days, not a deck in weeks.",
   // Behind every picture
   background: "/blog/agent-blueprint.webp",
-  // Each principle has its own picture, which shows while it's the active one: a storefront
+  // The four steps, each with its own picture, which shows while it's the active one: a storefront
   // screen, framed as a browser window ("browser"), a floating card ("card"), or a card with a
   // Claude chat window working on it ("claude").
   items: [
-    { title: "Let AI do the heavy lifting", body: "I build with Claude. The slow parts get fast, and you get my time on the decisions.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "claude" } },
-    { title: "Move fast, learn early", body: "You see real pages in days, not a deck in weeks.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
-    { title: "Clear before pretty", body: "If people don’t get it in five seconds, the typography doesn’t matter.", image: { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" } },
+    { title: "Tell me what’s going on", body: "Send links, screenshots, a rant. The messier the better.", image: { src: "/hero/jewellery-banner-minimal.webp", width: 1359, height: 1406, frame: "card" } },
+    { title: "We scope it", body: "A short call, then a written scope and a fixed price. Nothing starts until you say yes.", image: { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" } },
+    { title: "I do the work", body: "In a shared Slack channel or an email thread. Calls only when they’re faster than typing.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "claude" } },
+    { title: "Handover", body: "Files, copy and templates are yours, so you don’t need me to change a button.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
   ] as { title: string; body: string; image: { src: string; width: number; height: number; frame: "browser" | "card" | "claude"; url?: string } }[],
 };
 

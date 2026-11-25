@@ -9,7 +9,6 @@ import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WorkingStyle } from "@/components/WorkingStyle";
 import { Services } from "@/components/Services";
-import { HowIWork } from "@/components/HowIWork";
 import { HomeFaq } from "@/components/HomeFaq";
 import {
   Container, Eyebrow, Reveal, Rich, SectionHead, section, sectionHeading,
@@ -108,13 +107,10 @@ export default function Home() {
 
 
 
-        {/* Working style: a picture per principle on the left, the principles on the right */}
+        {/* How I work: a picture per step on the left, the four steps on the right */}
         <WorkingStyle />
 
 
-
-        {/* How I work: the four steps */}
-        <HowIWork />
 
         {/* Services: the three offers */}
         <Services />
