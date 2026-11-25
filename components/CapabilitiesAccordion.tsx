@@ -50,7 +50,7 @@ export function CapabilitiesAccordion() {
                     aria-expanded={isOpen}
                     aria-controls={`${id}-${i}`}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className={`group flex w-full cursor-pointer items-center gap-6 px-4 pt-7 text-left transition-[background-color,padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 lg:gap-12 lg:px-10 lg:pt-9 ${isOpen ? "pb-3 lg:pb-3" : "pb-7 hover:bg-sheet lg:pb-9"}`}
+                    className={`group flex w-full cursor-pointer items-center gap-6 px-4 pt-5 text-left transition-[background-color,padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 lg:gap-12 lg:px-10 lg:pt-6 ${isOpen ? "pb-3 lg:pb-3" : "pb-5 hover:bg-sheet lg:pb-6"}`}
                   >
                     <span aria-hidden className={`grid size-12 shrink-0 place-items-center rounded-ui transition-colors duration-500 lg:size-14 ${isOpen ? "bg-accent text-white" : "bg-ink/[0.06]"}`}>{icons[i % icons.length]}</span>
                     <span className="serif flex-1 text-[clamp(22px,2.2vw,32px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
@@ -63,7 +63,7 @@ export function CapabilitiesAccordion() {
                 {/* The panel: its height animates open and closed (grid rows 0fr to 1fr), the content fading in */}
                 <div id={`${id}-${i}`} role="region" aria-hidden={!isOpen} inert={!isOpen} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                   <div className="overflow-hidden">
-                    <div className={`px-4 pb-8 transition-opacity duration-500 sm:px-6 lg:pr-10 lg:pb-9 lg:pl-[calc(2.5rem+3.5rem+3rem)] ${isOpen ? "opacity-100" : "opacity-0"}`}>
+                    <div className={`px-4 pb-6 transition-opacity duration-500 sm:px-6 lg:pr-10 lg:pb-7 lg:pl-[calc(2.5rem+3.5rem+3rem)] ${isOpen ? "opacity-100" : "opacity-0"}`}>
                       <p className="max-w-[52ch] text-[16px] leading-relaxed text-muted">{ph.body}</p>
                       <ul className="mt-4 flex flex-wrap gap-2">
                         {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:var(--color-accent)]">{c}</Chip></li>)}
