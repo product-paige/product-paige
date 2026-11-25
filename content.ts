@@ -180,17 +180,14 @@ export const offers = {
   eyebrow: "Services",
   button: "Let’s talk",
   offersHeading: "Ways to work together",
-  // Each card: its name, price (with a tip) and time, one line, three short points,
-  // and example deliverables behind a dropdown
+  // Each card: its name, price and time, one line and three short points
   items: [
     {
       name: "Ask Paige",
       price: "$300 flat",
-      time: "Booked within a few days",
+      time: "3 hours",
       body: "Send me the page or the question. We talk it through, and you get written notes.",
       points: ["A review of what you send", "Notes ranked by what to fix first", "Honest advice if you don’t need me"],
-      tip: "3 hours in total. Book a project within 30 days and the $300 counts toward it.",
-      deliverables: ["Homepage and key pages review", "SEO and AI search check", "A prioritized fix list"],
       button: "Ask Paige",
       interest: "Ask Paige, $300 call",
     },
@@ -200,8 +197,6 @@ export const offers = {
       time: "1 to 2 weeks",
       body: "One piece of work with a fixed price and a finish line, scoped before it starts.",
       points: ["Design, copy and build, by me", "Live, not a mockup", "Files and templates handed over"],
-      tip: "Priced by scope and brand size.",
-      deliverables: ["Landing pages", "Email flows", "Shopify sections", "SEO projects", "Campaigns"],
       button: "Start a project",
       interest: "Project, from $750",
     },
@@ -209,17 +204,12 @@ export const offers = {
       name: "Refresh",
       price: "From $2,500",
       time: "3 to 4 weeks",
-      body: "A full or partial website refresh: your whole site or key pages, redone and live.",
+      body: "Your whole site, or just the homepage, product and collection pages, redone and live.",
       points: ["A review of what’s costing you sales", "New structure, messaging and copy", "Built, launched and handed over"],
-      tip: "Refresh everything, or start with the homepage, product and collection pages.",
-      deliverables: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements", "Design files and templates"],
       button: "Plan a refresh",
       interest: "Refresh, from $2,500",
     },
-  ] as { name: string; price: string; time: string; body: string; points: string[]; tip: string; deliverables: string[]; button: string; interest: string }[],
-  // Labels inside each card
-  deliverablesLabel: "Example deliverables",
-  deliverablesTip: "Every project is scoped to what you need, so yours may differ from these examples.",
+  ] as { name: string; price: string; time: string; body: string; points: string[]; button: string; interest: string }[],
 };
 
 // Blog posts. Each gets a page at /blog/<slug> (app/blog/[slug]); the homepage Scrapbook shows
