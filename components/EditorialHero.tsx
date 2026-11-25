@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { hero, site } from "@/content";
 import { CartMockup } from "./Mockups";
-import { Chip, Container, SelectionHandles, selectionBlue } from "./ui";
+import { Button, Chip, Container, SelectionHandles, selectionBlue } from "./ui";
 
 /**
  * A headline line with any {word} drawn selected, as in a design tool. On load a cursor drags a
@@ -73,6 +73,11 @@ export function EditorialHero() {
 
         {/* Intro, in Manrope regular, 19px on desktop */}
         <p className="mt-6 max-w-3xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-8 lg:text-[19px]">{hero.lede}</p>
+        {/* The main button, which opens the contact form, and a text link down to the services */}
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 lg:mt-8">
+          <Button href={site.bookingUrl} accent>{hero.cta.label}</Button>
+          <a href={hero.cta.link.href} className="link">{hero.cta.link.label}</a>
+        </div>
 
         {/* Storefront screens: a row of framed shots, each with a dark label. On desktop it's a grid
             whose columns are as wide as each screen's shape (width / height), so all four come out

@@ -61,9 +61,12 @@ export function Button({
   arrow = "up-right",
   type = "button",
   disabled,
+  interest,
   children,
 }: {
   href?: string;
+  /** For a link to the contact form: the "Interested in" option it picks (see ContactDrawer). */
+  interest?: string;
   light?: boolean;
   /** The main call to action, in the accent red. */
   accent?: boolean;
@@ -81,7 +84,7 @@ export function Button({
     </>
   );
   return href ? (
-    <a href={href} className={className}>{inner}</a>
+    <a href={href} data-interest={interest} className={className}>{inner}</a>
   ) : (
     <button type={type} disabled={disabled} className={className}>{inner}</button>
   );

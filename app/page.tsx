@@ -8,7 +8,9 @@ import { CapabilitiesAccordion } from "@/components/CapabilitiesAccordion";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WorkingStyle } from "@/components/WorkingStyle";
-import { PricingTable } from "@/components/PricingTable";
+import { Services } from "@/components/Services";
+import { HowIWork } from "@/components/HowIWork";
+import { HomeFaq } from "@/components/HomeFaq";
 import {
   Container, Eyebrow, Reveal, Rich, SectionHead, section, sectionHeading,
 } from "@/components/ui";
@@ -75,7 +77,10 @@ export default function Home() {
               <Reveal>
                 <h2 className={sectionHeading}><Rich text={about.heading} /></h2>
               </Reveal>
-              <Reveal as="p" delay={60} className="lede mt-5 max-w-2xl">{about.body}</Reveal>
+              <Reveal delay={60} className="mt-5 max-w-2xl space-y-4">
+                {about.body.map((para) => <p key={para} className="lede">{para}</p>)}
+                <p className="lede text-muted">{about.hiring} <a href={`mailto:${site.email}`} className="link">{site.email}</a>.</p>
+              </Reveal>
               {/* Who I work with (AudienceList) is off the page for now */}
             </div>
 
@@ -102,12 +107,16 @@ export default function Home() {
         {/* Working style: a picture per principle on the left, the principles on the right */}
         <WorkingStyle />
 
-        {/* My process (approach in content.ts) is off the page for now */}
 
 
-        {/* Ways to work together: the starting points and prices as a tabbed table, beside the button to get
-            in touch */}
-        <PricingTable />
+        {/* Services: who it's for, the fit check, the three offers and the comparison table */}
+        <Services />
+
+        {/* How I work: the steps and principles */}
+        <HowIWork />
+
+        {/* Questions I get asked */}
+        <HomeFaq />
 
         {/* Blog */}
         <Scrapbook className={section} />

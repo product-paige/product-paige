@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { PostToc } from "@/components/PostToc";
 import { ScrapCard } from "@/components/Scrapbook";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { Container, Reveal, Rich, ScribbleBullet, section, sectionHeading } from "@/components/ui";
+import { Button, Container, Reveal, Rich, ScribbleBullet, section, sectionHeading } from "@/components/ui";
 
 type Params = { slug: string };
 
@@ -136,6 +136,13 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
               <div className="max-w-[680px] space-y-6 text-[17px] leading-[1.65] lg:text-[18px]">
                 {body.map((b, i) => <Block key={i} b={b} i={i} />)}
               </div>
+              {/* The closing line and a button to the offer it points at */}
+              {p.cta && (
+                <div className="mt-12 flex max-w-[680px] flex-wrap items-center justify-between gap-5 border-t border-grid pt-8">
+                  <p className="serif text-[clamp(22px,2vw,28px)] leading-[1.2] tracking-[-0.03em]">{p.cta.line}</p>
+                  <Button href={site.bookingUrl} interest={p.cta.interest} accent>{p.cta.button}</Button>
+                </div>
+              )}
             </div>
           </section>
         </article>

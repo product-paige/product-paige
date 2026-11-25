@@ -8,10 +8,13 @@ import { Asterisk } from "./EditorialHero";
 /**
  * The contact form in a paper drawer that slides in from the right over a dimmed page.
  * Any link to #contact opens it (every "Let’s talk" button), and so does arriving on
- * /#contact. Closes on the cross, a click on the dimmed page or Escape, and hands focus back.
+ * /#contact. A link with data-interest (an offer's button) opens it with that offer picked.
+ * Closes on the cross, a click on the dimmed page or Escape, and hands focus back.
  */
 export function ContactDrawer() {
   const [open, setOpen] = useState(false);
+  // The offer a button asked for (its data-interest), to start the form on; changing it starts a fresh form
+  const [preset, setPreset] = useState("");
   const closeRef = useRef<HTMLButtonElement>(null);
   const opener = useRef<HTMLElement | null>(null);
 
@@ -30,6 +33,8 @@ export function ContactDrawer() {
       if (url.hash !== "#contact") return;
       e.preventDefault();
       opener.current = a as HTMLElement;
+      const wanted = (a as HTMLElement).dataset.interest;
+      if (wanted) setPreset(wanted);
       setOpen(true);
     };
     if (location.hash === "#contact") setOpen(true);
@@ -77,7 +82,7 @@ export function ContactDrawer() {
           <h2 id="contact-heading" className="serif mt-6 text-[clamp(31px,3.7vw,44px)] leading-[1.05] tracking-[-0.04em] text-balance">{contact.heading}</h2>
           <p className="mt-4 max-w-md">{contact.body}</p>
           <div className="mt-6">
-            <ContactForm endpoint={site.formEndpoint} email={site.email} deadlines={contact.deadlines} interests={contact.interests} messageLabel={contact.messageLabel} messagePlaceholder={contact.messagePlaceholder} success={contact.success} />
+            <ContactForm key={preset} endpoint={site.formEndpoint} email={site.email} presetInterest={preset} />
           </div>
         </div>
       </aside>

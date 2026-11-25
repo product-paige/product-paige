@@ -6,6 +6,7 @@ import type { Post } from "./content";
 export const posts: Post[] = [
   {
     slug: "how-to-make-your-design-not-look-ai-generated",
+    cta: { line: "Want me to look at yours? That’s what Ask Paige is for.", button: "Ask Paige", interest: "Ask Paige, $300 call" },
     title: "How to make your design not look AI-generated",
     excerpt: "The tells that make a site look generated, and how to fix them before customers notice.",
     standfirst: "Fix your website, product, or app’s visual design (before someone notices). The tells that make a design look generated, and what to change first.",
@@ -41,6 +42,7 @@ export const posts: Post[] = [
   },
   {
     slug: "how-ai-generated-design-will-shape-future-trends",
+    cta: { line: "Still looking like everyone else’s store? A refresh fixes that.", button: "Plan a refresh", interest: "Refresh, from $2,500" },
     title: "How AI-generated design will shape future trends",
     excerpt: "When anyone can make a polished site in an afternoon, polish stops being the point.",
     standfirst: "When anyone can make a polished site in an afternoon, polish stops being the point. What that means for how brands will look over the next few years.",
@@ -141,6 +143,7 @@ export const posts: Post[] = [
   },
   {
     slug: "why-are-all-logos-geometric-shapes",
+    cta: { line: "Rethinking how your brand looks? Scope a project.", button: "Start a project", interest: "Project, from $750" },
     title: "Why are all logos now geometric shapes?",
     excerpt: "Circles, blocks and simple marks are everywhere. Here’s why, and how to make one yours.",
     standfirst: "Circles, blocks and simple marks are everywhere. Why so many brands land on geometric logos, and how to make a simple shape feel like yours.",

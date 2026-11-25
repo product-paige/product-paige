@@ -117,6 +117,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
             })}
           </div>
         </Reveal>
+        <Reveal as="p" className="lede mb-8 max-w-xl lg:mb-10">{projects.intro}</Reveal>
         {/* Bottom padding: the row scrolls sideways, which clips anything below its edge (descenders) */}
         <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto md:gap-10 scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
           {projects.items.map((p, i) => (
@@ -138,6 +139,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
                     )}
                   </span>
                   <span className="max-w-[24ch] text-[15px] leading-snug text-balance md:text-right">{p.excerpt}</span>
+                  {p.shows && <span className="mono w-full text-muted">{projects.showsLabel}: {p.shows}</span>}
                 </span>
               </Card>
             </li>

@@ -12,7 +12,7 @@ import { site } from "@/content";
  *   CONTACT_TO      where enquiries go (CONTACT_TO_EMAIL also works; defaults to the site's email)
  */
 
-const limits = { name: 200, email: 320, website: 500, deadline: 100, interest: 100, message: 5000 } as const;
+const limits = { role: 100, name: 200, email: 320, company: 200, website: 500, deadline: 100, interest: 100, team: 50, sales: 50, message: 5000 } as const;
 type Field = keyof typeof limits;
 
 const escape = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
@@ -26,10 +26,10 @@ export async function POST(request: Request) {
   }
 
   // A hidden field people never see; bots fill it in. Pretend it worked and send nothing.
-  if (String(data.get("company") ?? "").trim()) return Response.json({ ok: true });
+  if (String(data.get("nickname") ?? "").trim()) return Response.json({ ok: true });
 
   const get = (k: Field) => String(data.get(k) ?? "").trim().slice(0, limits[k]);
-  const f = { name: get("name"), email: get("email"), website: get("website"), deadline: get("deadline"), interest: get("interest"), message: get("message") };
+  const f = { role: get("role"), name: get("name"), email: get("email"), company: get("company"), website: get("website"), deadline: get("deadline"), interest: get("interest"), team: get("team"), sales: get("sales"), message: get("message") };
   if (!f.name || !f.message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) {
     return Response.json({ error: "Please fill in your name, a valid email and a message." }, { status: 422 });
   }
@@ -45,15 +45,23 @@ export async function POST(request: Request) {
   const host = f.website.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
   const urgent = /urgent/i.test(f.deadline);
   // "A scoped project" → "Scoped project"
-  const topic = f.interest && f.interest !== "Not sure yet" ? f.interest.replace(/^an? /i, "").replace(/^./, (c) => c.toUpperCase()) : "";
-  const subject = `${urgent ? "Urgent: " : ""}${topic ? `${topic} enquiry` : "New enquiry"} from ${f.name}${host ? ` (${host})` : ""}`;
+  const hiring = /hiring/i.test(f.role);
+  // "Project, from $750" → "Project"
+  const topic = f.interest && f.interest !== "Not sure yet" ? f.interest.split(",")[0].replace(/^an? /i, "").replace(/^./, (c) => c.toUpperCase()) : "";
+  const subject = hiring
+    ? `Hiring enquiry from ${f.name}${f.company ? ` (${f.company})` : ""}`
+    : `${urgent ? "Urgent: " : ""}${topic ? `${topic} enquiry` : "New enquiry"} from ${f.name}${host ? ` (${host})` : f.company ? ` (${f.company})` : ""}`;
 
   const rows: [string, string, string?][] = [
     ["Name", f.name],
     ["Email", f.email, `mailto:${f.email}`],
+    ["They are", f.role],
+    ["Company", f.company],
     ["Website", host, f.website && (/^https?:\/\//.test(f.website) ? f.website : `https://${f.website}`)],
     ["Interested in", f.interest],
     ["Deadline", f.deadline],
+    ["Team size", f.team],
+    ["Monthly sales", f.sales],
   ];
   const filled = rows.filter(([, v]) => v);
   const footer = `Reply to this email to answer ${f.name} directly. Sent from the contact form on ${site.url.replace(/^https:\/\//, "")}.`;

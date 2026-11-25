@@ -56,9 +56,9 @@ export const site = {
   // Shown in the dark announcement bar at the top. Leave empty to hide the bar.
   availability: "Booking for December ’26",
   // The title and description search results and link previews show for the home page
-  seoTitle: "Product Paige — Shopify design and product marketing by Paige Eaton",
+  seoTitle: "Shopify design and ecommerce marketing | Product Paige",
   metaDescription:
-    "I’m Paige Eaton, a Shopify designer with 13 years on the platform. I fix and refresh stores for founders who want one person on it, not an agency.",
+    "Web design, content and lifecycle for small Shopify brands and ecommerce software teams. Start with a $300 call or scope a project.",
 };
 
 // An accent underline marks the menu item whose section is on screen.
@@ -77,9 +77,11 @@ export const nav = [
 export const hero = {
   // The headline, one phrase per line.
   // A word in {braces} is drawn selected, with a selection box and handles.
-  heading: ["Product marketing, {design}", "& AI builds for Shopify"],
+  heading: ["Shopify {design} and marketing,", "from one person"],
   lede:
-    "I’ve spent 13 years building on Shopify. Now I fix and refresh stores for founders who want one person on it, not an agency.",
+    "13 years on Shopify. I fix, rewrite and rebuild stores and ecommerce software sites for small teams who want one person, not an agency.",
+  // Under the intro: the main button (opens the contact form) and a text link to the services
+  cta: { label: "Let’s talk", link: { label: "See how I work", href: "#services" } },
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
   // `tag` (optional) replaces the label in the caption under the screen; `hover` (optional)
   // is a second image, the same size, that fades in on hover, as on a real product card. `afterCart`
@@ -91,21 +93,33 @@ export const hero = {
   ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; hover?: string; afterCart?: boolean }[],
 };
 
+// How I work: a line on building with Claude, the four steps, then three principles
 export const approach = {
-  heading: "My process",
-  body:
-    "A fixed price in writing before any work starts, then async work with as few calls as possible.",
+  eyebrow: "How I work",
+  heading: "Design, copy and code in the same pass",
+  body: "I build with Claude, so design, copy and code happen in the same pass instead of three handoffs. Fewer people, less waiting, more shipped.",
   steps: [
-    { art: art.mailbox, title: "You send it over", body: "A link to your site and a screenshot of what’s bothering you. Whatever you have is enough to start." },
-    { art: art.receipt, title: "I come back with a price", body: "A fixed price, what’s included and how long it takes, in writing. A short call only if needed." },
-    { art: art.laptop, title: "The work", body: "Async by default, with one live session. Calls only when they’d be faster than writing it down." },
-    { art: art.parcel, title: "Handover", body: "Design files, copy, code and your theme, all handed over so you can keep going without me." },
+    { title: "Tell me what’s going on", body: "Send links, screenshots, a rant. The messier the better." },
+    { title: "We scope it", body: "A short call, then a written scope and a fixed price. Nothing starts until you say yes." },
+    { title: "I do the work", body: "In a shared Slack channel or an email thread. Calls only when they’re faster than typing." },
+    { title: "Handover", body: "Files, copy and templates are yours, so you don’t need me to change a button." },
+  ],
+  principles: [
+    { title: "Async by default", body: "Your team works on its own time. So do I." },
+    { title: "One person, start to finish", body: "The person who scopes it is the person who does it. Nothing gets passed to a junior after you sign." },
+    { title: "You own everything", body: "Figma files, copy, code and templates." },
   ],
 };
 
 export const about = {
   heading: "Hi, I’m Paige, a founder turned Shopify designer",
-  body: "I’ve bootstrapped two brands of my own, so I know your side of it, including how far a small budget has to stretch. I care about the details most people skip, like product data and the copy on a checkout button. And I still design whenever I can, online or off.",
+  // Paragraphs under the heading, then a line for recruiters with the email
+  body: [
+    "I’ve spent 13 years building on Shopify, and I’ve bootstrapped two brands of my own, so I know what it’s like to be the founder, the designer and the customer support. I’m also the person who notices your checkout button says “Submit.”",
+    "Now I help small Shopify brands and ecommerce software teams fix the stuff that quietly costs them sales. One person, start to finish. No account managers.",
+    "Based in Kitchener, Ontario. Working remotely, mostly in Slack.",
+  ],
+  hiring: "Hiring? I’m open to the right full-time role. Say hi at",
   // Tool logos stuck to the photo panel.
   tools: [
     { name: "Shopify", logo: "/logos/shopify-glyph.svg", file: "shopify.app" },
@@ -126,11 +140,13 @@ export const services = {
   // The section heading beside the list, and a line under it
   title: "Capabilities",
   description: "Design, copy and builds for Shopify stores that look right and sell.",
+  // Under the list
+  footnote: "Any of it can be a Project, or part of a Refresh.",
 };
 
 // The Working style section on the homepage: a picture on the left, three principles on the right.
 export const workingStyle = {
-  eyebrow: "Working style",
+  eyebrow: "How I think",
   heading: "Keep it simple",
   body: "Fast prototypes and clear decisions. Claude does the repetitive work, so my time goes on the parts that need a person.",
   // Behind every picture
@@ -139,9 +155,9 @@ export const workingStyle = {
   // screen, framed as a browser window ("browser"), a floating card ("card"), or a card with a
   // Claude chat window working on it ("claude").
   items: [
-    { title: "Let AI do the heavy lifting", body: "Claude Code and Shopify Sidekick handle the setup. I review every line.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "claude" } },
-    { title: "Move fast, learn early", body: "Get a simple version live quickly, then adjust to what’s real.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
-    { title: "Make it clear before pretty", body: "Nail the structure and flow first, then polish what matters.", image: { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" } },
+    { title: "Let AI do the heavy lifting", body: "I build with Claude. The slow parts get fast, and you get my time on the decisions.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "claude" } },
+    { title: "Move fast, learn early", body: "You see real pages in days, not a deck in weeks.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
+    { title: "Clear before pretty", body: "If people don’t get it in five seconds, the typography doesn’t matter.", image: { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" } },
   ] as { title: string; body: string; image: { src: string; width: number; height: number; frame: "browser" | "card" | "claude"; url?: string } }[],
 };
 
@@ -165,49 +181,69 @@ export const audiences = {
 };
 
 
-export const models = {
-  heading: "Ways to work together",
-  // Set pricePlaceholder to true to fade the prices.
-  pricePlaceholder: false,
-  currency: "USD",
-  // The table's row labels; a row with a tip gets an (i) beside its last word that shows it
-  rows: {
-    startingAt: { label: "Starting at", tip: "A guide for typical scope. You’ll get a fixed quote in writing before any work starts." },
-    deliverables: { label: "Example deliverables", tip: "Every project is scoped to your needs, so your deliverables may differ from these examples." },
+// The Services section (#services): who it's for and a fit check, the three offers as cards, then a
+// comparison table. Each offer's `interest` is the option its button picks in the contact form.
+export const offers = {
+  eyebrow: "Services",
+  heading: "Clearer pages, more sales",
+  intro: "Web design, content and lifecycle for small Shopify brands and ecommerce software teams. One person, start to finish.",
+  button: "Let’s talk",
+  fit: {
+    heading: "Is this you?",
+    good: {
+      label: "Good fit",
+      items: [
+        "You run a Shopify brand with under 15 people and $10K+ a month in sales.",
+        "Or you build software for Shopify merchants, with a team of up to 30.",
+        "Something is off on your site, emails or product pages, and you want it fixed, not discussed for six weeks.",
+      ],
+    },
+    not: {
+      label: "Probably not",
+      items: [
+        "You’re on Shopify Plus or have a big in-house team. You already have people for this.",
+        "You haven’t launched yet, or there’s no budget. Come back when money is moving.",
+        "You want a monthly retainer. I scope by project, which is cleaner for both of us.",
+      ],
+    },
   },
-  // Smallest to biggest, left to right. Each card: its category, its name, one line, what's
-  // included (short), its starting price and how long it takes.
-  // To confirm: the refresh and one-off prices and timelines are placeholders.
+  hiring: "Hiring? I’m also open to the right full-time role. Recruiters and hiring managers: say hi at",
+  offersHeading: "Three ways to work with me",
+  offersIntro: "From a quick call to a full rebuild. No retainers. If you need more later, we scope the next thing. Pick the size of help you need. Not sure? Start with the call.",
   items: [
     {
-      tag: "Review",
-      title: "Ask Paige",
-      body: "A focused review of your store or app, with a written list of priorities.",
-      points: ["Homepage and key pages", "SEO and AI search review", "Prioritized recommendations"],
-      price: "$300",
-      per: "/ session",
-      timeline: "Booked within a few days",
+      name: "Ask Paige",
+      meta: "$300 flat · 3 hours total · booked within a few days",
+      body: "Stuck on something? Send me the page, the question or the mess. I review it, we talk it through, and you get written notes.",
+      points: ["An hour of me reviewing what you send", "A live call to work through it", "Written notes after, ranked by what to fix first", "An honest answer if you don’t need me"],
+      note: "Book a project within 30 days and the $300 counts toward it.",
+      button: "Ask Paige",
+      interest: "Ask Paige, $300 call",
     },
     {
-      tag: "Project",
-      title: "Scoped project",
-      body: "A single, well-defined piece of work, delivered on an agreed timeline.",
-      points: ["Email flows", "Landing pages", "Content and copy"],
-      price: "$750",
-      per: "/ project",
-      timeline: "Delivered in 1 to 2 weeks",
-      // The table opens with this one highlighted
-      featured: true,
+      name: "Project",
+      meta: "From $750 · one to two weeks · priced by scope and brand size",
+      body: "One piece of work with a fixed price and a finish line. Landing pages, email flows, Shopify sections, SEO projects, campaigns.",
+      points: ["Written scope and price before anything starts", "Design, copy and build in the same pass, by me", "Live, not a mockup", "Files and templates handed over"],
+      button: "Start a project",
+      interest: "Project, from $750",
     },
     {
-      tag: "Refresh",
-      title: "Store refresh",
-      body: "Your theme and key pages, redesigned and rewritten.",
-      points: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements"],
-      price: "$2,500",
-      per: "/ project",
-      timeline: "Delivered in 3 to 4 weeks",
+      name: "Refresh",
+      meta: "From $2,500 · three to four weeks",
+      body: "Your store or site, redesigned, rewritten and taken live. For brands that outgrew their theme and software sites that don’t explain the product yet.",
+      points: ["A review of what’s live and what’s costing you", "New structure, messaging and copy", "Built and launched, not handed over as a plan", "Design files and templates your team can reuse"],
+      button: "Plan a refresh",
+      interest: "Refresh, from $2,500",
     },
+  ] as { name: string; meta: string; body: string; points: string[]; note?: string; button: string; interest: string }[],
+  footnote: "Not sure which one? Pick Ask Paige. Worst case, you leave with a plan.",
+  // The comparison table: a row label, then one cell per offer, in the same order
+  table: [
+    ["Price", "$300 flat", "From $750", "From $2,500"],
+    ["Timeline", "Booked within a few days", "1 to 2 weeks", "3 to 4 weeks"],
+    ["Best for", "One stuck question", "One defined piece of work", "A whole store or site"],
+    ["You get", "A review, a call, written notes", "Design, copy and build, live", "Redesign, rewrite and launch"],
   ],
 };
 
@@ -234,6 +270,8 @@ export type Post = {
   body?: PostBlock[];
   /** Not out yet: shows in local preview only. */
   draft?: boolean;
+  /** A closing line and a button to an offer, at the end of the post (the button opens the contact form on that offer). */
+  cta?: { line: string; button: string; interest: string };
 };
 
 export const samplePostBody: PostBlock[] = [
@@ -275,6 +313,8 @@ export type Project = {
   /** One line on the folder card. */
   excerpt: string;
   role: string;
+  /** Which offer the project shows (Ask Paige, Project or Refresh). */
+  shows?: string;
   image?: string;
   /** Large panels on the case study page. Without `src`, a panel shows its caption as a placeholder. */
   gallery?: { src?: string; caption: string }[];
@@ -296,6 +336,9 @@ export type Project = {
 
 export const projects = {
   eyebrow: "Recent projects",
+  intro: "Builds I gave myself as briefs, made the way I’d make yours.",
+  // The tag under each card's name: which offer it shows
+  showsLabel: "Shows",
   // The link to the next one, at the bottom of a project page
   nextLabel: "Next project",
   // Shown in place of a project's proof point until it has one
@@ -307,6 +350,7 @@ export const projects = {
   items: [
     {
       slug: "backspace-body",
+      shows: "Refresh",
       client: "Backspace Body",
       excerpt: "A concept body care brand on Shopify",
       role: "Brand and build",
@@ -338,6 +382,7 @@ export const projects = {
     },
     {
       slug: "brand-playbook",
+      shows: "Project",
       comingSoon: true,
       client: "Brand Playbook",
       excerpt: "A resource hub for solo Shopify founders",
@@ -365,6 +410,7 @@ export const projects = {
     },
     {
       slug: "organic-moderne",
+      shows: "Project",
       comingSoon: true,
       client: "Organic Moderne",
       excerpt: "An editorial and affiliate site for Canadians",
@@ -408,25 +454,25 @@ export const approachPage = {
   phases: [
     {
       title: "Web and product design",
-      body: "Storefronts, marketing sites and product pages. A refresh of what you already have, done properly.",
+      body: "Shopify themes, sections and design systems, built and launched.",
       includes: ["Shopify theme build", "Design system", "Front-end build", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
     },
     {
       title: "Positioning and messaging",
-      body: "Naming and copy across the whole site, so your product makes sense to someone outside the building.",
+      body: "What you sell, who it’s for, and how to say it so people get it in five seconds.",
       includes: ["Positioning", "Naming and identity", "Copywriting", "AI search content"],
       caseStudies: ["backspace-body", "brand-playbook"],
     },
     {
       title: "UX and conversion",
-      body: "A UX review with a written list of what to fix first. I’ll tell you straight if you don’t need me.",
+      body: "Where shoppers get lost, and the fixes that stop it.",
       includes: ["UX review", "Conversion", "Information architecture", "UI design"],
       caseStudies: ["organic-moderne", "brand-playbook"],
     },
     {
       title: "Content and campaigns",
-      body: "Landing pages, emails, an AI-coded tool or a whole campaign, built and handed over before launch.",
+      body: "Landing pages, emails, ads and SEO that go live instead of into a doc.",
       includes: ["Landing pages", "Email design", "Campaign copy", "SEO"],
       caseStudies: ["backspace-body", "organic-moderne"],
     },
@@ -435,35 +481,19 @@ export const approachPage = {
 };
 
 export const faq = {
-  // The /faq page: the label is its eyebrow and its name in the left rail and footer
+  // The /faq page and the homepage section: the label is the eyebrow and the page's name in the left rail and footer
   label: "FAQs",
-  heading: "Questions, answered",
-  body: "Short answers on how I work, what I take on and what happens if plans change.",
+  heading: "Questions I get asked",
+  body: "If yours isn’t here, ask it directly. I’d rather answer it before you commit to anything.",
   items: [
-    {
-      q: "Do you work with teams that already have a designer?",
-      a: "Yes. Often the gap isn’t design capacity, it’s the positioning and structure underneath it. I’m happy to hand off clean files and rationale to whoever is building.",
-    },
-    {
-      q: "Do you write custom code?",
-      a: "Shopify themes, modern site builders and AI-assisted builds, yes. That’s most of what I do, and it’s why one person can cover design, copy and the build. Custom application engineering, no. If you need a backend built from scratch, you want a developer, and I’m happy to say so before you’ve paid me anything.",
-    },
-    {
-      q: "Do you work with non-Shopify teams?",
-      a: "Yes. Shopify is where most of the ecommerce work lands, but marketing sites, product UX and content projects aren’t platform-specific.",
-    },
-    {
-      q: "What happens if the scope changes halfway through?",
-      a: "We rewrite it. The scope is a document we both keep, so a change is a conversation and a new line, not a surprise invoice at the end.",
-    },
-    {
-      q: "Can I hire you part-time instead of per project?",
-      a: "Yes. I take part-time and full-time contract work alongside project work. Email me and say roughly what you need and for how long.",
-    },
-    {
-      q: "What do you need from us?",
-      a: "Access to what already exists, one person who can make decisions, and a rough idea of what success looks like. I’ll do the digging from there.",
-    },
+    { q: "What if I don’t need you?", a: "I’ll say so. That’s what the $300 call is for." },
+    { q: "How do you price?", a: "By scope, not by the clock. You get a fixed price in writing before anything starts. Smaller brands and smaller jobs cost less." },
+    { q: "Do you work with teams that already have a designer?", a: "Yes. Often I’m the extra pair of hands for a launch, or the person who writes the words." },
+    { q: "What do you need from us?", a: "One point of contact, access to the tools involved (Shopify, Slack, Figma and the like) and feedback that doesn’t take a month. After you say yes, I send a short intake form so none of this gets lost in email." },
+    { q: "Do you work with non-Shopify teams?", a: "Ecommerce software teams, yes. They’re half of who I work with. Store builds stay on Shopify." },
+    { q: "What happens if the scope changes halfway through?", a: "Small tweaks are fine. Anything bigger gets a written change quote before I touch it. No surprise invoices." },
+    { q: "Do you do retainers?", a: "No. Projects are cleaner for both of us. Need more later? We scope the next one." },
+    { q: "I’m a recruiter or hiring manager. Can I reach out?", a: "Please do. I’m open to the right full-time role. Use the form and pick “I’m hiring,” or email hello@productpaige.com." },
   ],
 };
 
@@ -514,21 +544,39 @@ export const closing = {
   tagline: "Building better on Shopify",
   newsletter: {
     heading: "Prompt with Paige",
-    body: "Notes on designing and building with AI, about once a month. No spam.",
+    body: "A monthly note on designing and building with AI. Real examples, prompts you can copy, no spam.",
     label: "Subscribe",
     success: "You’re on the list. Thanks for signing up.",
   },
 };
 
+// The contact form. The first question decides what else it asks: people hiring skip the project
+// questions, team size shows for brands and software teams, monthly sales for brands only. The open
+// box's label follows the offer picked. The offers' buttons open it with their option picked.
 export const contact = {
-  heading: "Let’s talk about your store",
-  body: "Tell me where your store is and what’s on your plate, and I’ll reply by email.",
-  messageLabel: "What would you like help with?",
-  messagePlaceholder: "A few lines is plenty, e.g. our product pages get traffic but hardly anyone adds to cart.",
-  deadlines: ["No fixed date", "Within a month", "1–3 months", "It’s urgent"],
-  // The three ways to work together, in the client's voice (as in models.items), plus a catch-all.
-  interests: ["Ask Paige", "A scoped project", "A store refresh", "Not sure yet"],
-  success: "Thanks, your message is on its way. I’ll reply by email soon, usually to suggest a time for a short intro call.",
+  heading: "Let’s talk about what’s not working",
+  body: "Tell me where things stand and what’s on your plate. I reply by email, usually within two business days.",
+  roleLabel: "Which describes you?",
+  roles: { brand: "Shopify brand", software: "Ecommerce software company", hiring: "I’m hiring", other: "Something else" },
+  interestLabel: "Interested in",
+  // The offers, with their prices, plus a catch-all
+  interests: ["Ask Paige, $300 call", "Project, from $750", "Refresh, from $2,500", "Not sure yet"],
+  deadlineLabel: "Deadline",
+  deadlines: ["No fixed date", "Within a month", "1 to 3 months", "It’s urgent"],
+  teamLabel: "Team size",
+  teamSizes: ["Just me", "2 to 5", "6 to 15", "16 to 30", "More than 30"],
+  salesLabel: "Monthly sales, roughly",
+  sales: ["Under $10K", "$10K to $25K", "$25K to $100K", "Over $100K"],
+  optionalHelp: "Helps me scope. Skip it if you’d rather.",
+  // The open box's label: for Ask Paige, for the rest, and for people hiring
+  messageLabels: {
+    ask: "What should I look at? Send a link, a screenshot or your biggest question.",
+    other: "What’s going on? Tell me what you’re trying to do and what’s in the way.",
+    hiring: "Tell me about the role and the team.",
+  },
+  button: "Send it",
+  emailLine: "Prefer email?",
+  success: "Got it. I’ll read this and reply by email. If we’re a fit, I send a written scope with a fixed price, plus a short intake form for tools and contacts. Nothing starts until you say yes.",
 };
 
 // The posts that are out: all of them once blog.live is on, none before.
