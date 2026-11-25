@@ -28,7 +28,7 @@ export function CapabilitiesAccordion() {
   const id = useId();
   return (
     <section id="capabilities" className="border-t border-grid">
-      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
+      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[2fr_3fr]">
         {/* Left: the label and the statement */}
         <div className="border-grid px-4 pt-8 pb-10 sm:px-6 lg:border-r lg:py-8 lg:pr-10 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">

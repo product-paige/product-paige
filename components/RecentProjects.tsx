@@ -102,7 +102,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
     <section id="projects" className={className}>
       <Container>
         {/* A list section: the mono label is the heading; previous and next on the right */}
-        <Reveal className="mb-6 flex items-center justify-between gap-4">
+        <Reveal className="mb-8 flex items-center justify-between gap-4 lg:mb-10">
           <Eyebrow as="h2">{projects.eyebrow}</Eyebrow>
           <div className="-my-4 -mr-2 flex">
             {([["Previous project", -1], ["Next project", 1]] as const).map(([label, dir]) => {
@@ -117,7 +117,6 @@ export function RecentProjects({ className = "" }: { className?: string }) {
             })}
           </div>
         </Reveal>
-        <Reveal as="p" className="lede mb-8 max-w-xl lg:mb-10">{projects.intro}</Reveal>
         {/* Bottom padding: the row scrolls sideways, which clips anything below its edge (descenders) */}
         <ul ref={track} className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto md:gap-10 scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:scroll-px-0 md:px-0 [&::-webkit-scrollbar]:hidden">
           {projects.items.map((p, i) => (

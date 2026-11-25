@@ -301,7 +301,6 @@ export type Project = {
 
 export const projects = {
   eyebrow: "Recent projects",
-  intro: "Builds I gave myself as briefs, made the way I’d make yours.",
   // The tag under each card's name: which offer it shows
   showsLabel: "Shows",
   // The link to the next one, at the bottom of a project page
