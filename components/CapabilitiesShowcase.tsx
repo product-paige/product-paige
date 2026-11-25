@@ -130,7 +130,7 @@ export function CapabilitiesShowcase() {
             {rows.map((ph, i) => {
               const on = open === i;
               return (
-                <Reveal as="li" key={ph.title} delay={i * 80}>
+                <Reveal as="li" key={ph.title} delay={i * 80} className={`transition-colors duration-500 ${on ? "bg-accent text-white" : ""}`}>
                   <h3>
                     <button
                       type="button"
@@ -139,8 +139,8 @@ export function CapabilitiesShowcase() {
                       onClick={() => { setOpen(on ? null : i); setShown(i); }}
                       className={`flex w-full cursor-pointer items-center gap-3 px-4 text-left transition-colors duration-500 sm:px-6 lg:gap-4 lg:pr-10 lg:pl-10 ${on ? "pt-6 pb-3" : "py-6"}`}
                     >
-                      {/* The service's line icon: on a solid blue tile when open, plain and grey when closed */}
-                      <span aria-hidden className={`grid size-12 shrink-0 place-items-center rounded-ui transition-colors duration-500 lg:size-14 ${on ? "bg-accent text-white" : "text-ink/50"}`}>
+                      {/* The service's line icon: on a pale tile in the blue open row, plain and grey when closed */}
+                      <span aria-hidden className={`grid size-12 shrink-0 place-items-center rounded-ui transition-colors duration-500 lg:size-14 ${on ? "bg-white/15 text-white" : "text-ink/50"}`}>
                         {icons[i % icons.length]}
                       </span>
                       <span className="serif flex-1 text-[clamp(26px,2.5vw,36px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
@@ -154,10 +154,10 @@ export function CapabilitiesShowcase() {
                   <div id={`${id}-${i}`} role="region" inert={!on} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
                       <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+3.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
-                        <p className="max-w-xl text-[15px] leading-[1.5] text-muted">{ph.body}</p>
+                        <p className="max-w-xl text-[15px] leading-[1.5] text-white/80">{ph.body}</p>
                         {/* One row of pills: any that don’t fit on it wrap below and are cut off */}
                         <ul className="mt-3 flex h-[30px] flex-wrap gap-2 overflow-hidden">
-                          {ph.includes.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
+                          {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:rgb(255_255_255/0.16)]">{c}</Chip></li>)}
                         </ul>
                       </div>
                     </div>
@@ -167,9 +167,9 @@ export function CapabilitiesShowcase() {
             })}
           </ul>
         </div>
-        <Reveal className="@container relative z-1 aspect-square overflow-hidden border-t border-grid bg-sky md:border-x lg:aspect-auto lg:min-h-[36rem] lg:border-t-0 lg:border-l lg:border-r">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={services.background} alt="" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover" />
+        <Reveal className="@container relative z-1 aspect-square overflow-hidden border-t border-grid bg-sheet md:border-x lg:aspect-auto lg:min-h-[36rem] lg:border-t-0 lg:border-l lg:border-r">
+          {/* Behind the pictures: a fine square grid, like the ground at the page's edges */}
+          <div aria-hidden className="absolute inset-0 bg-sheet bg-[size:24px_24px] [background-image:linear-gradient(var(--color-grid)_1px,transparent_1px),linear-gradient(90deg,var(--color-grid)_1px,transparent_1px)] opacity-60" />
           {services.images.map((image, i) => (
             <div key={image.src} aria-hidden={i !== active} className={`absolute inset-0 grid place-items-center transition-[opacity,scale] duration-[1200ms] ease-in-out ${i === active ? "scale-100 opacity-100" : "scale-[0.97] opacity-0"}`}>
               <Mockup image={image} />

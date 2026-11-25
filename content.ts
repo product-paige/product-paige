@@ -123,8 +123,7 @@ export const services = {
   // The section heading beside the list, and a line under it
   title: "Capabilities",
   description: "Design, copy and builds for Shopify stores that look right and sell.",
-  // Laid out like How I work: a picture behind the services, and one per service, in order
-  background: "/blog/eight-second-test.webp",
+  // One picture per service, in order
   images: [
     // UX design: a homepage in a browser window
     { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" },
