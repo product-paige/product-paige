@@ -20,7 +20,7 @@ export function Services() {
             <Reveal key={o.name} delay={i * 100} className={`flex flex-col border p-6 lg:p-8 ${i === 1 ? "border-accent bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/75" : "border-line bg-paper"}`}>
               {/* The name, then the price and the time on one line */}
               <p className={`${itemTitle} leading-none`}>{o.name}</p>
-              <p className="mono mt-4">{o.price}<span className="text-muted"> · {o.time}</span></p>
+              <p className="mono mt-4 flex items-center gap-2.5">{o.price}<i aria-hidden className="size-1.5 rounded-full bg-current opacity-40" /><span className="text-muted">{o.time}</span></p>
               <p className="copy mt-6">{o.body}</p>
               <ul className="mt-6 space-y-2.5">
                 {o.points.map((pt, j) => (

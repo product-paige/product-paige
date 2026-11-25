@@ -7,7 +7,7 @@ import { Chip, Eyebrow, Reveal, itemTitle } from "./ui";
 // A thin line icon for each service, in turn: a browser window (design), a speech bubble
 // (positioning and messaging), a cursor (UX and conversion), a megaphone (content and campaigns)
 const icon = (d: string) => (
-  <svg viewBox="0 0 32 32" className="size-7 lg:size-8" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
+  <svg viewBox="0 0 32 32" className="size-8 lg:size-10" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
 );
 const icons = [
   icon("M4 7h24v18H4zM4 11h24M7 9h.01M9.5 9h.01M12 9h.01"),
@@ -139,8 +139,8 @@ export function CapabilitiesShowcase() {
                       onClick={() => { setOpen(on ? null : i); setShown(i); }}
                       className={`flex w-full cursor-pointer items-center gap-3 px-4 text-left transition-colors duration-500 sm:px-6 lg:gap-4 lg:pr-10 lg:pl-10 ${on ? "pt-6 pb-3" : "py-6"}`}
                     >
-                      {/* The service's line icon: on a pale tile in the blue open row, plain and grey when closed */}
-                      <span aria-hidden className={`grid size-12 shrink-0 place-items-center rounded-ui transition-colors duration-500 lg:size-14 ${on ? "bg-white/15 text-white" : "text-ink/50"}`}>
+                      {/* The service's line icon, in the title's colour: ink when closed, white in the blue open row */}
+                      <span aria-hidden className="grid size-12 shrink-0 place-items-center lg:size-14">
                         {icons[i % icons.length]}
                       </span>
                       <span className={`${itemTitle} flex-1 leading-tight`}>{ph.title}</span>
