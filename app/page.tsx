@@ -11,7 +11,7 @@ import { WorkingStyle } from "@/components/WorkingStyle";
 import { Services } from "@/components/Services";
 import { HomeFaq } from "@/components/HomeFaq";
 import {
-  Container, Eyebrow, Reveal, Rich, SectionHead, section, sectionHeading,
+  Container, Eyebrow, Reveal, Rich, SectionHead, SelectionHandles, section, sectionHeading, selectionBlue,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -78,9 +78,10 @@ export default function Home() {
               </Reveal>
               <Reveal delay={60} className="mt-5 max-w-2xl space-y-4">
                 {about.body.map((para) => <p key={para} className="lede">{para}</p>)}
-                {/* The hiring note, styled like the hero's booking line: the blue asterisk and a mono label */}
-                <p className="flex items-start gap-3 border-t border-grid pt-5 text-[15px] leading-relaxed">
-                  <Asterisk className="live-star mt-1 size-4 text-accent" />
+                {/* The hiring note, drawn selected like the hero's "design": a blue box with corner handles */}
+                <p className="relative mt-2 flex items-start gap-3 px-4 py-3 text-[15px] leading-relaxed" style={{ background: `color-mix(in srgb, ${selectionBlue} 8%, transparent)` }}>
+                  <SelectionHandles className="inset-0" />
+                  <Asterisk className="live-star mt-1 size-4 shrink-0 text-accent" />
                   <span><span className="mono mr-2 text-accent">{about.hiring.label}</span>{about.hiring.text} <a href={`mailto:${site.email}`} className="link">{site.email}</a></span>
                 </p>
               </Reveal>
