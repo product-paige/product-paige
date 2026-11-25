@@ -72,7 +72,7 @@ export function EditorialHero() {
         </h1>
 
         {/* Intro, in Manrope regular, 19px on desktop */}
-        <p className="mt-6 max-w-3xl font-sans text-[17px] leading-snug tracking-[-0.02em] lg:mt-8 lg:text-[19px]">{hero.lede}</p>
+        <p className="mt-6 max-w-2xl font-sans text-[18px] leading-[1.5] tracking-[-0.015em] text-balance lg:mt-8 lg:text-[21px]">{hero.lede}</p>
         {/* The main button, which opens the contact form, and a text link down to the services */}
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 lg:mt-8">
           <Button href={site.bookingUrl} accent>{hero.cta.label}</Button>
