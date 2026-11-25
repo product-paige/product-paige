@@ -95,7 +95,7 @@ export const hero = {
 
 export const about = {
   // The small mono label above the heading
-  eyebrow: "Based in Kitchener, Ontario · Working remotely",
+  eyebrow: "Based in Kitchener, Ontario",
   heading: "Hi, I’m Paige, a founder turned Shopify designer",
   // Paragraphs under the heading, then a line for recruiters with the email
   body: [
