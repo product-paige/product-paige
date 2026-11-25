@@ -56,10 +56,9 @@ export function CapabilitiesShowcase() {
       {/* A set height on desktop, tall enough for any open service, so the picture stays the same size as rows open and close */}
       <div className="md:mx-6 lg:mx-10 lg:grid lg:min-h-[48rem] lg:grid-cols-2">
         <div className="flex flex-col">
-          {/* A list section: the mono label is the heading, as on Recent projects, with the line beside it */}
-          <Reveal className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-3 px-4 pt-12 pb-10 sm:px-6 lg:pt-16 lg:pr-16 lg:pb-12 lg:pl-10">
-            <Eyebrow as="h2" className="shrink-0">{services.title}</Eyebrow>
-            <p className="lede max-w-[34ch] text-balance sm:text-right">{services.description}</p>
+          {/* A list section: the mono label is the heading, as on Recent projects */}
+          <Reveal className="px-4 pt-12 pb-10 sm:px-6 lg:pt-16 lg:pr-16 lg:pb-12 lg:pl-10">
+            <Eyebrow as="h2">{services.title}</Eyebrow>
           </Reveal>
           <ul className="divide-y divide-grid border-t border-grid lg:mt-auto">
             {rows.map((ph, i) => {
