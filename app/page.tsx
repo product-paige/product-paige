@@ -79,7 +79,11 @@ export default function Home() {
               </Reveal>
               <Reveal delay={60} className="mt-5 max-w-2xl space-y-4">
                 {about.body.map((para) => <p key={para} className="lede">{para}</p>)}
-                <p className="lede text-muted">{about.hiring} <a href={`mailto:${site.email}`} className="link">{site.email}</a>.</p>
+                {/* The hiring callout: a blue label and the line, in a box with a blue edge */}
+                <p className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-ui border border-accent/30 bg-accent/[0.06] px-4 py-3 text-[15px]">
+                  <span className="chip bg-chip text-[13px] text-white [--color-chip:var(--color-accent)]">{about.hiring.label}</span>
+                  <span>{about.hiring.text} <a href={`mailto:${site.email}`} className="link text-accent">{site.email}</a></span>
+                </p>
               </Reveal>
               {/* Who I work with (AudienceList) is off the page for now */}
             </div>

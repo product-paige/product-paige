@@ -3,10 +3,11 @@
 import { useId, useState, type ReactNode } from "react";
 
 /**
- * Accordion that slides each answer open and closed; the questions are mono eyebrows. One answer at a time: opening a
+ * Accordion that slides each answer open and closed; the questions are mono eyebrows (or, with `plain`,
+ * ordinary sentence-case text, as on the FAQs). One answer at a time: opening a
  * question closes the one before it. The first starts open.
  */
-export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
+export function Faq({ items, plain = false }: { items: { q: string; a: ReactNode }[]; plain?: boolean }) {
   const [open, setOpen] = useState<number | null>(0);
   const id = useId();
 
@@ -30,7 +31,7 @@ export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className="group/q mono flex w-full cursor-pointer items-center justify-between gap-4 py-3 text-left leading-[1.2]"
+                className={`group/q flex w-full cursor-pointer items-center justify-between gap-4 text-left leading-[1.2] ${plain ? "py-4 text-[17px] font-medium tracking-[-0.01em]" : "mono py-3"}`}
               >
                 {/* The red dot shows only on the open row: it grows in and pushes the label over */}
                 <span className="flex items-center gap-3">

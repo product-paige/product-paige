@@ -77,7 +77,7 @@ export const nav = [
 export const hero = {
   // The headline, one phrase per line.
   // A word in {braces} is drawn selected, with a selection box and handles.
-  heading: ["Shopify {design} and marketing,", "from one person"],
+  heading: ["Product marketing, {design}", "& AI builds for Shopify"],
   lede:
     "13 years on Shopify. I fix, rewrite and rebuild stores and ecommerce software sites for small teams who want one person, not an agency.",
   // Under the intro: the main button (opens the contact form) and a text link to the services
@@ -119,7 +119,8 @@ export const about = {
     "Now I help small Shopify brands and ecommerce software teams fix the stuff that quietly costs them sales. One person, start to finish. No account managers.",
     "Based in Kitchener, Ontario. Working remotely, mostly in Slack.",
   ],
-  hiring: "Hiring? I’m open to the right full-time role. Say hi at",
+  // A callout under the paragraphs, for recruiters
+  hiring: { label: "Hiring?", text: "I’m open to the right full-time role. Say hi at" },
   // Tool logos stuck to the photo panel.
   tools: [
     { name: "Shopify", logo: "/logos/shopify-glyph.svg", file: "shopify.app" },
@@ -181,63 +182,49 @@ export const audiences = {
 };
 
 
-// The Services section (#services): who it's for and a fit check, the three offers as cards, then a
-// comparison table. Each offer's `interest` is the option its button picks in the contact form.
+// The Services section (#services): the three offers as cards, then a comparison table. Each offer's `interest` is the option its button picks in the contact form.
 export const offers = {
   eyebrow: "Services",
-  heading: "Clearer pages, more sales",
-  intro: "Web design, content and lifecycle for small Shopify brands and ecommerce software teams. One person, start to finish.",
   button: "Let’s talk",
-  fit: {
-    heading: "Is this you?",
-    good: {
-      label: "Good fit",
-      items: [
-        "You run a Shopify brand with under 15 people and $10K+ a month in sales.",
-        "Or you build software for Shopify merchants, with a team of up to 30.",
-        "Something is off on your site, emails or product pages, and you want it fixed, not discussed for six weeks.",
-      ],
-    },
-    not: {
-      label: "Probably not",
-      items: [
-        "You’re on Shopify Plus or have a big in-house team. You already have people for this.",
-        "You haven’t launched yet, or there’s no budget. Come back when money is moving.",
-        "You want a monthly retainer. I scope by project, which is cleaner for both of us.",
-      ],
-    },
-  },
-  hiring: "Hiring? I’m also open to the right full-time role. Recruiters and hiring managers: say hi at",
   offersHeading: "Three ways to work with me",
-  offersIntro: "From a quick call to a full rebuild. No retainers. If you need more later, we scope the next thing. Pick the size of help you need. Not sure? Start with the call.",
+  offersIntro: "No retainers. Not sure which? Start with the call.",
+  // Each card: its name, price and time, one line, three short points, and a tip (the (i) by the
+  // price) with the detail
   items: [
     {
       name: "Ask Paige",
-      meta: "$300 flat · 3 hours total · booked within a few days",
-      body: "Stuck on something? Send me the page, the question or the mess. I review it, we talk it through, and you get written notes.",
-      points: ["An hour of me reviewing what you send", "A live call to work through it", "Written notes after, ranked by what to fix first", "An honest answer if you don’t need me"],
-      note: "Book a project within 30 days and the $300 counts toward it.",
+      price: "$300 flat",
+      time: "Booked within a few days",
+      body: "Send me the page or the question. We talk it through, and you get written notes.",
+      points: ["A review of what you send", "A live call to work through it", "Notes ranked by what to fix first"],
+      tip: "3 hours in total. Book a project within 30 days and the $300 counts toward it.",
       button: "Ask Paige",
       interest: "Ask Paige, $300 call",
     },
     {
       name: "Project",
-      meta: "From $750 · one to two weeks · priced by scope and brand size",
-      body: "One piece of work with a fixed price and a finish line. Landing pages, email flows, Shopify sections, SEO projects, campaigns.",
-      points: ["Written scope and price before anything starts", "Design, copy and build in the same pass, by me", "Live, not a mockup", "Files and templates handed over"],
+      price: "From $750",
+      time: "1 to 2 weeks",
+      body: "One piece of work with a fixed price and a finish line.",
+      points: ["Written scope and price first", "Design, copy and build, by me", "Live, not a mockup"],
+      tip: "Priced by scope and brand size. Landing pages, email flows, Shopify sections, SEO projects or campaigns.",
       button: "Start a project",
       interest: "Project, from $750",
     },
     {
       name: "Refresh",
-      meta: "From $2,500 · three to four weeks",
-      body: "Your store or site, redesigned, rewritten and taken live. For brands that outgrew their theme and software sites that don’t explain the product yet.",
-      points: ["A review of what’s live and what’s costing you", "New structure, messaging and copy", "Built and launched, not handed over as a plan", "Design files and templates your team can reuse"],
+      price: "From $2,500",
+      time: "3 to 4 weeks",
+      body: "Your store or site, redesigned, rewritten and taken live.",
+      points: ["A review of what’s costing you", "New structure, messaging and copy", "Built, launched and handed over"],
+      tip: "For brands that outgrew their theme, and software sites that don’t explain the product yet. Design files and templates included.",
       button: "Plan a refresh",
       interest: "Refresh, from $2,500",
     },
-  ] as { name: string; meta: string; body: string; points: string[]; note?: string; button: string; interest: string }[],
+  ] as { name: string; price: string; time: string; body: string; points: string[]; tip: string; button: string; interest: string }[],
   footnote: "Not sure which one? Pick Ask Paige. Worst case, you leave with a plan.",
+  // The comparison table opens with this one picked (by index)
+  featured: 1,
   // The comparison table: a row label, then one cell per offer, in the same order
   table: [
     ["Price", "$300 flat", "From $750", "From $2,500"],
