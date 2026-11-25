@@ -81,7 +81,7 @@ export const hero = {
   lede:
     "13 years on Shopify. I fix, rewrite and rebuild stores and ecommerce software sites for small teams who want one person, not an agency.",
   // Under the intro: the main button (opens the contact form) and a text link to the services
-  cta: { label: "Let’s talk", link: { label: "See how I work", href: "#how-i-work" } },
+  cta: { label: "Let’s talk", link: { label: "See what I do", href: "#capabilities" } },
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
   // `tag` (optional) replaces the label in the caption under the screen; `hover` (optional)
   // is a second image, the same size, that fades in on hover, as on a real product card. `afterCart`
@@ -130,25 +130,7 @@ export const services = {
     { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" },
     { src: "/hero/spf-product-card-pool.webp", width: 876, height: 1040, frame: "card" },
     { src: "/hero/jewellery-banner-minimal.webp", width: 1359, height: 1406, frame: "card" },
-  ] as { src: string; width: number; height: number; frame: "browser" | "card" | "claude"; url?: string }[],
-};
-
-// How I work on the homepage: a picture on the left, the four steps on the right.
-export const workingStyle = {
-  eyebrow: "How I work",
-  heading: "Keep it simple",
-  body: "I build with Claude, so the slow parts get fast and you get my time on the decisions. Real pages in days, not a deck in weeks.",
-  // Behind every picture
-  background: "/blog/agent-blueprint.webp",
-  // The four steps, each with its own picture, which shows while it's the active one: a storefront
-  // screen, framed as a browser window ("browser"), a floating card ("card"), or a card with a
-  // Claude chat window working on it ("claude").
-  items: [
-    { title: "Tell me what’s going on", body: "Send links, screenshots, a rant. The messier the better.", image: { src: "/hero/jewellery-banner-minimal.webp", width: 1359, height: 1406, frame: "card" } },
-    { title: "We scope it", body: "A short call, then a written scope and a fixed price. Nothing starts until you say yes.", image: { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" } },
-    { title: "I do the work", body: "In a shared Slack channel or an email thread. Calls only when they’re faster than typing.", image: { src: "/hero/spf-product-card.webp", width: 876, height: 1040, frame: "claude" } },
-    { title: "Handover", body: "Files, copy and templates are yours, so you don’t need me to change a button.", image: { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" } },
-  ] as { title: string; body: string; image: { src: string; width: number; height: number; frame: "browser" | "card" | "claude"; url?: string } }[],
+  ] as { src: string; width: number; height: number; frame: "browser" | "card"; url?: string }[],
 };
 
 // Who I work with: a short list under the About copy, who it's for and one line on each.

@@ -13,13 +13,10 @@ export function Services() {
   return (
     <section id="services" className={section}>
       <Container>
-        {/* Heading and a line, with the button on the right */}
-        <Reveal className="flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-3xl">
-            <Eyebrow>{offers.eyebrow}</Eyebrow>
-            <h2 className={sectionHeading}>{offers.offersHeading}</h2>
-          </div>
-          <Button href={site.bookingUrl} accent>{offers.button}</Button>
+        {/* The eyebrow and heading */}
+        <Reveal className="max-w-3xl">
+          <Eyebrow>{offers.eyebrow}</Eyebrow>
+          <h2 className={sectionHeading}>{offers.offersHeading}</h2>
         </Reveal>
         {/* items-start: opening one card's deliverables grows only that card, not the whole row */}
         <div className="mt-10 grid items-start gap-4 md:grid-cols-3 lg:mt-14">

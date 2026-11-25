@@ -3,7 +3,6 @@
 import { approachPage, services } from "@/content";
 import { useId, useState } from "react";
 import { Chip, Eyebrow, Reveal, sectionHeading } from "./ui";
-import { Mockup } from "./WorkingStyle";
 
 // A thin line icon for each service, in turn: a browser window (design), a speech bubble
 // (positioning and messaging), a cursor (UX and conversion), a megaphone (content and campaigns)
@@ -17,9 +16,31 @@ const icons = [
   icon("M5 13v6h4l10 6V7L9 13H5zM23 12a5 5 0 0 1 0 8M9 19l2 7h3l-2-7"),
 ];
 
+type Shot = (typeof services.images)[number];
+
+/** One service's picture: a storefront screen in a browser window, or as a floating card. */
+function Mockup({ image }: { image: Shot }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  const img = <img src={image.src} alt="" width={image.width} height={image.height} loading="lazy" decoding="async" className="block w-full" />;
+  if (image.frame === "browser") {
+    return (
+      <div className="w-[80%] overflow-hidden rounded-[10px] bg-white shadow-[0_24px_60px_rgb(26_26_26/0.28)]">
+        {/* The window's top bar: three dots and the address */}
+        <div className="flex items-center gap-3 border-b border-line bg-sheet px-3 py-2">
+          <span className="flex gap-1.5">{["#ff5f57", "#febc2e", "#28c840"].map((c) => <i key={c} className="size-2.5 rounded-full" style={{ background: c }} />)}</span>
+          <span className="mx-auto w-1/2 truncate rounded-full bg-white px-3 py-0.5 text-center text-[11px] text-muted">{image.url}</span>
+          <span className="w-[42px]" />
+        </div>
+        {img}
+      </div>
+    );
+  }
+  return <div className="w-[52%] overflow-hidden rounded-[14px] shadow-[0_24px_60px_rgb(26_26_26/0.28)]">{img}</div>;
+}
+
 /**
- * Capabilities laid out like How I work, mirrored: the eyebrow, heading, line and the four services on
- * the left as an accordion, a picture for each on the right. Opening a service slides its line and pills
+ * Capabilities: the eyebrow, heading, line and the four services as an accordion on the left, a picture
+ * for each service on the right. Opening a service slides its line and pills
  * open and shows its picture; opening another closes the first.
  */
 export function CapabilitiesShowcase() {
@@ -43,7 +64,7 @@ export function CapabilitiesShowcase() {
             {rows.map((ph, i) => {
               const on = open === i;
               return (
-                <Reveal as="li" key={ph.title} delay={i * 80} className={`transition-colors duration-500 ${on ? "bg-sheet" : ""}`}>
+                <Reveal as="li" key={ph.title} delay={i * 80}>
                   <h3>
                     <button
                       type="button"

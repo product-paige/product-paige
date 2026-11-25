@@ -7,7 +7,6 @@ import { RecentProjects } from "@/components/RecentProjects";
 import { CapabilitiesShowcase } from "@/components/CapabilitiesShowcase";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
-import { WorkingStyle } from "@/components/WorkingStyle";
 import { Services } from "@/components/Services";
 import { HomeFaq } from "@/components/HomeFaq";
 import {
@@ -67,7 +66,7 @@ export default function Home() {
             and how I work. Right, the photo and tools laid
             out like a desktop (see AboutNotebook). */}
         {/* About: the text on the left with its own padding, the blue cutting mat filling the right
-            half between the inner rails, split by a full-height divider (as in Working style). The
+            half between the inner rails, split by a full-height divider. The
             section's top rule runs the full width. */}
         <section id="about" className="overflow-x-clip border-t border-grid">
           <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
@@ -97,15 +96,8 @@ export default function Home() {
         {/* Recent projects */}
         <RecentProjects className={section} />
 
-        {/* Services */}
+        {/* Capabilities */}
         <CapabilitiesShowcase />
-
-
-
-        {/* How I work: a picture per step on the left, the four steps on the right */}
-        <WorkingStyle />
-
-
 
         {/* Services: the three offers */}
         <Services />
