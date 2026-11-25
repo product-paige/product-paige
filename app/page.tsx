@@ -78,10 +78,6 @@ export default function Home() {
               <Reveal delay={60} className="mt-5 max-w-2xl space-y-4">
                 {about.body.map((para) => <p key={para} className="lede">{para}</p>)}
               </Reveal>
-              {/* For recruiters: a quiet line under the paragraphs */}
-              <Reveal delay={120} className="mt-8">
-                <p className="copy max-w-xl text-muted"><span className="mono mr-2 text-ink">{about.hiring.label}</span>{about.hiring.text} <a href={`mailto:${site.email}`} className="link">{site.email}</a></p>
-              </Reveal>
               {/* Who I work with (AudienceList) is off the page for now */}
             </div>
 

@@ -81,7 +81,7 @@ export function ServicesTable() {
 
         {/* Desktop: the table, a label column and one column per offer */}
         <Reveal className="mt-14 hidden md:block">
-          <div className="grid grid-cols-[11.5rem_repeat(3,minmax(0,1fr))]">
+          <div className="grid grid-cols-[11.5rem_repeat(3,minmax(0,1fr))] border-x border-transparent">
             {/* The tabs, over their columns */}
             <span />
             {offers.items.map((o, i) => <span key={o.name} className="flex items-end"><Tab o={o} i={i} /></span>)}

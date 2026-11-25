@@ -113,8 +113,14 @@ export function AboutNotebook({ onMat = false }: { onMat?: boolean }) {
         <Illo art={art.parcel} className="w-full" />
       </span>
 
-      {/* The cursor, just off the photo's corner */}
-      <svg aria-hidden viewBox="0 0 24 24" className="absolute top-[80%] left-[79%] w-[4.5%] min-w-5 drop-shadow-[0_2px_2px_rgb(0_0_0/0.2)]">
+      {/* For recruiters: a yellow sticky note, low on the right, tilted a little */}
+      <span data-drag className="absolute right-[3%] bottom-[12%] block w-[46%] max-w-56 rotate-[4deg] bg-[#ffe36e] p-3 sm:w-[34%] text-ink shadow-[0_1px_0_rgb(0_0_0/0.08),0_10px_20px_rgb(26_26_26/0.22)] lg:p-4">
+        <span className="mono block text-[11px] lg:text-[12px]">{about.hiring.label}</span>
+        <span className="mt-1.5 block text-[12px] leading-snug lg:text-[14px]">{about.hiring.text} <a href={`mailto:${site.email}`} draggable={false} className="break-all underline decoration-ink/40 underline-offset-2 hover:decoration-ink">{site.email}</a></span>
+      </span>
+
+      {/* The cursor, pointing at the sticky note */}
+      <svg aria-hidden viewBox="0 0 24 24" className="absolute top-[86%] left-[59%] w-[4.5%] min-w-5 drop-shadow-[0_2px_2px_rgb(0_0_0/0.2)]">
         <path d="M4 2l15 10.5-6.6 1.2 3.8 7.3-2.9 1.5-3.8-7.3L4 20z" fill="#fff" stroke="#111" strokeWidth="1.4" strokeLinejoin="round" />
       </svg>
     </div>
