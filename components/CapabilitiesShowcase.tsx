@@ -54,7 +54,7 @@ export function CapabilitiesShowcase() {
   return (
     <section id="capabilities" className="border-t border-grid">
       {/* A set height on desktop, tall enough for any open service, so the picture stays the same size as rows open and close */}
-      <div className="md:mx-6 lg:mx-10 lg:grid lg:min-h-[48rem] lg:grid-cols-2">
+      <div className="md:mx-6 lg:mx-10 lg:grid lg:min-h-[41rem] lg:grid-cols-2">
         <div className="flex flex-col">
           {/* A list section: the mono label is the heading, as on Recent projects */}
           <Reveal className="px-4 pt-12 pb-10 sm:px-6 lg:pt-16 lg:pr-16 lg:pb-12 lg:pl-10">
@@ -89,7 +89,8 @@ export function CapabilitiesShowcase() {
                     <div className="overflow-hidden">
                       <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+3.5rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
                         <p className="max-w-xl text-[15px] leading-[1.5] text-muted">{ph.body}</p>
-                        <ul className="mt-3 flex flex-wrap gap-2">
+                        {/* One row of pills: any that don’t fit on it wrap below and are cut off */}
+                        <ul className="mt-3 flex h-[30px] flex-wrap gap-2 overflow-hidden">
                           {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:var(--color-accent)]">{c}</Chip></li>)}
                         </ul>
                       </div>

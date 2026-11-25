@@ -409,19 +409,19 @@ export const approachPage = {
     {
       title: "UX design",
       body: "Shopify themes, sections and design systems, built and launched.",
-      includes: ["Shopify theme build", "Design system", "Front-end build", "QA and launch"],
+      includes: ["Theme build", "Design system", "Front-end", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
     },
     {
       title: "Messaging",
       body: "What you sell, who it’s for, and how to say it so people get it in five seconds.",
-      includes: ["Positioning", "Naming and identity", "Copywriting", "AI search content"],
+      includes: ["Positioning", "Naming", "Copywriting", "AI search"],
       caseStudies: ["backspace-body", "brand-playbook"],
     },
     {
       title: "Conversion",
       body: "Where shoppers get lost, and the fixes that stop it.",
-      includes: ["UX review", "Conversion", "Information architecture", "UI design"],
+      includes: ["UX review", "CRO", "Site structure", "UI design"],
       caseStudies: ["organic-moderne", "brand-playbook"],
     },
     {
