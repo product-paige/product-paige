@@ -35,7 +35,7 @@ export function ServicesTable() {
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`serif text-[clamp(20px,1.6vw,24px)] tracking-[-0.03em] relative z-1 -mb-px cursor-pointer rounded-t-[10px] border border-b-0 px-5 pt-3 pb-2.5 leading-none transition-colors ${picked === i ? "border-accent bg-accent text-white" : "border-line bg-sheet hover:text-accent"}`}
+      className={`serif text-[clamp(20px,1.6vw,24px)] tracking-[-0.03em] relative z-1 -mb-px cursor-pointer border border-b-0 px-5 pt-3 pb-2.5 leading-none transition-colors ${picked === i ? "border-accent bg-accent text-white" : "border-line bg-sheet hover:text-accent"}`}
     >
       {o.name}
     </button>
@@ -58,7 +58,7 @@ export function ServicesTable() {
           {offers.items.map((o, i) => (
             <div key={o.name} className="flex flex-col">
               <span className="self-start"><Tab o={o} i={i} /></span>
-              <div className={`divide-y divide-line rounded-[10px] rounded-tl-none border border-line transition-colors ${tint(i)}`}>
+              <div className={`divide-y divide-line border border-line transition-colors ${tint(i)}`}>
                 {rows.map((r) => (
                   <div key={r.label} className="px-5 py-4">
                     <p className="mono mb-2 text-muted">{r.label}</p>
@@ -77,7 +77,7 @@ export function ServicesTable() {
             <span />
             {offers.items.map((o, i) => <span key={o.name} className="flex items-end"><Tab o={o} i={i} /></span>)}
           </div>
-          <div className="grid grid-cols-[11.5rem_repeat(3,minmax(0,1fr))] overflow-hidden rounded-[10px] border border-line bg-sheet">
+          <div className="grid grid-cols-[11.5rem_repeat(3,minmax(0,1fr))] overflow-hidden border border-line bg-sheet">
             {rows.map((r, k) => {
               // A line under every row but the last, which sits on the table's own border
               const under = k < rows.length - 1 ? "border-b" : "";
