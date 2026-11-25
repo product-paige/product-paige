@@ -181,23 +181,23 @@ export const offers = {
   eyebrow: "Services",
   button: "Let’s talk",
   offersHeading: "Ways to work together",
-  // Each card: its name, price and time, one line and three short points
+  // Each offer: its name, price and timeline, one line and three example deliverables
   items: [
     {
       name: "Ask Paige",
       price: "$300 flat",
       time: "3 hours",
       body: "Send the page or the question. We talk it through, you get written notes.",
-      points: ["A review of what you send", "Notes ranked by what to fix first", "Honest advice if you don’t need me"],
+      points: ["Homepage and key pages review", "SEO and AI search check", "A prioritized fix list"],
       button: "Ask Paige",
       interest: "Ask Paige, $300 call",
     },
     {
-      name: "Project",
+      name: "Single project",
       price: "From $750",
       time: "1 to 2 weeks",
       body: "One piece of work with a fixed price and a clear finish line.",
-      points: ["Design, copy and build, by me", "Live, not a mockup", "Files and templates handed over"],
+      points: ["Landing pages", "Email flows", "Shopify sections"],
       button: "Start a project",
       interest: "Project, from $750",
     },
@@ -206,7 +206,7 @@ export const offers = {
       price: "From $2,500",
       time: "3 to 4 weeks",
       body: "Your whole site, or just the key pages, redone and live.",
-      points: ["A review of what’s costing you sales", "New structure, messaging and copy", "Built, launched and handed over"],
+      points: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements"],
       button: "Plan a refresh",
       interest: "Refresh, from $2,500",
     },

@@ -12,7 +12,7 @@ const rows: { label: string; cell: (o: Offer) => ReactNode }[] = [
   { label: "Est. timeline", cell: (o) => <span className="mono">{o.time}</span> },
   { label: "What it is", cell: (o) => <p className="copy">{o.body}</p> },
   {
-    label: "You get",
+    label: "Example deliverables",
     cell: (o) => (
       <ul className="space-y-1.5">
         {o.points.map((pt, j) => <li key={pt} className="copy flex items-start gap-3"><ScribbleBullet variant={j} className="mt-px text-accent" />{pt}</li>)}
@@ -24,7 +24,7 @@ const rows: { label: string; cell: (o: Offer) => ReactNode }[] = [
 /**
  * Services (#services): the offers side by side as a table. Each offer's name is a folder tab on top of its column;
  * clicking a tab picks that offer and turns its column the bright blue (Project to start). Rows for
- * price, timeline, what it is and what you get, in a grid of fine borders, with the row labels in the mono.
+ * price, timeline, what it is and example deliverables, in a grid of fine borders, with the row labels in the mono.
  * One button to get in touch sits beside the heading. On phones each offer becomes its own block.
  */
 export function ServicesTable() {
