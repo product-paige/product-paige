@@ -30,7 +30,7 @@ export function CapabilitiesAccordion() {
     <section id="capabilities" className="border-t border-grid">
       <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
         {/* Left: the label and the statement */}
-        <div className="border-grid px-4 pt-10 pb-12 sm:px-6 lg:border-r lg:py-20 lg:pr-10 lg:pl-10">
+        <div className="border-grid px-4 pt-8 pb-10 sm:px-6 lg:border-r lg:py-11 lg:pr-10 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">
             {/* The section heading, at the size of the other section headings, and a line under it */}
             <h2 className={sectionHeading}>{services.title}</h2>
