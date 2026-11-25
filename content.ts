@@ -436,7 +436,7 @@ export const approachPage = {
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
     },
     {
-      title: "Messaging",
+      title: "Storytelling",
       body: "I work out who you’re selling to and why they should care, then write the words for your site in your voice.",
       includes: ["Positioning", "Naming", "Copywriting", "AI search"],
       caseStudies: ["backspace-body", "brand-playbook"],
