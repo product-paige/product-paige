@@ -7,7 +7,7 @@ import { Button, Container, Eyebrow, Reveal, ScribbleBullet, section, sectionHea
  * Services (#services): the heading and a line with the button to get in touch, then the three offers
  * as cards: the name with the price top right (a tip with the detail), the time, what it's best for,
  * one line, three points, example deliverables behind a dropdown, and a button that opens the contact
- * form with that offer picked. A line under them, centred.
+ * form with that offer picked.
  */
 export function Services() {
   return (
@@ -46,7 +46,6 @@ export function Services() {
             </Reveal>
           ))}
         </div>
-        <Reveal as="p" className="mt-8 text-center text-muted">{offers.footnote}</Reveal>
 
       </Container>
     </section>

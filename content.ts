@@ -228,7 +228,6 @@ export const offers = {
       interest: "Refresh, from $2,500",
     },
   ] as { name: string; price: string; time: string; bestFor: string; body: string; points: string[]; tip: string; deliverables: string[]; button: string; interest: string }[],
-  footnote: "Not sure which one? Pick Ask Paige. Worst case, you leave with a plan.",
   // Labels inside each card
   bestForLabel: "Best for",
   deliverablesLabel: "Example deliverables",
