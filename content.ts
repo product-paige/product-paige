@@ -448,7 +448,7 @@ export const approachPage = {
       caseStudies: ["organic-moderne", "brand-playbook"],
     },
     {
-      title: "Campaigns",
+      title: "Content & campaigns",
       body: "Landing pages, emails, ads and SEO that go live instead of into a doc.",
       includes: ["Landing pages", "Email design", "Campaign copy", "SEO"],
       caseStudies: ["backspace-body", "organic-moderne"],
