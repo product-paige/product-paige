@@ -8,7 +8,6 @@ import { CapabilitiesShowcase } from "@/components/CapabilitiesShowcase";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { Services } from "@/components/Services";
-import { HomeFaq } from "@/components/HomeFaq";
 import {
   Container, Eyebrow, Reveal, Rich, SectionHead, section, sectionHeading,
 } from "@/components/ui";
@@ -103,8 +102,6 @@ export default function Home() {
         {/* Services: the three offers */}
         <Services />
 
-        {/* Questions I get asked */}
-        <HomeFaq />
 
         {/* Blog */}
         <Scrapbook className={section} />
