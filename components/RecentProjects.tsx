@@ -131,7 +131,7 @@ export function RecentProjects({ className = "" }: { className?: string }) {
                   <span className="flex items-center gap-3">
                     <span className={`${itemTitle} leading-[1.1]`}>{p.client}</span>
                     {!p.comingSoon && (
-                      <span aria-hidden className="grid size-8 shrink-0 place-items-center rounded-full border border-line transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-white">
+                      <span aria-hidden className="grid size-8 shrink-0 place-items-center rounded-full border border-current transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-white">
                         <svg viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h12M11 5l5 5-5 5" /></svg>
                       </span>
                     )}
