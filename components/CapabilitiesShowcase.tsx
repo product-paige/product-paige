@@ -126,7 +126,7 @@ export function CapabilitiesShowcase() {
           <Reveal className="px-4 pt-12 pb-8 sm:px-6 lg:pt-12 lg:pr-16 lg:pb-8 lg:pl-10">
             <Eyebrow as="h2">{services.title}</Eyebrow>
           </Reveal>
-          <ul className="divide-y divide-grid border-t border-grid">
+          <ul className="divide-y divide-grid border-t border-grid lg:mt-auto">
             {rows.map((ph, i) => {
               const on = open === i;
               return (
