@@ -169,7 +169,7 @@ export function CapabilitiesShowcase() {
         </div>
         <Reveal className="@container relative z-1 aspect-square overflow-hidden border-t border-grid bg-sheet md:border-x lg:aspect-auto lg:min-h-[36rem] lg:border-t-0 lg:border-l lg:border-r">
           {/* Behind the pictures: a fine square grid, like the ground at the page's edges */}
-          <div aria-hidden className="absolute inset-0 bg-sheet bg-[size:24px_24px] [background-image:linear-gradient(var(--color-grid)_1px,transparent_1px),linear-gradient(90deg,var(--color-grid)_1px,transparent_1px)] opacity-60" />
+          <div aria-hidden className="absolute inset-0 bg-sheet bg-[size:24px_24px] bg-[position:-1px_-1px] [background-image:linear-gradient(var(--color-grid)_1px,transparent_1px),linear-gradient(90deg,var(--color-grid)_1px,transparent_1px)] opacity-60" />
           {services.images.map((image, i) => (
             <div key={image.src} aria-hidden={i !== active} className={`absolute inset-0 grid place-items-center transition-[opacity,scale] duration-[1200ms] ease-in-out ${i === active ? "scale-100 opacity-100" : "scale-[0.97] opacity-0"}`}>
               <Mockup image={image} />
