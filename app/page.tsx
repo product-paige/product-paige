@@ -1,7 +1,7 @@
 import { about, approachPage, audiences, services, site, testimonials } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { CuttingMat } from "@/components/CuttingMat";
-import { EditorialHero } from "@/components/EditorialHero";
+import { Asterisk, EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
 import { RecentProjects } from "@/components/RecentProjects";
 import { CapabilitiesAccordion } from "@/components/CapabilitiesAccordion";
@@ -79,10 +79,10 @@ export default function Home() {
               </Reveal>
               <Reveal delay={60} className="mt-5 max-w-2xl space-y-4">
                 {about.body.map((para) => <p key={para} className="lede">{para}</p>)}
-                {/* The hiring callout: a blue label and the line, in a box with a blue edge */}
-                <p className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-ui border border-accent/30 bg-accent/[0.06] px-4 py-3 text-[15px]">
-                  <span className="chip bg-chip text-[13px] text-white [--color-chip:var(--color-accent)]">{about.hiring.label}</span>
-                  <span>{about.hiring.text} <a href={`mailto:${site.email}`} className="link text-accent">{site.email}</a></span>
+                {/* The hiring note, styled like the hero's booking line: the blue asterisk and a mono label */}
+                <p className="flex items-start gap-3 border-t border-grid pt-5 text-[15px] leading-relaxed">
+                  <Asterisk className="live-star mt-1 size-4 text-accent" />
+                  <span><span className="mono mr-2 text-accent">{about.hiring.label}</span>{about.hiring.text} <a href={`mailto:${site.email}`} className="link">{site.email}</a></span>
                 </p>
               </Reveal>
               {/* Who I work with (AudienceList) is off the page for now */}

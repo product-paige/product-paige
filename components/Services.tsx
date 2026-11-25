@@ -22,7 +22,8 @@ export function Services() {
           </div>
           <Button href={site.bookingUrl} accent>{offers.button}</Button>
         </Reveal>
-        <div className="mt-10 grid gap-4 md:grid-cols-3 lg:mt-14">
+        {/* items-start: opening one card's deliverables grows only that card, not the whole row */}
+        <div className="mt-10 grid items-start gap-4 md:grid-cols-3 lg:mt-14">
           {offers.items.map((o, i) => (
             <Reveal key={o.name} delay={i * 100} className={`flex flex-col border p-6 lg:p-8 ${i === 1 ? "border-accent bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/75" : "border-line bg-paper"}`}>
               {/* The name, with the price (and a tip with the detail) top right, then the time */}
