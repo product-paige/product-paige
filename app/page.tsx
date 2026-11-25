@@ -1,7 +1,8 @@
 import { about, approachPage, audiences, services, site, testimonials } from "@/content";
 import { AboutNotebook } from "@/components/AboutNotebook";
 import { CuttingMat } from "@/components/CuttingMat";
-import { Asterisk, EditorialHero } from "@/components/EditorialHero";
+import { EditorialHero } from "@/components/EditorialHero";
+import { Callout } from "@/components/Callout";
 import { JsonLd } from "@/components/JsonLd";
 import { RecentProjects } from "@/components/RecentProjects";
 import { CapabilitiesAccordion } from "@/components/CapabilitiesAccordion";
@@ -11,7 +12,7 @@ import { WorkingStyle } from "@/components/WorkingStyle";
 import { Services } from "@/components/Services";
 import { HomeFaq } from "@/components/HomeFaq";
 import {
-  Container, Eyebrow, Reveal, Rich, SectionHead, SelectionHandles, section, sectionHeading, selectionBlue,
+  Container, Eyebrow, Reveal, Rich, SectionHead, section, sectionHeading,
 } from "@/components/ui";
 
 // Hover lift shared by every card.
@@ -78,12 +79,8 @@ export default function Home() {
               </Reveal>
               <Reveal delay={60} className="mt-5 max-w-2xl space-y-4">
                 {about.body.map((para) => <p key={para} className="lede">{para}</p>)}
-                {/* The hiring note, drawn selected like the hero's "design": a blue box with corner handles */}
-                <p className="relative mt-2 flex items-start gap-3 px-4 py-3 text-[15px] leading-relaxed" style={{ background: `color-mix(in srgb, ${selectionBlue} 8%, transparent)` }}>
-                  <SelectionHandles className="inset-0" />
-                  <Asterisk className="live-star mt-1 size-4 shrink-0 text-accent" />
-                  <span><span className="mono mr-2 text-accent">{about.hiring.label}</span>{about.hiring.text} <a href={`mailto:${site.email}`} className="link">{site.email}</a></span>
-                </p>
+                {/* The hiring note, drawn selected like the hero's "design" */}
+                <Callout label={about.hiring.label} className="mt-2">{about.hiring.text} <a href={`mailto:${site.email}`} className="link">{site.email}</a></Callout>
               </Reveal>
               {/* Who I work with (AudienceList) is off the page for now */}
             </div>

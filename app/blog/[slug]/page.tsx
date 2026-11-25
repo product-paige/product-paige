@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blog, livePosts, samplePostBody, site, type PostBlock } from "@/content";
+import { Callout } from "@/components/Callout";
 import { JsonLd } from "@/components/JsonLd";
 import { PostToc } from "@/components/PostToc";
 import { ScrapCard } from "@/components/Scrapbook";
@@ -45,6 +46,8 @@ function Block({ b, i }: { b: PostBlock; i: number }) {
           {b.text}
         </blockquote>
       );
+    case "callout":
+      return <Callout label={b.label} className="max-w-xl text-[16px]">{b.text}</Callout>;
     case "list":
       return (
         <ul className="space-y-2.5">

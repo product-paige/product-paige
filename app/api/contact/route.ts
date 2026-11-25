@@ -34,6 +34,13 @@ export async function POST(request: Request) {
     return Response.json({ error: "Please fill in your name, a valid email and a message." }, { status: 422 });
   }
 
+  // Screenshots or files: images or PDFs, up to 4 MB in total, attached to the email
+  const files = data.getAll("files").filter((x): x is File => typeof x === "object" && "size" in x && x.size > 0).slice(0, 10);
+  const total = files.reduce((n, x) => n + x.size, 0);
+  if (total > 4 * 1024 * 1024) return Response.json({ error: "Attachments are over 4 MB." }, { status: 413 });
+  if (files.some((x) => !/^image\/|^application\/pdf$/.test(x.type))) return Response.json({ error: "Attach images or PDFs only." }, { status: 415 });
+  const attachments = await Promise.all(files.map(async (x) => ({ filename: x.name.slice(0, 120), content: Buffer.from(await x.arrayBuffer()).toString("base64") })));
+
   const key = process.env.RESEND_API_KEY;
   if (!key) {
     console.error("Contact form: RESEND_API_KEY isn't set, so the message wasn't sent.");
@@ -59,9 +66,10 @@ export async function POST(request: Request) {
     ["Company", f.company],
     ["Website", host, f.website && (/^https?:\/\//.test(f.website) ? f.website : `https://${f.website}`)],
     ["Interested in", f.interest],
-    ["Deadline", f.deadline],
+    ["Timeline", f.deadline],
     ["Team size", f.team],
     ["Monthly sales", f.sales],
+    ["Attached", files.map((x) => x.name).join(", ")],
   ];
   const filled = rows.filter(([, v]) => v);
   const footer = `Reply to this email to answer ${f.name} directly. Sent from the contact form on ${site.url.replace(/^https:\/\//, "")}.`;
@@ -86,6 +94,7 @@ export async function POST(request: Request) {
       to: [process.env.CONTACT_TO || process.env.CONTACT_TO_EMAIL || site.email],
       reply_to: f.email,
       subject,
+      ...(attachments.length ? { attachments } : {}),
       text,
       html,
     }),

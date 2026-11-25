@@ -5,6 +5,9 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import { Button } from "@/components/ui";
 
 type Status = "idle" | "sending" | "sent" | "error";
+
+// The most the attachments can add up to (the server checks too)
+const MAX_FILES = 4 * 1024 * 1024;
 type Role = keyof typeof contact.roles;
 
 // Styled for the paper contact drawer. Fields are 16px so iOS doesn't zoom in on focus.
@@ -46,6 +49,7 @@ export function ContactForm({ endpoint, email, presetInterest = "" }: { endpoint
   const [status, setStatus] = useState<Status>("idle");
   const [role, setRole] = useState<Role | "">("");
   const [interest, setInterest] = useState(presetInterest);
+  const [tooBig, setTooBig] = useState(false);
   const hiring = role === "hiring";
   const messageLabel = hiring ? contact.messageLabels.hiring : interest.startsWith("Ask Paige") ? contact.messageLabels.ask : contact.messageLabels.other;
 
@@ -136,9 +140,23 @@ export function ContactForm({ endpoint, email, presetInterest = "" }: { endpoint
       <Field id="cf-message" text={messageLabel} wide>
         <textarea id="cf-message" name="message" required rows={4} className={`${field} resize-y`} />
       </Field>
+      {/* Screenshots or files, attached to the email (up to 4 MB in total) */}
+      {!hiring && (
+        <Field id="cf-files" text={contact.filesLabel} help={tooBig ? contact.filesTooBig : contact.filesHelp} wide>
+          <input
+            id="cf-files"
+            name="files"
+            type="file"
+            multiple
+            accept="image/*,.pdf"
+            onChange={(e) => setTooBig([...(e.target.files ?? [])].reduce((n, f) => n + f.size, 0) > MAX_FILES)}
+            className={`${field} cursor-pointer py-2 file:mr-4 file:cursor-pointer file:rounded-ui file:border-0 file:bg-sheet file:px-3 file:py-1.5 file:text-[14px] file:text-ink ${tooBig ? "border-accent" : ""}`}
+          />
+        </Field>
+      )}
 
       <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-3 sm:col-span-2">
-        <Button type="submit" accent disabled={status === "sending"}>
+        <Button type="submit" accent disabled={status === "sending" || tooBig}>
           {status === "sending" ? "Sending…" : contact.button}
         </Button>
         <p className="text-[14px] text-muted">

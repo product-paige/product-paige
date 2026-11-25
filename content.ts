@@ -217,6 +217,8 @@ export type PostBlock =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
   | { type: "quote"; text: string }
+  // A short tip in the selected-box callout, with a mono label in front
+  | { type: "callout"; label: string; text: string }
   | { type: "list"; items: string[] }
   | { type: "image"; src?: string; caption: string };
 
@@ -515,20 +517,24 @@ export const closing = {
 // questions, team size shows for brands and software teams, monthly sales for brands only. The open
 // box's label follows the offer picked. The offers' buttons open it with their option picked.
 export const contact = {
-  heading: "Let’s talk about what’s not working",
+  heading: "Let’s talk about what’s next",
   body: "Tell me where things stand and what’s on your plate. I reply by email, usually within two business days.",
   roleLabel: "Which describes you?",
   roles: { brand: "Shopify brand", software: "Ecommerce software company", hiring: "I’m hiring", other: "Something else" },
   interestLabel: "Interested in",
   // The offers, with their prices, plus a catch-all
   interests: ["Ask Paige, $300 call", "Project, from $750", "Refresh, from $2,500", "Not sure yet"],
-  deadlineLabel: "Deadline",
+  deadlineLabel: "Timeline",
   deadlines: ["No fixed date", "Within a month", "1 to 3 months", "It’s urgent"],
   teamLabel: "Team size",
   teamSizes: ["Just me", "2 to 5", "6 to 15", "16 to 30", "More than 30"],
   salesLabel: "Monthly sales, roughly",
   sales: ["Under $10K", "$10K to $25K", "$25K to $100K", "Over $100K"],
   optionalHelp: "Helps me scope. Skip it if you’d rather.",
+  // Screenshots or files to attach (not shown to people hiring)
+  filesLabel: "Screenshots or files",
+  filesHelp: "Optional. Images or PDFs, up to 4 MB in total.",
+  filesTooBig: "Those files add up to more than 4 MB. Try fewer or smaller ones, or send a link instead.",
   // The open box's label: for Ask Paige, for the rest, and for people hiring
   messageLabels: {
     ask: "What should I look at? Send a link, a screenshot or your biggest question.",
