@@ -32,7 +32,7 @@ export function Faq({ items, plain = false, rows = false }: { items: { q: string
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className={`group/q flex w-full cursor-pointer items-center justify-between gap-6 text-left leading-[1.2] ${rows ? `px-4 pt-6 text-[17px] font-medium tracking-[-0.01em] sm:px-6 lg:px-10 ${isOpen ? "pb-3" : "pb-6"}` : plain ? "py-4 text-[17px] font-medium tracking-[-0.01em]" : "mono py-3"}`}
+                className={`group/q flex w-full cursor-pointer items-center justify-between gap-6 text-left leading-[1.2] ${rows ? `px-4 pt-6 text-[17px] font-medium lg:text-[19px] tracking-[-0.01em] sm:px-6 lg:px-10 ${isOpen ? "pb-3" : "pb-6"}` : plain ? "py-4 text-[17px] font-medium tracking-[-0.01em]" : "mono py-3"}`}
               >
                 {/* The red dot shows only on the open row: it grows in and pushes the label over */}
                 <span className="flex items-center gap-3">
