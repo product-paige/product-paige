@@ -2,7 +2,7 @@
 
 import { approachPage, services } from "@/content";
 import { useId, useState } from "react";
-import { Chip, Eyebrow, Reveal, sectionHeading } from "./ui";
+import { Chip, Eyebrow, Reveal } from "./ui";
 
 // A thin line icon for each service, in turn: a browser window (design), a speech bubble
 // (positioning and messaging), a cursor (UX and conversion), a megaphone (content and campaigns)
@@ -56,9 +56,9 @@ export function CapabilitiesShowcase() {
       <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
         <div className="flex flex-col">
           <Reveal className="px-4 pt-12 pb-10 sm:px-6 lg:pt-16 lg:pr-16 lg:pb-12 lg:pl-10">
-            <Eyebrow>{services.eyebrow}</Eyebrow>
-            <h2 className={sectionHeading}>{services.title}</h2>
-            <p className="lede mt-5 max-w-xl">{services.description}</p>
+            {/* A list section: the mono label is the heading, as on Recent projects */}
+            <Eyebrow as="h2">{services.title}</Eyebrow>
+            <p className="lede max-w-xl">{services.description}</p>
           </Reveal>
           <ul className="divide-y divide-grid border-t border-grid lg:mt-auto">
             {rows.map((ph, i) => {
@@ -77,7 +77,7 @@ export function CapabilitiesShowcase() {
                       <span aria-hidden className={`grid w-9 shrink-0 place-items-start transition-colors duration-500 lg:w-10 ${on ? "text-accent" : "text-ink/50"}`}>
                         {icons[i % icons.length]}
                       </span>
-                      <span className="serif flex-1 text-[clamp(22px,2vw,28px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
+                      <span className="serif flex-1 text-[clamp(26px,2.5vw,36px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
                       {/* A plus that turns into a cross when open */}
                       <svg aria-hidden viewBox="0 0 24 24" className={`size-6 shrink-0 lg:size-7 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${on ? "rotate-45" : ""}`} fill="none" stroke="currentColor" strokeWidth="0.75" strokeLinecap="round">
                         <path d="M12 4v16M4 12h16" />

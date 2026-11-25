@@ -12,7 +12,7 @@ export function GET() {
     "",
     about.body,
     "",
-    `## ${services.eyebrow}`,
+    `## ${services.title}`,
     ...approachPage.phases.map((p) => `- ${p.title}: ${p.body}`),
     "",
     `## ${projects.eyebrow}`,
