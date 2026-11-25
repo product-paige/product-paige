@@ -28,9 +28,9 @@ export function CapabilitiesAccordion() {
   const id = useId();
   return (
     <section id="capabilities" className="border-t border-grid">
-      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+      <div className="md:mx-6 lg:mx-10 lg:grid lg:grid-cols-2">
         {/* Left: the label and the statement */}
-        <div className="border-grid px-4 pt-8 pb-10 sm:px-6 lg:border-r lg:py-11 lg:pr-10 lg:pl-10">
+        <div className="border-grid px-4 pt-8 pb-10 sm:px-6 lg:border-r lg:py-8 lg:pr-10 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">
             {/* The section heading, at the size of the other section headings, and a line under it */}
             <h2 className={sectionHeading}>{services.title}</h2>
@@ -49,7 +49,7 @@ export function CapabilitiesAccordion() {
                     aria-expanded={isOpen}
                     aria-controls={`${id}-${i}`}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className={`group flex w-full cursor-pointer items-center gap-6 px-4 pt-9 text-left transition-[background-color,padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 lg:gap-12 lg:px-10 lg:pt-12 ${isOpen ? "pb-3 lg:pb-3" : "pb-9 hover:bg-sheet lg:pb-12"}`}
+                    className={`group flex w-full cursor-pointer items-center gap-6 px-4 pt-7 text-left transition-[background-color,padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-6 lg:gap-12 lg:px-10 lg:pt-9 ${isOpen ? "pb-3 lg:pb-3" : "pb-7 hover:bg-sheet lg:pb-9"}`}
                   >
                     <span aria-hidden className="grid w-10 shrink-0 place-items-start lg:w-14">{icons[i % icons.length]}</span>
                     <span className="serif flex-1 text-[clamp(22px,2.2vw,32px)] leading-tight tracking-[-0.035em]">{ph.title}</span>
@@ -62,7 +62,7 @@ export function CapabilitiesAccordion() {
                 {/* The panel: its height animates open and closed (grid rows 0fr to 1fr), the content fading in */}
                 <div id={`${id}-${i}`} role="region" aria-hidden={!isOpen} inert={!isOpen} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                   <div className="overflow-hidden">
-                    <div className={`px-4 pb-8 transition-opacity duration-500 sm:px-6 lg:pr-10 lg:pb-12 lg:pl-[calc(2.5rem+3.5rem+3rem)] ${isOpen ? "opacity-100" : "opacity-0"}`}>
+                    <div className={`px-4 pb-8 transition-opacity duration-500 sm:px-6 lg:pr-10 lg:pb-9 lg:pl-[calc(2.5rem+3.5rem+3rem)] ${isOpen ? "opacity-100" : "opacity-0"}`}>
                       <p className="max-w-[52ch] text-[16px] leading-relaxed text-muted">{ph.body}</p>
                       <ul className="mt-4 flex flex-wrap gap-2">
                         {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:var(--color-accent)]">{c}</Chip></li>)}

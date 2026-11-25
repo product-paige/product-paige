@@ -1,4 +1,4 @@
-import { closing, infoPages, livePosts, nav, site } from "@/content";
+import { about, closing, infoPages, livePosts, nav, site } from "@/content";
 import { Nav } from "./Nav";
 import { SlideHeader } from "./SlideHeader";
 import { Button, Container } from "./ui";
@@ -88,6 +88,10 @@ export function SiteFooter() {
           {/* The name as a small mono label, then the tagline as the big line */}
           <p className="mono flex items-center gap-3 text-white/80"><i aria-hidden className="size-3 rounded-full bg-white" />{site.logo}</p>
           <p className="serif mt-5 max-w-sm text-[clamp(32px,3.2vw,44px)] leading-[1.05] tracking-[-0.04em] text-balance">{closing.tagline}</p>
+          {/* For recruiters: a mono label and the line, under the tagline */}
+          <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-white/80">
+            <span className="mono mr-2 text-white">{about.hiring.label}</span>{about.hiring.text} <a href={`mailto:${site.email}`} className="underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white">{site.email}</a>
+          </p>
         </div>
         <div className="grid gap-10 px-4 py-10 sm:grid-cols-3 sm:px-6 md:px-12 lg:pt-14 lg:pb-10 lg:pr-20 lg:pl-12">
           {columns.map((c) => (
