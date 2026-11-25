@@ -10,7 +10,7 @@ export function Deliverables({ items }: { items: string[] }) {
   const [open, setOpen] = useState(false);
   const id = useId();
   return (
-    <div className="mt-6 border-t border-current/15 pt-4">
+    <div className="mt-10 border-t border-current/15 pt-5">
       <div className="flex items-center justify-between gap-3">
         <button type="button" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)} className="mono inline-flex cursor-pointer items-center gap-2">
           {offers.deliverablesLabel}

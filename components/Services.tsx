@@ -31,15 +31,15 @@ export function Services() {
                 <p className="serif text-[clamp(22px,2vw,28px)] leading-none tracking-[-0.03em]">{o.name}</p>
                 <p className="mono flex shrink-0 items-center gap-2">{o.price} <Tip text={o.tip} label={`About ${o.name}`} /></p>
               </div>
-              <p className="mono mt-3 text-muted">{o.time}</p>
-              <p className="mt-5">{o.body}</p>
-              <ul className="mt-5 space-y-3">
+              <p className="mono mt-4 text-muted">{o.time}</p>
+              <p className="mt-8">{o.body}</p>
+              <ul className="mt-8 space-y-3.5">
                 {o.points.map((pt, j) => (
                   <li key={pt} className="flex items-start gap-3 text-[15px] leading-snug"><ScribbleBullet variant={j} className="mt-px text-accent" />{pt}</li>
                 ))}
               </ul>
               <Deliverables items={o.deliverables} />
-              <div className="mt-auto pt-8">
+              <div className="mt-auto pt-10">
                 <Button href={site.bookingUrl} interest={o.interest} accent={i !== 1} light={i === 1}>{o.button}</Button>
               </div>
             </Reveal>
