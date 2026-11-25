@@ -24,18 +24,18 @@ const rows: { label: string; cell: (o: Offer) => ReactNode }[] = [
 /**
  * Services (#services): the offers side by side as a table. Each offer's name is a folder tab on top of its column;
  * clicking a tab picks that offer and turns its column the bright blue (Project to start). Rows for
- * price, timeline, what it is and example deliverables, in a grid of fine borders, with the row labels in the mono.
+ * price, timeline, what it is and example deliverables, split by fine row lines only, with the row labels in the mono.
  * One button to get in touch sits beside the heading. On phones each offer becomes its own block.
  */
 export function ServicesTable() {
   const [picked, setPicked] = useState(1);
-  const tint = (i: number) => (picked === i ? "bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/75" : "bg-paper");
+  const tint = (i: number) => (picked === i ? "bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/75" : "bg-sheet");
   const Tab = ({ o, i }: { o: Offer; i: number }) => (
     <button
       type="button"
       aria-pressed={picked === i}
       onClick={() => setPicked(i)}
-      className={`serif text-[clamp(20px,1.6vw,24px)] tracking-[-0.03em] relative z-1 -mb-px cursor-pointer rounded-t-[10px] border border-b-0 px-5 pt-3 pb-2.5 leading-none transition-colors ${picked === i ? "border-accent bg-accent text-white" : "border-line bg-paper hover:text-accent"}`}
+      className={`serif text-[clamp(20px,1.6vw,24px)] tracking-[-0.03em] relative z-1 -mb-px cursor-pointer rounded-t-[10px] border border-b-0 px-5 pt-3 pb-2.5 leading-none transition-colors ${picked === i ? "border-accent bg-accent text-white" : "border-line bg-sheet hover:text-accent"}`}
     >
       {o.name}
     </button>
@@ -77,7 +77,7 @@ export function ServicesTable() {
             <span />
             {offers.items.map((o, i) => <span key={o.name} className="flex items-end"><Tab o={o} i={i} /></span>)}
           </div>
-          <div className="grid grid-cols-[11.5rem_repeat(3,minmax(0,1fr))] overflow-hidden rounded-[10px] border border-line">
+          <div className="grid grid-cols-[11.5rem_repeat(3,minmax(0,1fr))] overflow-hidden rounded-[10px] border border-line bg-sheet">
             {rows.map((r, k) => {
               // A line under every row but the last, which sits on the table's own border
               const under = k < rows.length - 1 ? "border-b" : "";
@@ -85,7 +85,7 @@ export function ServicesTable() {
                 <div key={r.label} className="contents">
                   <p className={`mono border-line px-5 py-5 text-muted lg:px-6 ${under}`}>{r.label}</p>
                   {offers.items.map((o, i) => (
-                    <div key={o.name} className={`border-l border-line px-5 py-5 transition-colors lg:px-6 ${under} ${tint(i)}`}>{r.cell(o)}</div>
+                    <div key={o.name} className={`border-line px-5 py-5 transition-colors lg:px-6 ${under} ${tint(i)}`}>{r.cell(o)}</div>
                   ))}
                 </div>
               );
