@@ -157,7 +157,7 @@ export function CapabilitiesShowcase() {
                         <p className="max-w-xl text-[15px] leading-[1.5] text-muted">{ph.body}</p>
                         {/* One row of pills: any that don’t fit on it wrap below and are cut off */}
                         <ul className="mt-3 flex h-[30px] flex-wrap gap-2 overflow-hidden">
-                          {ph.includes.map((c) => <li key={c}><Chip className="text-white [--color-chip:var(--color-accent)]">{c}</Chip></li>)}
+                          {ph.includes.map((c) => <li key={c}><Chip>{c}</Chip></li>)}
                         </ul>
                       </div>
                     </div>
