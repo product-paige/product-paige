@@ -425,7 +425,7 @@ export const approachPage = {
   lede: "Four phases. Most projects use two or three of them, not all four — and I’ll say which ones you actually need before you’ve paid me anything.",
   phases: [
     {
-      title: "Web design",
+      title: "UX design",
       body: "Shopify themes, sections and design systems, built and launched.",
       includes: ["Shopify theme build", "Design system", "Front-end build", "QA and launch"],
       caseStudies: ["backspace-body", "organic-moderne", "brand-playbook"],
