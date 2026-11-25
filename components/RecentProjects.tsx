@@ -125,7 +125,6 @@ export function RecentProjects({ className = "" }: { className?: string }) {
               <Card p={p}>
                 <span className={`relative grid aspect-[4/3] place-items-center overflow-hidden ${grounds[i % grounds.length].tile}`}>
                   <BrowserWindow p={p} frame={grounds[i % grounds.length].frame} />
-                  <Chip className="absolute top-3 right-3 text-white [--color-chip:var(--color-accent)]">{p.role}</Chip>
                   {p.comingSoon ? <Chip className="absolute top-3 left-3 bg-paper text-ink">{projects.comingSoonLabel}</Chip> : <PhoneMockup p={p} />}
                 </span>
                 <span className="mt-4 flex flex-wrap items-center justify-between gap-x-8 gap-y-1">

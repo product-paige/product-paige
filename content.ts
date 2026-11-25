@@ -81,7 +81,7 @@ export const hero = {
   lede:
     "13 years on Shopify. I fix, rewrite and rebuild stores and ecommerce software sites for small teams who want one person, not an agency.",
   // Under the intro: the main button (opens the contact form) and a text link to the services
-  cta: { label: "Let’s talk", link: { label: "See how I work", href: "#services" } },
+  cta: { label: "Let’s talk", link: { label: "See how I work", href: "#how-i-work" } },
   // Storefront screens shown in a row under the intro. Width and height are the files' own;
   // `tag` (optional) replaces the label in the caption under the screen; `hover` (optional)
   // is a second image, the same size, that fades in on hover, as on a real product card. `afterCart`
@@ -177,7 +177,7 @@ export const offers = {
       price: "$300 flat",
       time: "Booked within a few days",
       body: "Send me the page or the question. We talk it through, and you get written notes.",
-      points: ["A review of what you send", "A live call to work through it", "Notes ranked by what to fix first"],
+      points: ["A review of what you send", "Notes ranked by what to fix first", "Honest advice if you don’t need me"],
       tip: "3 hours in total. Book a project within 30 days and the $300 counts toward it.",
       deliverables: ["Homepage and key pages review", "SEO and AI search check", "A prioritized fix list"],
       button: "Ask Paige",
@@ -188,7 +188,7 @@ export const offers = {
       price: "From $750",
       time: "1 to 2 weeks",
       body: "One piece of work with a fixed price and a finish line, scoped before it starts.",
-      points: ["Written scope and price first", "Design, copy and build, by me", "Live, not a mockup"],
+      points: ["Design, copy and build, by me", "Live, not a mockup", "Files and templates handed over"],
       tip: "Priced by scope and brand size.",
       deliverables: ["Landing pages", "Email flows", "Shopify sections", "SEO projects", "Campaigns"],
       button: "Start a project",
@@ -199,7 +199,7 @@ export const offers = {
       price: "From $2,500",
       time: "3 to 4 weeks",
       body: "A full or partial website refresh: your whole site or key pages, redone and live.",
-      points: ["Full site or key pages, your call", "New structure, messaging and copy", "Built, launched and handed over"],
+      points: ["A review of what’s costing you sales", "New structure, messaging and copy", "Built, launched and handed over"],
       tip: "Refresh everything, or start with the homepage, product and collection pages.",
       deliverables: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements", "Design files and templates"],
       button: "Plan a refresh",

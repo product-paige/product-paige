@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { approachPage, services } from "@/content";
-import { Chip, Eyebrow, Reveal, sectionHeading } from "./ui";
+import { Chip, Reveal, sectionHeading } from "./ui";
 
 // A thin line icon for each service, in turn: a browser window (design), a speech bubble
 // (positioning and messaging), a cursor (UX and conversion), a megaphone (content and campaigns)
@@ -32,7 +32,6 @@ export function CapabilitiesAccordion() {
         {/* Left: the label and the statement */}
         <div className="border-grid px-4 pt-10 pb-12 sm:px-6 lg:border-r lg:py-20 lg:pr-10 lg:pl-10">
           <Reveal className="lg:sticky lg:top-28">
-            <Eyebrow>{services.eyebrow}</Eyebrow>
             {/* The section heading, at the size of the other section headings, and a line under it */}
             <h2 className={sectionHeading}>{services.title}</h2>
             <p className="lede mt-5 max-w-[30ch]">{services.description}</p>
