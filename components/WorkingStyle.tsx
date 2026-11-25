@@ -7,7 +7,7 @@ import { Eyebrow, Reveal, sectionHeading } from "./ui";
 type Shot = (typeof workingStyle.items)[number]["image"];
 
 /** One principle's picture: a storefront screen in a browser window, or as a floating card. */
-function Mockup({ image }: { image: Shot }) {
+export function Mockup({ image }: { image: Shot }) {
   // eslint-disable-next-line @next/next/no-img-element
   const img = <img src={image.src} alt="" width={image.width} height={image.height} loading="lazy" decoding="async" className="block w-full" />;
   if (image.frame === "browser") {

@@ -7,7 +7,7 @@ import { useId, useState, type ReactNode } from "react";
  * ordinary sentence-case text, as on the FAQs). One answer at a time: opening a
  * question closes the one before it. The first starts open.
  */
-export function Faq({ items, plain = false }: { items: { q: string; a: ReactNode }[]; plain?: boolean }) {
+export function Faq({ items, plain = false, rows = false }: { items: { q: string; a: ReactNode }[]; plain?: boolean; rows?: boolean }) {
   const [open, setOpen] = useState<number | null>(0);
   const id = useId();
 
@@ -16,14 +16,15 @@ export function Faq({ items, plain = false }: { items: { q: string; a: ReactNode
   }
 
   return (
-    // Rows split by fine rules: each question an eyebrow, the open one with the red dot.
-    <div className="divide-y divide-line border-y border-line">
+    // Rows split by fine rules: each question an eyebrow, the open one with the red dot. With `rows`, the
+    // rows run edge to edge in the serif like the Capabilities accordion, open and hovered rows tinted.
+    <div className={rows ? "divide-y divide-grid" : "divide-y divide-line border-y border-line"}>
       {items.map((f, i) => {
         const isOpen = open === i;
         const buttonId = `${id}-q${i}`;
         const panelId = `${id}-a${i}`;
         return (
-          <div key={f.q}>
+          <div key={f.q} className={rows ? `transition-colors duration-500 ${isOpen ? "bg-sheet" : ""}` : undefined}>
             <h3>
               <button
                 id={buttonId}
@@ -31,11 +32,11 @@ export function Faq({ items, plain = false }: { items: { q: string; a: ReactNode
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(i)}
-                className={`group/q flex w-full cursor-pointer items-center justify-between gap-4 text-left leading-[1.2] ${plain ? "py-4 text-[17px] font-medium tracking-[-0.01em]" : "mono py-3"}`}
+                className={`group/q flex w-full cursor-pointer items-center justify-between gap-6 text-left leading-[1.2] ${rows ? `px-4 pt-5 text-[17px] font-medium tracking-[-0.01em] transition-colors duration-500 sm:px-6 lg:px-10 lg:pt-6 ${isOpen ? "pb-2" : "pb-5 hover:bg-sheet lg:pb-6"}` : plain ? "py-4 text-[17px] font-medium tracking-[-0.01em]" : "mono py-3"}`}
               >
                 {/* The red dot shows only on the open row: it grows in and pushes the label over */}
                 <span className="flex items-center gap-3">
-                  <i aria-hidden className={`h-3 shrink-0 rounded-full bg-accent transition-[width,margin,opacity] duration-500 ${isOpen ? "w-3 opacity-100" : "-mr-3 w-0 opacity-0"}`} />
+                  <i aria-hidden className={`${rows ? "hidden " : ""}h-3 shrink-0 rounded-full bg-accent transition-[width,margin,opacity] duration-500 ${isOpen ? "w-3 opacity-100" : "-mr-3 w-0 opacity-0"}`} />
                   {f.q}
                 </span>
                 {/* Thin plus that rotates 45° into a cross when open: the same lines
@@ -47,7 +48,7 @@ export function Faq({ items, plain = false }: { items: { q: string; a: ReactNode
                   stroke="currentColor"
                   strokeWidth={1}
                   strokeLinecap="round"
-                  className={`-my-1 size-5 shrink-0 transition-[rotate] duration-500 lg:size-6 ${isOpen ? "rotate-45" : ""}`}
+                  className={`-my-1 shrink-0 transition-[rotate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${rows ? "size-6 lg:size-7" : "size-5 lg:size-6"} ${isOpen ? "rotate-45" : ""}`}
                 >
                   <path d="M12 4v16M4 12h16" vectorEffect="non-scaling-stroke" />
                 </svg>
@@ -57,11 +58,11 @@ export function Faq({ items, plain = false }: { items: { q: string; a: ReactNode
               id={panelId}
               role="region"
               aria-labelledby={buttonId}
-              className={`grid transition-[grid-template-rows] duration-500 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+              className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
             >
               <div className="overflow-hidden" inert={!isOpen}>
                 <div
-                  className={`max-w-xl pr-10 pb-4 text-[15px] leading-[1.5] transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
+                  className={`${rows ? "px-4 pb-6 text-[16px] text-muted sm:px-6 lg:px-10 lg:pr-24 lg:pb-7" : "max-w-xl pr-10 pb-4 text-[15px] leading-[1.5]"} transition-[opacity,translate] duration-500 ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`}
                 >
                   {f.a}
                 </div>

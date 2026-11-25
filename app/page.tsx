@@ -4,7 +4,7 @@ import { CuttingMat } from "@/components/CuttingMat";
 import { EditorialHero } from "@/components/EditorialHero";
 import { JsonLd } from "@/components/JsonLd";
 import { RecentProjects } from "@/components/RecentProjects";
-import { CapabilitiesAccordion } from "@/components/CapabilitiesAccordion";
+import { CapabilitiesShowcase } from "@/components/CapabilitiesShowcase";
 import { PageRails, SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { Scrapbook } from "@/components/Scrapbook";
 import { WorkingStyle } from "@/components/WorkingStyle";
@@ -98,7 +98,7 @@ export default function Home() {
         <RecentProjects className={section} />
 
         {/* Services */}
-        <CapabilitiesAccordion />
+        <CapabilitiesShowcase />
 
 
 

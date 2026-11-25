@@ -123,6 +123,14 @@ export const services = {
   // The section heading beside the list, and a line under it
   title: "Capabilities",
   description: "Design, copy and builds for Shopify stores that look right and sell.",
+  // Laid out like How I work: a picture behind the services, and one per service, in order
+  background: "/blog/eight-second-test.webp",
+  images: [
+    { src: "/hero/swim-homepage.webp", width: 1364, height: 960, frame: "browser", url: "yourstore.com" },
+    { src: "/hero/jewellery-banner.webp", width: 1359, height: 1406, frame: "card" },
+    { src: "/hero/spf-product-card-pool.webp", width: 876, height: 1040, frame: "card" },
+    { src: "/hero/jewellery-banner-minimal.webp", width: 1359, height: 1406, frame: "card" },
+  ] as { src: string; width: number; height: number; frame: "browser" | "card" | "claude"; url?: string }[],
 };
 
 // How I work on the homepage: a picture on the left, the four steps on the right.
@@ -452,7 +460,7 @@ export const faq = {
   items: [
     { q: "How much does it cost?", a: "Ask Paige is $300. Projects start at $750 and refreshes at $2,500. You get a fixed price in writing before anything starts." },
     { q: "How long does it take?", a: "A few days for Ask Paige, one to two weeks for a project, and three to four for a refresh." },
-    { q: "What if I don’t need you?", a: "I’ll tell you on the call. Book a project within 30 days and the $300 counts toward it." },
+    { q: "Does Ask Paige count toward a project?", a: "Yes. Book a project within 30 days and the $300 comes off the price." },
     { q: "What do I get at the end?", a: "The work, live, plus the Figma files, copy, code and templates. All yours." },
     { q: "What happens if the scope changes?", a: "Small tweaks are included. Anything new gets a written quote first." },
     { q: "Do you do monthly retainers?", a: "No. Every job is a fixed-price project. Need more? We scope the next one." },
