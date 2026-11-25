@@ -18,7 +18,7 @@ export function ScrapCard({ p }: { p: Post }) {
         <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
       </span>
       <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
-      <p className="mt-2">{p.excerpt}</p>
+      <p className="mt-2 line-clamp-2">{p.excerpt}</p>
     </a>
   );
 }
