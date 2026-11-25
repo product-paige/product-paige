@@ -1,5 +1,5 @@
 import { blog, livePosts, type Post } from "@/content";
-import { Chip, Container, Eyebrow, Reveal } from "./ui";
+import { Chip, Container, Eyebrow, Reveal, sansTitle } from "./ui";
 
 /**
  * A post as a loose-leaf notebook page (punch holes, a margin rule and a folded corner; see
@@ -17,7 +17,7 @@ export function ScrapCard({ p }: { p: Post }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
       </span>
-      <h3 className="mt-6 font-sans text-[16px] font-medium leading-snug tracking-[-0.03em] lg:text-[18px]">{p.title}</h3>
+      <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
       <p className="copy mt-2 line-clamp-2">{p.excerpt}</p>
     </a>
   );
