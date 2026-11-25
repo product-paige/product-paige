@@ -188,7 +188,7 @@ export const offers = {
   button: "Let’s talk",
   offersHeading: "Three ways to work with me",
   offersIntro: "No retainers. Not sure which? Start with the call.",
-  // Each card: its name, price (with a tip) and time, what it's best for, one line, three short points,
+  // Each card: its name, price (with a tip) and time, one line, three short points,
   // and example deliverables behind a dropdown
   items: [
     {
@@ -197,7 +197,6 @@ export const offers = {
       time: "Booked within a few days",
       body: "Send me the page or the question. We talk it through, and you get written notes.",
       points: ["A review of what you send", "A live call to work through it", "Notes ranked by what to fix first"],
-      bestFor: "One stuck question",
       tip: "3 hours in total. Book a project within 30 days and the $300 counts toward it.",
       deliverables: ["Homepage and key pages review", "SEO and AI search check", "A prioritized fix list"],
       button: "Ask Paige",
@@ -207,9 +206,8 @@ export const offers = {
       name: "Project",
       price: "From $750",
       time: "1 to 2 weeks",
-      body: "One piece of work with a fixed price and a finish line.",
+      body: "One piece of work with a fixed price and a finish line, scoped before it starts.",
       points: ["Written scope and price first", "Design, copy and build, by me", "Live, not a mockup"],
-      bestFor: "One defined piece of work",
       tip: "Priced by scope and brand size.",
       deliverables: ["Landing pages", "Email flows", "Shopify sections", "SEO projects", "Campaigns"],
       button: "Start a project",
@@ -219,17 +217,15 @@ export const offers = {
       name: "Refresh",
       price: "From $2,500",
       time: "3 to 4 weeks",
-      body: "A full or partial website refresh: the whole site, or just your key pages, redesigned, rewritten and taken live.",
+      body: "A full or partial website refresh: your whole site or key pages, redone and live.",
       points: ["Full site or key pages, your call", "New structure, messaging and copy", "Built, launched and handed over"],
-      bestFor: "Your whole site, or the pages that matter most",
       tip: "Full or partial: refresh everything, or start with the homepage, product and collection pages. For brands that outgrew their theme, and software sites that don’t explain the product yet.",
       deliverables: ["Theme and page templates", "Conversion-focused copy", "SEO and AEO improvements", "Design files and templates"],
       button: "Plan a refresh",
       interest: "Refresh, from $2,500",
     },
-  ] as { name: string; price: string; time: string; bestFor: string; body: string; points: string[]; tip: string; deliverables: string[]; button: string; interest: string }[],
+  ] as { name: string; price: string; time: string; body: string; points: string[]; tip: string; deliverables: string[]; button: string; interest: string }[],
   // Labels inside each card
-  bestForLabel: "Best for",
   deliverablesLabel: "Example deliverables",
   deliverablesTip: "Every project is scoped to what you need, so yours may differ from these examples.",
 };

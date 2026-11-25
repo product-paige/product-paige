@@ -5,7 +5,7 @@ import { Button, Container, Eyebrow, Reveal, ScribbleBullet, section, sectionHea
 
 /**
  * Services (#services): the heading and a line with the button to get in touch, then the three offers
- * as cards: the name with the price top right (a tip with the detail), the time, what it's best for,
+ * as cards: the name with the price top right (a tip with the detail), the time,
  * one line, three points, example deliverables behind a dropdown, and a button that opens the contact
  * form with that offer picked.
  */
@@ -32,7 +32,6 @@ export function Services() {
                 <p className="mono flex shrink-0 items-center gap-2">{o.price} <Tip text={o.tip} label={`About ${o.name}`} /></p>
               </div>
               <p className="mono mt-3 text-muted">{o.time}</p>
-              <p className="mt-4 text-[14px]"><span className="text-muted">{offers.bestForLabel}:</span> {o.bestFor}</p>
               <p className="mt-5">{o.body}</p>
               <ul className="mt-5 space-y-3">
                 {o.points.map((pt, j) => (
