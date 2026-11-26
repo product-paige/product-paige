@@ -77,7 +77,7 @@ export const nav = [
 export const hero = {
   // The headline, one phrase per line.
   // A word in {braces} is drawn selected, with a selection box and handles.
-  heading: ["Product marketing, {design}", "& AI-powered Shopify builds"],
+  heading: ["{Design}, copy & AI builds", "for people building on Shopify"],
   lede:
     "13 years on Shopify. I fix, rewrite and rebuild stores and ecommerce software sites for small teams who want one person, not an agency.",
   // Under the intro: the main button (opens the contact form) and a text link to the services
@@ -506,7 +506,7 @@ export const closing = {
   postsHeading: "Latest posts",
   elsewhereHeading: "Elsewhere",
   // The big line in the footer, under the name
-  tagline: "Building better on Shopify",
+  tagline: "I design the Shopify stores I’d shop at",
   newsletter: {
     heading: "Prompt with Paige",
     body: "A monthly note on designing and building with AI. Real examples, prompts you can copy, no spam.",
