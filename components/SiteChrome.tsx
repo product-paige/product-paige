@@ -79,7 +79,7 @@ export function SiteFooter() {
   const external = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
   return (
-    <footer className="folded rails on-dark relative mt-6 bg-accent text-white [--fold-color:rgb(255_255_255/0.16)]">
+    <footer className="folded rails on-dark relative mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
       {/* The inner side lines, as on the page */}
       <i aria-hidden className="rails-inner" />
       {/* Name and tagline, then the link columns */}

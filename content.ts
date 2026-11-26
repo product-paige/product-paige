@@ -77,7 +77,7 @@ export const nav = [
 export const hero = {
   // The headline, one phrase per line.
   // A word in {braces} is drawn selected, with a selection box and handles.
-  heading: ["Product marketing, {design}", "& AI builds for Shopify"],
+  heading: ["Shopify stores that", "look right and {sell}"],
   lede:
     "13 years on Shopify. I fix, rewrite and rebuild stores and ecommerce software sites for small teams who want one person, not an agency.",
   // Under the intro: the main button (opens the contact form) and a text link to the services
@@ -87,9 +87,9 @@ export const hero = {
   // is a second image, the same size, that fades in on hover, as on a real product card. `afterCart`
   // puts it after the cart (which is drawn in code), at the far right.
   shots: [
-    { src: "/hero/swim-homepage.webp", label: "Homepage", tag: "Theme design", alt: "A swimwear homepage: the blue serif headline Cut for the sea, made for the season, over two beach photos with category links between them", width: 1364, height: 960 },
-    { src: "/hero/jewellery-banner-minimal.webp", afterCart: true, label: "Collection banner", alt: "A jewellery banner: a gold chain with a hand clasp draped over a clay vase on rust, with the headline Weakest link? Never and a Shop chains link", width: 1359, height: 1406 },
-    { src: "/hero/spf-product-card.webp", afterCart: true, hover: "/hero/spf-product-card-pool.webp", label: "Product card", tag: "Product pages", alt: "A product card for The Daily SPF 50, a yellow sunscreen bottle on a grey background, with a star rating, a short description and an Add button with the price. On hover it switches to the bottle floating in a pool", width: 876, height: 1040 },
+    { src: "/hero/swim-homepage.webp", label: "Homepage", tag: "Web & UX design", alt: "A swimwear homepage: the blue serif headline Cut for the sea, made for the season, over two beach photos with category links between them", width: 1364, height: 960 },
+    { src: "/hero/jewellery-banner-minimal.webp", afterCart: true, label: "Collection banner", tag: "Content & campaigns", alt: "A jewellery banner: a gold chain with a hand clasp draped over a clay vase on rust, with the headline Weakest link? Never and a Shop chains link", width: 1359, height: 1406 },
+    { src: "/hero/spf-product-card.webp", afterCart: true, hover: "/hero/spf-product-card-pool.webp", label: "Product card", tag: "Storytelling", alt: "A product card for The Daily SPF 50, a yellow sunscreen bottle on a grey background, with a star rating, a short description and an Add button with the price. On hover it switches to the bottle floating in a pool", width: 876, height: 1040 },
   ] as { src: string; label: string; alt: string; width: number; height: number; tag?: string; hover?: string; afterCart?: boolean }[],
 };
 
