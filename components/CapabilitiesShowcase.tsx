@@ -29,7 +29,7 @@ function Mockup({ image }: { image: Shot }) {
 
   if (image.frame === "browser") {
     return (
-      <div className={`w-[80%] overflow-hidden rounded-[10px] bg-white ${shadow}`}>
+      <div className={`w-[80%] overflow-hidden rounded-screen bg-white ${shadow}`}>
         {/* The window's top bar: three dots and the address */}
         <div className="flex items-center gap-3 border-b border-line bg-sheet px-3 py-2">
           <span className="flex gap-1.5">{["#ff5f57", "#febc2e", "#28c840"].map((c) => <i key={c} className="size-2.5 rounded-full" style={{ background: c }} />)}</span>
@@ -43,7 +43,7 @@ function Mockup({ image }: { image: Shot }) {
 
   if (image.frame === "copy") {
     return (
-      <div className={`flex w-[58%] flex-col overflow-hidden rounded-[2cqw] bg-white ${shadow}`}>
+      <div className={`flex w-[58%] flex-col overflow-hidden rounded-screen bg-white ${shadow}`}>
         {img("block aspect-[16/9] w-full object-cover")}
         <div className="flex flex-col gap-[2.4cqw] p-[3.4cqw]">
           <div>
@@ -64,13 +64,13 @@ function Mockup({ image }: { image: Shot }) {
       <div className="relative h-full w-full">
         {/* The product card, to the left, with a numbered pin on the edge beside each thing to fix */}
         <div className="absolute top-1/2 left-[9%] z-1 w-[44%] -translate-y-1/2">
-          <div className={`overflow-hidden rounded-[14px] ${shadow}`}>{img()}</div>
+          <div className={`overflow-hidden rounded-screen ${shadow}`}>{img()}</div>
           {image.notes?.map((n, i) => (
             <span key={n.text} className="absolute grid size-[4.2cqw] -translate-1/2 place-items-center rounded-full bg-accent text-[2cqw] font-medium text-white ring-[0.5cqw] ring-white" style={{ left: `${n.x}%`, top: `${n.y}%` }}>{i + 1}</span>
           ))}
         </div>
         {/* The notes, on a sheet overlapping it on the right */}
-        <ol className={`absolute top-1/2 right-[6%] z-2 flex w-[44%] -translate-y-[30%] flex-col gap-[2cqw] rounded-[2cqw] bg-white p-[3cqw] ${shadow}`}>
+        <ol className={`absolute top-1/2 right-[6%] z-2 flex w-[44%] -translate-y-[30%] flex-col gap-[2cqw] rounded-screen bg-white p-[3cqw] ${shadow}`}>
           <li className="mono text-[1.7cqw] text-ink/50">UX review</li>
           {image.notes?.map((n, i) => (
             <li key={n.text} className="flex gap-[1.6cqw] text-[2.2cqw] leading-[1.35]">
@@ -85,7 +85,7 @@ function Mockup({ image }: { image: Shot }) {
 
   if (image.frame === "email") {
     return (
-      <div className={`flex w-[54%] flex-col overflow-hidden rounded-[2cqw] bg-white ${shadow}`}>
+      <div className={`flex w-[54%] flex-col overflow-hidden rounded-screen bg-white ${shadow}`}>
         {/* The inbox header: who it's from and the subject */}
         <div className="flex flex-col gap-[0.6cqw] border-b border-line px-[3cqw] py-[2.4cqw]">
           <p className="flex items-center gap-[1.2cqw] text-[2cqw] text-ink/60">
@@ -101,7 +101,7 @@ function Mockup({ image }: { image: Shot }) {
     );
   }
 
-  return <div className={`w-[52%] overflow-hidden rounded-[14px] ${shadow}`}>{img()}</div>;
+  return <div className={`w-[52%] overflow-hidden rounded-screen ${shadow}`}>{img()}</div>;
 }
 
 /**

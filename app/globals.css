@@ -33,9 +33,11 @@
   --color-butter: #efece5;
 
 
-  /* Corners. Paper (cards, photos) is square, cards with a folded corner (.folded).
-     Controls (buttons, pills, tags, fields) and folders round off at 4px. */
+  /* Corners, three kinds. Paper (cards, the table, tabs, notes, photos) is square, some with a folded
+     corner (.folded). Controls (buttons, pills, tags, fields) round off at 4px. Screens (browser
+     windows, storefront cards, emails) at 8px. Real objects (the phone, app icons) keep their own. */
   --radius-ui: 4px;
+  --radius-screen: 8px; /* screens and mockups: browser windows, storefront cards, emails */
 
 
 

@@ -43,7 +43,7 @@ const cartRatio = 0.875;
 function Shot({ ratio, label, children }: { ratio: number; label: string; children: ReactNode }) {
   return (
     <figure className="flex shrink-0 flex-col items-start gap-3 lg:w-full">
-      <div className="shot group relative h-[220px] overflow-hidden rounded-[8px] border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${ratio}` }}>
+      <div className="shot group relative h-[220px] overflow-hidden rounded-screen border border-line lg:h-auto lg:w-full" style={{ aspectRatio: `${ratio}` }}>
         {children}
       </div>
       <figcaption>

@@ -15,7 +15,7 @@ const grounds = [
 /** A small browser window holding the project's cover (or its name on a paper page, until it has one). It lifts on hover. */
 function BrowserWindow({ p, frame }: { p: Project; frame: string }) {
   return (
-    <span className={`block w-[74%] overflow-hidden rounded-[6px] border shadow-[0_18px_40px_rgb(0_0_0/0.18)] transition-transform duration-500 group-hover:-translate-y-1.5 ${frame}`}>
+    <span className={`block w-[74%] overflow-hidden rounded-screen border shadow-[0_18px_40px_rgb(0_0_0/0.18)] transition-transform duration-500 group-hover:-translate-y-1.5 ${frame}`}>
       <span className="flex gap-1 px-2.5 py-2">
         {[0, 1, 2].map((n) => <i key={n} className="size-1.5 rounded-full bg-current opacity-25" />)}
       </span>
