@@ -299,6 +299,15 @@
   @media (width < 48rem) { padding-left: 56px; }
 }
 
+/* Punched: three punch holes (page-coloured circles) down the left of a sheet, no margin rule. */
+.punched {
+  padding-left: 44px;
+  background-image:
+    radial-gradient(circle at 20px 32px, var(--color-paper) 6px, transparent 6.5px),
+    radial-gradient(circle at 20px 50%, var(--color-paper) 6px, transparent 6.5px),
+    radial-gradient(circle at 20px calc(100% - 32px), var(--color-paper) 6px, transparent 6.5px);
+}
+
 /* Tilt: the card hover. Lifts 4px with a slight turn, like picking up a page. */
 .tilt {
   transition: transform 500ms var(--ease-soft);

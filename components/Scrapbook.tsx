@@ -6,7 +6,7 @@ type CardStyle = "plain" | "sheet" | "leaf";
 /**
  * A post as a card, linking to it. Used on the homepage and under each post (sheet by default). Three styles:
  * plain (the picture, then the date and tag, title and excerpt), sheet (the same on a grey paper
- * sheet with a folded corner) and leaf (a loose-leaf notebook page with punch holes, a margin
+ * sheet with punch holes and a folded corner) and leaf (a loose-leaf notebook page with punch holes, a margin
  * rule and a folded corner; see .scrap, .loose-leaf and .folded in globals.css).
  */
 export function ScrapCard({ p, style = "sheet" }: { p: Post; style?: CardStyle }) {
@@ -29,7 +29,7 @@ export function ScrapCard({ p, style = "sheet" }: { p: Post; style?: CardStyle }
     </>
   );
   if (style === "leaf") return <a href={`/blog/${p.slug}`} className="scrap loose-leaf folded tilt group">{meta}{picture}{words}</a>;
-  if (style === "sheet") return <a href={`/blog/${p.slug}`} className="folded tilt group block h-full bg-sheet p-5 pb-9 lg:p-6 lg:pb-10">{meta}{picture}{words}</a>;
+  if (style === "sheet") return <a href={`/blog/${p.slug}`} className="folded punched tilt group block h-full bg-sheet py-5 pr-5 pb-9 lg:py-6 lg:pr-6 lg:pb-10">{meta}{picture}{words}</a>;
   return <a href={`/blog/${p.slug}`} className="group block">{picture}{meta}{words}</a>;
 }
 
