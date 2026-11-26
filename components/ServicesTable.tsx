@@ -6,10 +6,10 @@ import { Button, Container, Eyebrow, Reveal, ScribbleBullet, section, sectionHea
 
 type Offer = (typeof offers.items)[number];
 
-// The rows, top to bottom: a mono label on the left, then each offer's cell
+// The rows, top to bottom: a small label on the left, then each offer's cell
 const rows: { label: string; cell: (o: Offer) => ReactNode }[] = [
-  { label: "Price", cell: (o) => <span className="mono">{o.price}</span> },
-  { label: "Est. timeline", cell: (o) => <span className="mono">{o.time}</span> },
+  { label: "Price", cell: (o) => <span className="copy font-medium">{o.price}</span> },
+  { label: "Est. timeline", cell: (o) => <span className="copy">{o.time}</span> },
   { label: "What it is", cell: (o) => <p className="copy">{o.body}</p> },
   {
     label: "Example deliverables",
@@ -24,7 +24,7 @@ const rows: { label: string; cell: (o: Offer) => ReactNode }[] = [
 /**
  * Services (#services): the offers side by side as a table. Each offer's name is a folder tab on top of its column;
  * clicking a tab picks that offer and turns its column the bright blue (Project to start). Rows for
- * price, timeline, what it is and example deliverables, split by fine row lines only, with the row labels in the mono.
+ * price, timeline, what it is and example deliverables, split by fine row lines only, with small row labels.
  * One button to get in touch sits beside the heading. On phones each offer becomes its own block.
  */
 export function ServicesTable() {
@@ -70,7 +70,7 @@ export function ServicesTable() {
               <div className={`divide-y divide-line border border-line transition-colors ${tint(i)}`}>
                 {rows.map((r) => (
                   <div key={r.label} className="px-5 py-4">
-                    <p className="mono mb-2 text-muted">{r.label}</p>
+                    <p className="small mb-2 font-medium text-muted">{r.label}</p>
                     {r.cell(o)}
                   </div>
                 ))}
@@ -92,7 +92,7 @@ export function ServicesTable() {
               const under = k < rows.length - 1 ? "border-b" : "";
               return (
                 <div key={r.label} className="contents">
-                  <p className={`mono border-line px-5 py-5 text-muted lg:px-6 ${under}`}>{r.label}</p>
+                  <p className={`small border-line px-5 py-5 font-medium text-muted lg:px-6 ${under}`}>{r.label}</p>
                   {offers.items.map((o, i) => (
                     <div key={o.name} className={`border-line px-5 py-5 transition-colors lg:px-6 ${under} ${tint(i)}`}>{r.cell(o)}</div>
                   ))}

@@ -62,7 +62,7 @@ export function SiteHeader() {
 /**
  * The dark footer as its own sheet, 24px below the page on the ground, with a cut bottom-right
  * corner and the page's inner side lines: the name and tagline beside
- * columns of mono links, split by a full-height divider, then a bottom bar with the copyright
+ * columns of links under mono headings, split by a full-height divider, then a bottom bar with the copyright
  * and a row of link cells.
  */
 export function SiteFooter() {
@@ -79,7 +79,7 @@ export function SiteFooter() {
   const external = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
   return (
-    <footer className="folded rails on-dark relative mt-6 bg-dark text-white [--fold-color:rgb(255_255_255/0.16)]">
+    <footer className="folded rails on-dark relative mt-6 bg-accent text-white [--fold-color:rgb(255_255_255/0.16)]">
       {/* The inner side lines, as on the page */}
       <i aria-hidden className="rails-inner" />
       {/* Name and tagline, then the link columns */}
@@ -96,7 +96,7 @@ export function SiteFooter() {
               <ul className="mt-6 space-y-4">
                 {c.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="mono leading-snug transition-colors hover:text-white/60" {...external(l.href)}>{l.label}</a>
+                    <a href={l.href} className="copy transition-colors hover:text-white/60" {...external(l.href)}>{l.label}</a>
                   </li>
                 ))}
               </ul>

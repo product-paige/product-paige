@@ -2,22 +2,21 @@ import { blog, livePosts, type Post } from "@/content";
 import { Chip, Container, Eyebrow, Reveal, sansTitle } from "./ui";
 
 /**
- * A post as a loose-leaf notebook page (punch holes, a margin rule and a folded corner; see
- * .scrap, .loose-leaf and .folded in globals.css), linking to the post. Used on the homepage
- * and under each post.
+ * A post as a plain card: the picture, the date and tag, the title and two lines of the excerpt,
+ * linking to the post. Used on the homepage and under each post.
  */
 export function ScrapCard({ p }: { p: Post }) {
   return (
-    <a href={`/blog/${p.slug}`} className="scrap loose-leaf folded tilt group">
-      <div className="mb-5 flex items-center justify-between gap-3">
+    <a href={`/blog/${p.slug}`} className="group block">
+      <span className="photo-grain block overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]" />
+      </span>
+      <div className="mt-5 flex items-center justify-between gap-3">
         <time className="small font-medium text-muted">{p.date}</time>
         <Chip className="text-[13px] text-white [--color-chip:var(--color-accent)]">{p.tag}</Chip>
       </div>
-      <span className="photo-grain block">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.image} alt="" loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
-      </span>
-      <h3 className={`${sansTitle} mt-6`}>{p.title}</h3>
+      <h3 className={`${sansTitle} mt-3 transition-colors group-hover:text-accent`}>{p.title}</h3>
       <p className="copy mt-2 line-clamp-2">{p.excerpt}</p>
     </a>
   );
