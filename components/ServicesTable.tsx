@@ -30,8 +30,9 @@ const rows: { label: string; cell: (o: Offer) => ReactNode }[] = [
 export function ServicesTable() {
   const [picked, setPicked] = useState(1);
   const tint = (i: number) => "paper " + (picked === i ? "bg-accent text-white [&_.text-accent]:text-white [&_.text-muted]:text-white/75" : "bg-sheet");
-  // A folder tab: the name on a block with a top and left edge, then an angled cut on the right (an SVG,
-  // so its edge line follows the slant). It overlaps the table's top line by a pixel so they join.
+  // A folder tab: one shape with a top and left edge and an angled cut on the right (clip-path), so
+  // its colour and grain run edge to edge; the slanted edge line is drawn over the cut. It overlaps
+  // the table's top line by a pixel so they join.
   const Tab = ({ o, i }: { o: Offer; i: number }) => {
     const on = picked === i;
     return (
@@ -39,12 +40,12 @@ export function ServicesTable() {
         type="button"
         aria-pressed={on}
         onClick={() => setPicked(i)}
-        className={`group/tab relative z-1 -mb-px flex cursor-pointer items-stretch transition-colors ${on ? "text-white" : "hover:text-accent"}`}
+        style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%)" }}
+        className={`paper serif relative z-1 -mb-px cursor-pointer border-t border-l pt-3 pr-10 pb-2.5 pl-5 text-[clamp(18px,1.4vw,21px)] leading-none tracking-[-0.03em] transition-colors ${on ? "border-accent bg-accent text-white" : "border-line bg-sheet hover:text-accent"}`}
       >
-        <span className={`serif border-t border-l px-5 pt-3 pb-2.5 text-[clamp(18px,1.4vw,21px)] leading-none tracking-[-0.03em] transition-colors paper ${on ? "border-accent bg-accent" : "border-line bg-sheet"}`}>{o.name}</span>
-        <svg aria-hidden viewBox="0 0 20 40" preserveAspectRatio="none" className={`w-5 shrink-0 self-stretch transition-colors ${on ? "fill-accent stroke-accent" : "fill-sheet stroke-line"}`}>
-          <path d="M0 0H2L20 40H0Z" stroke="none" />
-          <path d="M0 0.5H2L20 40" fill="none" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+        {o.name}
+        <svg aria-hidden viewBox="0 0 20 40" preserveAspectRatio="none" className={`absolute top-0 right-0 h-full w-5 ${on ? "stroke-accent" : "stroke-line"}`}>
+          <path d="M0 0L20 40" fill="none" strokeWidth="2" vectorEffect="non-scaling-stroke" />
         </svg>
       </button>
     );
