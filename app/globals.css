@@ -209,7 +209,7 @@
    1px rule in the same light grey as every other line. */
 .page-frame {
   position: relative;
-  background: var(--color-paper);
+  background: var(--grain), var(--color-paper);
   border: 1px solid var(--color-grid);
   border-top: 0; /* the sticky header above it draws the top edge */
 }
@@ -299,13 +299,19 @@
   @media (width < 48rem) { padding-left: 56px; }
 }
 
+/* Paper grain: one fine, faint noise laid over a surface's own colour, so the sheet, header,
+   footer, table and cards all read as the same paper. Use the paper utility (or var(--grain)). */
+:root { --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.22 0 0 0 0 0.2 0 0 0 0 0.17 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+@utility paper { background-image: var(--grain); }
+
 /* Punched: three punch holes (page-coloured circles) down the left of a sheet, no margin rule. */
 .punched {
   padding-left: 44px;
   background-image:
     radial-gradient(circle at 20px 32px, var(--color-paper) 6px, transparent 6.5px),
     radial-gradient(circle at 20px 50%, var(--color-paper) 6px, transparent 6.5px),
-    radial-gradient(circle at 20px calc(100% - 32px), var(--color-paper) 6px, transparent 6.5px);
+    radial-gradient(circle at 20px calc(100% - 32px), var(--color-paper) 6px, transparent 6.5px),
+    var(--grain);
 }
 
 /* Tilt: the card hover. Lifts 4px with a slight turn, like picking up a page. */

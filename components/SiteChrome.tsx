@@ -32,7 +32,7 @@ export function SiteHeader() {
     <>
       {/* Outside .page-frame so it stays stuck over the footer sheet too; draws the sheet's top and sides
           itself. Slides up out of view while scrolling down (see SlideHeader). */}
-      <SlideHeader className="rails sticky top-0 z-10 border border-grid bg-paper">
+      <SlideHeader className="rails paper sticky top-0 z-10 border border-grid bg-paper">
         <i aria-hidden className="rails-inner" />
         <Container tight className="grid h-[52px] grid-cols-[auto_1fr] items-center lg:h-[56px]">
           {/* The logo mark on the left, then the menu (from xl) after a full-height rule */}
@@ -79,7 +79,7 @@ export function SiteFooter() {
   const external = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {});
 
   return (
-    <footer className="folded rails on-dark relative mt-6 bg-accent text-white [--fold-color:rgb(255_255_255/0.16)]">
+    <footer className="folded rails on-dark paper relative mt-6 bg-accent text-white [--fold-color:rgb(255_255_255/0.16)]">
       {/* The inner side lines, as on the page */}
       <i aria-hidden className="rails-inner" />
       {/* Name and tagline, then the link columns */}
