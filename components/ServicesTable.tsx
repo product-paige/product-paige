@@ -41,8 +41,9 @@ export function ServicesTable() {
         aria-pressed={on}
         onClick={() => setPicked(i)}
         style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%)" }}
-        className={`paper serif relative z-1 -mb-px cursor-pointer border-t border-l pt-3 pr-10 pb-2.5 pl-5 text-[clamp(18px,1.4vw,21px)] leading-none tracking-[-0.03em] transition-colors ${on ? "border-accent bg-accent text-white" : "border-line bg-sheet hover:text-accent"}`}
+        className={`paper serif relative z-1 -mb-px inline-flex cursor-pointer items-center gap-2.5 border-t border-l pt-3 pr-10 pb-2.5 pl-5 text-[clamp(18px,1.4vw,21px)] leading-none tracking-[-0.03em] transition-colors ${on ? "border-accent bg-accent text-white" : "border-line bg-sheet hover:text-accent"}`}
       >
+        <i aria-hidden className={`size-2.5 shrink-0 rounded-full ${on ? "bg-white" : "bg-accent"}`} />
         {o.name}
         <svg aria-hidden viewBox="0 0 20 40" preserveAspectRatio="none" className={`absolute top-0 right-0 h-full w-5 ${on ? "stroke-accent" : "stroke-line"}`}>
           <path d="M0 0L20 40" fill="none" strokeWidth="2" vectorEffect="non-scaling-stroke" />
