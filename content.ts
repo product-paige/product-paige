@@ -77,7 +77,7 @@ export const nav = [
 export const hero = {
   // The headline, one phrase per line.
   // A word in {braces} is drawn selected, with a selection box and handles.
-  heading: ["Product marketing, {design}", "& AI builds for Shopify"],
+  heading: ["Product marketing, {design}", "& AI-powered Shopify builds"],
   lede:
     "13 years on Shopify. I fix, rewrite and rebuild stores and ecommerce software sites for small teams who want one person, not an agency.",
   // Under the intro: the main button (opens the contact form) and a text link to the services
