@@ -4,16 +4,17 @@ import { approachPage, services, type Shot } from "@/content";
 import { useId, useState } from "react";
 import { Chip, Eyebrow, Reveal } from "./ui";
 
-// A thin line icon for each service, in turn: a browser window (design), a speech bubble
-// (positioning and messaging), a cursor (UX and conversion), a megaphone (content and campaigns)
-const icon = (d: string) => (
-  <svg viewBox="0 0 32 32" className="size-7 lg:size-9" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
+// A pixel icon for each service, drawn on a 16×16 grid in the title's colour: solid pixels for the
+// outline, lighter ones for the fill. In turn: a browser window (web and UX design), a speech bubble
+// (storytelling), a cursor (conversion), a megaphone (content and campaigns).
+const pixel = (solid: string, fill: string) => (
+  <svg viewBox="0 0 16 16" className="size-8" shapeRendering="crispEdges" fill="currentColor"><path d={fill} opacity="0.3" /><path d={solid} /></svg>
 );
 const icons = [
-  icon("M4 7h24v18H4zM4 11h24M7 9h.01M9.5 9h.01M12 9h.01"),
-  icon("M5 6h22v15H13l-6 5v-5H5zM10 12h12M10 16h8"),
-  icon("M9 5l14 9-6 1.5 4 7-3 1.5-4-7-5 4z"),
-  icon("M5 13v6h4l10 6V7L9 13H5zM23 12a5 5 0 0 1 0 8M9 19l2 7h3l-2-7"),
+  pixel("M1 2h14v1h-14zM1 3h1v1h-1zM3 3h1v1h-1zM5 3h1v1h-1zM7 3h1v1h-1zM15 3h1v1h-1zM1 4h14v1h-14zM1 5h1v1h-1zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z", "M3 6h10v1h-10zM3 7h10v1h-10zM3 9h4v1h-4zM9 9h4v1h-4zM3 10h4v1h-4zM9 10h4v1h-4zM3 11h4v1h-4zM9 11h4v1h-4z"),
+  pixel("M2 2h12v1h-12zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM14 9h1v1h-1zM2 10h4v1h-4zM7 10h7v1h-7zM5 11h1v1h-1zM7 11h1v1h-1zM5 12h2v1h-2zM5 13h1v1h-1z", "M3 4h10v1h-10zM3 6h9v1h-9zM3 8h6v1h-6z"),
+  pixel("M3 1h1v1h-1zM3 2h2v1h-2zM3 3h1v1h-1zM5 3h1v1h-1zM3 4h1v1h-1zM6 4h1v1h-1zM3 5h1v1h-1zM7 5h1v1h-1zM3 6h1v1h-1zM8 6h1v1h-1zM3 7h1v1h-1zM9 7h1v1h-1zM3 8h1v1h-1zM10 8h1v1h-1zM3 9h1v1h-1zM11 9h1v1h-1zM3 10h1v1h-1zM8 10h4v1h-4zM3 11h1v1h-1zM5 11h2v1h-2zM9 11h1v1h-1zM3 12h2v1h-2zM7 12h1v1h-1zM10 12h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM10 13h1v1h-1zM8 14h2v1h-2z", "M4 3h1v1h-1zM4 4h2v1h-2zM4 5h3v1h-3zM4 6h4v1h-4zM4 7h5v1h-5zM4 8h6v1h-6zM4 9h7v1h-7zM4 10h4v1h-4zM4 11h1v1h-1zM7 11h2v1h-2zM8 12h2v1h-2zM8 13h2v1h-2z"),
+  pixel("M11 2h1v1h-1zM9 3h2v1h-2zM12 3h1v1h-1zM14 3h1v1h-1zM7 4h2v1h-2zM12 4h1v1h-1zM15 4h1v1h-1zM1 5h5v1h-5zM12 5h1v1h-1zM1 6h1v1h-1zM12 6h1v1h-1zM14 6h2v1h-2zM1 7h1v1h-1zM12 7h1v1h-1zM1 8h5v1h-5zM12 8h1v1h-1zM7 9h2v1h-2zM12 9h1v1h-1zM15 9h1v1h-1zM9 10h2v1h-2zM12 10h1v1h-1zM14 10h1v1h-1zM3 11h2v1h-2zM11 11h1v1h-1zM3 12h1v1h-1zM5 12h1v1h-1zM3 13h1v1h-1zM5 13h1v1h-1zM3 14h3v1h-3z", "M11 3h1v1h-1zM9 4h3v1h-3zM6 5h6v1h-6zM2 6h10v1h-10zM2 7h10v1h-10zM6 8h6v1h-6zM9 9h3v1h-3zM11 10h1v1h-1zM4 12h1v1h-1zM4 13h1v1h-1z"),
 ];
 
 const shadow = "shadow-[0_24px_60px_rgb(26_26_26/0.28)]";
@@ -153,7 +154,7 @@ export function CapabilitiesShowcase() {
                   {/* The line and pills slide open under the service (grid rows 0fr to 1fr) */}
                   <div id={`${id}-${i}`} role="region" inert={!on} className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
-                      <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+2.25rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
+                      <div className={`px-4 pb-6 sm:px-6 lg:pr-10 lg:pl-[calc(2.5rem+2rem+1rem)] transition-opacity duration-500 ${on ? "opacity-100" : "opacity-0"}`}>
                         <p className="copy max-w-xl text-white/80">{ph.body}</p>
                         {/* One row of pills: any that don’t fit on it wrap below and are cut off */}
                         <ul className="mt-3 flex h-[30px] flex-wrap gap-2 overflow-hidden">
